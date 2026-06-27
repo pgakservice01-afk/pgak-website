@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a1014;
+  color: #eaf3f2;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #7cf5c4;
+  color: #04201a;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-content px-6;
+  }
+
+  .display {
+    @apply font-display font-semibold leading-[1.08] tracking-[-0.01em];
+  }
+
+  /* Eyebrow label with a leading rule */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-accent;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-6 bg-accent;
+  }
+  .eyebrow-center {
+    @apply justify-center;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border-none px-[22px] py-3 font-sans text-sm font-semibold transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-accent text-[#04201a] hover:-translate-y-0.5;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 12px 30px -10px #7cf5c4;
+    background: #a4ffd8;
+  }
+  .btn-ghost {
+    @apply border border-line bg-transparent text-ink hover:border-accent hover:text-accent;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-2xl border border-line bg-panel;
+  }
+
+  /* Glassmorphism (per the guide: backdrop-blur, thin borders, subtle hover glow) */
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-xl transition-all duration-300;
+  }
+
+  .sec {
+    @apply py-[100px];
+  }
+
+  .field-input {
+    @apply rounded-[11px] border border-line bg-bg px-[15px] py-3 font-sans text-[0.95rem] text-ink outline-none transition-colors duration-200 focus:border-accent;
+  }
+}
