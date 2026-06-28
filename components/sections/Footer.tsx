@@ -6,7 +6,6 @@ const COLS = [
     links: [
       { t: "How it works", href: "#how" },
       { t: "Features", href: "#features" },
-      { t: "Plans & pricing", href: "#pricing" },
       { t: "FAQ", href: "#faq" },
     ],
   },

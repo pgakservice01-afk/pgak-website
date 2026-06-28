@@ -22,11 +22,11 @@ const FAQS = [
   },
   {
     q: "Can I monitor multiple locations?",
-    a: "Absolutely. Office and Enterprise plans support multiple cameras and sites from a single dashboard, with multi-user access and roles.",
+    a: "Absolutely. PGAK supports multiple cameras and sites from a single dashboard, with multi-user access and roles.",
   },
   {
     q: "How do I get started?",
-    a: "Book a free demo or connect with a PGAK dealer near you. We'll assess your existing setup and recommend the right plan — no obligation.",
+    a: "Book a free demo or connect with a PGAK dealer near you. We'll assess your existing setup and recommend the right fit — no obligation.",
   },
 ];
 

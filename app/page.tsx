@@ -6,7 +6,6 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import SystemFlow from "@/components/sections/SystemFlow";
 import LiveIntelligence from "@/components/sections/LiveIntelligence";
 import Features from "@/components/sections/Features";
-import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
 import DealerForm from "@/components/sections/DealerForm";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -24,7 +23,6 @@ export default function Home() {
         <SystemFlow />
         <LiveIntelligence />
         <Features />
-        <Pricing />
         <FAQ />
         <DealerForm />
         <FinalCTA />
