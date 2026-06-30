@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import IndiaNetwork from "@/components/illustrations/IndiaNetwork";
+import { fbTrack } from "@/lib/fbpixel";
 
 /**
  * Dealer / lead form — posts to the PGAK ERP leads webhook, exactly as the
@@ -61,6 +62,12 @@ export default function DealerForm() {
       });
       if (!res.ok) throw new Error(`Server responded ${res.status}`);
       setStatus("done");
+      // Meta Pixel conversion — lets the ad engine optimise spend toward people
+      // who actually request a dealer/demo.
+      fbTrack("Lead", {
+        content_name: "Dealer / Demo Request",
+        currency: "INR",
+      });
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Unknown error");

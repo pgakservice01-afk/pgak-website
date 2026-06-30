@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Fraunces } from "next/font/google";
 import "./globals.css";
+import Pixel from "@/components/Pixel";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -47,7 +48,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sora.variable} ${fraunces.variable}`}>
-      <body className="bg-bg font-sans text-ink antialiased">{children}</body>
+      <body className="bg-bg font-sans text-ink antialiased">
+        {children}
+        <Pixel />
+      </body>
     </html>
   );
 }
