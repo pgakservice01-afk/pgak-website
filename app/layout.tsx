@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Fraunces } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
 
 const sora = Sora({
@@ -51,6 +52,7 @@ export default function RootLayout({
       <body className="bg-bg font-sans text-ink antialiased">
         {children}
         <Pixel />
+        <Analytics />
       </body>
     </html>
   );
