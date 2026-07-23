@@ -3,6 +3,7 @@ import { Sora, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
     <html lang="en" className={`${sora.variable} ${fraunces.variable}`}>
       <body className="bg-bg font-sans text-ink antialiased">
         {children}
+        <WhatsAppButton />
         <Pixel />
         <Analytics />
       </body>

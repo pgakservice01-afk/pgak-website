@@ -77,4 +77,52 @@ body {
   .field-input {
     @apply rounded-[11px] border border-line bg-bg px-[15px] py-3 font-sans text-[0.95rem] text-ink outline-none transition-colors duration-200 focus:border-accent;
   }
+
+  /* Rendered markdown body for /insights posts */
+  .article-body {
+    @apply text-[1.02rem] leading-[1.85] text-ink-soft;
+  }
+  .article-body h2 {
+    @apply mb-3 mt-10 font-display text-[1.5rem] font-medium leading-snug text-ink;
+  }
+  .article-body h3 {
+    @apply mb-2.5 mt-8 font-display text-[1.2rem] font-medium text-ink;
+  }
+  .article-body p {
+    @apply mb-5;
+  }
+  .article-body strong {
+    @apply font-semibold text-ink;
+  }
+  .article-body em {
+    @apply italic;
+  }
+  .article-body a {
+    @apply text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+  .article-body ul,
+  .article-body ol {
+    @apply mb-5 flex flex-col gap-2 pl-6;
+  }
+  .article-body ul {
+    @apply list-disc;
+  }
+  .article-body ol {
+    @apply list-decimal;
+  }
+  .article-body li::marker {
+    @apply text-accent;
+  }
+  .article-body blockquote {
+    @apply mb-5 border-l-2 border-accent pl-5 italic text-ink;
+  }
+  .article-body hr {
+    @apply my-9 border-line;
+  }
+  .article-body img {
+    @apply my-6 max-w-full rounded-2xl border border-line;
+  }
+  .article-body code {
+    @apply rounded bg-panel px-1.5 py-0.5 text-[0.88em] text-accent;
+  }
 }

@@ -4,16 +4,18 @@ const COLS = [
   {
     h: "Explore",
     links: [
-      { t: "How it works", href: "#how" },
-      { t: "Features", href: "#features" },
-      { t: "FAQ", href: "#faq" },
+      { t: "How it works", href: "/#how" },
+      { t: "Features", href: "/#features" },
+      { t: "Insights", href: "/insights" },
+      { t: "FAQ", href: "/#faq" },
     ],
   },
   {
     h: "Get started",
     links: [
-      { t: "Book a demo", href: "#demo" },
-      { t: "Find a dealer", href: "#dealer" },
+      { t: "Free AI audit", href: "/#audit" },
+      { t: "Book a demo", href: "/#demo" },
+      { t: "Find a dealer", href: "/#dealer" },
       { t: "Contact us", href: "#contact" },
     ],
   },
@@ -72,7 +74,7 @@ export default function Footer() {
         <div className="mt-12 flex flex-wrap justify-between gap-3.5 border-t border-line pt-6 text-[0.84rem] text-ink-faint">
           <span>© 2026 PGAK. All rights reserved.</span>
           <span className="flex gap-5">
-            <a href="#" className="hover:text-ink-soft">
+            <a href="/privacy" className="hover:text-ink-soft">
               Privacy Policy
             </a>
             <a href="#" className="hover:text-ink-soft">

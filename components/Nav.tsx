@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
 
+// "/#..." (not "#...") so links also work from /insights and other pages.
 const LINKS = [
-  { href: "#how", label: "How it works" },
-  { href: "#features", label: "Features" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#dealer", label: "Find a dealer" },
+  { href: "/#how", label: "How it works" },
+  { href: "/#features", label: "Features" },
+  { href: "/#audit", label: "Free audit" },
+  { href: "/insights", label: "Insights" },
+  { href: "/#dealer", label: "Find a dealer" },
 ];
 
 export default function Nav() {
@@ -31,7 +33,7 @@ export default function Nav() {
     >
       <div className="wrap flex h-[74px] items-center justify-between">
         <a
-          href="#top"
+          href="/"
           aria-label="PGAK — home"
           className={`flex items-center transition-opacity duration-300 ${
             scrolled
@@ -55,7 +57,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        <a href="#demo" className="btn btn-primary hidden md:inline-flex">
+        <a href="/#demo" className="btn btn-primary hidden md:inline-flex">
           Book a demo
         </a>
 
@@ -70,7 +72,7 @@ export default function Nav() {
 
       {open && (
         <div className="flex flex-col gap-1 border-t border-line bg-bg-2 px-6 py-4 md:hidden">
-          {[...LINKS, { href: "#demo", label: "Book a demo" }].map((l) => (
+          {[...LINKS, { href: "/#demo", label: "Book a demo" }].map((l) => (
             <a
               key={l.href}
               href={l.href}
