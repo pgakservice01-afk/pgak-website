@@ -9,6 +9,8 @@ import LiveIntelligence from "@/components/sections/LiveIntelligence";
 import Features from "@/components/sections/Features";
 import FreeAudit from "@/components/sections/FreeAudit";
 import GoogleReviews from "@/components/sections/GoogleReviews";
+import CustomerTrust from "@/components/sections/CustomerTrust";
+import RoiCalculator from "@/components/sections/RoiCalculator";
 import InsightsTeaser from "@/components/sections/InsightsTeaser";
 import FAQ from "@/components/sections/FAQ";
 import DealerForm from "@/components/sections/DealerForm";
@@ -30,6 +32,8 @@ export default function Home() {
         <Features />
         <FreeAudit />
         <GoogleReviews />
+        <CustomerTrust />
+        <RoiCalculator />
         <InsightsTeaser />
         <FAQ />
         <DealerForm />
