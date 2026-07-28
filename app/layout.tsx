@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     icon:
       "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 22 C60 22 68 25 75 28 C77 29 78 30 78 33 L78 50 C78 66 66 78 50 84 C34 78 22 66 22 50 L22 33 C22 30 23 29 25 28 C32 25 40 22 50 22 Z' fill='none' stroke='%237CF5C4' stroke-width='5'/><g fill='%237CF5C4'><path d='M50 34 L63.9 42 L50 43.5 Z'/><path d='M63.9 42 L63.9 58 L55.6 46.8 Z'/><path d='M63.9 58 L50 66 L55.6 53.2 Z'/><path d='M50 66 L36.1 58 L50 56.5 Z'/><path d='M36.1 58 L36.1 42 L44.4 53.2 Z'/><path d='M36.1 42 L50 34 L44.4 46.8 Z'/></g></svg>",
   },
+  verification: {
+    google: "EBIxU99YdM09R42PROsbpLHwUx42qP9mpkKp2wHUC7A",
+  },
 };
 
 export const viewport: Viewport = {
