@@ -1,7 +1,10 @@
 "use client";
 
 import Icon, { type IconName } from "@/components/Icon";
-import HeroScene from "@/components/HeroScene";
+import HeroMedia from "@/components/HeroMedia";
+import HeroProof from "@/components/HeroProof";
+import Parallax from "@/components/Parallax";
+import { useLang } from "@/components/LangProvider";
 
 // Landing hero. The left column carries the real, accessible marketing copy and
 // CTAs (unchanged brand text); the right column runs HeroScene — a looping,
@@ -10,14 +13,45 @@ import HeroScene from "@/components/HeroScene";
 // device links it all in real time). Layout, palette and copy are preserved;
 // only the static hero artwork was upgraded to a live animation.
 
-const STATS: { ic: IconName; big: string; small: string }[] = [
-  { ic: "radar", big: "Under 3 sec", small: "Threat detection" },
-  { ic: "filter", big: "90%", small: "Fewer false alerts" },
-  { ic: "ai-node", big: "24×7", small: "Smart monitoring" },
-  { ic: "camera", big: "No new", small: "hardware needed" },
+const STATS: {
+  ic: IconName;
+  big: string;
+  small: string;
+  bigHi: string;
+  smallHi: string;
+}[] = [
+  {
+    ic: "radar",
+    big: "Under 3 sec",
+    small: "Threat detection",
+    bigHi: "3 सेकंड में",
+    smallHi: "खतरे की पहचान",
+  },
+  {
+    ic: "filter",
+    big: "90%",
+    small: "Fewer false alerts",
+    bigHi: "90%",
+    smallHi: "कम झूठे अलर्ट",
+  },
+  {
+    ic: "ai-node",
+    big: "24×7",
+    small: "Smart monitoring",
+    bigHi: "24×7",
+    smallHi: "स्मार्ट निगरानी",
+  },
+  {
+    ic: "camera",
+    big: "No new",
+    small: "hardware needed",
+    bigHi: "कोई नया",
+    smallHi: "हार्डवेयर ज़रूरी नहीं",
+  },
 ];
 
 export default function ImageHero() {
+  const { lang, t } = useLang();
   return (
     <section id="top" className="relative w-full overflow-hidden bg-bg">
       {/* Always-present heading for SEO / screen readers */}
@@ -30,29 +64,63 @@ export default function ImageHero() {
       <div className="wrap grid min-h-screen items-center gap-12 pb-16 pt-[120px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
         {/* ── Left: brand copy + CTAs + stats (unchanged content) ── */}
         <div>
-          <span className="eyebrow mb-5">AI-powered security intelligence</span>
+          <span className="eyebrow mb-5">
+            <span className="mr-0.5 inline-block h-1.5 w-1.5 animate-pulseDot rounded-full bg-accent align-middle shadow-[0_0_6px_#7cf5c4]" />
+            {t(
+              "AI-powered security intelligence",
+              "एआई-संचालित सुरक्षा इंटेलिजेंस",
+            )}
+          </span>
           <h2 className="display max-w-[14ch] text-[clamp(2.6rem,7vw,5rem)] leading-[1.02]">
-            Your cameras can see.
-            <br />
-            We make them <span className="italic text-accent">think.</span>
+            {lang === "hi" ? (
+              <>
+                आपके कैमरे देख सकते हैं।
+                <br />
+                हम उन्हें <span className="italic text-accent">
+                  सोचना
+                </span>{" "}
+                सिखाते हैं।
+              </>
+            ) : (
+              <>
+                Your cameras can see.
+                <br />
+                We make them <span className="italic text-accent">think.</span>
+              </>
+            )}
           </h2>
           <p className="mt-6 max-w-[46ch] text-[1.1rem] text-ink-soft">
-            PGAK turns the cameras you already own into{" "}
-            <span className="text-ink underline decoration-accent/50 underline-offset-4">
-              intelligent
-            </span>{" "}
-            guardians — detecting threats in seconds, cutting false alarms, and
-            giving you real peace of mind, 24×7.
+            {lang === "hi" ? (
+              <>
+                PGAK आपके पहले से मौजूद कैमरों को{" "}
+                <span className="text-ink underline decoration-accent/50 underline-offset-4">
+                  बुद्धिमान
+                </span>{" "}
+                रक्षकों में बदल देता है — सेकंडों में खतरों की पहचान, झूठे अलार्म
+                में कमी, और 24×7 सच्ची मन की शांति।
+              </>
+            ) : (
+              <>
+                PGAK turns the cameras you already own into{" "}
+                <span className="text-ink underline decoration-accent/50 underline-offset-4">
+                  intelligent
+                </span>{" "}
+                guardians — detecting threats in seconds, cutting false alarms,
+                and giving you real peace of mind, 24×7.
+              </>
+            )}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#demo" className="btn btn-primary">
-              Book a free demo →
+              {t("Book a free demo →", "मुफ़्त डेमो बुक करें →")}
             </a>
             <a href="#how" className="btn btn-ghost">
-              See how it works
+              {t("See how it works", "देखें यह कैसे काम करता है")}
             </a>
           </div>
+
+          <HeroProof />
 
           <div className="mt-12 grid max-w-[760px] grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
@@ -62,10 +130,10 @@ export default function ImageHero() {
                 </span>
                 <span className="leading-tight">
                   <span className="block text-[0.98rem] font-semibold text-ink">
-                    {s.big}
+                    {t(s.big, s.bigHi)}
                   </span>
                   <span className="block text-[0.8rem] text-ink-soft">
-                    {s.small}
+                    {t(s.small, s.smallHi)}
                   </span>
                 </span>
               </div>
@@ -73,11 +141,25 @@ export default function ImageHero() {
           </div>
         </div>
 
-        {/* ── Right: cinematic animated scene ── */}
-        <div className="relative">
-          <HeroScene />
-        </div>
+        {/* ── Right: humanoid video (when provided) or cinematic animated scene ── */}
+        <Parallax className="relative" speed={26} scale={0.04}>
+          <HeroMedia />
+        </Parallax>
       </div>
+
+      {/* scroll-down cue */}
+      <a
+        href="#how"
+        aria-label={t("Scroll down", "नीचे स्क्रॉल करें")}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-faint transition-colors hover:text-accent md:flex"
+      >
+        <span className="text-[0.64rem] font-semibold uppercase tracking-[0.28em]">
+          {t("Scroll", "स्क्रॉल")}
+        </span>
+        <span className="flex h-9 w-[22px] justify-center rounded-full border border-current pt-1.5">
+          <span className="pgak-scrollcue h-1.5 w-1.5 rounded-full bg-current" />
+        </span>
+      </a>
     </section>
   );
 }

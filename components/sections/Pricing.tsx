@@ -80,7 +80,7 @@ export default function Pricing() {
               delay={i * 0.07}
               className={`relative flex flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1.5 ${
                 p.featured
-                  ? "border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17]"
+                  ? "panel-dark border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17]"
                   : "border-line bg-panel"
               }`}
             >
@@ -113,7 +113,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                href="#demo"
+                href={p.amt === "Custom" ? "/#dealer" : "/#demo"}
                 className={`btn w-full ${p.featured ? "btn-primary" : "btn-ghost"}`}
               >
                 {p.cta}

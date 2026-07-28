@@ -8,18 +8,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0a1014",
-        "bg-2": "#0d161b",
-        panel: "#101e25",
-        "panel-2": "#13252e",
-        ink: "#eaf3f2",
-        "ink-soft": "#9fb4b6",
-        "ink-faint": "#65807f",
-        line: "rgba(159,180,182,0.14)",
-        accent: "#7CF5C4",
-        "accent-2": "#3ed8e0",
-        "accent-deep": "#0fb89a",
-        danger: "#ff8a6b",
+        // Theme-aware tokens — values live as CSS variables in globals.css and
+        // swap under :root[data-theme="light"]. Channel form keeps /opacity
+        // modifiers (e.g. bg-accent/10) working.
+        bg: "rgb(var(--c-bg) / <alpha-value>)",
+        "bg-2": "rgb(var(--c-bg-2) / <alpha-value>)",
+        panel: "rgb(var(--c-panel) / <alpha-value>)",
+        "panel-2": "rgb(var(--c-panel-2) / <alpha-value>)",
+        ink: "rgb(var(--c-ink) / <alpha-value>)",
+        "ink-soft": "rgb(var(--c-ink-soft) / <alpha-value>)",
+        "ink-faint": "rgb(var(--c-ink-faint) / <alpha-value>)",
+        line: "var(--c-line)",
+        accent: "rgb(var(--c-accent) / <alpha-value>)",
+        "accent-2": "rgb(var(--c-accent-2) / <alpha-value>)",
+        "accent-deep": "rgb(var(--c-accent-deep) / <alpha-value>)",
+        danger: "rgb(var(--c-danger) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sora)", "ui-sans-serif", "system-ui", "sans-serif"],

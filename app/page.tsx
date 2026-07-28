@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import ImageHero from "@/components/sections/ImageHero";
 import TrustStrip from "@/components/sections/TrustStrip";
 import ProblemSolution from "@/components/sections/ProblemSolution";
+import BeforeAfter from "@/components/sections/BeforeAfter";
 import NumbersStrip from "@/components/sections/NumbersStrip";
 import HowItWorks from "@/components/sections/HowItWorks";
 import SystemFlow from "@/components/sections/SystemFlow";
@@ -10,6 +11,7 @@ import Features from "@/components/sections/Features";
 import FreeAudit from "@/components/sections/FreeAudit";
 import GoogleReviews from "@/components/sections/GoogleReviews";
 import CustomerTrust from "@/components/sections/CustomerTrust";
+import ProtectedSites from "@/components/sections/ProtectedSites";
 import RoiCalculator from "@/components/sections/RoiCalculator";
 import InsightsTeaser from "@/components/sections/InsightsTeaser";
 import FAQ from "@/components/sections/FAQ";
@@ -25,6 +27,7 @@ export default function Home() {
         <ImageHero />
         <TrustStrip />
         <ProblemSolution />
+        <BeforeAfter />
         <NumbersStrip />
         <HowItWorks />
         <SystemFlow />
@@ -33,6 +36,7 @@ export default function Home() {
         <FreeAudit />
         <GoogleReviews />
         <CustomerTrust />
+        <ProtectedSites />
         <RoiCalculator />
         <InsightsTeaser />
         <FAQ />

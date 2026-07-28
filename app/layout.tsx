@@ -4,6 +4,13 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollProgress from "@/components/ScrollProgress";
+import MobileActionBar from "@/components/MobileActionBar";
+import { LangProvider } from "@/components/LangProvider";
+import Preloader from "@/components/Preloader";
+import AmbientFX from "@/components/AmbientFX";
+import Interactions from "@/components/Interactions";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -51,8 +58,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${fraunces.variable}`}>
       <body className="bg-bg font-sans text-ink antialiased">
-        {children}
-        <WhatsAppButton />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('pgak-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();",
+          }}
+        />
+        <LangProvider>
+          <SmoothScroll />
+          <Preloader />
+          <AmbientFX />
+          <Interactions />
+          <ScrollProgress />
+          {children}
+          {/* keeps the last of the footer clear of the mobile action bar */}
+          <div aria-hidden="true" className="h-16 md:hidden" />
+          <WhatsAppButton />
+          <MobileActionBar />
+        </LangProvider>
         <Pixel />
         <Analytics />
       </body>

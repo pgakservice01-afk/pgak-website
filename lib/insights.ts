@@ -27,6 +27,8 @@ export type InsightMeta = {
   category: string;
   excerpt: string;
   readTime: number; // minutes
+  /** Optional cover image, e.g. "/insights/my-post.jpg" in /public. */
+  image?: string;
 };
 
 export type Insight = InsightMeta & {
@@ -75,6 +77,7 @@ function toMeta(
     category: String(data.category ?? "Insights"),
     excerpt: String(data.excerpt ?? content.trim().slice(0, 160)),
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
+    image: data.image ? String(data.image) : undefined,
   };
 }
 

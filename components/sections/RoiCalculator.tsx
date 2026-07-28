@@ -58,7 +58,7 @@ export default function RoiCalculator() {
   const profitable = netMonthly > 0;
 
   return (
-    <section id="roi" className="sec">
+    <section id="roi" className="sec sec-band">
       <div className="wrap">
         <Reveal className="mx-auto mb-14 max-w-[680px] text-center">
           <span className="eyebrow eyebrow-center mb-4">ROI calculator</span>
@@ -132,7 +132,7 @@ export default function RoiCalculator() {
           {/* Results */}
           <Reveal
             delay={0.08}
-            className="flex flex-col justify-between gap-6 rounded-2xl border border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17] p-8"
+            className="panel-dark flex flex-col justify-between gap-6 rounded-2xl border border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17] p-8"
           >
             <div className="text-center">
               <div className="text-[0.8rem] font-semibold uppercase tracking-wide text-ink-faint">
