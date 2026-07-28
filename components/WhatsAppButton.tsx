@@ -36,7 +36,7 @@ export default function WhatsAppButton() {
       onClick={() =>
         fbTrack("Contact", { content_name: "WhatsApp Floating Button" })
       }
-      className={`group fixed bottom-5 right-5 z-[90] hidden items-center gap-2.5 rounded-full bg-[#25D366] py-3 pl-3.5 pr-3.5 text-[#062b1a] shadow-[0_10px_30px_-8px_rgba(37,211,102,0.65)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_38px_-8px_rgba(37,211,102,0.8)] md:flex md:bottom-6 md:right-6 md:pr-5 ${
+      className={`group fixed bottom-5 right-5 z-[90] flex items-center gap-2.5 rounded-full bg-[#25D366] py-3 pl-3.5 pr-3.5 text-[#062b1a] shadow-[0_10px_30px_-8px_rgba(37,211,102,0.65)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_38px_-8px_rgba(37,211,102,0.8)] sm:bottom-6 sm:right-6 sm:pr-5 ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

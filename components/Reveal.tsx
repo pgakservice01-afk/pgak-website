@@ -87,8 +87,8 @@ export default function Reveal({
     <MotionTag
       ref={ref as React.Ref<HTMLDivElement>}
       className={className}
-      initial={{ opacity: 0, y: 26, scale: 0.985 }}
-      animate={state === "hidden" ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 26 }}
+      animate={state === "hidden" ? undefined : { opacity: 1, y: 0 }}
       transition={
         state === "instant"
           ? { duration: 0 }

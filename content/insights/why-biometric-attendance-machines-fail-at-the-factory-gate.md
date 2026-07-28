@@ -4,7 +4,6 @@ date: "2026-07-22"
 category: "Attendance"
 excerpt: "Queues at shift change, dusty fingers that won't scan, and a register that still needs manual correction. There's a reason factories are moving attendance to their CCTV."
 readTime: 4
-image: "/insights/attendance.png"
 ---
 
 Every factory owner has seen this scene: it's 8:58 a.m., the shift starts at 9:00, and forty workers are queued at a single fingerprint machine. The line moves one beep at a time. Some fingers scan on the first try. Many don't.

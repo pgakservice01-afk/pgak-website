@@ -4,7 +4,6 @@ date: "2026-07-23"
 category: "Camera Setup"
 excerpt: "Probably fewer than you think — and it has nothing to do with megapixels. The three things that decide whether a camera can identify a person, and the one cheap fix."
 readTime: 5
-image: "/insights/camera-setup.png"
 ---
 
 Here's a small experiment. Open your CCTV app, pick the camera at your main entrance, and pause on a person walking in. Now zoom into their face.

@@ -59,36 +59,12 @@ export const REVIEWS: Review[] = [
 ];
 
 export const PHOTOS: Photo[] = [
-  {
-    caption: "Warehouse perimeter coverage",
-    sub: "Ludhiana, Punjab",
-    src: "/trust/photos/install-warehouse.png",
-  },
-  {
-    caption: "Retail entrance camera",
-    sub: "Jaipur",
-    src: "/trust/photos/install-retail.png",
-  },
-  {
-    caption: "Factory gate — face & plate recognition",
-    sub: "Coimbatore",
-    src: "/trust/photos/install-gate.png",
-  },
-  {
-    caption: "Office reception desk",
-    sub: "Bengaluru",
-    src: "/trust/photos/install-office.png",
-  },
-  {
-    caption: "Society main gate",
-    sub: "Hyderabad",
-    src: "/trust/photos/install-society.png",
-  },
-  {
-    caption: "Indoor home camera",
-    sub: "Amritsar",
-    src: "/trust/photos/install-home.png",
-  },
+  { caption: "Warehouse perimeter coverage", sub: "Ludhiana, Punjab" },
+  { caption: "Retail entrance camera", sub: "Jaipur" },
+  { caption: "Factory gate — face & plate recognition", sub: "Coimbatore" },
+  { caption: "Office reception desk", sub: "Bengaluru" },
+  { caption: "Society main gate", sub: "Hyderabad" },
+  { caption: "PGAK edge device install", sub: "Amritsar" },
 ];
 
 export const VIDEOS: Video[] = [
@@ -96,90 +72,4 @@ export const VIDEOS: Video[] = [
   { title: "Face recognition at the gate", duration: "1:05" },
   { title: "How false-alarm filtering works", duration: "0:58" },
   { title: "PGAK app walkthrough", duration: "1:20" },
-];
-
-// Industry-filtered "Protected sites" showcase. Representative deployments —
-// replace the metrics/locations with your own verified figures before launch.
-export type Industry =
-  | "Home"
-  | "Retail"
-  | "Office"
-  | "Warehouse"
-  | "Factory"
-  | "Society";
-
-export type Site = {
-  industry: Industry;
-  title: string;
-  location: string;
-  cameras: number;
-  metric: string; // headline outcome
-  metricLabel: string;
-  note: string;
-};
-
-export const INDUSTRIES: Industry[] = [
-  "Home",
-  "Retail",
-  "Office",
-  "Warehouse",
-  "Factory",
-  "Society",
-];
-
-export const SITES: Site[] = [
-  {
-    industry: "Warehouse",
-    title: "Distribution warehouse",
-    location: "Ludhiana, Punjab",
-    cameras: 120,
-    metric: "90%",
-    metricLabel: "Theft reduced",
-    note: "Retrofitted existing CCTV — live in 3 days, no rip-and-replace.",
-  },
-  {
-    industry: "Factory",
-    title: "Manufacturing plant",
-    location: "Coimbatore",
-    cameras: 45,
-    metric: "Zero",
-    metricLabel: "Biometric queues",
-    note: "Gate face-recognition replaced the punch-in machine at shift change.",
-  },
-  {
-    industry: "Retail",
-    title: "Retail store",
-    location: "Jaipur",
-    cameras: 6,
-    metric: "80%",
-    metricLabel: "Fewer false alerts",
-    note: "AI filters wind, shadows and staff — only real events reach the phone.",
-  },
-  {
-    industry: "Society",
-    title: "Housing society",
-    location: "Hyderabad",
-    cameras: 32,
-    metric: "24×7",
-    metricLabel: "Gate monitoring",
-    note: "Every visitor logged; residents alerted to unknown faces at night.",
-  },
-  {
-    industry: "Home",
-    title: "Independent house",
-    location: "Amritsar",
-    cameras: 8,
-    metric: "1.9s",
-    metricLabel: "To first alert",
-    note: "Loitering at the gate after hours pushed an instant snapshot alert.",
-  },
-  {
-    industry: "Office",
-    title: "Corporate office",
-    location: "Bengaluru",
-    cameras: 18,
-    metric: "100%",
-    metricLabel: "Reception coverage",
-    note: "Tailgating and after-hours entry flagged across every floor.",
-  },
 ];

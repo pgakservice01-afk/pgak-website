@@ -4,7 +4,6 @@ date: "2026-07-21"
 category: "Security Basics"
 excerpt: "Most CCTV systems in India are evidence machines, not protection. Here's the difference between a camera that watches and a camera that thinks."
 readTime: 4
-image: "/insights/security-basics.png"
 ---
 
 Walk into almost any shop, factory or home in India and you'll find the same setup: four to sixteen cameras, a DVR blinking in a corner, and a monitor nobody looks at.

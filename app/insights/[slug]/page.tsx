@@ -72,17 +72,6 @@ export default function InsightPost({ params }: Props) {
                 {post.title}
               </h1>
 
-              {post.image && (
-                <div className="mt-8 overflow-hidden rounded-2xl border border-line">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="aspect-[16/9] w-full object-cover"
-                  />
-                </div>
-              )}
-
               <div
                 className="article-body mt-9"
                 dangerouslySetInnerHTML={{ __html: post.html }}
