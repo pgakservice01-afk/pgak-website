@@ -2,19 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
+import { LangToggle, useLang } from "@/components/LangProvider";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 // "/#..." (not "#...") so links also work from /insights and other pages.
 const LINKS = [
-  { href: "/#how", label: "How it works" },
-  { href: "/#features", label: "Features" },
-  { href: "/#audit", label: "Free audit" },
-  { href: "/insights", label: "Insights" },
-  { href: "/#dealer", label: "Find a dealer" },
+  { href: "/#how", en: "How it works", hi: "कैसे काम करता है" },
+  { href: "/features", en: "Features", hi: "विशेषताएँ" },
+  { href: "/pricing", en: "Pricing", hi: "मूल्य" },
+  { href: "/insights", en: "Insights", hi: "ब्लॉग" },
+  { href: "/contact", en: "Contact", hi: "संपर्क" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -51,35 +54,46 @@ export default function Nav() {
               href={l.href}
               className="group relative text-sm text-ink-soft transition-colors hover:text-ink"
             >
-              {l.label}
+              {t(l.en, l.hi)}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        <a href="/#demo" className="btn btn-primary hidden md:inline-flex">
-          Book a demo
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <LangToggle />
+          <a href="/#demo" className="btn btn-primary">
+            {t("Book a demo", "डेमो बुक करें")}
+          </a>
+        </div>
 
-        <button
-          aria-label="Toggle menu"
-          className="text-2xl text-ink md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? "✕" : "☰"}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <LangToggle />
+          <button
+            aria-label="Toggle menu"
+            className="text-2xl text-ink"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
 
       {open && (
         <div className="flex flex-col gap-1 border-t border-line bg-bg-2 px-6 py-4 md:hidden">
-          {[...LINKS, { href: "/#demo", label: "Book a demo" }].map((l) => (
+          {[
+            ...LINKS,
+            { href: "/#demo", en: "Book a demo", hi: "डेमो बुक करें" },
+          ].map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
               className="border-b border-line py-3 text-ink-soft last:border-none"
             >
-              {l.label}
+              {t(l.en, l.hi)}
             </a>
           ))}
         </div>

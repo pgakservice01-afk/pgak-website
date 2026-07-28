@@ -2,17 +2,270 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Theme tokens ── (dark is the default) */
 :root {
   color-scheme: dark;
+  --c-bg: 10 16 20;
+  --c-bg-2: 13 22 27;
+  --c-panel: 16 30 37;
+  --c-panel-2: 19 37 46;
+  --c-ink: 234 243 242;
+  --c-ink-soft: 159 180 182;
+  --c-ink-faint: 101 128 127;
+  --c-accent: 124 245 196;
+  --c-accent-2: 62 216 224;
+  --c-accent-deep: 15 184 154;
+  --c-danger: 255 138 107;
+  --c-line: rgba(159, 180, 182, 0.14);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --c-bg: 247 250 249;
+  --c-bg-2: 236 242 241;
+  --c-panel: 255 255 255;
+  --c-panel-2: 240 245 244;
+  --c-ink: 12 24 28;
+  --c-ink-soft: 74 92 95;
+  --c-ink-faint: 116 134 135;
+  --c-accent: 13 150 122;
+  --c-accent-2: 17 145 160;
+  --c-accent-deep: 11 120 100;
+  --c-danger: 200 60 40;
+  --c-line: rgba(12, 24, 28, 0.12);
+}
+
+/* Keep intentionally-dark "spotlight" panels readable in light mode by pinning
+   their text tokens back to the dark palette within that subtree. */
+.panel-dark {
+  --c-ink: 234 243 242;
+  --c-ink-soft: 159 180 182;
+  --c-ink-faint: 101 128 127;
+  --c-line: rgba(159, 180, 182, 0.14);
+}
+
+/* Alternating section band — a lifted, top-lit surface for visual rhythm. */
+.sec-band {
+  background: linear-gradient(180deg, #10202a 0%, #0b1319 100%);
+  position: relative;
+}
+.sec-band::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(124, 245, 196, 0.25),
+    transparent
+  );
+  pointer-events: none;
+}
+:root[data-theme="light"] .sec-band {
+  background: linear-gradient(180deg, #eef4f3 0%, #f8fbfa 100%);
+}
+:root[data-theme="light"] .sec-band::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(13, 150, 122, 0.28),
+    transparent
+  );
+}
+/* Glass cards read as a subtle dark tint in light mode (white-on-white fails) */
+:root[data-theme="light"] .glass {
+  border-color: rgba(12, 24, 28, 0.1);
+  background: rgba(12, 24, 28, 0.03);
+}
+
+/* ── Premium interactions (site-wide, content-safe) ── */
+/* AI-style glowing borders + lift on cards */
+.card,
+.glass {
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+.card:hover,
+.glass:hover {
+  border-color: rgb(var(--c-accent) / 0.4);
+  box-shadow:
+    0 26px 70px -34px rgb(var(--c-accent) / 0.5),
+    inset 0 0 0 1px rgb(var(--c-accent) / 0.14);
+}
+
+/* Animated CTA — glow + click ripple */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  box-shadow: 0 12px 36px -8px rgb(var(--c-accent) / 0.6);
+}
+.pgak-ripple {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: pgak-ripple 0.6s ease-out;
+  pointer-events: none;
+}
+@keyframes pgak-ripple {
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* Ambient particles + drifting gradient blobs */
+@keyframes pgak-particle {
+  0% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-22px);
+    opacity: 0.28;
+  }
+  100% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+}
+@keyframes pgak-blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(3%, -4%) scale(1.08);
+  }
+}
+@keyframes pgak-scrollcue {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(10px);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.pgak-scrollcue {
+  animation: pgak-scrollcue 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pgak-scrollcue {
+    animation: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pgak-ripple {
+    display: none;
+  }
+}
+
+/* Compatibility marquee (TrustStrip) — seamless loop, pauses on hover */
+@keyframes pgak-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.pgak-marquee {
+  animation: pgak-marquee 34s linear infinite;
+}
+.pgak-marquee-mask:hover .pgak-marquee {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pgak-marquee {
+    animation: none;
+  }
+}
+
+/* Timeline panel swap (HowItWorks) */
+@keyframes pgak-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pgak-fade {
+  animation: pgak-fade 0.35s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pgak-fade {
+    animation: none;
+  }
+}
+
+/* Hero video scan sweep */
+@keyframes pgak-heroscan {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(620%);
+    opacity: 0.5;
+  }
+  92% {
+    opacity: 0;
+  }
+}
+.pgak-heroscan {
+  animation: pgak-heroscan 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pgak-heroscan {
+    animation: none;
+    opacity: 0 !important;
+  }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Lenis smooth scroll — let the library drive scrolling when active */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis,
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 body {
-  background: #0a1014;
-  color: #eaf3f2;
+  background: rgb(var(--c-bg));
+  color: rgb(var(--c-ink));
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;

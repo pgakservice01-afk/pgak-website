@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import PostCover from "@/components/insights/PostCover";
 import { formatDate, getAllInsights } from "@/lib/insights";
 
 export const metadata: Metadata = {
@@ -49,8 +50,15 @@ export default function InsightsIndex() {
                 <Link
                   key={p.slug}
                   href={`/insights/${p.slug}`}
-                  className="card group flex flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+                  className="card group flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
                 >
+                  <PostCover
+                    image={p.image}
+                    category={p.category}
+                    title={p.title}
+                    className="border-b border-line"
+                  />
+                  <div className="flex flex-1 flex-col p-7">
                   <div className="mb-4 flex items-center gap-3 text-[0.74rem] uppercase tracking-[0.14em]">
                     <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-accent">
                       {p.category}
@@ -68,6 +76,7 @@ export default function InsightsIndex() {
                     <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
                       Read →
                     </span>
+                  </div>
                   </div>
                 </Link>
               ))}
