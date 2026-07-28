@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Fraunces } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_ID = "G-6EMP9HSR2F";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -78,6 +81,18 @@ export default function RootLayout({
         </LangProvider>
         <Pixel />
         <Analytics />
+
+        {/* Google tag (GA4) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
       </body>
     </html>
   );
