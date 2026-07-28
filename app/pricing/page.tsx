@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Pricing — PGAK | ₹1,000 per camera, no hidden fees",
   description:
     "One simple rate: ₹1,000 per camera a month. Works with your existing cameras, no new hardware, no lock-in. Plans for homes, shops, offices and industrial sites.",
-  alternates: { canonical: "https://pgak.co.in/pricing" },
+  alternates: { canonical: "https://www.pgak.co.in/pricing" },
 };
 
 export default function PricingPage() {

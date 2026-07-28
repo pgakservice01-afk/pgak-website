@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Customer Reviews — PGAK | Real proof from sites we protect",
   description:
     "Verified reviews from home, shop, warehouse and factory owners across India who switched to PGAK intelligent security.",
-  alternates: { canonical: "https://pgak.co.in/trust/reviews" },
+  alternates: { canonical: "https://www.pgak.co.in/trust/reviews" },
 };
 
 export default function ReviewsPage() {

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "About — PGAK | Security that thinks, not just records",
   description:
     "PGAK turns the cameras India already owns into intelligent guardians — detecting threats in seconds and cutting false alarms, with privacy built in.",
-  alternates: { canonical: "https://pgak.co.in/about" },
+  alternates: { canonical: "https://www.pgak.co.in/about" },
 };
 
 const VALUES: { ic: IconName; t: string; d: string }[] = [

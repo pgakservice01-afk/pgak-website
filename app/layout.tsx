@@ -34,12 +34,12 @@ export const metadata: Metadata = {
   title: "PGAK — Intelligent Security That Acts Before It's Too Late",
   description:
     "PGAK turns ordinary cameras into intelligent guardians. AI that detects threats in seconds, cuts false alarms, and gives you real peace of mind — 24×7.",
-  metadataBase: new URL("https://pgak.co.in"),
+  metadataBase: new URL("https://www.pgak.co.in"),
   openGraph: {
     title: "PGAK — Intelligent Security That Acts Before It's Too Late",
     description:
       "AI that turns the cameras you already own into intelligent guardians — detecting threats in seconds, cutting false alarms, 24×7.",
-    url: "https://pgak.co.in",
+    url: "https://www.pgak.co.in",
     siteName: "PGAK",
     type: "website",
   },

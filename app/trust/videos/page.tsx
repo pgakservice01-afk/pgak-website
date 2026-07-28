@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Videos — PGAK | See the AI security in action",
   description:
     "Walkthroughs and live-detection clips showing PGAK intelligent security working on real camera feeds.",
-  alternates: { canonical: "https://pgak.co.in/trust/videos" },
+  alternates: { canonical: "https://www.pgak.co.in/trust/videos" },
 };
 
 export default function VideosPage() {

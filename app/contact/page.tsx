@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Contact — PGAK | Talk to us or find a dealer",
   description:
     "Call, WhatsApp or email PGAK, or request a verified dealer near you. We'll help make the cameras you already own intelligent.",
-  alternates: { canonical: "https://pgak.co.in/contact" },
+  alternates: { canonical: "https://www.pgak.co.in/contact" },
 };
 
 const METHODS: {

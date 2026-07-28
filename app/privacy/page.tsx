@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
             <strong className="text-ink">PGAK Innovation Pvt. Ltd.</strong>{" "}
             (&ldquo;PGAK&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects, uses,
             and protects your information when you visit{" "}
-            <a className="text-accent underline" href="https://pgak.co.in">
+            <a className="text-accent underline" href="https://www.pgak.co.in">
               pgak.co.in
             </a>
             , contact us, or submit a form through our website or through our
@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
               </a>
               <br />
               Website:{" "}
-              <a className="text-accent underline" href="https://pgak.co.in">
+              <a className="text-accent underline" href="https://www.pgak.co.in">
                 pgak.co.in
               </a>
             </p>

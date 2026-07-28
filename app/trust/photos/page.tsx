@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Installation Photos — PGAK | See real deployments",
   description:
     "See exactly how PGAK cameras and edge devices are fitted on real homes, shops, warehouses and factories across India.",
-  alternates: { canonical: "https://pgak.co.in/trust/photos" },
+  alternates: { canonical: "https://www.pgak.co.in/trust/photos" },
 };
 
 export default function PhotosPage() {

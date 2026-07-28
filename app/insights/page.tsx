@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: "Insights — PGAK | CCTV intelligence, attendance & camera setup",
   description:
     "Straight-talking guides from the PGAK team on AI CCTV, camera-based attendance, camera placement and real security for Indian homes, shops and factories.",
-  alternates: { canonical: "https://pgak.co.in/insights" },
+  alternates: { canonical: "https://www.pgak.co.in/insights" },
   openGraph: {
     title: "PGAK Insights",
     description:
       "Straight-talking guides on AI CCTV, attendance and camera setup.",
-    url: "https://pgak.co.in/insights",
+    url: "https://www.pgak.co.in/insights",
     siteName: "PGAK",
     type: "website",
   },

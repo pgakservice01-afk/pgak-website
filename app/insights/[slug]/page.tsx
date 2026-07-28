@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const post = getInsight(params.slug);
   if (!post) return {};
-  const url = `https://pgak.co.in/insights/${post.slug}`;
+  const url = `https://www.pgak.co.in/insights/${post.slug}`;
   return {
     title: `${post.title} — PGAK Insights`,
     description: post.excerpt,
@@ -41,8 +41,8 @@ export default function InsightPost({ params }: Props) {
     description: post.excerpt,
     datePublished: post.date,
     author: { "@type": "Organization", name: "PGAK" },
-    publisher: { "@type": "Organization", name: "PGAK", url: "https://pgak.co.in" },
-    mainEntityOfPage: `https://pgak.co.in/insights/${post.slug}`,
+    publisher: { "@type": "Organization", name: "PGAK", url: "https://www.pgak.co.in" },
+    mainEntityOfPage: `https://www.pgak.co.in/insights/${post.slug}`,
   };
 
   return (

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Features — PGAK | Intelligent security on your existing cameras",
   description:
     "Instant threat alerts, face & person recognition, false-alarm filtering, anywhere access and privacy by design — PGAK layers real intelligence onto the cameras you already own.",
-  alternates: { canonical: "https://pgak.co.in/features" },
+  alternates: { canonical: "https://www.pgak.co.in/features" },
 };
 
 export default function FeaturesPage() {
