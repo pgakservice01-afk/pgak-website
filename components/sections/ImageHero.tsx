@@ -2,7 +2,6 @@
 
 import Icon, { type IconName } from "@/components/Icon";
 import HeroMedia from "@/components/HeroMedia";
-import HeroProof from "@/components/HeroProof";
 import Parallax from "@/components/Parallax";
 import { useLang } from "@/components/LangProvider";
 
@@ -119,8 +118,6 @@ export default function ImageHero() {
               {t("See how it works", "देखें यह कैसे काम करता है")}
             </a>
           </div>
-
-          <HeroProof />
 
           <div className="mt-12 grid max-w-[760px] grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (

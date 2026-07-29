@@ -22,9 +22,9 @@ export default function BeforeAfter() {
             Same camera. Two very different outcomes.
           </h2>
           <p className="mt-3.5 text-[1.05rem] text-ink-soft">
-            Drag the handle. On one side, an ordinary system quietly records the
-            incident. On the other, PGAK sees it happen and alerts you in
-            seconds.
+            Drag the handle. Ordinary CCTV just records two figures — it has no
+            idea who they are. PGAK tells your staff from a stranger: the known
+            person passes quietly, the unknown one triggers an instant alert.
           </p>
         </Reveal>
 
@@ -110,8 +110,29 @@ function Scene({ mode }: { mode: "before" | "after" }) {
         <path d="M60 225 L150 165 M340 225 L250 165" stroke="rgba(159,180,182,0.14)" strokeWidth="1" />
         {/* doorway */}
         <rect x="292" y="70" width="70" height="95" rx="2" fill="rgba(0,0,0,0.35)" stroke="rgba(159,180,182,0.25)" strokeWidth="1.5" />
-        {/* person */}
-        <g fill={after ? "#26424b" : "#2a2f38"} stroke={after ? "#3ed8e0" : "transparent"} strokeOpacity="0.5" strokeWidth="1.2">
+        {/* known person (left) — staff/family, walking in normally */}
+        <g
+          transform="translate(-62,0)"
+          fill={after ? "#26424b" : "#2a2f38"}
+          stroke={after ? "#7CF5C4" : "transparent"}
+          strokeOpacity="0.5"
+          strokeWidth="1.2"
+        >
+          <circle cx="196" cy="96" r="12" />
+          <path d="M182 112 Q196 106 210 112 L213 166 Q196 172 179 166 Z" />
+          <path d="M182 118 L170 150 L175 154 L188 126 Z" />
+          <path d="M210 118 L222 150 L217 154 L204 126 Z" />
+          <path d="M186 164 L184 200 L192 200 L195 166 Z" />
+          <path d="M206 164 L208 200 L200 200 L197 166 Z" />
+        </g>
+        {/* unknown person (right) — entering from the doorway */}
+        <g
+          transform="translate(55,0)"
+          fill={after ? "#26424b" : "#2a2f38"}
+          stroke={after ? "#3ed8e0" : "transparent"}
+          strokeOpacity="0.5"
+          strokeWidth="1.2"
+        >
           <circle cx="196" cy="96" r="12" />
           <path d="M182 112 Q196 106 210 112 L213 166 Q196 172 179 166 Z" />
           <path d="M182 118 L170 150 L175 154 L188 126 Z" />
@@ -129,8 +150,14 @@ function Scene({ mode }: { mode: "before" | "after" }) {
       {/* HUD */}
       {after ? (
         <>
-          {/* detection box */}
-          <div className="absolute left-[44%] top-[38%] h-[46%] w-[16%] rounded-md border-2 border-[#ff5b5b] shadow-[0_0_16px_rgba(255,91,91,0.5)]">
+          {/* known person — recognised, no alarm */}
+          <div className="absolute left-[26%] top-[36%] h-[53%] w-[15%] rounded-md border-2 border-[#7CF5C4] shadow-[0_0_16px_rgba(124,245,196,0.45)]">
+            <span className="absolute -top-5 left-0 whitespace-nowrap rounded bg-[#7CF5C4] px-1.5 py-0.5 text-[0.6rem] font-bold text-[#04201a]">
+              KNOWN · STAFF 99%
+            </span>
+          </div>
+          {/* unknown person — flagged, alert fired */}
+          <div className="absolute left-[55%] top-[36%] h-[53%] w-[15%] rounded-md border-2 border-[#ff5b5b] shadow-[0_0_16px_rgba(255,91,91,0.5)]">
             <span className="absolute -top-5 left-0 whitespace-nowrap rounded bg-[#ff5b5b] px-1.5 py-0.5 text-[0.6rem] font-bold text-[#2a0d05]">
               UNKNOWN · 98%
             </span>
@@ -138,6 +165,10 @@ function Scene({ mode }: { mode: "before" | "after" }) {
           <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-[#ff5b5b]/20 px-2.5 py-1 text-[0.66rem] font-semibold text-[#ff8a6b]">
             <span className="h-1.5 w-1.5 animate-pulseDot rounded-full bg-[#ff5b5b]" />
             Alert sent · 1.9s
+          </span>
+          <span className="absolute bottom-3 left-[38%] flex items-center gap-1.5 rounded-full bg-[#7CF5C4]/15 px-2.5 py-1 text-[0.66rem] font-semibold text-[#7CF5C4]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7CF5C4]" />
+            Known · no alarm
           </span>
         </>
       ) : (

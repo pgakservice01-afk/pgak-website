@@ -15,6 +15,8 @@ import Preloader from "@/components/Preloader";
 import AmbientFX from "@/components/AmbientFX";
 import Interactions from "@/components/Interactions";
 import SmoothScroll from "@/components/SmoothScroll";
+import ChatBot from "@/components/ChatBot";
+import BackToTop from "@/components/BackToTop";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -97,6 +99,8 @@ export default function RootLayout({
           <div aria-hidden="true" className="h-16 md:hidden" />
           <WhatsAppButton />
           <MobileActionBar />
+          <ChatBot />
+          <BackToTop />
         </LangProvider>
         <Pixel />
         <Analytics />

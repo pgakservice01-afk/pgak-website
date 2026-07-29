@@ -35,15 +35,7 @@ export default function Nav() {
       }`}
     >
       <div className="wrap flex h-[74px] items-center justify-between">
-        <a
-          href="/"
-          aria-label="PGAK — home"
-          className={`flex items-center transition-opacity duration-300 ${
-            scrolled
-              ? "opacity-100"
-              : "opacity-100 md:pointer-events-none md:opacity-0"
-          }`}
-        >
+        <a href="/" aria-label="PGAK — home" className="flex items-center">
           <Logo variant="compact" className="text-[1.35rem]" />
         </a>
 
