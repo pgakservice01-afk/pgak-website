@@ -60,4 +60,4 @@ Three answers. If any of them are vague, keep looking.
 
 ---
 
-**Related reading:** [PGAK pricing](/pricing) · [AI CCTV for warehouses](/ai-cctv-for-warehouses) · [Case studies](/case-studies)
+**Related reading:** [PGAK pricing](/pricing) · [AI CCTV for warehouses](/ai-cctv-for-warehouses) · [Case studies](/insights/case-studies)

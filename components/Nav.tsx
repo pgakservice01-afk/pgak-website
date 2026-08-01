@@ -12,7 +12,8 @@ const LINKS = [
   { href: "/#how", en: "How it works", hi: "कैसे काम करता है" },
   { href: "/pricing", en: "Pricing", hi: "मूल्य" },
   { href: "/roi-calculator", en: "ROI calculator", hi: "आरओआई कैलकुलेटर" },
-  { href: "/case-studies", en: "Case studies", hi: "केस स्टडी" },
+  // Case studies live inside Insights now, so they don't get their own
+  // top-level slot — the Insights page surfaces them above the guides.
   { href: "/insights", en: "Insights", hi: "ब्लॉग" },
   { href: "/contact", en: "Contact", hi: "संपर्क" },
 ];

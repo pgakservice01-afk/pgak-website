@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/features`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/roi-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/insights/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/insights`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${SITE_URL}/areas-we-serve`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const caseStudies: MetadataRoute.Sitemap = CASE_STUDIES.map((c) => ({
-    url: `${SITE_URL}/case-studies/${c.slug}`,
+    url: `${SITE_URL}/insights/case-studies/${c.slug}`,
     lastModified: now,
     changeFrequency: "yearly",
     priority: 0.6,

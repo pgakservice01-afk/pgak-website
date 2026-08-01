@@ -7,6 +7,7 @@ import { formatDate, getAllInsights } from "@/lib/insights";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
+import { CASE_STUDIES } from "@/lib/caseStudies";
 
 const PATH = "/insights";
 
@@ -69,8 +70,65 @@ export default function InsightsIndex() {
               <p className="mx-auto mt-4 max-w-[540px] text-[1.05rem] text-ink-soft">
                 Guides from the PGAK team on intelligent CCTV, camera-based
                 attendance and getting real protection from the cameras you
-                already own. New posts daily.
+                already own — plus deployment stories from real sites.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------------------------------------------- case studies */}
+        <section className="sec pt-0">
+          <div className="wrap">
+            <div className="mx-auto max-w-[1080px]">
+              <div className="flex flex-wrap items-baseline justify-between gap-4">
+                <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                  Case studies
+                </h2>
+                <Link
+                  href="/insights/case-studies"
+                  className="text-[0.92rem] text-accent hover:underline"
+                >
+                  All case studies →
+                </Link>
+              </div>
+              <p className="mt-2.5 max-w-[60ch] text-ink-soft">
+                What actually changed on real sites — what was being lost, what
+                we did about it, and how many cameras it took.
+              </p>
+
+              <ul className="mt-7 grid gap-5 md:grid-cols-2">
+                {CASE_STUDIES.slice(0, 4).map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/insights/case-studies/${c.slug}`}
+                      className="card group flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+                    >
+                      <p className="text-[0.74rem] uppercase tracking-[0.16em] text-ink-faint">
+                        {c.context}
+                      </p>
+                      <h3 className="font-display mt-3 text-[1.15rem] font-medium leading-snug transition-colors group-hover:text-accent">
+                        {c.title}
+                      </h3>
+                      <p className="mt-2.5 flex-1 text-[0.92rem] leading-relaxed text-ink-soft">
+                        {c.summary}
+                      </p>
+                      <span className="mt-5 text-[0.88rem] text-accent">
+                        Read the deployment →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec pb-0 pt-4">
+          <div className="wrap">
+            <div className="mx-auto max-w-[1080px]">
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                Guides &amp; explainers
+              </h2>
             </div>
           </div>
         </section>

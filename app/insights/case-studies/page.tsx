@@ -11,7 +11,7 @@ import {
 } from "@/lib/schema";
 import { CASE_STUDIES } from "@/lib/caseStudies";
 
-const PATH = "/case-studies";
+const PATH = "/insights/case-studies";
 
 export const metadata: Metadata = pageMeta({
   title: "Case Studies — AI CCTV Deployments in Warehouses, Factories & Shops | PGAK",
@@ -28,6 +28,7 @@ export const metadata: Metadata = pageMeta({
 
 const TRAIL = [
   { name: "Home", path: "/" },
+  { name: "Insights", path: "/insights" },
   { name: "Case studies", path: PATH },
 ];
 
@@ -76,7 +77,7 @@ export default function CaseStudiesPage() {
               {CASE_STUDIES.map((c) => (
                 <li key={c.slug}>
                   <Link
-                    href={`/case-studies/${c.slug}`}
+                    href={`/insights/case-studies/${c.slug}`}
                     className="card flex h-full flex-col p-8 transition-transform hover:-translate-y-0.5"
                   >
                     <p className="text-[0.74rem] uppercase tracking-[0.16em] text-ink-faint">

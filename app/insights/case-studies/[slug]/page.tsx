@@ -27,7 +27,7 @@ export function generateMetadata({
   return pageMeta({
     title: c.metaTitle,
     description: c.metaDescription,
-    path: `/case-studies/${c.slug}`,
+    path: `/insights/case-studies/${c.slug}`,
     keywords: c.keywords,
     type: "article",
   });
@@ -41,10 +41,11 @@ export default function CaseStudyPage({
   const c = getCaseStudy(params.slug);
   if (!c) notFound();
 
-  const path = `/case-studies/${c.slug}`;
+  const path = `/insights/case-studies/${c.slug}`;
   const trail = [
     { name: "Home", path: "/" },
-    { name: "Case studies", path: "/case-studies" },
+    { name: "Insights", path: "/insights" },
+    { name: "Case studies", path: "/insights/case-studies" },
     { name: c.sector, path },
   ];
   const solution = getSolution(c.solution);
@@ -177,7 +178,7 @@ export default function CaseStudyPage({
                     {solution.navLabel} →
                   </Link>
                 )}
-                <Link href="/case-studies" className="btn btn-ghost">
+                <Link href="/insights/case-studies" className="btn btn-ghost">
                   All case studies
                 </Link>
               </div>
