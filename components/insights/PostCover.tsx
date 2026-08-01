@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Icon, { type IconName } from "@/components/Icon";
 
 /**
@@ -16,20 +17,29 @@ export default function PostCover({
   category,
   title,
   className,
+  /** Set on the first card above the fold so it isn't lazy-loaded. */
+  priority = false,
 }: {
   image?: string;
   category: string;
   title?: string;
   className?: string;
+  priority?: boolean;
 }) {
   if (image) {
     return (
       <div className={`relative aspect-[16/9] overflow-hidden ${className ?? ""}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={image}
-          alt={title ?? ""}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          // Descriptive alt: the cover illustrates the post, so the post's
+          // subject is the useful description. Empty alt only if truly
+          // decorative, which a cover with a title never is.
+          alt={title ? `${title} — PGAK Insights cover image` : ""}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
     );

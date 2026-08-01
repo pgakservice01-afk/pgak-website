@@ -4,21 +4,49 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import { VideoTile } from "@/components/trust/Media";
 import { VIDEOS } from "@/lib/trust";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Videos — PGAK | See the AI security in action",
+const PATH = "/trust/videos";
+
+export const metadata: Metadata = pageMeta({
+  title: "AI CCTV Videos — See Intruder Detection Working on Real Feeds | PGAK",
   description:
-    "Walkthroughs and live-detection clips showing PGAK intelligent security working on real camera feeds.",
-  alternates: { canonical: "https://www.pgak.co.in/trust/videos" },
-};
+    "Walkthroughs and live-detection clips showing PGAK AI CCTV working on real camera feeds — intruder detection, face recognition and false-alarm filtering.",
+  path: PATH,
+  keywords: [
+    "AI CCTV demo video",
+    "intruder detection video",
+    "security camera AI demo",
+  ],
+});
+
+const TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Videos", path: PATH },
+];
 
 export default function VideosPage() {
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: PATH,
+            name: "PGAK videos",
+            description:
+              "Live-detection clips and product walkthroughs of PGAK AI CCTV.",
+          }),
+          breadcrumbSchema(TRAIL),
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <section className="sec pb-[50px]">
           <div className="wrap">
+            <Breadcrumbs trail={TRAIL} />
             <Link
               href="/#trust"
               className="text-[0.85rem] text-ink-faint transition-colors hover:text-accent"

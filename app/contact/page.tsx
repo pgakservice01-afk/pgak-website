@@ -1,15 +1,37 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
 import Icon, { type IconName } from "@/components/Icon";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import NapBlock from "@/components/NapBlock";
+import { BUSINESS, pageMeta } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  webPageSchema,
+} from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Contact — PGAK | Talk to us or find a dealer",
+const PATH = "/contact";
+
+export const metadata: Metadata = pageMeta({
+  title: "Contact PGAK — Talk to Us or Find an AI CCTV Dealer Near You",
   description:
-    "Call, WhatsApp or email PGAK, or request a verified dealer near you. We'll help make the cameras you already own intelligent.",
-  alternates: { canonical: "https://www.pgak.co.in/contact" },
-};
+    "Call, WhatsApp or email PGAK, or request a verified AI CCTV dealer near you. We'll help make the security cameras you already own intelligent.",
+  path: PATH,
+  keywords: [
+    "contact PGAK",
+    "AI CCTV dealer near me",
+    "CCTV company Ludhiana",
+    "book a CCTV demo",
+  ],
+});
+
+const TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Contact", path: PATH },
+];
 
 const METHODS: {
   ic: IconName;
@@ -49,10 +71,22 @@ const METHODS: {
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: PATH,
+            name: "Contact PGAK",
+            description:
+              "Phone, WhatsApp, email and dealer enquiry for PGAK AI CCTV.",
+          }),
+          breadcrumbSchema(TRAIL),
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <section className="sec pb-[50px]">
           <div className="wrap">
+            <Breadcrumbs trail={TRAIL} />
             <div className="mx-auto max-w-[680px] text-center">
               <span className="eyebrow eyebrow-center mb-4">Contact us</span>
               <h1 className="display mt-4 text-[clamp(2.2rem,5vw,3.4rem)]">
@@ -83,6 +117,42 @@ export default function ContactPage() {
                   </span>
                 </a>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------- NAP + Google Map embed */}
+        <section className="sec-band sec">
+          <div className="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr]">
+            <div>
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                Where to find us
+              </h2>
+              <p className="mt-4 max-w-[46ch] text-ink-soft">
+                We&rsquo;re headquartered in Ludhiana and deploy across India
+                through a verified dealer network.
+              </p>
+              <div className="mt-7">
+                <NapBlock />
+              </div>
+              <Link
+                href="/areas-we-serve"
+                className="mt-7 inline-flex text-[0.94rem] text-accent hover:underline"
+              >
+                See every area we serve →
+              </Link>
+            </div>
+
+            <div className="overflow-hidden rounded-[18px] border border-line">
+              <iframe
+                title={`Map showing PGAK in ${BUSINESS.address.locality}, ${BUSINESS.address.region}`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(
+                  `${BUSINESS.address.street}, ${BUSINESS.address.area}, ${BUSINESS.address.locality}, ${BUSINESS.address.region} ${BUSINESS.address.postalCode}, India`
+                )}&z=16&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[360px] w-full border-0"
+              />
             </div>
           </div>
         </section>

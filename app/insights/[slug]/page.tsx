@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import { formatDate, getAllInsights, getInsight } from "@/lib/insights";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import {
+  articleSchema,
+  breadcrumbSchema,
+  webPageSchema,
+} from "@/lib/schema";
 
 type Props = { params: { slug: string } };
 
@@ -14,47 +23,56 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const post = getInsight(params.slug);
   if (!post) return {};
-  const url = `https://www.pgak.co.in/insights/${post.slug}`;
-  return {
+  return pageMeta({
     title: `${post.title} — PGAK Insights`,
     description: post.excerpt,
-    alternates: { canonical: url },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url,
-      siteName: "PGAK",
-      type: "article",
-      publishedTime: post.date,
-    },
-  };
+    path: `/insights/${post.slug}`,
+    type: "article",
+    publishedTime: post.date,
+    ...(post.image ? { image: post.image } : {}),
+  });
 }
 
 export default function InsightPost({ params }: Props) {
   const post = getInsight(params.slug);
   if (!post) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.date,
-    author: { "@type": "Organization", name: "PGAK" },
-    publisher: { "@type": "Organization", name: "PGAK", url: "https://www.pgak.co.in" },
-    mainEntityOfPage: `https://www.pgak.co.in/insights/${post.slug}`,
-  };
+  const path = `/insights/${post.slug}`;
+  const trail = [
+    { name: "Home", path: "/" },
+    { name: "Insights", path: "/insights" },
+    { name: post.category, path },
+  ];
 
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path,
+            name: post.title,
+            description: post.excerpt,
+            datePublished: post.date,
+          }),
+          articleSchema({
+            headline: post.title,
+            description: post.excerpt,
+            path,
+            datePublished: post.date,
+            image: post.image,
+          }),
+          breadcrumbSchema(trail),
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <article className="sec">
           <div className="wrap">
             <div className="mx-auto max-w-[720px]">
+              <Breadcrumbs trail={trail} />
               <Link
                 href="/insights"
-                className="text-[0.85rem] text-ink-faint transition-colors hover:text-accent"
+                className="mt-4 inline-flex text-[0.85rem] text-ink-faint transition-colors hover:text-accent"
               >
                 ← All insights
               </Link>
@@ -73,12 +91,16 @@ export default function InsightPost({ params }: Props) {
               </h1>
 
               {post.image && (
-                <div className="mt-8 overflow-hidden rounded-2xl border border-line">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-line">
+                  <Image
                     src={post.image}
-                    alt={post.title}
-                    className="aspect-[16/9] w-full object-cover"
+                    alt={`${post.title} — article cover image`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 720px"
+                    // Above the fold on an article page: this is the LCP
+                    // element, so it must not be lazy-loaded.
+                    priority
+                    className="object-cover"
                   />
                 </div>
               )}
@@ -110,10 +132,6 @@ export default function InsightPost({ params }: Props) {
         </article>
       </main>
       <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
     </>
   );
 }

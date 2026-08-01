@@ -3,24 +3,57 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import { REVIEWS } from "@/lib/trust";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta, RATING } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  reviewSchema,
+  webPageSchema,
+} from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Customer Reviews — PGAK | Real proof from sites we protect",
+const PATH = "/trust/reviews";
+
+export const metadata: Metadata = pageMeta({
+  title: "PGAK Reviews — What Warehouse, Shop and Factory Owners Say",
   description:
-    "Verified reviews from home, shop, warehouse and factory owners across India who switched to PGAK intelligent security.",
-  alternates: { canonical: "https://www.pgak.co.in/trust/reviews" },
-};
+    "Reviews from home, shop, warehouse and factory owners across India who switched to PGAK AI CCTV — what changed on their sites, in their own words.",
+  path: PATH,
+  keywords: [
+    "PGAK reviews",
+    "AI CCTV reviews India",
+    "customer testimonials security",
+  ],
+});
+
+const TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Reviews", path: PATH },
+];
 
 export default function ReviewsPage() {
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: PATH,
+            name: "PGAK customer reviews",
+            description:
+              "Customer reviews of PGAK AI CCTV from sites across India.",
+          }),
+          breadcrumbSchema(TRAIL),
+          ...reviewSchema(REVIEWS),
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <section className="sec pb-[50px]">
           <div className="wrap">
+            <Breadcrumbs trail={TRAIL} />
             <Link
               href="/#trust"
-              className="text-[0.85rem] text-ink-faint transition-colors hover:text-accent"
+              className="mt-4 inline-flex text-[0.85rem] text-ink-faint transition-colors hover:text-accent"
             >
               ← Back to Customer Trust
             </Link>
@@ -35,6 +68,20 @@ export default function ReviewsPage() {
                 Owners of homes, shops, warehouses and factories across India on
                 what changed after switching to PGAK.
               </p>
+
+              {/* Visible rating — must match the AggregateRating in schema,
+                  which is why both read from RATING in lib/seo.ts. */}
+              <div className="mx-auto mt-7 inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-line bg-panel px-6 py-3">
+                <span className="display text-[1.4rem] text-accent">
+                  {RATING.value.toFixed(1)}
+                </span>
+                <span aria-hidden="true" className="text-accent">
+                  ★★★★★
+                </span>
+                <span className="text-[0.9rem] text-ink-soft">
+                  from {RATING.count} customer reviews
+                </span>
+              </div>
             </div>
           </div>
         </section>

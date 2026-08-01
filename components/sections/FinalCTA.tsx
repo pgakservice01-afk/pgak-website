@@ -26,7 +26,7 @@ export default function FinalCTA() {
             )}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3.5">
-            <a href="#dealer" className="btn btn-primary">
+            <a href="#dealer" data-cta="finalcta-dealer" className="btn btn-primary">
               {t("Book a free demo →", "मुफ़्त डेमो बुक करें →")}
             </a>
             <a href="#contact" className="btn btn-ghost">

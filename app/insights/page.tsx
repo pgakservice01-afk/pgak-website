@@ -4,27 +4,59 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import PostCover from "@/components/insights/PostCover";
 import { formatDate, getAllInsights } from "@/lib/insights";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Insights — PGAK | CCTV intelligence, attendance & camera setup",
+const PATH = "/insights";
+
+export const metadata: Metadata = pageMeta({
+  title: "AI CCTV Insights — Guides on Intruder Detection, Attendance & Setup | PGAK",
   description:
-    "Straight-talking guides from the PGAK team on AI CCTV, camera-based attendance, camera placement and real security for Indian homes, shops and factories.",
-  alternates: { canonical: "https://www.pgak.co.in/insights" },
-  openGraph: {
-    title: "PGAK Insights",
-    description:
-      "Straight-talking guides on AI CCTV, attendance and camera setup.",
-    url: "https://www.pgak.co.in/insights",
-    siteName: "PGAK",
-    type: "website",
-  },
-};
+    "Straight-talking guides from the PGAK team on AI CCTV cameras, intruder detection, camera-based attendance, camera placement and real security for Indian homes, shops and factories.",
+  path: PATH,
+  keywords: [
+    "AI CCTV guide",
+    "CCTV camera tips India",
+    "intruder detection explained",
+    "camera based attendance",
+  ],
+});
+
+const TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Insights", path: PATH },
+];
 
 export default function InsightsIndex() {
   const posts = getAllInsights();
 
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: PATH,
+            name: "PGAK Insights",
+            description:
+              "Guides on AI CCTV, intruder detection, attendance and camera setup.",
+          }),
+          breadcrumbSchema(TRAIL),
+          {
+            "@type": "Blog",
+            "@id": "https://www.pgak.co.in/insights#blog",
+            name: "PGAK Insights",
+            url: "https://www.pgak.co.in/insights",
+            blogPost: posts.map((p) => ({
+              "@type": "BlogPosting",
+              headline: p.title,
+              url: `https://www.pgak.co.in/insights/${p.slug}`,
+              datePublished: p.date,
+              description: p.excerpt,
+            })),
+          },
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <section className="sec pb-[60px]">
@@ -46,7 +78,7 @@ export default function InsightsIndex() {
         <section className="pb-[110px]">
           <div className="wrap">
             <div className="mx-auto grid max-w-[1080px] gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p) => (
+              {posts.map((p, i) => (
                 <Link
                   key={p.slug}
                   href={`/insights/${p.slug}`}
@@ -56,6 +88,7 @@ export default function InsightsIndex() {
                     image={p.image}
                     category={p.category}
                     title={p.title}
+                    priority={i < 3}
                     className="border-b border-line"
                   />
                   <div className="flex flex-1 flex-col p-7">

@@ -4,7 +4,7 @@ date: "2026-07-27"
 category: "Alerts"
 excerpt: "When almost every notification is a false alarm, people stop trusting them — and the one that actually matters gets swiped away with the rest. Here's how AI cuts the noise so real threats stand out."
 readTime: 4
-image: "/insights/false-alarms.png"
+image: "/insights/false-alarms.webp"
 ---
 
 Your phone buzzes. A branch moved in the wind. It buzzes again — a shadow shifted. Again — a stray dog, a delivery, your own staff walking in. By the afternoon you've had dozens of alerts, and every single one was nothing.
@@ -25,7 +25,7 @@ The danger isn't the annoyance — it's what the annoyance does to people. When 
 
 And the one real intrusion gets swiped away with the rest.
 
-![A wall of "false alarm" screens with the single real intrusion highlighted](/insights/false-alarms.png)
+![A wall of "false alarm" screens with the single real intrusion highlighted](/insights/false-alarms.webp)
 
 A thousand false alarms don't just waste time. They hide the threat that counts.
 

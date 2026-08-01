@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Icon from "@/components/Icon";
 
 /**
@@ -50,12 +51,16 @@ export function PhotoTile({
     <figure className="card group relative overflow-hidden">
       <div className="relative aspect-[4/3] overflow-hidden">
         {showImg ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={src}
-            alt={caption}
+            // Caption plus context — a screen-reader user should learn what
+            // the installation photo shows, not just read a filename.
+            alt={sub ? `${caption} — ${sub}` : `PGAK installation: ${caption}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+            loading="lazy"
             onError={() => setErr(true)}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <Placeholder icon="photo" label="Photo sample" />
@@ -107,11 +112,13 @@ export function VideoTile({
             className="group absolute inset-0 h-full w-full cursor-pointer"
           >
             {poster ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 src={poster}
-                alt={title}
-                className="h-full w-full object-cover"
+                alt={`Video thumbnail: ${title}`}
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                loading="lazy"
+                className="object-cover"
               />
             ) : (
               <Placeholder

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import ImageHero from "@/components/sections/ImageHero";
 import TrustStrip from "@/components/sections/TrustStrip";
@@ -12,16 +13,54 @@ import FreeAudit from "@/components/sections/FreeAudit";
 import GoogleReviews from "@/components/sections/GoogleReviews";
 import CustomerTrust from "@/components/sections/CustomerTrust";
 import ProtectedSites from "@/components/sections/ProtectedSites";
-import RoiCalculator from "@/components/sections/RoiCalculator";
+import RoiTeaser from "@/components/sections/RoiTeaser";
 import InsightsTeaser from "@/components/sections/InsightsTeaser";
 import FAQ from "@/components/sections/FAQ";
 import DealerForm from "@/components/sections/DealerForm";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/sections/Footer";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { faqSchema, productSchema, webPageSchema } from "@/lib/schema";
+import { FAQS } from "@/lib/faq";
+
+export const metadata: Metadata = pageMeta({
+  title:
+    "AI CCTV Camera & Smart Security System for Business and Home | PGAK India",
+  description:
+    "PGAK turns the CCTV cameras you already own into an AI security system — real-time intruder detection, face recognition and 90% fewer false alarms, from ₹1,000 per camera per month.",
+  path: "/",
+  keywords: [
+    "AI CCTV camera",
+    "AI intruder detection",
+    "smart security system",
+    "business CCTV",
+    "warehouse security",
+    "AI security camera India",
+  ],
+});
 
 export default function Home() {
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: "/",
+            name: "PGAK — AI CCTV and intelligent security",
+            description:
+              "AI security software that runs on your existing CCTV cameras: real-time intruder detection, face recognition and false-alarm filtering.",
+          }),
+          productSchema({
+            name: "PGAK Intelligent Security",
+            description:
+              "AI video analytics that adds real-time intruder detection, face recognition, attendance and false-alarm filtering to existing CCTV cameras.",
+            path: "/",
+            price: 1000,
+          }),
+          faqSchema(FAQS.map((f) => ({ q: f.q, a: f.a }))),
+        ]}
+      />
       <Nav />
       <main>
         <ImageHero />
@@ -33,11 +72,13 @@ export default function Home() {
         <SystemFlow />
         <LiveIntelligence />
         <Features />
+        {/* Right after Features: the reader has just learned what PGAK does
+            and is now asking what it costs them and what comes back. */}
+        <RoiTeaser />
         <FreeAudit />
         <GoogleReviews />
         <CustomerTrust />
         <ProtectedSites />
-        <RoiCalculator />
         <InsightsTeaser />
         <FAQ />
         <DealerForm />

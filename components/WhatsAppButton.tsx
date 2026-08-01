@@ -30,6 +30,7 @@ export default function WhatsAppButton() {
   return (
     <a
       href={WA_HREF}
+      data-cta="whatsapp-float"
       target="_blank"
       rel="noopener"
       aria-label="Chat with PGAK on WhatsApp"

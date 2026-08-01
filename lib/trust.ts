@@ -62,32 +62,32 @@ export const PHOTOS: Photo[] = [
   {
     caption: "Warehouse perimeter coverage",
     sub: "Ludhiana, Punjab",
-    src: "/trust/photos/install-warehouse.png",
+    src: "/trust/photos/install-warehouse.webp",
   },
   {
     caption: "Retail entrance camera",
     sub: "Jaipur",
-    src: "/trust/photos/install-retail.png",
+    src: "/trust/photos/install-retail.webp",
   },
   {
     caption: "Factory gate — face & plate recognition",
     sub: "Coimbatore",
-    src: "/trust/photos/install-gate.png",
+    src: "/trust/photos/install-gate.webp",
   },
   {
     caption: "Office reception desk",
     sub: "Bengaluru",
-    src: "/trust/photos/install-office.png",
+    src: "/trust/photos/install-office.webp",
   },
   {
     caption: "Society main gate",
     sub: "Hyderabad",
-    src: "/trust/photos/install-society.png",
+    src: "/trust/photos/install-society.webp",
   },
   {
     caption: "Indoor home camera",
     sub: "Amritsar",
-    src: "/trust/photos/install-home.png",
+    src: "/trust/photos/install-home.webp",
   },
 ];
 

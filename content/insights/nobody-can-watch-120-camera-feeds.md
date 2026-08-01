@@ -4,7 +4,7 @@ date: "2026-07-27"
 category: "Monitoring"
 excerpt: "A wall of screens looks impressive — but one or two people can only truly watch a handful at a time. Here's why human monitoring quietly fails, and what 'AI never looks away' actually means."
 readTime: 4
-image: "/insights/control-room.png"
+image: "/insights/control-room.webp"
 ---
 
 Walk into most large control rooms and the setup looks serious: a wall of monitors, dozens — sometimes over a hundred — camera feeds tiled edge to edge, all live.

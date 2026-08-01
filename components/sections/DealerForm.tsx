@@ -4,6 +4,7 @@ import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import IndiaNetwork from "@/components/illustrations/IndiaNetwork";
 import { fbTrack } from "@/lib/fbpixel";
+import { trackLead } from "@/lib/analytics";
 
 /**
  * Dealer / lead form — posts to the PGAK ERP leads webhook, exactly as the
@@ -67,6 +68,12 @@ export default function DealerForm() {
       fbTrack("Lead", {
         content_name: "Dealer / Demo Request",
         currency: "INR",
+      });
+      // GA4 / GTM conversion. Fires only on a successful POST, so the metric
+      // counts leads that reached the ERP rather than buttons that were clicked.
+      trackLead("dealer_demo_request", {
+        protecting: String(data.get("protecting") ?? ""),
+        district: payload.district,
       });
     } catch (err) {
       setStatus("error");
@@ -154,6 +161,7 @@ export default function DealerForm() {
               </Field>
               <button
                 type="submit"
+                data-cta="dealer-form-submit"
                 disabled={status === "sending"}
                 className="btn btn-primary mt-1.5 w-full disabled:opacity-60"
               >

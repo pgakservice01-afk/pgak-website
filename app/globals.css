@@ -378,4 +378,31 @@ body {
   .article-body code {
     @apply rounded bg-panel px-1.5 py-0.5 text-[0.88em] text-accent;
   }
+
+  /* ── Range sliders (ROI calculator) ──────────────────────────────────────
+     Browsers don't share a slider pseudo-element, so the thumb and track are
+     styled twice: -webkit- for Chrome/Safari/Edge, -moz- for Firefox. Keep the
+     two blocks in sync. Shared — don't delete with the calculator. */
+  .range {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-line;
+    outline: none;
+  }
+  .range:focus-visible {
+    @apply ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+  .range::-webkit-slider-thumb {
+    @apply h-[18px] w-[18px] appearance-none rounded-full border-none bg-accent;
+    box-shadow: 0 2px 10px -2px theme("colors.accent");
+    transition: transform 0.15s ease;
+  }
+  .range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .range::-moz-range-thumb {
+    @apply h-[18px] w-[18px] rounded-full border-none bg-accent;
+    box-shadow: 0 2px 10px -2px theme("colors.accent");
+  }
+  .range::-moz-range-track {
+    @apply h-1.5 rounded-full bg-line;
+  }
 }

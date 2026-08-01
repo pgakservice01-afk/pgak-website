@@ -117,6 +117,7 @@ export default function FreeAudit() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={WA_HREF}
+                data-cta="whatsapp-audit"
                 target="_blank"
                 rel="noopener"
                 onClick={() =>

@@ -4,13 +4,29 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import NumbersStrip from "@/components/sections/NumbersStrip";
 import Icon, { type IconName } from "@/components/Icon";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "About — PGAK | Security that thinks, not just records",
+const PATH = "/about";
+
+export const metadata: Metadata = pageMeta({
+  title: "About PGAK — AI Security Company Building Intelligent CCTV for India",
   description:
-    "PGAK turns the cameras India already owns into intelligent guardians — detecting threats in seconds and cutting false alarms, with privacy built in.",
-  alternates: { canonical: "https://www.pgak.co.in/about" },
-};
+    "PGAK turns the security cameras India already owns into intelligent guardians — detecting threats in seconds, cutting false alarms, and keeping video processing on your own premises.",
+  path: PATH,
+  keywords: [
+    "PGAK",
+    "AI security company India",
+    "AI CCTV company",
+    "intelligent surveillance",
+  ],
+});
+
+const TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "About", path: PATH },
+];
 
 const VALUES: { ic: IconName; t: string; d: string }[] = [
   {
@@ -38,6 +54,17 @@ const VALUES: { ic: IconName; t: string; d: string }[] = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: PATH,
+            name: "About PGAK",
+            description:
+              "Who PGAK is and why we build retrofit AI security for the cameras India already owns.",
+          }),
+          breadcrumbSchema(TRAIL),
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <section className="sec pb-[60px]">

@@ -25,7 +25,7 @@ export default function MobileActionBar() {
       className="fixed inset-x-0 bottom-0 z-[95] flex items-stretch gap-2 border-t border-line bg-bg/95 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-md md:hidden"
     >
       <a
-        href={`tel:${TEL}`}
+        href={`tel:${TEL}`} data-cta="phone-mobilebar"
         onClick={() => fbTrack("Contact", { content_name: "Mobile Call" })}
         className="flex flex-1 flex-col items-center justify-center gap-1 rounded-xl border border-line py-2 text-ink active:scale-95"
       >
@@ -34,6 +34,7 @@ export default function MobileActionBar() {
       </a>
       <a
         href={WA_HREF}
+        data-cta="whatsapp-mobilebar"
         target="_blank"
         rel="noopener"
         onClick={() => fbTrack("Contact", { content_name: "Mobile WhatsApp" })}
@@ -45,7 +46,7 @@ export default function MobileActionBar() {
         </span>
       </a>
       <a
-        href="/#demo"
+        href="/#demo" data-cta="mobilebar-demo"
         onClick={() => fbTrack("Lead", { content_name: "Mobile Book Demo" })}
         className="flex flex-[1.4] flex-col items-center justify-center gap-1 rounded-xl bg-accent py-2 text-[#04201a] active:scale-95"
       >

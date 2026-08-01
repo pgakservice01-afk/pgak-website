@@ -17,6 +17,13 @@ import Interactions from "@/components/Interactions";
 import SmoothScroll from "@/components/SmoothScroll";
 import ChatBot from "@/components/ChatBot";
 import BackToTop from "@/components/BackToTop";
+import JsonLd from "@/components/JsonLd";
+import StickyDemoCTA from "@/components/StickyDemoCTA";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
+
+/** Optional — set NEXT_PUBLIC_CLARITY_ID in .env to enable Microsoft Clarity. */
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 const sora = Sora({
   subsets: ["latin"],
@@ -34,17 +41,30 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "PGAK — Intelligent Security That Acts Before It's Too Late",
+  // Per-page titles win; this template gives any page that forgets one a
+  // sensible, branded fallback instead of a bare string.
+  title: {
+    default: "PGAK — Intelligent Security That Acts Before It's Too Late",
+    template: "%s",
+  },
   description:
     "PGAK turns ordinary cameras into intelligent guardians. AI that detects threats in seconds, cuts false alarms, and gives you real peace of mind — 24×7.",
-  metadataBase: new URL("https://www.pgak.co.in"),
-  openGraph: {
-    title: "PGAK — Intelligent Security That Acts Before It's Too Late",
-    description:
-      "AI that turns the cameras you already own into intelligent guardians — detecting threats in seconds, cutting false alarms, 24×7.",
-    url: "https://www.pgak.co.in",
-    siteName: "PGAK",
-    type: "website",
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  formatDetection: { telephone: true, address: true, email: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon:
@@ -65,7 +85,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sora.variable} ${fraunces.variable}`}>
+    <html lang="en-IN" className={`${sora.variable} ${fraunces.variable}`}>
+      <head>
+        {/* Warm up the third-party origins the page will hit anyway. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Site-wide structured data: Organization/LocalBusiness + WebSite.
+            Per-page WebPage, Service, FAQ and Breadcrumb nodes reference these
+            by @id, so the whole site resolves into one graph. */}
+        <JsonLd nodes={[organizationSchema(), websiteSchema()]} />
+      </head>
       <body className="bg-bg font-sans text-ink antialiased">
         {/* Google Tag Manager (noscript) — immediately after opening <body> */}
         <noscript>
@@ -101,6 +130,7 @@ export default function RootLayout({
           <MobileActionBar />
           <ChatBot />
           <BackToTop />
+          <StickyDemoCTA />
         </LangProvider>
         <Pixel />
         <Analytics />
@@ -115,6 +145,29 @@ export default function RootLayout({
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GA_ID}');`}
+        </Script>
+
+        {/* Microsoft Clarity — behaviour analytics. Only loads when the env
+            var is set, so local and preview builds stay out of the data. */}
+        {CLARITY_ID && (
+          <Script id="ms-clarity" strategy="afterInteractive">
+            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
+          </Script>
+        )}
+
+        {/* Turns clicks on [data-cta] elements into GA4 + GTM conversion
+            events, so demo, audit, call and WhatsApp actions are measurable
+            without wiring a handler into every button. */}
+        <Script id="pgak-conversions" strategy="afterInteractive">
+          {`document.addEventListener('click',function(e){
+  var el=e.target&&e.target.closest?e.target.closest('[data-cta]'):null;
+  if(!el)return;
+  var name=el.getAttribute('data-cta');
+  var payload={event:'cta_click',cta:name,cta_text:(el.innerText||'').trim().slice(0,80),page_path:location.pathname};
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push(payload);
+  if(typeof window.gtag==='function'){window.gtag('event','cta_click',payload);}
+},{capture:true});`}
         </Script>
       </body>
     </html>

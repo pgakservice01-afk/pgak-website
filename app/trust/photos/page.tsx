@@ -4,21 +4,49 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import { PhotoTile } from "@/components/trust/Media";
 import { PHOTOS } from "@/lib/trust";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Installation Photos — PGAK | See real deployments",
+const PATH = "/trust/photos";
+
+export const metadata: Metadata = pageMeta({
+  title: "AI CCTV Installation Photos — Real Deployments Across India | PGAK",
   description:
-    "See exactly how PGAK cameras and edge devices are fitted on real homes, shops, warehouses and factories across India.",
-  alternates: { canonical: "https://www.pgak.co.in/trust/photos" },
-};
+    "See exactly how PGAK AI CCTV and edge devices are fitted on real homes, shops, warehouses and factories across India — on hardware customers already owned.",
+  path: PATH,
+  keywords: [
+    "CCTV installation photos",
+    "AI CCTV deployment India",
+    "security camera installation",
+  ],
+});
+
+const TRAIL = [
+  { name: "Home", path: "/" },
+  { name: "Installation photos", path: PATH },
+];
 
 export default function PhotosPage() {
   return (
     <>
+      <JsonLd
+        nodes={[
+          webPageSchema({
+            path: PATH,
+            name: "PGAK installation photos",
+            description:
+              "Photos of real PGAK AI CCTV deployments across India.",
+          }),
+          breadcrumbSchema(TRAIL),
+        ]}
+      />
       <Nav />
       <main className="pt-[74px]">
         <section className="sec pb-[50px]">
           <div className="wrap">
+            <Breadcrumbs trail={TRAIL} />
             <Link
               href="/#trust"
               className="text-[0.85rem] text-ink-faint transition-colors hover:text-accent"

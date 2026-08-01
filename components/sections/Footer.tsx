@@ -2,60 +2,98 @@
 
 import Logo from "@/components/Logo";
 import { useLang } from "@/components/LangProvider";
+import { SOLUTIONS } from "@/lib/solutions";
+import { CAPABILITIES } from "@/lib/capabilities";
+import { LOCATIONS, locationPath } from "@/lib/locations";
+import { BUSINESS } from "@/lib/seo";
 
-const COLS: {
-  h: string;
-  hHi: string;
-  links: { t: string; tHi: string; href: string; ext?: boolean }[];
-}[] = [
+type FooterLink = {
+  t: string;
+  tHi: string;
+  href: string;
+  ext?: boolean;
+  cta?: string;
+};
+
+const COMPANY: FooterLink[] = [
+  { t: "How it works", tHi: "कैसे काम करता है", href: "/#how" },
+  { t: "Features", tHi: "विशेषताएँ", href: "/features" },
+  { t: "Pricing", tHi: "मूल्य", href: "/pricing" },
+  { t: "ROI calculator", tHi: "आरओआई कैलकुलेटर", href: "/roi-calculator" },
+  { t: "Case studies", tHi: "केस स्टडी", href: "/case-studies" },
+  { t: "About", tHi: "हमारे बारे में", href: "/about" },
+  { t: "Insights", tHi: "ब्लॉग", href: "/insights" },
+  { t: "Areas we serve", tHi: "सेवा क्षेत्र", href: "/areas-we-serve" },
+];
+
+const GET_STARTED: FooterLink[] = [
+  { t: "Free AI audit", tHi: "मुफ़्त एआई ऑडिट", href: "/#audit", cta: "footer-audit" },
+  { t: "Book a demo", tHi: "डेमो बुक करें", href: "/#demo", cta: "footer-demo" },
+  { t: "Find a dealer", tHi: "डीलर खोजें", href: "/#dealer", cta: "footer-dealer" },
+  { t: "Contact us", tHi: "संपर्क करें", href: "/contact" },
   {
-    h: "Explore",
-    hHi: "एक्सप्लोर करें",
-    links: [
-      { t: "How it works", tHi: "कैसे काम करता है", href: "/#how" },
-      { t: "Features", tHi: "विशेषताएँ", href: "/features" },
-      { t: "Pricing", tHi: "मूल्य", href: "/pricing" },
-      { t: "About", tHi: "हमारे बारे में", href: "/about" },
-      { t: "Insights", tHi: "ब्लॉग", href: "/insights" },
-    ],
-  },
-  {
-    h: "Get started",
-    hHi: "शुरू करें",
-    links: [
-      { t: "Free AI audit", tHi: "मुफ़्त एआई ऑडिट", href: "/#audit" },
-      { t: "Book a demo", tHi: "डेमो बुक करें", href: "/#demo" },
-      { t: "Find a dealer", tHi: "डीलर खोजें", href: "/#dealer" },
-      { t: "Contact us", tHi: "संपर्क करें", href: "/contact" },
-    ],
-  },
-  {
-    h: "Contact",
-    hHi: "संपर्क",
-    links: [
-      { t: "+91 62839 93600", tHi: "+91 62839 93600", href: "tel:+916283993600" },
-      {
-        t: "Pgakinnovation@gmail.com",
-        tHi: "Pgakinnovation@gmail.com",
-        href: "mailto:Pgakinnovation@gmail.com",
-      },
-      {
-        t: "Instagram",
-        tHi: "Instagram",
-        href: "https://www.instagram.com/pgakinnovation/",
-        ext: true,
-      },
-      { t: "WhatsApp", tHi: "व्हाट्सएप", href: "https://wa.me/916283993600", ext: true },
-    ],
+    t: "Brochure (print / save as PDF)",
+    tHi: "ब्रोशर (प्रिंट / PDF सेव करें)",
+    href: "/brochure",
+    cta: "footer-brochure",
   },
 ];
 
+const CONTACT: FooterLink[] = [
+  {
+    t: BUSINESS.phone,
+    tHi: BUSINESS.phone,
+    href: `tel:${BUSINESS.phoneE164}`,
+    cta: "footer-phone",
+  },
+  {
+    t: BUSINESS.email,
+    tHi: BUSINESS.email,
+    href: `mailto:${BUSINESS.email}`,
+    cta: "footer-email",
+  },
+  {
+    t: "Instagram",
+    tHi: "Instagram",
+    href: "https://www.instagram.com/pgakinnovation/",
+    ext: true,
+  },
+  {
+    t: "WhatsApp",
+    tHi: "व्हाट्सएप",
+    href: BUSINESS.whatsapp,
+    ext: true,
+    cta: "footer-whatsapp",
+  },
+];
+
+function LinkList({ links }: { links: FooterLink[] }) {
+  const { t } = useLang();
+  return (
+    <>
+      {links.map((l) => (
+        <a
+          key={l.href}
+          href={l.href}
+          {...(l.ext ? { target: "_blank", rel: "noopener" } : {})}
+          {...(l.cta ? { "data-cta": l.cta } : {})}
+          className="block py-1.5 text-[0.9rem] text-ink-soft transition-colors hover:text-accent [overflow-wrap:anywhere]"
+        >
+          {t(l.t, l.tHi)}
+        </a>
+      ))}
+    </>
+  );
+}
+
 export default function Footer() {
   const { t } = useLang();
+  const a = BUSINESS.address;
+
   return (
     <footer id="contact" className="sec-band border-t border-line pb-8 pt-16">
       <div className="wrap">
-        <div className="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <a href="#top" aria-label="PGAK — home" className="mb-4 inline-flex">
               <Logo variant="full" className="text-[1.5rem]" />
@@ -66,25 +104,99 @@ export default function Footer() {
                 "बुद्धिमान सुरक्षा जो बहुत देर होने से पहले कार्रवाई करती है। PGAK आपके पहले से मौजूद कैमरों को एआई-संचालित रक्षकों में बदल देता है — घरों, व्यवसायों और उससे आगे के लिए।",
               )}
             </p>
+
+            {/* NAP — must stay byte-identical to the Google Business Profile. */}
+            <address className="mt-6 not-italic text-[0.88rem] leading-relaxed text-ink-faint">
+              {BUSINESS.legalName}
+              <br />
+              {a.street}
+              <br />
+              {a.area}
+              <br />
+              {a.locality}, {a.region} {a.postalCode}, India
+            </address>
           </div>
 
-          {COLS.map((c) => (
-            <div key={c.h}>
-              <h5 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-                {t(c.h, c.hHi)}
-              </h5>
-              {c.links.map((l) => (
-                <a
-                  key={l.t}
-                  href={l.href}
-                  {...(l.ext ? { target: "_blank", rel: "noopener" } : {})}
-                  className="block py-1.5 text-[0.92rem] text-ink-soft transition-colors hover:text-accent"
-                >
-                  {t(l.t, l.tHi)}
-                </a>
+          <div>
+            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+              {t("Company", "कंपनी")}
+            </h2>
+            <LinkList links={COMPANY} />
+          </div>
+
+          <div>
+            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+              {t("Get started", "शुरू करें")}
+            </h2>
+            <LinkList links={GET_STARTED} />
+          </div>
+
+          <div>
+            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+              {t("Contact", "संपर्क")}
+            </h2>
+            <LinkList links={CONTACT} />
+          </div>
+        </div>
+
+        {/* ------------------------------ solution / feature / city sitemap */}
+        <div className="mt-14 grid gap-9 border-t border-line pt-10 md:grid-cols-3">
+          <div>
+            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+              {t("Solutions", "समाधान")}
+            </h2>
+            <ul>
+              {SOLUTIONS.map((s) => (
+                <li key={s.slug}>
+                  <a
+                    href={`/${s.slug}`}
+                    className="block py-1 text-[0.88rem] text-ink-soft transition-colors hover:text-accent"
+                  >
+                    {s.primaryKeyword}
+                  </a>
+                </li>
               ))}
-            </div>
-          ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+              {t("Capabilities", "क्षमताएँ")}
+            </h2>
+            <ul>
+              {CAPABILITIES.map((c) => (
+                <li key={c.slug}>
+                  <a
+                    href={`/features/${c.slug}`}
+                    className="block py-1 text-[0.88rem] text-ink-soft transition-colors hover:text-accent"
+                  >
+                    {c.navLabel}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+              {t("Cities we serve", "हमारे सेवा शहर")}
+            </h2>
+            <ul>
+              {LOCATIONS.map((l) => (
+                <li key={l.slug}>
+                  <a
+                    href={locationPath(l.slug)}
+                    className="block py-1 text-[0.88rem] text-ink-soft transition-colors hover:text-accent"
+                  >
+                    {t(
+                      `AI CCTV in ${l.city}`,
+                      `${l.city} में एआई सीसीटीवी`,
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-12 flex flex-wrap justify-between gap-3.5 border-t border-line pt-6 text-[0.84rem] text-ink-faint">
@@ -95,8 +207,8 @@ export default function Footer() {
             <a href="/privacy" className="hover:text-ink-soft">
               {t("Privacy Policy", "गोपनीयता नीति")}
             </a>
-            <a href="#" className="hover:text-ink-soft">
-              {t("Terms of Use", "उपयोग की शर्तें")}
+            <a href="/sitemap.xml" className="hover:text-ink-soft">
+              {t("Sitemap", "साइटमैप")}
             </a>
           </span>
         </div>
