@@ -26,6 +26,24 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
 
+  async redirects() {
+    return [
+      // Case studies moved under /insights. These URLs were live and in the
+      // sitemap, so they get permanent redirects rather than 404s — that
+      // preserves any link equity and doesn't break shared links.
+      {
+        source: "/case-studies",
+        destination: "/insights/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/:slug",
+        destination: "/insights/case-studies/:slug",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     const oneYearImmutable = "public, max-age=31536000, immutable";
     const isDev = process.env.NODE_ENV === "development";
