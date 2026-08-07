@@ -169,8 +169,11 @@ export default function Nav() {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <LangToggle />
-          <a href="/#demo" data-cta="nav-demo" className="btn btn-primary">
-            {t("Book a demo", "डेमो बुक करें")}
+          {/* Customer sign-in, not a sales CTA. The demo booking action still
+              lives in StickyDemoCTA, MobileActionBar, ChatBot, FinalCTA and the
+              footer — only this nav slot changed, so lead capture is unaffected. */}
+          <a href="/live" data-cta="nav-live" className="btn btn-primary">
+            {t("Live view", "लाइव व्यू")}
           </a>
         </div>
 
@@ -222,7 +225,7 @@ export default function Nav() {
             {[
               ...LINKS,
               { href: "/areas-we-serve", en: "Areas we serve", hi: "हम जहाँ सेवा देते हैं" },
-              { href: "/#demo", en: "Book a demo", hi: "डेमो बुक करें" },
+              { href: "/live", en: "Live view", hi: "लाइव व्यू" },
             ].map((l) => (
               <a
                 key={l.href}
