@@ -3,6 +3,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Logo from "@/components/Logo";
 import { useLang } from "@/components/LangProvider";
+import {
+  authedFetch,
+  clearSession,
+  ensureRefreshToken,
+  getAccessToken,
+  SessionExpired,
+} from "@/lib/pgakAuth";
 
 /**
  * The camera wall.
@@ -47,24 +54,10 @@ type Camera = {
 
 type Health = "unknown" | "connecting" | "live" | "stale" | "down";
 
-class AuthExpired extends Error {}
-
-function authHeaders(token: string) {
-  return { Authorization: `Bearer ${token}` };
-}
-
-/** Any 401 means the 15-minute access token died. There is no refresh token in
- *  the browser by design, so the only honest move is to send them back to
- *  sign-in rather than leave a wall of broken tiles. */
-function assertNotExpired(status: number) {
-  if (status === 401 || status === 403) throw new AuthExpired();
-}
-
 /* ─────────────────────────── one tile ─────────────────────────── */
 
 function Tile({
   cam,
-  token,
   index,
   intervalMs,
   onOpen,
@@ -72,7 +65,6 @@ function Tile({
   onHealth,
 }: {
   cam: Camera;
-  token: string;
   index: number;
   intervalMs: number;
   onOpen: () => void;
@@ -113,12 +105,12 @@ function Tile({
         return;
       }
       try {
-        const res = await fetch(`${API}/cameras/${cam.id}/snapshot`, {
-          headers: authHeaders(token),
+        // authedFetch renews the access token on 401 and retries, sharing one
+        // in-flight refresh with every other tile. Twelve tiles expiring in the
+        // same second must not become twelve rotations.
+        const res = await authedFetch(`/cameras/${cam.id}/snapshot`, {
           signal: ac.signal,
-          cache: "no-store",
         });
-        assertNotExpired(res.status);
 
         if (res.status === 425) {
           // Camera is still coming online — that is not a fault, and calling it
@@ -139,7 +131,7 @@ function Tile({
           sawTooEarly.current = false;
         }
       } catch (e) {
-        if (e instanceof AuthExpired) { onAuthExpired(); return; }
+        if (e instanceof SessionExpired) { onAuthExpired(); return; }
         if ((e as Error)?.name === "AbortError") return;
         fails.current += 1;
       }
@@ -168,7 +160,7 @@ function Tile({
         objectUrl.current = null;
       }
     };
-  }, [cam.id, token, intervalMs, index, compute, onAuthExpired, onHealth]);
+  }, [cam.id, intervalMs, index, compute, onAuthExpired, onHealth]);
 
   const dot =
     health === "live" ? "bg-accent"
@@ -229,12 +221,10 @@ function Tile({
 
 function Focus({
   cam,
-  token,
   onClose,
   onAuthExpired,
 }: {
   cam: Camera;
-  token: string;
   onClose: () => void;
   onAuthExpired: () => void;
 }) {
@@ -249,11 +239,7 @@ function Focus({
 
     async function start() {
       try {
-        const res = await fetch(`${API}/cameras/${cam.id}/live`, {
-          headers: authHeaders(token),
-          cache: "no-store",
-        });
-        assertNotExpired(res.status);
+        const res = await authedFetch(`/cameras/${cam.id}/live`);
 
         if (res.status === 425) {
           setStatus(t("Camera is coming online…", "कैमरा ऑनलाइन हो रहा है…"));
@@ -302,7 +288,7 @@ function Focus({
         inst.loadSource(hls_url);
         inst.attachMedia(video);
       } catch (e) {
-        if (e instanceof AuthExpired) { onAuthExpired(); return; }
+        if (e instanceof SessionExpired) { onAuthExpired(); return; }
         setStatus(t("Could not reach the server.", "सर्वर तक नहीं पहुँच सके।"));
       }
     }
@@ -319,7 +305,7 @@ function Focus({
       const v = videoRef.current;
       if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
     };
-  }, [cam.id, token, t, onAuthExpired]);
+  }, [cam.id, t, onAuthExpired]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -375,16 +361,18 @@ export default function WallClient() {
   const [intervalMs, setIntervalMs] = useState(REFRESH_MS);
 
   const signOut = useCallback(() => {
-    try { sessionStorage.removeItem("pgak_token"); } catch {}
+    clearSession();
     window.location.href = "/live";
   }, []);
 
-  // Gate on the token before anything else renders.
+  // Gate on the token before anything else renders, then mint a refresh token
+  // so a display left on in a room keeps working past the 15-minute access
+  // token instead of dropping to the sign-in page four times an hour.
   useEffect(() => {
-    let tok: string | null = null;
-    try { tok = sessionStorage.getItem("pgak_token"); } catch {}
+    const tok = getAccessToken();
     if (!tok) { window.location.href = "/live"; return; }
     setToken(tok);
+    void ensureRefreshToken();
   }, []);
 
   // Camera list.
@@ -393,21 +381,16 @@ export default function WallClient() {
     const ac = new AbortController();
     (async () => {
       try {
-        const res = await fetch(`${API}/cameras`, {
-          headers: authHeaders(token),
-          signal: ac.signal,
-          cache: "no-store",
-        });
-        if (res.status === 401 || res.status === 403) { signOut(); return; }
+        const res = await authedFetch("/cameras", { signal: ac.signal });
         if (!res.ok) {
           setError(t("Could not load your cameras.", "आपके कैमरे लोड नहीं हो सके।"));
           return;
         }
-        const data = await res.json();
-        const list: Camera[] = (Array.isArray(data) ? data : data.cameras ?? data.items ?? [])
-          .filter((c: Camera) => c.is_active);
-        setCams(list);
+        // CameraList is { items: [...] } — see api/app/schemas/camera.py.
+        const data = (await res.json()) as { items?: Camera[] };
+        setCams((data.items ?? []).filter((c) => c.is_active));
       } catch (e) {
+        if (e instanceof SessionExpired) { signOut(); return; }
         if ((e as Error)?.name !== "AbortError") {
           setError(t("Could not reach the server.", "सर्वर तक नहीं पहुँच सके।"));
         }
@@ -532,7 +515,6 @@ export default function WallClient() {
                 <Tile
                   key={cam.id}
                   cam={cam}
-                  token={token}
                   index={i}
                   intervalMs={intervalMs}
                   onOpen={() => setFocused(cam)}
@@ -579,7 +561,6 @@ export default function WallClient() {
       {focused && (
         <Focus
           cam={focused}
-          token={token}
           onClose={() => setFocused(null)}
           onAuthExpired={signOut}
         />
