@@ -88,19 +88,48 @@ export default function LiveClient() {
       // Redeem endpoint is /auth/member/signup — an invited person joining an
       // EXISTING org, with role and device visibility frozen on the invite.
       // Field names below match MemberSignupRequest exactly.
-      const res = await fetch(`${API}${signup ? "/auth/member/signup" : "/auth/login"}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(
-          signup
-            ? { name: name.trim(), email: email.trim(), password, invite_code: invite.trim() }
-            : { email: email.trim(), password }
-        ),
-      });
+      // The two endpoints do NOT take the same shape, and the difference is
+      // easy to miss because only one of them is ours.
+      //
+      // Sign-up is our own MemberSignupRequest: JSON, fields exactly
+      // {invite_code, name, email, password}.
+      //
+      // Sign-in is fastapi-users' OAuth2 password flow. It wants FORM data,
+      // and the email goes in a field called `username`. Posting JSON there
+      // answers 422 "field required: username" — never 401 — so a wrong shape
+      // does not look like bad credentials, it looks like the server is down,
+      // which is the worst possible way for this to fail. Verified against
+      // production 2026-08-07.
+      const res = signup
+        ? await fetch(`${API}/auth/member/signup`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              invite_code: invite.trim(),
+              name: name.trim(),
+              email: email.trim(),
+              password,
+            }),
+          })
+        : await fetch(`${API}/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ username: email.trim(), password }),
+          });
 
-      if (!signup && res.status === 401) {
-        setError(t("That email and password don't match. Check both and try again.",
-                   "ईमेल और पासवर्ड मेल नहीं खाते। दोनों जाँचकर दोबारा कोशिश करें।"));
+      // fastapi-users answers a bad sign-in with 400 LOGIN_BAD_CREDENTIALS,
+      // not 401 (verified against production 2026-08-07). Matching only 401
+      // sent a wrong password down the "couldn't reach the server" path, which
+      // has the customer checking their wifi instead of their password.
+      if (!signup && (res.status === 400 || res.status === 401)) {
+        const detail = await res.json().then((d) => d?.detail).catch(() => null);
+        if (detail === "LOGIN_USER_NOT_VERIFIED") {
+          setError(t("This account hasn't been activated yet. Ask your admin to approve it.",
+                     "यह अकाउंट अभी सक्रिय नहीं हुआ है। एडमिन से मंज़ूरी लेने को कहें।"));
+        } else {
+          setError(t("That email and password don't match. Check both and try again.",
+                     "ईमेल और पासवर्ड मेल नहीं खाते। दोनों जाँचकर दोबारा कोशिश करें।"));
+        }
         return;
       }
       if (signup && (res.status === 400 || res.status === 404)) {
