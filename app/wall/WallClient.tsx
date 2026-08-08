@@ -14,23 +14,45 @@ import {
 /**
  * The camera wall.
  *
- * Tiles are still frames polled from the cloud; clicking one opens live video.
- * That split is deliberate and it is what the mobile app already does: a still
- * per tile costs a fraction of a video stream, and nobody watches 30 moving
- * pictures at once anyway.
+ * Every tile plays LIVE VIDEO, continuously, and is expected to keep doing so
+ * for days unattended. A snapshot still is fetched first and kept as the
+ * fallback: it paints in well under a second while HLS is still negotiating,
+ * and it is what stays on screen if a stream cannot start at all. A last good
+ * picture tells an operator more than a black rectangle.
+ * (Until 2026-08-08 tiles were stills-only at an 8s cadence and video opened
+ * only on click. The owner's call: a product sold as "live view" must show
+ * moving pictures in the grid.)
  *
  * The one rule this file exists to keep: TILE STATE IS DERIVED FROM WHAT
- * ACTUALLY HAPPENED. A tile is only green because a frame really arrived. There
- * is no hardcoded status anywhere, deliberately — a wall that shows green dots
- * for dead cameras is worse than no wall, because someone will trust it.
+ * ACTUALLY HAPPENED. A tile is only green because video really advanced or a
+ * frame really arrived — never because hls.js said "manifest parsed", which is
+ * true of a stream that then delivers nothing. There is no hardcoded status
+ * anywhere, deliberately: a wall that shows green dots for dead cameras is
+ * worse than no wall, because someone will trust it.
+ *
+ * ── Why the token gets rewritten per request ──
+ * The live-view token sits in the URL PATH (`/live/<token>/<uuid>/index.m3u8`,
+ * see api/app/services/live_streams.py) so segment requests inherit it. It is
+ * short-lived — LIVE_TOKEN_TTL_SEC defaults to 300s and `exp` is bucketed, so a
+ * url is good for 300-600s and then dies. On a wall left running that is fatal:
+ * every tile would break within ten minutes. Re-calling /live and
+ * loadSource()-ing the new url would work but re-buffers each tile every few
+ * minutes — across 12 staggered tiles that is a visible hiccup somewhere on the
+ * wall every ~25 seconds. Instead we hold the freshest url in a ref, re-mint it
+ * well inside the window, and rewrite the token path segment on every playlist
+ * and fragment request. Playback is never interrupted.
  */
 
 // Cloud API root, including the /api/v1 prefix — same variable LiveClient uses.
 const API = process.env.NEXT_PUBLIC_PGAK_API || "";
 
-// Tiles per page. Deliberately bounded: for a camera with no AI pipeline the
-// cloud has no cached frame and grabs one from the camera per request, so an
-// unbounded grid turns into an unbounded amount of work upstream.
+// Tiles per page — and therefore the number of SIMULTANEOUS LIVE STREAMS this
+// wall asks the cloud for. That makes it the single most load-bearing number in
+// the file. Each tile is one HLS muxer on the cloud; for a camera the AI worker
+// already ingests the RTSP source is shared, so a tile only adds a reader, but
+// for a live-view-only camera (no worker pipeline) each tile is its own source
+// pull as well. Measure before raising it — see the capacity note in
+// [[website-live-view-2026-08-07]].
 const PAGE_SIZE = 12;
 
 // Tile cadence. 8s, not 3s, and the reason is upstream: a recorder serves
@@ -43,6 +65,23 @@ const SLOW_MS = 30000;     // ...after IDLE_MS with no interaction
 const IDLE_MS = 5 * 60 * 1000;
 const STALE_AFTER = 3;     // missed refreshes before a tile is called stale
 const DOWN_AFTER = 3;      // consecutive failures before it is called down
+
+// Re-mint each tile's live url this often. The API's token is good for 300-600s
+// (LIVE_TOKEN_TTL_SEC=300, exp bucketed), so 120s means we always hold a valid
+// token with a wide margin and never race the boundary.
+const TOKEN_REFRESH_MS = 120000;
+
+// A tile is "playing" only while video actually advances. HTMLMediaElement fires
+// timeupdate ~4x/second; if nothing arrives for this long the picture on screen
+// is frozen no matter what the player reports, so we stop trusting it and let
+// the snapshot fallback take over.
+const VIDEO_STALL_MS = 6000;
+
+// Backoff between attempts to (re)start a stream that failed. Capped so a camera
+// that is genuinely down is retried occasionally rather than hammered — one dead
+// camera must not generate load for the other eleven.
+const RETRY_MIN_MS = 3000;
+const RETRY_MAX_MS = 60000;
 
 type Camera = {
   id: string;
@@ -74,21 +113,35 @@ function Tile({
   const { t } = useLang();
   const [src, setSrc] = useState<string | null>(null);
   const [health, setHealth] = useState<Health>("unknown");
+  const [playing, setPlaying] = useState(false);
 
-  // Refs so the polling loop never restarts just because a frame arrived.
+  // Refs so neither loop restarts just because a frame arrived.
   const lastFrameAt = useRef(0);
   const fails = useRef(0);
   const sawTooEarly = useRef(false);
   const objectUrl = useRef<string | null>(null);
   const alive = useRef(true);
+  // Live video
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const liveUrl = useRef<string | null>(null);   // freshest tokenised url
+  const lastProgressAt = useRef(0);              // last time video really moved
+  const playingRef = useRef(false);
 
   const compute = useCallback((): Health => {
+    const now = Date.now();
+    // Video advancing is the strongest evidence a camera is alive, so it wins.
+    // Note this is `timeupdate`, i.e. the picture genuinely moved — not
+    // MANIFEST_PARSED, which is also true of a stream that then delivers
+    // nothing. That distinction is the whole point of this function.
+    if (lastProgressAt.current && now - lastProgressAt.current < VIDEO_STALL_MS) {
+      return "live";
+    }
     if (!lastFrameAt.current) {
       if (sawTooEarly.current) return "connecting";
       return fails.current >= 2 ? "down" : "unknown";
     }
     if (fails.current >= DOWN_AFTER) return "down";
-    if (Date.now() - lastFrameAt.current > intervalMs * STALE_AFTER) return "stale";
+    if (now - lastFrameAt.current > intervalMs * STALE_AFTER) return "stale";
     return "live";
   }, [intervalMs]);
 
@@ -141,9 +194,15 @@ function Tile({
       onHealth(cam.id, h);
       // Back off a failing camera instead of hammering a recorder that is
       // already struggling; recover immediately once a frame lands.
+      // While live video is genuinely playing the still is only a warm fallback
+      // for the moment the stream freezes, so poll it rarely — otherwise every
+      // tile would pay for BOTH a stream and a snapshot every 8 seconds, and on
+      // a live-only camera each snapshot is a fresh ffmpeg grab upstream.
       const wait = fails.current
         ? Math.min(intervalMs * Math.min(fails.current, 4), 30000)
-        : intervalMs;
+        : playingRef.current
+          ? Math.max(intervalMs, 30000)
+          : intervalMs;
       timer = setTimeout(poll, wait);
     }
 
@@ -161,6 +220,181 @@ function Tile({
       }
     };
   }, [cam.id, intervalMs, index, compute, onAuthExpired, onHealth]);
+
+  /* ── live video: start it, keep it tokenised, keep it honest ── */
+  useEffect(() => {
+    let hls: import("hls.js").default | null = null;
+    let cancelled = false;
+    let retryT: ReturnType<typeof setTimeout> | undefined;
+    let tokenT: ReturnType<typeof setInterval> | undefined;
+    let backoff = RETRY_MIN_MS;
+
+    const mintUrl = async (): Promise<string | null> => {
+      const res = await authedFetch(`/cameras/${cam.id}/live`);
+      if (res.status === 425) { sawTooEarly.current = true; return null; }
+      if (!res.ok) throw new Error(`live ${res.status}`);
+      const { hls_url } = (await res.json()) as { hls_url: string };
+      return hls_url;
+    };
+
+    // Replace the token path segment with the freshest one we hold. Called for
+    // every playlist and fragment request, which is what makes the stream
+    // survive token expiry without ever reloading the source.
+    const retoken = (u: string): string => {
+      const fresh = liveUrl.current;
+      if (!fresh) return u;
+      const m = /\/live\/([^/]+)\//.exec(fresh);
+      if (!m) return u;
+      return u.replace(/\/live\/[^/]+\//, `/live/${m[1]}/`);
+    };
+
+    const teardown = () => {
+      if (hls) { try { hls.destroy(); } catch { /* already gone */ } hls = null; }
+      const v = videoRef.current;
+      if (v) { try { v.pause(); } catch { /* detached */ } }
+      playingRef.current = false;
+      setPlaying(false);
+    };
+
+    async function start() {
+      if (cancelled || (typeof document !== "undefined" && document.hidden)) return;
+      try {
+        const url = await mintUrl();
+        if (cancelled) return;
+        if (!url) {                       // 425 — camera still coming online
+          retryT = setTimeout(start, RETRY_MIN_MS);
+          return;
+        }
+        liveUrl.current = url;
+        const video = videoRef.current;
+        if (!video) return;
+
+        // Safari plays HLS natively but resolves the playlist itself, so the
+        // per-request rewrite cannot apply. It reloads once per token window
+        // instead — a brief hiccup, only on Safari.
+        if (video.canPlayType("application/vnd.apple.mpegurl") === "probably") {
+          video.src = url;
+          void video.play().catch(() => {});
+          return;
+        }
+
+        const { default: Hls } = await import("hls.js");
+        if (cancelled || !videoRef.current) return;
+        // No MSE (rare) — the snapshot fallback carries the tile rather than
+        // leaving a black rectangle.
+        if (!Hls.isSupported()) return;
+
+        /* eslint-disable @typescript-eslint/no-explicit-any */
+        const Base = (Hls as any).DefaultConfig.loader;
+        class TokenLoader extends Base {
+          load(context: any, config: any, callbacks: any) {
+            if (context?.url) context.url = retoken(context.url);
+            super.load(context, config, callbacks);
+          }
+        }
+        const inst = new Hls({
+          enableWorker: true,
+          lowLatencyMode: true,
+          // Twelve players on one page, running for days: keep each buffer
+          // small so the tab's memory does not climb without bound.
+          maxBufferLength: 6,
+          backBufferLength: 10,
+          pLoader: TokenLoader as any,
+          fLoader: TokenLoader as any,
+        });
+        /* eslint-enable @typescript-eslint/no-explicit-any */
+        hls = inst;
+
+        inst.on(Hls.Events.ERROR, (_e, data) => {
+          if (!data.fatal) return;        // hls.js self-heals non-fatal errors
+          // Rebuild from scratch after a backoff. Recovering in place leaves a
+          // dead player often enough that it isn't worth it on a display nobody
+          // is watching, and one dead camera must not generate load for the
+          // other eleven — hence the cap.
+          teardown();
+          if (cancelled) return;
+          retryT = setTimeout(start, backoff);
+          backoff = Math.min(backoff * 2, RETRY_MAX_MS);
+        });
+        inst.on(Hls.Events.FRAG_BUFFERED, () => { backoff = RETRY_MIN_MS; });
+
+        inst.loadSource(url);
+        inst.attachMedia(videoRef.current);
+        void videoRef.current.play().catch(() => {});
+      } catch (e) {
+        if (e instanceof SessionExpired) { onAuthExpired(); return; }
+        if (cancelled) return;
+        retryT = setTimeout(start, backoff);
+        backoff = Math.min(backoff * 2, RETRY_MAX_MS);
+      }
+    }
+
+    // Keep a valid token in hand at all times. This is the loop that makes 24/7
+    // work; without it every tile dies at the first expiry.
+    tokenT = setInterval(() => {
+      if (cancelled || (typeof document !== "undefined" && document.hidden)) return;
+      void (async () => {
+        try {
+          const u = await mintUrl();
+          if (u && !cancelled) liveUrl.current = u;
+        } catch (e) {
+          if (e instanceof SessionExpired) onAuthExpired();
+          // Otherwise leave the old token: it is still valid for a while and the
+          // next tick may well succeed.
+        }
+      })();
+    }, TOKEN_REFRESH_MS);
+
+    // A hidden tab shows nothing, and 12 idle muxers on the cloud are pure
+    // waste — stop streaming entirely and pick it back up on return.
+    const onVis = () => {
+      if (typeof document === "undefined") return;
+      if (document.hidden) teardown();
+      else if (!hls) { backoff = RETRY_MIN_MS; void start(); }
+    };
+    document.addEventListener("visibilitychange", onVis);
+
+    // Stagger starts so a page of tiles does not hit the cloud as one burst of
+    // stream setups — the same reason the snapshot poll is staggered.
+    retryT = setTimeout(start, (index % PAGE_SIZE) * 400);
+
+    return () => {
+      cancelled = true;
+      document.removeEventListener("visibilitychange", onVis);
+      if (retryT) clearTimeout(retryT);
+      if (tokenT) clearInterval(tokenT);
+      teardown();
+      const v = videoRef.current;
+      if (v) { v.removeAttribute("src"); try { v.load(); } catch { /* detached */ } }
+    };
+  }, [cam.id, index, onAuthExpired]);
+
+  /* ── health from real playback progress, on a faster tick than the poll ── */
+  useEffect(() => {
+    const v = videoRef.current;
+    const bump = () => {
+      lastProgressAt.current = Date.now();
+      if (!playingRef.current) { playingRef.current = true; setPlaying(true); }
+    };
+    v?.addEventListener("timeupdate", bump);
+    const tick = setInterval(() => {
+      if (!alive.current) return;
+      // Frozen picture: the element may still claim to be playing, so trust the
+      // clock instead and fall back to the still.
+      if (playingRef.current &&
+          Date.now() - lastProgressAt.current > VIDEO_STALL_MS) {
+        playingRef.current = false;
+        setPlaying(false);
+      }
+      const h = compute();
+      setHealth(h);
+      onHealth(cam.id, h);
+    }, 2000);
+    return () => {
+      v?.removeEventListener("timeupdate", bump);
+      clearInterval(tick);
+    };
+  }, [cam.id, compute, onHealth]);
 
   const dot =
     health === "live" ? "bg-accent"
@@ -182,7 +416,9 @@ function Tile({
       aria-label={`${cam.name} — ${health}`}
     >
       {/* Last good frame stays on screen even when stale. A 40-second-old
-          picture tells an operator far more than a black rectangle. */}
+          picture tells an operator far more than a black rectangle. It also
+          covers the seconds before the stream starts, and reappears the moment
+          video freezes — see the opacity rule on the video below. */}
       {src && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -192,7 +428,22 @@ function Tile({
         />
       )}
 
-      {!src && (
+      {/* Live video, over the still. Revealed ONLY while frames are genuinely
+          advancing, so a stalled or black player can never hide a good picture.
+          muted + playsInline + autoPlay is what browsers require to autoplay at
+          all; pointer-events-none keeps the click on the tile button. */}
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        autoPlay
+        preload="none"
+        className={`pointer-events-none absolute inset-0 h-full w-full bg-black object-cover transition-opacity duration-300 ${
+          playing ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
+      {!src && !playing && (
         <div className="absolute inset-0 grid place-items-center px-3 text-center">
           <span className="text-[0.72rem] tracking-wide text-ink-faint">
             {health === "connecting"
