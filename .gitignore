@@ -28,3 +28,6 @@ next-env.d.ts
 
 # local dev server log
 .devserver.log
+
+.vercel
+.env*
