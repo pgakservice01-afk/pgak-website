@@ -47,13 +47,18 @@ import {
 const API = process.env.NEXT_PUBLIC_PGAK_API || "";
 
 // Tiles per page — and therefore the number of SIMULTANEOUS LIVE STREAMS this
-// wall asks the cloud for. That makes it the single most load-bearing number in
-// the file. Each tile is one HLS muxer on the cloud; for a camera the AI worker
-// already ingests the RTSP source is shared, so a tile only adds a reader, but
-// for a live-view-only camera (no worker pipeline) each tile is its own source
-// pull as well. Measure before raising it — see the capacity note in
-// [[website-live-view-2026-08-07]].
-const PAGE_SIZE = 12;
+// wall asks the cloud for. The single most load-bearing number in the file.
+//
+// 30, because the first live-view-only customer is a 30-camera site that wants
+// the whole site on one screen. That is affordable ONLY because those cameras
+// are onboarded on their SUB streams (640x360-720x480, 5.8-8.6 Mpx/s each,
+// versus 51.8 for a 1080p main): 30 subs is ~18 Mbps off the site and, where
+// the sub is already H.264, zero GPU — the ingest just copies it.
+//
+// Do NOT raise this for a full-AI customer without measuring. There, each tile
+// is a reader on a source the worker already pulls at FULL resolution, and the
+// L4's NVENC encoder was measured at 87-100% with only 14 such cameras.
+const PAGE_SIZE = 30;
 
 // Tile cadence. 8s, not 3s, and the reason is upstream: a recorder serves
 // snapshots one at a time (measured ~450-500ms each on a Dahua), so a page of
@@ -294,10 +299,21 @@ function Tile({
         }
         const inst = new Hls({
           enableWorker: true,
-          lowLatencyMode: true,
-          // Twelve players on one page, running for days: keep each buffer
-          // small so the tab's memory does not climb without bound.
-          maxBufferLength: 6,
+          // NOT low-latency, deliberately — and this is the opposite choice to
+          // the Focus player below. LL-HLS fetches a partial segment roughly
+          // every 0.28s, so 30 tiles would sit at ~105 requests/second through
+          // Caddy and MediaMTX, sustained, 24/7. Ordinary HLS is ~15 req/s for
+          // the same wall: 7x lighter, at a 5-10s delay nobody notices on a
+          // monitoring grid. Click a tile and Focus opens it at ~1s, which is
+          // where latency actually matters.
+          // (The server still serves lowLatency HLS; an ordinary client simply
+          // reads the full #EXTINF segments and ignores the parts.)
+          lowLatencyMode: false,
+          // 30 players on one page, running for days: keep each buffer small so
+          // the tab's memory does not climb without bound. 12s is ~3-6 segments
+          // at the 2-4s the cameras produce — enough to ride a hiccup, not
+          // enough to hoard.
+          maxBufferLength: 12,
           backBufferLength: 10,
           pLoader: TokenLoader as any,
           fLoader: TokenLoader as any,
@@ -522,8 +538,11 @@ function Focus({
                       "यह ब्राउज़र यह स्ट्रीम नहीं चला सकता।"));
           return;
         }
-        // lowLatencyMode costs nothing when the server serves plain HLS and is
-        // worth ~11 seconds when it serves LL-HLS.
+        // ON here, deliberately, where it is OFF for the grid tiles: this is one
+        // stream that someone has chosen to watch, so ~1s beats ~8s and the
+        // extra request rate is a single player's worth. Worth ~11 seconds
+        // against plain HLS, and it costs nothing if the server ever serves
+        // plain HLS again.
         const inst = new Hls({ enableWorker: true, lowLatencyMode: true });
         hls = inst;
         inst.on(Hls.Events.ERROR, (_e, data) => {
@@ -761,7 +780,10 @@ export default function WallClient() {
 
         {cams && cams.length > 0 && (
           <>
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+            {/* Up to PAGE_SIZE tiles at once. 6 columns on a large screen puts
+                a 30-camera site on one 5-row grid, which is the layout that
+                customer is buying; narrower screens fall back gracefully. */}
+            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6">
               {shown.map((cam, i) => (
                 <Tile
                   key={cam.id}
