@@ -109,3 +109,82 @@ cannot be done from the repo:
 
 **Do not** redirect the spam URLs to the homepage. It reads as a soft 404 and
 carries the spam association onto the page you most want to protect.
+
+---
+
+## 6. Rotating the leaked ERP webhook secret (owner action required)
+
+**The problem.** The dealer form used to POST straight from the browser to the
+ERP, carrying `NEXT_PUBLIC_WEBHOOK_SECRET`. Next.js inlines `NEXT_PUBLIC_*` at
+**build** time, so that secret shipped inside the public JavaScript bundle. It
+was verified readable in the deployed chunk on 2026-08-10, after **44 days**
+live on the production domain. Anyone who viewed source could post unlimited
+fake leads into the CRM, which auto-assigns them to real dealers.
+
+Checked at the time: **no abuse had occurred** — max 5 leads/day, all across
+distinct districts. So this is precautionary, not incident recovery. But the
+value must still be treated as compromised: it was public for six weeks, and
+anyone who scraped it then still holds it.
+
+**Moving it server-side is not enough on its own.** `app/api/leads/route.ts`
+now relays server-to-server so no future build can inline it — but the old
+value stays valid at the ERP until it is rotated. Both halves are required.
+
+### The ordering, and why it is what it is
+
+Two constraints make the order non-obvious. Env vars are inlined at **build**
+time, so a variable change does nothing until a redeploy. And browser tabs left
+open across the change still run the **old** bundle, posting *directly* to the
+ERP with the *old* secret. So the ERP must keep accepting the old secret until
+those drain — otherwise you break the customers who were mid-form.
+
+The route reads `ERP_WEBHOOK_SECRET` but **falls back to
+`NEXT_PUBLIC_WEBHOOK_SECRET`**, purely so step 1 can ship without a
+simultaneous env change. That fallback is temporary; step 6 removes it.
+
+1. **Merge and deploy this branch.** Nothing else changes yet — the route picks
+   up the existing `NEXT_PUBLIC_*` values via the fallback, so leads keep
+   flowing through the new server-side path from the first request. Verify:
+   `curl https://www.pgak.co.in/api/leads` → `{"ok":true,"erp":true,...}`, then
+   submit one real lead and confirm the CRM row appears.
+2. **Set the alert sink** (see `.env.example`): `LEAD_ALERT_TELEGRAM_TOKEN` and
+   `LEAD_ALERT_TELEGRAM_CHAT_ID` in Vercel → Production **and** Preview.
+   Redeploy. Verify `curl .../api/leads` now returns `"notify":true`. Until
+   this is set, a lead the ERP refuses exists only in a Vercel function log
+   (~1h retention on Hobby).
+3. **Add the server-only vars, still holding the OLD secret value.** In Vercel,
+   `ERP_LEADS_ENDPOINT=https://erp.pgak.co.in/api/leads/inbound` and
+   `ERP_WEBHOOK_SECRET=<the old value>`. Redeploy. Nothing changes
+   behaviourally — this just stops the route depending on the fallback.
+   ⚠️ Paste carefully: a trailing newline makes an invalid HTTP header and
+   `fetch` throws before the request leaves. The route detects this and logs
+   `LEAD_CONFIG_MALFORMED` rather than letting it look like an ERP outage.
+4. **At the ERP, accept BOTH secrets.** Add the new value while continuing to
+   accept the old one. Mint it with `openssl rand -hex 32`. Deploy the ERP.
+   Verify one lead still lands from the live site (which is still sending the
+   old value).
+5. **Switch the website to the new secret.** Update `ERP_WEBHOOK_SECRET` in
+   Vercel → redeploy → submit one lead → confirm the CRM row. If the ERP starts
+   rejecting, the route logs `LEAD_ERP_AUTH_FAILED` and pushes a distinctly
+   worded alert, so a botched rotation is loud rather than silent.
+6. **After 7 days**, stop accepting the old secret at the ERP, and delete
+   `NEXT_PUBLIC_ERP_ENDPOINT` and `NEXT_PUBLIC_WEBHOOK_SECRET` from Vercel.
+   **This is the step that actually closes the exposure.** Seven days lets any
+   long-open tab drain; the ERP's logs will show whether the old secret is
+   still being presented.
+
+**Rollback:** before step 5, redeploy the previous deployment — the old bundle
+still works because the ERP still accepts the old secret. After step 6, use
+Vercel → Deployments → **Instant Rollback**, never a rebuild: a rebuild with the
+`NEXT_PUBLIC_*` vars deleted would inline the placeholder string.
+
+### Also worth doing
+- **`META_PAGE_ACCESS_TOKEN`** is set in Vercel but referenced nowhere in this
+  repo. Either it belongs to something that no longer exists, or it is a live
+  credential sitting unused. Delete it or document it.
+- **Verify `pgak.co.in` in Meta Business Manager** and enable the Events Manager
+  domain allowlist. `FB_PIXEL_ID` is in this public repo, so without it anyone
+  can inject fake `Lead` conversions and quietly skew the ad budget.
+- **Drop the CORS header** from the ERP's `/api/leads/inbound` once step 6 is
+  done. The endpoint is server-to-server now; no browser should ever call it,
+  and removing it makes browser-based abuse structurally impossible.
