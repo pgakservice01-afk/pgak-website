@@ -117,21 +117,49 @@ export default function NumbersStrip() {
   );
 }
 
-/** Counts 0 → target the first time it scrolls into view. */
+/**
+ * Counts 0 → target the first time it scrolls into view.
+ *
+ * ⚠️ The initial state is `target`, not 0, and that is load-bearing — these six
+ * numbers are the page's strongest proof points, and every one of them used to
+ * ship as a zero. This component renders on the server, so `useState(0)` put
+ * literally `0 % Fewer false alarms`, `< 0 sec` and `0×7` into the prerendered
+ * HTML. Anything reading the page without executing JS — LLM crawlers, social
+ * unfurlers, a reader on a failed bundle — saw the claims inverted.
+ *
+ * So the resting value is the true one, and the animation is layered on top:
+ * it drops to 0 only at the moment it is committed to counting back up. That
+ * ordering also means a visitor who never triggers the animation still sees the
+ * right number, which matters more than it sounds:
+ *
+ *   - deep-link or find-in-page jump landing BELOW this section → it never
+ *     intersects, `inView` stays false, and the numbers simply stay correct.
+ *     (Under the old code that path left them at 0 for a real human.)
+ *   - reduced-motion → no animation at all, just the numbers.
+ *
+ * Same instinct as Reveal's "visible-without-animation beats invisible": here,
+ * correct-without-animation beats wrong-with-animation.
+ */
 function CountUp({ target }: { target: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [n, setN] = useState(0);
+  // Positive margin on purpose: this fires ~200px BEFORE the element reaches
+  // the viewport, which is earlier than Reveal's own 0.88×vh trigger. The
+  // count is therefore already running by the time Reveal fades the tile in,
+  // so the drop to 0 happens while the tile is still transparent. A trigger
+  // later than Reveal's would show the true number and then visibly snap back.
+  const inView = useInView(ref, { once: true, margin: "200px" });
+  const [n, setN] = useState(target);
 
   useEffect(() => {
-    if (!inView) return;
-    if (target === 0) {
-      setN(0);
-      return;
-    }
+    if (!inView || target === 0) return;
+    // Read at animation time rather than via state — no extra render, and no
+    // window of "animating before we knew the user opted out".
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const duration = 1100;
     const start = performance.now();
     let raf = 0;
+    setN(0);
     const tick = (now: number) => {
       const p = Math.min((now - start) / duration, 1);
       // ease-out cubic
