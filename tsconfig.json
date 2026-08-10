@@ -12,6 +12,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    // `lib/spamUrls.test.ts` runs under Node's native type stripping
+    // (`npm run test:middleware`), and Node requires the explicit `.ts`
+    // extension on a relative import. Safe here because `noEmit` is on —
+    // tsc only ever type-checks this project, it never emits JS.
+    "allowImportingTsExtensions": true,
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": { "@/*": ["./*"] }
