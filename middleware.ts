@@ -30,10 +30,16 @@ export function middleware(request: NextRequest) {
 }
 
 /**
- * Skips build assets, images and the SEO files, so this costs nothing on the
- * paths that serve real traffic. The trailing `.[ext]` clause is what keeps
- * every file in /public out of the middleware.
+ * Skips build assets, images, the SEO files and `/api/`, so this costs nothing
+ * on the paths that serve real traffic. The trailing `.[ext]` clause is what
+ * keeps every file in /public out of the middleware.
+ *
+ * `/api/` is excluded because no spam URL ever lived there — the WordPress
+ * posts were all root-level — so running this on the lead route would burn an
+ * invocation per submission to answer "not spam". Adding a term to a negative
+ * lookahead can only make the middleware match less, never more, so it cannot
+ * put a real page at risk.
  */
 export const config = {
-  matcher: ["/((?!_next/|favicon|robots\\.txt|sitemap\\.xml|.*\\.[a-zA-Z0-9]+$).*)"],
+  matcher: ["/((?!api/|_next/|favicon|robots\\.txt|sitemap\\.xml|.*\\.[a-zA-Z0-9]+$).*)"],
 };

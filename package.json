@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "test:middleware": "node --experimental-strip-types --test lib/spamUrls.test.ts"
+    "test:middleware": "node --experimental-strip-types --test lib/spamUrls.test.ts",
+    "test:leads": "node --experimental-strip-types --test lib/leads.test.ts",
+    "test": "npm run test:middleware && npm run test:leads"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

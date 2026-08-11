@@ -1,83 +1,137 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Reveal from "@/components/Reveal";
 import IndiaNetwork from "@/components/illustrations/IndiaNetwork";
 import { fbTrack } from "@/lib/fbpixel";
 import { trackLead } from "@/lib/analytics";
+import { HONEYPOT_FIELD, PROTECT_OPTIONS, type FieldErrors } from "@/lib/leads";
 
 /**
- * Dealer / lead form — posts to the PGAK ERP leads webhook, exactly as the
- * original static site did. Configure these in `.env.local`:
+ * Dealer / lead form.
  *
- *   NEXT_PUBLIC_ERP_ENDPOINT=https://erp.pgak.co.in/api/leads/inbound
- *   NEXT_PUBLIC_WEBHOOK_SECRET=your-secret
+ * Posts to our own `/api/leads`, which relays to the ERP server-side. It used
+ * to POST to the ERP directly from the browser carrying the webhook secret —
+ * `NEXT_PUBLIC_*` is inlined at build time, so that secret was readable in the
+ * public bundle. See app/api/leads/route.ts.
  *
- * Note: anything NEXT_PUBLIC_* is visible in the browser bundle — same as the
- * original inline script. Treat the webhook secret as low-sensitivity / rotate
- * it, or move lead submission behind a server route if you need it hidden.
+ * ── The behaviour that matters ──
+ * A lead here is worth thousands of rupees, so **nothing in this component may
+ * destroy one**. Concretely:
+ *
+ *   - The inputs are UNCONTROLLED and the <form> stays mounted through every
+ *     failure, so whatever the customer typed is still on screen. Only a
+ *     confirmed success swaps it for the thank-you panel.
+ *   - Any non-success offers WhatsApp and phone, prefilled with what they
+ *     typed, so a customer facing an outage is one tap from reaching a human.
+ *     For Indian SMB buyers that is where the conversation was heading anyway.
+ *   - `ref` is minted once per form instance and reused on retry, so pressing
+ *     "Try again" cannot create a second CRM row and a second dealer call.
+ *   - Conversions fire ONCE, only on a server-confirmed CRM row. Meta optimises
+ *     ad spend on these, so counting a failed or fake lead spends real money
+ *     chasing people who do not exist.
  */
-const ERP_ENDPOINT =
-  process.env.NEXT_PUBLIC_ERP_ENDPOINT ?? "REPLACE_WITH_YOUR_ERP_URL/api/leads/inbound";
-const WEBHOOK_SECRET =
-  process.env.NEXT_PUBLIC_WEBHOOK_SECRET ?? "REPLACE_WITH_YOUR_WEBHOOK_SECRET";
 
-const PROTECT_OPTIONS = [
-  "Home / Apartment",
-  "Shop / Retail",
-  "Office",
-  "Warehouse / Industrial",
-  "Multiple sites",
-];
+/** Prefilled human fallback, used whenever the automated path did not deliver. */
+function whatsappHref(v: {
+  name: string;
+  phone: string;
+  location: string;
+  protecting: string;
+}) {
+  const text =
+    `Hi PGAK, I tried the website form but it didn't go through.\n\n` +
+    `Name: ${v.name}\nPhone: ${v.phone}\nCity: ${v.location}\n` +
+    `Protecting: ${v.protecting}`;
+  return `https://wa.me/916283993600?text=${encodeURIComponent(text)}`;
+}
 
-type Status = "idle" | "sending" | "done" | "error";
+type Status = "idle" | "sending" | "done" | "fallback";
 
 export default function DealerForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [retryable, setRetryable] = useState(true);
+  const [typed, setTyped] = useState({
+    name: "",
+    phone: "",
+    location: "",
+    protecting: PROTECT_OPTIONS[0] as string,
+  });
+
+  // Stable for the component's lifetime, so a retry reuses it and the ERP can
+  // collapse the duplicate rather than assigning two dealers to one customer.
+  const refRef = useRef<string | null>(null);
+  if (refRef.current === null) {
+    refRef.current =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : String(Math.random()).slice(2);
+  }
+  const converted = useRef(false);
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    setStatus("sending");
-    setError("");
 
-    const payload = {
+    const values = {
       name: String(data.get("name") ?? "").trim(),
       phone: String(data.get("phone") ?? "").trim(),
-      district: String(data.get("location") ?? "").trim(),
-      email: "", // form doesn't collect email — admin captures later
-      message: `Protecting: ${data.get("protecting")} | Submitted: ${new Date().toISOString()}`,
-      source: `Website (${typeof window !== "undefined" ? window.location.hostname : "pgak.co.in"})`,
+      location: String(data.get("location") ?? "").trim(),
+      protecting: String(data.get("protecting") ?? PROTECT_OPTIONS[0]),
     };
+    setTyped(values);
+    setStatus("sending");
+    setFieldErrors({});
 
     try {
-      const res = await fetch(ERP_ENDPOINT, {
+      const res = await fetch("/api/leads", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Webhook-Secret": WEBHOOK_SECRET,
-        },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          [HONEYPOT_FIELD]: String(data.get(HONEYPOT_FIELD) ?? ""),
+          ref: refRef.current,
+        }),
+        // Lets the request finish even if the customer navigates away the
+        // instant after tapping — a real behaviour on slow mobile connections.
+        keepalive: true,
       });
-      if (!res.ok) throw new Error(`Server responded ${res.status}`);
-      setStatus("done");
-      // Meta Pixel conversion — lets the ad engine optimise spend toward people
-      // who actually request a dealer/demo.
-      fbTrack("Lead", {
-        content_name: "Dealer / Demo Request",
-        currency: "INR",
-      });
-      // GA4 / GTM conversion. Fires only on a successful POST, so the metric
-      // counts leads that reached the ERP rather than buttons that were clicked.
-      trackLead("dealer_demo_request", {
-        protecting: String(data.get("protecting") ?? ""),
-        district: payload.district,
-      });
-    } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Unknown error");
+
+      const body = (await res.json().catch(() => ({}))) as {
+        delivered?: boolean;
+        fieldErrors?: FieldErrors;
+        retryable?: boolean;
+      };
+
+      if (body.fieldErrors && Object.keys(body.fieldErrors).length > 0) {
+        // Recoverable and the customer's to fix — not a failure state.
+        setFieldErrors(body.fieldErrors);
+        setStatus("idle");
+        return;
+      }
+
+      if (res.ok && body.delivered) {
+        setStatus("done");
+        if (!converted.current) {
+          converted.current = true;
+          fbTrack("Lead", { content_name: "Dealer / Demo Request", currency: "INR" });
+          trackLead("dealer_demo_request", {
+            protecting: values.protecting,
+            district: values.location,
+          });
+        }
+        return;
+      }
+
+      setRetryable(body.retryable !== false);
+      setStatus("fallback");
+    } catch {
+      // Network died before we got any answer. The lead may or may not have
+      // landed; either way the customer keeps their data and a way through.
+      setRetryable(true);
+      setStatus("fallback");
     }
   }
 
@@ -124,60 +178,107 @@ export default function DealerForm() {
               </p>
             </div>
           ) : (
-            <form onSubmit={submit} className="flex flex-col gap-3.5">
-              <Field label="Your name">
-                <input
-                  required
-                  type="text"
-                  name="name"
-                  placeholder="Full name"
-                  className="field-input"
-                />
-              </Field>
-              <Field label="Phone / WhatsApp">
-                <input
-                  required
-                  type="tel"
-                  name="phone"
-                  placeholder="+91"
-                  className="field-input"
-                />
-              </Field>
-              <Field label="City / PIN code">
-                <input
-                  required
-                  type="text"
-                  name="location"
-                  placeholder="e.g. Ludhiana / 141001"
-                  className="field-input"
-                />
-              </Field>
-              <Field label="What are you protecting?">
-                <select name="protecting" className="field-input">
-                  {PROTECT_OPTIONS.map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
-              </Field>
-              <button
-                type="submit"
-                data-cta="dealer-form-submit"
-                disabled={status === "sending"}
-                className="btn btn-primary mt-1.5 w-full disabled:opacity-60"
-              >
-                {status === "sending"
-                  ? "Sending…"
-                  : status === "error"
-                    ? "Try again"
-                    : "Connect me with a dealer"}
-              </button>
-              {status === "error" && (
-                <p className="text-center text-[0.82rem] text-danger">
-                  Sorry, something went wrong — please call us or try again.
-                  {error ? ` (${error})` : ""}
-                </p>
+            <div className="flex flex-col gap-3.5">
+              {/* The form is never unmounted on failure — everything typed
+                  stays exactly where the customer left it. */}
+              <form onSubmit={submit} className="flex flex-col gap-3.5">
+                <Field label="Your name" error={fieldErrors.name}>
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    placeholder="Full name"
+                    className="field-input"
+                  />
+                </Field>
+                <Field label="Phone / WhatsApp" error={fieldErrors.phone}>
+                  <input
+                    required
+                    type="tel"
+                    name="phone"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    placeholder="+91"
+                    className="field-input"
+                  />
+                </Field>
+                <Field label="City / PIN code" error={fieldErrors.location}>
+                  <input
+                    required
+                    type="text"
+                    name="location"
+                    placeholder="e.g. Ludhiana / 141001"
+                    className="field-input"
+                  />
+                </Field>
+                <Field label="What are you protecting?">
+                  <select name="protecting" className="field-input">
+                    {PROTECT_OPTIONS.map((o) => (
+                      <option key={o}>{o}</option>
+                    ))}
+                  </select>
+                </Field>
+
+                {/* Honeypot. Hidden from people and assistive tech, reachable
+                    by naive bots. Named so no password manager autofills it —
+                    see HONEYPOT_FIELD. */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label>
+                    Website
+                    <input
+                      type="text"
+                      name={HONEYPOT_FIELD}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  data-cta="dealer-form-submit"
+                  disabled={status === "sending"}
+                  className="btn btn-primary mt-1.5 w-full disabled:opacity-60"
+                >
+                  {status === "sending"
+                    ? "Sending…"
+                    : status === "fallback"
+                      ? "Try again"
+                      : "Connect me with a dealer"}
+                </button>
+              </form>
+
+              {status === "fallback" && (
+                <div className="rounded-xl border border-danger/30 bg-danger/[0.06] p-4 text-center">
+                  <p className="text-[0.9rem] font-semibold text-ink">
+                    We couldn&rsquo;t submit that just now.
+                  </p>
+                  <p className="mt-1 text-[0.82rem] text-ink-soft">
+                    Your details are still here
+                    {retryable ? " — tap “Try again”, or reach us directly:" : " — reach us directly:"}
+                  </p>
+                  <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-center">
+                    <a
+                      href={whatsappHref(typed)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cta="dealer-form-whatsapp-fallback"
+                      className="btn btn-primary"
+                    >
+                      Send on WhatsApp
+                    </a>
+                    <a
+                      href="tel:+916283993600"
+                      data-cta="dealer-form-call-fallback"
+                      className="btn btn-ghost"
+                    >
+                      Call +91 62839 93600
+                    </a>
+                  </div>
+                </div>
               )}
-            </form>
+            </div>
           )}
         </Reveal>
       </div>
@@ -187,9 +288,11 @@ export default function DealerForm() {
 
 function Field({
   label,
+  error,
   children,
 }: {
   label: string;
+  error?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -198,6 +301,7 @@ function Field({
         {label}
       </span>
       {children}
+      {error && <span className="text-[0.78rem] text-danger">{error}</span>}
     </label>
   );
 }
