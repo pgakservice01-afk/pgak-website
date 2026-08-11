@@ -3,7 +3,20 @@ import { Sora, Fraunces } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const GA_ID = "G-6EMP9HSR2F";
+/**
+ * GA4 measurement IDs, in order. Every one of them receives the same hits.
+ *
+ * ⚠️ Google's setup screen warns "Don't add more than one Google tag to each
+ * page" — that rule is about loading `gtag.js` more than once, not about how
+ * many properties it reports to. So there is still exactly ONE loader script
+ * below (keyed to the first id), and each additional property is added with
+ * its own `gtag('config', …)` call. That is Google's supported way to send one
+ * page's traffic to several properties, and it avoids the duplicated pageviews
+ * a second loader would cause.
+ *
+ * To retire a property, delete its id here — nothing else needs to change.
+ */
+const GA_IDS = ["G-6EMP9HSR2F", "G-MBYGPSVJ1Z"] as const;
 const GTM_ID = "GTM-MKZWLS7J";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
@@ -135,16 +148,16 @@ export default function RootLayout({
         <Pixel />
         <Analytics />
 
-        {/* Google tag (GA4) */}
+        {/* Google tag (GA4) — one loader, one `config` per property. */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_IDS[0]}`}
           strategy="afterInteractive"
         />
         <Script id="ga4-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
+${GA_IDS.map((id) => `gtag('config', '${id}');`).join("\n")}`}
         </Script>
 
         {/* Microsoft Clarity — behaviour analytics. Only loads when the env
