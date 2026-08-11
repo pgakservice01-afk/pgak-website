@@ -37,8 +37,8 @@ import {
  * url is good for 300-600s and then dies. On a wall left running that is fatal:
  * every tile would break within ten minutes. Re-calling /live and
  * loadSource()-ing the new url would work but re-buffers each tile every few
- * minutes — across 12 staggered tiles that is a visible hiccup somewhere on the
- * wall every ~25 seconds. Instead we hold the freshest url in a ref, re-mint it
+ * minutes — across 30 staggered tiles that is a visible hiccup somewhere on the
+ * wall every ~10 seconds. Instead we hold the freshest url in a ref, re-mint it
  * well inside the window, and rewrite the token path segment on every playlist
  * and fragment request. Playback is never interrupted.
  */
@@ -60,11 +60,14 @@ const API = process.env.NEXT_PUBLIC_PGAK_API || "";
 // L4's NVENC encoder was measured at 87-100% with only 14 such cameras.
 const PAGE_SIZE = 30;
 
-// Tile cadence. 8s, not 3s, and the reason is upstream: a recorder serves
-// snapshots one at a time (measured ~450-500ms each on a Dahua), so a page of
-// tiles asking faster than it can answer produces stale tiles that look like a
-// camera fault when it is really us over-asking. 12 tiles / 8s = 1.5 req/s sits
-// inside that. Raise it only after measuring the site's own recorder.
+// Snapshot cadence — the FALLBACK still, not the video. 8s, not 3s, and the
+// reason is upstream: a recorder serves snapshots one at a time (measured
+// ~450-500ms each on a Dahua), so a page of tiles asking faster than it can
+// answer produces stale tiles that look like a camera fault when it is really
+// us over-asking. At PAGE_SIZE 30 that is 3.75 req/s, which is already at the
+// edge of what one recorder answers — and it is why the poll drops to >=30s as
+// soon as video is genuinely playing. Raise it only after measuring the site's
+// own recorder.
 const REFRESH_MS = 8000;
 const SLOW_MS = 30000;     // ...after IDLE_MS with no interaction
 const IDLE_MS = 5 * 60 * 1000;
@@ -84,7 +87,7 @@ const VIDEO_STALL_MS = 6000;
 
 // Backoff between attempts to (re)start a stream that failed. Capped so a camera
 // that is genuinely down is retried occasionally rather than hammered — one dead
-// camera must not generate load for the other eleven.
+// camera must not generate load for the other twenty-nine.
 const RETRY_MIN_MS = 3000;
 const RETRY_MAX_MS = 60000;
 
@@ -309,11 +312,30 @@ function Tile({
           // (The server still serves lowLatency HLS; an ordinary client simply
           // reads the full #EXTINF segments and ignores the parts.)
           lowLatencyMode: false,
-          // 30 players on one page, running for days: keep each buffer small so
-          // the tab's memory does not climb without bound. 12s is ~3-6 segments
-          // at the 2-4s the cameras produce — enough to ride a hiccup, not
-          // enough to hoard.
-          maxBufferLength: 12,
+          // ── Tuned for CONTINUITY, not latency (owner's call 2026-08-09):
+          // "10-15 seconds delay is fine, but it must not buffer or lag."
+          //
+          // So sit a long way BEHIND the live edge on purpose. Distance from the
+          // edge is runway: the further back we play, the longer a stream that
+          // briefly produces slower than real time can be absorbed without the
+          // picture ever stopping. hls.js defaults to ~3 target durations (~6s),
+          // which is close enough to the edge that a small dip starves it — that
+          // is what made tiles die after 15-20s under low-latency mode.
+          //
+          // Set in SECONDS, not segment counts, because segment length is not
+          // fixed: an AI camera's ingest forces 2s keyframes while a live-only
+          // camera is copied at its own ~4s GOP, so a count would mean very
+          // different delays on different boxes.
+          liveSyncDuration: 12,
+          // Only jump forward if we fall this far behind. Must stay well above
+          // liveSyncDuration — a tight value makes hls.js seek to the edge to
+          // "catch up", which is itself a visible jump AND lands us back in the
+          // starvation zone we just left.
+          liveMaxLatencyDuration: 30,
+          // Has to be able to actually HOLD the cushion above; 12s of buffer
+          // while trying to stay 12s back leaves nothing in hand. ~600 kbps sub
+          // streams x 30s x 30 tiles is on the order of 65 MB, which is fine.
+          maxBufferLength: 30,
           backBufferLength: 10,
           pLoader: TokenLoader as any,
           fLoader: TokenLoader as any,
