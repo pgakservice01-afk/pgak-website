@@ -153,6 +153,40 @@ test("protected content roots are immune regardless of slug", () => {
   );
 });
 
+/**
+ * A second wave, read off the live Search Console index report on 2026-08-11.
+ * The farm turned out to span Russian, Swedish, Slovak, Polish and German too.
+ * Copied verbatim from the report, not invented.
+ */
+const SPAM_URLS_ROUND_2 = [
+  "/1win-skacat-prilozenie-bukmekerskoi-kontory2019-2",
+  "/onlain-2026-goda-bolsoi-vybor-slotov-i-bonusov1340",
+  "/kazino-oficialnyi-sait-pin-up-casino-vxodi-i-igrai5041",
+  "/online-casino-utan-svensk-licens-casino-utan-spelpaus1585",
+  "/mostbet-aviator-crash-game1354-2",
+  "/anpassungen-und-spannung-beim-glucksspiel-mit-chicken-road",
+  "/ako-si-vybrat-spolahlive-zahranicne-online-kasino-zo-slovenska",
+  "/spinmama-casino-szybkie-obroty-i-natychmiastowe-wy",
+];
+
+test("410s the second wave found in Search Console", () => {
+  for (const url of SPAM_URLS_ROUND_2) {
+    assert.equal(isSpamPath(url), true, `should be spam: ${url}`);
+  }
+});
+
+test("unambiguous foreign/brand terms bypass the hyphen gate", () => {
+  // The gate exists to protect plausible ENGLISH routes. It was also blocking
+  // short spam: these two have 4 and 5 hyphens and were missed before tier 2.
+  assert.equal(isSpamPath("/mostbet-aviator-crash-game1354-2"), true);
+  assert.equal(
+    isSpamPath("/1win-skacat-prilozenie-bukmekerskoi-kontory2019-2"),
+    true,
+  );
+  // ...while ambiguous English vocabulary is still gated.
+  assert.equal(isSpamPath("/ai-cctv-for-hotels-and-casinos"), false);
+});
+
 test("short route-shaped slugs are exempt even with spam vocabulary", () => {
   // The hyphen gate, stated directly: length is what separates an article slug
   // from a route slug. Five hyphens is still route-shaped; seven is not.

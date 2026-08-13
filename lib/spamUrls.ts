@@ -38,17 +38,19 @@ const PROTECTED_ROOTS = [
 ];
 
 /**
- * Vocabulary unique to the injected content. Whole words or distinctive foreign
- * stems only.
+ * TIER 1 — English gambling vocabulary that a legitimate page could also use.
  *
- * Two words needed care because they have innocent English uses:
+ * Casinos are a real surveillance vertical, so `/ai-cctv-for-casinos` is a page
+ * PGAK could plausibly ship. Everything in this list is therefore gated behind
+ * MIN_SLUG_HYPHENS as well.
+ *
+ * Two words needed extra care:
  *   `slots` — `/time-slot-booking` must stay a plain 404, so `slots` counts
  *             only next to a gambling qualifier (`online-slots`, `free-slots`).
  *   `reels` — `/instagram-reels` is a plausible future marketing page, so only
  *             the spam's actual title form `spinning-the-reels` is matched.
  */
-const SPAM_PATTERNS: readonly RegExp[] = [
-  // ── English ──
+const AMBIGUOUS_PATTERNS: readonly RegExp[] = [
   /\bcasino/i,
   /\bgambl/i, // gambling, gambler
   /\bwagering\b/i,
@@ -63,27 +65,67 @@ const SPAM_PATTERNS: readonly RegExp[] = [
   /spinning-the-reels/i,
   /(^|-)(online|casino|free|video|classic|fruit|pokie|vegas)-slots?(-|$)/i,
   /(^|-)slots?-(online|casino|games?|bonus)(-|$)/i,
+];
+
+/**
+ * TIER 2 — terms that can only ever be gambling spam on this domain.
+ *
+ * Foreign-language gambling words and betting-brand names. An AI-CCTV company
+ * in Ludhiana will never ship a route containing `glucksspiel`, `bukmeker` or
+ * `mostbet`, so these need no hyphen gate and are matched on sight.
+ *
+ * ⚠️ That exemption is the point. The gate was added to protect plausible
+ * English routes, but it also blocked real spam that happened to be short:
+ * `/mostbet-aviator-crash-game1354-2` has 4 hyphens and
+ * `/1win-skacat-prilozenie-bukmekerskoi-kontory2019-2` has 5, so both slipped
+ * under it. Splitting the vocabulary by ambiguity fixes that without weakening
+ * the protection where it is actually needed.
+ *
+ * Sampled from the live Search Console index report on 2026-08-11 — the
+ * injected farm turned out to span Russian, Swedish, Slovak, Polish and German
+ * as well as the languages found in the first pass.
+ */
+const UNAMBIGUOUS_PATTERNS: readonly RegExp[] = [
   // ── German / Austrian / Swiss ──
   /spielautomat/i,
   /freispiele/i,
   /online-spiel/i,
+  /gl(u|ü)cksspiel/i,
   // ── Italian ──
   /azzardo/i,
   /scommesse/i,
   // ── French ──
   /jeu-de-casino/i,
   /jeux-de-hasard/i,
-  /casinia/i,
   // ── Danish / Norwegian / Swedish ──
   /online-spil/i,
   /spilleautomat/i,
-  // ── Czech / Polish ──
+  /spelpaus/i,
+  /utan-svensk-licens/i,
+  // ── Czech / Slovak / Polish ──
   /synottip/i,
   /kasyno/i,
   /kasino/i,
+  // ── Russian / Ukrainian (transliterated) ──
+  /kazino/i,
+  /bukmeker/i, // bukmekerskoi kontory = bookmaker's office
+  /slotov/i, // genitive plural of "slots"
+  /igrovye-avtomat/i, // slot machines
+  /stavki-na-sport/i, // sports betting
   // ── Spanish ──
   /tragaperras/i,
   /(^|-)apuestas(-|$)/i,
+  // ── Operator brands. Endless by nature; these are the ones actually
+  //    observed in this domain's index. Add on sight, never speculatively. ──
+  /casinia/i,
+  /(^|-)1win(-|$)/i,
+  /(^|-)1xbet(-|$)/i,
+  /mostbet/i,
+  /melbet/i,
+  /parimatch/i,
+  /spinmama/i,
+  /pin-up-casino/i,
+  /aviator-crash-game/i,
 ];
 
 /**
@@ -118,8 +160,13 @@ export function isSpamPath(pathname: string): boolean {
     return false;
   }
 
+  // Tier 2 needs no length gate — nothing legitimate here can contain these.
+  if (UNAMBIGUOUS_PATTERNS.some((re) => re.test(pathname))) return true;
+
+  // Tier 1 is English vocabulary a real page might share, so it must also look
+  // like an article slug rather than a route slug.
   const hyphens = (pathname.match(/-/g) ?? []).length;
   if (hyphens < MIN_SLUG_HYPHENS) return false;
 
-  return SPAM_PATTERNS.some((re) => re.test(pathname));
+  return AMBIGUOUS_PATTERNS.some((re) => re.test(pathname));
 }
