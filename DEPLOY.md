@@ -48,14 +48,21 @@ Open http://localhost:3000 and confirm the hero image shows.
 5. After it deploys, go to **Project → Settings → Domains** and add `pgak.co.in` / `www.pgak.co.in`.
 
 ## 3. Environment variables (required for the "Find a dealer" form)
-In **Vercel → Project → Settings → Environment Variables**, add (Production + Preview):
+In **Vercel → Project → Settings → Environment Variables**, add (Production):
 
 | Name | Value |
 |---|---|
-| `NEXT_PUBLIC_ERP_ENDPOINT` | `https://erp.pgak.co.in/api/leads/inbound` |
-| `NEXT_PUBLIC_WEBHOOK_SECRET` | *your real webhook secret* |
+| `ERP_LEADS_ENDPOINT` | `https://erp.pgak.co.in/api/leads/inbound` |
+| `ERP_WEBHOOK_SECRET` | *the webhook secret — must match `WORDPRESS_WEBHOOK_SECRET` on the `pgak-erp` Vercel project* |
 
-Redeploy after adding them. Without these, the dealer lead form won't reach the ERP.
+⚠️ **Server-only names, deliberately.** These have NO `NEXT_PUBLIC_` prefix so
+they never enter the browser bundle — the previous `NEXT_PUBLIC_WEBHOOK_SECRET`
+was readable in the shipped JavaScript for 44 days (see §6). Never put a
+credential behind a `NEXT_PUBLIC_` prefix.
+
+Redeploy after adding them. Without these, the dealer lead form falls back to
+WhatsApp for every submission (the site still works; leads just don't reach the
+CRM automatically). `GET /api/leads` answers `{"erp":true}` when they are set.
 (For local testing, copy `.env.example` to `.env.local` and fill the same values.)
 
 ## 4. Verify after deploy
