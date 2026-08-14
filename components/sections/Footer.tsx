@@ -17,6 +17,7 @@ type FooterLink = {
 
 const COMPANY: FooterLink[] = [
   { t: "How it works", tHi: "कैसे काम करता है", href: "/#how" },
+  { t: "Solutions", tHi: "समाधान", href: "/solutions" },
   { t: "Features", tHi: "विशेषताएँ", href: "/features" },
   { t: "Pricing", tHi: "मूल्य", href: "/pricing" },
   { t: "ROI calculator", tHi: "आरओआई कैलकुलेटर", href: "/roi-calculator" },

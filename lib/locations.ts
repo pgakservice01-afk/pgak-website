@@ -40,7 +40,157 @@ export const LOCATIONS: Location[] = [
       "Distribution warehouses with sizeable existing camera estates and nobody able to watch them.",
       "Long compound perimeters where a single guard covers a kilometre of wall.",
     ],
-    nearby: ["Jalandhar", "Amritsar", "Chandigarh", "Mohali"],
+    nearby: ["Khanna", "Mandi Gobindgarh", "Jalandhar", "Moga"],
+  },
+  {
+    slug: "jalandhar",
+    city: "Jalandhar",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Sports goods, hand tools and leather manufacturing",
+    intro:
+      "Jalandhar's export units — sports goods, hand tools, leather — keep high-value finished stock in small stores next to busy production floors, which is exactly where shrinkage hides. Being an hour from our Ludhiana base, it is part of our regular installation and support circuit.",
+    localContext: [
+      "Export houses where a finished-goods store worth lakhs sits behind a single latch, and the camera watching it is never actually watched.",
+      "Factory gates mixing workers, job-work loaders and visitors at the same time of day — face recognition sorts who belongs from who doesn't.",
+      "The Doaba reality: houses that stand locked for months while owners are abroad, needing an alert the family can act on from another continent.",
+    ],
+    nearby: ["Ludhiana", "Hoshiarpur", "Amritsar", "Batala"],
+  },
+  {
+    slug: "amritsar",
+    city: "Amritsar",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Wholesale trade, hotels and food processing",
+    intro:
+      "Amritsar runs on trade and hospitality — wholesale cloth and dry-fruit markets, hotels and guest houses around the walled city, and food-processing units on the bypass. The common thread is stock and guests moving all day, and nobody able to say who entered after closing.",
+    localContext: [
+      "Wholesale shops and katra godowns where the loss is discovered at stock-taking, weeks after it happened.",
+      "Hotels and guest houses that need entrance and corridor monitoring without pointing a camera at guests' privacy.",
+      "Papad, wadiyan and other food units where hygiene audits and night intrusion both need answering with the same cameras.",
+    ],
+    nearby: ["Batala", "Jalandhar", "Ludhiana"],
+  },
+  {
+    slug: "chandigarh-mohali",
+    city: "Chandigarh & Mohali",
+    region: "Punjab / Chandigarh",
+    hasOffice: false,
+    focus: "Offices, showrooms and the Zirakpur warehousing corridor",
+    intro:
+      "The tricity splits into three security problems: IT and corporate offices in Mohali's IT City wanting card-free attendance, showrooms on Madhya Marg protecting displayed stock, and the Zirakpur–Dera Bassi corridor's warehouses feeding half of Punjab's e-commerce deliveries.",
+    localContext: [
+      "Offices replacing biometric machines with gate face recognition — no queue at 9:30, and attendance that can't be buddy-punched.",
+      "High-street showrooms where after-hours intrusion matters as much as daytime footfall counting.",
+      "Zirakpur warehouses with vehicle movement worth logging by number plate, not by a guard's register.",
+    ],
+    nearby: ["Ludhiana", "Patiala", "Khanna"],
+  },
+  {
+    slug: "patiala",
+    city: "Patiala",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Education campuses, agri-machinery and residential kothis",
+    intro:
+      "Patiala's mix is unusual: large education campuses and hostels, agri-machinery yards on the bypass roads, and some of Punjab's largest residential kothis. All three suffer the same gap — plenty of cameras, and nobody watching them at 3 AM.",
+    localContext: [
+      "Colleges and hostels where the requirement is knowing the moment an outsider crosses the boundary, not reviewing footage the next day.",
+      "Agri-implement yards with high-value machines parked in open compounds overnight.",
+      "Kothis whose owners want one phone alert with a snapshot — not sixteen tiles of live video they will never open.",
+    ],
+    nearby: ["Chandigarh & Mohali", "Khanna", "Ludhiana"],
+  },
+  {
+    slug: "bathinda",
+    city: "Bathinda",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Fuel and agri-trade, cotton godowns and processing units",
+    intro:
+      "The Malwa belt around Bathinda stores enormous value in plain sheds — cotton, grain, fertiliser, fuel. Most of it is guarded by one chowkidar and a dog. AI on the existing cameras means the perimeter watches itself, every night, without adding a single wire.",
+    localContext: [
+      "Cotton and grain godowns where a fire or an intrusion found at dawn is found too late.",
+      "Petrol pumps and fuel depots needing round-the-clock forecourt coverage that flags loitering, not just records it.",
+      "Agri-processing units on the ring roads with long, dark boundary walls.",
+    ],
+    nearby: ["Moga", "Patiala", "Ludhiana"],
+  },
+  {
+    slug: "mandi-gobindgarh",
+    city: "Mandi Gobindgarh",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Steel furnaces, rolling mills and scrap yards",
+    intro:
+      "In the steel town, theft is not an occasional event — scrap and finished sections walk out of yards every season, and the weighbridge register never quite explains it. Cameras already exist at every gate; what's missing is something that reads the vehicles and watches the yard at night.",
+    localContext: [
+      "Scrap yards where the difference between a loaded and half-loaded truck is lakhs, and gate video is only checked after a dispute.",
+      "Number-plate logging at weighbridges and gates, so every entry and exit is a searchable record instead of a diary entry.",
+      "Furnace units running night shifts where the perimeter and the back gate see no guard for hours at a stretch.",
+    ],
+    nearby: ["Khanna", "Ludhiana", "Patiala"],
+  },
+  {
+    slug: "khanna",
+    city: "Khanna",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Grain mandi, rice shellers and highway godowns",
+    intro:
+      "Khanna holds Asia's largest grain market, and the GT Road on either side of it is lined with rice shellers and storage. Stock sits in the open or in sheds for months; the season decides everything. Twenty minutes from our Ludhiana office, it is inside our fastest service radius.",
+    localContext: [
+      "Mandi-adjacent godowns where bagged stock is counted rarely and pilferage shows up only at dispatch.",
+      "Rice shellers with seasonal labour at the gate — attendance and who-is-this-person both answered by the same camera.",
+      "Highway-facing yards where an alert must reach the owner's phone before a loaded trolley reaches the GT Road.",
+    ],
+    nearby: ["Mandi Gobindgarh", "Ludhiana", "Patiala"],
+  },
+  {
+    slug: "moga",
+    city: "Moga",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Dairy, food processing and distribution",
+    intro:
+      "Moga is Punjab's food-processing town — dairy plants, rice mills and the distributor godowns that feed the Malwa belt. Plants here already carry big camera estates for hygiene compliance; PGAK makes those same cameras handle security, attendance and vehicle logging too.",
+    localContext: [
+      "Food and dairy plants where the audit cameras can also flag intrusion, PPE-free entry and after-hours movement.",
+      "Distributor godowns dispatching before dawn, when the gate is busiest and least supervised.",
+      "Farm and plant perimeters too long for a guard to patrol honestly.",
+    ],
+    nearby: ["Bathinda", "Ludhiana", "Jalandhar"],
+  },
+  {
+    slug: "hoshiarpur",
+    city: "Hoshiarpur",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Plywood, timber yards and wood industry",
+    intro:
+      "Hoshiarpur's plywood and timber trade keeps its stock where it must — in open yards. Timber is high-value, easy to load and hard to trace once gone. The yards already have cameras on poles; what they lack is anything that acts on what the cameras see at night.",
+    localContext: [
+      "Timber and veneer yards where a single night's theft can outweigh a year of the guard's salary.",
+      "Plywood units where presses run late and the same cameras must cover fire watch and intrusion.",
+      "Kandi-belt houses locked for long stretches, with family abroad wanting an alert they can trust and act on.",
+    ],
+    nearby: ["Jalandhar", "Batala", "Ludhiana"],
+  },
+  {
+    slug: "batala",
+    city: "Batala",
+    region: "Punjab",
+    hasOffice: false,
+    focus: "Iron foundries, castings and machine tools",
+    intro:
+      "Batala's foundries and machine-tool shops fight the same battle as the steel towns: castings, patterns and finished machined parts disappearing between shifts, and a gate register that proves nothing. The fix is cameras that recognise faces at the gate and watch the casting yard all night.",
+    localContext: [
+      "Foundry yards where castings and scrap are indistinguishable in a register but not to a camera log.",
+      "Machine shops protecting tooling and finished jobs that are small enough to carry and costly to replace.",
+      "Night-shift gates where knowing who entered matters more than knowing that someone did.",
+    ],
+    nearby: ["Amritsar", "Jalandhar", "Hoshiarpur"],
   },
   {
     slug: "delhi-ncr",
