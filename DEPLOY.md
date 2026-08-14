@@ -112,7 +112,18 @@ carries the spam association onto the page you most want to protect.
 
 ---
 
-## 6. Rotating the leaked ERP webhook secret (owner action required)
+## 6. Rotating the leaked ERP webhook secret — ✅ DONE 2026-08-14
+
+**Status: ROTATED AND VERIFIED, 2026-08-14 ~05:40 IST.** The leaked value now
+answers 401 at the ERP (probed), the website relays with the new secret via
+server-only env (`ERP_WEBHOOK_SECRET` / `ERP_LEADS_ENDPOINT`), one marked test
+lead went through end-to-end (`delivered:true`, row confirmed, then deleted),
+and the `NEXT_PUBLIC_ERP_ENDPOINT` / `NEXT_PUBLIC_WEBHOOK_SECRET` vars were
+DELETED from Vercel so no future build can re-inline anything. The ERP-side var
+is `WORDPRESS_WEBHOOK_SECRET` on the `pgak-erp` Vercel project (updated in
+Production and Preview). The single-secret cutover window was ~3 minutes at
+dawn, attended; the ERP has no dual-secret support, so the 7-day dual-accept
+plan below was not used. Kept for reference:
 
 **The problem.** The dealer form used to POST straight from the browser to the
 ERP, carrying `NEXT_PUBLIC_WEBHOOK_SECRET`. Next.js inlines `NEXT_PUBLIC_*` at
