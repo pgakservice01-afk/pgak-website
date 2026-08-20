@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -72,7 +73,9 @@ export default function LocationPage({ location }: { location: Location }) {
       <Nav />
 
       <main className="pt-[74px]">
-        <section className="sec pb-10">
+        {/* Extra mobile bottom padding keeps the hero CTA clear of the fixed
+            bottom action bar on short viewports. */}
+        <section className="sec pb-28 md:pb-10">
           <div className="wrap">
             <Breadcrumbs trail={trail} />
             <p className="eyebrow mt-6">
@@ -90,13 +93,24 @@ export default function LocationPage({ location }: { location: Location }) {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/#audit" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 Free camera audit in {l.city} →
               </Link>
               <a href={`tel:${BUSINESS.phoneE164}`} className="btn btn-ghost">
                 Call {BUSINESS.phone}
               </a>
             </div>
+            {l.caseStudy && (
+              <p className="mt-5 text-ink-soft">
+                Proof from {l.city}:{" "}
+                <Link
+                  href={l.caseStudy.href}
+                  className="text-accent underline underline-offset-4"
+                >
+                  {l.caseStudy.label}
+                </Link>
+              </p>
+            )}
           </div>
         </section>
 
@@ -205,6 +219,9 @@ export default function LocationPage({ location }: { location: Location }) {
             </div>
           </div>
         </section>
+
+        {/* Convert in place — the hero CTA targets this on-page form. */}
+        <DealerForm />
       </main>
 
       <Footer />

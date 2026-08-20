@@ -328,7 +328,22 @@ body {
   }
 
   .field-input {
-    @apply rounded-[11px] border border-line bg-bg px-[15px] py-3 font-sans text-[0.95rem] text-ink outline-none transition-colors duration-200 focus:border-accent;
+    /* 16px on mobile: anything smaller makes iOS Safari zoom the page on focus. */
+    @apply rounded-[11px] border border-line bg-bg px-[15px] py-3 font-sans text-[1rem] text-ink outline-none transition-colors duration-200 focus:border-accent md:text-[0.95rem];
+  }
+
+  /* Tables inside rendered markdown (e.g. the pricing comparison) */
+  .article-body table {
+    @apply mt-6 w-full border-collapse overflow-hidden rounded-[12px] border border-line text-[0.92rem];
+  }
+  .article-body th {
+    @apply border-b border-line bg-panel px-4 py-3 text-left font-semibold text-ink;
+  }
+  .article-body td {
+    @apply border-b border-line px-4 py-3 text-ink-soft;
+  }
+  .article-body tr:last-child td {
+    @apply border-b-0;
   }
 
   /* Rendered markdown body for /insights posts */

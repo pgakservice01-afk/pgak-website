@@ -85,7 +85,14 @@ export default function PricingPage() {
               <Link href="#dealer" className="text-accent underline underline-offset-4">
                 Talk to a PGAK partner
               </Link>{" "}
-              — takes under a minute.
+              — takes under a minute. Or{" "}
+              <Link
+                href="/insights/ai-cctv-price-in-india-what-it-should-cost"
+                className="text-accent underline underline-offset-4"
+              >
+                read the full breakdown of what AI CCTV should cost in India
+              </Link>
+              .
             </p>
           </div>
         </section>

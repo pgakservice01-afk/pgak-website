@@ -29,6 +29,10 @@ export type CaseStudy = {
   /** Related solution slug. */
   solution: string;
   anonymised: boolean;
+  /** Publication date (YYYY-MM-DD) — first published with the case-study section. */
+  date: string;
+  /** Cross-links to the pages this study proves (case study → hub). */
+  related?: { href: string; label: string }[];
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -86,6 +90,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     solution: "ai-cctv-for-warehouses",
     anonymised: true,
+    date: "2026-08-01",
+    related: [
+      { href: "/ai-cctv-ludhiana", label: "AI CCTV in Ludhiana" },
+      { href: "/ai-cctv-for-warehouses", label: "AI CCTV for warehouses" },
+    ],
   },
 
   {
@@ -142,6 +151,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     solution: "retail-shop-security",
     anonymised: true,
+    date: "2026-08-01",
+    related: [
+      { href: "/ai-cctv-jaipur", label: "AI CCTV in Jaipur" },
+      { href: "/retail-shop-security", label: "Retail shop security" },
+    ],
   },
 
   {
@@ -198,6 +212,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     solution: "factory-security",
     anonymised: true,
+    date: "2026-08-01",
+    related: [
+      { href: "/features/attendance-automation", label: "Face recognition attendance" },
+      {
+        href: "/insights/why-biometric-attendance-machines-fail-at-the-factory-gate",
+        label: "Why fingerprint machines fail at the gate",
+      },
+    ],
   },
 
   {
@@ -254,6 +276,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     solution: "residential-security",
     anonymised: true,
+    date: "2026-08-01",
   },
 ];
 

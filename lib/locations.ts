@@ -24,6 +24,8 @@ export type Location = {
   intro: string;
   localContext: string[];
   nearby: string[];
+  /** Local proof: a case study from this city (hub → spoke link). */
+  caseStudy?: { href: string; label: string };
 };
 
 export const LOCATIONS: Location[] = [
@@ -41,6 +43,10 @@ export const LOCATIONS: Location[] = [
       "Long compound perimeters where a single guard covers a kilometre of wall.",
     ],
     nearby: ["Khanna", "Mandi Gobindgarh", "Jalandhar", "Moga"],
+    caseStudy: {
+      href: "/insights/case-studies/warehouse-shrinkage-ludhiana",
+      label: "See how one Ludhiana warehouse cut shrinkage",
+    },
   },
   {
     slug: "jalandhar",
@@ -281,6 +287,10 @@ export const LOCATIONS: Location[] = [
       "Multi-branch retailers wanting one view across the city.",
     ],
     nearby: ["Ajmer", "Alwar", "Kota", "Udaipur"],
+    caseStudy: {
+      href: "/insights/case-studies/retail-false-alarms-jaipur",
+      label: "See how we fixed constant false alarms for a Jaipur retail chain",
+    },
   },
 ];
 

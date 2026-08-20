@@ -119,8 +119,10 @@ export default function RootLayout({
           />
         </noscript>
 
-        {/* Google Tag Manager (head loader) */}
-        <Script id="gtm" strategy="afterInteractive">
+        {/* Google Tag Manager — lazyOnload keeps its 165KB chain out of the
+            LCP-critical window; the dataLayer stub below still queues early
+            events until it arrives. */}
+        <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
 
@@ -151,9 +153,9 @@ export default function RootLayout({
         {/* Google tag (GA4) — one loader, one `config` per property. */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_IDS[0]}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="ga4-init" strategy="lazyOnload">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

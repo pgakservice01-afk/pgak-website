@@ -119,23 +119,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Company", "कंपनी")}
-            </h2>
+            </p>
             <LinkList links={COMPANY} />
           </div>
 
           <div>
-            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Get started", "शुरू करें")}
-            </h2>
+            </p>
             <LinkList links={GET_STARTED} />
           </div>
 
           <div>
-            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Contact", "संपर्क")}
-            </h2>
+            </p>
             <LinkList links={CONTACT} />
           </div>
         </div>
@@ -143,9 +143,9 @@ export default function Footer() {
         {/* ------------------------------ solution / feature / city sitemap */}
         <div className="mt-14 grid gap-9 border-t border-line pt-10 md:grid-cols-3">
           <div>
-            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Solutions", "समाधान")}
-            </h2>
+            </p>
             <ul>
               {SOLUTIONS.map((s) => (
                 <li key={s.slug}>
@@ -161,9 +161,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Capabilities", "क्षमताएँ")}
-            </h2>
+            </p>
             <ul>
               {CAPABILITIES.map((c) => (
                 <li key={c.slug}>
@@ -179,9 +179,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
+            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Cities we serve", "हमारे सेवा शहर")}
-            </h2>
+            </p>
             <ul>
               {LOCATIONS.map((l) => (
                 <li key={l.slug}>

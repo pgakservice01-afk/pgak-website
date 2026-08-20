@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -75,7 +76,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/#demo" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 Book a free demo →
               </Link>
               <Link href="/#audit" className="btn btn-ghost">
@@ -209,7 +210,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
               </ul>
             </div>
 
-            {posts.length > 0 && (
+            {(posts.length > 0 || (s.caseStudies?.length ?? 0) > 0) && (
               <div>
                 <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
                   Read more on this
@@ -223,6 +224,17 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                       >
                         <span className="text-accent">→</span>
                         <span>{p.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                  {s.caseStudies?.map((cs) => (
+                    <li key={cs.href}>
+                      <Link
+                        href={cs.href}
+                        className="flex items-baseline gap-2 text-ink-soft transition-colors hover:text-accent"
+                      >
+                        <span className="text-accent">→</span>
+                        <span>{cs.label}</span>
                       </Link>
                     </li>
                   ))}
@@ -244,7 +256,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                 intelligent protection — in about 20 minutes.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="/#demo" className="btn btn-primary">
+                <Link href="#dealer" className="btn btn-primary">
                   Book a free demo →
                 </Link>
                 <Link href="/pricing" className="btn btn-ghost">
@@ -254,6 +266,9 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             </div>
           </div>
         </section>
+
+        {/* Convert in place — same pattern as the feature pages. */}
+        <DealerForm />
       </main>
 
       <Footer />

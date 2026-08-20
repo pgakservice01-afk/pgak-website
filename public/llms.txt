@@ -1,0 +1,36 @@
+# PGAK — AI CCTV Intelligence for Indian Businesses
+
+> PGAK (PGAK Innovations Pvt. Ltd., Ludhiana, Punjab, India) turns the CCTV
+> cameras a business already owns into an intelligent monitoring system:
+> intruder detection, face-recognition attendance, false-alarm filtering,
+> loitering detection and vehicle/ANPR — with alerts on the owner's phone.
+> No new cameras or hardware are required; the software runs on existing
+> CCTV/DVR setups via RTSP.
+
+## Pricing (canonical)
+
+- Flat rate: ₹1,000 per camera per month, across India.
+- No hardware cost, no licence fee, no per-feature add-ons, no lock-in.
+- Enterprise/multi-site: custom volume pricing.
+- Details: https://www.pgak.co.in/pricing
+- Cost guide: https://www.pgak.co.in/insights/ai-cctv-price-in-india-what-it-should-cost
+
+## Key pages
+
+- Home: https://www.pgak.co.in/
+- Pricing: https://www.pgak.co.in/pricing
+- Solutions (factories, warehouses, retail, schools, hospitals, homes): https://www.pgak.co.in/solutions
+- Face-recognition attendance: https://www.pgak.co.in/features/attendance-automation
+- Intruder detection: https://www.pgak.co.in/ai-intruder-detection
+- ROI calculator: https://www.pgak.co.in/roi-calculator
+- Case studies: https://www.pgak.co.in/insights/case-studies
+- Articles: https://www.pgak.co.in/insights
+- Cities served: https://www.pgak.co.in/areas-we-serve
+- Contact: https://www.pgak.co.in/contact
+
+## Facts
+
+- Company: PGAK Innovations Pvt. Ltd. (HQ: BK Towers, 2480/2, Gill Rd, Ludhiana, Punjab 141003, India)
+- Phone/WhatsApp: +91 62839 93600
+- Service model: direct team in Punjab-region cities; verified dealer network across India.
+- Works with existing cameras of any brand that exposes an RTSP stream (Hikvision, CP Plus, Dahua and similar DVR/NVR setups).

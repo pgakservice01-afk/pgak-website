@@ -1,4 +1,4 @@
-import { BUSINESS, SITE_NAME, SITE_URL, abs } from "@/lib/seo";
+import { AUTHOR, BUSINESS, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, abs } from "@/lib/seo";
 
 /**
  * JSON-LD builders. Every schema node gets a stable `@id` so Google can link
@@ -179,22 +179,34 @@ export function articleSchema(opts: {
   description: string;
   path: string;
   datePublished: string;
+  /** Real last-edit date; falls back to datePublished. */
+  dateModified?: string;
   image?: string;
+  /** "Article" for case studies; defaults to BlogPosting. */
+  type?: "BlogPosting" | "Article";
 }): Json {
   const url = abs(opts.path);
   return {
-    "@type": "BlogPosting",
+    "@type": opts.type ?? "BlogPosting",
     "@id": `${url}#article`,
     headline: opts.headline,
     description: opts.description,
     url,
     mainEntityOfPage: url,
     datePublished: opts.datePublished,
-    dateModified: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
     inLanguage: "en-IN",
-    author: { "@id": ORG_ID },
+    author: {
+      "@type": "Person",
+      name: AUTHOR.name,
+      jobTitle: AUTHOR.jobTitle,
+      url: AUTHOR.url,
+      worksFor: { "@id": ORG_ID },
+    },
     publisher: { "@id": ORG_ID },
-    ...(opts.image ? { image: abs(opts.image) } : {}),
+    // Google requires an image for Article rich results; every post gets at
+    // least the site's 1200×630 OG card.
+    image: abs(opts.image ?? DEFAULT_OG_IMAGE),
   };
 }
 

@@ -242,6 +242,29 @@ export default function CapabilityPage({
           </div>
         </section>
 
+        {c.readMore && c.readMore.length > 0 && (
+          <section className="sec pt-0">
+            <div className="wrap">
+              <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
+                Go deeper
+              </h2>
+              <ul className="mt-5 flex flex-col gap-3">
+                {c.readMore.map((r) => (
+                  <li key={r.href}>
+                    <Link
+                      href={r.href}
+                      className="flex items-baseline gap-2 text-ink-soft transition-colors hover:text-accent"
+                    >
+                      <span className="text-accent">→</span>
+                      <span>{r.label}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
         {/* Convert in place: the lead form lives on this page, so the hero
             CTA never has to bounce the visitor through the homepage. */}
         <DealerForm />

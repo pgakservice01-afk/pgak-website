@@ -4,13 +4,15 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import { formatDate, getAllInsights, getInsight } from "@/lib/insights";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import { pageMeta } from "@/lib/seo";
+import { AUTHOR, pageMeta } from "@/lib/seo";
 import {
   articleSchema,
   breadcrumbSchema,
+  faqSchema,
   webPageSchema,
 } from "@/lib/schema";
 
@@ -59,8 +61,10 @@ export default function InsightPost({ params }: Props) {
             description: post.excerpt,
             path,
             datePublished: post.date,
+            dateModified: post.updated,
             image: post.image,
           }),
+          ...(post.faqs?.length ? [faqSchema(post.faqs)] : []),
           breadcrumbSchema(trail),
         ]}
       />
@@ -82,13 +86,28 @@ export default function InsightPost({ params }: Props) {
                   {post.category}
                 </span>
                 <span className="text-ink-faint">
-                  {formatDate(post.date)} · {post.readTime} min read
+                  {formatDate(post.date)}
+                  {post.updated ? ` · Updated ${formatDate(post.updated)}` : ""}
+                  {" · "}
+                  {post.readTime} min read
                 </span>
               </div>
 
               <h1 className="display mt-5 text-[clamp(1.9rem,4.2vw,2.9rem)]">
                 {post.title}
               </h1>
+
+              <p className="mt-3 text-[0.9rem] text-ink-faint">
+                By{" "}
+                <Link
+                  href="/about"
+                  className="text-ink-soft transition-colors hover:text-accent"
+                >
+                  {AUTHOR.name}
+                </Link>
+                {" — "}
+                {AUTHOR.jobTitle}
+              </p>
 
               {post.image && (
                 <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-line">
@@ -119,10 +138,10 @@ export default function InsightPost({ params }: Props) {
                   guardians — on your existing setup, live in a day.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
-                  <a href="/#audit" className="btn btn-primary">
+                  <a href="#dealer" className="btn btn-primary">
                     Get a free AI audit →
                   </a>
-                  <a href="/#demo" className="btn btn-ghost">
+                  <a href="#dealer" className="btn btn-ghost">
                     Book a demo
                   </a>
                 </div>
@@ -130,6 +149,9 @@ export default function InsightPost({ params }: Props) {
             </div>
           </div>
         </article>
+
+        {/* Convert in place — post CTAs target this on-page form. */}
+        <DealerForm />
       </main>
       <Footer />
     </>

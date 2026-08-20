@@ -27,6 +27,8 @@ export type Capability = {
   faqs: { q: string; a: string }[];
   /** Solution slugs this capability powers. */
   solutions: string[];
+  /** Deep-dive articles and case studies for this capability (hub → spoke links). */
+  readMore?: { href: string; label: string }[];
 };
 
 export const CAPABILITIES: Capability[] = [
@@ -255,7 +257,7 @@ export const CAPABILITIES: Capability[] = [
       "Automatic attendance from the gate camera. No queue, no card, no fingerprint.",
     h1: "Face recognition attendance — 200 people logged without a queue",
     intro:
-      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. PGAK logs arrival and departure from the camera already watching your gate, so two hundred people walk in at their own pace and payroll gets a clean export at the end of the month.",
+      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. PGAK logs arrival and departure from the camera already watching your gate, so two hundred people walk in at their own pace and payroll gets a clean export at the end of the month. It runs on your existing gate camera at PGAK's flat ₹1,000 per camera per month — no biometric hardware to buy or maintain.",
     steps: [
       {
         h3: "Enrol once",
@@ -287,6 +289,10 @@ export const CAPABILITIES: Capability[] = [
     ],
     faqs: [
       {
+        q: "How much does face recognition attendance cost in India?",
+        a: "With PGAK it is ₹1,000 per camera per month, flat — one gate camera typically covers 150–250 employees, so most factories in India pay less for attendance than they spent maintaining fingerprint machines. There is no enrolment fee, no per-employee charge and no hardware to buy, because it runs on the CCTV camera already at your gate.",
+      },
+      {
         q: "Can this replace our biometric fingerprint machine?",
         a: "For most sites, yes. Face recognition at the gate produces the same record with no contact, no queue and no failure on damaged or dirty fingers. Sites usually run both for two weeks before retiring the machine.",
       },
@@ -304,6 +310,20 @@ export const CAPABILITIES: Capability[] = [
       },
     ],
     solutions: ["factory-security", "ai-cctv-for-offices", "school-security"],
+    readMore: [
+      {
+        href: "/insights/why-biometric-attendance-machines-fail-at-the-factory-gate",
+        label: "Why fingerprint readers fail at the gate",
+      },
+      {
+        href: "/insights/face-recognition-attendance-vs-biometric-machine",
+        label: "Face recognition vs biometric machine — the full comparison",
+      },
+      {
+        href: "/insights/case-studies/factory-gate-attendance-coimbatore",
+        label: "Case study: 200-worker factory gate in Coimbatore",
+      },
+    ],
   },
 
   {

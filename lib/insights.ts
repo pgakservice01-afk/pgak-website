@@ -20,15 +20,21 @@ import { marked } from "marked";
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "insights");
 
+export type InsightFaq = { q: string; a: string };
+
 export type InsightMeta = {
   slug: string;
   title: string;
   date: string; // YYYY-MM-DD
+  /** Real last-edit date (YYYY-MM-DD) — feeds sitemap lastmod + dateModified. */
+  updated?: string;
   category: string;
   excerpt: string;
   readTime: number; // minutes
   /** Optional cover image, e.g. "/insights/my-post.jpg" in /public. */
   image?: string;
+  /** Optional FAQ pairs — emitted as FAQPage JSON-LD; keep answers in the body too. */
+  faqs?: InsightFaq[];
 };
 
 export type Insight = InsightMeta & {
@@ -78,6 +84,13 @@ function toMeta(
     excerpt: String(data.excerpt ?? content.trim().slice(0, 160)),
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
     image: data.image ? String(data.image) : undefined,
+    updated: data.updated ? String(data.updated) : undefined,
+    faqs: Array.isArray(data.faqs)
+      ? (data.faqs as Record<string, unknown>[]).map((f) => ({
+          q: String(f.q ?? ""),
+          a: String(f.a ?? ""),
+        }))
+      : undefined,
   };
 }
 

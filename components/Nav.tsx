@@ -183,7 +183,9 @@ export default function Nav() {
           <button
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="text-2xl text-ink"
+            // 44×44 hit-box: the only mobile nav entry point must beat the
+            // 24×24 minimum tap-target size (WCAG 2.5.8) with room to spare.
+            className="grid h-11 w-11 place-items-center text-2xl text-ink"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? "✕" : "☰"}

@@ -7,9 +7,11 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import {
+  articleSchema,
   breadcrumbSchema,
   webPageSchema,
 } from "@/lib/schema";
+import DealerForm from "@/components/sections/DealerForm";
 import { CASE_STUDIES, getCaseStudy } from "@/lib/caseStudies";
 import { getSolution } from "@/lib/solutions";
 
@@ -58,6 +60,13 @@ export default function CaseStudyPage({
             path,
             name: c.title,
             description: c.metaDescription,
+          }),
+          articleSchema({
+            headline: c.title,
+            description: c.metaDescription,
+            path,
+            datePublished: c.date,
+            type: "Article",
           }),
           breadcrumbSchema(trail),
         ]}
@@ -178,6 +187,11 @@ export default function CaseStudyPage({
                     {solution.navLabel} →
                   </Link>
                 )}
+                {c.related?.map((r) => (
+                  <Link key={r.href} href={r.href} className="btn btn-ghost">
+                    {r.label}
+                  </Link>
+                ))}
                 <Link href="/insights/case-studies" className="btn btn-ghost">
                   All case studies
                 </Link>
@@ -185,6 +199,9 @@ export default function CaseStudyPage({
             </div>
           </div>
         </section>
+
+        {/* Convert in place — proof pages should close the loop themselves. */}
+        <DealerForm />
       </main>
 
       <Footer />

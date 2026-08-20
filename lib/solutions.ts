@@ -41,6 +41,8 @@ export type Solution = {
   related: string[];
   /** Blog post slugs from content/insights. */
   insights: string[];
+  /** Case-study links proving this solution (hub → spoke). */
+  caseStudies?: { href: string; label: string }[];
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -230,9 +232,16 @@ export const SOLUTIONS: Solution[] = [
     ],
     related: ["factory-security", "ai-intruder-detection", "smart-perimeter-protection"],
     insights: [
+      "best-ai-cctv-camera-for-warehouses-india",
       "nobody-can-watch-120-camera-feeds",
       "your-dvr-records-the-theft-it-doesnt-stop-it",
       "1000-alerts-only-one-is-real",
+    ],
+    caseStudies: [
+      {
+        href: "/insights/case-studies/warehouse-shrinkage-ludhiana",
+        label: "See how one Ludhiana warehouse cut shrinkage",
+      },
     ],
   },
 

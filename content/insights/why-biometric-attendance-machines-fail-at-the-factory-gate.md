@@ -27,7 +27,7 @@ None of this is the manufacturer's fault. It's just the wrong tool for a gate th
 
 Here's the thing: you almost certainly have a camera pointed at that gate already. Every worker who walks in passes through its frame, every single day. No queue, no touching, no scanning ritual — they just walk.
 
-Face-recognition attendance uses that camera as the attendance machine:
+A [face recognition attendance system](/features/attendance-automation) uses that camera as the attendance machine:
 
 - **Workers simply walk through.** The camera identifies each face as people pass. A hundred people can enter in the time one fingerprint queue clears.
 - **Nothing to touch, nothing to wear off.** Dust, gloves and wet hands don't matter.
@@ -43,4 +43,6 @@ That's a one-time adjustment — after which your gate takes attendance by itsel
 
 **The machine at your gate counts scans. Your camera can count people — by name.**
 
-*Curious whether your existing gate cameras can handle attendance? [Ask for a free feasibility check](/#audit) — we'll analyse your feed and tell you straight.*
+Still weighing the two approaches? Read [the honest comparison](/insights/face-recognition-attendance-vs-biometric-machine) of face recognition against biometric machines, point by point.
+
+*Curious whether your existing gate cameras can handle attendance? [Ask for a free feasibility check](#dealer) — we'll analyse your feed and tell you straight.*

@@ -39,8 +39,16 @@ export const BUSINESS = {
   founded: "2024",
   social: [
     "https://www.instagram.com/pgakinnovation/",
+    "https://www.facebook.com/profile.php?id=1160757603787801",
     "https://wa.me/916283993600",
   ],
+} as const;
+
+/** Named author for insights posts and case studies (E-E-A-T byline + Person schema). */
+export const AUTHOR = {
+  name: "Aditya Mittal",
+  jobTitle: "Founder, PGAK",
+  url: `${SITE_URL}/about`,
 } as const;
 
 /**

@@ -11,64 +11,59 @@ import { SITE_URL } from "@/lib/seo";
  * new solution, capability, city or case study is indexed the moment it ships —
  * there is no second list to forget to update.
  *
- * Priorities are relative *within this site only*; Google treats them as a
- * weak hint. The ordering reflects commercial intent: solution and capability
- * pages above brand pages, brand pages above legal.
+ * lastModified is emitted ONLY where a real date exists (insights posts, case
+ * studies, and the /insights index). Everything else omits it: a build
+ * timestamp on 50+ URLs teaches Google the signal is fake and gets the whole
+ * sitemap's dates discounted. changefreq/priority are deprecated hints Google
+ * ignores, so they're gone too.
  */
 
+function postDate(p: { date: string; updated?: string }): Date {
+  return new Date(`${p.updated ?? p.date}T00:00:00`);
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const insights = getAllInsights();
+  const newestPost = insights.length ? postDate(insights[0]) : undefined;
 
   const core: MetadataRoute.Sitemap = [
-    { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${SITE_URL}/solutions`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/features`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/roi-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/insights/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/insights`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
-    { url: `${SITE_URL}/areas-we-serve`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/brochure`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${SITE_URL}/trust/reviews`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/trust/photos`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: SITE_URL },
+    { url: `${SITE_URL}/solutions` },
+    { url: `${SITE_URL}/features` },
+    { url: `${SITE_URL}/pricing` },
+    { url: `${SITE_URL}/roi-calculator` },
+    { url: `${SITE_URL}/insights/case-studies` },
+    // The blog index genuinely changes with every published post.
+    { url: `${SITE_URL}/insights`, ...(newestPost ? { lastModified: newestPost } : {}) },
+    { url: `${SITE_URL}/areas-we-serve` },
+    { url: `${SITE_URL}/contact` },
+    { url: `${SITE_URL}/about` },
+    { url: `${SITE_URL}/brochure` },
+    { url: `${SITE_URL}/trust/reviews` },
+    { url: `${SITE_URL}/trust/photos` },
+    { url: `${SITE_URL}/privacy` },
   ];
 
   const solutions: MetadataRoute.Sitemap = SOLUTIONS.map((s) => ({
     url: `${SITE_URL}/${s.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.9,
   }));
 
   const capabilities: MetadataRoute.Sitemap = CAPABILITIES.map((c) => ({
     url: `${SITE_URL}/features/${c.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
   }));
 
   const locations: MetadataRoute.Sitemap = LOCATIONS.map((l) => ({
     url: `${SITE_URL}${locationPath(l.slug)}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
   }));
 
   const caseStudies: MetadataRoute.Sitemap = CASE_STUDIES.map((c) => ({
     url: `${SITE_URL}/insights/case-studies/${c.slug}`,
-    lastModified: now,
-    changeFrequency: "yearly",
-    priority: 0.6,
+    lastModified: new Date(`${c.date}T00:00:00`),
   }));
 
-  const posts: MetadataRoute.Sitemap = getAllInsights().map((p) => ({
+  const posts: MetadataRoute.Sitemap = insights.map((p) => ({
     url: `${SITE_URL}/insights/${p.slug}`,
-    lastModified: new Date(`${p.date}T00:00:00`),
-    changeFrequency: "monthly",
-    priority: 0.7,
+    lastModified: postDate(p),
   }));
 
   return [
