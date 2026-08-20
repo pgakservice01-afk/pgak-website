@@ -326,16 +326,26 @@ function Tile({
           // fixed: an AI camera's ingest forces 2s keyframes while a live-only
           // camera is copied at its own ~4s GOP, so a count would mean very
           // different delays on different boxes.
-          liveSyncDuration: 12,
+          //
+          // 25, not 12 (owner's call 2026-08-20): a live-wall client's NVR
+          // freezes ~20s every 5 min (recording rotation, sick HDD). The cloud
+          // now rides the freeze out (30s stall timeouts, nothing dies), but a
+          // 12s cushion still left an ~8s visible "waiting" pause — the buffer
+          // must OUTLAST the longest source freeze for the wall to look
+          // continuous. 25s covers a 20s freeze with margin. If this ever goes
+          // up again, the server's hlsSegmentCount must go up with it (window
+          // must exceed liveMaxLatencyDuration on 1s-GOP cameras — see
+          // infra/mediamtx/mediamtx.yml).
+          liveSyncDuration: 25,
           // Only jump forward if we fall this far behind. Must stay well above
           // liveSyncDuration — a tight value makes hls.js seek to the edge to
           // "catch up", which is itself a visible jump AND lands us back in the
           // starvation zone we just left.
-          liveMaxLatencyDuration: 30,
-          // Has to be able to actually HOLD the cushion above; 12s of buffer
-          // while trying to stay 12s back leaves nothing in hand. ~600 kbps sub
-          // streams x 30s x 30 tiles is on the order of 65 MB, which is fine.
-          maxBufferLength: 30,
+          liveMaxLatencyDuration: 45,
+          // Has to be able to actually HOLD the cushion above; a buffer equal
+          // to the cushion leaves nothing in hand. ~600 kbps sub streams x 45s
+          // x 30 tiles is on the order of 100 MB, which is fine for a wall PC.
+          maxBufferLength: 45,
           backBufferLength: 10,
           pLoader: TokenLoader as any,
           fLoader: TokenLoader as any,
