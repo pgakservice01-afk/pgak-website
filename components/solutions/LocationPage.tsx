@@ -29,6 +29,10 @@ export default function LocationPage({ location }: { location: Location }) {
     { name: l.city, path },
   ];
 
+  // Every answer weaves in this city's own data (focus sectors, nearby towns,
+  // direct-team vs dealer) so no two cities publish the same FAQ text — that
+  // sameness is what tips templated location pages into doorway territory.
+  const nearbyPair = l.nearby.slice(0, 2).join(" and ");
   const faqs = [
     {
       q: `Do you install AI CCTV in ${l.city}?`,
@@ -38,15 +42,17 @@ export default function LocationPage({ location }: { location: Location }) {
     },
     {
       q: `Do I need to buy new cameras in ${l.city}?`,
-      a: `Almost never. PGAK runs as software on the CCTV you already own, provided the DVR or NVR exposes an RTSP stream — which nearly all systems installed in the last decade do. The free audit confirms this before you spend anything.`,
+      a: `Almost never. PGAK runs as software on the CCTV you already own, provided the DVR or NVR exposes an RTSP stream — which nearly all systems installed in the last decade do. In ${l.city} that check usually means the DVRs already running in ${l.focus.toLowerCase()} — the free audit confirms yours before you spend anything.`,
     },
     {
       q: `What does AI CCTV cost in ${l.city}?`,
-      a: `₹1,000 per camera per month, with no hidden fees and no separate licence cost. Pricing does not vary by city.`,
+      a: `₹1,000 per camera per month, with no hidden fees and no separate licence cost. Whether it's ${l.focus.toLowerCase()} or a single shop, the ${l.city} rate is the same flat number as everywhere else in India.`,
     },
     {
       q: `How long does deployment take in ${l.city}?`,
-      a: `Most sites are live within a day of the survey. Tuning zones, schedules and thresholds against your actual footage takes another fortnight — that part is what determines whether you keep the alerts switched on.`,
+      a: l.hasOffice
+        ? `Most sites are live within a day of the survey, and our ${l.city} team also covers ${nearbyPair} directly. Tuning zones, schedules and thresholds against your actual footage takes another fortnight — that part is what determines whether you keep the alerts switched on.`
+        : `Most sites are live within a day of the survey; the partner covering ${l.city} also serves ${nearbyPair}. Tuning zones, schedules and thresholds against your actual footage takes another fortnight — that part is what determines whether you keep the alerts switched on.`,
     },
   ];
 
@@ -202,10 +208,18 @@ export default function LocationPage({ location }: { location: Location }) {
 
             <div>
               <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
-                Other cities
+                Nearby city pages
               </h2>
+              {/* Curated by geography, not a sitewide directory: an identical
+                  17-link block on every city page is a doorway-page signal. */}
               <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-                {LOCATIONS.filter((x) => x.slug !== l.slug).map((x) => (
+                {LOCATIONS.filter(
+                  (x) =>
+                    x.slug !== l.slug &&
+                    l.nearby.some(
+                      (n) => x.city.includes(n) || n.includes(x.city)
+                    )
+                ).map((x) => (
                   <li key={x.slug}>
                     <Link
                       href={locationPath(x.slug)}
@@ -215,6 +229,14 @@ export default function LocationPage({ location }: { location: Location }) {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/areas-we-serve"
+                    className="text-accent transition-colors hover:underline"
+                  >
+                    All cities we serve →
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

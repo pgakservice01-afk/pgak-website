@@ -205,6 +205,10 @@ export default function Footer() {
             {t("© 2026 PGAK. All rights reserved.", "© 2026 PGAK. सर्वाधिकार सुरक्षित।")}
           </span>
           <span className="flex gap-5">
+            <a href="/terms" className="hover:text-ink-soft">
+              {t("Terms of Service", "सेवा की शर्तें")}
+            </a>{" "}
+            ·{" "}
             <a href="/privacy" className="hover:text-ink-soft">
               {t("Privacy Policy", "गोपनीयता नीति")}
             </a>

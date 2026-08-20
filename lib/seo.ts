@@ -37,6 +37,9 @@ export const BUSINESS = {
   geo: { lat: 30.8846, lng: 75.8342 },
   openingHours: "Mo-Sa 09:00-19:00",
   founded: "2024",
+  /** MCA Corporate Identification Number — fill from the Certificate of
+   *  Incorporation; /about renders it only when present. */
+  cin: "",
   social: [
     "https://www.instagram.com/pgakinnovation/",
     "https://www.facebook.com/profile.php?id=1160757603787801",

@@ -42,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/trust/reviews` },
     { url: `${SITE_URL}/trust/photos` },
     { url: `${SITE_URL}/privacy` },
+    { url: `${SITE_URL}/terms` },
   ];
 
   const solutions: MetadataRoute.Sitemap = SOLUTIONS.map((s) => ({

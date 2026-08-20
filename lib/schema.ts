@@ -44,6 +44,13 @@ export function organizationSchema(): Json {
     openingHours: BUSINESS.openingHours,
     areaServed: { "@type": "Country", name: "India" },
     sameAs: [...BUSINESS.social],
+    founder: {
+      "@type": "Person",
+      name: AUTHOR.name,
+      jobTitle: AUTHOR.jobTitle,
+      url: AUTHOR.url,
+      sameAs: [...AUTHOR.sameAs],
+    },
     // No aggregateRating here: Google treats ratings a business publishes
     // about itself as self-serving (ineligible), and we only markup figures
     // that real, visible reviews back. Reinstate from GBP data via

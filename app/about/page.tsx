@@ -5,7 +5,8 @@ import Footer from "@/components/sections/Footer";
 import NumbersStrip from "@/components/sections/NumbersStrip";
 import Icon, { type IconName } from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
-import { pageMeta } from "@/lib/seo";
+import DealerForm from "@/components/sections/DealerForm";
+import { AUTHOR, BUSINESS, pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 const PATH = "/about";
@@ -134,13 +135,62 @@ export default function AboutPage() {
 
         <NumbersStrip />
 
-        <section className="sec">
+        <section className="sec pt-0">
+          <div className="wrap">
+            <div className="mx-auto max-w-[900px]">
+              <div className="card p-8 sm:p-10">
+                <span className="eyebrow mb-4">The company</span>
+                <h2 className="display mt-4 text-[clamp(1.6rem,3vw,2.2rem)]">
+                  Who is behind PGAK.
+                </h2>
+                <p className="mt-4 max-w-[68ch] text-[0.98rem] leading-relaxed text-ink-soft">
+                  PGAK was founded in {BUSINESS.founded} by{" "}
+                  <span className="text-ink">{AUTHOR.name}</span> in Ludhiana,
+                  Punjab — a city of factories, mills and godowns whose owners
+                  had all bought CCTV and were all still getting robbed. The
+                  product came out of that gap: the cameras were already there;
+                  the intelligence wasn&rsquo;t. Today PGAK runs on sites across
+                  India through a verified partner network, while engineering
+                  stays close to the factories it was built for.
+                </p>
+                <dl className="mt-7 grid gap-x-10 gap-y-4 text-[0.93rem] sm:grid-cols-2">
+                  <div>
+                    <dt className="text-ink-faint">Legal name</dt>
+                    <dd className="mt-1 text-ink">{BUSINESS.legalName}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-ink-faint">Founded</dt>
+                    <dd className="mt-1 text-ink">
+                      {BUSINESS.founded}, Ludhiana
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-ink-faint">Registered office</dt>
+                    <dd className="mt-1 text-ink">
+                      {BUSINESS.address.street}, {BUSINESS.address.area},{" "}
+                      {BUSINESS.address.locality}, {BUSINESS.address.region}{" "}
+                      {BUSINESS.address.postalCode}
+                    </dd>
+                  </div>
+                  {BUSINESS.cin && (
+                    <div>
+                      <dt className="text-ink-faint">CIN</dt>
+                      <dd className="mt-1 text-ink">{BUSINESS.cin}</dd>
+                    </div>
+                  )}
+                </dl>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec pt-0">
           <div className="wrap text-center">
             <h2 className="display text-[clamp(1.6rem,3vw,2.2rem)]">
               Ready to make your cameras think?
             </h2>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link href="/#demo" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 Book a free demo →
               </Link>
               <Link href="/contact" className="btn btn-ghost">
@@ -149,6 +199,8 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <DealerForm />
       </main>
       <Footer />
     </>

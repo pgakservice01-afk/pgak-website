@@ -215,6 +215,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     date: "2026-08-01",
     related: [
       { href: "/features/attendance-automation", label: "Face recognition attendance" },
+      { href: "/ai-cctv-coimbatore", label: "AI CCTV in Coimbatore" },
       {
         href: "/insights/why-biometric-attendance-machines-fail-at-the-factory-gate",
         label: "Why fingerprint machines fail at the gate",

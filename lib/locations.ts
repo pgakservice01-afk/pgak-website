@@ -292,6 +292,25 @@ export const LOCATIONS: Location[] = [
       label: "See how we fixed constant false alarms for a Jaipur retail chain",
     },
   },
+  {
+    slug: "coimbatore",
+    city: "Coimbatore",
+    region: "Tamil Nadu",
+    hasOffice: false,
+    focus: "Spinning mills, textile units and engineering job-works",
+    intro:
+      "Coimbatore's factories run on shift discipline: hundreds of workers through a gate in minutes, machinery halls that should be empty at night, and scrap yards that quietly leak value. The gate camera you already own can take attendance and watch the perimeter — we proved it here first.",
+    localContext: [
+      "Textile mills and spinning units where shift-change queues at the punch machine cost twenty minutes of production.",
+      "Engineering job-works and foundries with high-value raw material in open yards.",
+      "Industrial estates around Peelamedu and Kurichi wanting after-hours machinery-hall monitoring.",
+    ],
+    nearby: ["Tiruppur", "Erode", "Salem", "Pollachi"],
+    caseStudy: {
+      href: "/insights/case-studies/factory-gate-attendance-coimbatore",
+      label: "See how a 200-worker Coimbatore factory replaced its punch machine",
+    },
+  },
 ];
 
 export function getLocation(slug: string): Location | undefined {
