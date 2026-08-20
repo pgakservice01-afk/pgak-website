@@ -16,7 +16,9 @@ import "./globals.css";
  *
  * To retire a property, delete its id here — nothing else needs to change.
  */
-const GA_IDS = ["G-6EMP9HSR2F", "G-MBYGPSVJ1Z"] as const;
+// Single canonical GA4 property (owner-confirmed 2026-08-21). The old
+// duplicate G-MBYGPSVJ1Z was double-counting every visit.
+const GA_IDS = ["G-6EMP9HSR2F"] as const;
 const GTM_ID = "GTM-MKZWLS7J";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
