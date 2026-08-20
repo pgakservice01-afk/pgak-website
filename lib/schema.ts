@@ -201,6 +201,7 @@ export function articleSchema(opts: {
       name: AUTHOR.name,
       jobTitle: AUTHOR.jobTitle,
       url: AUTHOR.url,
+      sameAs: [...AUTHOR.sameAs],
       worksFor: { "@id": ORG_ID },
     },
     publisher: { "@id": ORG_ID },

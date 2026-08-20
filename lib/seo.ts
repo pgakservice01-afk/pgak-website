@@ -40,6 +40,7 @@ export const BUSINESS = {
   social: [
     "https://www.instagram.com/pgakinnovation/",
     "https://www.facebook.com/profile.php?id=1160757603787801",
+    "https://www.youtube.com/channel/UC4IL7dZOKq-PvvwqIK6Ng0w",
     "https://wa.me/916283993600",
   ],
 } as const;
@@ -49,6 +50,7 @@ export const AUTHOR = {
   name: "Aditya Mittal",
   jobTitle: "Founder, PGAK",
   url: `${SITE_URL}/about`,
+  sameAs: ["https://www.linkedin.com/in/adityamittal-pgak"],
 } as const;
 
 /**
