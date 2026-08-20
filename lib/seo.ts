@@ -40,6 +40,7 @@ export const BUSINESS = {
   social: [
     "https://www.instagram.com/pgakinnovation/",
     "https://www.facebook.com/profile.php?id=1160757603787801",
+    "https://www.linkedin.com/company/pgakinnovation/",
     "https://www.youtube.com/channel/UC4IL7dZOKq-PvvwqIK6Ng0w",
     "https://wa.me/916283993600",
   ],
