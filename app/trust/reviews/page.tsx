@@ -5,7 +5,7 @@ import Footer from "@/components/sections/Footer";
 import { REVIEWS } from "@/lib/trust";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import { pageMeta, RATING } from "@/lib/seo";
+import { pageMeta } from "@/lib/seo";
 import {
   breadcrumbSchema,
   reviewSchema,
@@ -69,19 +69,9 @@ export default function ReviewsPage() {
                 what changed after switching to PGAK.
               </p>
 
-              {/* Visible rating — must match the AggregateRating in schema,
-                  which is why both read from RATING in lib/seo.ts. */}
-              <div className="mx-auto mt-7 inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-line bg-panel px-6 py-3">
-                <span className="display text-[1.4rem] text-accent">
-                  {RATING.value.toFixed(1)}
-                </span>
-                <span aria-hidden="true" className="text-accent">
-                  ★★★★★
-                </span>
-                <span className="text-[0.9rem] text-ink-soft">
-                  from {RATING.count} customer reviews
-                </span>
-              </div>
+              {/* No aggregate-rating badge until real Google reviews exist:
+                  we only show numbers a reader can verify. The testimonials
+                  below carry the proof for now. */}
             </div>
           </div>
         </section>

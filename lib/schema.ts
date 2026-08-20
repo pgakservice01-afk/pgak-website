@@ -1,4 +1,4 @@
-import { BUSINESS, RATING, SITE_NAME, SITE_URL, abs } from "@/lib/seo";
+import { BUSINESS, SITE_NAME, SITE_URL, abs } from "@/lib/seo";
 
 /**
  * JSON-LD builders. Every schema node gets a stable `@id` so Google can link
@@ -44,7 +44,10 @@ export function organizationSchema(): Json {
     openingHours: BUSINESS.openingHours,
     areaServed: { "@type": "Country", name: "India" },
     sameAs: [...BUSINESS.social],
-    aggregateRating: aggregateRatingSchema(),
+    // No aggregateRating here: Google treats ratings a business publishes
+    // about itself as self-serving (ineligible), and we only markup figures
+    // that real, visible reviews back. Reinstate from GBP data via
+    // lib/reviews.ts once genuine Google reviews exist.
   };
 }
 
@@ -114,16 +117,6 @@ export function faqSchema(faqs: { q: string; a: string }[]): Json {
   };
 }
 
-export function aggregateRatingSchema(): Json {
-  return {
-    "@type": "AggregateRating",
-    ratingValue: RATING.value,
-    reviewCount: RATING.count,
-    bestRating: 5,
-    worstRating: 1,
-  };
-}
-
 export function productSchema(opts: {
   name: string;
   description: string;
@@ -141,7 +134,6 @@ export function productSchema(opts: {
     brand: { "@id": ORG_ID },
     category: opts.category ?? "AI video surveillance software",
     image: abs("/hero-landing.webp"),
-    aggregateRating: aggregateRatingSchema(),
     ...(opts.price
       ? {
           offers: {

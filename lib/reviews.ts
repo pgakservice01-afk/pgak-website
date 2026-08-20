@@ -7,7 +7,8 @@
  *
  * How to fill this in (one-time, ~10 minutes):
  *   1. Create/claim your Google Business Profile at business.google.com
- *      (name: "PGAK Innovation", category: Security system supplier).
+ *      (name: "PGAK Innovations Pvt. Ltd." — exactly as on the Certificate of
+ *      Incorporation; category: Security system supplier).
  *   2. In the GBP dashboard, tap "Ask for reviews" — copy the short review
  *      link (looks like https://g.page/r/XXXXXXX/review) into reviewUrl.
  *   3. Put the profile's public Maps link into mapsUrl.

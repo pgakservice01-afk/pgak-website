@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
@@ -90,7 +91,7 @@ export default function CapabilityPage({
               {c.intro}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/#demo" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 See it on your cameras →
               </Link>
               <Link href="/features" className="btn btn-ghost">
@@ -240,6 +241,10 @@ export default function CapabilityPage({
             </div>
           </div>
         </section>
+
+        {/* Convert in place: the lead form lives on this page, so the hero
+            CTA never has to bounce the visitor through the homepage. */}
+        <DealerForm />
       </main>
 
       <Footer />

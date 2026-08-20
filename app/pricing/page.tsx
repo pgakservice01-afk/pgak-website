@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import Pricing from "@/components/sections/Pricing";
 import FreeAudit from "@/components/sections/FreeAudit";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
@@ -16,9 +17,9 @@ import {
 const PATH = "/pricing";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Price in India — ₹1,000 per Camera per Month | PGAK Pricing",
+  title: "AI CCTV Camera Price in India — ₹1,000/Camera, No New Hardware",
   description:
-    "One simple rate: ₹1,000 per camera a month for AI CCTV. Works with your existing cameras, no new hardware, no licence fee, no lock-in. Plans for homes, shops, offices and industrial sites.",
+    "AI CCTV on the cameras you already own — ₹1,000 per camera per month, flat. No new hardware, no licence fee, no lock-in. One simple rate across India.",
   path: PATH,
   keywords: [
     "AI CCTV price India",
@@ -73,18 +74,18 @@ export default function PricingPage() {
         <Pricing />
         <FreeAudit />
 
+        {/* Convert in place: the same lead form the homepage funnels to,
+            so no pricing visitor is bounced through "/" to reach it. */}
+        <DealerForm />
+
         <section className="sec pt-0">
           <div className="wrap text-center">
             <p className="text-ink-soft">
               Not sure what your site needs?{" "}
-              <Link href="/#dealer" className="text-accent underline underline-offset-4">
-                Talk to a dealer
+              <Link href="#dealer" className="text-accent underline underline-offset-4">
+                Talk to a PGAK partner
               </Link>{" "}
-              or{" "}
-              <Link href="/#demo" className="text-accent underline underline-offset-4">
-                book a free demo
-              </Link>
-              .
+              — takes under a minute.
             </p>
           </div>
         </section>

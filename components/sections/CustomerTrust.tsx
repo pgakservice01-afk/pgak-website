@@ -30,14 +30,6 @@ const PROOFS: {
     href: "/trust/photos",
   },
   {
-    ic: "video",
-    t: "Videos",
-    tHi: "वीडियो",
-    d: "Walkthroughs and live-detection clips showing the system in action.",
-    dHi: "सिस्टम को काम करते हुए दिखाने वाले वॉकथ्रू और लाइव-डिटेक्शन क्लिप।",
-    href: "/trust/videos",
-  },
-  {
     ic: "factory",
     t: "Factory Case Studies",
     tHi: "फ़ैक्टरी केस स्टडी",

@@ -16,8 +16,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // Next's internal build assets and API routes add nothing to the index.
-        disallow: ["/api/", "/_next/static/chunks/"],
+        // API routes add nothing to the index. Build assets (/_next/static/)
+        // stay crawlable on purpose: Google wants JS/CSS fetchable even on an
+        // SSR site, and blocking them is against its rendering guidance.
+        disallow: ["/api/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

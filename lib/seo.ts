@@ -15,7 +15,8 @@ export const SITE_URL = "https://www.pgak.co.in";
 export const SITE_NAME = "PGAK";
 
 export const BUSINESS = {
-  legalName: "PGAK Innovation",
+  // Exactly as on the MCA Certificate of Incorporation — must match GBP too.
+  legalName: "PGAK Innovations Pvt. Ltd.",
   phone: "+91 62839 93600",
   /** E.164 — used in tel: links and schema. */
   phoneE164: "+916283993600",
@@ -41,9 +42,6 @@ export const BUSINESS = {
     "https://wa.me/916283993600",
   ],
 } as const;
-
-/** Aggregate rating shown in schema + on-page. Keep in sync with lib/reviews.ts. */
-export const RATING = { value: 4.9, count: 63 } as const;
 
 /**
  * Social card image. Pre-cropped to 1200×630 (the size every card renderer

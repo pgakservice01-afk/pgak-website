@@ -21,6 +21,9 @@ export const metadata: Metadata = pageMeta({
     "intruder detection video",
     "security camera AI demo",
   ],
+  // Out of the index until real clips exist — an indexed page of
+  // "coming soon" cards reads as thin content to both users and Google.
+  noIndex: true,
 });
 
 const TRAIL = [

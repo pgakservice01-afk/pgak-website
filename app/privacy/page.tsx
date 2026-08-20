@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Privacy Policy — PGAK",
   description:
-    "How PGAK Innovation collects, uses, and protects the information you share with us, and how video from your cameras is handled.",
+    "How PGAK Innovations Pvt. Ltd. collects, uses, and protects the information you share with us, and how video from your cameras is handled.",
   path: "/privacy",
 });
 
@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
         <div className="mt-10 space-y-9 leading-relaxed text-ink-soft">
           <p>
             This Privacy Policy explains how{" "}
-            <strong className="text-ink">PGAK Innovation Pvt. Ltd.</strong>{" "}
+            <strong className="text-ink">PGAK Innovations Pvt. Ltd.</strong>{" "}
             (&ldquo;PGAK&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects, uses,
             and protects your information when you visit{" "}
             <a className="text-accent underline" href="https://www.pgak.co.in">
@@ -127,7 +127,7 @@ export default function PrivacyPolicy() {
 
           <Section title="Contact us">
             <p>
-              PGAK Innovation Pvt. Ltd.
+              PGAK Innovations Pvt. Ltd.
               <br />
               Email:{" "}
               <a className="text-accent underline" href="mailto:pgak.service01@gmail.com">
