@@ -75,6 +75,19 @@ const REAL_ROUTES = [
   "/ai-cctv-mumbai",
   "/ai-cctv-bengaluru",
   "/ai-cctv-jaipur",
+  // Punjab cluster, added 2026-08-14. `mandi-gobindgarh` and
+  // `chandigarh-mohali` carry 4 hyphens each — inside the tier-1 gate's
+  // headroom (6), and this list is what proves they stay safe.
+  "/ai-cctv-jalandhar",
+  "/ai-cctv-amritsar",
+  "/ai-cctv-chandigarh-mohali",
+  "/ai-cctv-patiala",
+  "/ai-cctv-bathinda",
+  "/ai-cctv-mandi-gobindgarh",
+  "/ai-cctv-khanna",
+  "/ai-cctv-moga",
+  "/ai-cctv-hoshiarpur",
+  "/ai-cctv-batala",
   "/features/face-recognition",
   "/features/false-alarm-filtering",
   "/features/intrusion-alerts",
