@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BUSINESS, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Terms of Service — PGAK",
+  title: "Terms & Conditions — PGAK",
   description:
-    "The terms that govern PGAK's AI CCTV service: subscription, cancellation, acceptable use, video data handling, and liability.",
+    "The terms and conditions that govern PGAK's AI CCTV service: subscription, cancellation, acceptable use, video data handling, and liability.",
   path: "/terms",
 });
 
@@ -38,7 +38,7 @@ export default function TermsOfService() {
         </Link>
 
         <h1 className="mt-8 font-display text-[clamp(2rem,5vw,3rem)] leading-tight">
-          Terms of Service
+          Terms &amp; Conditions
         </h1>
         <p className="mt-3 text-sm text-ink-faint">Last updated: 21 August 2026</p>
 

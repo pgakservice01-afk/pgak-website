@@ -206,7 +206,7 @@ export default function Footer() {
           </span>
           <span className="flex gap-5">
             <a href="/terms" className="hover:text-ink-soft">
-              {t("Terms of Service", "सेवा की शर्तें")}
+              {t("Terms & Conditions", "नियम व शर्तें")}
             </a>{" "}
             ·{" "}
             <a href="/privacy" className="hover:text-ink-soft">
