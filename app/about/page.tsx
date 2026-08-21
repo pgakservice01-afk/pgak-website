@@ -6,7 +6,7 @@ import NumbersStrip from "@/components/sections/NumbersStrip";
 import Icon, { type IconName } from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import DealerForm from "@/components/sections/DealerForm";
-import { AUTHOR, BUSINESS, pageMeta } from "@/lib/seo";
+import { AUTHOR, BUSINESS, LEADERSHIP, pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 const PATH = "/about";
@@ -170,6 +170,18 @@ export default function AboutPage() {
                       {BUSINESS.address.street}, {BUSINESS.address.area},{" "}
                       {BUSINESS.address.locality}, {BUSINESS.address.region}{" "}
                       {BUSINESS.address.postalCode}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-ink-faint">Leadership</dt>
+                    <dd className="mt-1 text-ink">
+                      {LEADERSHIP.map((p, i) => (
+                        <span key={p.name}>
+                          {i > 0 && " · "}
+                          {p.name}{" "}
+                          <span className="text-ink-soft">({p.role})</span>
+                        </span>
+                      ))}
                     </dd>
                   </div>
                   {BUSINESS.cin && (

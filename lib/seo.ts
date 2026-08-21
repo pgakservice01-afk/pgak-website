@@ -52,10 +52,17 @@ export const BUSINESS = {
 /** Named author for insights posts and case studies (E-E-A-T byline + Person schema). */
 export const AUTHOR = {
   name: "Aditya Mittal",
-  jobTitle: "Founder, PGAK",
+  jobTitle: "Founder & CEO, PGAK",
   url: `${SITE_URL}/about`,
   sameAs: ["https://www.linkedin.com/in/adityamittal-pgak"],
 } as const;
+
+/** Company leadership shown on /about (owner-approved 2026-08-21). */
+export const LEADERSHIP = [
+  { name: "Aditya Mittal", role: "Founder & CEO" },
+  { name: "Puneet Garg", role: "Director" },
+  { name: "Ankur Kaplesh", role: "Director" },
+] as const;
 
 /**
  * Social card image. Pre-cropped to 1200×630 (the size every card renderer
