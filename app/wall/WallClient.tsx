@@ -33,14 +33,30 @@ import {
  * ── Why the token gets rewritten per request ──
  * The live-view token sits in the URL PATH (`/live/<token>/<uuid>/index.m3u8`,
  * see api/app/services/live_streams.py) so segment requests inherit it. It is
- * short-lived — LIVE_TOKEN_TTL_SEC defaults to 300s and `exp` is bucketed, so a
- * url is good for 300-600s and then dies. On a wall left running that is fatal:
- * every tile would break within ten minutes. Re-calling /live and
- * loadSource()-ing the new url would work but re-buffers each tile every few
- * minutes — across 30 staggered tiles that is a visible hiccup somewhere on the
- * wall every ~10 seconds. Instead we hold the freshest url in a ref, re-mint it
- * well inside the window, and rewrite the token path segment on every playlist
- * and fragment request. Playback is never interrupted.
+ * short-lived — the url dies with it. On a wall left running that is fatal:
+ * every tile would break within minutes. Re-calling /live and loadSource()-ing
+ * the new url would work but re-buffers each tile every few minutes — across 30
+ * staggered tiles that is a visible hiccup somewhere on the wall every ~10
+ * seconds. Instead we hold the freshest url in a ref, re-mint it well inside
+ * the window, and rewrite the token path segment on every playlist and
+ * fragment request. Playback is never interrupted.
+ *
+ * Re-minting is scheduled from the `expires_at` the API returns with each url —
+ * NOT from a constant. The first version refreshed on a fixed 120s timer, which
+ * quietly assumed the server's LIVE_TOKEN_TTL_SEC would stay ≥180s forever; had
+ * it been tightened, every tile would have 403'd for part of each window and
+ * the wall would sit in "waiting" on a clockwork cadence. Now the server owns
+ * the number and the client simply keeps up.
+ *
+ * ── Why there is a stall watchdog ──
+ * hls.js reports only SOME deaths as fatal errors. A stream that starves (the
+ * site uplink dips below real-time), an ingest that was recycled upstream, or
+ * Safari's native player after its url expires — all of these just stop,
+ * silently, with no event to hook. The watchdog trusts the same clock the
+ * health dot trusts: if the picture has not advanced for STALL_RESTART_MS while
+ * the page is visible, the player is torn down and rebuilt from a fresh mint.
+ * That single rule is what turns "frozen until someone reloads the page" into
+ * "back on its own", which is the contract a wall left on 24/7 actually needs.
  */
 
 // Cloud API root, including the /api/v1 prefix — same variable LiveClient uses.
@@ -74,10 +90,29 @@ const IDLE_MS = 5 * 60 * 1000;
 const STALE_AFTER = 3;     // missed refreshes before a tile is called stale
 const DOWN_AFTER = 3;      // consecutive failures before it is called down
 
-// Re-mint each tile's live url this often. The API's token is good for 300-600s
-// (LIVE_TOKEN_TTL_SEC=300, exp bucketed), so 120s means we always hold a valid
-// token with a wide margin and never race the boundary.
-const TOKEN_REFRESH_MS = 120000;
+// Re-mint each tile's live url at HALF the remaining validity reported by the
+// API's expires_at, clamped between these two. The floor keeps 30 tiles from
+// hammering /live when a server is configured with a very short TTL; the
+// ceiling keeps the mint fresh enough that a token can never age out between
+// refreshes even if a response's expires_at was somehow overstated.
+const REMINT_MIN_MS = 15000;
+const REMINT_MAX_MS = 120000;
+
+// If the picture has not advanced for this long while the page is visible, the
+// player is dead by any useful definition — declare it and rebuild from a fresh
+// mint. Long enough that hls.js's own non-fatal recovery (buffer nudges, level
+// retries) gets a fair chance first, and comfortably above VIDEO_STALL_MS so
+// the snapshot fallback is already carrying the tile by the time we rebuild.
+//
+// This composes with the liveSyncDuration cushion below rather than competing
+// with it, and the distinction is the whole reason both can exist: the cushion
+// absorbs SOURCE stalls (the ~20s NVR freeze) so the PICTURE never stops, while
+// this watchdog only ever measures the picture. A freeze the cushion covers
+// therefore cannot trip it. For the picture to stop at all the source must
+// already have outlived the cushion (~25s), and this adds ~25s on top — so a
+// rebuild means roughly 50s of genuine deadness, well past any freeze the
+// cushion is tuned for. Keep this at or above the cushion if either is retuned.
+const STALL_RESTART_MS = 25000;
 
 // A tile is "playing" only while video actually advances. HTMLMediaElement fires
 // timeupdate ~4x/second; if nothing arrives for this long the picture on screen
@@ -100,6 +135,41 @@ type Camera = {
 };
 
 type Health = "unknown" | "connecting" | "live" | "stale" | "down";
+
+/* ────────────────── live-url plumbing shared by Tile and Focus ────────────── */
+
+type Minted = { url: string; expiresAt: number };
+
+// Mint (or re-mint) a camera's tokenised HLS url. "tooEarly" is the API's 425 —
+// the camera's tunnel isn't up yet, which is a boot state, not a fault.
+async function mintLive(camId: string): Promise<Minted | "tooEarly"> {
+  const res = await authedFetch(`/cameras/${camId}/live`);
+  if (res.status === 425) return "tooEarly";
+  if (!res.ok) throw new Error(`live ${res.status}`);
+  const { hls_url, expires_at } = (await res.json()) as {
+    hls_url: string;
+    expires_at?: string | null;
+  };
+  const exp = expires_at ? Date.parse(expires_at) : NaN;
+  // A backend that omits expires_at gets the server default (LIVE_TOKEN_TTL_SEC
+  // =300s) assumed at its MINIMUM. Refreshing early is harmless; trusting a
+  // phantom long expiry is how a wall 403s.
+  return { url: hls_url, expiresAt: Number.isFinite(exp) ? exp : Date.now() + 300000 };
+}
+
+function remintDelay(expiresAt: number): number {
+  return Math.min(Math.max((expiresAt - Date.now()) / 2, REMINT_MIN_MS), REMINT_MAX_MS);
+}
+
+// Swap the token path segment of `u` for the one in `fresh`. Applied to every
+// playlist and fragment request (hls.js pLoader/fLoader), which is what lets a
+// stream play across token expiry without ever reloading the source.
+function retoken(u: string, fresh: string | null): string {
+  if (!fresh) return u;
+  const m = /\/live\/([^/]+)\//.exec(fresh);
+  if (!m) return u;
+  return u.replace(/\/live\/[^/]+\//, `/live/${m[1]}/`);
+}
 
 /* ─────────────────────────── one tile ─────────────────────────── */
 
@@ -234,54 +304,108 @@ function Tile({
     let hls: import("hls.js").default | null = null;
     let cancelled = false;
     let retryT: ReturnType<typeof setTimeout> | undefined;
-    let tokenT: ReturnType<typeof setInterval> | undefined;
+    let tokenT: ReturnType<typeof setTimeout> | undefined;
+    let watchT: ReturnType<typeof setInterval> | undefined;
     let backoff = RETRY_MIN_MS;
-
-    const mintUrl = async (): Promise<string | null> => {
-      const res = await authedFetch(`/cameras/${cam.id}/live`);
-      if (res.status === 425) { sawTooEarly.current = true; return null; }
-      if (!res.ok) throw new Error(`live ${res.status}`);
-      const { hls_url } = (await res.json()) as { hls_url: string };
-      return hls_url;
-    };
-
-    // Replace the token path segment with the freshest one we hold. Called for
-    // every playlist and fragment request, which is what makes the stream
-    // survive token expiry without ever reloading the source.
-    const retoken = (u: string): string => {
-      const fresh = liveUrl.current;
-      if (!fresh) return u;
-      const m = /\/live\/([^/]+)\//.exec(fresh);
-      if (!m) return u;
-      return u.replace(/\/live\/[^/]+\//, `/live/${m[1]}/`);
-    };
+    let native = false;            // armed via Safari's built-in HLS, not hls.js
+    let armedUrl: string | null = null; // exact url the current player started with
+    let startedAt = 0;             // when the current player was armed
 
     const teardown = () => {
       if (hls) { try { hls.destroy(); } catch { /* already gone */ } hls = null; }
       const v = videoRef.current;
       if (v) { try { v.pause(); } catch { /* detached */ } }
+      native = false;
+      armedUrl = null;
+      startedAt = 0;
       playingRef.current = false;
       setPlaying(false);
     };
 
-    async function start() {
-      if (cancelled || (typeof document !== "undefined" && document.hidden)) return;
-      try {
-        const url = await mintUrl();
+    // Every path back to life goes through here. A player that made progress
+    // since it was armed is a NEW incident and retries fast; only consecutive
+    // failures that never showed a frame keep doubling toward the cap.
+    const restart = () => {
+      if (startedAt && lastProgressAt.current > startedAt) backoff = RETRY_MIN_MS;
+      teardown();
+      if (cancelled) return;
+      if (retryT) clearTimeout(retryT);
+      retryT = setTimeout(start, backoff);
+      backoff = Math.min(backoff * 2, RETRY_MAX_MS);
+    };
+
+    // Keep a valid token in hand at all times, on the server's own schedule.
+    // This chain is what makes 24/7 work; without it every tile dies at the
+    // first expiry.
+    const scheduleRemint = (expiresAt: number) => {
+      if (tokenT) clearTimeout(tokenT);
+      tokenT = setTimeout(remint, remintDelay(expiresAt));
+    };
+    const remint = () => {
+      void (async () => {
         if (cancelled) return;
-        if (!url) {                       // 425 — camera still coming online
+        if (typeof document !== "undefined" && document.hidden) {
+          // Hidden tab: nothing is playing (visibilitychange tore it down) and
+          // start() mints fresh on return — just keep the chain alive.
+          tokenT = setTimeout(remint, 30000);
+          return;
+        }
+        try {
+          const minted = await mintLive(cam.id);
+          if (cancelled) return;
+          if (minted === "tooEarly") {
+            // Tunnel dropped mid-watch. The stream is dying anyway; the
+            // watchdog rebuilds once the picture freezes. Keep trying for a
+            // fresh token in the meantime.
+            tokenT = setTimeout(remint, REMINT_MIN_MS);
+            return;
+          }
+          liveUrl.current = minted.url;
+          // Safari resolves the playlist itself, so the per-request rewrite
+          // cannot apply there. Re-arm the element instead — only when the
+          // minted url actually changed, i.e. once per token window. A brief
+          // hiccup, only on Safari, and only every few minutes.
+          if (native && armedUrl && minted.url !== armedUrl) {
+            const v = videoRef.current;
+            if (v) {
+              armedUrl = minted.url;
+              startedAt = Date.now();
+              v.src = minted.url;
+              void v.play().catch(() => {});
+            }
+          }
+          scheduleRemint(minted.expiresAt);
+        } catch (e) {
+          if (e instanceof SessionExpired) { onAuthExpired(); return; }
+          // Transient — the token in hand may still be valid; retry soon.
+          tokenT = setTimeout(remint, REMINT_MIN_MS);
+        }
+      })();
+    };
+
+    async function start() {
+      if (cancelled || hls || (typeof document !== "undefined" && document.hidden)) return;
+      try {
+        const minted = await mintLive(cam.id);
+        if (cancelled) return;
+        if (minted === "tooEarly") {      // 425 — camera still coming online
+          sawTooEarly.current = true;
           retryT = setTimeout(start, RETRY_MIN_MS);
           return;
         }
-        liveUrl.current = url;
+        liveUrl.current = minted.url;
+        scheduleRemint(minted.expiresAt);
         const video = videoRef.current;
         if (!video) return;
 
         // Safari plays HLS natively but resolves the playlist itself, so the
-        // per-request rewrite cannot apply. It reloads once per token window
-        // instead — a brief hiccup, only on Safari.
+        // per-request rewrite cannot apply. The remint loop re-arms it once per
+        // token window instead — a brief hiccup, only on Safari.
         if (video.canPlayType("application/vnd.apple.mpegurl") === "probably") {
-          video.src = url;
+          native = true;
+          armedUrl = minted.url;
+          startedAt = Date.now();
+          video.src = minted.url;
           void video.play().catch(() => {});
           return;
         }
@@ -296,7 +420,7 @@ function Tile({
         const Base = (Hls as any).DefaultConfig.loader;
         class TokenLoader extends Base {
           load(context: any, config: any, callbacks: any) {
-            if (context?.url) context.url = retoken(context.url);
+            if (context?.url) context.url = retoken(context.url, liveUrl.current);
             super.load(context, config, callbacks);
           }
         }
@@ -358,16 +482,15 @@ function Tile({
           // Rebuild from scratch after a backoff. Recovering in place leaves a
           // dead player often enough that it isn't worth it on a display nobody
           // is watching, and one dead camera must not generate load for the
-          // other eleven — hence the cap.
-          teardown();
-          if (cancelled) return;
-          retryT = setTimeout(start, backoff);
-          backoff = Math.min(backoff * 2, RETRY_MAX_MS);
+          // other twenty-nine — hence the cap.
+          restart();
         });
         inst.on(Hls.Events.FRAG_BUFFERED, () => { backoff = RETRY_MIN_MS; });
 
-        inst.loadSource(url);
+        inst.loadSource(minted.url);
         inst.attachMedia(videoRef.current);
+        armedUrl = minted.url;
+        startedAt = Date.now();
         void videoRef.current.play().catch(() => {});
       } catch (e) {
         if (e instanceof SessionExpired) { onAuthExpired(); return; }
@@ -377,28 +500,22 @@ function Tile({
       }
     }
 
-    // Keep a valid token in hand at all times. This is the loop that makes 24/7
-    // work; without it every tile dies at the first expiry.
-    tokenT = setInterval(() => {
+    // The stall watchdog — see the header comment. Only judges an ARMED player
+    // (startedAt set): while a start/retry is pending there is nothing to kill,
+    // and the retry timer is already in charge of trying again.
+    watchT = setInterval(() => {
       if (cancelled || (typeof document !== "undefined" && document.hidden)) return;
-      void (async () => {
-        try {
-          const u = await mintUrl();
-          if (u && !cancelled) liveUrl.current = u;
-        } catch (e) {
-          if (e instanceof SessionExpired) onAuthExpired();
-          // Otherwise leave the old token: it is still valid for a while and the
-          // next tick may well succeed.
-        }
-      })();
-    }, TOKEN_REFRESH_MS);
+      if (!startedAt) return;
+      const lastLife = Math.max(lastProgressAt.current, startedAt);
+      if (Date.now() - lastLife > STALL_RESTART_MS) restart();
+    }, 5000);
 
-    // A hidden tab shows nothing, and 12 idle muxers on the cloud are pure
-    // waste — stop streaming entirely and pick it back up on return.
+    // A hidden tab shows nothing, and a page of idle muxers on the cloud is
+    // pure waste — stop streaming entirely and pick it back up on return.
     const onVis = () => {
       if (typeof document === "undefined") return;
       if (document.hidden) teardown();
-      else if (!hls) { backoff = RETRY_MIN_MS; void start(); }
+      else if (!hls && !startedAt) { backoff = RETRY_MIN_MS; void start(); }
     };
     document.addEventListener("visibilitychange", onVis);
 
@@ -410,7 +527,8 @@ function Tile({
       cancelled = true;
       document.removeEventListener("visibilitychange", onVis);
       if (retryT) clearTimeout(retryT);
-      if (tokenT) clearInterval(tokenT);
+      if (tokenT) clearTimeout(tokenT);
+      if (watchT) clearInterval(watchT);
       teardown();
       const v = videoRef.current;
       if (v) { v.removeAttribute("src"); try { v.load(); } catch { /* detached */ } }
@@ -532,32 +650,101 @@ function Focus({
   const [status, setStatus] = useState<string>("");
 
   useEffect(() => {
-    let hls: { destroy: () => void } | null = null;
+    let hls: import("hls.js").default | null = null;
     let cancelled = false;
     let retry: ReturnType<typeof setTimeout> | undefined;
+    let tokenT: ReturnType<typeof setTimeout> | undefined;
+    let watchT: ReturnType<typeof setInterval> | undefined;
+    let backoff = RETRY_MIN_MS;
+    let native = false;
+    let armedUrl: string | null = null;
+    let startedAt = 0;
+    let lastProgress = 0;
+    // Freshest tokenised url for THIS player — same trick as the tiles.
+    const freshUrl = { current: null as string | null };
+
+    const v0 = videoRef.current;
+    const onProgress = () => {
+      lastProgress = Date.now();
+      backoff = RETRY_MIN_MS;
+    };
+    v0?.addEventListener("timeupdate", onProgress);
+
+    const teardown = () => {
+      if (hls) { try { hls.destroy(); } catch { /* already gone */ } hls = null; }
+      const v = videoRef.current;
+      if (v) { try { v.pause(); } catch { /* detached */ } }
+      native = false;
+      armedUrl = null;
+      startedAt = 0;
+    };
+
+    // A focused stream must come back ON ITS OWN — the person watching may be
+    // across the room from the keyboard. "Close and reopen to retry" (the old
+    // fatal-error dead end) is not a recovery strategy for a monitoring product.
+    const restart = () => {
+      teardown();
+      if (cancelled) return;
+      setStatus(t("Reconnecting…", "फिर से जुड़ रहा है…"));
+      if (retry) clearTimeout(retry);
+      retry = setTimeout(start, backoff);
+      backoff = Math.min(backoff * 2, RETRY_MAX_MS);
+    };
+
+    // Keep the token fresh on the server's own schedule — same contract as the
+    // tiles. Without this a focused camera dies at the first token expiry.
+    const scheduleRemint = (expiresAt: number) => {
+      if (tokenT) clearTimeout(tokenT);
+      tokenT = setTimeout(remint, remintDelay(expiresAt));
+    };
+    const remint = () => {
+      void (async () => {
+        if (cancelled) return;
+        try {
+          const minted = await mintLive(cam.id);
+          if (cancelled) return;
+          if (minted === "tooEarly") { tokenT = setTimeout(remint, REMINT_MIN_MS); return; }
+          freshUrl.current = minted.url;
+          // Safari resolves the playlist itself — re-arm once per token window.
+          if (native && armedUrl && minted.url !== armedUrl) {
+            const v = videoRef.current;
+            if (v) {
+              armedUrl = minted.url;
+              startedAt = Date.now();
+              v.src = minted.url;
+              void v.play().catch(() => {});
+            }
+          }
+          scheduleRemint(minted.expiresAt);
+        } catch (e) {
+          if (e instanceof SessionExpired) { onAuthExpired(); return; }
+          tokenT = setTimeout(remint, REMINT_MIN_MS);
+        }
+      })();
+    };
 
     async function start() {
+      if (cancelled || hls) return;
       try {
-        const res = await authedFetch(`/cameras/${cam.id}/live`);
-
-        if (res.status === 425) {
+        const minted = await mintLive(cam.id);
+        if (cancelled) return;
+        if (minted === "tooEarly") {
           setStatus(t("Camera is coming online…", "कैमरा ऑनलाइन हो रहा है…"));
           retry = setTimeout(start, 3000);
           return;
         }
-        if (!res.ok) {
-          setStatus(t("Could not start the stream.", "स्ट्रीम शुरू नहीं हो सकी।"));
-          return;
-        }
-
-        const { hls_url } = (await res.json()) as { hls_url: string };
-        if (cancelled || !videoRef.current) return;
+        freshUrl.current = minted.url;
+        scheduleRemint(minted.expiresAt);
         const video = videoRef.current;
+        if (!video) return;
 
         // Safari plays HLS natively; everything else needs hls.js. Imported
         // lazily so the ~500 KB only loads when someone actually opens a camera.
         if (video.canPlayType("application/vnd.apple.mpegurl") === "probably") {
-          video.src = hls_url;
+          native = true;
+          armedUrl = minted.url;
+          startedAt = Date.now();
+          video.src = minted.url;
           await video.play().catch(() => {});
           setStatus("");
           return;
@@ -570,40 +757,68 @@ function Focus({
                       "यह ब्राउज़र यह स्ट्रीम नहीं चला सकता।"));
           return;
         }
-        // ON here, deliberately, where it is OFF for the grid tiles: this is one
-        // stream that someone has chosen to watch, so ~1s beats ~8s and the
-        // extra request rate is a single player's worth. Worth ~11 seconds
-        // against plain HLS, and it costs nothing if the server ever serves
-        // plain HLS again.
-        const inst = new Hls({ enableWorker: true, lowLatencyMode: true });
+        /* eslint-disable @typescript-eslint/no-explicit-any */
+        const Base = (Hls as any).DefaultConfig.loader;
+        class TokenLoader extends Base {
+          load(context: any, config: any, callbacks: any) {
+            if (context?.url) context.url = retoken(context.url, freshUrl.current);
+            super.load(context, config, callbacks);
+          }
+        }
+        // lowLatency ON here, deliberately, where it is OFF for the grid tiles:
+        // this is one stream that someone has chosen to watch, so ~1s beats ~8s
+        // and the extra request rate is a single player's worth. Worth ~11
+        // seconds against plain HLS, and it costs nothing if the server ever
+        // serves plain HLS again.
+        const inst = new Hls({
+          enableWorker: true,
+          lowLatencyMode: true,
+          pLoader: TokenLoader as any,
+          fLoader: TokenLoader as any,
+        });
+        /* eslint-enable @typescript-eslint/no-explicit-any */
         hls = inst;
         inst.on(Hls.Events.ERROR, (_e, data) => {
-          if (data.fatal) {
-            setStatus(t("Stream interrupted. Close and reopen to retry.",
-                        "स्ट्रीम रुक गई। बंद करके दोबारा खोलें।"));
-          }
+          if (data.fatal) restart();
         });
         inst.on(Hls.Events.MANIFEST_PARSED, () => {
           setStatus("");
           video.play().catch(() => {});
         });
-        inst.loadSource(hls_url);
+        inst.loadSource(minted.url);
         inst.attachMedia(video);
+        armedUrl = minted.url;
+        startedAt = Date.now();
       } catch (e) {
         if (e instanceof SessionExpired) { onAuthExpired(); return; }
-        setStatus(t("Could not reach the server.", "सर्वर तक नहीं पहुँच सके।"));
+        if (cancelled) return;
+        setStatus(t("Could not reach the server. Retrying…",
+                    "सर्वर तक नहीं पहुँच सके। दोबारा कोशिश जारी है…"));
+        retry = setTimeout(start, backoff);
+        backoff = Math.min(backoff * 2, RETRY_MAX_MS);
       }
     }
+
+    // Same stall watchdog as the tiles: a silently frozen focused player (token
+    // death on Safari, starved stream, recycled ingest) rebuilds itself.
+    watchT = setInterval(() => {
+      if (cancelled || !startedAt) return;
+      const lastLife = Math.max(lastProgress, startedAt);
+      if (Date.now() - lastLife > STALL_RESTART_MS) restart();
+    }, 5000);
 
     setStatus(t("Starting…", "शुरू हो रहा है…"));
     start();
 
     return () => {
       cancelled = true;
+      v0?.removeEventListener("timeupdate", onProgress);
       if (retry) clearTimeout(retry);
+      if (tokenT) clearTimeout(tokenT);
+      if (watchT) clearInterval(watchT);
       // Tear the stream down on close. Without this the cloud keeps muxing for
       // a viewer who has already walked away.
-      if (hls) hls.destroy();
+      teardown();
       const v = videoRef.current;
       if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
     };
