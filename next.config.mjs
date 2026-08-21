@@ -26,6 +26,24 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
 
+  async rewrites() {
+    // Dev-only, opt-in: proxy the cloud API through the dev server so the
+    // camera wall is testable on localhost. The prod API's CORS allowlist is
+    // (rightly) locked to https://pgak.co.in, so a localhost tab can't call it
+    // directly — set PGAK_DEV_API_PROXY=1 and NEXT_PUBLIC_PGAK_API=/pgak-api in
+    // .env.local and the wall works locally against real cameras. Off (the
+    // default) this returns no rewrites and prod behaviour is untouched.
+    if (process.env.NODE_ENV === "development" && process.env.PGAK_DEV_API_PROXY) {
+      return [
+        {
+          source: "/pgak-api/:path*",
+          destination: "https://cloud.pgak.co.in/api/v1/:path*",
+        },
+      ];
+    }
+    return [];
+  },
+
   async redirects() {
     return [
       // Case studies moved under /insights. These URLs were live and in the
