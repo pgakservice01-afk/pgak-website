@@ -26,6 +26,14 @@ export type Location = {
   nearby: string[];
   /** A use-case scenario set in this city (hub → spoke link). */
   caseStudy?: { href: string; label: string };
+  /**
+   * Where in this city the work actually is — named industrial areas, markets
+   * or corridors, and the security pattern each one produces. This is local
+   * geography and industry fact, never a claim about deployments we've done;
+   * it exists so no two city pages read like the same page with the name
+   * swapped.
+   */
+  localAreas?: { heading: string; text: string };
 };
 
 export const LOCATIONS: Location[] = [
@@ -47,6 +55,10 @@ export const LOCATIONS: Location[] = [
       href: "/insights/case-studies/warehouse-shrinkage-ludhiana",
       label: "How AI CCTV cuts shrinkage in a Ludhiana warehouse",
     },
+    localAreas: {
+      heading: "Where the risk sits in Ludhiana",
+      text: "The pressure points cluster along the Gill Road and Focal Point belts, the hosiery units around Chandigarh Road, and the distribution godowns strung along the GT Road side of the city. These are high-headcount sites with long compound walls and a single guard covering far more perimeter than one person can watch, which is why gate attendance and after-hours boundary alerts are usually the first two things a Ludhiana site switches on.",
+    },
   },
   {
     slug: "jalandhar",
@@ -62,6 +74,10 @@ export const LOCATIONS: Location[] = [
       "The Doaba reality: houses that stand locked for months while owners are abroad, needing an alert the family can act on from another continent.",
     ],
     nearby: ["Ludhiana", "Hoshiarpur", "Amritsar", "Batala"],
+    localAreas: {
+      heading: "Where the risk sits in Jalandhar",
+      text: "Sports-goods and hand-tool units around Basti Nau and the Focal Point, leather and rubber works towards Kapurthala Road, and a dense wholesale trade in the old city. Many of these are family-run units with mixed-age camera estates, so the practical question is almost always whether the existing DVR can feed the AI rather than whether new cameras are needed.",
+    },
   },
   {
     slug: "amritsar",
@@ -77,6 +93,10 @@ export const LOCATIONS: Location[] = [
       "Papad, wadiyan and other food units where hygiene audits and night intrusion both need answering with the same cameras.",
     ],
     nearby: ["Batala", "Jalandhar", "Ludhiana"],
+    localAreas: {
+      heading: "Where the risk sits in Amritsar",
+      text: "Wholesale markets in the walled city, hotels and guest houses on the approach roads to Harmandir Sahib, and food-processing units out towards the Majitha Road industrial pockets. Hospitality sites here need alerting that is discreet — a manager's phone, not a siren in a lobby full of guests — while the wholesale markets care mainly about after-hours shutter activity.",
+    },
   },
   {
     slug: "chandigarh-mohali",
@@ -92,6 +112,10 @@ export const LOCATIONS: Location[] = [
       "Zirakpur warehouses with vehicle movement worth logging by number plate, not by a guard's register.",
     ],
     nearby: ["Ludhiana", "Patiala", "Khanna"],
+    localAreas: {
+      heading: "Where the risk sits in Chandigarh & Mohali",
+      text: "Corporate offices in the Chandigarh sectors, IT units in Mohali's Phase 8 and the Industrial Area, and the warehousing corridor that runs out through Zirakpur. Office sites tend to want attendance and restricted-room logs; the Zirakpur godowns want loading-bay and night-time perimeter cover, which are different configurations of the same cameras.",
+    },
   },
   {
     slug: "patiala",
@@ -107,6 +131,10 @@ export const LOCATIONS: Location[] = [
       "Kothis whose owners want one phone alert with a snapshot — not sixteen tiles of live video they will never open.",
     ],
     nearby: ["Chandigarh & Mohali", "Khanna", "Ludhiana"],
+    localAreas: {
+      heading: "Where the risk sits in Patiala",
+      text: "University and college campuses, agri-machinery workshops around the Focal Point, and large residential kothis in the older colonies. Campuses are the distinctive case here: wide open boundaries, thousands of legitimate people moving at once, and a need to spot the one person who does not belong rather than to log everybody.",
+    },
   },
   {
     slug: "bathinda",
@@ -122,6 +150,10 @@ export const LOCATIONS: Location[] = [
       "Agri-processing units on the ring roads with long, dark boundary walls.",
     ],
     nearby: ["Moga", "Patiala", "Ludhiana"],
+    localAreas: {
+      heading: "Where the risk sits in Bathinda",
+      text: "Fuel and agri-trade yards, cotton godowns, and processing units spread along the Mansa and Barnala roads. Storage sites in this belt hold high-value stock in low-supervision yards, so dwell-time alerts on stacked material and vehicle-movement logs at the gate usually matter more than face recognition.",
+    },
   },
   {
     slug: "mandi-gobindgarh",
@@ -137,6 +169,10 @@ export const LOCATIONS: Location[] = [
       "Furnace units running night shifts where the perimeter and the back gate see no guard for hours at a stretch.",
     ],
     nearby: ["Khanna", "Ludhiana", "Patiala"],
+    localAreas: {
+      heading: "Where the risk sits in Mandi Gobindgarh",
+      text: "Steel furnaces, rolling mills and scrap yards — the town is effectively one large industrial estate. Scrap handling is the defining security problem: high-value material moving constantly by vehicle, weighbridge disputes, and yards where a camera has to distinguish routine loading from removal after hours.",
+    },
   },
   {
     slug: "khanna",
@@ -152,6 +188,10 @@ export const LOCATIONS: Location[] = [
       "Highway-facing yards where an alert must reach the owner's phone before a loaded trolley reaches the GT Road.",
     ],
     nearby: ["Mandi Gobindgarh", "Ludhiana", "Patiala"],
+    localAreas: {
+      heading: "Where the risk sits in Khanna",
+      text: "The grain mandi, rice shellers, and the highway godowns along the GT Road. Seasonal peaks matter here in a way they do not elsewhere: during procurement the mandi runs round the clock with heavy vehicle movement, so schedules and zones have to change with the season rather than being set once.",
+    },
   },
   {
     slug: "moga",
@@ -167,6 +207,10 @@ export const LOCATIONS: Location[] = [
       "Farm and plant perimeters too long for a guard to patrol honestly.",
     ],
     nearby: ["Bathinda", "Ludhiana", "Jalandhar"],
+    localAreas: {
+      heading: "Where the risk sits in Moga",
+      text: "Dairy and food-processing plants, cold storage, and the distribution units feeding them. Food-grade sites bring a second requirement alongside security — hygiene and process discipline — so the same cameras are often asked to flag entry into restricted zones as well as intrusion.",
+    },
   },
   {
     slug: "hoshiarpur",
@@ -182,6 +226,10 @@ export const LOCATIONS: Location[] = [
       "Kandi-belt houses locked for long stretches, with family abroad wanting an alert they can trust and act on.",
     ],
     nearby: ["Jalandhar", "Batala", "Ludhiana"],
+    localAreas: {
+      heading: "Where the risk sits in Hoshiarpur",
+      text: "Plywood and timber units, saw mills, and the timber yards on the outskirts. Open-air stock is the pattern: material stacked in yards that cannot be shuttered, where the realistic control is boundary alerting after dark plus vehicle logs at the gate.",
+    },
   },
   {
     slug: "batala",
@@ -197,6 +245,10 @@ export const LOCATIONS: Location[] = [
       "Night-shift gates where knowing who entered matters more than knowing that someone did.",
     ],
     nearby: ["Amritsar", "Jalandhar", "Hoshiarpur"],
+    localAreas: {
+      heading: "Where the risk sits in Batala",
+      text: "Iron foundries, casting units and machine-tool workshops, most of them clustered around the industrial belt on the Amritsar and Qadian roads. Foundry environments are hard on gate hardware — heat, dust and metal particulate — which is exactly where fingerprint machines fail and a camera already mounted at the gate does not.",
+    },
   },
   {
     slug: "delhi-ncr",
@@ -212,6 +264,10 @@ export const LOCATIONS: Location[] = [
       "Logistics and 3PL warehouses in Gurugram, Noida and Ghaziabad with heavy vehicle movement to log.",
     ],
     nearby: ["Gurugram", "Noida", "Faridabad", "Ghaziabad"],
+    localAreas: {
+      heading: "Where the risk sits in Delhi NCR",
+      text: "Retail chains across the city, corporate offices, and the logistics parks that ring the region towards Bawana, Narela and the Haryana border. Multi-site retail is the common shape here: an owner running several branches who needs one view across all of them rather than a separate app per shop.",
+    },
   },
   {
     slug: "gurugram",
@@ -227,6 +283,10 @@ export const LOCATIONS: Location[] = [
       "Weekend and long-holiday equipment loss from unoccupied office floors.",
     ],
     nearby: ["Delhi", "Noida", "Faridabad", "Manesar"],
+    localAreas: {
+      heading: "Where the risk sits in Gurugram",
+      text: "Corporate offices along Golf Course Road and Udyog Vihar, plus gated residential across the sectors. Office and society sites share a requirement that industrial sites do not — the system has to be unobtrusive to a large population of legitimate people, so suppressing known faces matters more than raw detection.",
+    },
   },
   {
     slug: "noida",
@@ -242,6 +302,10 @@ export const LOCATIONS: Location[] = [
       "Office parks needing after-hours intrusion alerting across multiple floors.",
     ],
     nearby: ["Greater Noida", "Delhi", "Ghaziabad", "Gurugram"],
+    localAreas: {
+      heading: "Where the risk sits in Noida",
+      text: "Industrial sectors on the Noida–Greater Noida corridor, office parks, and large housing societies. Societies are the distinctive case: a main gate with constant visitor, delivery and cab movement, where an automated gate log is usually more valuable day to day than an intrusion alarm.",
+    },
   },
   {
     slug: "mumbai",
@@ -257,6 +321,10 @@ export const LOCATIONS: Location[] = [
       "Residential buildings fronting public roads, where filtering out pavement traffic is the whole job.",
     ],
     nearby: ["Navi Mumbai", "Thane", "Bhiwandi", "Pune"],
+    localAreas: {
+      heading: "Where the risk sits in Mumbai",
+      text: "Retail across the suburbs, warehousing towards Bhiwandi, and high-density residential everywhere. Space is the constraint that shapes everything: small floor areas with constant legitimate movement, so tight zones and dwell-time rules do the work that wide-area detection does elsewhere.",
+    },
   },
   {
     slug: "bengaluru",
@@ -272,6 +340,10 @@ export const LOCATIONS: Location[] = [
       "Organisations with internal data-governance reviews that require on-premises processing.",
     ],
     nearby: ["Whitefield", "Electronic City", "Hosur", "Mysuru"],
+    localAreas: {
+      heading: "Where the risk sits in Bengaluru",
+      text: "Tech offices and campuses across the Outer Ring Road corridor, along with gated communities and their clubhouses. Campus and community sites here typically already run substantial camera estates, so the useful question is which of the existing feeds are placed well enough to carry face recognition, not how many more to add.",
+    },
   },
   {
     slug: "jaipur",
@@ -291,6 +363,10 @@ export const LOCATIONS: Location[] = [
       href: "/insights/case-studies/retail-false-alarms-jaipur",
       label: "How AI CCTV handles false alarms for a Jaipur retail chain",
     },
+    localAreas: {
+      heading: "Where the risk sits in Jaipur",
+      text: "Jewellery and high-value retail in and around Johari Bazaar and the walled city, hospitality properties on the tourist routes, and multi-branch retailers across the newer colonies. Jewellery retail sets the tone: very high value in small floor areas, constant genuine customer movement, and an absolute requirement that an alert never embarrasses a real customer.",
+    },
   },
   {
     slug: "coimbatore",
@@ -309,6 +385,10 @@ export const LOCATIONS: Location[] = [
     caseStudy: {
       href: "/insights/case-studies/factory-gate-attendance-coimbatore",
       label: "How a 200-worker Coimbatore factory gate replaces the punch machine",
+    },
+    localAreas: {
+      heading: "Where the risk sits in Coimbatore",
+      text: "Spinning and textile mills, engineering job-works, and the industrial estates around Peelamedu, Kurichi and Singanallur. Shift discipline is the defining pattern — hundreds of workers crossing a gate inside a few minutes — which makes gate throughput, not camera count, the number that decides whether attendance works.",
     },
   },
 ];
