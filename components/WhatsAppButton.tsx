@@ -33,7 +33,9 @@ export default function WhatsAppButton() {
       data-cta="whatsapp-float"
       target="_blank"
       rel="noopener"
-      aria-label="Chat with PGAK on WhatsApp"
+      // Must CONTAIN the visible text ("Chat on WhatsApp") or voice-control
+      // users can't activate it by reading the button — WCAG 2.5.3.
+      aria-label="Chat on WhatsApp with PGAK"
       onClick={() =>
         fbTrack("Contact", { content_name: "WhatsApp Floating Button" })
       }
