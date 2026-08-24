@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   // Per-page titles win; this template gives any page that forgets one a
   // sensible, branded fallback instead of a bare string.
   title: {
-    default: "PGAK — Intelligent Security That Acts Before It's Too Late",
+    default: "PGAK — AI CCTV That Acts Before It's Too Late",
     template: "%s",
   },
   description:

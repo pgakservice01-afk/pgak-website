@@ -14,8 +14,7 @@ import { CAPABILITIES } from "@/lib/capabilities";
 const PATH = "/features";
 
 export const metadata: Metadata = pageMeta({
-  title:
-    "AI CCTV Camera Features — Face Recognition, Intruder Alerts & More | PGAK",
+  title: "AI CCTV Features — Face Recognition & Intruder Alerts | PGAK",
   description:
     "Every AI CCTV feature PGAK adds to the cameras you already own: real-time intruder alerts, face recognition, false-alarm filtering, attendance automation, loitering detection and number plate recognition.",
   path: PATH,

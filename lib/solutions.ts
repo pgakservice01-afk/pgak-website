@@ -154,7 +154,7 @@ export const SOLUTIONS: Solution[] = [
       "business CCTV",
     ],
     title:
-      "AI CCTV Camera for Warehouses — Stop Stock Loss Before It Leaves the Gate | PGAK",
+      "AI CCTV for Warehouses — Stop Stock Loss at the Gate | PGAK",
     description:
       "Warehouse security that actually intervenes: PGAK's AI watches every aisle, dock and gate on your existing cameras, flags loitering and after-hours movement in seconds, and cuts the shrinkage you've been writing off.",
     eyebrow: "Warehouse security",
@@ -240,7 +240,7 @@ export const SOLUTIONS: Solution[] = [
     caseStudies: [
       {
         href: "/insights/case-studies/warehouse-shrinkage-ludhiana",
-        label: "See how one Ludhiana warehouse cut shrinkage",
+        label: "How AI CCTV cuts shrinkage in a Ludhiana warehouse",
       },
     ],
   },
@@ -344,7 +344,7 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV camera",
     ],
     title:
-      "Factory Security System — AI CCTV for Gates, Perimeters and Shop Floors | PGAK",
+      "Factory Security System — AI CCTV for Gates & Shop Floors | PGAK",
     description:
       "A factory security system that covers the gate, the perimeter and the shop floor: automatic attendance, PPE and safety-zone monitoring, and real-time intrusion alerts on your existing industrial CCTV.",
     eyebrow: "Factory & industrial",

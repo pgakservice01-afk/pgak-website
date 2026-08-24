@@ -26,7 +26,7 @@ import { FAQS } from "@/lib/faq";
 
 export const metadata: Metadata = pageMeta({
   title:
-    "AI CCTV Camera & Smart Security System for Business and Home | PGAK India",
+    "AI CCTV Camera for Business & Home in India | PGAK",
   description:
     "PGAK turns the CCTV cameras you already own into an AI security system — real-time intruder detection, face recognition and 90% fewer false alarms, from ₹1,000 per camera per month.",
   path: "/",

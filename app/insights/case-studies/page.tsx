@@ -15,7 +15,7 @@ import { CASE_STUDIES } from "@/lib/caseStudies";
 const PATH = "/insights/case-studies";
 
 export const metadata: Metadata = pageMeta({
-  title: "Case Studies — AI CCTV Deployments in Warehouses, Factories & Shops | PGAK",
+  title: "AI CCTV Use Cases — Warehouse, Factory, Retail & Society | PGAK",
   description:
     "Real deployment stories: how warehouses, factories, retail stores and housing societies used AI CCTV on their existing cameras to stop losses and automate attendance.",
   path: PATH,
@@ -40,9 +40,9 @@ export default function CaseStudiesPage() {
         nodes={[
           webPageSchema({
             path: PATH,
-            name: "PGAK case studies",
+            name: "PGAK use-case scenarios",
             description:
-              "Deployment stories from warehouses, factories, retail stores and housing societies running PGAK on existing cameras.",
+              "Worked scenarios showing how PGAK is configured for warehouses, factory gates, retail chains and housing societies using their existing cameras.",
           }),
           breadcrumbSchema(TRAIL),
         ]}
@@ -54,19 +54,21 @@ export default function CaseStudiesPage() {
         <section className="sec pb-8">
           <div className="wrap">
             <Breadcrumbs trail={TRAIL} />
-            <p className="eyebrow mt-6">Case studies</p>
-            <h1 className="display mt-4 max-w-[16ch] text-[clamp(2.1rem,4.8vw,3.3rem)]">
-              What actually changed on real sites
+            <p className="eyebrow mt-6">Use-case scenarios</p>
+            <h1 className="display mt-4 max-w-[18ch] text-[clamp(2.1rem,4.8vw,3.3rem)]">
+              What AI CCTV looks like on a site like yours
             </h1>
             <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              Four deployments, told honestly — what the site was losing, what we
-              did about it, and which cameras it took. Every one of these ran on
-              equipment the customer had already paid for.
+              Four worked scenarios — a warehouse, a factory gate, a retail
+              chain and a housing society. Each one walks through the problem
+              the site starts with, how PGAK would be configured for it, and
+              which of the existing cameras it would use.
             </p>
             <p className="mt-5 max-w-[62ch] rounded-[14px] border border-line bg-panel p-4 text-[0.88rem] text-ink-faint">
-              These accounts are anonymised at our customers&rsquo; request —
-              sector, city and camera count only. Figures describe typical
-              outcomes at those sites, not independently audited results.
+              These are illustrative scenarios, not reports of completed
+              projects. They describe how the system is set up for each type of
+              site and the outcomes such a deployment is designed to achieve —
+              the figures are modelled, not measured at a named customer.
             </p>
           </div>
         </section>

@@ -1,5 +1,5 @@
 ---
-title: "Face recognition attendance vs the biometric machine: an honest comparison"
+title: "Face recognition attendance vs biometric machines"
 date: "2026-07-28"
 updated: "2026-08-21"
 category: "Attendance"
@@ -34,7 +34,7 @@ Recognition at the gate identifies people while they walk. There's no device to 
 
 The buddy-punching problem largely resolves itself, not through enforcement but through the physics of it — a face is harder to lend than a card or a PIN.
 
-And unknown people are logged rather than ignored. Contractors and visitors show up as unrecognised faces with a snapshot, which for most plants is the first time headcount on site has been a real number rather than an estimate. That difference is visible in practice: at a [200-worker factory gate in Coimbatore](/insights/case-studies/factory-gate-attendance-coimbatore), the queue disappeared and the register stopped needing morning corrections.
+And unknown people are logged rather than ignored. Contractors and visitors show up as unrecognised faces with a snapshot, which for most plants is the first time headcount on site has been a real number rather than an estimate. We've worked through what this looks like end to end for a 200-worker factory gate — see the [factory-gate attendance scenario](/insights/case-studies/factory-gate-attendance-coimbatore).
 
 ## Head to head: fingerprint machine vs face recognition
 
@@ -88,4 +88,4 @@ That's a slower rollout than most vendors propose. It's also the one where nobod
 
 ---
 
-**Related reading:** [Attendance automation](/features/attendance-automation) · [Factory security](/factory-security) · [Why biometric attendance machines fail at the factory gate](/insights/why-biometric-attendance-machines-fail-at-the-factory-gate) · [Coimbatore factory-gate case study](/insights/case-studies/factory-gate-attendance-coimbatore)
+**Related reading:** [Attendance automation](/features/attendance-automation) · [Factory security](/factory-security) · [Why biometric attendance machines fail at the factory gate](/insights/why-biometric-attendance-machines-fail-at-the-factory-gate) · [Factory-gate attendance scenario](/insights/case-studies/factory-gate-attendance-coimbatore)

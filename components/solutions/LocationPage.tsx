@@ -108,7 +108,7 @@ export default function LocationPage({ location }: { location: Location }) {
             </div>
             {l.caseStudy && (
               <p className="mt-5 text-ink-soft">
-                Proof from {l.city}:{" "}
+                Worked example for {l.city}:{" "}
                 <Link
                   href={l.caseStudy.href}
                   className="text-accent underline underline-offset-4"

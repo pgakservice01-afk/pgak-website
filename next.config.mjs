@@ -105,7 +105,10 @@ const nextConfig = {
               "base-uri 'self'",
               "form-action 'self'",
               "object-src 'none'",
-              "upgrade-insecure-requests",
+              // No `upgrade-insecure-requests` here: it is ignored in a
+              // report-only policy and Chrome logs an Issues-panel error for
+              // it, which costs Lighthouse best-practices points. Add it when
+              // this policy is switched to enforcing.
             ].join("; "),
           },
         ],

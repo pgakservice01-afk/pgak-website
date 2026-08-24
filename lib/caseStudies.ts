@@ -1,13 +1,16 @@
 /**
- * Customer success stories.
+ * USE-CASE SCENARIOS — not customer case studies.
  *
- * ⚠️ These are written from the deployment patterns described in lib/trust.ts
- * and are intentionally ANONYMISED — sector, size and city only, no company
- * names or logos. Figures are described as typical outcomes rather than
- * audited results, and every page carries a visible note saying so.
+ * ⚠️ These describe how PGAK would be configured for a representative site of
+ * each type, and the outcomes such a setup is designed to achieve. They are
+ * ILLUSTRATIVE: no page here reports a completed customer project, and the
+ * figures are modelled rather than measured. Every page renders a visible note
+ * saying exactly that, and the `quote` field is the concern the scenario
+ * addresses — NOT a customer testimonial — so it is rendered with an
+ * "illustrative, not a customer quote" label.
  *
- * Before publishing a named case study with hard numbers, get written sign-off
- * from that customer and replace `anonymised: true` with their real details.
+ * When a real customer signs off on a named story with audited numbers, add it
+ * as a separate, clearly-labelled case study rather than editing one of these.
  */
 
 export type CaseStudy = {
@@ -29,9 +32,9 @@ export type CaseStudy = {
   /** Related solution slug. */
   solution: string;
   anonymised: boolean;
-  /** Publication date (YYYY-MM-DD) — first published with the case-study section. */
+  /** Page publication date (YYYY-MM-DD) — when this scenario was written. */
   date: string;
-  /** Cross-links to the pages this study proves (case study → hub). */
+  /** Cross-links to the pages this scenario illustrates (scenario → hub). */
   related?: { href: string; label: string }[];
 };
 
@@ -40,11 +43,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "warehouse-shrinkage-ludhiana",
     title: "A 120-camera warehouse that could not watch any of them",
     metaTitle:
-      "Case Study — AI CCTV Cuts Warehouse Shrinkage on 120 Existing Cameras | PGAK",
+      "Warehouse AI CCTV Use Case — Cutting Shrinkage on 120 Cameras | PGAK",
     metaDescription:
-      "How a Ludhiana warehouse with 120 cameras and no way to watch them used AI CCTV to flag loading-bay and after-hours activity in real time, and stopped writing off monthly stock loss.",
+      "A worked scenario: how a Ludhiana warehouse with 120 cameras and nobody watching them would use AI CCTV to flag loading-bay and after-hours activity in real time instead of writing off monthly stock loss.",
     keywords: [
-      "warehouse security case study",
+      "warehouse security use case",
       "AI CCTV camera for warehouses",
       "warehouse theft prevention",
       "inventory shrinkage",
@@ -101,7 +104,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "retail-false-alarms-jaipur",
     title: "The retail chain that had muted its own security app",
     metaTitle:
-      "Case Study — Cutting Retail CCTV False Alarms So Staff Trust Them Again | PGAK",
+      "Retail AI CCTV Use Case — Cutting False Alarms Staff Ignore | PGAK",
     metaDescription:
       "A Jaipur retail store had switched off CCTV notifications entirely after months of false alarms. Here's how object classification and zone tuning made the alerts worth reading again.",
     keywords: [
@@ -162,7 +165,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "factory-gate-attendance-coimbatore",
     title: "The factory gate where fingerprints stopped working",
     metaTitle:
-      "Case Study — Replacing a Factory Biometric Machine With Gate Face Recognition | PGAK",
+      "Factory Gate Use Case — Face Recognition vs Biometric Machine | PGAK",
     metaDescription:
       "A Coimbatore factory's fingerprint attendance machine failed daily on dusty, damaged hands. Face recognition at the gate removed the shift-change queue and the buddy punching with it.",
     keywords: [
@@ -227,7 +230,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "housing-society-gate-log",
     title: "The society gate register nobody could read",
     metaTitle:
-      "Case Study — Automating a Housing Society Gate Log With AI CCTV | PGAK",
+      "Housing Society Use Case — Automating the Gate Log | PGAK",
     metaDescription:
       "How a housing society replaced its paper visitor register with automatic resident vehicle recognition and photo-logged visitor entries on its existing gate cameras.",
     keywords: [
