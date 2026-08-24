@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import { PhotoTile } from "@/components/trust/Media";
 import { PHOTOS } from "@/lib/trust";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -82,12 +83,13 @@ export default function PhotosPage() {
             </div>
 
             <div className="mt-14 text-center">
-              <Link href="/#demo" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 Book a free demo →
               </Link>
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import { REVIEWS } from "@/lib/trust";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
@@ -110,12 +111,13 @@ export default function ReviewsPage() {
             </div>
 
             <div className="mt-14 text-center">
-              <Link href="/#audit" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 Get your free site audit →
               </Link>
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
       <Footer />
     </>

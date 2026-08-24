@@ -113,7 +113,10 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                href={p.amt === "Custom" ? "/#dealer" : "/#demo"}
+                // Relative anchor: this table renders on both / and /pricing,
+                // and both carry the lead form — so the buyer never leaves the
+                // page they're reading to convert.
+                href="#dealer"
                 className={`btn w-full ${p.featured ? "btn-primary" : "btn-ghost"}`}
               >
                 {p.cta}

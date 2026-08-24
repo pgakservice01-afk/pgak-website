@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Features from "@/components/sections/Features";
 import LiveIntelligence from "@/components/sections/LiveIntelligence";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -105,7 +106,7 @@ export default function FeaturesPage() {
                 protection — in about 20 minutes.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="/#demo" className="btn btn-primary">
+                <Link href="#dealer" className="btn btn-primary">
                   Book a free demo →
                 </Link>
                 <Link href="/pricing" className="btn btn-ghost">
@@ -115,6 +116,7 @@ export default function FeaturesPage() {
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
       <Footer />
     </>

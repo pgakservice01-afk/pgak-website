@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
@@ -139,7 +140,7 @@ export default function SolutionsPage() {
                 writing, with no obligation to buy anything.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="/#audit" className="btn btn-primary">
+                <Link href="#dealer" className="btn btn-primary">
                   Get a free camera audit →
                 </Link>
                 <Link href="/contact" className="btn btn-ghost">
@@ -149,6 +150,7 @@ export default function SolutionsPage() {
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
 
       <Footer />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import RoiCalculator from "@/components/sections/RoiCalculator";
@@ -144,7 +145,7 @@ export default function RoiCalculatorPage() {
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
-                  href="/#audit"
+                  href="#dealer"
                   data-cta="roi-page-audit"
                   className="btn btn-primary"
                 >
@@ -157,6 +158,7 @@ export default function RoiCalculatorPage() {
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
 
       <Footer />

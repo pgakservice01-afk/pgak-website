@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
@@ -110,7 +111,7 @@ export default function CaseStudiesPage() {
                 are worth making intelligent and which ones aren&rsquo;t.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="/#audit" className="btn btn-primary">
+                <Link href="#dealer" className="btn btn-primary">
                   Get a free camera audit →
                 </Link>
                 <Link href="/trust/reviews" className="btn btn-ghost">
@@ -120,6 +121,7 @@ export default function CaseStudiesPage() {
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
 
       <Footer />
