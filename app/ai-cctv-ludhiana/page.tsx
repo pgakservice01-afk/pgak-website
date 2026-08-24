@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("ludhiana")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV Camera in ${location.city} — Intruder Detection on Your Existing Cameras | PGAK`,
+  title: `AI CCTV Camera in ${location.city} — Alerts on Your Own Cameras | PGAK`,
   description: `AI CCTV and intruder detection in ${location.city}, ${location.region}. PGAK adds real-time alerts, face recognition and false-alarm filtering to the cameras you already own — ₹1,000 per camera per month.`,
   path: locationPath(location.slug),
   keywords: [

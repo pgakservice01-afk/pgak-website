@@ -18,7 +18,12 @@ export function organizationSchema(): Json {
     name: SITE_NAME,
     legalName: BUSINESS.legalName,
     url: SITE_URL,
-    logo: { "@type": "ImageObject", url: abs("/hero-landing.webp") },
+    logo: {
+      "@type": "ImageObject",
+      url: abs("/logo.png"),
+      width: 512,
+      height: 512,
+    },
     image: abs("/hero-landing.webp"),
     description:
       "PGAK builds AI CCTV software that turns existing security cameras into intelligent guardians — real-time intruder detection, face recognition and false-alarm filtering for homes, warehouses, factories, offices and retail across India.",
@@ -149,6 +154,9 @@ export function productSchema(opts: {
             priceCurrency: "INR",
             availability: "https://schema.org/InStock",
             url: abs("/pricing"),
+            // Rolling 12-month validity so the offer never reads as stale;
+            // the flat rate has not changed since launch.
+            priceValidUntil: priceValidUntil(),
             priceSpecification: {
               "@type": "UnitPriceSpecification",
               price: opts.price,
@@ -158,6 +166,49 @@ export function productSchema(opts: {
           },
         }
       : {}),
+  };
+}
+
+/** One year out, YYYY-MM-DD — computed at build time. */
+function priceValidUntil(): string {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * The visible pricing tiers as an OfferCatalog, so the plan structure on
+ * /pricing (Home / Office / Enterprise) is machine-readable rather than a
+ * single flat Offer standing in for three.
+ */
+export function offerCatalogSchema(
+  tiers: { name: string; description: string; price?: number }[]
+): Json {
+  return {
+    "@type": "OfferCatalog",
+    "@id": `${abs("/pricing")}#offers`,
+    name: "PGAK plans",
+    url: abs("/pricing"),
+    itemListElement: tiers.map((t) => ({
+      "@type": "Offer",
+      name: t.name,
+      description: t.description,
+      url: abs("/pricing"),
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      ...(t.price
+        ? {
+            price: t.price,
+            priceValidUntil: priceValidUntil(),
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: t.price,
+              priceCurrency: "INR",
+              unitText: "per camera per month",
+            },
+          }
+        : {}),
+    })),
   };
 }
 

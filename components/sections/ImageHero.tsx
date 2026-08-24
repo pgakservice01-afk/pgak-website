@@ -53,12 +53,6 @@ export default function ImageHero() {
   const { lang, t } = useLang();
   return (
     <section id="top" className="relative w-full overflow-hidden bg-bg">
-      {/* Always-present heading for SEO / screen readers */}
-      <h1 className="sr-only">
-        Your cameras can see. We make them think. PGAK turns the cameras you
-        already own into intelligent guardians — detecting threats in seconds,
-        cutting false alarms, and giving you real peace of mind, 24×7.
-      </h1>
 
       <div className="wrap grid min-h-screen items-center gap-12 pb-16 pt-[120px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
         {/* ── Left: brand copy + CTAs + stats (unchanged content) ── */}
@@ -70,7 +64,9 @@ export default function ImageHero() {
               "एआई-संचालित सुरक्षा इंटेलिजेंस",
             )}
           </span>
-          <h2 className="display max-w-[14ch] text-[clamp(2.6rem,7vw,5rem)] leading-[1.02]">
+          {/* The visible headline IS the h1 — an sr-only h1 above a visible h2
+              broke the heading order and hid the page's real title. */}
+          <h1 className="display max-w-[14ch] text-[clamp(2.6rem,7vw,5rem)] leading-[1.02]">
             {lang === "hi" ? (
               <>
                 आपके कैमरे देख सकते हैं।
@@ -87,7 +83,7 @@ export default function ImageHero() {
                 We make them <span className="italic text-accent">think.</span>
               </>
             )}
-          </h2>
+          </h1>
           <p className="mt-6 max-w-[46ch] text-[1.1rem] text-ink-soft">
             {lang === "hi" ? (
               <>

@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import {
   breadcrumbSchema,
+  offerCatalogSchema,
   productSchema,
   webPageSchema,
 } from "@/lib/schema";
@@ -52,6 +53,23 @@ export default function PricingPage() {
             path: PATH,
             price: 1000,
           }),
+          offerCatalogSchema([
+            {
+              name: "Home",
+              description: "Smart protection for apartments and homes.",
+              price: 1000,
+            },
+            {
+              name: "Office",
+              description: "For shops, offices and workplaces.",
+              price: 1000,
+            },
+            {
+              name: "Enterprise",
+              description:
+                "Multi-site and industrial deployments with volume pricing.",
+            },
+          ]),
           breadcrumbSchema(TRAIL),
         ]}
       />

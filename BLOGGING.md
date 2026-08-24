@@ -56,6 +56,30 @@ Blogs live as plain markdown files in `content/insights/`. No CMS, no database �
    `/insights`, in the homepage "Insights" section (latest 3), and in the
    sitemap for Google automatically.
 
+4. **Tell the search engines it exists** (optional, ~2 seconds):
+
+   ```bash
+   npm run indexnow -- /insights/your-post-slug
+   ```
+
+   That pings IndexNow, which Bing, Yandex, Naver and Microsoft Copilot act on
+   within minutes. Google ignores IndexNow — for Google, open Search Console →
+   URL inspection → **Request indexing** on the new URL.
+
+## Optional frontmatter that earns extra search visibility
+
+```yaml
+updated: "2026-08-21"   # real last-edit date → shown on the post + sitemap lastmod
+image: "/insights/x.webp"  # cover image; falls back to the site OG card
+faqs:                    # rendered as FAQPage structured data
+  - q: "How much does an AI CCTV camera cost in India?"
+    a: "A direct, self-contained answer in two or three sentences."
+```
+
+Use `faqs` when the post answers a question people literally type into Google —
+keep each answer standalone, and make sure the same answer also appears in the
+body text (marking up an answer the reader can't see is against Google's rules).
+
 ## Preview locally before publishing (optional)
 
 ```bash
@@ -70,8 +94,9 @@ Open http://localhost:3000/insights — check the card and the article page.
   the fix. Never open with "PGAK is…".
 - Short sentences. Simple English. No jargon without a plain explanation.
 - One idea per post. 600–900 words is the sweet spot.
-- Always end with one CTA link: `[Get a free AI audit](/#audit)` or
-  `[Book a demo](/#demo)`.
+- Always end with one CTA link pointing at the lead form on the post itself:
+  `[Ask for a free feasibility check](#dealer)`. Don't send readers to
+  homepage anchors — every post now carries its own form at the bottom.
 - Be honest — no invented numbers, no fear-mongering. Confidence, not drama.
 
 ## Asking Claude to write the daily post
