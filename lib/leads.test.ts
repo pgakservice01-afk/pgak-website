@@ -64,6 +64,24 @@ test("rejects numbers that cannot be dialled", () => {
   }
 });
 
+test("rejects keyboard-mash junk that has a valid shape", () => {
+  // Owner-reported 2026-08-21: these passed the shape rule and reached the
+  // CRM, sending a dealer to phone a number that cannot exist.
+  for (const junk of [
+    "9999999999",
+    "8888888888",
+    "1111111111",
+    "1234567890",
+    "0123456789",
+    "+91 99999 99999".replace(/9{10}/, "9999999999"), // formatted variant
+  ]) {
+    assert.equal(normalisePhone(junk), null, `should reject junk: ${junk}`);
+  }
+  // ...while a real number one digit away still passes.
+  assert.equal(normalisePhone("9999999998"), "+919999999998");
+  assert.equal(normalisePhone("1234567891"), "+911234567891");
+});
+
 test("a complete, ordinary submission validates", () => {
   const r = validateLead(GOOD);
   assert.equal(r.ok, true);
