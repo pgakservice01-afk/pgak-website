@@ -5,7 +5,12 @@ import Reveal from "@/components/Reveal";
 import IndiaNetwork from "@/components/illustrations/IndiaNetwork";
 import { fbTrack } from "@/lib/fbpixel";
 import { trackLead } from "@/lib/analytics";
-import { HONEYPOT_FIELD, PROTECT_OPTIONS, type FieldErrors } from "@/lib/leads";
+import {
+  HONEYPOT_FIELD,
+  PROTECT_OPTIONS,
+  normalisePhone,
+  type FieldErrors,
+} from "@/lib/leads";
 
 /**
  * Dealer / lead form.
@@ -82,6 +87,27 @@ export default function DealerForm() {
       protecting: String(data.get("protecting") ?? PROTECT_OPTIONS[0]),
     };
     setTyped(values);
+
+    // Validate in the browser BEFORE any network trip, with the same
+    // `normalisePhone` the server uses — one rulebook, two checkpoints. The
+    // server still re-validates (a curl can skip this file entirely); this
+    // check exists so a customer with a typo hears about it instantly instead
+    // of after a round trip, and so junk never even leaves the device.
+    const clientErrors: FieldErrors = {};
+    if (values.name.length < 2) clientErrors.name = "Please enter your name.";
+    if (!normalisePhone(values.phone)) {
+      clientErrors.phone =
+        "Please enter a valid 10-digit Indian phone number.";
+    }
+    if (values.location.length < 2) {
+      clientErrors.location = "Please enter your city or PIN code.";
+    }
+    if (Object.keys(clientErrors).length > 0) {
+      setFieldErrors(clientErrors);
+      setStatus("idle");
+      return;
+    }
+
     setStatus("sending");
     setFieldErrors({});
 

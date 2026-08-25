@@ -94,6 +94,12 @@ function clean(value: unknown, max: number): string {
  * Yes, `[1-9]` admits some strings that are not assigned numbers. That is the
  * correct side to err on: an unassigned number costs a dealer one wasted call,
  * while a rejected real one costs the lead outright.
+ *
+ * The one refinement on top (owner-reported 2026-08-21, junk was reaching the
+ * CRM): a handful of keyboard-mash patterns that pass the shape test but are
+ * never real numbers — all ten digits identical (9999999999, 8888888888…) and
+ * the two straight runs (1234567890 / 0123456789). Each is unassignable or a
+ * placeholder in practice, so rejecting them cannot cost a real lead.
  */
 export function normalisePhone(raw: unknown): string | null {
   if (typeof raw !== "string") return null;
@@ -106,6 +112,8 @@ export function normalisePhone(raw: unknown): string | null {
   else if (local.length === 11 && local.startsWith("0")) local = local.slice(1);
 
   if (!/^[1-9]\d{9}$/.test(local)) return null;
+  if (/^(\d)\1{9}$/.test(local)) return null; // all ten digits identical
+  if (local === "1234567890" || local === "0123456789") return null;
   return `+91${local}`;
 }
 
