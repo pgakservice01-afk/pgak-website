@@ -24,6 +24,8 @@ export const LIMITS = {
   phone: 24,
   location: 120,
   protecting: 60,
+  /** RFC 5321's practical ceiling for a whole address. */
+  email: 254,
 } as const;
 
 /** The only values the form's <select> can legitimately produce. */
@@ -52,6 +54,8 @@ export type LeadInput = {
   phone?: unknown;
   location?: unknown;
   protecting?: unknown;
+  /** Optional — see `normaliseEmail`. Empty string and absent are the same. */
+  email?: unknown;
   /** See HONEYPOT_FIELD. Hidden + tabindex=-1, so a human never reaches it. */
   website?: unknown;
 };
@@ -61,9 +65,13 @@ export type ValidLead = {
   phone: string;
   location: string;
   protecting: string;
+  /** Empty string when the customer chose not to give one. */
+  email: string;
 };
 
-export type FieldErrors = Partial<Record<"name" | "phone" | "location", string>>;
+export type FieldErrors = Partial<
+  Record<"name" | "phone" | "location" | "email", string>
+>;
 
 export type ValidationResult =
   | { ok: true; lead: ValidLead }
@@ -118,6 +126,33 @@ export function normalisePhone(raw: unknown): string | null {
 }
 
 /**
+ * Normalises an optional email address, or reports it as unusable.
+ *
+ * Returns `""` for absent/blank — **that is a success, not a failure.** Email
+ * is deliberately OPTIONAL on this form: the dealer converts a lead by phoning
+ * it, and every extra required field on a form this small costs more leads than
+ * the data is worth. So a customer who gives only a phone number is a complete,
+ * valid lead.
+ *
+ * But a *malformed* address is worse than none — it looks like a working
+ * follow-up channel and silently is not. So anything non-blank must parse, and
+ * the customer is told when it doesn't.
+ *
+ * The pattern is the pragmatic one, not RFC 5322: exactly one `@`, no spaces,
+ * and a dotted TLD of at least two letters. It accepts every address a real
+ * customer types (including `+` tags and subdomains) and rejects the typos that
+ * actually happen — `foo@bar` with no TLD, `foo @bar.com`, a bare `foo.com`.
+ */
+export function normaliseEmail(raw: unknown): string | null {
+  if (raw === undefined || raw === null) return "";
+  if (typeof raw !== "string") return null;
+  const value = raw.trim().toLowerCase().slice(0, LIMITS.email);
+  if (value === "") return "";
+  if (!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[a-z]{2,}$/.test(value)) return null;
+  return value;
+}
+
+/**
  * Validates a raw JSON body.
  *
  * A tripped honeypot returns `honeypot: true` **and the parsed lead when it is
@@ -142,6 +177,12 @@ export function validateLead(input: LeadInput): ValidationResult {
     fieldErrors.location = "Please enter your city or PIN code.";
   }
 
+  // Optional: blank is fine, malformed is not.
+  const email = normaliseEmail(input.email);
+  if (email === null) {
+    fieldErrors.email = "That email doesn't look right — or leave it blank.";
+  }
+
   // Unrecognised values fall back to the safe default rather than rejecting:
   // the field is a <select>, so anything else is a tampered or stale client,
   // and losing a lead over a dropdown would be absurd.
@@ -151,8 +192,8 @@ export function validateLead(input: LeadInput): ValidationResult {
     : PROTECT_OPTIONS[0];
 
   const lead: ValidLead | null =
-    Object.keys(fieldErrors).length === 0 && phone
-      ? { name, phone, location, protecting }
+    Object.keys(fieldErrors).length === 0 && phone && email !== null
+      ? { name, phone, location, protecting, email }
       : null;
 
   if (clean(input[HONEYPOT_FIELD as "website"], 200) !== "") {
@@ -169,7 +210,8 @@ export function validateLead(input: LeadInput): ValidationResult {
  * ⚠️ `location -> district` and `protecting -> message` are inherited from the
  * original static site and must not drift: the ERP routes a lead to a dealer by
  * `district`, so renaming that field silently breaks assignment. `email` is
- * sent empty because this form does not collect one.
+ * an empty string when the customer chose not to give one — the ERP column is
+ * nullable text and has always accepted that.
  *
  * `source` and `message` are authored **here, on the server**, never taken from
  * the client. The old client-side code sent `source: window.location.hostname`,
@@ -189,7 +231,7 @@ export function toErpPayload(
     name: lead.name,
     phone: lead.phone,
     district: lead.location,
-    email: "",
+    email: lead.email,
     message: `Protecting: ${lead.protecting} | Submitted: ${nowIso} | Ref: ${ref}`,
     source: `Website (${hostname})`,
     ref,
