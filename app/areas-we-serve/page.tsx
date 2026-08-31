@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
@@ -114,13 +115,14 @@ export default function AreasPage() {
                 <Link href="/contact" className="btn btn-primary">
                   Ask about your area →
                 </Link>
-                <Link href="/#dealer" className="btn btn-ghost">
+                <Link href="#dealer" className="btn btn-ghost">
                   Become a dealer
                 </Link>
               </div>
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
 
       <Footer />

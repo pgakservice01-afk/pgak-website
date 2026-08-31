@@ -321,7 +321,7 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         href: "/insights/case-studies/factory-gate-attendance-coimbatore",
-        label: "Case study: 200-worker factory gate in Coimbatore",
+        label: "Scenario: 200-worker factory gate in Coimbatore",
       },
     ],
   },

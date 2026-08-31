@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 import {
   HONEYPOT_FIELD,
+  normaliseEmail,
   normalisePhone,
   toErpPayload,
   validateLead,
@@ -64,6 +65,24 @@ test("rejects numbers that cannot be dialled", () => {
   }
 });
 
+test("rejects keyboard-mash junk that has a valid shape", () => {
+  // Owner-reported 2026-08-21: these passed the shape rule and reached the
+  // CRM, sending a dealer to phone a number that cannot exist.
+  for (const junk of [
+    "9999999999",
+    "8888888888",
+    "1111111111",
+    "1234567890",
+    "0123456789",
+    "+91 99999 99999".replace(/9{10}/, "9999999999"), // formatted variant
+  ]) {
+    assert.equal(normalisePhone(junk), null, `should reject junk: ${junk}`);
+  }
+  // ...while a real number one digit away still passes.
+  assert.equal(normalisePhone("9999999998"), "+919999999998");
+  assert.equal(normalisePhone("1234567891"), "+911234567891");
+});
+
 test("a complete, ordinary submission validates", () => {
   const r = validateLead(GOOD);
   assert.equal(r.ok, true);
@@ -73,6 +92,7 @@ test("a complete, ordinary submission validates", () => {
     phone: "+919876543210",
     location: "Ludhiana",
     protecting: "Office",
+    email: "", // optional and not given — still a complete lead
   });
 });
 
@@ -153,4 +173,48 @@ test("source is server-authored and cannot be poisoned by the client", () => {
   const p = toErpPayload(r.lead, "www.pgak.co.in", "2026-08-10T12:00:00.000Z", "r1");
   assert.equal(p.source, "Website (www.pgak.co.in)");
   assert.equal((p as Record<string, unknown>).Source, undefined);
+});
+
+test("email is OPTIONAL — blank is a complete, valid lead", () => {
+  // The dealer converts by phoning. Requiring email would cost more leads than
+  // the addresses are worth, so absent/blank must succeed, not error.
+  for (const blank of ["", "   ", undefined, null]) {
+    assert.equal(normaliseEmail(blank as unknown), "", `blank should pass: ${String(blank)}`);
+  }
+  const r = validateLead({ ...GOOD, email: "" });
+  assert.equal(r.ok, true);
+  if (!r.ok) return;
+  assert.equal(r.lead.email, "");
+});
+
+test("accepts the address shapes real customers type", () => {
+  assert.equal(normaliseEmail("rana@pgak.co.in"), "rana@pgak.co.in");
+  assert.equal(normaliseEmail("  Rana@PGAK.co.in  "), "rana@pgak.co.in"); // trimmed + lowercased
+  assert.equal(normaliseEmail("rana+leads@gmail.com"), "rana+leads@gmail.com");
+  assert.equal(normaliseEmail("a.b.c@mail.corp.example.co.in"), "a.b.c@mail.corp.example.co.in");
+});
+
+test("rejects malformed addresses — worse than none, because they look usable", () => {
+  for (const bad of ["foo@bar", "foo.com", "foo @bar.com", "foo@@bar.com", "@bar.com", "foo@bar.", "foo@.com"]) {
+    assert.equal(normaliseEmail(bad), null, `should reject: ${bad}`);
+  }
+});
+
+test("a malformed email blocks the lead with a field error, not silently", () => {
+  const r = validateLead({ ...GOOD, email: "not-an-email" });
+  assert.equal(r.ok, false);
+  if (r.ok || r.honeypot) return assert.fail("expected field errors");
+  assert.ok(r.fieldErrors.email);
+  // ...and the other fields are untouched by it.
+  assert.equal(r.fieldErrors.phone, undefined);
+});
+
+test("the ERP payload carries the email in its own column", () => {
+  const r = validateLead({ ...GOOD, email: "Owner@Factory.co.in" });
+  assert.equal(r.ok, true);
+  if (!r.ok) return;
+  const p = toErpPayload(r.lead, "www.pgak.co.in", "2026-08-25T00:00:00.000Z", "r1");
+  assert.equal(p.email, "owner@factory.co.in");
+  // The dealer-routing key is still the city, not the email.
+  assert.equal(p.district, "Ludhiana");
 });

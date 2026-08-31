@@ -84,6 +84,33 @@ const nextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          // REPORT-ONLY on purpose: this policy is a measurement, not a
+          // control. It mirrors what the site actually loads today (GTM/GA4,
+          // Meta pixel, Clarity, Vercel insights, inline theme/analytics
+          // snippets). Watch the browser console for violations across a real
+          // week before switching the key to Content-Security-Policy —
+          // enforcing an untested policy silently breaks analytics or the map
+          // embed for every visitor at once.
+          {
+            key: "Content-Security-Policy-Report-Only",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://www.clarity.ms https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.facebook.com https://c.clarity.ms",
+              "font-src 'self' data:",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://vitals.vercel-insights.com",
+              "frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://www.google.com",
+              "frame-ancestors 'self'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "object-src 'none'",
+              // No `upgrade-insecure-requests` here: it is ignored in a
+              // report-only policy and Chrome logs an Issues-panel error for
+              // it, which costs Lighthouse best-practices points. Add it when
+              // this policy is switched to enforcing.
+            ].join("; "),
+          },
         ],
       },
       // ── Long-lived caching, PRODUCTION ONLY ──────────────────────────────

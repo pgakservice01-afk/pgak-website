@@ -22,14 +22,6 @@ const PROOFS: {
     href: "/trust/reviews",
   },
   {
-    ic: "photo",
-    t: "Installation Photos",
-    tHi: "इंस्टॉलेशन तस्वीरें",
-    d: "See exactly how our cameras and edge devices are fitted on real sites.",
-    dHi: "देखें कि हमारे कैमरे और एज डिवाइस असली साइटों पर कैसे लगाए जाते हैं।",
-    href: "/trust/photos",
-  },
-  {
     ic: "factory",
     t: "Factory Case Studies",
     tHi: "फ़ैक्टरी केस स्टडी",

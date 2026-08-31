@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import NapBlock from "@/components/NapBlock";
 import PrintButton from "@/components/PrintButton";
 import { pageMeta } from "@/lib/seo";
@@ -112,7 +113,7 @@ export default function BrochurePage() {
             </article>
 
             <div className="mt-8 flex flex-wrap gap-3 print:hidden">
-              <Link href="/#audit" data-cta="brochure-audit" className="btn btn-primary">
+              <Link href="#dealer" data-cta="brochure-audit" className="btn btn-primary">
                 Get a free camera audit →
               </Link>
               <Link href="/pricing" className="btn btn-ghost">
@@ -121,6 +122,7 @@ export default function BrochurePage() {
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
 
       <div className="print:hidden">

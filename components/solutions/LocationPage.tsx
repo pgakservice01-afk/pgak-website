@@ -108,7 +108,7 @@ export default function LocationPage({ location }: { location: Location }) {
             </div>
             {l.caseStudy && (
               <p className="mt-5 text-ink-soft">
-                Proof from {l.city}:{" "}
+                Worked example for {l.city}:{" "}
                 <Link
                   href={l.caseStudy.href}
                   className="text-accent underline underline-offset-4"
@@ -134,6 +134,19 @@ export default function LocationPage({ location }: { location: Location }) {
             </ul>
           </div>
         </section>
+
+        {l.localAreas && (
+          <section className="sec">
+            <div className="wrap">
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                {l.localAreas.heading}
+              </h2>
+              <p className="mt-6 max-w-[74ch] text-[1.02rem] leading-relaxed text-ink-soft">
+                {l.localAreas.text}
+              </p>
+            </div>
+          </section>
+        )}
 
         <section className="sec">
           <div className="wrap">

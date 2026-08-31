@@ -5,7 +5,13 @@ import Reveal from "@/components/Reveal";
 import IndiaNetwork from "@/components/illustrations/IndiaNetwork";
 import { fbTrack } from "@/lib/fbpixel";
 import { trackLead } from "@/lib/analytics";
-import { HONEYPOT_FIELD, PROTECT_OPTIONS, type FieldErrors } from "@/lib/leads";
+import {
+  HONEYPOT_FIELD,
+  PROTECT_OPTIONS,
+  normaliseEmail,
+  normalisePhone,
+  type FieldErrors,
+} from "@/lib/leads";
 
 /**
  * Dealer / lead form.
@@ -38,10 +44,13 @@ function whatsappHref(v: {
   phone: string;
   location: string;
   protecting: string;
+  email: string;
 }) {
   const text =
     `Hi PGAK, I tried the website form but it didn't go through.\n\n` +
     `Name: ${v.name}\nPhone: ${v.phone}\nCity: ${v.location}\n` +
+    // Only when given — an empty "Email:" line just looks broken.
+    (v.email ? `Email: ${v.email}\n` : "") +
     `Protecting: ${v.protecting}`;
   return `https://wa.me/916283993600?text=${encodeURIComponent(text)}`;
 }
@@ -57,6 +66,7 @@ export default function DealerForm() {
     phone: "",
     location: "",
     protecting: PROTECT_OPTIONS[0] as string,
+    email: "",
   });
 
   // Stable for the component's lifetime, so a retry reuses it and the ERP can
@@ -80,8 +90,34 @@ export default function DealerForm() {
       phone: String(data.get("phone") ?? "").trim(),
       location: String(data.get("location") ?? "").trim(),
       protecting: String(data.get("protecting") ?? PROTECT_OPTIONS[0]),
+      email: String(data.get("email") ?? "").trim(),
     };
     setTyped(values);
+
+    // Validate in the browser BEFORE any network trip, with the same
+    // `normalisePhone` the server uses — one rulebook, two checkpoints. The
+    // server still re-validates (a curl can skip this file entirely); this
+    // check exists so a customer with a typo hears about it instantly instead
+    // of after a round trip, and so junk never even leaves the device.
+    const clientErrors: FieldErrors = {};
+    if (values.name.length < 2) clientErrors.name = "Please enter your name.";
+    if (!normalisePhone(values.phone)) {
+      clientErrors.phone =
+        "Please enter a valid 10-digit Indian phone number.";
+    }
+    if (values.location.length < 2) {
+      clientErrors.location = "Please enter your city or PIN code.";
+    }
+    // Optional: only complain when something was actually typed.
+    if (normaliseEmail(values.email) === null) {
+      clientErrors.email = "That email doesn't look right — or leave it blank.";
+    }
+    if (Object.keys(clientErrors).length > 0) {
+      setFieldErrors(clientErrors);
+      setStatus("idle");
+      return;
+    }
+
     setStatus("sending");
     setFieldErrors({});
 
@@ -209,6 +245,16 @@ export default function DealerForm() {
                     type="text"
                     name="location"
                     placeholder="e.g. Ludhiana / 141001"
+                    className="field-input"
+                  />
+                </Field>
+                <Field label="Email (optional)" error={fieldErrors.email}>
+                  <input
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    inputMode="email"
+                    placeholder="you@company.com"
                     className="field-input"
                   />
                 </Field>

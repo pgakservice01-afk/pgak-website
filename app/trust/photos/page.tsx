@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
+import DealerForm from "@/components/sections/DealerForm";
 import { PhotoTile } from "@/components/trust/Media";
 import { PHOTOS } from "@/lib/trust";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -12,15 +13,18 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 const PATH = "/trust/photos";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Installation Photos — Real Deployments Across India | PGAK",
+  title: "AI CCTV Installation Photos | PGAK",
   description:
-    "See exactly how PGAK AI CCTV and edge devices are fitted on real homes, shops, warehouses and factories across India — on hardware customers already owned.",
+    "Photographs of PGAK AI CCTV installations across India.",
   path: PATH,
   keywords: [
     "CCTV installation photos",
     "AI CCTV deployment India",
     "security camera installation",
   ],
+  // Out of the index until real site photographs exist. The previous images
+  // were AI-generated scenes captioned as specific deployments.
+  noIndex: true,
 });
 
 const TRAIL = [
@@ -82,12 +86,13 @@ export default function PhotosPage() {
             </div>
 
             <div className="mt-14 text-center">
-              <Link href="/#demo" className="btn btn-primary">
+              <Link href="#dealer" className="btn btn-primary">
                 Book a free demo →
               </Link>
             </div>
           </div>
         </section>
+        <DealerForm />
       </main>
       <Footer />
     </>

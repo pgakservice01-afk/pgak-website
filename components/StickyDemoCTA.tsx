@@ -35,7 +35,9 @@ export default function StickyDemoCTA() {
 
   return (
     <a
-      href="/#demo"
+      // Straight to the lead form, not the /#demo re-pitch section: this bar
+      // shows on every page, so the extra hop was costing every visitor a click.
+      href="/#dealer"
       data-cta="sticky-demo"
       aria-hidden={!show}
       tabIndex={show ? 0 : -1}

@@ -79,7 +79,7 @@ export default function CaseStudyPage({
           <section className="sec pb-8">
             <div className="wrap max-w-[860px]">
               <Breadcrumbs trail={trail} />
-              <p className="eyebrow mt-6">{c.context}</p>
+              <p className="eyebrow mt-6">Use-case scenario · {c.context}</p>
               <h1 className="display mt-4 text-[clamp(2rem,4.4vw,3.1rem)]">
                 {c.title}
               </h1>
@@ -154,21 +154,26 @@ export default function CaseStudyPage({
                 ))}
               </ul>
 
-              <blockquote className="mt-10 rounded-[18px] border border-line bg-panel p-8">
+              {/* Not a customer testimonial — this is the concern the
+                  scenario is built around, written the way owners describe it.
+                  Labelled as such so it can never read as a real quote. */}
+              <div className="mt-10 rounded-[18px] border border-line bg-panel p-8">
+                <p className="eyebrow mb-4">The concern this scenario addresses</p>
                 <p className="display text-[clamp(1.1rem,2.2vw,1.4rem)] leading-snug">
-                  &ldquo;{c.quote.text}&rdquo;
+                  {c.quote.text}
                 </p>
-                <footer className="mt-4 text-[0.9rem] text-ink-faint">
-                  — {c.quote.attribution}
-                </footer>
-              </blockquote>
+                <p className="mt-4 text-[0.9rem] text-ink-faint">
+                  Typical of {c.quote.attribution.toLowerCase()} — illustrative,
+                  not a customer quote.
+                </p>
+              </div>
 
-              {c.anonymised && (
-                <p className="mt-6 text-[0.86rem] text-ink-faint">
-                  Anonymised at the customer&rsquo;s request. Figures describe
-                  outcomes at this site and are not independently audited.
-                </p>
-              )}
+              <p className="mt-6 rounded-[14px] border border-line bg-panel p-4 text-[0.86rem] text-ink-faint">
+                Illustrative scenario, not a report of a completed project. It
+                shows how PGAK would be configured for a site of this type and
+                the outcomes such a setup is designed to achieve; the figures
+                are modelled, not measured at a named customer.
+              </p>
             </div>
           </section>
         </article>

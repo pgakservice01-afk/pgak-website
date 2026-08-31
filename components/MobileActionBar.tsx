@@ -46,7 +46,7 @@ export default function MobileActionBar() {
         </span>
       </a>
       <a
-        href="/#demo" data-cta="mobilebar-demo"
+        href="/#dealer" data-cta="mobilebar-demo"
         onClick={() => fbTrack("Lead", { content_name: "Mobile Book Demo" })}
         className="flex flex-[1.4] flex-col items-center justify-center gap-1 rounded-xl bg-accent py-2 text-[#04201a] active:scale-95"
       >
