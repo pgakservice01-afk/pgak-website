@@ -95,11 +95,11 @@ const A = {
   workingHoursPerDay: 8,
 
   // ══ What PGAK costs ══════════════════════════════════════════════════════
-  // Matches the published rate on /pricing. If that page changes, change this.
-  /** ₹ per camera per month. One rate, all features, every industry. */
-  pricePerCamera: 1000,
+  // Deliberately absent: there is no default per-camera price here, because we
+  // do not publish one. The visitor types in the rate they were quoted on the
+  // call, and the return below is then theirs rather than a brochure average.
   /**
-   * One-time setup & survey. Zero because /pricing promises "no hidden fees".
+   * One-time setup & survey. Zero because a PGAK quote covers setup.
    * If a setup charge is ever introduced, put it here — the payback chart will
    * show the catch-up period automatically.
    */
@@ -216,8 +216,13 @@ export default function RoiCalculator() {
   const [guards, setGuards] = useState(0);
   const [attendance, setAttendance] = useState(true);
   const [mode, setMode] = useState<Mode>("careful");
-  /** Overridable so a customer holding a real quote sees THEIR ROI, not ours. */
-  const [pricePerCamera, setPricePerCamera] = useState<number>(A.pricePerCamera);
+  /**
+   * Starts empty on purpose. Pricing is given on a call or WhatsApp, so the
+   * only per-camera figure this page will ever use is the one the visitor was
+   * actually quoted — never a published default.
+   */
+  const [pricePerCamera, setPricePerCamera] = useState<number | null>(null);
+  const hasPrice = pricePerCamera !== null && pricePerCamera > 0;
 
   function pickSegment(s: Segment) {
     setSegId(s.id);
@@ -257,7 +262,7 @@ export default function RoiCalculator() {
     const recovered =
       timeSaving + proxySaving + lossSaving + adminSaving + guardSaving;
 
-    const monthlyCost = cameras * pricePerCamera;
+    const monthlyCost = cameras * (pricePerCamera ?? 0);
     const net = recovered - monthlyCost;
 
     // Cumulative position at the end of each month, after one-time setup.
@@ -310,6 +315,15 @@ export default function RoiCalculator() {
       `Please run the free audit on my cameras and send me an exact quote.`;
     return `https://wa.me/${BUSINESS.phoneE164.replace("+", "")}?text=${encodeURIComponent(msg)}`;
   }, [seg.label, staff, cameras, r]);
+
+  /** For the state where no quote exists yet — this is the ask for one. */
+  const quoteWaHref = useMemo(() => {
+    const msg =
+      `Hi PGAK! I used the ROI calculator on pgak.co.in for my ${seg.label.toLowerCase()} — ` +
+      `${staff} staff, ${cameras} cameras. Please send me a price per camera and ` +
+      `run the free audit on my existing cameras.`;
+    return `https://wa.me/${BUSINESS.phoneE164.replace("+", "")}?text=${encodeURIComponent(msg)}`;
+  }, [seg.label, staff, cameras]);
 
   function onSend() {
     // Value the lead by its monthly net, so ad spend optimises toward people
@@ -463,38 +477,86 @@ export default function RoiCalculator() {
               </p>
             </div>
 
-            {/* Fine-tune */}
-            <details className="mt-6 border-t border-line pt-5">
-              <summary className="cursor-pointer text-[0.9rem] text-accent">
-                Fine-tune the assumptions
-              </summary>
-              <div className="mt-4">
-                <Slider
-                  label="Your quoted price per camera a month"
-                  help="Holding a real quote? Type it in and the ROI shown becomes yours, not ours."
-                  value={pricePerCamera}
-                  min={200}
-                  max={3000}
+            {/* The one input we can't supply a default for. No rate is
+                published anywhere on the site, so this stays empty until the
+                visitor has spoken to us and has a real number to type in. */}
+            <div className="mt-7 border-t border-line pt-6">
+              <label
+                htmlFor="roi-price"
+                className="block text-[0.94rem] font-medium text-ink"
+              >
+                Price per camera a month you were quoted
+              </label>
+              <p className="mt-1 text-[0.84rem] text-ink-faint">
+                We give pricing on a call or WhatsApp, once we know your camera
+                count and sites. Put that figure in and the return is yours
+                rather than a brochure average.
+              </p>
+              <div className="mt-3 flex items-center gap-2 rounded-xl border border-line bg-bg-2 px-4 py-3 transition-colors focus-within:border-accent">
+                <span aria-hidden="true" className="text-ink-faint">
+                  ₹
+                </span>
+                <input
+                  id="roi-price"
+                  type="number"
+                  inputMode="numeric"
+                  min={1}
                   step={50}
-                  onChange={setPricePerCamera}
-                  format={money}
+                  value={pricePerCamera ?? ""}
+                  placeholder="Your quoted rate"
+                  onChange={(e) => {
+                    const v = e.target.valueAsNumber;
+                    setPricePerCamera(Number.isFinite(v) && v > 0 ? v : null);
+                  }}
+                  className="w-full bg-transparent text-[1rem] text-ink outline-none placeholder:text-ink-faint"
                 />
-                {pricePerCamera !== A.pricePerCamera && (
-                  <button
-                    type="button"
-                    onClick={() => setPricePerCamera(A.pricePerCamera)}
-                    className="text-[0.84rem] text-ink-faint underline underline-offset-4 hover:text-accent"
-                  >
-                    Reset to the published {money(A.pricePerCamera)} rate
-                  </button>
-                )}
+                <span className="whitespace-nowrap text-[0.84rem] text-ink-faint">
+                  per camera / month
+                </span>
               </div>
-            </details>
+            </div>
           </div>
 
           {/* ──────────────────────────────────────────────────── results */}
           <div className="flex flex-col gap-5">
-            {r.profitable ? (
+            {!hasPrice ? (
+              /* No quote yet. Show the half of the sum we can stand behind —
+                 what's being lost — and make getting the other half a call. */
+              <div className="card p-8">
+                <h3 className="display text-[1.4rem]">
+                  Add your quoted price to see the return
+                </h3>
+                <p className="mt-4 leading-relaxed text-ink-soft">
+                  On the numbers above, a site like yours is leaking about{" "}
+                  <span className="text-accent">{money(r.recovered)}</span> a
+                  month that PGAK could realistically recover. What that&rsquo;s
+                  worth against the cost depends on your rate — and we quote
+                  that on a call or WhatsApp, once we know how many cameras and
+                  sites you&rsquo;re covering.
+                </p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <a
+                    href={quoteWaHref}
+                    target="_blank"
+                    rel="noopener"
+                    data-cta="roi-quote-whatsapp"
+                    className="btn btn-primary"
+                  >
+                    Get my price on WhatsApp →
+                  </a>
+                  <a
+                    href={`tel:${BUSINESS.phoneE164}`}
+                    data-cta="roi-quote-call"
+                    className="btn btn-ghost"
+                  >
+                    Call {BUSINESS.phone}
+                  </a>
+                </div>
+                <p className="mt-5 text-[0.84rem] text-ink-faint">
+                  Already been quoted? Type the figure into the box on the left.
+                </p>
+              </div>
+            ) : r.profitable ? (
               <>
                 <div className="card p-7 sm:p-8">
                   <div className="grid gap-6 sm:grid-cols-2">

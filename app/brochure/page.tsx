@@ -74,10 +74,13 @@ export default function BrochurePage() {
 
               <h2 className="display mt-10 text-[1.35rem]">What it costs</h2>
               <p className="mt-4 text-[0.96rem] leading-relaxed text-ink-soft">
-                <strong className="text-ink">₹1,000 per camera per month.</strong>{" "}
+                <strong className="text-ink">
+                  Billed per camera per month.
+                </strong>{" "}
                 No hardware to buy, no separate licence fee, no charge for
-                software updates, and no lock-in contract. Pricing does not vary
-                by city or industry.
+                software updates, and no lock-in contract. Your rate depends on
+                camera count and sites — call or WhatsApp us and you&rsquo;ll
+                have it the same day.
               </p>
 
               <h2 className="display mt-10 text-[1.35rem]">

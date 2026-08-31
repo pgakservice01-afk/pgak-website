@@ -21,14 +21,19 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
-import { faqSchema, productSchema, webPageSchema } from "@/lib/schema";
+import {
+  faqSchema,
+  productSchema,
+  softwareApplicationSchema,
+  webPageSchema,
+} from "@/lib/schema";
 import { FAQS } from "@/lib/faq";
 
 export const metadata: Metadata = pageMeta({
   title:
     "AI CCTV Camera & Smart Security System for Business and Home | PGAK India",
   description:
-    "PGAK turns the CCTV cameras you already own into an AI security system — real-time intruder detection, face recognition and 90% fewer false alarms, from ₹1,000 per camera per month.",
+    "PGAK turns the CCTV cameras you already own into an AI security system — real-time intruder detection, face recognition and 90% fewer false alarms. Get your price on a call or WhatsApp.",
   path: "/",
   keywords: [
     "AI CCTV camera",
@@ -56,8 +61,8 @@ export default function Home() {
             description:
               "AI video analytics that adds real-time intruder detection, face recognition, attendance and false-alarm filtering to existing CCTV cameras.",
             path: "/",
-            price: 1000,
           }),
+          softwareApplicationSchema(),
           faqSchema(FAQS.map((f) => ({ q: f.q, a: f.a }))),
         ]}
       />

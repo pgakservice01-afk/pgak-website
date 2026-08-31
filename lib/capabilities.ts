@@ -257,7 +257,7 @@ export const CAPABILITIES: Capability[] = [
       "Automatic attendance from the gate camera. No queue, no card, no fingerprint.",
     h1: "Face recognition attendance — 200 people logged without a queue",
     intro:
-      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. PGAK logs arrival and departure from the camera already watching your gate, so two hundred people walk in at their own pace and payroll gets a clean export at the end of the month. It runs on your existing gate camera at PGAK's flat ₹1,000 per camera per month — no biometric hardware to buy or maintain.",
+      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. PGAK logs arrival and departure from the camera already watching your gate, so two hundred people walk in at their own pace and payroll gets a clean export at the end of the month. It runs on your existing gate camera, billed per camera per month — no biometric hardware to buy or maintain, and no per-employee charge.",
     steps: [
       {
         h3: "Enrol once",
@@ -290,7 +290,7 @@ export const CAPABILITIES: Capability[] = [
     faqs: [
       {
         q: "How much does face recognition attendance cost in India?",
-        a: "With PGAK it is ₹1,000 per camera per month, flat — one gate camera typically covers 150–250 employees, so most factories in India pay less for attendance than they spent maintaining fingerprint machines. There is no enrolment fee, no per-employee charge and no hardware to buy, because it runs on the CCTV camera already at your gate.",
+        a: "With PGAK it is billed per camera per month — one gate camera typically covers 150–250 employees, so most factories in India pay less for attendance than they spent maintaining fingerprint machines. There is no enrolment fee, no per-employee charge and no hardware to buy, because it runs on the CCTV camera already at your gate. Call or WhatsApp us with your gate count for the exact figure.",
       },
       {
         q: "Can this replace our biometric fingerprint machine?",

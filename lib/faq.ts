@@ -28,6 +28,12 @@ export const FAQS: Faq[] = [
     aHi: "एआई इसे ठीक करने के लिए ही बना है। यह आपकी सामान्य दिनचर्या सीखता है और हवा, परछाइयों, पालतू जानवरों और अन्य शोर को फ़िल्टर कर देता है, ताकि आपको मिलने वाले अलर्ट वही हों जो वाक़ई मायने रखते हैं।",
   },
   {
+    q: "Can PGAK tell my own people apart from a stranger?",
+    qHi: "क्या PGAK मेरे अपने लोगों और किसी अजनबी में फ़र्क़ कर सकता है?",
+    a: "Yes. You enrol the faces of family, staff or regular visitors once, and PGAK recognises them silently after that. Alerts fire only when someone unknown enters a restricted zone — so you hear about the stranger at the back gate, not about your own team arriving for their shift.",
+    aHi: "हाँ। आप परिवार, स्टाफ़ या नियमित आने-जाने वालों के चेहरे एक बार दर्ज कर देते हैं, और उसके बाद PGAK उन्हें चुपचाप पहचान लेता है। अलर्ट तभी आता है जब कोई अनजान व्यक्ति प्रतिबंधित क्षेत्र में आए — यानी आपको पिछले गेट पर खड़े अजनबी की ख़बर मिलती है, अपनी ही टीम के आने की नहीं।",
+  },
+  {
     q: "Is my footage private and secure?",
     qHi: "क्या मेरी फ़ुटेज निजी और सुरक्षित है?",
     a: "Yes. Video is processed on an edge device at your own site, so footage stays on your premises by default and never needs to reach an external cloud. What does leave is encrypted, and access is role-controlled. Privacy is a core part of the design, not an afterthought.",
@@ -42,8 +48,8 @@ export const FAQS: Faq[] = [
   {
     q: "How much does PGAK cost?",
     qHi: "PGAK की क़ीमत कितनी है?",
-    a: "₹1,000 per camera per month, with no hidden fees, no separate licence cost and no charge for the software updates that arrive along the way. Pricing does not change by city or by industry.",
-    aHi: "₹1,000 प्रति कैमरा प्रति माह — कोई छिपा हुआ शुल्क नहीं, अलग से लाइसेंस लागत नहीं, और सॉफ़्टवेयर अपडेट के लिए कोई शुल्क नहीं। क़ीमत शहर या उद्योग के अनुसार नहीं बदलती।",
+    a: "Billing is per camera per month, and we quote your exact rate on a call or WhatsApp once we know your camera count and how many sites you're covering. What we can tell you upfront is what is never charged extra: no hardware, no separate licence, no fee for the software updates that arrive along the way, and no lock-in.",
+    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है, और आपकी सही दर हम कॉल या WhatsApp पर बताते हैं — जब हमें आपके कैमरों की संख्या और साइटों की जानकारी हो जाए। जो हम अभी बता सकते हैं वह यह है कि अतिरिक्त शुल्क कभी नहीं लगता: कोई हार्डवेयर नहीं, अलग से लाइसेंस नहीं, सॉफ़्टवेयर अपडेट का शुल्क नहीं, और कोई लॉक-इन नहीं।",
   },
   {
     q: "How long does installation take?",

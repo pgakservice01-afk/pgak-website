@@ -7,7 +7,7 @@ const location = getLocation("gurugram")!;
 
 export const metadata: Metadata = pageMeta({
   title: `AI CCTV Camera in ${location.city} — Intruder Detection on Your Existing Cameras | PGAK`,
-  description: `AI CCTV and intruder detection in ${location.city}, ${location.region}. PGAK adds real-time alerts, face recognition and false-alarm filtering to the cameras you already own — ₹1,000 per camera per month.`,
+  description: `AI CCTV and intruder detection in ${location.city}, ${location.region}. PGAK adds real-time alerts, face recognition and false-alarm filtering to the cameras you already own — quote on a call or WhatsApp.`,
   path: locationPath(location.slug),
   keywords: [
     `AI CCTV camera ${location.city}`,

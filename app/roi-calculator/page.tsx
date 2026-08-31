@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: "What price does the calculator use?",
-    a: "The published rate of ₹1,000 per camera per month, the same figure on our pricing page. If you already hold a quote, open 'Fine-tune the assumptions' and enter your own price — the ROI shown then becomes yours rather than ours.",
+    a: "Only the one you type in. We don't publish a rate — pricing is quoted on a call or WhatsApp once we know your camera count and sites — so the calculator starts with the price box empty and shows your return the moment you enter the figure you were quoted.",
   },
   {
     q: "Is anything I type here sent to PGAK?",

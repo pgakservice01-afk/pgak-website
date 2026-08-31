@@ -69,9 +69,10 @@ export default function TermsOfService() {
 
           <Section title="3. Subscription, billing and cancellation">
             <p>
-              The service is billed per camera per month at the rate shown on
-              our <Link href="/pricing" className="text-accent underline underline-offset-4">pricing page</Link>{" "}
-              or as agreed in your order. There is no lock-in: you may cancel
+              The service is billed per camera per month at the rate quoted to
+              you and agreed in your order. How that rate is arrived at is
+              explained on our{" "}
+              <Link href="/pricing" className="text-accent underline underline-offset-4">pricing page</Link>. There is no lock-in: you may cancel
               with effect from the end of the current billing period, and the
               service simply stops. Fees already paid for a running period are
               not refunded. We may revise pricing with at least 30 days&rsquo;

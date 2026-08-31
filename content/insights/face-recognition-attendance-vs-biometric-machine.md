@@ -11,10 +11,10 @@ faqs:
   - q: "Does face recognition attendance work with helmets or masks?"
     a: "Partially. A face more than about 60° off-axis, heavily backlit, or covered by a mask or full helmet will be detected as a person but may not be identified. The practical fix is placing the attendance camera at the point where people naturally uncover — before the helmet zone — rather than fighting the covering."
   - q: "How much does face recognition attendance cost compared to a biometric machine?"
-    a: "A biometric machine costs roughly ₹8,000–₹25,000 up front plus AMC and replacements, per gate. Camera-based attendance with PGAK is ₹1,000 per camera per month running on the gate camera you already own, and one gate camera typically covers 150–250 employees — so most factories in India pay less than they were spending maintaining the machines."
+    a: "A biometric machine costs roughly ₹8,000–₹25,000 up front plus AMC and replacements, per gate. Camera-based attendance with PGAK is billed per camera per month running on the gate camera you already own, with no per-employee charge, and one gate camera typically covers 150–250 employees — so most factories in India pay less than they were spending maintaining the machines."
 ---
 
-**Straight answer: at a factory or warehouse gate in India where a hundred-plus people arrive together, face recognition attendance beats the fingerprint machine on queue time, worn-finger failures and buddy punching — and it runs on the gate camera you already own for ₹1,000 a month. For a ten-person office, a machine is often fine. The full comparison, including where face recognition loses, is below.**
+**Straight answer: at a factory or warehouse gate in India where a hundred-plus people arrive together, face recognition attendance beats the fingerprint machine on queue time, worn-finger failures and buddy punching — and it runs on the gate camera you already own, billed per camera per month. For a ten-person office, a machine is often fine. The full comparison, including where face recognition loses, is below.**
 
 The fingerprint machine at your gate has a failure rate. You already know the number, roughly, because you can see it in the queue every morning.
 
@@ -48,13 +48,13 @@ And unknown people are logged rather than ignored. Contractors and visitors show
 | Contractors and visitors | Invisible unless enrolled | Logged as unknown faces |
 | Hardware at the gate | Machine exposed to heat and dust | Camera you already own |
 | What's recorded | The scan moment only | Entry, exit and presence |
-| Cost shape | ₹8,000–₹25,000 up front + AMC, per gate | ₹1,000/camera/month, software only |
+| Cost shape | ₹8,000–₹25,000 up front + AMC, per gate | Per camera per month, software only |
 
 ## Which costs more?
 
 A decent biometric machine is roughly ₹8,000–₹25,000 up front, per gate, plus annual maintenance and the replacements — gate-mounted electronics live a hard life in Indian heat and dust. Multiple gates multiply everything.
 
-Camera-based attendance is [₹1,000 per camera per month](/pricing) as software, with no enrolment fee and no per-employee charge. One well-placed gate camera typically covers 150–250 employees. For most factories the arithmetic lands in the same place: the camera route costs less than the machines cost to keep alive — and the same camera is simultaneously doing security work.
+Camera-based attendance is [billed per camera per month](/pricing) as software, with no enrolment fee and no per-employee charge. One well-placed gate camera typically covers 150–250 employees. For most factories the arithmetic lands in the same place: the camera route costs less than the machines cost to keep alive — and the same camera is simultaneously doing security work.
 
 Where the machine wins: a small office with a dozen staff, no shift-change crush, and a machine that already works. Switching there buys convenience, not payback.
 

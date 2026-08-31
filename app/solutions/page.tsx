@@ -61,8 +61,8 @@ export default function SolutionsPage() {
             <p className="mt-6 max-w-[64ch] text-[1.05rem] leading-relaxed text-ink-soft">
               The same intelligence, tuned to what each site actually loses.
               Every solution below runs as software on the security cameras you
-              already own — no rip-and-replace, no new cabling, ₹1,000 per camera
-              per month.
+              already own — no rip-and-replace, no new cabling, billed per
+              camera per month.
             </p>
           </div>
         </section>

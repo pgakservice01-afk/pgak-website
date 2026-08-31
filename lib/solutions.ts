@@ -223,7 +223,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "How much does AI CCTV for a warehouse cost?",
-        a: "Pricing is ₹1,000 per camera per month with no hidden fees, so a 60-camera warehouse is a predictable line item. Most sites find it costs less than a single month of the shrinkage it prevents — see our pricing page for the full breakdown.",
+        a: "Billing is per camera per month with no hidden fees, so a 60-camera warehouse is a predictable line item. We quote your rate on a call or WhatsApp. Most sites find it costs less than a single month of the shrinkage it prevents — see our pricing page for what moves the number.",
       },
       {
         q: "Does it help with insurance or audit evidence?",
@@ -501,7 +501,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     stats: [
       { value: "4–16", label: "Cameras is a typical shop deployment" },
-      { value: "₹1,000", label: "Per camera per month, all-inclusive" },
+      { value: "Per camera", label: "Billed monthly, all-inclusive" },
       { value: "1 day", label: "Typical time to go live" },
     ],
     faqs: [

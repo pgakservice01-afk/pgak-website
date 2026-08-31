@@ -43,6 +43,16 @@ export function organizationSchema(): Json {
     },
     openingHours: BUSINESS.openingHours,
     areaServed: { "@type": "Country", name: "India" },
+    // Spells out *how* to reach support and in which languages — the detail
+    // assistants quote when someone asks "how do I contact PGAK".
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Support",
+      telephone: BUSINESS.phoneE164,
+      email: BUSINESS.email,
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi", "Punjabi"],
+    },
     sameAs: [...BUSINESS.social],
     founder: {
       "@type": "Person",
@@ -233,6 +243,45 @@ export function reviewSchema(
     },
     reviewBody: r.text,
   }));
+}
+
+/**
+ * The product itself, as a SoftwareApplication entity.
+ *
+ * Complements the Product node on the homepage rather than repeating it:
+ * Product carries the commercial offer, this one tells search and AI answer
+ * engines *what the software is* — category, the platforms it runs on and what
+ * it can actually do. That feature list is what gets quoted when someone asks
+ * an assistant "what does PGAK do", so every line here must be a capability
+ * the shipped product really has.
+ */
+export function softwareApplicationSchema(): Json {
+  return {
+    "@type": "SoftwareApplication",
+    "@id": `${SITE_URL}/#software`,
+    name: "PGAK AI Security Intelligence",
+    url: SITE_URL,
+    applicationCategory: "SecurityApplication",
+    applicationSubCategory: "Video Surveillance & Analytics",
+    // The edge device runs Linux on site; people use the product through the
+    // mobile apps and the web dashboard.
+    operatingSystem: "Web, Android, iOS, Linux (on-site edge device)",
+    description:
+      "An AI layer that retrofits existing CCTV, DVR and NVR systems to deliver real-time perimeter protection, instant intruder alerts and human/vehicle classification — without replacing a single camera.",
+    image: abs("/hero-landing.webp"),
+    creator: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    // Deliberately no `offers`: pricing is quoted on a call or WhatsApp, and
+    // structured data must never publish a figure the page itself doesn't
+    // show. /pricing explains what drives the number instead.
+    featureList: [
+      "Real-time intruder alerts in under three seconds",
+      "False-alarm filtering for pets, shadows, wind and headlights",
+      "Works with existing analog, IP, DVR and NVR cameras over RTSP",
+      "Face recognition: known staff and family versus unknown visitors",
+      "Mobile app and multi-site web dashboard",
+    ],
+  };
 }
 
 /** Wraps nodes in a single @graph document. */

@@ -1,130 +1,119 @@
 import Reveal from "@/components/Reveal";
+import { BUSINESS } from "@/lib/seo";
 
-type Plan = {
-  name: string;
-  desc: string;
-  amt: string;
-  unit?: string;
-  features: string[];
-  cta: string;
-  featured?: boolean;
-};
+/**
+ * Pricing without a price.
+ *
+ * We quote per site on a call or WhatsApp rather than publishing a rate, so
+ * this section does the job a price table used to do — sets expectations about
+ * what moves the number and what can never appear on the invoice — and then
+ * hands the visitor the two ways to actually get quoted.
+ */
 
-const PLANS: Plan[] = [
+const DRIVERS = [
   {
-    name: "Home",
-    desc: "Smart protection for apartments & homes.",
-    amt: "₹1,000",
-    unit: "/month · per camera",
-    features: [
-      "1 camera included",
-      "Real-time mobile alerts",
-      "Person & motion detection",
-      "7-day cloud event history",
-      "Encrypted & private",
-      "Add more cameras anytime",
-    ],
-    cta: "Get started",
+    t: "How many cameras",
+    d: "Billing is per camera per month, so the count you want made intelligent is the biggest single factor. You choose which cameras — it doesn't have to be the whole estate.",
   },
   {
-    name: "Office",
-    desc: "For shops, offices & workplaces.",
-    amt: "₹1,000",
-    unit: "/month · per camera",
-    features: [
-      "1 camera included",
-      "Face recognition & trusted list",
-      "Intrusion & loitering detection",
-      "30-day cloud event history",
-      "Multi-user access & roles",
-      "Priority support",
-    ],
-    cta: "Get started",
-    featured: true,
+    t: "How many sites",
+    d: "One shop is a different conversation from eleven branches on one dashboard. Multi-site deployments are quoted together.",
   },
   {
-    name: "Enterprise",
-    desc: "Multi-site & industrial deployments.",
-    amt: "Custom",
-    features: [
-      "Volume pricing for many cameras",
-      "Custom AI rules & analytics",
-      "Central command dashboard",
-      "On-prem or private cloud",
-      "Dedicated account manager",
-      "SLA-backed support",
-    ],
-    cta: "Talk to sales",
+    t: "What you switch on",
+    d: "Intrusion, face recognition, attendance, perimeter lines, vehicle detection. Most sites start with two and grow.",
   },
 ];
 
+const NEVER_EXTRA = [
+  "New cameras — it runs on the ones you already own",
+  "A separate software licence",
+  "Software updates, for as long as you're with us",
+  "Per-employee or per-enrolment charges on attendance",
+  "The camera audit before you decide anything",
+];
+
+const WA_TEXT =
+  "Hi PGAK! I'd like a price for AI CCTV on my existing cameras. Here's my setup:";
+
 export default function Pricing() {
+  const waHref = `${BUSINESS.whatsapp}?text=${encodeURIComponent(WA_TEXT)}`;
+
   return (
     <section id="pricing" className="sec">
       <div className="wrap">
         <Reveal className="mx-auto mb-14 max-w-[680px] text-center">
-          <span className="eyebrow eyebrow-center mb-4">Plans &amp; pricing</span>
+          <span className="eyebrow eyebrow-center mb-4">What it costs</span>
           <h2 className="display mt-4 text-[clamp(2rem,4vw,3rem)]">
-            One simple rate. ₹1,000 per camera.
+            We quote your site, not a list price.
           </h2>
           <p className="mt-3.5 text-[1.05rem] text-ink-soft">
-            The same transparent price whether it&rsquo;s a home or an office —
-            add more cameras as you grow. No hidden fees, no hardware lock-in.
+            Tell us your camera count and what you want watched, and you get a
+            firm per-camera number the same day — on the phone or on WhatsApp,
+            whichever you prefer. No form maze, no &ldquo;request a
+            demo&rdquo; before anyone will talk numbers.
           </p>
         </Reveal>
 
-        <div className="grid items-stretch gap-[22px] md:grid-cols-3">
-          {PLANS.map((p, i) => (
-            <Reveal
-              key={p.name}
-              delay={i * 0.07}
-              className={`relative flex flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1.5 ${
-                p.featured
-                  ? "panel-dark border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17]"
-                  : "border-line bg-panel"
-              }`}
-            >
-              {p.featured && (
-                <span className="absolute right-[18px] top-[18px] rounded-full bg-accent px-[11px] py-1 text-[0.68rem] font-bold tracking-wide text-[#04201a]">
-                  Most popular
-                </span>
-              )}
-              <h3 className="text-[1.3rem] font-semibold">{p.name}</h3>
-              <p className="min-h-[40px] text-[0.86rem] text-ink-faint">
-                {p.desc}
-              </p>
-              <div className="mb-1 mt-3.5 font-display text-[2.7rem]">
-                {p.amt}
-                {p.unit && (
-                  <small className="font-sans text-[0.85rem] font-medium text-ink-faint">
-                    {p.unit}
-                  </small>
-                )}
-              </div>
-              <ul className="my-6 flex-1 list-none">
-                {p.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex gap-3 py-2 text-[0.92rem] text-ink-soft"
-                  >
-                    <span className="text-accent">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
+        <div className="grid items-stretch gap-[22px] md:grid-cols-[1.15fr_1fr]">
+          <Reveal className="rounded-2xl border border-line bg-panel p-8">
+            <h3 className="text-[1.3rem] font-semibold">
+              What decides your number
+            </h3>
+            <ul className="mt-6 flex list-none flex-col gap-5">
+              {DRIVERS.map((d) => (
+                <li key={d.t}>
+                  <p className="font-medium text-ink">{d.t}</p>
+                  <p className="mt-1 text-[0.92rem] leading-relaxed text-ink-soft">
+                    {d.d}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal
+            delay={0.07}
+            className="panel-dark flex flex-col rounded-2xl border border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17] p-8"
+          >
+            <h3 className="text-[1.3rem] font-semibold">
+              What never appears on the invoice
+            </h3>
+            <ul className="my-6 flex-1 list-none">
+              {NEVER_EXTRA.map((f) => (
+                <li
+                  key={f}
+                  className="flex gap-3 py-2 text-[0.92rem] text-ink-soft"
+                >
+                  <span className="text-accent">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-3">
               <a
-                href={p.amt === "Custom" ? "/#dealer" : "/#demo"}
-                className={`btn w-full ${p.featured ? "btn-primary" : "btn-ghost"}`}
+                href={waHref}
+                target="_blank"
+                rel="noopener"
+                data-cta="pricing-whatsapp"
+                className="btn btn-primary w-full justify-center"
               >
-                {p.cta}
+                Get my price on WhatsApp →
               </a>
-            </Reveal>
-          ))}
+              <a
+                href={`tel:${BUSINESS.phoneE164}`}
+                data-cta="pricing-call"
+                className="btn btn-ghost w-full justify-center"
+              >
+                Call {BUSINESS.phone}
+              </a>
+            </div>
+          </Reveal>
         </div>
 
         <p className="mt-7 text-center text-[0.85rem] text-ink-faint">
-          Prices are indicative for early access. A PGAK partner will confirm the
-          right plan for your site during your demo.
+          Running many cameras or several sites? Volume is quoted differently —
+          say so when you call and we&rsquo;ll price the whole estate together.
         </p>
       </div>
     </section>

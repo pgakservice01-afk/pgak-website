@@ -37,9 +37,13 @@ const TOPICS: Topic[] = [
     id: "pricing",
     q: "💰 What does it cost?",
     qHi: "💰 कीमत क्या है?",
-    a: "One simple rate — ₹1,000 per camera per month, for homes and businesses alike. It runs on the cameras you already own, so there's no new hardware to buy and no hidden fees.",
-    aHi: "एक सरल दर — ₹1,000 प्रति कैमरा प्रति माह, घर और व्यवसाय दोनों के लिए। यह आपके मौजूदा कैमरों पर चलता है, इसलिए कोई नया हार्डवेयर नहीं और कोई छिपी फ़ीस नहीं।",
-    link: { href: "/pricing", label: "See pricing →", labelHi: "मूल्य देखें →" },
+    a: "Billing is per camera per month, and we give you the exact rate on a call or WhatsApp once we know your camera count. It runs on the cameras you already own, so there's no new hardware to buy and no hidden fees.",
+    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है, और सही दर हम कॉल या WhatsApp पर बताते हैं — जब हमें आपके कैमरों की संख्या पता हो। यह आपके मौजूदा कैमरों पर चलता है, इसलिए कोई नया हार्डवेयर नहीं और कोई छिपी फ़ीस नहीं।",
+    link: {
+      href: "/pricing",
+      label: "How pricing works →",
+      labelHi: "मूल्य कैसे तय होता है →",
+    },
   },
   {
     id: "how",

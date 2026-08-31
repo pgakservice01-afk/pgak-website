@@ -46,7 +46,7 @@ export default function LocationPage({ location }: { location: Location }) {
     },
     {
       q: `What does AI CCTV cost in ${l.city}?`,
-      a: `₹1,000 per camera per month, with no hidden fees and no separate licence cost. Whether it's ${l.focus.toLowerCase()} or a single shop, the ${l.city} rate is the same flat number as everywhere else in India.`,
+      a: `Billing is per camera per month, with no hidden fees and no separate licence cost. Whether it's ${l.focus.toLowerCase()} or a single shop, ${l.city} is priced the same way as everywhere else in India — call or WhatsApp us and you'll have your number the same day.`,
     },
     {
       q: `How long does deployment take in ${l.city}?`,

@@ -17,9 +17,9 @@ import {
 const PATH = "/pricing";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Camera Price in India — ₹1,000/Camera, No New Hardware",
+  title: "AI CCTV Camera Price in India — What It Actually Costs",
   description:
-    "AI CCTV on the cameras you already own — ₹1,000 per camera per month, flat. No new hardware, no licence fee, no lock-in. One simple rate across India.",
+    "What AI CCTV costs in India, what moves the number, and what is never an extra line item. Priced per camera on your existing cameras — get your quote on a call or WhatsApp.",
   path: PATH,
   keywords: [
     "AI CCTV price India",
@@ -43,14 +43,15 @@ export default function PricingPage() {
             path: PATH,
             name: "PGAK pricing",
             description:
-              "AI CCTV pricing: ₹1,000 per camera per month, no hidden fees.",
+              "How AI CCTV is priced in India: per camera per month on the cameras you already own, quoted per site.",
           }),
+          // No `price` — we quote on a call, and schema must never publish a
+          // figure the page itself doesn't show.
           productSchema({
             name: "PGAK Intelligent Security — per camera subscription",
             description:
-              "AI video analytics on existing CCTV cameras, billed per camera per month with no hardware or licence cost.",
+              "AI video analytics on existing CCTV cameras, billed per camera per month with no hardware or licence cost. Quoted per site.",
             path: PATH,
-            price: 1000,
           }),
           breadcrumbSchema(TRAIL),
         ]}
@@ -60,13 +61,17 @@ export default function PricingPage() {
         <section className="sec pb-0">
           <div className="wrap">
             <Breadcrumbs trail={TRAIL} />
-            <h1 className="display mt-6 max-w-[16ch] text-[clamp(2.1rem,4.8vw,3.3rem)]">
-              AI CCTV pricing — ₹1,000 per camera per month
+            <h1 className="display mt-6 max-w-[18ch] text-[clamp(2.1rem,4.8vw,3.3rem)]">
+              What AI CCTV costs in India
             </h1>
             <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              One rate, whatever the industry and whatever the city. No hardware
-              to buy, no separate licence, no charge for the software updates
-              that arrive along the way, and no lock-in contract.
+              PGAK is billed per camera per month and runs on the cameras you
+              already own — so there is no hardware to buy, no separate licence,
+              no charge for the software updates that arrive along the way, and
+              no lock-in contract. The rate itself depends on your camera count
+              and sites, so we quote it on a call or WhatsApp rather than
+              printing a number that would be wrong for half the people reading
+              it.
             </p>
           </div>
         </section>

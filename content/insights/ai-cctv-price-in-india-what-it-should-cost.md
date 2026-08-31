@@ -7,14 +7,14 @@ excerpt: "Quotes for AI CCTV in India range from ₹500 to ₹8,000 per camera p
 readTime: 6
 faqs:
   - q: "How much does an AI CCTV camera cost in India?"
-    a: "If you already own cameras, you don't need to buy new ones — AI software running on your existing CCTV costs from about ₹500 to ₹8,000 per camera per month in India, depending on what's bundled. PGAK charges a flat ₹1,000 per camera per month with no hardware, licence or per-feature charges."
+    a: "If you already own cameras, you don't need to buy new ones — AI software running on your existing CCTV costs from about ₹500 to ₹8,000 per camera per month in India, depending on what's bundled. PGAK bills per camera per month with no hardware, licence or per-feature charges, and quotes your rate on a call or WhatsApp once the camera count is known."
   - q: "What does AI CCTV cost for a warehouse in India?"
-    a: "At PGAK's flat rate, a 60-camera warehouse is ₹60,000 a month — with no new hardware. Vendors quoting per-feature or replacing your camera estate for the same site typically land between ₹30,000 and ₹4,80,000 a month once every line item is added."
+    a: "Vendors quoting per-feature, or replacing your camera estate, typically land a 60-camera warehouse between ₹30,000 and ₹4,80,000 a month once every line item is added — a spread of sixteen times for broadly the same capability. PGAK reuses the cameras already on site and bills per camera per month; ask us for the number and you'll have it on the call."
   - q: "Why do AI CCTV quotes in India vary so much?"
     a: "The intelligence is rarely the difference. Quotes get inflated by camera replacement you may not need, per-feature add-on pricing, and cloud processing fees — and get suspiciously cheap by quietly dropping tuning and support. Ask every vendor which of your existing cameras they'll reuse and what happens in week two."
 ---
 
-**Straight answer: in India, AI CCTV software on cameras you already own runs from ₹500 to ₹8,000 per camera per month depending on what's bundled. PGAK charges a flat ₹1,000 per camera per month — no new hardware, no licence fee, no per-feature add-ons. Everything above that flat rate is worth interrogating line by line.**
+**Straight answer: in India, AI CCTV software on cameras you already own runs from ₹500 to ₹8,000 per camera per month depending on what's bundled. That sixteen-fold spread is rarely about the intelligence — it's about hardware you didn't need, features sold separately and cloud fees. Every line item above the software itself is worth interrogating.**
 
 We get shown a lot of competing quotes. The spread is remarkable — for what is broadly the same capability, we've seen ₹500 per camera per month and we've seen ₹8,000. (That range comes from quotes Indian shop, warehouse and factory owners have shared with us during audits through 2026 — real paper, not a survey.)
 
@@ -50,21 +50,23 @@ The test is simple. Ask what happens in the second week — who reviews the even
 
 ## How much does PGAK's AI CCTV cost?
 
-PGAK is **₹1,000 per camera per month** — [see the current per-camera rate and plans](/pricing). That covers the software, the detection capabilities, the updates that arrive along the way, and the tuning. It does not change by city, by industry, or by which features you switch on.
+PGAK bills **per camera per month**, and one number covers the software, every detection capability, the updates that arrive along the way, and the tuning. It doesn't change by city, by industry, or by which features you switch on.
 
-We price it that way for a straightforwardly selfish reason: per-feature pricing makes us argue with customers about whether they can have loitering detection, and that's a stupid argument to have when the model is already running.
+We don't print the rate, because the honest one depends on how many cameras and how many sites you're bringing — and a single published figure would be wrong for most of the people reading this. [Call or WhatsApp us](/pricing) with your camera count and you'll have a firm number the same day, before anyone visits.
+
+We refuse to price per feature for a straightforwardly selfish reason: it makes us argue with customers about whether they can have loitering detection, and that's a stupid argument to have when the model is already running.
 
 ## What does AI CCTV cost for a shop or a warehouse?
 
-The honest way to see the market is side by side. The market column below is simply the ₹500–₹8,000 per-camera range multiplied out — the spread you'll actually meet when collecting quotes in India:
+It depends almost entirely on camera count, since this is priced per camera. The table below is the ₹500–₹8,000 range multiplied out — not our quote, but the spread you'll actually meet when collecting them in India:
 
-| Your site | PGAK (flat ₹1,000/camera) | Market range for the same cameras | The usual difference |
-|---|---|---|---|
-| Small shop — 4 cameras | ₹4,000 / month | ₹2,000 – ₹32,000 / month | Per-feature add-ons |
-| Retail store — 12 cameras | ₹12,000 / month | ₹6,000 – ₹96,000 / month | New-camera bundling |
-| Warehouse — 60 cameras | ₹60,000 / month | ₹30,000 – ₹4,80,000 / month | Rip-and-replace + cloud fees |
+| Your site | Market range for the same cameras | What usually explains the top of the range |
+|---|---|---|
+| Small shop — 4 cameras | ₹2,000 – ₹32,000 / month | Per-feature add-ons |
+| Retail store — 12 cameras | ₹6,000 – ₹96,000 / month | New-camera bundling |
+| Warehouse — 60 cameras | ₹30,000 – ₹4,80,000 / month | Rip-and-replace + cloud fees |
 
-A 60-camera warehouse at ₹60,000 a month is a real number and worth being sceptical about. The comparison that matters is not against your current CCTV bill — it's against what you're currently absorbing. Most warehouses we work with were writing off more than that in monthly shrinkage before anyone was watching. For a shop with twelve cameras, ₹12,000 a month sits against a single significant theft.
+A monthly bill at warehouse scale is a real number and worth being sceptical about, wherever it lands in that range. The comparison that matters is not against your current CCTV bill — it's against what you're currently absorbing. Most warehouses we work with were writing off more in monthly shrinkage than the whole system costs, before anyone was watching. For a twelve-camera shop, the monthly figure usually sits against a single significant theft.
 
 If that arithmetic doesn't work at your site, it doesn't work, and we'd rather say so during the audit than after the invoice.
 

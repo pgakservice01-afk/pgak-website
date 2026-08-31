@@ -6,7 +6,7 @@ excerpt: "Sometimes no. Here's the arithmetic we run with shop owners before sel
 readTime: 4
 ---
 
-A twelve-camera shop is ₹12,000 a month. That's a real cost for a small business, and it deserves a real answer rather than a pitch.
+AI CCTV on a twelve-camera shop is a real monthly cost for a small business, and it deserves a real answer rather than a pitch.
 
 Here's the arithmetic we actually run.
 
@@ -28,7 +28,7 @@ If your cameras also can't see the till or the high-value shelf at a usable angl
 
 You have no known losses, but you're uneasy.
 
-This one is honest to sit with for a while. Security spend against an unquantified fear tends to be regretted. Our usual suggestion is to start with the two or three cameras covering what you'd actually mind losing, rather than the whole estate. A four-camera deployment at ₹4,000 a month is a much easier decision to reverse than a twelve-camera one.
+This one is honest to sit with for a while. Security spend against an unquantified fear tends to be regretted. Our usual suggestion is to start with the two or three cameras covering what you'd actually mind losing, rather than the whole estate. Because it bills per camera, a four-camera deployment is a third of the monthly cost of a twelve-camera one — and a much easier decision to reverse.
 
 ## What changes even without a theft
 
