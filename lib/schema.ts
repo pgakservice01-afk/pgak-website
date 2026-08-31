@@ -148,6 +148,10 @@ export function productSchema(opts: {
   category?: string;
 }): Json {
   return {
+    // NOTE (2026-09-01): currently unused. With no published price there is no
+    // `offers`, and Google requires offers, review or aggregateRating for a
+    // Product snippet — an empty Product node only draws GSC warnings.
+    // Re-add the call sites when a public price or real reviews return.
     "@type": "Product",
     "@id": `${abs(opts.path)}#product`,
     name: opts.name,

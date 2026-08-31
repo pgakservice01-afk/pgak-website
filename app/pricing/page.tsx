@@ -10,7 +10,6 @@ import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import {
   breadcrumbSchema,
-  productSchema,
   webPageSchema,
 } from "@/lib/schema";
 
@@ -44,14 +43,6 @@ export default function PricingPage() {
             name: "PGAK pricing",
             description:
               "How AI CCTV is priced in India: per camera per month on the cameras you already own, quoted per site.",
-          }),
-          // No `price` — we quote on a call, and schema must never publish a
-          // figure the page itself doesn't show.
-          productSchema({
-            name: "PGAK Intelligent Security — per camera subscription",
-            description:
-              "AI video analytics on existing CCTV cameras, billed per camera per month with no hardware or licence cost. Quoted per site.",
-            path: PATH,
           }),
           breadcrumbSchema(TRAIL),
         ]}

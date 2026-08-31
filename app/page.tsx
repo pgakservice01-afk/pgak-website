@@ -23,7 +23,6 @@ import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import {
   faqSchema,
-  productSchema,
   softwareApplicationSchema,
   webPageSchema,
 } from "@/lib/schema";
@@ -55,12 +54,6 @@ export default function Home() {
             name: "PGAK — AI CCTV and intelligent security",
             description:
               "AI security software that runs on your existing CCTV cameras: real-time intruder detection, face recognition and false-alarm filtering.",
-          }),
-          productSchema({
-            name: "PGAK Intelligent Security",
-            description:
-              "AI video analytics that adds real-time intruder detection, face recognition, attendance and false-alarm filtering to existing CCTV cameras.",
-            path: "/",
           }),
           softwareApplicationSchema(),
           faqSchema(FAQS.map((f) => ({ q: f.q, a: f.a }))),
