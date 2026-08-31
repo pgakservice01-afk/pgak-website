@@ -895,6 +895,127 @@ export const SOLUTIONS: Solution[] = [
       "your-dvr-records-the-theft-it-doesnt-stop-it",
     ],
   },
+  {
+    slug: "biometric-attendance",
+    navLabel: "Biometric attendance",
+    primaryKeyword: "biometric attendance",
+    relatedKeywords: [
+      "biometric attendance system",
+      "fingerprint attendance system",
+      "face recognition attendance",
+      "attendance machine",
+      "biometric time attendance system",
+    ],
+    title:
+      "Biometric Attendance Without the Machine — Face Recognition on Your Existing Cameras | PGAK",
+    description:
+      "Biometric attendance breaks at the gate: queues at shift change, worn fingers that won't read, and a register that still gets fudged. PGAK marks attendance from the CCTV cameras already on your wall — no machine, no touching, no queue.",
+    eyebrow: "Attendance",
+    h1: "Biometric attendance, without anyone stopping to touch a machine",
+    intro:
+      "Biometric attendance was supposed to end the fudged register. On most Indian sites it just moved the problem: a single fingerprint reader at the gate, forty people queuing behind it at 9am, and half a dozen whose fingers never read cleanly. PGAK marks attendance from the CCTV cameras you already own — a face, recognised as the person walks in, logged with a timestamp and a photo, with nobody breaking stride.",
+    painPoints: [
+      "Shift change turns into a twenty-minute queue at one fingerprint reader.",
+      "Fingers that are wet, cut, worn from manual work or simply dry get rejected again and again.",
+      "The machine is at the main gate, so anyone entering another way is invisible to it.",
+      "You still keep a paper register as a backup — which means you are running two systems and trusting neither.",
+      "Payroll day becomes an argument, because nobody can prove who was actually on site.",
+    ],
+    sections: [
+      {
+        h2: "Why fingerprint attendance fails on real sites",
+        body: "Fingerprint readers are cheap and everywhere, and on an office floor of thirty people they mostly work. The failure shows up where the workforce is large, the hands are working hands, and everyone arrives inside the same ten minutes.",
+        points: [
+          {
+            h3: "Worn and damaged fingerprints",
+            text: "Manual work wears down ridge detail. Masons, machinists, loaders and kitchen staff routinely fail fingerprint capture — and the person who fails is asked to try five times while a queue builds behind them.",
+          },
+          {
+            h3: "One reader, one chokepoint",
+            text: "A reader handles one person every three to six seconds at best. Two hundred workers arriving at once is a queue measured in tens of minutes, every single shift.",
+          },
+          {
+            h3: "It only sees one door",
+            text: "The reader records the gate it is bolted to. Side entrances, the loading bay and the canteen exit are all outside its world, which is exactly where mid-shift disappearances happen.",
+          },
+        ],
+      },
+      {
+        h2: "How face-based attendance works on cameras you already have",
+        body: "PGAK does not sell you an attendance machine. It reads the cameras already pointed at your entrances, recognises enrolled faces as people walk past at normal walking pace, and writes the attendance record itself.",
+        points: [
+          {
+            h3: "Enrol once, from a phone",
+            text: "Each employee is registered with a short guided face scan. No queue, no dedicated enrolment hardware, and the scan can be done by the employee on their own phone.",
+          },
+          {
+            h3: "Recognition at walking pace",
+            text: "There is no stopping, no touching and no queue, because the camera is doing the work. Several people can walk in together and each is logged separately.",
+          },
+          {
+            h3: "Every camera becomes a check-in point",
+            text: "Because it is software on your existing estate, the side gate and the loading bay can mark attendance too — not just the one door a machine was bolted to.",
+          },
+          {
+            h3: "The record carries its own proof",
+            text: "Each entry stores the time and the frame the recognition came from. When payroll is disputed, you look at the photo instead of arguing about the register.",
+          },
+        ],
+      },
+      {
+        h2: "What it does not do",
+        body: "Face attendance is not magic, and being straight about the limits is how you avoid a failed rollout. Recognition needs a reasonably lit, reasonably front-on view of the face — a camera mounted high above a doorway looking at the tops of heads will not work without being repositioned. Very large enrolments need good quality reference photos to stay accurate. And any biometric processing in India sits under the DPDP Act, so employees must be told what is collected and why.",
+      },
+      {
+        h2: "Attendance that feeds payroll instead of fighting it",
+        body: "An attendance record is only worth having if it reaches the person who runs payroll without being retyped. PGAK's attendance data flows straight into shift, overtime and payroll views, so the hours that were actually worked are the hours that get paid.",
+        points: [
+          {
+            h3: "Shifts and overtime calculated, not counted by hand",
+            text: "Late marks, half days and overtime are derived from the same log the camera wrote, so there is one version of the truth.",
+          },
+          {
+            h3: "The same cameras still do security",
+            text: "The estate you are using for attendance is the estate watching your perimeter, your loading bay and your stock room. You are not paying for a second system.",
+          },
+        ],
+      },
+    ],
+    stats: [
+      { value: "0", label: "new attendance machines to buy" },
+      { value: "Walk-through", label: "no stopping, no touching, no queue" },
+      { value: "Every camera", label: "can become a check-in point" },
+      { value: "Photo-backed", label: "every attendance record carries its frame" },
+    ],
+    faqs: [
+      {
+        q: "Can biometric attendance work without a fingerprint machine?",
+        a: "Yes. Face recognition running on your existing CCTV cameras marks attendance as people walk in, so there is no reader to buy, mount, maintain or queue at. The camera does the identification and writes the record itself.",
+      },
+      {
+        q: "Why do fingerprint attendance systems fail in factories?",
+        a: "Three reasons dominate: manual work wears down fingerprint ridges so scans get rejected, one reader creates a queue when hundreds of workers arrive in the same ten minutes, and a reader only records the single door it is fixed to. Face recognition on existing cameras removes all three, because there is no contact, no single chokepoint and no limit of one entry point.",
+      },
+      {
+        q: "Is face recognition attendance legal in India?",
+        a: "Yes, with consent and disclosure. Facial data is personal data under the Digital Personal Data Protection Act, so employees must be informed what is being collected, why, and how long it is kept. Employers should publish an internal notice and keep retention to what payroll actually requires.",
+      },
+      {
+        q: "Do we need to replace our CCTV cameras?",
+        a: "Usually not. The determining factor is whether a camera gets a reasonably lit, reasonably front-on view of faces at the entrance. Cameras mounted high and looking down at the tops of heads need repositioning; most entrance cameras at normal mounting height are already usable.",
+      },
+      {
+        q: "Can people cheat face attendance the way they share fingerprints?",
+        a: "Buddy punching is far harder, because the record stores the actual frame the recognition came from. If a mark is disputed you look at the photograph of who walked through, rather than trusting that the right finger was on the reader.",
+      },
+    ],
+    related: ["factory-security", "ai-cctv-for-warehouses", "ai-cctv-for-offices"],
+    insights: [
+      "why-biometric-attendance-machines-fail-at-the-factory-gate",
+      "face-recognition-attendance-vs-biometric-machine",
+      "is-ai-cctv-legal-in-india-dpdp-act",
+    ],
+  },
 ];
 
 export function getSolution(slug: string): Solution | undefined {
