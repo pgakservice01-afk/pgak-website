@@ -130,8 +130,8 @@ export default function PrivacyPolicy() {
               PGAK Innovations Pvt. Ltd.
               <br />
               Email:{" "}
-              <a className="text-accent underline" href="mailto:pgak.service01@gmail.com">
-                pgak.service01@gmail.com
+              <a className="text-accent underline" href="mailto:Pgakinnovation@gmail.com">
+                Pgakinnovation@gmail.com
               </a>
               <br />
               Website:{" "}
