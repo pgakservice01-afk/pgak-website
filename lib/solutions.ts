@@ -1009,11 +1009,289 @@ export const SOLUTIONS: Solution[] = [
         a: "Buddy punching is far harder, because the record stores the actual frame the recognition came from. If a mark is disputed you look at the photograph of who walked through, rather than trusting that the right finger was on the reader.",
       },
     ],
-    related: ["factory-security", "ai-cctv-for-warehouses", "ai-cctv-for-offices"],
+    related: ["face-recognition-attendance-system", "factory-security", "ai-cctv-for-offices"],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "face-recognition-attendance-vs-biometric-machine",
       "is-ai-cctv-legal-in-india-dpdp-act",
+    ],
+  },
+  {
+    slug: "face-recognition-attendance-system",
+    navLabel: "Face recognition attendance",
+    primaryKeyword: "face recognition attendance system",
+    relatedKeywords: [
+      "face attendance system",
+      "attendance system using face recognition",
+      "face id attendance system",
+      "face detection attendance system",
+      "face scanning attendance system",
+    ],
+    title:
+      "Face Recognition Attendance System — On the CCTV Cameras You Already Own | PGAK",
+    description:
+      "A face recognition attendance system with no terminal to queue at: PGAK recognises enrolled faces on your existing entrance cameras and writes a photo-backed attendance record as people walk in.",
+    eyebrow: "Attendance",
+    h1: "A face recognition attendance system with no machine at the gate",
+    intro:
+      "A face recognition attendance system replaces the queue at the fingerprint reader with a camera that simply watches people walk in. PGAK runs face recognition on the CCTV cameras already mounted at your entrances — each enrolled person is recognised at walking pace and logged with a timestamp and the exact frame, so the register fills itself and every entry carries its own proof.",
+    painPoints: [
+      "Two hundred workers, one biometric terminal, and a queue that eats twenty minutes of every shift.",
+      "Wet, worn or dusty fingers that the reader rejects three times before giving up.",
+      "Proxy punching — one person carrying two thumbs' worth of attendance.",
+      "A machine at the main gate that never sees who came in through the side.",
+      "Payroll disputes that come down to a spreadsheet cell nobody can prove.",
+    ],
+    sections: [
+      {
+        h2: "How face recognition attendance actually works",
+        body: "There is no new hardware in this system. The work happens in software, on the camera feeds you already record.",
+        points: [
+          {
+            h3: "Enrol each person once, from a phone",
+            text: "A short guided face scan builds the reference. No enrolment hardware, no visit to an office — the scan can be done on the employee's own phone in under a minute.",
+          },
+          {
+            h3: "The entrance camera does the identification",
+            text: "As people walk through, faces are matched against the enrolled list. Several people can enter together; each is logged separately, at normal walking pace, without stopping or touching anything.",
+          },
+          {
+            h3: "Every record carries its frame",
+            text: "Each attendance entry stores the exact image the recognition came from. A disputed half-day is settled by looking at the photograph, not by arguing about the register.",
+          },
+          {
+            h3: "The log flows into shifts and payroll",
+            text: "Late marks, half days and overtime are derived from the same camera-written log, so the hours actually worked are the hours paid — with no retyping in between.",
+          },
+        ],
+      },
+      {
+        h2: "Face recognition vs a face attendance machine",
+        body: "Wall-mounted face attendance machines fix the hygiene problem of fingerprints but keep every other limitation: one device, one door, one queue, and a per-door hardware cost every time you want to cover another entrance. Camera-based recognition inverts that — every camera you own is a potential check-in point, the side gate and loading bay included, and adding coverage is a software change rather than a purchase order.",
+      },
+      {
+        h2: "What honest vendors admit about accuracy",
+        body: "Face recognition needs a reasonably lit, reasonably front-on view. A camera mounted very high and looking at the tops of heads will not identify anyone reliably until it is repositioned — we check this during the free feasibility review rather than promising a blanket accuracy number. Indian sites also sit under the DPDP Act: employees must be told what is collected and why, and facial data must be kept no longer than payroll needs.",
+      },
+    ],
+    stats: [
+      { value: "0", label: "terminals to buy, mount or maintain" },
+      { value: "Walk-through", label: "recognition at normal walking pace" },
+      { value: "Every entrance", label: "any camera can mark attendance" },
+      { value: "Photo-backed", label: "each record stores its own frame" },
+    ],
+    faqs: [
+      {
+        q: "How does a face recognition attendance system work?",
+        a: "Employees are enrolled once with a short face scan. Software then matches faces seen by your entrance cameras against that enrolled list, and writes an attendance record — time, person and the camera frame — as each person walks in. No terminal, card or fingerprint is involved.",
+      },
+      {
+        q: "Do we need special cameras for face recognition attendance?",
+        a: "Usually not. The deciding factor is placement, not the camera's age: it needs a reasonably lit, roughly face-height view of the entrance. Most existing entrance cameras qualify, and the ones that don't typically just need remounting.",
+      },
+      {
+        q: "Can face recognition attendance stop proxy attendance?",
+        a: "It makes proxy attendance far harder than fingerprints or cards, because every record stores the photograph it came from. If a mark is questioned, you look at who actually walked through — there is no thumb or card to hand to a friend.",
+      },
+      {
+        q: "Is a face recognition attendance system legal in India?",
+        a: "Yes, with informed consent. Facial data is personal data under the Digital Personal Data Protection Act, so employees must be told what is collected, why, and for how long it is kept. A simple internal notice at rollout covers this; retention should match what payroll actually needs.",
+      },
+      {
+        q: "What happens if someone is not recognised?",
+        a: "Unrecognised faces are flagged for review rather than silently dropped — an admin sees the frame and can mark the person manually while the enrolment photo is improved. The system is designed so a miss costs a tap, not a day's wages.",
+      },
+    ],
+    related: ["biometric-attendance", "factory-security", "ai-cctv-for-offices"],
+    insights: [
+      "face-recognition-attendance-vs-biometric-machine",
+      "why-biometric-attendance-machines-fail-at-the-factory-gate",
+      "is-ai-cctv-legal-in-india-dpdp-act",
+    ],
+  },
+  {
+    slug: "cctv-installation-company",
+    navLabel: "CCTV installation",
+    primaryKeyword: "CCTV installation company",
+    relatedKeywords: [
+      "cctv installation companies near me",
+      "cctv companies near me",
+      "camera installation service near me",
+      "cctv camera providers near me",
+      "cctv installation service",
+    ],
+    title:
+      "CCTV Installation Company in Punjab — Cameras That Alert, Not Just Record | PGAK",
+    description:
+      "Looking for a CCTV installation company near you? PGAK installs and services CCTV across Punjab directly and through verified partners across India — and every install ships with AI alerts, not just recording.",
+    eyebrow: "Installation & service",
+    h1: "A CCTV installation company that leaves you with alerts, not just footage",
+    intro:
+      "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Direct installation teams cover Ludhiana and the Punjab belt; verified partners cover the rest of India.",
+    painPoints: [
+      "The last installer vanished after handover — four cameras have been dark for months.",
+      "Nobody gave you the recorder's admin password, so you can't change anything.",
+      "The quote was one bundled per-camera number, impossible to compare with anyone else's.",
+      "Sixteen cameras record all day, and the first time anyone watches is after something goes wrong.",
+      "\"Same day service\" turned out to mean same week, if the phone was answered at all.",
+    ],
+    sections: [
+      {
+        h2: "What our installation actually includes",
+        body: "An install is a system, not a box count. Every PGAK installation is quoted with the parts itemised — cameras where needed, cabling and power runs, the recorder, storage sized to your real retention need — and handed over with you owning every password.",
+        points: [
+          {
+            h3: "Reuse before replace",
+            text: "If your existing cameras are serviceable, we keep them. The intelligence runs in software, so a working camera rarely needs to be thrown away to get modern alerts.",
+          },
+          {
+            h3: "Placement designed for detection",
+            text: "Cameras are positioned for what they must detect — the boundary wall, the loading bay, the entrance where attendance is marked — not just for coverage on a floor plan.",
+          },
+          {
+            h3: "Two weeks of tuning after handover",
+            text: "Detection zones, alert schedules and who-gets-notified are configured and then tuned against real traffic, so alerts stay trusted instead of getting muted in week one.",
+          },
+          {
+            h3: "You own the system",
+            text: "Admin passwords, camera credentials and recorder access are handed over in writing on day one. If we ever part ways, everything keeps working and everything is yours.",
+          },
+        ],
+      },
+      {
+        h2: "Where we install directly — and where partners do",
+        body: "Our own teams handle installation and service across Ludhiana, Jalandhar, Amritsar, Patiala, Khanna, Moga, Bathinda, Batala, Hoshiarpur, Mandi Gobindgarh and Chandigarh–Mohali. In metros further afield — Delhi NCR, Mumbai, Bengaluru, Jaipur and others — installation is carried out by verified partners while monitoring, alerts and support stay with PGAK. Either way the system, the software and the accountability are ours.",
+      },
+      {
+        h2: "Questions to ask any CCTV installation company",
+        body: "Ask who owns the recorder password. Ask for the response time to a dead camera in hours, in writing. Ask for cabling and storage as separate line items. Ask what happens when the disk fills. And ask to see a live system they installed more than a year ago. We published our full checklist — including the answers we give — in our buying guide, because a customer who compares carefully tends to choose the installer who tunes and stays.",
+      },
+    ],
+    stats: [
+      { value: "11 cities", label: "direct installation & service in Punjab" },
+      { value: "Day one", label: "you own every password, in writing" },
+      { value: "2 weeks", label: "of post-install tuning included" },
+      { value: "AI alerts", label: "every install ships with detection, not just recording" },
+    ],
+    faqs: [
+      {
+        q: "Do you install new CCTV cameras or only add software to existing ones?",
+        a: "Both. If you have no cameras, we design and install the full system. If you already have cameras, we reuse every serviceable one and add the intelligence layer — most sites end up with a mix of kept cameras, a few repositioned ones, and new units only where coverage is genuinely missing.",
+      },
+      {
+        q: "Which areas does your CCTV installation service cover?",
+        a: "Our own teams install and service across the Punjab belt — Ludhiana, Jalandhar, Amritsar, Patiala, Khanna, Moga, Bathinda, Batala, Hoshiarpur, Mandi Gobindgarh and Chandigarh–Mohali. Beyond Punjab, verified partners handle the physical installation while PGAK runs the software, alerts and support.",
+      },
+      {
+        q: "How much does CCTV installation cost?",
+        a: "It depends on camera count, cable runs and storage needs, which is why we quote per site with every line itemised — cameras, cabling, power, recorder, storage and support listed separately so you can compare our quote against anyone's. The survey and quote are free.",
+      },
+      {
+        q: "What makes PGAK different from a local CCTV installer?",
+        a: "The end state. A typical install ends at 'it records'. Ours ends at 'it tells you' — person and vehicle detection, boundary alerts and camera-offline warnings run on every install, and the first two weeks of tuning are part of the job, not an extra.",
+      },
+      {
+        q: "Can you take over a CCTV system another company installed?",
+        a: "Yes, and it is common. We audit what is installed, recover or reset access you should have been given, restore dead cameras where the cabling allows, and add the alerting layer on top of the estate you already paid for.",
+      },
+    ],
+    related: ["ai-intruder-detection", "factory-security", "smart-perimeter-protection"],
+    insights: [
+      "how-to-choose-a-cctv-installation-company",
+      "your-dvr-records-the-theft-it-doesnt-stop-it",
+      "where-to-place-cctv-cameras-for-ai-detection",
+    ],
+  },
+  {
+    slug: "video-analytics-software",
+    navLabel: "Video analytics software",
+    primaryKeyword: "video analytics software",
+    relatedKeywords: [
+      "video analytics solutions",
+      "CCTV video analytics",
+      "AI video analytics",
+      "video analytics for CCTV cameras",
+      "intelligent video analytics",
+    ],
+    title:
+      "Video Analytics Software for Existing CCTV — Detection, Alerts, Attendance | PGAK",
+    description:
+      "PGAK's video analytics software runs on the CCTV cameras you already own: person and vehicle detection, boundary alerts, face-recognition attendance and camera-health monitoring — no camera replacement, no new hardware at the gate.",
+    eyebrow: "Platform",
+    h1: "Video analytics software that runs on the cameras you already own",
+    intro:
+      "Video analytics software is the difference between cameras that record and cameras that report. PGAK analyses every frame from your existing CCTV — classifying people and vehicles, watching the boundaries you draw, recognising enrolled faces for attendance — and turns the events that matter into alerts on your phone while there is still time to act.",
+    painPoints: [
+      "Footage is only ever reviewed after something has already gone wrong.",
+      "The recorder's built-in motion detection cried wolf for a week, so it was muted.",
+      "Nobody knows a camera has died until the day its footage is needed.",
+      "Vendors promise '99% accuracy' but go quiet when asked about your cameras, your lighting, your mounting heights.",
+    ],
+    sections: [
+      {
+        h2: "What the software actually detects",
+        body: "Every capability below runs on your existing camera estate — the same streams your recorder already receives.",
+        points: [
+          {
+            h3: "Person & vehicle classification",
+            text: "The foundation. A moving object is identified as a person, vehicle or animal before any rule fires — which is why a swaying branch or a stray dog doesn't wake you at 2am.",
+          },
+          {
+            h3: "Boundary & zone intrusion",
+            text: "Draw a line on a camera view — compound wall, loading bay, stock room door — and get an alert with a snapshot the moment the wrong class of object crosses it during the hours you chose.",
+          },
+          {
+            h3: "Face-recognition attendance",
+            text: "Enrolled employees are recognised at the entrance and logged with a photo-backed record, replacing the queue at the biometric machine entirely.",
+          },
+          {
+            h3: "Camera health & tamper watch",
+            text: "The least glamorous feature and often the most valuable: you are told within minutes when a camera goes dark, gets covered, or is knocked out of position.",
+          },
+        ],
+      },
+      {
+        h2: "Why analytics beats the motion detection you already muted",
+        body: "Your DVR's motion detection compares pixels between frames, so rain, moths and headlights all fire it — which is why every site we visit has it switched off. Analytics classifies the object first and applies your rules second. The practical result is a system whose notifications people still read in month six, because the alerts have stayed worth reading.",
+      },
+      {
+        h2: "Deployment, honestly described",
+        body: "An edge device at your site (or a cloud connection where bandwidth allows) picks up the streams your cameras already produce — no rewiring, no camera replacement as a precondition. A free feasibility check first confirms which of your cameras can support which capability, because a camera mounted for general coverage sometimes needs repositioning before face recognition will work on it. You get that answer before any commitment, not after.",
+      },
+    ],
+    stats: [
+      { value: "Existing cameras", label: "runs on the CCTV you already own" },
+      { value: "Seconds", label: "from event to alert on your phone" },
+      { value: "4-in-1", label: "intrusion, attendance, counting, camera health" },
+      { value: "Free", label: "feasibility check on your actual cameras" },
+    ],
+    faqs: [
+      {
+        q: "What is video analytics software?",
+        a: "Software that analyses camera feeds automatically and raises an event when something specific happens — a person crossing a boundary, a vehicle stopping where it shouldn't, a camera going dark. It replaces the assumption that a human is watching the wall of screens, which on real sites is almost never true.",
+      },
+      {
+        q: "Does video analytics software work with existing CCTV cameras?",
+        a: "Yes — that is PGAK's entire model. The software consumes the RTSP streams your cameras and DVR/NVR already produce. The constraint is camera placement rather than camera age: a usable view of the area you care about matters far more than the year the camera was made.",
+      },
+      {
+        q: "Is video analytics the same as motion detection?",
+        a: "No. Motion detection reacts to pixel changes, so weather and headlights trigger it constantly. Video analytics classifies what the object is before applying your rules, which is what keeps false alarms low enough that the alerts stay switched on.",
+      },
+      {
+        q: "Can video analytics predict incidents before they happen?",
+        a: "No software honestly can, and claims otherwise deserve suspicion. What analytics does reliably is detect defined behaviours — loitering in a zone, a boundary crossed after hours, a vehicle stopped at the gate — fast enough that a human can intervene while it still matters.",
+      },
+      {
+        q: "What does video analytics software cost in India?",
+        a: "Pricing is per camera per month and quoted per site, because camera count and the capabilities you enable drive the number. The feasibility check and quote are free, and there is no hardware licence or per-feature surcharge stacked on top.",
+      },
+    ],
+    related: ["ai-intruder-detection", "biometric-attendance", "smart-perimeter-protection"],
+    insights: [
+      "what-is-video-analytics-software",
+      "how-does-ai-intruder-detection-work",
+      "1000-alerts-only-one-is-real",
     ],
   },
 ];
