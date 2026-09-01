@@ -1,0 +1,498 @@
+[
+  {
+    "slug": "attendance-leave-management-integration",
+    "title": "Leave, holidays and attendance: keeping one calendar",
+    "primaryKeyword": "attendance and leave management",
+    "angle": "Why leave approved in one system and absence recorded in another is the second-biggest source of payroll disputes.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "geofencing-attendance-field-staff",
+    "title": "Field staff attendance: geofencing without micromanaging",
+    "primaryKeyword": "field staff attendance",
+    "angle": "Where phone geofencing genuinely fits (sales, service engineers) and where it is surveillance theatre. Cover consent honestly.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "employee-refuses-biometric-consent",
+    "title": "When an employee refuses biometric attendance",
+    "primaryKeyword": "biometric consent employee",
+    "angle": "DPDP consent is real. What a lawful fallback looks like and why forcing it is the wrong fight.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "attendance-data-retention-what-to-delete",
+    "title": "Attendance data: what to keep, what to delete, when",
+    "primaryKeyword": "attendance data retention",
+    "angle": "Separate the statutory register (keep) from the biometric template (delete on exit). Practical retention schedule.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "overtime-disputes-common-causes",
+    "title": "The five causes of every overtime dispute",
+    "primaryKeyword": "overtime calculation attendance",
+    "angle": "Rounding, shift-end vs clock-time, weekly-off rates, missed punch-outs, unapproved OT. One fix each.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "migrating-attendance-system-without-losing-history",
+    "title": "Switching attendance systems without losing history",
+    "primaryKeyword": "migrate attendance system",
+    "angle": "Export formats, parallel running, what history actually transfers, and the month-end you should never cut over on.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "attendance-24x7-three-shift-operation",
+    "title": "Attendance for a 24x7 three-shift operation",
+    "primaryKeyword": "3 shift attendance system",
+    "angle": "Handover overlaps, midnight attribution, and why continuous operations need exit events not just entries.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "onboarding-employee-into-attendance",
+    "title": "Getting a new joiner onto attendance in five minutes",
+    "primaryKeyword": "employee onboarding attendance",
+    "angle": "Enrolment cost is the hidden tax. What a fast onboarding flow looks like and why it matters for churn-heavy sites.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "late-mark-policy-design",
+    "title": "Designing a late-mark policy people accept",
+    "primaryKeyword": "late mark policy",
+    "angle": "Grace periods, consistency, and why an unpublished policy generates more disputes than a strict one.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "attendance-seasonal-peak-workforce",
+    "title": "Attendance when your workforce triples for a season",
+    "primaryKeyword": "seasonal workforce attendance",
+    "angle": "Harvest, festival and procurement peaks. Enrolment throughput is the constraint, not storage.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "face-recognition-accuracy-what-affects-it",
+    "title": "What actually affects face recognition accuracy",
+    "primaryKeyword": "face recognition accuracy",
+    "angle": "Pixels between the eyes, angle, lighting, motion blur. Debunk blanket accuracy percentages.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "masks-helmets-turbans-face-recognition",
+    "title": "Helmets, turbans and masks: what face recognition can handle",
+    "primaryKeyword": "face recognition with mask helmet",
+    "angle": "Honest answer per covering. Indian sites specifically — turbans and hard hats are normal.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "how-many-photos-face-enrolment",
+    "title": "How many photos does face enrolment actually need",
+    "primaryKeyword": "face enrolment photos",
+    "angle": "Why one photo fails, what a good enrolment set looks like, and how to fix a bad enrolment.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "can-a-photo-fool-face-attendance",
+    "title": "Can someone fool face attendance with a photo?",
+    "primaryKeyword": "face recognition liveness detection",
+    "angle": "Liveness detection explained plainly. What defeats a printed photo, what does not.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "face-recognition-low-light-gate",
+    "title": "Face recognition at a badly lit gate",
+    "primaryKeyword": "face recognition low light",
+    "angle": "Why a lamp is often cheaper than a camera. IR limitations for identification vs detection.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "camera-resolution-vs-distance",
+    "title": "Camera resolution vs distance: the pixel math",
+    "primaryKeyword": "cctv camera resolution distance",
+    "angle": "Pixels-per-metre. Why 4MP at 40m identifies nobody. Give a simple table.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "dvr-vs-nvr-which-do-you-have",
+    "title": "DVR or NVR: which do you actually have, and does it matter",
+    "primaryKeyword": "dvr vs nvr difference",
+    "angle": "Practical identification guide, and what each means for adding analytics later.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-storage-how-many-days",
+    "title": "How many days of CCTV footage are you really keeping?",
+    "primaryKeyword": "cctv storage days calculation",
+    "angle": "The arithmetic of retention, and why stated retention silently shrinks as cameras are added.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-cabling-corner-cutting",
+    "title": "CCTV cabling: where installers cut corners",
+    "primaryKeyword": "cctv cabling installation",
+    "angle": "Cable grade, conduit, joints, PoE budget. The failures that surface in year two.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "ip-vs-analogue-cameras-india",
+    "title": "IP or analogue cameras: the honest comparison for India",
+    "primaryKeyword": "ip vs analog cctv camera",
+    "angle": "Cost, cabling, upgrade path. Analogue plus a modern DVR is often the right answer.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-monsoon-failures",
+    "title": "What CCTV fails in the monsoon, and how to prevent it",
+    "primaryKeyword": "cctv camera monsoon problem",
+    "angle": "Water ingress, fogged domes, corroded connectors, power surges. A pre-monsoon checklist.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-blind-spots-where-thieves-look",
+    "title": "Where the blind spots are: how a site gets cased",
+    "primaryKeyword": "cctv camera blind spots",
+    "angle": "Walk your own perimeter as an intruder would. Practical self-audit.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "anpr-number-plate-recognition-when-it-works",
+    "title": "Number plate recognition: when it works and when it does not",
+    "primaryKeyword": "anpr number plate recognition",
+    "angle": "Angle, speed, plate condition, Indian plate variation. Set honest expectations.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "loitering-detection-explained",
+    "title": "Loitering detection: what it catches that motion does not",
+    "primaryKeyword": "loitering detection cctv",
+    "angle": "Dwell time as a signal. Where it earns its place and where it just adds noise.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "people-counting-footfall-cctv",
+    "title": "People counting from cameras you already own",
+    "primaryKeyword": "people counting cctv footfall",
+    "angle": "Retail and gate footfall. Accuracy caveats and what the number is actually good for.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-footage-legal-evidence-india",
+    "title": "Is CCTV footage admissible evidence in India?",
+    "primaryKeyword": "cctv footage legal evidence india",
+    "angle": "Practical guidance on integrity, timestamps, retention and chain of custody. Not legal advice.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-workplace-privacy-india",
+    "title": "CCTV in the workplace: what you may and may not record",
+    "primaryKeyword": "cctv workplace privacy india",
+    "angle": "Bathrooms and changing rooms are out. Notice, purpose, DPDP. A short compliance checklist.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "what-to-do-day-after-a-theft",
+    "title": "The day after a theft: a practical checklist",
+    "primaryKeyword": "cctv after theft what to do",
+    "angle": "Preserve footage before it overwrites. Exports, timestamps, FIR, insurance. Time-critical steps first.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-signage-requirements-india",
+    "title": "Do you need CCTV signage? What the notice should say",
+    "primaryKeyword": "cctv signage requirement",
+    "angle": "Notice as both a legal step and a deterrent. Sample wording.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "hotel-security-and-staff-attendance",
+    "title": "Hotels: guest safety and staff attendance on one estate",
+    "primaryKeyword": "hotel cctv security",
+    "angle": "Housekeeping churn, back-of-house entrances, guest privacy boundaries.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "restaurant-kitchen-attendance-hygiene",
+    "title": "Restaurants: attendance without a shared-touch device in the kitchen",
+    "primaryKeyword": "restaurant staff attendance",
+    "angle": "Hygiene makes contact biometrics a real problem. Shift patterns in F&B.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "petrol-pump-security-cameras",
+    "title": "Petrol pump security: the four positions that matter",
+    "primaryKeyword": "petrol pump cctv camera",
+    "angle": "Forecourt, till, tanker bay, entry. Drive-offs and cash handling.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "cold-storage-monitoring-cameras",
+    "title": "Cold storage: cameras, doors and the cost of a door left open",
+    "primaryKeyword": "cold storage cctv monitoring",
+    "angle": "Door-open dwell alerts. Why this is a spoilage problem before a theft problem.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "jewellery-shop-security-india",
+    "title": "Jewellery retail security: layered, not just more cameras",
+    "primaryKeyword": "jewellery shop cctv security",
+    "angle": "Counter, strongroom, entry, street. Staff-side risk handled respectfully.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "housing-society-gate-management",
+    "title": "Housing society gates: visitors, vehicles and accountability",
+    "primaryKeyword": "housing society cctv gate",
+    "angle": "Visitor logs, resident vehicles, and the committee politics of who sees footage.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "rice-sheller-grain-mandi-security",
+    "title": "Rice shellers and grain mandis: seasonal labour and stock",
+    "primaryKeyword": "grain mandi security camera",
+    "angle": "Procurement-season churn, weighbridge, open yards.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "textile-unit-security-attendance",
+    "title": "Textile units: dust, shifts and worn fingerprints",
+    "primaryKeyword": "textile factory security",
+    "angle": "Why this vertical breaks contact biometrics hardest. Ludhiana and Coimbatore context.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "showroom-retail-shrinkage",
+    "title": "Showroom shrinkage: the evidence index approach",
+    "primaryKeyword": "retail shop theft cctv",
+    "angle": "Not real-time alerts — a searchable evidence index. Honest about what stops nothing.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "pharmacy-medical-store-security",
+    "title": "Pharmacy security: schedule drugs, cash and staff",
+    "primaryKeyword": "medical store cctv camera",
+    "angle": "Controlled-substance cabinet, till, after-hours. Compliance angle.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-total-cost-of-ownership-5-years",
+    "title": "The five-year cost of a CCTV system, itemised",
+    "primaryKeyword": "cctv system cost india",
+    "angle": "Hardware, cabling, storage, AMC, replacement, electricity. The number nobody quotes.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "how-to-write-a-cctv-tender",
+    "title": "Writing a CCTV tender that gets comparable quotes",
+    "primaryKeyword": "cctv tender specification",
+    "angle": "Specify positions and outcomes, not brands. A template spec.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "red-flags-in-a-cctv-quote",
+    "title": "Seven red flags in a CCTV quotation",
+    "primaryKeyword": "cctv quotation red flags",
+    "angle": "Bundled per-camera pricing, no position list, vague AI claims, no password clause.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "buy-or-rent-cctv",
+    "title": "Should you buy or rent your CCTV system?",
+    "primaryKeyword": "cctv on rent vs buy",
+    "angle": "Capex vs opex honestly, including who owns the footage and the hardware at the end.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "warranty-vs-amc-cctv",
+    "title": "Warranty or AMC: what each actually covers",
+    "primaryKeyword": "cctv warranty vs amc",
+    "angle": "Manufacturer defect vs site maintenance. The gap most owners discover too late.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "what-ai-means-in-a-cctv-brochure",
+    "title": "What 'AI' actually means in a CCTV brochure",
+    "primaryKeyword": "ai cctv camera meaning",
+    "angle": "Decode the marketing: motion vs classification vs recognition. Questions that expose the difference.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "cloud-vs-onsite-video-processing",
+    "title": "Cloud or on-site processing for video analytics?",
+    "primaryKeyword": "cloud vs edge video analytics",
+    "angle": "Bandwidth, cost, privacy, and what happens when the internet drops.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-dealer-vs-direct",
+    "title": "Buying CCTV through a dealer or direct: which is better",
+    "primaryKeyword": "cctv dealer india",
+    "angle": "Service proximity vs accountability. How to get both.",
+    "category": "Buying Guide",
+    "status": "pending"
+  },
+  {
+    "slug": "visitor-management-without-a-register",
+    "title": "Visitor management beyond the paper register",
+    "primaryKeyword": "visitor management system",
+    "angle": "Gate register limitations, photo-backed visitor logs, and what a society or factory actually needs.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "gate-pass-material-movement",
+    "title": "Gate passes and material movement: closing the loop",
+    "primaryKeyword": "gate pass system factory",
+    "angle": "Matching material out against authorisation, with camera evidence at the gate.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "safety-compliance-ppe-detection",
+    "title": "PPE detection: useful safety tool or nagging machine?",
+    "primaryKeyword": "ppe detection camera",
+    "angle": "Where helmet/vest detection genuinely reduces incidents and where it just generates ignored alerts.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "perimeter-wall-how-many-cameras",
+    "title": "How many cameras for a compound wall?",
+    "primaryKeyword": "perimeter security cameras",
+    "angle": "Corner-first placement maths. Why mid-wall cameras waste coverage.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "camera-maintenance-checklist-quarterly",
+    "title": "A quarterly camera maintenance checklist you can run yourself",
+    "primaryKeyword": "cctv maintenance checklist",
+    "angle": "Ten checks, no technician needed. Printable.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "who-should-see-cctv-footage",
+    "title": "Who in your company should be able to see CCTV footage?",
+    "primaryKeyword": "cctv access control policy",
+    "angle": "Role-based access, audit logs, and why 'everyone with the password' is a liability.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "small-business-dpdp-checklist",
+    "title": "DPDP Act for small businesses: a one-page checklist",
+    "primaryKeyword": "dpdp act compliance small business",
+    "angle": "Notice, purpose, retention, security, grievance. Plain language, no legalese.",
+    "category": "Compliance",
+    "status": "pending"
+  },
+  {
+    "slug": "attendance-for-two-site-employees",
+    "title": "Employees who work at two sites in one day",
+    "primaryKeyword": "multi site employee attendance",
+    "angle": "Transfers, double-counting and how to attribute hours correctly.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "security-audit-your-own-site",
+    "title": "How to audit your own site's security in one afternoon",
+    "primaryKeyword": "security audit checklist",
+    "angle": "A walk-around protocol: entrances, blind spots, lighting, camera health, response plan.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "why-alerts-must-reach-a-person",
+    "title": "An alert nobody receives is not an alert",
+    "primaryKeyword": "security alert notification",
+    "angle": "Escalation chains, WhatsApp vs app vs siren, and what happens when the one person on the list is asleep.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "cctv-power-backup-india",
+    "title": "CCTV during a power cut: what actually stays on",
+    "primaryKeyword": "cctv power backup ups",
+    "angle": "UPS sizing for cameras, switch and recorder. The commonly forgotten component.",
+    "category": "Camera Setup",
+    "status": "pending"
+  },
+  {
+    "slug": "attendance-report-management-should-see",
+    "title": "The four attendance reports management should actually read",
+    "primaryKeyword": "attendance report format",
+    "angle": "Absenteeism trend, overtime concentration, late-mark distribution, manual-entry rate.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "scaling-security-across-new-branches",
+    "title": "Opening a new branch: the security setup checklist",
+    "primaryKeyword": "multi location security setup",
+    "angle": "A repeatable per-site standard so branch five is not configured from scratch.",
+    "category": "Security Basics",
+    "status": "pending"
+  },
+  {
+    "slug": "ghost-employees-payroll-fraud",
+    "title": "Ghost employees: how payroll fraud hides in attendance",
+    "primaryKeyword": "ghost employee payroll fraud",
+    "angle": "Photo-backed records make ghosts hard. Reconciliation techniques that surface them.",
+    "category": "Attendance",
+    "status": "pending"
+  },
+  {
+    "slug": "choosing-between-attendance-vendors-demo",
+    "title": "What to actually watch for in an attendance system demo",
+    "primaryKeyword": "attendance system demo",
+    "angle": "Demos are staged. Five things to insist on seeing with your own data.",
+    "category": "Buying Guide",
+    "status": "pending"
+  }
+]
