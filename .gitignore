@@ -31,3 +31,10 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# macOS / iCloud Drive duplicate artifacts, e.g. "page 2.tsx"
+* [0-9].tsx
+* [0-9].ts
+* [0-9].md
+* [0-9].json
+* [0-9].mjs
