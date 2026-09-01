@@ -34,6 +34,11 @@ export type Location = {
    * swapped.
    */
   localAreas?: { heading: string; text: string };
+  /**
+   * How attendance specifically breaks in this market. Grounded in the city's
+   * real industry mix — never a claim about deployments we have done.
+   */
+  attendanceContext?: string;
 };
 
 export const LOCATIONS: Location[] = [
@@ -43,6 +48,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: true,
     focus: "Warehousing, textile and cycle-parts manufacturing",
+    attendanceContext:
+      "Ludhiana's attendance problem is a shift-change problem. Textile and cycle-parts units here run large workforces arriving inside the same ten minutes, and the hands on those lines are exactly the ones fingerprint readers reject — oil, dye and worn ridges. Add contractor gangs that turn over weekly across the Focal Point and Gill Road belts and the register in the supervisor's drawer becomes the real record. Camera-based attendance at the gate removes the queue and the failed scan in one move.",
     intro:
       "PGAK is based in Ludhiana, and it is where most of our earliest deployments still run. The city's mix of textile units, cycle-parts manufacturing and distribution warehousing means the two problems we see most here are gate attendance at scale and stock shrinkage in high-throughput warehouses.",
     localContext: [
@@ -66,6 +73,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Sports goods, hand tools and leather manufacturing",
+    attendanceContext:
+      "Sports goods and hand-tool units in Jalandhar run piece-rate and shift labour side by side, which makes accurate hours a payment question rather than an HR formality. Leather and tool workshops also produce the hand conditions that defeat fingerprint sensors. Because attendance runs on the entrance camera rather than a reader, the labour gate and the office door can both be covered without buying a second device.",
     intro:
       "Jalandhar's export units — sports goods, hand tools, leather — keep high-value finished stock in small stores next to busy production floors, which is exactly where shrinkage hides. Being an hour from our Ludhiana base, it is part of our regular installation and support circuit.",
     localContext: [
@@ -85,6 +94,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Wholesale trade, hotels and food processing",
+    attendanceContext:
+      "Wholesale trade and hotels in Amritsar share one attendance pattern: staff arrive across a long window rather than a single shift start, and turnover in kitchens and housekeeping is constant. Enrolling a new joiner in about a minute from a phone matters more here than raw throughput, and hotel entrances are usually already covered by cameras positioned well for recognition.",
     intro:
       "Amritsar runs on trade and hospitality — wholesale cloth and dry-fruit markets, hotels and guest houses around the walled city, and food-processing units on the bypass. The common thread is stock and guests moving all day, and nobody able to say who entered after closing.",
     localContext: [
@@ -104,6 +115,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab / Chandigarh",
     hasOffice: false,
     focus: "Offices, showrooms and the Zirakpur warehousing corridor",
+    attendanceContext:
+      "Offices and showrooms across Chandigarh and Mohali rarely have a queue problem — they have an accuracy and appearance problem. A punching machine at reception is the first thing a client sees, and missed punches surface on payroll day. With attendance running on the entrance camera there is no device at reception at all, and the Zirakpur warehousing corridor gets bay-side coverage the same way.",
     intro:
       "The tricity splits into three security problems: IT and corporate offices in Mohali's IT City wanting card-free attendance, showrooms on Madhya Marg protecting displayed stock, and the Zirakpur–Dera Bassi corridor's warehouses feeding half of Punjab's e-commerce deliveries.",
     localContext: [
@@ -123,6 +136,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Education campuses, agri-machinery and residential kothis",
+    attendanceContext:
+      "Patiala's education campuses need staff attendance far more than student tracking, and we say so plainly: applying face recognition to minors carries consent obligations most institutions should not take on. Teaching and support staff logged at the campus entrance, plus gate and boundary alerts that do not identify individual children, is the combination that fits here. Agri-machinery units get the standard gate-attendance model.",
     intro:
       "Patiala's mix is unusual: large education campuses and hostels, agri-machinery yards on the bypass roads, and some of Punjab's largest residential kothis. All three suffer the same gap — plenty of cameras, and nobody watching them at 3 AM.",
     localContext: [
@@ -142,6 +157,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Fuel and agri-trade, cotton godowns and processing units",
+    attendanceContext:
+      "Cotton godowns and processing units around Bathinda run seasonal labour, which is the hardest case for any enrolment process — a workforce that peaks and disappears. Phone-based enrolment at the gate is what makes seasonal attendance practical, and the same yard cameras carry after-hours boundary alerts once the season ends and the site sits idle.",
     intro:
       "The Malwa belt around Bathinda stores enormous value in plain sheds — cotton, grain, fertiliser, fuel. Most of it is guarded by one chowkidar and a dog. AI on the existing cameras means the perimeter watches itself, every night, without adding a single wire.",
     localContext: [
@@ -161,6 +178,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Steel furnaces, rolling mills and scrap yards",
+    attendanceContext:
+      "Steel furnaces and rolling mills in Mandi Gobindgarh combine every condition that breaks contact biometrics: heat, scale dust, gloves, and hands worn smooth by the work. Attendance at these gates has to be contactless to work at all. Scrap yards on the same premises also benefit from boundary alerting on the identical camera estate.",
     intro:
       "In the steel town, theft is not an occasional event — scrap and finished sections walk out of yards every season, and the weighbridge register never quite explains it. Cameras already exist at every gate; what's missing is something that reads the vehicles and watches the yard at night.",
     localContext: [
@@ -180,6 +199,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Grain mandi, rice shellers and highway godowns",
+    attendanceContext:
+      "The grain mandi and rice shellers around Khanna run heavy seasonal labour with contractor gangs arriving for the procurement cycle. Verifying billed headcount against who actually walked through the gate is the commercial value here, and a photo-backed attendance record is what makes that reconciliation possible rather than theoretical.",
     intro:
       "Khanna holds Asia's largest grain market, and the GT Road on either side of it is lined with rice shellers and storage. Stock sits in the open or in sheds for months; the season decides everything. Twenty minutes from our Ludhiana office, it is inside our fastest service radius.",
     localContext: [
@@ -199,6 +220,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Dairy, food processing and distribution",
+    attendanceContext:
+      "Dairy and food processing units in Moga carry hygiene requirements that make shared-contact devices an active problem, not just an inconvenience — a fingerprint reader at a food-processing entrance is a surface everyone touches. Contactless attendance at the gate removes that surface entirely while covering the despatch side on the same cameras.",
     intro:
       "Moga is Punjab's food-processing town — dairy plants, rice mills and the distributor godowns that feed the Malwa belt. Plants here already carry big camera estates for hygiene compliance; PGAK makes those same cameras handle security, attendance and vehicle logging too.",
     localContext: [
@@ -218,6 +241,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Plywood, timber yards and wood industry",
+    attendanceContext:
+      "Plywood and timber yards in Hoshiarpur run open sites with multiple gates and vehicle traffic through most of them. One reader on the office door records the people least relevant to the operation. Because every camera can act as a check-in point, the timber gate and the loading side get covered without a device on each.",
     intro:
       "Hoshiarpur's plywood and timber trade keeps its stock where it must — in open yards. Timber is high-value, easy to load and hard to trace once gone. The yards already have cameras on poles; what they lack is anything that acts on what the cameras see at night.",
     localContext: [
@@ -237,6 +262,8 @@ export const LOCATIONS: Location[] = [
     region: "Punjab",
     hasOffice: false,
     focus: "Iron foundries, castings and machine tools",
+    attendanceContext:
+      "Iron foundries and machine-tool workshops in Batala present the classic hand-condition problem — casting and grinding work destroys fingerprint ridge detail faster than almost any trade. Contactless recognition at the gate is the only attendance approach that does not degrade with the workforce's own labour.",
     intro:
       "Batala's foundries and machine-tool shops fight the same battle as the steel towns: castings, patterns and finished machined parts disappearing between shifts, and a gate register that proves nothing. The fix is cameras that recognise faces at the gate and watch the casting yard all night.",
     localContext: [
@@ -256,6 +283,8 @@ export const LOCATIONS: Location[] = [
     region: "Delhi, Haryana & Uttar Pradesh",
     hasOffice: false,
     focus: "Offices, retail chains and logistics parks",
+    attendanceContext:
+      "Across Delhi NCR the pattern is multi-site: several offices, retail points or logistics units under one payroll, each running its own attendance island and merged by hand at month end. One system holding every location with per-site rules and a single payroll export is what removes that merge, and logistics parks get bay-side coverage rather than office-door-only.",
     intro:
       "Across Delhi NCR the dominant request is business CCTV that does something during working hours as well as after them — office access monitoring, retail loss prevention across multiple branches, and dispatch-bay coverage in the logistics parks ringing the city.",
     localContext: [
@@ -275,6 +304,8 @@ export const LOCATIONS: Location[] = [
     region: "Haryana",
     hasOffice: false,
     focus: "Corporate offices and gated residential",
+    attendanceContext:
+      "Corporate offices in Gurugram usually already have card access and still have an attendance accuracy problem, because a card records the credential rather than the person. Camera-based attendance at the main entrance produces a photo-backed record that ends payroll-day disputes, with nothing added at reception.",
     intro:
       "Gurugram splits cleanly into two security problems: corporate office floors that need quiet daytime monitoring and hard after-hours alerting, and high-density gated societies where the gate register is still a paper notebook.",
     localContext: [
@@ -294,6 +325,8 @@ export const LOCATIONS: Location[] = [
     region: "Uttar Pradesh",
     hasOffice: false,
     focus: "Industrial sectors, offices and housing societies",
+    attendanceContext:
+      "Noida's industrial sectors and office blocks often sit in the same portfolio, which means two very different attendance patterns under one HR team — shift labour at the unit, staggered arrival at the office. Running both on one platform with per-site rules avoids the two-system merge that produces most month-end corrections.",
     intro:
       "Noida's sector layout puts manufacturing units, office parks and large housing societies within a few kilometres of each other, and we deploy across all three — usually starting with gate attendance in the industrial sectors and visitor logging in the societies.",
     localContext: [
@@ -313,6 +346,8 @@ export const LOCATIONS: Location[] = [
     region: "Maharashtra",
     hasOffice: false,
     focus: "Retail, warehousing and high-density residential",
+    attendanceContext:
+      "High-throughput warehousing in the Bhiwandi and Navi Mumbai belts is where Mumbai attendance actually breaks: the reader is at the office entrance while the workforce lives at the loading bay. Covering bays as check-in points, and reconciling who was on site against a shrinkage event on the same camera estate, is the practical value here.",
     intro:
       "Space is the constraint in Mumbai, which changes what security has to do. Retail floors are dense and busy, warehouses are packed and high-turnover, and residential buildings sit directly on public roads — so precision matters more here than anywhere else we deploy.",
     localContext: [
@@ -332,6 +367,8 @@ export const LOCATIONS: Location[] = [
     region: "Karnataka",
     hasOffice: false,
     focus: "Tech offices, campuses and gated communities",
+    attendanceContext:
+      "Tech offices and campuses in Bengaluru have the strongest privacy expectations of any market we serve, and that shapes the deployment rather than blocking it — a clear DPDP notice at rollout, retention matched to payroll need, and templates deleted on exit. On the operational side, hybrid staff are handled through the app while on-site presence comes from the entrance camera.",
     intro:
       "Bengaluru asks harder questions about privacy than most markets, and that suits us — processing runs on-premises by default, face data is stored as templates rather than images, and access is role-controlled. The typical deployment here is campus access and attendance rather than theft prevention.",
     localContext: [
@@ -351,6 +388,8 @@ export const LOCATIONS: Location[] = [
     region: "Rajasthan",
     hasOffice: false,
     focus: "Retail, jewellery and hospitality",
+    attendanceContext:
+      "Retail and hospitality in Jaipur run long opening hours with staggered shifts and steady staff turnover, so enrolment speed matters more than gate throughput. Jewellery retail additionally needs attendance and stock-area monitoring on one estate, which is where running both on the existing cameras rather than separate systems pays off.",
     intro:
       "Jaipur's retail and jewellery trade needs a different balance from a warehouse: very high-value stock in small floor areas, constant legitimate customer movement, and a hard requirement that alerts never embarrass a genuine customer. Dwell-time detection with tight zones does the work here.",
     localContext: [
@@ -374,6 +413,8 @@ export const LOCATIONS: Location[] = [
     region: "Tamil Nadu",
     hasOffice: false,
     focus: "Spinning mills, textile units and engineering job-works",
+    attendanceContext:
+      "Spinning mills and engineering job-works in Coimbatore run continuous shifts, which makes night-shift attendance the real question — the hours with no supervisor and the highest manual-entry rate. Instrumenting exits as well as entries is what turns 'was present' into 'was present for the full shift', and cotton dust makes contactless the only durable option at the gate.",
     intro:
       "Coimbatore's factories run on shift discipline: hundreds of workers through a gate in minutes, machinery halls that should be empty at night, and scrap yards that quietly leak value. The gate camera you already own can take attendance and watch the perimeter — we proved it here first.",
     localContext: [

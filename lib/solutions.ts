@@ -1294,6 +1294,521 @@ export const SOLUTIONS: Solution[] = [
       "1000-alerts-only-one-is-real",
     ],
   },
+  {
+    slug: "attendance-system-for-factories",
+    navLabel: "Factory attendance",
+    primaryKeyword: "attendance system for factory",
+    relatedKeywords: [
+      "factory attendance management",
+      "labour attendance system",
+      "shift attendance for manufacturing",
+      "gate attendance factory",
+      "worker attendance system",
+    ],
+    title:
+      "Attendance System for Factories — No Queue at the Gate | PGAK",
+    description:
+      "A factory attendance system that survives shift change: face recognition on your existing gate cameras logs 200 workers walking in, with no reader queue and no failed scans on worn hands.",
+    eyebrow: "Attendance · Manufacturing",
+    h1: "An attendance system built for a factory gate at shift change",
+    intro:
+      "An attendance system for a factory has to survive the one moment office systems never face: two hundred people arriving inside ten minutes, most of them with working hands. PGAK marks factory attendance from the CCTV cameras already watching your gate — people are recognised as they walk through, several at a time, and the log feeds shifts and overtime without anyone queueing or touching a sensor.",
+    painPoints: [
+      "Shift change becomes a fifteen-minute queue at one reader — twice a day, every day.",
+      "Oil, dust and worn ridges mean a chunk of your workforce simply cannot scan reliably.",
+      "The reader is on the main gate; the labour entrance and loading bay are invisible to it.",
+      "Contractor labour churns weekly and nobody re-enrols them in time.",
+      "Overtime disputes end in an argument because the register proves nothing.",
+    ],
+    sections: [
+      {
+        h2: "Why factory gates break attendance hardware",
+        body: "A factory is the worst case for contact biometrics on every axis at once — headcount density, hand condition and multiple entrances. Understanding which of the three bites you hardest decides what to fix first.",
+        points: [
+          {
+            h3: "Density at shift change",
+            text: "A reader handles roughly one person every three to six seconds when scans succeed. Two hundred workers arriving together is queue arithmetic no second machine really solves.",
+          },
+          {
+            h3: "Hands that do not read",
+            text: "Machine operators, loaders, dyeing and moulding hands lose ridge detail. The failed scan is not user error — it is the sensor meeting reality.",
+          },
+          {
+            h3: "More gates than machines",
+            text: "Labour entrance, contractor gate, loading bay. Hardware covers the doors you bought devices for; cameras cover the doors you already watch.",
+          },
+        ],
+      },
+      {
+        h2: "How camera-based attendance handles a factory",
+        body: "Every entrance camera becomes a check-in point. Workers walk in at normal pace — no stopping, no contact, several people logged at once — and each record stores the frame it came from, which is what settles an overtime dispute in seconds rather than a meeting.",
+        points: [
+          {
+            h3: "Contractor labour enrolled in a minute",
+            text: "A guided face scan from a phone. No queue at an enrolment desk when a new gang arrives on Monday.",
+          },
+          {
+            h3: "Shift, OT and late marks derived automatically",
+            text: "Rules run against the camera-written log, so the hours worked and the hours paid come from one source.",
+          },
+          {
+            h3: "The same cameras still watch the perimeter",
+            text: "You are not running a security estate and an attendance estate — it is one system doing both.",
+          },
+        ],
+      },
+      {
+        h2: "Where it needs checking first",
+        body: "Face recognition needs a reasonably lit, roughly face-height view. Gate cameras mounted high for vehicle coverage usually need repositioning before they can identify people, and we tell you that during the free feasibility check rather than after a purchase order. Biometric data also sits under the DPDP Act, so worker notice and consent are part of rollout, not an afterthought.",
+      },
+    ],
+    stats: [
+      { value: "0", label: "new gate hardware to buy" },
+      { value: "Walk-through", label: "no queue at shift change" },
+      { value: "Every gate", label: "labour, contractor and loading entrances" },
+      { value: "Photo-backed", label: "every punch stores its frame" },
+    ],
+    faqs: [
+      {
+        q: "What is the best attendance system for a factory?",
+        a: "One that does not create a queue and does not depend on fingerprint quality. On sites with large shift-change surges and manual labour, camera-based face recognition outperforms fingerprint readers because there is no contact, no single chokepoint, and every entrance with a camera can log attendance.",
+      },
+      {
+        q: "How do you handle contractor and temporary labour?",
+        a: "Enrolment is a short guided face scan that can be done from a phone, so a new gang can be registered in minutes at the gate rather than queueing at an office. Records for temporary workers can be retained separately and purged when the contract ends.",
+      },
+      {
+        q: "Will it work if workers wear helmets, masks or turbans?",
+        a: "Head coverings that leave the face visible are fine — turbans and hard hats are normal on Indian sites and do not block recognition. Anything covering the face itself will reduce reliability, which is why the feasibility check looks at your actual gate conditions before we commit to a result.",
+      },
+      {
+        q: "Can it replace our fingerprint machine entirely?",
+        a: "On most factory sites yes, and many run both briefly during changeover. The existing machine can stay as a fallback while the camera log is verified against it for a couple of weeks.",
+      },
+      {
+        q: "Does factory attendance integrate with payroll?",
+        a: "Yes. Shifts, late marks, half days and overtime are computed from the same log and exported for payroll, which removes the retyping step where most attendance errors are actually introduced.",
+      },
+    ],
+    related: ["biometric-attendance", "face-recognition-attendance-system", "factory-security"],
+    insights: [
+      "why-biometric-attendance-machines-fail-at-the-factory-gate",
+      "fingerprint-attendance-system-why-it-fails",
+      "face-recognition-attendance-vs-biometric-machine",
+    ],
+  },
+  {
+    slug: "attendance-system-for-warehouses",
+    navLabel: "Warehouse attendance",
+    primaryKeyword: "attendance system for warehouse",
+    relatedKeywords: [
+      "warehouse workforce attendance",
+      "godown attendance system",
+      "logistics attendance tracking",
+      "warehouse shift attendance",
+      "loading bay attendance",
+    ],
+    title:
+      "Warehouse Attendance System — Track Shifts Across Every Bay | PGAK",
+    description:
+      "Warehouse attendance without a reader at one door: PGAK recognises staff on the cameras already covering your gates and bays, so pickers, loaders and contract crews are logged wherever they actually enter.",
+    eyebrow: "Attendance · Logistics",
+    h1: "Warehouse attendance that covers the loading bay, not just the office door",
+    intro:
+      "Warehouse attendance breaks in a specific way: the attendance machine is at the office entrance, but the people you most need to track come and go through loading bays and yard gates all day. PGAK marks warehouse attendance on the cameras already covering those openings, so pickers, loaders and contract crews are logged where they actually walk — and the same cameras keep watching your stock.",
+    painPoints: [
+      "Loaders enter through the bay, never past the office reader, so the log is fiction.",
+      "Third-party logistics crews change constantly and are never enrolled in time.",
+      "Night shift has nobody supervising the gate at all.",
+      "You cannot reconcile who was on site against a shrinkage event.",
+      "Two systems — one for attendance, one for cameras — and neither talks to the other.",
+    ],
+    sections: [
+      {
+        h2: "Why one reader cannot cover a warehouse",
+        body: "A warehouse is not one door. It is an office entrance, two or three loading bays, a yard gate and often a separate driver entrance — each with different traffic and different people. Contact hardware forces you to choose which of them you pay to instrument.",
+        points: [
+          {
+            h3: "The bays are where the workforce is",
+            text: "Pickers and loaders spend their day at the dock. A reader at reception measures the people least relevant to your operation.",
+          },
+          {
+            h3: "3PL and casual crews churn weekly",
+            text: "By the time a temporary crew is enrolled on a machine, the contract has moved on.",
+          },
+          {
+            h3: "Night shift has no supervision",
+            text: "The hours you most need an objective record are the hours nobody is watching the gate.",
+          },
+        ],
+      },
+      {
+        h2: "One estate for attendance and shrinkage",
+        body: "The cameras that log attendance are the cameras watching stock movement. That overlap is the real advantage: when a discrepancy shows up in the morning, you can line up who was on site against what the bay camera saw, in the same system.",
+        points: [
+          {
+            h3: "Every opening becomes a check-in point",
+            text: "Bay, yard gate, office door — any camera with a usable view can log attendance.",
+          },
+          {
+            h3: "Recognition at walking pace",
+            text: "Nobody stops a trolley to punch in. Several people entering together are each logged separately.",
+          },
+          {
+            h3: "Boundary alerts on the same feeds",
+            text: "After-hours movement in the yard raises an alert on the same estate, so one subscription does both jobs.",
+          },
+        ],
+      },
+      {
+        h2: "Honest constraints for a warehouse",
+        body: "Bay cameras are often mounted high and angled for vehicles, which is excellent for loading oversight and poor for face recognition. Some repositioning is usually needed, and we identify exactly which cameras qualify during the free feasibility check. High-vis clothing and helmets are not a problem; anything covering the face is.",
+      },
+    ],
+    stats: [
+      { value: "Every bay", label: "attendance where staff actually enter" },
+      { value: "One estate", label: "attendance and shrinkage on the same cameras" },
+      { value: "Minutes", label: "to enrol a new 3PL crew" },
+      { value: "Night shift", label: "objective record with nobody supervising" },
+    ],
+    faqs: [
+      {
+        q: "How do you track warehouse attendance across multiple loading bays?",
+        a: "Any camera with a usable view of an opening can act as a check-in point, so bays, yard gates and office doors are all covered by the same system. There is no per-door hardware cost, which is what makes covering four openings practical rather than theoretical.",
+      },
+      {
+        q: "Can it track third-party logistics or contract crews?",
+        a: "Yes. Enrolment is a short face scan from a phone, so a new crew can be registered at the gate in minutes, and their records can be kept separate from permanent staff and purged when the contract ends.",
+      },
+      {
+        q: "Does it help with warehouse shrinkage as well as attendance?",
+        a: "That is the practical advantage of running both on one camera estate — you can align who was on site with what the bay cameras recorded. The same feeds also carry after-hours boundary alerts, so one system serves both purposes.",
+      },
+      {
+        q: "What about drivers and visitors who are not employees?",
+        a: "Unenrolled faces are logged as unknown rather than ignored, so you retain a record of movement without registering every visiting driver as staff.",
+      },
+      {
+        q: "Do we need to replace our warehouse cameras?",
+        a: "Rarely all of them. Bay cameras angled down at vehicles usually need repositioning before they can identify people, while most entrance cameras at normal height already qualify. The feasibility check tells you which is which before you commit.",
+      },
+    ],
+    related: ["biometric-attendance", "ai-cctv-for-warehouses", "face-recognition-attendance-system"],
+    insights: [
+      "best-ai-cctv-camera-for-warehouses-india",
+      "fingerprint-attendance-system-why-it-fails",
+      "nobody-can-watch-120-camera-feeds",
+    ],
+  },
+  {
+    slug: "attendance-system-for-offices",
+    navLabel: "Office attendance",
+    primaryKeyword: "office attendance system",
+    relatedKeywords: [
+      "attendance machine for office",
+      "office biometric machine",
+      "employee attendance system",
+      "staff attendance tracking",
+      "office attendance software",
+    ],
+    title:
+      "Office Attendance System Without a Machine at Reception | PGAK",
+    description:
+      "An office attendance system that removes the reception queue and the punching machine: face recognition on your existing entrance camera logs staff as they walk in, and feeds shifts and payroll directly.",
+    eyebrow: "Attendance · Office",
+    h1: "An office attendance system with nothing to touch at reception",
+    intro:
+      "An office attendance system should be invisible. Most are not — there is a machine at reception, a small queue at 9:30, and a monthly ritual of fixing missed punches before payroll. PGAK removes the device entirely: the camera already covering your entrance recognises staff as they walk in, writes a photo-backed record, and passes hours straight through to payroll.",
+    painPoints: [
+      "A visible punching machine at reception that sets the tone for every visitor who walks past it.",
+      "Missed punches discovered on payroll day, corrected from memory.",
+      "Staff who forget their card, or share it.",
+      "Hybrid and field staff whose attendance nobody can reconcile.",
+      "An attendance tool and a payroll tool that never quite agree.",
+    ],
+    sections: [
+      {
+        h2: "Why offices outgrow the punching machine",
+        body: "Office attendance is rarely a queue problem — it is an accuracy and admin problem. The machine records punches; it does not record intent, exceptions, or who was actually in the building. Everything between the punch and payroll is done by a person, and that is where the errors live.",
+        points: [
+          {
+            h3: "Missed punches become memory work",
+            text: "Every forgotten punch is reconstructed weeks later by someone guessing. A photo-backed log removes the guessing.",
+          },
+          {
+            h3: "Cards get shared, faces do not",
+            text: "Card-based systems record the card, not the person. Recognition records the person and stores the frame.",
+          },
+          {
+            h3: "The machine is a bad first impression",
+            text: "A reception with a queue at a beige box is a small thing that says something about the company to every candidate and client walking through it.",
+          },
+        ],
+      },
+      {
+        h2: "What replaces it",
+        body: "The entrance camera you already have. Staff walk in normally, the log fills itself, and exceptions surface for review rather than being silently wrong.",
+        points: [
+          {
+            h3: "Enrol from a phone in a minute",
+            text: "No enrolment desk, no cards to print or replace.",
+          },
+          {
+            h3: "Exceptions flagged, not buried",
+            text: "An unrecognised entry is raised for an admin to resolve while the memory is fresh, not on payroll day.",
+          },
+          {
+            h3: "Straight into shifts and payroll",
+            text: "Late marks, half days and overtime derive from the same log, so the number that reaches payroll was never retyped.",
+          },
+        ],
+      },
+      {
+        h2: "Where an office needs to be careful",
+        body: "Offices are the easiest environment for recognition — controlled lighting, a single main entrance, faces at a predictable height — but they are also the environment where privacy expectations are highest. Under the DPDP Act, staff must be told what is collected and why, and retention should match payroll need. We recommend publishing that notice at rollout; it takes an afternoon and prevents every later objection.",
+      },
+    ],
+    stats: [
+      { value: "No device", label: "nothing at reception to touch or maintain" },
+      { value: "Photo-backed", label: "every entry carries its frame" },
+      { value: "Minute", label: "to enrol a new joiner from a phone" },
+      { value: "Payroll-ready", label: "hours flow through without retyping" },
+    ],
+    faqs: [
+      {
+        q: "What is the best attendance system for an office?",
+        a: "For most offices, software on the existing entrance camera beats a wall-mounted machine — it removes the reception queue, cannot be shared like a card, and produces a photo-backed record that ends payroll-day disputes. A conventional machine remains perfectly adequate for very small teams with one door.",
+      },
+      {
+        q: "How much does an office attendance machine cost versus this?",
+        a: "Office attendance machines commonly list between Rs 6,000 and Rs 15,000 per door, plus installation, attendance software and annual maintenance. Camera-based attendance has no per-door hardware at all; it is billed per camera per month and quoted per site.",
+      },
+      {
+        q: "Can it handle hybrid or field staff?",
+        a: "On-site presence is captured automatically by the entrance camera. Field and hybrid staff are handled through the mobile app rather than the camera, so both populations end up in one attendance record.",
+      },
+      {
+        q: "What happens when someone is not recognised?",
+        a: "The entry is flagged as an exception for an admin to confirm, and the enrolment photo can be improved at the same time. A miss costs a tap, not a wrong payslip.",
+      },
+      {
+        q: "Is face-based office attendance legal in India?",
+        a: "Yes, with disclosure and consent. Facial data is personal data under the DPDP Act, so employees must be told what is collected, why, and how long it is retained — a short internal notice at rollout covers the requirement.",
+      },
+    ],
+    related: ["biometric-attendance", "face-recognition-attendance-system", "ai-cctv-for-offices"],
+    insights: [
+      "face-recognition-attendance-vs-biometric-machine",
+      "biometric-attendance-machine-price-in-india",
+      "is-ai-cctv-legal-in-india-dpdp-act",
+    ],
+  },
+  {
+    slug: "attendance-system-for-schools",
+    navLabel: "School attendance",
+    primaryKeyword: "attendance system for school",
+    relatedKeywords: [
+      "student attendance system",
+      "school biometric attendance",
+      "staff attendance for schools",
+      "college attendance system",
+      "automated attendance school",
+    ],
+    title:
+      "School & College Attendance System — Staff and Campus | PGAK",
+    description:
+      "Attendance for schools and colleges without roll-call time: PGAK recognises staff on existing campus cameras, logs entry automatically, and keeps the same cameras watching gates and boundaries.",
+    eyebrow: "Attendance · Education",
+    h1: "School attendance that does not cost you the first ten minutes of the day",
+    intro:
+      "A school attendance system has two jobs that rarely sit in one place: knowing which staff are on campus, and knowing who came through the gate. PGAK handles both from the cameras already installed on your campus — staff attendance is logged automatically at the entrance, and the same estate watches gates and boundaries during school hours.",
+    painPoints: [
+      "Teaching staff attendance is a register in the principal's office, filled in from memory.",
+      "Substitute and visiting faculty are never on the biometric system at all.",
+      "The gate has a camera and a guard, and no record connecting them.",
+      "Parents ask who was on campus during an incident and nobody can answer precisely.",
+      "Any biometric touching students raises consent questions nobody wants to get wrong.",
+    ],
+    sections: [
+      {
+        h2: "Start with staff, be careful with students",
+        body: "This is the most important design decision in education, and we lead with it: PGAK's attendance is built for staff. Applying facial recognition to minors carries consent, retention and safeguarding obligations that most schools should not take on lightly, and we will tell you that before selling you anything.",
+        points: [
+          {
+            h3: "Staff attendance is the clear win",
+            text: "Teaching and non-teaching staff, permanent and substitute, logged automatically at the campus entrance with a photo-backed record.",
+          },
+          {
+            h3: "Students: presence, not identification",
+            text: "Where schools need campus-level safety, boundary and gate alerts answer whether someone left the campus without identifying individual children.",
+          },
+          {
+            h3: "Consent obligations are real",
+            text: "Under the DPDP Act, processing children's data carries stricter requirements including verifiable parental consent. Any vendor who waves this away is a risk to you, not a shortcut.",
+          },
+        ],
+      },
+      {
+        h2: "What the same cameras do beyond attendance",
+        body: "Campuses already run cameras for safety. Adding intelligence to that estate is what turns them from a recording archive into something that tells a human, during the school day, when something needs attention.",
+        points: [
+          {
+            h3: "Gate and boundary alerts",
+            text: "Movement over a boundary wall out of hours, or at the gate during class time, raises an alert with a snapshot.",
+          },
+          {
+            h3: "Substitute faculty enrolled in a minute",
+            text: "A guided face scan from a phone, so a visiting teacher is on the record the same morning.",
+          },
+          {
+            h3: "Camera health monitoring",
+            text: "You are told when a campus camera goes dark, rather than discovering it when footage is needed.",
+          },
+        ],
+      },
+      {
+        h2: "Deployment on a campus, honestly",
+        body: "Campus entrances are usually good recognition environments; corridors and playgrounds usually are not, and we do not pretend otherwise. The feasibility check identifies which cameras support staff recognition and which are only useful for boundary and gate alerting — and we will recommend against any student-facing biometric deployment that your consent framework cannot properly support.",
+      },
+    ],
+    stats: [
+      { value: "Staff-first", label: "attendance designed for teaching and support staff" },
+      { value: "Gate alerts", label: "boundary and out-of-hours movement" },
+      { value: "Minute", label: "to enrol a substitute teacher" },
+      { value: "DPDP-aware", label: "children's data handled with stricter consent" },
+    ],
+    faqs: [
+      {
+        q: "Can schools use face recognition for student attendance in India?",
+        a: "Technically yes, but it should be approached with real caution. The DPDP Act imposes stricter obligations for processing children's data, including verifiable parental consent and limits on retention. PGAK's attendance is designed for staff; for students we recommend campus safety features such as gate and boundary alerts, which do not identify individual children.",
+      },
+      {
+        q: "How does staff attendance work on a school campus?",
+        a: "Teaching and non-teaching staff are enrolled once with a short face scan. The camera at the staff entrance logs each person as they arrive, with a timestamp and the frame it came from, and the record flows into monthly attendance and payroll.",
+      },
+      {
+        q: "Can substitute or visiting faculty be added quickly?",
+        a: "Yes — enrolment takes about a minute from a phone, so a substitute arriving in the morning is on the record before first period.",
+      },
+      {
+        q: "What campus safety features run on the same cameras?",
+        a: "Boundary crossing alerts, out-of-hours gate movement, and camera-offline warnings. These operate on presence and movement rather than identifying individual students.",
+      },
+      {
+        q: "Do we need new cameras for a school deployment?",
+        a: "Usually only at the staff entrance if there is not one already. Existing gate and perimeter cameras generally work as-is for boundary alerting, which is the bulk of campus safety value.",
+      },
+    ],
+    related: ["school-security", "biometric-attendance", "face-recognition-attendance-system"],
+    insights: [
+      "is-ai-cctv-legal-in-india-dpdp-act",
+      "where-to-place-cctv-cameras-for-ai-detection",
+      "how-does-ai-intruder-detection-work",
+    ],
+  },
+  {
+    slug: "attendance-system-for-construction-sites",
+    navLabel: "Construction attendance",
+    primaryKeyword: "attendance system for construction site",
+    relatedKeywords: [
+      "labour attendance system",
+      "site attendance for contractors",
+      "construction workforce attendance",
+      "daily wage attendance",
+      "contractor attendance tracking",
+    ],
+    title:
+      "Construction Site Attendance System for Daily-Wage Labour | PGAK",
+    description:
+      "Attendance for construction sites where the workforce changes daily: face recognition on a site camera logs labour at the gate, with no reader to install on a site that moves.",
+    eyebrow: "Attendance · Construction",
+    h1: "Construction attendance for a workforce that changes every week",
+    intro:
+      "Construction attendance is the hardest version of the problem: the workforce changes weekly, the hands are the worst possible case for fingerprint sensors, the site has no permanent structure to mount a machine on, and the whole thing relocates in six months. PGAK logs site attendance from a camera at the gate — enrolment takes a minute per worker, and nothing needs to be bolted to a wall that will not exist next year.",
+    painPoints: [
+      "Daily-wage labour turns over constantly and no biometric system keeps up.",
+      "Site hands — cement, dust, cuts — are exactly the fingerprints readers reject.",
+      "There is no permanent wall, power point or network to mount a reader on.",
+      "The contractor's headcount and yours never match, and nobody can prove it.",
+      "When the site moves, the hardware investment stays behind.",
+    ],
+    sections: [
+      {
+        h2: "Why fixed hardware loses on a construction site",
+        body: "Every assumption a biometric machine makes — permanent mounting, stable power, a stable workforce, readable fingerprints — is false on a construction site. That is not a product flaw; it is the wrong tool for the environment.",
+        points: [
+          {
+            h3: "The workforce is the churn",
+            text: "A gang that arrives Monday and leaves Friday will never be properly enrolled on a device that takes admin time per person.",
+          },
+          {
+            h3: "Site hands do not scan",
+            text: "Cement, grit and cuts destroy ridge detail faster than any other trade. Failed scans become manual entries, and manual entries become disputes.",
+          },
+          {
+            h3: "The site is temporary",
+            text: "Hardware mounted, wired and maintained on a site with an eighteen-month life is money you write off at handover.",
+          },
+        ],
+      },
+      {
+        h2: "What works instead",
+        body: "A camera at the gate — often one you already run for site security — plus phone-based enrolment. The record is photo-backed, which matters more here than anywhere: labour payment disputes are the single most common friction on Indian sites, and a photograph ends them.",
+        points: [
+          {
+            h3: "Enrol a gang in minutes",
+            text: "Guided face scans from a phone at the gate on day one, with no office visit and no cards.",
+          },
+          {
+            h3: "Contractor headcount you can verify",
+            text: "Who was on site, when, with the frame to prove it — so billed headcount and actual headcount can finally be reconciled.",
+          },
+          {
+            h3: "Moves with the site",
+            text: "When the project ends, the cameras and the software relocate. Nothing is stranded in a wall.",
+          },
+        ],
+      },
+      {
+        h2: "Practical limits on site",
+        body: "Dust, glare and helmet shadow are real, and a gate camera pointed into afternoon sun will underperform. Placement matters more here than in any other vertical, which is why the free feasibility check is done against your actual gate rather than a brochure. Worker notice and consent under the DPDP Act apply to contract labour exactly as they do to permanent staff.",
+      },
+    ],
+    stats: [
+      { value: "Minutes", label: "to enrol an entire new gang" },
+      { value: "No fixed hardware", label: "nothing bolted to a temporary site" },
+      { value: "Photo-backed", label: "ends labour payment disputes" },
+      { value: "Relocatable", label: "the system moves with the project" },
+    ],
+    faqs: [
+      {
+        q: "How do you track attendance for daily-wage construction labour?",
+        a: "Workers are enrolled with a guided face scan from a phone at the gate — fast enough to register an entire gang on their first morning — and a camera at the entrance logs each person as they arrive. No cards, no reader, and no office enrolment step.",
+      },
+      {
+        q: "Why do fingerprint systems fail on construction sites?",
+        a: "Cement, grit, and cuts wear down fingerprint ridges faster than in any other trade, so scans fail routinely. Combined with weekly workforce churn and no permanent structure to mount a device on, contact hardware is a poor fit for the environment.",
+      },
+      {
+        q: "Can it reconcile contractor-billed headcount against actual attendance?",
+        a: "That is one of the main reasons sites adopt it. Each attendance record stores the frame it came from, so billed headcount can be checked against a photo-backed log of who actually passed the gate.",
+      },
+      {
+        q: "What happens when the project finishes?",
+        a: "The cameras and the software move to the next site. Because nothing is permanently installed as attendance hardware, there is no stranded investment at handover.",
+      },
+      {
+        q: "Does it work in dust and strong sunlight?",
+        a: "Placement decides this. A gate camera facing into direct afternoon sun will underperform, and dust reduces clarity over time. The feasibility check is done on your actual gate so you know the answer before committing rather than after.",
+      },
+    ],
+    related: ["biometric-attendance", "attendance-system-for-factories", "smart-perimeter-protection"],
+    insights: [
+      "fingerprint-attendance-system-why-it-fails",
+      "why-biometric-attendance-machines-fail-at-the-factory-gate",
+      "biometric-attendance-machine-price-in-india",
+    ],
+  },
 ];
 
 export function getSolution(slug: string): Solution | undefined {

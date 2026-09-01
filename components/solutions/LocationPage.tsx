@@ -148,6 +148,30 @@ export default function LocationPage({ location }: { location: Location }) {
           </section>
         )}
 
+        {l.attendanceContext && (
+          <section className="sec">
+            <div className="wrap">
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                Staff attendance in {l.city}
+              </h2>
+              <p className="mt-6 max-w-[74ch] text-[1.02rem] leading-relaxed text-ink-soft">
+                {l.attendanceContext}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/biometric-attendance" className="btn btn-ghost">
+                  Biometric attendance without the machine →
+                </Link>
+                <Link
+                  href="/face-recognition-attendance-system"
+                  className="btn btn-ghost"
+                >
+                  Face recognition attendance →
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="sec">
           <div className="wrap">
             <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
