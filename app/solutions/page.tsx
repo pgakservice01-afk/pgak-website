@@ -10,7 +10,11 @@ import {
   breadcrumbSchema,
   webPageSchema,
 } from "@/lib/schema";
-import { SOLUTIONS } from "@/lib/solutions";
+import {
+  SOLUTIONS,
+  SOLUTIONS_BY_GROUP,
+  SOLUTION_GROUP_LABELS,
+} from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
 
 const PATH = "/solutions";
@@ -68,13 +72,14 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        <section className="sec pt-4">
+        {SOLUTIONS_BY_GROUP.map(({ group, items }) => (
+        <section key={group} className="sec pt-4">
           <div className="wrap">
             <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
-              By place
+              {SOLUTION_GROUP_LABELS[group].en}
             </h2>
             <ul className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {SOLUTIONS.map((s) => (
+              {items.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/${s.slug}`}
@@ -98,6 +103,7 @@ export default function SolutionsPage() {
             </ul>
           </div>
         </section>
+        ))}
 
         <section className="sec-band sec">
           <div className="wrap">

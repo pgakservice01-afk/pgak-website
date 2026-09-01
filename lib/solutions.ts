@@ -20,8 +20,19 @@ export type SolutionSection = {
   points?: { h3: string; text: string }[];
 };
 
+/** Nav/listing grouping. Keeps the Solutions menu readable as the set grows. */
+export type SolutionGroup = "security" | "attendance" | "platform";
+
+export const SOLUTION_GROUP_LABELS: Record<SolutionGroup, { en: string; hi: string }> = {
+  security: { en: "Security & detection", hi: "सुरक्षा और पहचान" },
+  attendance: { en: "Attendance", hi: "उपस्थिति" },
+  platform: { en: "Platform & service", hi: "प्लेटफ़ॉर्म और सेवा" },
+};
+
 export type Solution = {
   slug: string;
+  /** Which menu column this page belongs under. */
+  group: SolutionGroup;
   /** Short label used in nav, footer and breadcrumbs. */
   navLabel: string;
   primaryKeyword: string;
@@ -48,6 +59,7 @@ export type Solution = {
 export const SOLUTIONS: Solution[] = [
   {
     slug: "ai-intruder-detection",
+    group: "security",
     navLabel: "AI intruder detection",
     primaryKeyword: "AI intruder detection",
     relatedKeywords: [
@@ -144,6 +156,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "ai-cctv-for-warehouses",
+    group: "security",
     navLabel: "Warehouses",
     primaryKeyword: "AI CCTV camera for warehouses",
     relatedKeywords: [
@@ -247,6 +260,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "ai-cctv-for-offices",
+    group: "security",
     navLabel: "Offices",
     primaryKeyword: "AI CCTV for offices",
     relatedKeywords: [
@@ -334,6 +348,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "factory-security",
+    group: "security",
     navLabel: "Factories",
     primaryKeyword: "factory security system",
     relatedKeywords: [
@@ -440,6 +455,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "retail-shop-security",
+    group: "security",
     navLabel: "Retail",
     primaryKeyword: "retail shop security system",
     relatedKeywords: [
@@ -531,6 +547,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "residential-security",
+    group: "security",
     navLabel: "Homes & societies",
     primaryKeyword: "smart home security system",
     relatedKeywords: [
@@ -632,6 +649,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "school-security",
+    group: "security",
     navLabel: "Schools",
     primaryKeyword: "school security system",
     relatedKeywords: [
@@ -719,6 +737,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "hospital-security",
+    group: "security",
     navLabel: "Hospitals",
     primaryKeyword: "hospital security system",
     relatedKeywords: [
@@ -806,6 +825,7 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "smart-perimeter-protection",
+    group: "security",
     navLabel: "Perimeter protection",
     primaryKeyword: "smart perimeter protection",
     relatedKeywords: [
@@ -897,6 +917,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "biometric-attendance",
+    group: "attendance",
     navLabel: "Biometric attendance",
     primaryKeyword: "biometric attendance",
     relatedKeywords: [
@@ -1018,6 +1039,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "face-recognition-attendance-system",
+    group: "attendance",
     navLabel: "Face recognition attendance",
     primaryKeyword: "face recognition attendance system",
     relatedKeywords: [
@@ -1111,6 +1133,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "cctv-installation-company",
+    group: "platform",
     navLabel: "CCTV installation",
     primaryKeyword: "CCTV installation company",
     relatedKeywords: [
@@ -1204,6 +1227,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "video-analytics-software",
+    group: "platform",
     navLabel: "Video analytics software",
     primaryKeyword: "video analytics software",
     relatedKeywords: [
@@ -1296,6 +1320,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "attendance-system-for-factories",
+    group: "attendance",
     navLabel: "Factory attendance",
     primaryKeyword: "attendance system for factory",
     relatedKeywords: [
@@ -1399,6 +1424,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "attendance-system-for-warehouses",
+    group: "attendance",
     navLabel: "Warehouse attendance",
     primaryKeyword: "attendance system for warehouse",
     relatedKeywords: [
@@ -1502,6 +1528,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "attendance-system-for-offices",
+    group: "attendance",
     navLabel: "Office attendance",
     primaryKeyword: "office attendance system",
     relatedKeywords: [
@@ -1605,6 +1632,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "attendance-system-for-schools",
+    group: "attendance",
     navLabel: "School attendance",
     primaryKeyword: "attendance system for school",
     relatedKeywords: [
@@ -1708,6 +1736,7 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "attendance-system-for-construction-sites",
+    group: "attendance",
     navLabel: "Construction attendance",
     primaryKeyword: "attendance system for construction site",
     relatedKeywords: [
@@ -1816,3 +1845,8 @@ export function getSolution(slug: string): Solution | undefined {
 }
 
 export const SOLUTION_SLUGS = SOLUTIONS.map((s) => s.slug);
+
+/** Solutions bucketed by nav group, in display order. */
+export const SOLUTIONS_BY_GROUP: { group: SolutionGroup; items: Solution[] }[] = (
+  ["security", "attendance", "platform"] as SolutionGroup[]
+).map((group) => ({ group, items: SOLUTIONS.filter((s) => s.group === group) }));

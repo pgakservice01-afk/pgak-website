@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/Logo";
 import { LangToggle, useLang } from "@/components/LangProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { SOLUTIONS } from "@/lib/solutions";
+import {
+  SOLUTIONS,
+  SOLUTIONS_BY_GROUP,
+  SOLUTION_GROUP_LABELS,
+} from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
 
 // "/#..." (not "#...") so links also work from /insights and other pages.
@@ -86,26 +90,31 @@ export default function Nav() {
             </button>
 
             {mega && (
-              <div className="absolute left-1/2 top-[calc(100%+18px)] w-[min(88vw,760px)] -translate-x-1/2 rounded-[18px] border border-line bg-bg-2 p-7 shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
-                <div className="grid gap-8 sm:grid-cols-2">
-                  <div>
-                    <p className="mb-3.5 text-[0.72rem] uppercase tracking-[0.16em] text-ink-faint">
-                      {t("By place", "जगह के अनुसार")}
-                    </p>
-                    <ul className="flex flex-col gap-1.5">
-                      {SOLUTIONS.map((s) => (
-                        <li key={s.slug}>
-                          <a
-                            href={`/${s.slug}`}
-                            onClick={() => setMega(false)}
-                            className="block rounded-md px-2 py-1.5 text-[0.9rem] text-ink-soft transition-colors hover:bg-panel hover:text-accent"
-                          >
-                            {s.navLabel}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="fixed left-1/2 top-[86px] w-[min(94vw,1080px)] -translate-x-1/2 rounded-[18px] border border-line bg-bg-2 p-7 shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                  {SOLUTIONS_BY_GROUP.map(({ group, items }) => (
+                    <div key={group}>
+                      <p className="mb-3.5 text-[0.72rem] uppercase tracking-[0.16em] text-ink-faint">
+                        {t(
+                          SOLUTION_GROUP_LABELS[group].en,
+                          SOLUTION_GROUP_LABELS[group].hi,
+                        )}
+                      </p>
+                      <ul className="flex flex-col gap-1.5">
+                        {items.map((s) => (
+                          <li key={s.slug}>
+                            <a
+                              href={`/${s.slug}`}
+                              onClick={() => setMega(false)}
+                              className="block rounded-md px-2 py-1.5 text-[0.9rem] text-ink-soft transition-colors hover:bg-panel hover:text-accent"
+                            >
+                              {s.navLabel}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
 
                   <div>
                     <p className="mb-3.5 text-[0.72rem] uppercase tracking-[0.16em] text-ink-faint">
@@ -195,18 +204,29 @@ export default function Nav() {
 
       {open && (
         <div className="max-h-[calc(100vh-74px)] overflow-y-auto border-t border-line bg-bg-2 px-6 py-4 md:hidden">
-          <p className="pb-2 pt-1 text-[0.72rem] uppercase tracking-[0.16em] text-ink-faint">
-            {t("Solutions", "समाधान")}
-          </p>
-          {SOLUTIONS.map((s) => (
-            <a
-              key={s.slug}
-              href={`/${s.slug}`}
-              onClick={() => setOpen(false)}
-              className="block border-b border-line py-2.5 text-[0.95rem] text-ink-soft"
-            >
-              {s.navLabel}
-            </a>
+          {SOLUTIONS_BY_GROUP.map(({ group, items }, gi) => (
+            <div key={group}>
+              <p
+                className={`pb-2 text-[0.72rem] uppercase tracking-[0.16em] text-ink-faint ${
+                  gi === 0 ? "pt-1" : "pt-5"
+                }`}
+              >
+                {t(
+                  SOLUTION_GROUP_LABELS[group].en,
+                  SOLUTION_GROUP_LABELS[group].hi,
+                )}
+              </p>
+              {items.map((s) => (
+                <a
+                  key={s.slug}
+                  href={`/${s.slug}`}
+                  onClick={() => setOpen(false)}
+                  className="block border-b border-line py-2.5 text-[0.95rem] text-ink-soft"
+                >
+                  {s.navLabel}
+                </a>
+              ))}
+            </div>
           ))}
 
           <p className="pb-2 pt-5 text-[0.72rem] uppercase tracking-[0.16em] text-ink-faint">
