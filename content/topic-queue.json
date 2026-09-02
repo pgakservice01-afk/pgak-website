@@ -5,7 +5,8 @@
     "primaryKeyword": "attendance and leave management",
     "angle": "Why leave approved in one system and absence recorded in another is the second-biggest source of payroll disputes.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-02"
   },
   {
     "slug": "geofencing-attendance-field-staff",
@@ -13,7 +14,8 @@
     "primaryKeyword": "field staff attendance",
     "angle": "Where phone geofencing genuinely fits (sales, service engineers) and where it is surveillance theatre. Cover consent honestly.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-02"
   },
   {
     "slug": "employee-refuses-biometric-consent",
