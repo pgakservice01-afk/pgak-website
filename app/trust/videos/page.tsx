@@ -12,7 +12,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 const PATH = "/trust/videos";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Videos — See Intruder Detection Working on Real Feeds | PGAK",
+  title: "AI CCTV Videos — Intruder Detection on Real Feeds | PGAK",
   description:
     "Walkthroughs and live-detection clips showing PGAK AI CCTV working on real camera feeds — intruder detection, face recognition and false-alarm filtering.",
   path: PATH,

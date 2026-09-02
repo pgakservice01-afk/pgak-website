@@ -31,8 +31,10 @@ export function generateMetadata({ params }: Props): Metadata {
   const post = getInsight(params.slug);
   if (!post) return {};
   return pageMeta({
-    title: `${post.title} — PGAK Insights`,
-    description: post.excerpt,
+    // " | PGAK" rather than " — PGAK Insights": the longer suffix spent 16 of
+    // the ~60 characters Google shows on brand nobody searches for yet.
+    title: `${post.metaTitle ?? post.title} | PGAK`,
+    description: post.metaDescription ?? post.excerpt,
     path: `/insights/${post.slug}`,
     type: "article",
     publishedTime: post.date,

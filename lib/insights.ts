@@ -30,6 +30,14 @@ export type InsightMeta = {
   updated?: string;
   category: string;
   excerpt: string;
+  /**
+   * Search-result overrides. A headline that reads well above the article is
+   * often too long for a SERP, where Google truncates around 60 characters for
+   * the title and 155 for the snippet — so the H1 and the listing can differ.
+   * Both are optional and fall back to `title` / `excerpt`.
+   */
+  metaTitle?: string;
+  metaDescription?: string;
   readTime: number; // minutes
   /** Optional cover image, e.g. "/insights/my-post.jpg" in /public. */
   image?: string;
@@ -134,6 +142,10 @@ function toMeta(
     date: clampToToday(String(data.date ?? "1970-01-01")),
     category: String(data.category ?? "Insights"),
     excerpt: String(data.excerpt ?? content.trim().slice(0, 160)),
+    metaTitle: data.metaTitle ? String(data.metaTitle) : undefined,
+    metaDescription: data.metaDescription
+      ? String(data.metaDescription)
+      : undefined,
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
     image: data.image ? String(data.image) : undefined,
     updated: data.updated ? clampToToday(String(data.updated)) : undefined,

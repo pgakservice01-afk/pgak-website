@@ -3,6 +3,7 @@ title: "Stop threats before they happen."
 date: "2026-07-27"
 category: "Proactive Security"
 excerpt: "Traditional CCTV saves the footage after the damage is done. Proactive, AI-driven security detects, alerts and acts while there's still time to change the outcome."
+metaDescription: "Traditional CCTV saves the footage after the damage is done. AI-driven security detects and alerts while there is still time to change the outcome."
 readTime: 5
 image: "/insights/reactive-vs-proactive.webp"
 ---

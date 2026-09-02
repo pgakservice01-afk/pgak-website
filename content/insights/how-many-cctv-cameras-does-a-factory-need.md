@@ -3,6 +3,7 @@ title: "How many CCTV cameras does a factory need?"
 date: "2026-08-26"
 category: "Camera Setup"
 excerpt: "Not a number per square foot. Count the ways in, the places value concentrates, and the events you want to be told about — the camera count falls out of that list, and it is usually smaller than the quote you were given."
+metaDescription: "Not a number per square foot. Count the ways in, where value concentrates, and the events you want flagged — the camera count falls out of that."
 readTime: 7
 faqs:
   - q: "How many CCTV cameras does a warehouse need?"

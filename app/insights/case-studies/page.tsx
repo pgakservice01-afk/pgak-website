@@ -15,9 +15,9 @@ import { CASE_STUDIES } from "@/lib/caseStudies";
 const PATH = "/insights/case-studies";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Use Cases — Warehouse, Factory, Retail & Society | PGAK",
+  title: "AI CCTV Use Cases — Warehouse, Factory, Retail | PGAK",
   description:
-    "Real deployment stories: how warehouses, factories, retail stores and housing societies used AI CCTV on their existing cameras to stop losses and automate attendance.",
+    "Four worked scenarios showing how warehouses, factories, shops and societies would use AI CCTV on existing cameras. Illustrative, not case reports.",
   path: PATH,
   keywords: [
     "AI CCTV case study",

@@ -3,6 +3,8 @@ title: "How many of your 16 cameras can actually recognize a face?"
 date: "2026-07-23"
 category: "Camera Setup"
 excerpt: "Probably fewer than you think — and it has nothing to do with megapixels. The three things that decide whether a camera can identify a person, and the one cheap fix."
+metaDescription: "Probably fewer than you think — and it has nothing to do with megapixels."
+metaTitle: "How many of your cameras can recognise a face?"
 readTime: 5
 image: "/insights/camera-setup.webp"
 ---

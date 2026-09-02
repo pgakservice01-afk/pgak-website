@@ -3,6 +3,8 @@ title: "How to choose an AI CCTV camera for a warehouse in India"
 date: "2026-07-29"
 category: "Warehouse Security"
 excerpt: "Most warehouse camera advice is about resolution. It should be about coverage, angles and what happens after the footage is recorded. Here's what actually matters when you're buying AI CCTV for a warehouse."
+metaDescription: "Most warehouse camera advice is about resolution. It should be about coverage, angles and what happens after the footage is recorded."
+metaTitle: "Choosing an AI CCTV camera for an Indian warehouse"
 readTime: 6
 ---
 

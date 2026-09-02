@@ -3,6 +3,8 @@ title: "Where to place CCTV cameras so AI detection actually works"
 date: "2026-07-25"
 category: "Camera Setup"
 excerpt: "The most common reason AI detection underperforms isn't the software — it's a camera mounted four metres up in a corner, seeing everything and identifying nothing."
+metaDescription: "The usual reason AI detection underperforms is not the software — it is a camera four metres up in a corner, seeing everything and identifying nothing."
+metaTitle: "Where to place CCTV cameras for AI detection"
 readTime: 5
 ---
 

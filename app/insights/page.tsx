@@ -12,9 +12,9 @@ import { CASE_STUDIES } from "@/lib/caseStudies";
 const PATH = "/insights";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Guides — Intruder Detection, Attendance & Setup | PGAK",
+  title: "AI CCTV Guides — Detection, Attendance & Setup | PGAK",
   description:
-    "Straight-talking guides from the PGAK team on AI CCTV cameras, intruder detection, camera-based attendance, camera placement and real security for Indian homes, shops and factories.",
+    "Straight-talking guides on AI CCTV, intruder detection, camera-based attendance and placement, for Indian homes, shops and factories.",
   path: PATH,
   keywords: [
     "AI CCTV guide",

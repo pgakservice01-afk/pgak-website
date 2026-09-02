@@ -3,6 +3,7 @@ title: "Managing attendance across multiple locations"
 date: "2026-09-01"
 category: "Attendance"
 excerpt: "Three sites usually means three attendance systems, three exports and a spreadsheet that merges them badly. What a genuinely multi-site setup has to do differently."
+metaDescription: "Three sites usually means three attendance systems, three exports and a spreadsheet that merges them badly."
 readTime: 5
 faqs:
   - q: "How do you manage attendance across multiple locations?"

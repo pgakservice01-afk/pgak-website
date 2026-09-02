@@ -3,6 +3,7 @@ title: "What is video analytics software, and do you need it?"
 date: "2026-09-01"
 category: "Security Basics"
 excerpt: "Video analytics software turns cameras that record into cameras that report. Here is what the term actually covers, which claims to distrust, and the honest test for whether your site needs it."
+metaDescription: "Video analytics software turns cameras that record into cameras that report."
 readTime: 5
 faqs:
   - q: "What is video analytics software?"

@@ -3,6 +3,7 @@ title: "How to choose a CCTV installation company in India"
 date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "Most CCTV installation quotes are priced per camera and say nothing about whether the system will actually work. Seven questions that separate an installer who will still answer the phone in month six from one who won't."
+metaDescription: "Most CCTV installation quotes are priced per camera and say nothing about whether the system will actually work."
 readTime: 6
 faqs:
   - q: "What should I ask a CCTV installation company before signing?"

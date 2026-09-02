@@ -3,6 +3,7 @@ title: "They cover the camera first. Would you know?"
 date: "2026-08-27"
 category: "Security Basics"
 excerpt: "The most common thing that happens to a camera during a break-in is that it stops working. There is no footage of that — the only useful signal is that the feed went dead, and whether anyone was told."
+metaDescription: "The most common thing that happens to a camera during a break-in is that it stops working."
 readTime: 6
 faqs:
   - q: "What is CCTV tampering detection?"

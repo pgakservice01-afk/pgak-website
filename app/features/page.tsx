@@ -16,7 +16,7 @@ const PATH = "/features";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV Features — Face Recognition & Intruder Alerts | PGAK",
   description:
-    "Every AI CCTV feature PGAK adds to the cameras you already own: real-time intruder alerts, face recognition, false-alarm filtering, attendance automation, loitering detection and number plate recognition.",
+    "Every AI feature PGAK adds to the cameras you already own: intruder alerts, face recognition, false-alarm filtering, attendance and number plates.",
   path: PATH,
   keywords: [
     "AI CCTV camera features",

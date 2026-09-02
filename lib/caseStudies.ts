@@ -43,9 +43,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "warehouse-shrinkage-ludhiana",
     title: "A 120-camera warehouse that could not watch any of them",
     metaTitle:
-      "Warehouse AI CCTV Use Case — Cutting Shrinkage on 120 Cameras | PGAK",
+      "Warehouse Use Case — Cutting Shrinkage on 120 Cameras | PGAK",
     metaDescription:
-      "A worked scenario: how a Ludhiana warehouse with 120 cameras and nobody watching them would use AI CCTV to flag loading-bay and after-hours activity in real time instead of writing off monthly stock loss.",
+      "A worked scenario: how a 120-camera warehouse with nobody watching would use AI CCTV to flag loading-bay and after-hours activity in real time.",
     keywords: [
       "warehouse security use case",
       "AI CCTV camera for warehouses",
@@ -104,9 +104,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "retail-false-alarms-jaipur",
     title: "The retail chain that had muted its own security app",
     metaTitle:
-      "Retail AI CCTV Use Case — Cutting False Alarms Staff Ignore | PGAK",
+      "Retail Use Case — Cutting False Alarms Staff Ignore | PGAK",
     metaDescription:
-      "A Jaipur retail store had switched off CCTV notifications entirely after months of false alarms. Here's how object classification and zone tuning made the alerts worth reading again.",
+      "A worked scenario: a shop that switched off CCTV alerts after months of false alarms, and how object classification makes them readable again.",
     keywords: [
       "retail shop security system",
       "CCTV false alarm reduction",
@@ -165,9 +165,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "factory-gate-attendance-coimbatore",
     title: "The factory gate where fingerprints stopped working",
     metaTitle:
-      "Factory Gate Use Case — Face Recognition vs Biometric Machine | PGAK",
+      "Factory Gate Use Case — Face Recognition vs Biometric | PGAK",
     metaDescription:
-      "A Coimbatore factory's fingerprint attendance machine failed daily on dusty, damaged hands. Face recognition at the gate removed the shift-change queue and the buddy punching with it.",
+      "A worked scenario: where a fingerprint machine fails on dusty hands, and how face recognition at the gate removes the shift-change queue.",
     keywords: [
       "face recognition attendance system",
       "factory security system",
@@ -232,7 +232,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle:
       "Housing Society Use Case — Automating the Gate Log | PGAK",
     metaDescription:
-      "How a housing society replaced its paper visitor register with automatic resident vehicle recognition and photo-logged visitor entries on its existing gate cameras.",
+      "A worked scenario: replacing a paper visitor register with resident vehicle recognition and photo-logged entries on existing gate cameras.",
     keywords: [
       "society gate security",
       "smart home security system",

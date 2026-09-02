@@ -3,6 +3,7 @@ title: "Is AI CCTV legal in India? Consent and the DPDP Act"
 date: "2026-08-30"
 category: "Compliance"
 excerpt: "CCTV in a workplace is lawful in India. Face recognition on employees is where it gets specific — and where most vendor answers are wrong in both directions. A practical read of what the DPDP Act asks of you."
+metaDescription: "Workplace CCTV is lawful in India. Face recognition on employees is where it gets specific, and where most vendor answers are wrong both ways."
 readTime: 8
 faqs:
   - q: "Is CCTV legal in workplaces in India?"

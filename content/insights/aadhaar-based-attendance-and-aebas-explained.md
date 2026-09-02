@@ -3,6 +3,7 @@ title: "Aadhaar based attendance and AEBAS, explained plainly"
 date: "2026-09-01"
 category: "Attendance"
 excerpt: "AEBAS is the government's Aadhaar-linked attendance system, and it is compulsory for some employers and unavailable to others. Here is who it actually applies to, and what private employers can use instead."
+metaDescription: "AEBAS is the government's Aadhaar-linked attendance system, and it is compulsory for some employers and unavailable to others."
 readTime: 6
 faqs:
   - q: "What is AEBAS?"

@@ -3,6 +3,8 @@ title: "Attendance for contract labour: the compliance gap nobody plans for"
 date: "2026-09-01"
 category: "Compliance"
 excerpt: "Contract workers rotate faster than any enrolment process, yet the principal employer often carries obligations for them. Where the record breaks, and how to close it without a week of admin."
+metaDescription: "Contract workers rotate faster than any enrolment process, yet the principal employer often carries obligations for them."
+metaTitle: "Contract labour attendance: the compliance gap"
 readTime: 5
 faqs:
   - q: "Does a principal employer need attendance records for contract labour?"

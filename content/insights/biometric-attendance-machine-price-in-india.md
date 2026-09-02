@@ -3,6 +3,8 @@ title: "Biometric attendance machine price in India: the full math"
 date: "2026-09-02"
 category: "Buying Guide"
 excerpt: "Machines are listed from ₹3,000 and quoted per door — but the sticker is less than half the real cost. The full five-year math on fingerprint and face machines, and the case where you need no machine at all."
+metaDescription: "Machines are listed from ₹3,000 and quoted per door — but the sticker is less than half the real cost."
+metaTitle: "Biometric attendance machine price in India"
 readTime: 6
 faqs:
   - q: "What is the price of a biometric attendance machine in India?"

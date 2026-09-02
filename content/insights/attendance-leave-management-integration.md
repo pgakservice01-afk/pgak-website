@@ -3,6 +3,7 @@ title: "Leave, holidays and attendance: keeping one calendar"
 date: "2026-09-02"
 category: "Attendance"
 excerpt: "An employee takes approved leave, and the attendance report still shows an unpaid absence. The fix isn't stricter approvals — it's one calendar instead of two."
+metaDescription: "An employee takes approved leave, and the attendance report still shows an unpaid absence."
 readTime: 5
 faqs:
   - q: "What is attendance and leave management?"

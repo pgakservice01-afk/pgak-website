@@ -3,6 +3,7 @@ title: "Does AI CCTV work without internet?"
 date: "2026-08-29"
 category: "Security Basics"
 excerpt: "If the detection runs on a device at your site, it keeps working when the link drops — what stops is delivery of the alert to your phone. The distinction matters more in India than most vendors admit."
+metaDescription: "If the detection runs on a device at your site, it keeps working when the link drops — what stops is delivery of the alert to your phone."
 readTime: 6
 faqs:
   - q: "Does AI CCTV work without internet?"

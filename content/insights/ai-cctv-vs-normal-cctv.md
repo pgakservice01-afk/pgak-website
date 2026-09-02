@@ -3,6 +3,7 @@ title: "AI CCTV vs normal CCTV: what actually changes"
 date: "2026-08-28"
 category: "Security Basics"
 excerpt: "Ordinary CCTV answers 'what happened?' after you already know something happened. The only real change AI makes is that somebody gets told at the time. Everything else — cameras, cabling, the DVR — usually stays."
+metaDescription: "Ordinary CCTV answers 'what happened?' after you already know something happened."
 readTime: 6
 faqs:
   - q: "What is the difference between AI CCTV and normal CCTV?"

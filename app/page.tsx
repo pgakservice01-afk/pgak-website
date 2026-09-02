@@ -33,7 +33,7 @@ export const metadata: Metadata = pageMeta({
   title:
     "AI CCTV Camera for Business & Home in India | PGAK",
   description:
-    "PGAK turns the CCTV cameras you already own into an AI security system — real-time intruder detection, face recognition and 90% fewer false alarms. Get your price on a call or WhatsApp.",
+    "Turn the CCTV cameras you already own into an AI security system — intruder alerts in seconds, face recognition, far fewer false alarms. Free audit.",
   path: "/",
   keywords: [
     "AI CCTV camera",

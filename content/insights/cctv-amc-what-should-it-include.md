@@ -3,6 +3,7 @@ title: "CCTV AMC in India: what it should actually include"
 date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "Most CCTV annual maintenance contracts are priced as a percentage of hardware and defined as 'we will come when you call'. The seven clauses that separate a real AMC from an invoice."
+metaDescription: "Most CCTV annual maintenance contracts are priced as a percentage of hardware and defined as 'we will come when you call'."
 readTime: 5
 faqs:
   - q: "What should a CCTV AMC include?"

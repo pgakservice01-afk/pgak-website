@@ -3,6 +3,8 @@ title: "Your camera has been offline for weeks. Would you know?"
 date: "2026-09-01"
 category: "Camera Setup"
 excerpt: "On nearly every estate we audit, at least one camera is already dark — and nobody knew. Why offline cameras go unnoticed for months, and the three checks that catch them."
+metaDescription: "On nearly every estate we audit, at least one camera is already dark — and nobody knew."
+metaTitle: "Would you know if a camera went offline?"
 readTime: 4
 faqs:
   - q: "How do I know if a CCTV camera is offline?"

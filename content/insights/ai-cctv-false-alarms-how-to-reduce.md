@@ -3,6 +3,8 @@ title: "Why your CCTV alerts got muted, and how to earn them back"
 date: "2026-09-01"
 category: "Security Basics"
 excerpt: "Every site that muted its alerts did so for a good reason. The four causes of alert fatigue, and the tuning sequence that makes notifications worth reading again."
+metaDescription: "Every site that muted its alerts had a good reason. The four causes of alert fatigue, and the tuning sequence that makes notifications readable again."
+metaTitle: "Why your CCTV alerts got muted — and how to fix it"
 readTime: 5
 faqs:
   - q: "Why do CCTV motion alerts produce so many false alarms?"

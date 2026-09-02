@@ -3,6 +3,8 @@ title: "Field staff attendance: geofencing without micromanaging"
 date: "2026-09-02"
 category: "Attendance"
 excerpt: "Geofencing can prove a service engineer reached the client site, or it can turn into tracking someone's lunch break. The difference is what you measure and what you tell them."
+metaDescription: "Geofencing can prove a service engineer reached the client site, or it can turn into tracking someone's lunch break."
+metaTitle: "Field staff attendance without micromanaging"
 readTime: 5
 faqs:
   - q: "What is geofencing attendance for field staff?"

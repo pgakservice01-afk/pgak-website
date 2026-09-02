@@ -3,6 +3,8 @@ title: "Rotating shifts and attendance: getting the rules right"
 date: "2026-09-01"
 category: "Attendance"
 excerpt: "Rotating shifts break most attendance systems quietly — a night shift crossing midnight lands two dates, and the whole month drifts. The five rules that have to be encoded before any of it works."
+metaDescription: "Rotating shifts break most attendance systems quietly — a night shift crossing midnight lands two dates, and the whole month drifts."
+metaTitle: "Rotating shifts and attendance rules in India"
 readTime: 5
 faqs:
   - q: "How do attendance systems handle rotating shifts?"

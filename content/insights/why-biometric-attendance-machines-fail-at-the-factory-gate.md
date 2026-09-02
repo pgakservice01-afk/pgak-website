@@ -3,6 +3,8 @@ title: "Why biometric attendance machines fail at the factory gate"
 date: "2026-07-22"
 category: "Attendance"
 excerpt: "Queues at shift change, dusty fingers that won't scan, and a register that still needs manual correction. There's a reason factories are moving attendance to their CCTV."
+metaDescription: "Queues at shift change, dusty fingers that won't scan, and a register that still needs manual correction."
+metaTitle: "Why attendance machines fail at the factory gate"
 readTime: 4
 image: "/insights/attendance.webp"
 ---

@@ -12,9 +12,9 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 const PATH = "/about";
 
 export const metadata: Metadata = pageMeta({
-  title: "About PGAK — AI Security Company Building Intelligent CCTV for India",
+  title: "About PGAK — Intelligent CCTV Built for India",
   description:
-    "PGAK turns the security cameras India already owns into intelligent guardians — detecting threats in seconds, cutting false alarms, and keeping video processing on your own premises.",
+    "PGAK turns the cameras India already owns into intelligent guardians — threats caught in seconds, fewer false alarms, video processed on site.",
   path: PATH,
   keywords: [
     "PGAK",

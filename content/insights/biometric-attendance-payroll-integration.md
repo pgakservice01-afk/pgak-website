@@ -3,6 +3,8 @@ title: "Connecting biometric attendance to payroll without retyping"
 date: "2026-09-01"
 category: "Attendance"
 excerpt: "Most attendance errors are not scanning errors — they are introduced between the machine and the payslip, by a person with a spreadsheet. What a real payroll integration has to handle."
+metaDescription: "Most attendance errors are not scanning errors — they are introduced between the machine and the payslip, by a person with a spreadsheet."
+metaTitle: "Connecting biometric attendance to payroll"
 readTime: 6
 faqs:
   - q: "How does biometric attendance integrate with payroll?"

@@ -43,9 +43,9 @@ export const CAPABILITIES: Capability[] = [
       "AI CCTV camera",
     ],
     title:
-      "CCTV Face Recognition — Know Who's There, Not Just That Someone Is | PGAK",
+      "CCTV Face Recognition — Know Who's There | PGAK",
     description:
-      "CCTV face recognition that separates the people you know from the people you don't — enrol staff and family once, and let alerts fire only for unknown faces.",
+      "Separate the people you know from the people you don't — enrol staff and family once, and let alerts fire only for unknown faces.",
     summary:
       "Enrol the people who belong. Alerts fire only for the faces the system doesn't know.",
     h1: "CCTV face recognition — the difference between 'someone is there' and 'who is there'",
@@ -113,9 +113,9 @@ export const CAPABILITIES: Capability[] = [
       "alert fatigue",
     ],
     title:
-      "CCTV False Alarm Reduction — Cut the Noise That Made You Mute the App | PGAK",
+      "CCTV False Alarm Reduction — Cut the Noise | PGAK",
     description:
-      "PGAK filters animals, weather, shadows and headlights before anything reaches your phone, cutting false CCTV alerts by 90%+ so the alerts you do get are worth reading.",
+      "PGAK filters animals, weather, shadows and headlights before they reach your phone, cutting false alerts by 90%+ so what you get is worth reading.",
     summary:
       "Animals, rain, shadows and headlights filtered out before anything reaches your phone.",
     h1: "False-alarm filtering — the feature that makes every other feature usable",
@@ -182,9 +182,9 @@ export const CAPABILITIES: Capability[] = [
       "zone breach alert",
     ],
     title:
-      "Real-Time CCTV Intrusion Alerts — On Your Phone in Under 3 Seconds | PGAK",
+      "Real-Time CCTV Intrusion Alerts to Your Phone | PGAK",
     description:
-      "Zone and line-crossing intrusion alerts delivered in under three seconds with a snapshot, a camera name and a timestamp — plus optional siren, strobe and escalation.",
+      "Zone and line-crossing alerts in under three seconds with a snapshot, camera name and timestamp — plus optional siren, strobe and escalation.",
     summary:
       "Zone and line-crossing alerts with a snapshot, in under three seconds.",
     h1: "Real-time intrusion alerts — because evidence at 9am is not security",
@@ -250,9 +250,9 @@ export const CAPABILITIES: Capability[] = [
       "contactless attendance",
     ],
     title:
-      "Face Recognition Attendance System — No Queue, No Card, No Contact | PGAK",
+      "Face Recognition Attendance — No Card, No Contact | PGAK",
     description:
-      "Replace the biometric punch machine with the cameras at your gate: automatic face-recognition attendance for factories, offices and schools, exportable for payroll.",
+      "Replace the punch machine with the cameras at your gate: automatic face-recognition attendance for factories, offices and schools, ready for payroll.",
     summary:
       "Automatic attendance from the gate camera. No queue, no card, no fingerprint.",
     h1: "Face recognition attendance — 200 people logged without a queue",
@@ -337,9 +337,9 @@ export const CAPABILITIES: Capability[] = [
       "smart security system",
     ],
     title:
-      "Loitering Detection CCTV — Spot the Behaviour Before the Theft | PGAK",
+      "Loitering Detection CCTV — Spot It Before the Theft | PGAK",
     description:
-      "Dwell-time and loitering detection that flags a person lingering where they shouldn't — the most reliable pre-theft signal in warehouses, shops and perimeters.",
+      "Dwell-time detection that flags a person lingering where they shouldn't — the most reliable pre-theft signal in warehouses, shops and perimeters.",
     summary:
       "Flags a person lingering where they shouldn't — the strongest pre-theft signal there is.",
     h1: "Loitering detection — theft has a shape, and it starts with standing still",
@@ -405,9 +405,9 @@ export const CAPABILITIES: Capability[] = [
       "society gate automation",
     ],
     title:
-      "ANPR & Vehicle Recognition — Every Gate Movement Logged Automatically | PGAK",
+      "ANPR & Vehicle Recognition — Every Gate Logged | PGAK",
     description:
-      "Number plate recognition and vehicle detection that turn a paper gate register into a searchable log — for societies, warehouses, factories and office parks.",
+      "Number plate and vehicle detection that turn a paper gate register into a searchable log — for societies, warehouses, factories and office parks.",
     summary:
       "Number plates and vehicle types logged at the gate, replacing the paper register.",
     h1: "Vehicle and number plate recognition — the gate register that writes itself",

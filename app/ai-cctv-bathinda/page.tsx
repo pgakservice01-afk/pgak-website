@@ -6,8 +6,8 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("bathinda")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV Camera in ${location.city} — Alerts on Your Own Cameras | PGAK`,
-  description: `AI CCTV and intruder detection in ${location.city}, ${location.region}. PGAK adds real-time alerts, face recognition and false-alarm filtering to the cameras you already own — quote on a call or WhatsApp.`,
+  title: `AI CCTV in ${location.city} — Alerts, Not Just Video`,
+  description: `AI alerts on the CCTV cameras your ${location.city} site already owns — intruder detection, face recognition, fewer false alarms. Free readiness audit.`,
   path: locationPath(location.slug),
   keywords: [
     `AI CCTV camera ${location.city}`,

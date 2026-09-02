@@ -3,6 +3,8 @@ title: "Reuse your existing CCTV or replace it? A decision guide"
 date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "Every vendor with cameras to sell will tell you your estate is obsolete. The four tests that decide honestly — and why age is almost never the deciding factor."
+metaDescription: "Every vendor with cameras to sell will tell you your estate is obsolete."
+metaTitle: "Reuse your existing CCTV or replace it?"
 readTime: 5
 faqs:
   - q: "Can AI software work with old CCTV cameras?"

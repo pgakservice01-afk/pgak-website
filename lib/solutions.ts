@@ -70,9 +70,9 @@ export const SOLUTIONS: Solution[] = [
       "smart security system",
     ],
     title:
-      "AI Intruder Detection — Real-Time Trespass Alerts on Your Existing CCTV | PGAK",
+      "AI Intruder Detection on the CCTV You Already Own | PGAK",
     description:
-      "PGAK's AI intruder detection watches every camera you already own and alerts you in seconds when a person crosses a line they shouldn't — with false alarms from cats, shadows and headlights filtered out.",
+      "Alerts in seconds when someone crosses a line they shouldn't, on the cameras you already own — cats, shadows and headlights filtered out.",
     eyebrow: "Intrusion detection",
     h1: "AI intruder detection that alerts you in seconds, not the next morning",
     intro:
@@ -170,7 +170,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "AI CCTV for Warehouses — Stop Stock Loss at the Gate | PGAK",
     description:
-      "Warehouse security that actually intervenes: PGAK's AI watches every aisle, dock and gate on your existing cameras, flags loitering and after-hours movement in seconds, and cuts the shrinkage you've been writing off.",
+      "AI that watches every aisle, dock and gate on your existing cameras, flagging loitering and after-hours movement in seconds. Cut the shrinkage.",
     eyebrow: "Warehouse security",
     h1: "AI CCTV for warehouses — because 120 cameras and nobody watching is not security",
     intro:
@@ -273,9 +273,9 @@ export const SOLUTIONS: Solution[] = [
       "employee attendance system",
     ],
     title:
-      "AI CCTV for Offices — Access Monitoring, Attendance and After-Hours Alerts | PGAK",
+      "AI CCTV for Offices — Attendance & After-Hours Alerts | PGAK",
     description:
-      "Office security that runs quietly in the background: PGAK adds face-based attendance, tailgating detection and after-hours intrusion alerts to the business CCTV you already have.",
+      "Face-based attendance, tailgating detection and after-hours intrusion alerts, added to the office CCTV you already have. Free readiness audit.",
     eyebrow: "Office security",
     h1: "AI CCTV for offices — quiet during the day, wide awake at night",
     intro:
@@ -362,9 +362,9 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV camera",
     ],
     title:
-      "Factory Security System — AI CCTV for Gates & Shop Floors | PGAK",
+      "Factory Security System — AI CCTV for Gates & Floors | PGAK",
     description:
-      "A factory security system that covers the gate, the perimeter and the shop floor: automatic attendance, PPE and safety-zone monitoring, and real-time intrusion alerts on your existing industrial CCTV.",
+      "Gate, perimeter and shop floor on one system: automatic attendance, safety-zone monitoring and intrusion alerts on your existing industrial CCTV.",
     eyebrow: "Factory & industrial",
     h1: "Factory security that watches the gate, the fence and the floor",
     intro:
@@ -470,9 +470,9 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV camera",
     ],
     title:
-      "Retail Shop Security System — AI CCTV That Catches Theft as It Happens | PGAK",
+      "Retail Shop Security — AI CCTV That Catches Theft | PGAK",
     description:
-      "A retail shop security system that flags suspicious dwell time, till-area activity and after-hours entry in real time — running on the shop CCTV cameras you already installed.",
+      "Flag suspicious dwell time, till-area activity and after-hours entry in real time — on the shop CCTV cameras you already installed.",
     eyebrow: "Retail & stores",
     h1: "Retail shop security that acts during the theft, not after it",
     intro:
@@ -563,9 +563,9 @@ export const SOLUTIONS: Solution[] = [
       "visitor management",
     ],
     title:
-      "Smart Home Security System — AI CCTV for Houses and Societies | PGAK",
+      "Smart Home Security — AI CCTV for Houses & Societies | PGAK",
     description:
-      "A smart home security system that knows your family from a stranger: real-time intruder alerts, gate visitor logging and society-wide monitoring on the residential CCTV you already own.",
+      "Know your family from a stranger: intruder alerts, gate visitor logging and society-wide monitoring on the home CCTV you already own.",
     eyebrow: "Homes & societies",
     h1: "A smart home security system that knows the difference between your family and a stranger",
     intro:
@@ -665,9 +665,9 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV camera",
     ],
     title:
-      "School Security System — AI CCTV for Campus Gates and Grounds | PGAK",
+      "School Security System — AI CCTV for Campus Gates | PGAK",
     description:
-      "A school security system built around who belongs on campus: unknown-visitor alerts at the gate, automatic student and staff attendance, and after-hours grounds monitoring on your existing campus CCTV.",
+      "Unknown-visitor alerts at the gate, automatic staff attendance and after-hours grounds monitoring, on your existing campus CCTV.",
     eyebrow: "Schools & campuses",
     h1: "School security that knows who belongs on campus",
     intro:
@@ -753,9 +753,9 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV camera",
     ],
     title:
-      "Hospital Security System — AI CCTV for Wards, Pharmacies and Entrances | PGAK",
+      "Hospital Security System — AI CCTV for Wards & Wings | PGAK",
     description:
-      "A hospital security system that never closes: restricted-area alerts for pharmacies and ICUs, visitor and staff recognition at entrances, and patient-safety monitoring on existing healthcare CCTV.",
+      "Restricted-area alerts for pharmacies and ICUs, staff and visitor recognition at entrances, patient-safety monitoring on existing CCTV.",
     eyebrow: "Hospitals & healthcare",
     h1: "Hospital security for a building that never closes",
     intro:
@@ -841,9 +841,9 @@ export const SOLUTIONS: Solution[] = [
       "trespass detection",
     ],
     title:
-      "Smart Perimeter Protection — Virtual Fencing on Existing CCTV | PGAK",
+      "Smart Perimeter Protection — Virtual Fencing | PGAK",
     description:
-      "Smart perimeter protection without trenching a cable: draw virtual boundaries on the cameras you already own and get real-time alerts the moment a person or vehicle crosses them.",
+      "No trenching, no cable: draw virtual boundaries on the cameras you already own and get alerts the moment a person or vehicle crosses.",
     eyebrow: "Perimeter protection",
     h1: "Smart perimeter protection — a fence that reports itself",
     intro:
@@ -935,9 +935,9 @@ export const SOLUTIONS: Solution[] = [
       "biometric time attendance system",
     ],
     title:
-      "Biometric Attendance Without the Machine — Face Recognition on Your Existing Cameras | PGAK",
+      "Biometric Attendance Without the Machine | PGAK",
     description:
-      "Biometric attendance breaks at the gate: queues at shift change, worn fingers that won't read, and a register that still gets fudged. PGAK marks attendance from the CCTV cameras already on your wall — no machine, no touching, no queue.",
+      "Queues at shift change, worn fingers that won't read, a register that still gets fudged. Mark attendance from the CCTV already on your wall.",
     eyebrow: "Attendance",
     h1: "Biometric attendance, without anyone stopping to touch a machine",
     intro:
@@ -1060,9 +1060,9 @@ export const SOLUTIONS: Solution[] = [
       "face scanning attendance system",
     ],
     title:
-      "Face Recognition Attendance System — On the CCTV Cameras You Already Own | PGAK",
+      "Face Recognition Attendance on Your Own Cameras | PGAK",
     description:
-      "A face recognition attendance system with no terminal to queue at: PGAK recognises enrolled faces on your existing entrance cameras and writes a photo-backed attendance record as people walk in.",
+      "No terminal to queue at: PGAK recognises enrolled faces on your existing entrance cameras and writes a photo-backed record as people walk in.",
     eyebrow: "Attendance",
     h1: "A face recognition attendance system with no machine at the gate",
     intro:
@@ -1156,9 +1156,9 @@ export const SOLUTIONS: Solution[] = [
       "cctv installation service",
     ],
     title:
-      "CCTV Installation Company in Punjab — Cameras That Alert, Not Just Record | PGAK",
+      "CCTV Installation Company in Punjab & India | PGAK",
     description:
-      "Looking for a CCTV installation company near you? PGAK installs and services CCTV across Punjab directly and through verified partners across India — and every install ships with AI alerts, not just recording.",
+      "PGAK installs and services CCTV across Punjab directly and India through verified partners — every install ships with AI alerts, not just recording.",
     eyebrow: "Installation & service",
     h1: "A CCTV installation company that leaves you with alerts, not just footage",
     intro:
@@ -1253,9 +1253,9 @@ export const SOLUTIONS: Solution[] = [
       "intelligent video analytics",
     ],
     title:
-      "Video Analytics Software for Existing CCTV — Detection, Alerts, Attendance | PGAK",
+      "Video Analytics Software for Existing CCTV | PGAK",
     description:
-      "PGAK's video analytics software runs on the CCTV cameras you already own: person and vehicle detection, boundary alerts, face-recognition attendance and camera-health monitoring — no camera replacement, no new hardware at the gate.",
+      "Person and vehicle detection, boundary alerts, face-recognition attendance and camera-health monitoring — on the CCTV you already own.",
     eyebrow: "Platform",
     h1: "Video analytics software that runs on the cameras you already own",
     intro:
@@ -1349,9 +1349,9 @@ export const SOLUTIONS: Solution[] = [
       "worker attendance system",
     ],
     title:
-      "Attendance System for Factories — No Queue at the Gate | PGAK",
+      "Factory Attendance System — No Queue at the Gate | PGAK",
     description:
-      "A factory attendance system that survives shift change: face recognition on your existing gate cameras logs 200 workers walking in, with no reader queue and no failed scans on worn hands.",
+      "Face recognition on your existing gate cameras logs 200 workers walking in — no reader queue, no failed scans on worn hands.",
     eyebrow: "Attendance · Manufacturing",
     h1: "An attendance system built for a factory gate at shift change",
     intro:
@@ -1456,9 +1456,9 @@ export const SOLUTIONS: Solution[] = [
       "loading bay attendance",
     ],
     title:
-      "Warehouse Attendance System — Track Shifts Across Every Bay | PGAK",
+      "Warehouse Attendance System — Every Bay Covered | PGAK",
     description:
-      "Warehouse attendance without a reader at one door: PGAK recognises staff on the cameras already covering your gates and bays, so pickers, loaders and contract crews are logged wherever they actually enter.",
+      "PGAK recognises staff on the cameras already covering your gates and bays, so pickers, loaders and contract crews are logged wherever they enter.",
     eyebrow: "Attendance · Logistics",
     h1: "Warehouse attendance that covers the loading bay, not just the office door",
     intro:
@@ -1561,9 +1561,9 @@ export const SOLUTIONS: Solution[] = [
       "office attendance software",
     ],
     title:
-      "Office Attendance System Without a Machine at Reception | PGAK",
+      "Office Attendance System — No Machine at Reception | PGAK",
     description:
-      "An office attendance system that removes the reception queue and the punching machine: face recognition on your existing entrance camera logs staff as they walk in, and feeds shifts and payroll directly.",
+      "Remove the reception queue and the punching machine: face recognition on your existing entrance camera logs staff in, and feeds payroll.",
     eyebrow: "Attendance · Office",
     h1: "An office attendance system with nothing to touch at reception",
     intro:
@@ -1668,7 +1668,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "School & College Attendance System — Staff and Campus | PGAK",
     description:
-      "Attendance for schools and colleges without roll-call time: PGAK recognises staff on existing campus cameras, logs entry automatically, and keeps the same cameras watching gates and boundaries.",
+      "PGAK recognises staff on existing campus cameras and logs entry automatically, while the same cameras keep watching gates and boundaries.",
     eyebrow: "Attendance · Education",
     h1: "School attendance that does not cost you the first ten minutes of the day",
     intro:
@@ -1770,9 +1770,9 @@ export const SOLUTIONS: Solution[] = [
       "contractor attendance tracking",
     ],
     title:
-      "Construction Site Attendance System for Daily-Wage Labour | PGAK",
+      "Construction Site Attendance for Daily-Wage Labour | PGAK",
     description:
-      "Attendance for construction sites where the workforce changes daily: face recognition on a site camera logs labour at the gate, with no reader to install on a site that moves.",
+      "Where the workforce changes daily: face recognition on a site camera logs labour at the gate, with no reader to install on a site that moves.",
     eyebrow: "Attendance · Construction",
     h1: "Construction attendance for a workforce that changes every week",
     intro:

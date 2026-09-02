@@ -3,6 +3,8 @@ title: "AI CCTV or another security guard? An honest comparison"
 date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "The comparison every site owner runs, done properly — what a guard genuinely does better, what software genuinely does better, and why the answer is usually not 'replace the guard'."
+metaDescription: "What a guard genuinely does better, what software genuinely does better, and why the honest answer is usually not 'replace the guard'."
+metaTitle: "AI CCTV vs another security guard: an honest look"
 readTime: 6
 faqs:
   - q: "Is AI CCTV cheaper than hiring a security guard?"

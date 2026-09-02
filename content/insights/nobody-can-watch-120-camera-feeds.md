@@ -3,6 +3,7 @@ title: "You have 120 cameras. Nobody can watch them all."
 date: "2026-07-27"
 category: "Monitoring"
 excerpt: "A wall of screens looks impressive — but one or two people can only truly watch a handful at a time. Here's why human monitoring quietly fails, and what 'AI never looks away' actually means."
+metaDescription: "A wall of screens looks impressive — but one or two people can only truly watch a handful at a time."
 readTime: 4
 image: "/insights/control-room.webp"
 ---

@@ -20,9 +20,9 @@ import { CAPABILITIES } from "@/lib/capabilities";
 const PATH = "/solutions";
 
 export const metadata: Metadata = pageMeta({
-  title: "Solutions — AI CCTV for Warehouses, Factories, Offices & Homes | PGAK",
+  title: "AI CCTV for Warehouses, Factories, Offices & Homes | PGAK",
   description:
-    "Every place PGAK's AI CCTV protects: warehouses, factories, offices, retail shops, homes, societies, schools and hospitals — plus intruder detection and smart perimeter protection on your existing cameras.",
+    "Where PGAK's AI CCTV works: warehouses, factories, offices, retail, homes, societies, schools and hospitals — on the cameras already installed.",
   path: PATH,
   keywords: [
     "AI CCTV camera",

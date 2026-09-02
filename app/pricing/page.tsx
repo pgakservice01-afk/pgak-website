@@ -18,7 +18,7 @@ const PATH = "/pricing";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV Camera Price in India — What It Actually Costs",
   description:
-    "What AI CCTV costs in India, what moves the number, and what is never an extra line item. Priced per camera on your existing cameras — get your quote on a call or WhatsApp.",
+    "What AI CCTV costs in India, what moves the number, and what is never an extra line item. Priced per camera on the ones you own. Free audit.",
   path: PATH,
   keywords: [
     "AI CCTV price India",
