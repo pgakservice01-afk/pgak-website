@@ -39,19 +39,23 @@ const METHODS: {
   value: string;
   href: string;
   ext?: boolean;
+  /** Feeds the global [data-cta] click tracker in app/layout.tsx. */
+  cta?: string;
 }[] = [
   {
     ic: "phone-alert",
     label: "Call us",
     value: "+91 62839 93600",
     href: "tel:+916283993600",
+    cta: "contact-call",
   },
   {
     ic: "bell",
     label: "WhatsApp",
     value: "Chat with the team",
-    href: "https://wa.me/916283993600",
+    href: "https://wa.me/916283993600?text=Hi%20PGAK%2C%20I%27d%20like%20a%20free%20audit%20of%20my%20existing%20cameras.",
     ext: true,
+    cta: "contact-whatsapp",
   },
   {
     ic: "link",
@@ -103,6 +107,7 @@ export default function ContactPage() {
                 <a
                   key={m.label}
                   href={m.href}
+                  data-cta={m.cta}
                   {...(m.ext ? { target: "_blank", rel: "noopener" } : {})}
                   className="card group flex flex-col gap-3 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
                 >

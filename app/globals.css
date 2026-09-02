@@ -298,6 +298,27 @@ body {
     @apply justify-center;
   }
 
+  /* Segment chips — a radio group styled as pills (DealerForm). The real
+     <input type=radio> stays in the DOM, visually hidden (sr-only), so keyboard
+     and screen-reader users get an ordinary radio group; the pill is the
+     sibling <span>, styled off the input's :checked state. */
+  .chip-choice {
+    @apply inline-flex cursor-pointer select-none items-center rounded-full border px-3.5 py-1.5 text-[0.86rem] text-ink-soft transition-colors duration-200;
+    border-color: var(--c-line);
+  }
+  .chip-choice:hover {
+    @apply text-ink;
+    border-color: rgb(var(--c-accent) / 0.5);
+  }
+  .chip-input:checked + .chip-choice {
+    @apply text-ink;
+    background: rgb(var(--c-accent) / 0.14);
+    border-color: rgb(var(--c-accent));
+  }
+  .chip-input:focus-visible + .chip-choice {
+    box-shadow: 0 0 0 3px rgb(var(--c-accent) / 0.25);
+  }
+
   /* Buttons */
   .btn {
     @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border-none px-[22px] py-3 font-sans text-sm font-semibold transition-all duration-200;

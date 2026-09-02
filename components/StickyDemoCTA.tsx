@@ -1,44 +1,51 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 /**
- * Sticky "Book a demo" button.
+ * Sticky "free camera audit" button.
  *
  * Desktop only — on mobile the existing MobileActionBar already occupies the
  * bottom of the screen, and stacking two floating CTAs there would cover the
  * content people are trying to read.
  *
  * Appears after the first viewport so it doesn't compete with the hero's own
- * call-to-action, and hides once the user reaches the demo form itself.
+ * form, and hides while the lead form itself is on screen. It used to watch
+ * the `#demo` re-pitch block instead, which sits BELOW the form — so the
+ * button kept hovering over the very form it pointed at.
+ *
+ * Links to the form on the current page when there is one, and to the
+ * homepage form otherwise, so a visitor on a solution page stays on that page
+ * (and the lead is attributed to it).
  */
 export default function StickyDemoCTA() {
+  const pathname = usePathname();
   const [show, setShow] = useState(false);
+  const [href, setHref] = useState("/#dealer");
 
   useEffect(() => {
+    setHref(document.getElementById("dealer") ? "#dealer" : "/#dealer");
+
     const onScroll = () => {
       const past = window.scrollY > window.innerHeight * 0.9;
-
-      // Don't hover over the form the button points at.
-      const demo = document.getElementById("demo");
-      const atDemo = demo
-        ? demo.getBoundingClientRect().top < window.innerHeight
+      const form = document.getElementById("dealer");
+      const atForm = form
+        ? form.getBoundingClientRect().top < window.innerHeight * 0.85 &&
+          form.getBoundingClientRect().bottom > 0
         : false;
-
-      setShow(past && !atDemo);
+      setShow(past && !atForm);
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <a
-      // Straight to the lead form, not the /#demo re-pitch section: this bar
-      // shows on every page, so the extra hop was costing every visitor a click.
-      href="/#dealer"
-      data-cta="sticky-demo"
+      href={href}
+      data-cta="sticky-audit"
       aria-hidden={!show}
       tabIndex={show ? 0 : -1}
       className={`btn btn-primary fixed bottom-7 left-1/2 z-[90] hidden -translate-x-1/2 shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-300 md:inline-flex ${
@@ -47,7 +54,7 @@ export default function StickyDemoCTA() {
           : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >
-      Book a free demo →
+      Get a free camera audit →
     </a>
   );
 }

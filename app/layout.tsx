@@ -30,6 +30,7 @@ import Preloader from "@/components/Preloader";
 import AmbientFX from "@/components/AmbientFX";
 import Interactions from "@/components/Interactions";
 import SmoothScroll from "@/components/SmoothScroll";
+import LeadAttribution from "@/components/LeadAttribution";
 import ChatBot from "@/components/ChatBot";
 import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
@@ -136,6 +137,7 @@ export default function RootLayout({
         />
         <LangProvider>
           <SmoothScroll />
+          <LeadAttribution />
           <Preloader />
           <AmbientFX />
           <Interactions />

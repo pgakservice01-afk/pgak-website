@@ -84,8 +84,8 @@ export default function VideosPage() {
             </div>
 
             <div className="mt-14 text-center">
-              <Link href="/#demo" className="btn btn-primary">
-                Book a live demo →
+              <Link href="/#dealer" className="btn btn-primary">
+                Get a free camera audit →
               </Link>
             </div>
           </div>

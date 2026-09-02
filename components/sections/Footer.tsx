@@ -28,9 +28,8 @@ const COMPANY: FooterLink[] = [
 ];
 
 const GET_STARTED: FooterLink[] = [
-  { t: "Free AI audit", tHi: "मुफ़्त एआई ऑडिट", href: "/#audit", cta: "footer-audit" },
-  { t: "Book a demo", tHi: "डेमो बुक करें", href: "/#demo", cta: "footer-demo" },
-  { t: "Find a dealer", tHi: "डीलर खोजें", href: "/#dealer", cta: "footer-dealer" },
+  { t: "Free camera audit", tHi: "मुफ़्त कैमरा ऑडिट", href: "/#audit", cta: "footer-audit" },
+  { t: "Request a call back", tHi: "कॉल-बैक का अनुरोध करें", href: "/#dealer", cta: "footer-dealer" },
   { t: "Contact us", tHi: "संपर्क करें", href: "/contact" },
   {
     t: "Brochure (print / save as PDF)",

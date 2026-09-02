@@ -1,24 +1,41 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { fbTrack } from "@/lib/fbpixel";
 import { useLang } from "@/components/LangProvider";
+import { waHref } from "@/lib/whatsapp";
+import { BUSINESS } from "@/lib/seo";
 
 /**
  * Mobile-only bottom action bar — keeps the three highest-intent actions (Call,
- * WhatsApp, Book demo) one tap away at every scroll depth. Most Indian traffic
+ * WhatsApp, free audit) one tap away at every scroll depth. Most Indian traffic
  * is mobile, so this is the single biggest lead-gen lever. Desktop keeps the
  * header CTA + floating WhatsApp button instead.
  *
- * Reuses the same WhatsApp number as the floating button.
+ * The audit button links to the form on the CURRENT page when there is one
+ * (every commercial page embeds it), so the visitor stays where they are and
+ * the lead is attributed to that page; otherwise it goes to the homepage form.
+ *
+ * ⚠️ No `Lead` pixel event here. It used to fire one on the tap, which told
+ * Meta that pressing a button was a lead — the real event fires once, on a
+ * server-confirmed CRM row (lib/lead-client.ts). Clicks are still counted by
+ * the global [data-cta] tracker in app/layout.tsx.
  */
-const WA_NUMBER = "916283993600";
-const WA_MESSAGE =
-  "Hi PGAK! I want to make my existing cameras intelligent. Can you tell me more?";
-const WA_HREF = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
-const TEL = "+916283993600";
+const WA_HREF = waHref(
+  "Hi PGAK! I want to make my existing cameras intelligent. Can you tell me more?",
+);
+const TEL = BUSINESS.phoneE164;
 
 export default function MobileActionBar() {
   const { t } = useLang();
+  const pathname = usePathname();
+  const [auditHref, setAuditHref] = useState("/#dealer");
+
+  useEffect(() => {
+    setAuditHref(document.getElementById("dealer") ? "#dealer" : "/#dealer");
+  }, [pathname]);
+
   return (
     <nav
       aria-label="Quick contact"
@@ -46,13 +63,12 @@ export default function MobileActionBar() {
         </span>
       </a>
       <a
-        href="/#dealer" data-cta="mobilebar-demo"
-        onClick={() => fbTrack("Lead", { content_name: "Mobile Book Demo" })}
-        className="flex flex-[1.4] flex-col items-center justify-center gap-1 rounded-xl bg-accent py-2 text-[#04201a] active:scale-95"
+        href={auditHref} data-cta="mobilebar-audit"
+        className="flex flex-[1.4] flex-col items-center justify-center gap-1 rounded-xl bg-accent py-2 text-[#ffffff] active:scale-95"
       >
-        <CalendarIcon />
+        <AuditIcon />
         <span className="text-[0.72rem] font-bold">
-          {t("Book demo", "डेमो बुक करें")}
+          {t("Free audit", "मुफ़्त ऑडिट")}
         </span>
       </a>
     </nav>
@@ -73,11 +89,12 @@ function WaIcon() {
     </svg>
   );
 }
-function CalendarIcon() {
+/** Clipboard with a tick — "we check your cameras". */
+function AuditIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="4.5" width="18" height="17" rx="2.5" />
-      <path d="M3 9h18M8 2.5v4M16 2.5v4M8.5 14l2.2 2.2L15.5 12" />
+      <rect x="4.5" y="4" width="15" height="17.5" rx="2.5" />
+      <path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M8.5 13.5l2.4 2.4 4.8-5" />
     </svg>
   );
 }
