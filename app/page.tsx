@@ -15,6 +15,7 @@ import CustomerTrust from "@/components/sections/CustomerTrust";
 import ProtectedSites from "@/components/sections/ProtectedSites";
 import RoiTeaser from "@/components/sections/RoiTeaser";
 import InsightsTeaser from "@/components/sections/InsightsTeaser";
+import HardwareGrid from "@/components/sections/HardwareGrid";
 import FAQ from "@/components/sections/FAQ";
 import DealerForm from "@/components/sections/DealerForm";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -78,6 +79,7 @@ export default function Home() {
         <CustomerTrust />
         <ProtectedSites />
         <InsightsTeaser />
+        <HardwareGrid />
         <FAQ />
         <DealerForm />
         <FinalCTA />
