@@ -14,14 +14,6 @@ const PROOFS: {
   href?: string;
 }[] = [
   {
-    ic: "star",
-    t: "Customer Reviews",
-    tHi: "ग्राहक समीक्षाएँ",
-    d: "Real, verified ratings from home, shop and factory owners across India.",
-    dHi: "पूरे भारत में घर, दुकान और फ़ैक्टरी मालिकों की असली, सत्यापित रेटिंग।",
-    href: "/trust/reviews",
-  },
-  {
     ic: "factory",
     t: "Factory Case Studies",
     tHi: "फ़ैक्टरी केस स्टडी",
@@ -58,8 +50,8 @@ export default function CustomerTrust() {
           </h2>
           <p className="mt-3.5 text-[1.05rem] text-ink-soft">
             {t(
-              "Not promises — evidence. Reviews, photos, videos, case studies and certifications from sites we protect every day.",
-              "वादे नहीं — सबूत। समीक्षाएँ, तस्वीरें, वीडियो, केस स्टडी और सर्टिफ़िकेशन उन साइटों से जिन्हें हम हर दिन सुरक्षित रखते हैं।",
+              "What we can show you before you commit — worked scenarios for sites like yours, the standards the platform is built to, and a free audit of your own cameras.",
+              "प्रतिबद्ध होने से पहले हम आपको क्या दिखा सकते हैं — आपकी जैसी साइटों के उदाहरण, प्लेटफ़ॉर्म जिन मानकों पर बना है, और आपके अपने कैमरों का मुफ़्त ऑडिट।",
             )}
           </p>
         </Reveal>

@@ -20,6 +20,9 @@ export const metadata: Metadata = pageMeta({
   description:
     "Reviews from home, shop, warehouse and factory owners across India who switched to PGAK AI CCTV — what changed on their sites, in their own words.",
   path: PATH,
+  // Out of the index until real, consented customer quotes exist. The previous
+  // five were confirmed fabricated (see lib/trust.ts).
+  noIndex: true,
   keywords: [
     "PGAK reviews",
     "AI CCTV reviews India",

@@ -116,8 +116,8 @@ export default function CaseStudiesPage() {
                 <Link href="#dealer" className="btn btn-primary">
                   Get a free camera audit →
                 </Link>
-                <Link href="/trust/reviews" className="btn btn-ghost">
-                  Read customer reviews
+                <Link href="/insights" className="btn btn-ghost">
+                  Read the guides
                 </Link>
               </div>
             </div>

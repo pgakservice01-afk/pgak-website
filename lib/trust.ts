@@ -26,37 +26,17 @@ export type Video = {
 };
 
 export const REVIEWS: Review[] = [
-  {
-    name: "Rajinder Singh",
-    context: "Warehouse owner · Ludhiana",
-    stars: 5,
-    text: "We had 120 cameras but still lost stock every month. Within weeks of PGAK the theft basically stopped — the alert reaches my phone before the guard even notices something is wrong.",
-  },
-  {
-    name: "Meena Verma",
-    context: "Retail store · Jaipur",
-    stars: 5,
-    text: "The endless false alarms used to drive us mad, so we'd stopped trusting the cameras. Now I only get pinged when it actually matters. Setup took one afternoon on the cameras we already had.",
-  },
-  {
-    name: "Arjun Nair",
-    context: "Factory manager · Coimbatore",
-    stars: 4,
-    text: "Face recognition at the gate quietly replaced our biometric machine — attendance is automatic now and the queues at shift change are gone. Support has been genuinely responsive.",
-  },
-  {
-    name: "Fatima Sheikh",
-    context: "Housing society · Hyderabad",
-    stars: 5,
-    text: "As a society committee we needed something simple that worked with our old DVR. PGAK just connected to it. Residents tell us they finally feel safe walking in at night.",
-  },
-  {
-    name: "Harpreet Kaur",
-    context: "Jewellery shop · Amritsar",
-    stars: 5,
-    text: "Peace of mind is exactly the right phrase. An unknown person loitered outside after closing and I got an alert with a snapshot instantly. Worth every single rupee.",
-  },
-];
+  // Emptied 2026-09-02. The five testimonials here were confirmed by the owner
+  // not to be real customers. They shipped in commit bcc0cc8 alongside the
+  // AI-generated "installation photos" (since deleted) and the four case
+  // studies (since reframed as illustrative scenarios), and the first four
+  // were the customer-voice retelling of those same four fictional sites.
+  //
+  // Named people with star ratings are the highest-risk form of invented proof:
+  // fake consumer reviews are actionable under India's consumer-protection
+  // rules, and Google treats them as a spam signal. Real, consented quotes go
+  // here when they exist; until then the page stays out of the index.
+]
 
 export const PHOTOS: Photo[] = [
   // Emptied 2026-08-24: the six images here were AI-generated scenes captioned
