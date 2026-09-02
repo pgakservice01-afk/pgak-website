@@ -5,7 +5,12 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
-import { formatDate, getAllInsights, getInsight } from "@/lib/insights";
+import {
+  formatDate,
+  getAllInsights,
+  getInsight,
+  getRelatedInsights,
+} from "@/lib/insights";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { AUTHOR, pageMeta } from "@/lib/seo";
@@ -40,6 +45,7 @@ export default function InsightPost({ params }: Props) {
   if (!post) notFound();
 
   const path = `/insights/${post.slug}`;
+  const related = getRelatedInsights(post.slug);
   const trail = [
     { name: "Home", path: "/" },
     { name: "Insights", path: "/insights" },
@@ -128,6 +134,32 @@ export default function InsightPost({ params }: Props) {
                 className="article-body mt-9"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
+
+              {related.length > 0 && (
+                <section className="mt-14 border-t border-line pt-8">
+                  <h2 className="display text-[1.35rem]">Keep reading</h2>
+                  <ul className="mt-5 flex flex-col gap-4">
+                    {related.map((p) => (
+                      <li key={p.slug}>
+                        <Link
+                          href={`/insights/${p.slug}`}
+                          className="group flex items-baseline gap-2.5"
+                        >
+                          <span className="text-accent">→</span>
+                          <span>
+                            <span className="text-ink-soft transition-colors group-hover:text-accent">
+                              {p.title}
+                            </span>
+                            <span className="mt-0.5 block text-[0.82rem] text-ink-faint">
+                              {p.category} · {p.readTime} min read
+                            </span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               <div className="mt-14 rounded-[22px] border border-line bg-panel p-8 text-center">
                 <h3 className="font-display text-[1.4rem] font-medium">

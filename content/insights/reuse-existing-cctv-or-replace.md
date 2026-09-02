@@ -1,6 +1,6 @@
 ---
 title: "Reuse your existing CCTV or replace it? A decision guide"
-date: "2026-09-08"
+date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "Every vendor with cameras to sell will tell you your estate is obsolete. The four tests that decide honestly — and why age is almost never the deciding factor."
 readTime: 5

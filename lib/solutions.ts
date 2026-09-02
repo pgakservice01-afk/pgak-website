@@ -151,6 +151,7 @@ export const SOLUTIONS: Solution[] = [
       "1000-alerts-only-one-is-real",
       "stop-threats-before-they-happen",
       "your-dvr-records-the-theft-it-doesnt-stop-it",
+      "ai-cctv-false-alarms-how-to-reduce",
     ],
   },
 
@@ -249,6 +250,7 @@ export const SOLUTIONS: Solution[] = [
       "nobody-can-watch-120-camera-feeds",
       "your-dvr-records-the-theft-it-doesnt-stop-it",
       "1000-alerts-only-one-is-real",
+      "how-many-cameras-does-a-warehouse-need",
     ],
     caseStudies: [
       {
@@ -343,6 +345,7 @@ export const SOLUTIONS: Solution[] = [
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
+      "reuse-existing-cctv-or-replace",
     ],
   },
 
@@ -450,6 +453,7 @@ export const SOLUTIONS: Solution[] = [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "nobody-can-watch-120-camera-feeds",
       "stop-threats-before-they-happen",
+      "how-many-cctv-cameras-does-a-factory-need",
     ],
   },
 
@@ -542,6 +546,7 @@ export const SOLUTIONS: Solution[] = [
     insights: [
       "your-dvr-records-the-theft-it-doesnt-stop-it",
       "1000-alerts-only-one-is-real",
+      "ai-cctv-for-small-shops-worth-it",
     ],
   },
 
@@ -913,6 +918,8 @@ export const SOLUTIONS: Solution[] = [
       "stop-threats-before-they-happen",
       "1000-alerts-only-one-is-real",
       "your-dvr-records-the-theft-it-doesnt-stop-it",
+      "cctv-camera-tampering-detection",
+      "ai-cctv-vs-security-guard-cost",
     ],
   },
   {
@@ -1035,6 +1042,9 @@ export const SOLUTIONS: Solution[] = [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "face-recognition-attendance-vs-biometric-machine",
       "is-ai-cctv-legal-in-india-dpdp-act",
+      "aadhaar-based-attendance-and-aebas-explained",
+      "attendance-records-law-india",
+      "replace-attendance-register-with-camera",
     ],
   },
   {
@@ -1129,6 +1139,8 @@ export const SOLUTIONS: Solution[] = [
       "face-recognition-attendance-vs-biometric-machine",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "is-ai-cctv-legal-in-india-dpdp-act",
+      "how-to-stop-proxy-attendance",
+      "what-to-check-before-buying-attendance-system",
     ],
   },
   {
@@ -1223,6 +1235,9 @@ export const SOLUTIONS: Solution[] = [
       "how-to-choose-a-cctv-installation-company",
       "your-dvr-records-the-theft-it-doesnt-stop-it",
       "where-to-place-cctv-cameras-for-ai-detection",
+      "ai-cctv-price-in-india-what-it-should-cost",
+      "cctv-amc-what-should-it-include",
+      "does-ai-cctv-work-without-internet",
     ],
   },
   {
@@ -1316,6 +1331,9 @@ export const SOLUTIONS: Solution[] = [
       "what-is-video-analytics-software",
       "how-does-ai-intruder-detection-work",
       "1000-alerts-only-one-is-real",
+      "add-ai-to-existing-cctv-cameras",
+      "ai-cctv-vs-normal-cctv",
+      "cctv-camera-offline-how-to-know",
     ],
   },
   {
@@ -1420,6 +1438,9 @@ export const SOLUTIONS: Solution[] = [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "fingerprint-attendance-system-why-it-fails",
       "face-recognition-attendance-vs-biometric-machine",
+      "biometric-attendance-payroll-integration",
+      "night-shift-attendance-tracking",
+      "shift-management-attendance-india",
     ],
   },
   {
@@ -1524,6 +1545,7 @@ export const SOLUTIONS: Solution[] = [
       "best-ai-cctv-camera-for-warehouses-india",
       "fingerprint-attendance-system-why-it-fails",
       "nobody-can-watch-120-camera-feeds",
+      "multi-location-attendance-management",
     ],
   },
   {
@@ -1628,6 +1650,7 @@ export const SOLUTIONS: Solution[] = [
       "face-recognition-attendance-vs-biometric-machine",
       "biometric-attendance-machine-price-in-india",
       "is-ai-cctv-legal-in-india-dpdp-act",
+      "attendance-leave-management-integration",
     ],
   },
   {
@@ -1836,6 +1859,8 @@ export const SOLUTIONS: Solution[] = [
       "fingerprint-attendance-system-why-it-fails",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "biometric-attendance-machine-price-in-india",
+      "attendance-system-for-contract-labour",
+      "geofencing-attendance-field-staff",
     ],
   },
 ];

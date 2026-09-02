@@ -1,6 +1,6 @@
 ---
 title: "Rotating shifts and attendance: getting the rules right"
-date: "2026-09-07"
+date: "2026-09-01"
 category: "Attendance"
 excerpt: "Rotating shifts break most attendance systems quietly — a night shift crossing midnight lands two dates, and the whole month drifts. The five rules that have to be encoded before any of it works."
 readTime: 5

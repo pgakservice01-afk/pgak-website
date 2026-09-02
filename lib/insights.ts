@@ -55,6 +55,45 @@ export function getAllInsights(): InsightMeta[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+/**
+ * Sibling links for a post, used to build a crawlable mesh between articles.
+ *
+ * Every post used to be reachable only from /insights. When Google declined to
+ * index that one hub, all 40 articles became undiscoverable at once. The first
+ * pick here is deliberately the *next* post in canonical order, wrapping at the
+ * end: that alone forms a closed ring through every article, so a crawler that
+ * reaches any single post can walk to all the others without /insights. The
+ * remaining picks prefer the same category, then rotate through the rest so
+ * inbound links spread evenly instead of piling onto the newest few posts.
+ */
+export function getRelatedInsights(slug: string, limit = 4): InsightMeta[] {
+  const all = getAllInsights();
+  const i = all.findIndex((p) => p.slug === slug);
+  if (i === -1 || all.length < 2) return [];
+
+  const picked: InsightMeta[] = [];
+  const seen = new Set([slug]);
+  const take = (p: InsightMeta) => {
+    if (seen.has(p.slug) || picked.length >= limit) return;
+    picked.push(p);
+    seen.add(p.slug);
+  };
+
+  // 1. The ring link — guarantees every post has at least one inbound sibling.
+  take(all[(i + 1) % all.length]);
+
+  // 2. Same category, scanning outward from this post so neighbours differ.
+  for (let n = 1; n < all.length; n++) {
+    const p = all[(i + n) % all.length];
+    if (p.category === all[i].category) take(p);
+  }
+
+  // 3. Top up, continuing the rotation rather than always taking the newest.
+  for (let n = 2; n < all.length; n++) take(all[(i + n) % all.length]);
+
+  return picked;
+}
+
 export function getInsight(slug: string): Insight | null {
   const file = path.join(CONTENT_DIR, `${slug}.md`);
   if (!fs.existsSync(file)) return null;
@@ -70,6 +109,19 @@ function readMeta(file: string): InsightMeta {
   return toMeta(file.replace(/\.md$/, ""), data, content);
 }
 
+/**
+ * A post is live the moment it ships, so it can never legitimately carry a
+ * date in the future. The publishing routine has forward-dated batches before
+ * (15 posts committed on 1 Sep were dated 3–9 Sep), and Google discards a
+ * future lastmod outright — costing exactly the pages that most need the
+ * freshness signal. Clamp at build time so the bug cannot reach the sitemap
+ * or the Article schema again.
+ */
+function clampToToday(iso: string): string {
+  const today = new Date().toISOString().slice(0, 10);
+  return iso > today ? today : iso;
+}
+
 function toMeta(
   slug: string,
   data: Record<string, unknown>,
@@ -79,12 +131,12 @@ function toMeta(
   return {
     slug,
     title: String(data.title ?? slug),
-    date: String(data.date ?? "1970-01-01"),
+    date: clampToToday(String(data.date ?? "1970-01-01")),
     category: String(data.category ?? "Insights"),
     excerpt: String(data.excerpt ?? content.trim().slice(0, 160)),
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
     image: data.image ? String(data.image) : undefined,
-    updated: data.updated ? String(data.updated) : undefined,
+    updated: data.updated ? clampToToday(String(data.updated)) : undefined,
     faqs: Array.isArray(data.faqs)
       ? (data.faqs as Record<string, unknown>[]).map((f) => ({
           q: String(f.q ?? ""),

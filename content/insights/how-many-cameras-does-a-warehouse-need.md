@@ -1,6 +1,6 @@
 ---
 title: "How many cameras does a warehouse actually need?"
-date: "2026-09-04"
+date: "2026-09-01"
 category: "Camera Setup"
 excerpt: "Camera count is the wrong first question. Work backwards from the eight positions that matter in a warehouse and the number answers itself — usually lower than the quote you were given."
 readTime: 5

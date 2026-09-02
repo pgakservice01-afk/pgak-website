@@ -1,6 +1,6 @@
 ---
 title: "Replacing the paper attendance register: a practical path"
-date: "2026-09-04"
+date: "2026-09-01"
 category: "Attendance"
 excerpt: "Most Indian sites still run a register alongside whatever machine they bought. Here is why the paper survives, and the four-week sequence that actually retires it."
 readTime: 5

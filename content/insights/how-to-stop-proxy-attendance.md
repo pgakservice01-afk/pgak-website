@@ -1,6 +1,6 @@
 ---
 title: "How to stop proxy attendance (buddy punching) for good"
-date: "2026-09-03"
+date: "2026-09-01"
 category: "Attendance"
 excerpt: "Proxy attendance survives fingerprint machines, cards and registers because all three record a credential, not a person. The four controls that actually work, ranked by how hard they are to defeat."
 readTime: 5

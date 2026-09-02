@@ -1,6 +1,6 @@
 ---
 title: "Your camera has been offline for weeks. Would you know?"
-date: "2026-09-06"
+date: "2026-09-01"
 category: "Camera Setup"
 excerpt: "On nearly every estate we audit, at least one camera is already dark — and nobody knew. Why offline cameras go unnoticed for months, and the three checks that catch them."
 readTime: 4

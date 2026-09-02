@@ -13,6 +13,7 @@ import {
 import { BUSINESS } from "@/lib/seo";
 import { LOCATIONS, locationPath, type Location } from "@/lib/locations";
 import { SOLUTIONS } from "@/lib/solutions";
+import { getAllInsights } from "@/lib/insights";
 
 /**
  * Shared template for city pages. Each page's genuinely local content lives in
@@ -22,6 +23,22 @@ import { SOLUTIONS } from "@/lib/solutions";
 export default function LocationPage({ location }: { location: Location }) {
   const l = location;
   const path = locationPath(l.slug);
+
+  // City pages are the most-crawled pages on the site, so they double as entry
+  // points into the article archive. Each city takes a different slice of the
+  // list — 18 cities x 4 guides spreads inbound links across every post
+  // instead of pointing all of them at the same newest few.
+  const allPosts = getAllInsights();
+  const cityIndex = Math.max(
+    0,
+    LOCATIONS.findIndex((x) => x.slug === l.slug)
+  );
+  const guides = allPosts.length
+    ? Array.from(
+        { length: Math.min(4, allPosts.length) },
+        (_, n) => allPosts[(cityIndex * 4 + n) % allPosts.length]
+      )
+    : [];
 
   const trail = [
     { name: "Home", path: "/" },
@@ -194,6 +211,45 @@ export default function LocationPage({ location }: { location: Location }) {
             </ul>
           </div>
         </section>
+
+        {guides.length > 0 && (
+          <section className="sec">
+            <div className="wrap">
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                Guides for {l.city} buyers
+              </h2>
+              <ul className="mt-7 grid gap-4 sm:grid-cols-2">
+                {guides.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/insights/${p.slug}`}
+                      className="card flex h-full flex-col p-6 transition-transform hover:-translate-y-0.5"
+                    >
+                      <span className="text-[0.74rem] uppercase tracking-[0.14em] text-accent">
+                        {p.category}
+                      </span>
+                      <h3 className="mt-2 text-[1rem] font-semibold">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2 text-[0.9rem] text-ink-soft">
+                        {p.excerpt}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+                <li className="sm:col-span-2">
+                  <Link
+                    href="/insights"
+                    className="flex items-baseline gap-2 text-ink-soft transition-colors hover:text-accent"
+                  >
+                    <span className="text-accent">→</span>
+                    <span>Read all PGAK insights</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </section>
+        )}
 
         <section className="sec-band sec">
           <div className="wrap">

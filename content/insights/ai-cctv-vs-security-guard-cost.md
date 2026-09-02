@@ -1,6 +1,6 @@
 ---
 title: "AI CCTV or another security guard? An honest comparison"
-date: "2026-09-06"
+date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "The comparison every site owner runs, done properly — what a guard genuinely does better, what software genuinely does better, and why the answer is usually not 'replace the guard'."
 readTime: 6
