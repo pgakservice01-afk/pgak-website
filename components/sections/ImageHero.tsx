@@ -3,14 +3,21 @@
 import Icon, { type IconName } from "@/components/Icon";
 import HeroMedia from "@/components/HeroMedia";
 import Parallax from "@/components/Parallax";
+import QuickLead from "@/components/sections/QuickLead";
 import { useLang } from "@/components/LangProvider";
+import { waHref } from "@/lib/whatsapp";
 
-// Landing hero. The left column carries the real, accessible marketing copy and
-// CTAs (unchanged brand text); the right column runs HeroScene — a looping,
-// self-contained cinematic that shows what PGAK does (person walks in → camera
-// locks on → AI identifies an unknown visitor → instant phone alert → the PGAK
-// device links it all in real time). Layout, palette and copy are preserved;
-// only the static hero artwork was upgraded to a live animation.
+// Landing hero. The left column carries the real, accessible marketing copy,
+// the compact lead form and the headline stats; the right column runs
+// HeroScene — a looping, self-contained cinematic that shows what PGAK does
+// (person walks in → camera locks on → AI identifies an unknown visitor →
+// instant phone alert → the PGAK device links it all in real time).
+//
+// The primary action is the two-field form (WhatsApp number + camera count),
+// not a button. The old "Book a free demo" button scrolled the visitor to the
+// re-pitch block at the very bottom of the page, whose own button scrolled
+// them back up to the form — two clicks and a confusing jump on the most
+// clicked element of the site.
 
 const STATS: {
   ic: IconName;
@@ -51,11 +58,17 @@ const STATS: {
 
 export default function ImageHero() {
   const { lang, t } = useLang();
+  const wa = waHref(
+    t(
+      "Hi PGAK, I'd like a free audit of my existing cameras.",
+      "नमस्ते PGAK, मुझे अपने मौजूदा कैमरों का मुफ़्त ऑडिट चाहिए।",
+    ),
+  );
   return (
     <section id="top" className="relative w-full overflow-hidden bg-bg">
 
       <div className="wrap grid min-h-screen items-center gap-12 pb-16 pt-[120px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
-        {/* ── Left: brand copy + CTAs + stats (unchanged content) ── */}
+        {/* ── Left: brand copy + lead form + stats ── */}
         <div>
           <span className="eyebrow mb-5">
             <span className="mr-0.5 inline-block h-1.5 w-1.5 animate-pulseDot rounded-full bg-accent align-middle shadow-[0_0_6px_#7cf5c4]" />
@@ -106,13 +119,23 @@ export default function ImageHero() {
             )}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#demo" className="btn btn-primary">
-              {t("Book a free demo →", "मुफ़्त डेमो बुक करें →")}
-            </a>
-            <a href="#how" className="btn btn-ghost">
-              {t("See how it works", "देखें यह कैसे काम करता है")}
-            </a>
+          {/* The ask, in the first screen: number + camera count, one button. */}
+          <div className="mt-8 max-w-[640px]">
+            <QuickLead cta="hero-quick" />
+            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <a href="#how" className="link-more">
+                {t("See how it works", "देखें यह कैसे काम करता है")}
+              </a>
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener"
+                data-cta="hero-whatsapp"
+                className="link-more"
+              >
+                {t("Or WhatsApp us", "या WhatsApp पर बात करें")}
+              </a>
+            </div>
           </div>
 
           <div className="mt-12 grid max-w-[760px] grid-cols-2 gap-6 sm:grid-cols-4">

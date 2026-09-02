@@ -16,6 +16,14 @@
  * spam costs a dealer one wasted call. So every rule below is biased to admit a
  * doubtful human rather than exclude a possible bot, and anything rejected
  * still reaches the owner through the route's fallback path.
+ *
+ * ── What a lead is (since 2026-09-03) ──
+ * A phone number. That is the only required field. Camera count is asked
+ * because it is the one number a quote needs; name, city and segment are
+ * welcome but optional — the call collects them. Before this, four fields were
+ * required and a pre-selected segment filed most leads as "Home / Apartment":
+ * 24 of 33 CRM rows carried that default on 2026-09-02, so factory buyers were
+ * being recorded as homeowners.
  */
 
 /** Field caps. Generous for real humans, fatal to anyone pasting a payload. */
@@ -24,18 +32,35 @@ export const LIMITS = {
   phone: 24,
   location: 120,
   protecting: 60,
+  cameras: 20,
   /** RFC 5321's practical ceiling for a whole address. */
   email: 254,
+  /** One attribution value: a path, a hostname, a campaign tag, a click id. */
+  attribution: 160,
 } as const;
 
-/** The only values the form's <select> can legitimately produce. */
+/**
+ * The only values the segment chips can legitimately produce. Factory first:
+ * attendance for factories and warehouses is the business the site now leads
+ * with, and order is the quiet signal of who the product is for.
+ */
 export const PROTECT_OPTIONS = [
-  "Home / Apartment",
-  "Shop / Retail",
+  "Factory / Warehouse",
   "Office",
-  "Warehouse / Industrial",
+  "Shop / Retail",
+  "Home / Apartment",
   "Multiple sites",
 ] as const;
+
+/**
+ * Recorded when the visitor made no choice. Deliberately NOT one of the real
+ * options, so a blank can never be mistaken for an answer — the old default
+ * ("Home / Apartment") was exactly that mistake.
+ */
+export const PROTECT_UNSPECIFIED = "Not specified";
+
+/** Camera-count bands. Coarse on purpose: nobody counts before they enquire. */
+export const CAMERA_OPTIONS = ["1–4", "5–15", "16–50", "50+", "Not sure"] as const;
 
 /**
  * Honeypot field name.
@@ -49,11 +74,29 @@ export const PROTECT_OPTIONS = [
  */
 export const HONEYPOT_FIELD = "website";
 
+/** Attribution keys the client may send. Anything else is dropped unread. */
+export const ATTRIBUTION_KEYS = [
+  "page",
+  "cta",
+  "landing",
+  "referrer",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "gclid",
+  "fbclid",
+] as const;
+
+export type Attribution = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>>;
+
 export type LeadInput = {
   name?: unknown;
   phone?: unknown;
   location?: unknown;
   protecting?: unknown;
+  cameras?: unknown;
   /** Optional — see `normaliseEmail`. Empty string and absent are the same. */
   email?: unknown;
   /** See HONEYPOT_FIELD. Hidden + tabindex=-1, so a human never reaches it. */
@@ -61,16 +104,21 @@ export type LeadInput = {
 };
 
 export type ValidLead = {
+  /** Empty string when not given — the call collects it. */
   name: string;
   phone: string;
+  /** Empty string when not given. Still the dealer-routing key when present. */
   location: string;
+  /** One of PROTECT_OPTIONS, or PROTECT_UNSPECIFIED. */
   protecting: string;
+  /** One of CAMERA_OPTIONS, or "" when not given. */
+  cameras: string;
   /** Empty string when the customer chose not to give one. */
   email: string;
 };
 
 export type FieldErrors = Partial<
-  Record<"name" | "phone" | "location" | "email", string>
+  Record<"name" | "phone" | "location" | "cameras" | "email", string>
 >;
 
 export type ValidationResult =
@@ -129,19 +177,13 @@ export function normalisePhone(raw: unknown): string | null {
  * Normalises an optional email address, or reports it as unusable.
  *
  * Returns `""` for absent/blank — **that is a success, not a failure.** Email
- * is deliberately OPTIONAL on this form: the dealer converts a lead by phoning
- * it, and every extra required field on a form this small costs more leads than
- * the data is worth. So a customer who gives only a phone number is a complete,
- * valid lead.
+ * is deliberately OPTIONAL: the dealer converts a lead by phoning it, and every
+ * extra required field on a form this small costs more leads than the data is
+ * worth. So a customer who gives only a phone number is a complete, valid lead.
  *
  * But a *malformed* address is worse than none — it looks like a working
  * follow-up channel and silently is not. So anything non-blank must parse, and
  * the customer is told when it doesn't.
- *
- * The pattern is the pragmatic one, not RFC 5322: exactly one `@`, no spaces,
- * and a dotted TLD of at least two letters. It accepts every address a real
- * customer types (including `+` tags and subdomains) and rejects the typos that
- * actually happen — `foo@bar` with no TLD, `foo @bar.com`, a bare `foo.com`.
  */
 export function normaliseEmail(raw: unknown): string | null {
   if (raw === undefined || raw === null) return "";
@@ -152,30 +194,20 @@ export function normaliseEmail(raw: unknown): string | null {
   return value;
 }
 
-/**
- * Validates a raw JSON body.
- *
- * A tripped honeypot returns `honeypot: true` **and the parsed lead when it is
- * otherwise valid**, so the route can still push it to the owner. That matters
- * because the trap is not infallible: if some future password manager does fill
- * `website`, a real customer's lead must not evaporate just because a heuristic
- * fired. The route decides what to do; this module only reports.
- */
 export function validateLead(input: LeadInput): ValidationResult {
   const fieldErrors: FieldErrors = {};
 
+  // Optional. A one-letter name is odd but not a reason to lose a lead.
   const name = clean(input.name, LIMITS.name);
-  if (name.length < 2) fieldErrors.name = "Please enter your name.";
 
   const phone = normalisePhone(input.phone);
   if (!phone) {
     fieldErrors.phone = "Please enter a valid 10-digit Indian phone number.";
   }
 
+  // Optional since 2026-09-03: the compact hero form does not ask, and the
+  // call collects it. When present it is still the dealer-routing key.
   const location = clean(input.location, LIMITS.location);
-  if (location.length < 2) {
-    fieldErrors.location = "Please enter your city or PIN code.";
-  }
 
   // Optional: blank is fine, malformed is not.
   const email = normaliseEmail(input.email);
@@ -183,17 +215,24 @@ export function validateLead(input: LeadInput): ValidationResult {
     fieldErrors.email = "That email doesn't look right — or leave it blank.";
   }
 
-  // Unrecognised values fall back to the safe default rather than rejecting:
-  // the field is a <select>, so anything else is a tampered or stale client,
-  // and losing a lead over a dropdown would be absurd.
+  // Blank or unrecognised → "Not specified", never a real option. The field
+  // is a set of chips, so anything else is a tampered or stale client, and
+  // losing a lead over a chip would be absurd — but so would inventing an
+  // answer the customer did not give.
   const rawProtecting = clean(input.protecting, LIMITS.protecting);
   const protecting = (PROTECT_OPTIONS as readonly string[]).includes(rawProtecting)
     ? rawProtecting
-    : PROTECT_OPTIONS[0];
+    : PROTECT_UNSPECIFIED;
+
+  // Same rule for the camera band: unknown means "not given", not an error.
+  const rawCameras = clean(input.cameras, LIMITS.cameras);
+  const cameras = (CAMERA_OPTIONS as readonly string[]).includes(rawCameras)
+    ? rawCameras
+    : "";
 
   const lead: ValidLead | null =
     Object.keys(fieldErrors).length === 0 && phone && email !== null
-      ? { name, phone, location, protecting, email }
+      ? { name, phone, location, protecting, cameras, email }
       : null;
 
   if (clean(input[HONEYPOT_FIELD as "website"], 200) !== "") {
@@ -205,34 +244,63 @@ export function validateLead(input: LeadInput): ValidationResult {
 }
 
 /**
- * Maps a validated lead onto the ERP webhook's payload shape.
- *
- * ⚠️ `location -> district` and `protecting -> message` are inherited from the
- * original static site and must not drift: the ERP routes a lead to a dealer by
- * `district`, so renaming that field silently breaks assignment. `email` is
- * an empty string when the customer chose not to give one — the ERP column is
- * nullable text and has always accepted that.
- *
- * `source` and `message` are authored **here, on the server**, never taken from
- * the client. The old client-side code sent `source: window.location.hostname`,
- * which any caller could forge — poisoning the owner's attribution and putting
- * arbitrary attacker text into the CRM screen a dealer reads.
- *
- * `ref` is echoed into `message` as well as sent as its own field so it is
- * eyeball-visible in the existing CRM UI without a schema change.
+ * Whitelists and caps the attribution block the client sends. Unknown keys and
+ * non-string values are dropped; every kept value is whitespace-collapsed and
+ * capped, so nothing here can carry a payload into the CRM message.
+ */
+export function cleanAttribution(raw: unknown): Attribution {
+  const out: Attribution = {};
+  if (!raw || typeof raw !== "object") return out;
+  const source = raw as Record<string, unknown>;
+  for (const key of ATTRIBUTION_KEYS) {
+    const value = clean(source[key], LIMITS.attribution);
+    if (value) out[key] = value;
+  }
+  return out;
+}
+
+/**
+ * The ERP's inbound route maps only name / email / phone / district / message /
+ * source / ref, so everything the CRM has no column for — segment, camera band,
+ * page, button, campaign — travels in `message`, one `key: value` per segment,
+ * eyeball-readable in the CRM. Promote fields to real columns on the ERP side
+ * when it is next touched.
  */
 export function toErpPayload(
   lead: ValidLead,
   hostname: string,
   nowIso: string,
   ref: string,
+  attribution: Attribution = {},
 ) {
+  const campaign = attribution.utm_source
+    ? [attribution.utm_source, attribution.utm_medium, attribution.utm_campaign]
+        .filter(Boolean)
+        .join(" / ")
+    : "";
+
+  const parts = [
+    `Protecting: ${lead.protecting}`,
+    lead.cameras ? `Cameras: ${lead.cameras}` : "",
+    attribution.page ? `Page: ${attribution.page}` : "",
+    attribution.cta ? `CTA: ${attribution.cta}` : "",
+    attribution.landing ? `Landing: ${attribution.landing}` : "",
+    campaign ? `Campaign: ${campaign}` : "",
+    attribution.utm_term ? `Term: ${attribution.utm_term}` : "",
+    attribution.utm_content ? `Ad: ${attribution.utm_content}` : "",
+    attribution.gclid ? `gclid: ${attribution.gclid}` : "",
+    attribution.fbclid ? `fbclid: ${attribution.fbclid}` : "",
+    attribution.referrer ? `Referrer: ${attribution.referrer}` : "",
+    `Submitted: ${nowIso}`,
+    `Ref: ${ref}`,
+  ].filter(Boolean);
+
   return {
     name: lead.name,
     phone: lead.phone,
     district: lead.location,
     email: lead.email,
-    message: `Protecting: ${lead.protecting} | Submitted: ${nowIso} | Ref: ${ref}`,
+    message: parts.join(" | "),
     source: `Website (${hostname})`,
     ref,
   };

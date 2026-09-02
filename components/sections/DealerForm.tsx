@@ -2,24 +2,38 @@
 
 import { useRef, useState } from "react";
 import Reveal from "@/components/Reveal";
-import IndiaNetwork from "@/components/illustrations/IndiaNetwork";
-import { fbTrack } from "@/lib/fbpixel";
-import { trackLead } from "@/lib/analytics";
+import { useLang } from "@/components/LangProvider";
 import {
+  CAMERA_OPTIONS,
   HONEYPOT_FIELD,
   PROTECT_OPTIONS,
-  normaliseEmail,
   normalisePhone,
   type FieldErrors,
 } from "@/lib/leads";
+import {
+  PHONE_DISPLAY,
+  TEL_HREF,
+  mintRef,
+  submitLead,
+  waContinueHref,
+  waFallbackHref,
+  type LeadValues,
+} from "@/lib/lead-client";
 
 /**
- * Dealer / lead form.
+ * The full lead form, embedded at `#dealer` on every commercial page.
  *
- * Posts to our own `/api/leads`, which relays to the ERP server-side. It used
- * to POST to the ERP directly from the browser carrying the webhook secret —
- * `NEXT_PUBLIC_*` is inlined at build time, so that secret was readable in the
- * public bundle. See app/api/leads/route.ts.
+ * Since 2026-09-03 it sells ONE thing, the same thing every button on the site
+ * promises: a free audit of the cameras the visitor already has. It used to
+ * say "Find a dealer" under buttons that said "free demo" and "free audit" —
+ * the visitor asked for one thing and was offered another.
+ *
+ * Fields: phone and camera band are all it needs; segment, name and city are
+ * optional and the call collects what is missing. The segment is a set of
+ * chips with NO default — the old pre-selected dropdown filed 24 of 33 leads
+ * as "Home / Apartment".
+ *
+ * Posts through lib/lead-client.ts → `/api/leads` → ERP, with attribution.
  *
  * ── The behaviour that matters ──
  * A lead here is worth thousands of rupees, so **nothing in this component may
@@ -30,69 +44,40 @@ import {
  *     confirmed success swaps it for the thank-you panel.
  *   - Any non-success offers WhatsApp and phone, prefilled with what they
  *     typed, so a customer facing an outage is one tap from reaching a human.
- *     For Indian SMB buyers that is where the conversation was heading anyway.
  *   - `ref` is minted once per form instance and reused on retry, so pressing
  *     "Try again" cannot create a second CRM row and a second dealer call.
- *   - Conversions fire ONCE, only on a server-confirmed CRM row. Meta optimises
- *     ad spend on these, so counting a failed or fake lead spends real money
- *     chasing people who do not exist.
+ *   - Conversions fire ONCE, only on a server-confirmed CRM row (in
+ *     lib/lead-client.ts). Meta optimises ad spend on these.
  */
-
-/** Prefilled human fallback, used whenever the automated path did not deliver. */
-function whatsappHref(v: {
-  name: string;
-  phone: string;
-  location: string;
-  protecting: string;
-  email: string;
-}) {
-  const text =
-    `Hi PGAK, I tried the website form but it didn't go through.\n\n` +
-    `Name: ${v.name}\nPhone: ${v.phone}\nCity: ${v.location}\n` +
-    // Only when given — an empty "Email:" line just looks broken.
-    (v.email ? `Email: ${v.email}\n` : "") +
-    `Protecting: ${v.protecting}`;
-  return `https://wa.me/916283993600?text=${encodeURIComponent(text)}`;
-}
+const BOOKING_URL = (process.env.NEXT_PUBLIC_BOOKING_URL ?? "").trim();
 
 type Status = "idle" | "sending" | "done" | "fallback";
 
 export default function DealerForm() {
+  const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [retryable, setRetryable] = useState(true);
-  const [typed, setTyped] = useState({
-    name: "",
-    phone: "",
-    location: "",
-    protecting: PROTECT_OPTIONS[0] as string,
-    email: "",
-  });
+  const typed = useRef<LeadValues>({ phone: "", cameras: "" });
 
   // Stable for the component's lifetime, so a retry reuses it and the ERP can
   // collapse the duplicate rather than assigning two dealers to one customer.
   const refRef = useRef<string | null>(null);
-  if (refRef.current === null) {
-    refRef.current =
-      typeof crypto !== "undefined" && "randomUUID" in crypto
-        ? crypto.randomUUID()
-        : String(Math.random()).slice(2);
-  }
-  const converted = useRef(false);
+  if (refRef.current === null) refRef.current = mintRef();
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
+    const data = new FormData(e.currentTarget);
 
-    const values = {
-      name: String(data.get("name") ?? "").trim(),
+    const values: LeadValues = {
       phone: String(data.get("phone") ?? "").trim(),
+      cameras: String(data.get("cameras") ?? ""),
+      protecting: String(data.get("protecting") ?? ""),
+      name: String(data.get("name") ?? "").trim(),
       location: String(data.get("location") ?? "").trim(),
-      protecting: String(data.get("protecting") ?? PROTECT_OPTIONS[0]),
-      email: String(data.get("email") ?? "").trim(),
+      honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
     };
-    setTyped(values);
+    typed.current = values;
 
     // Validate in the browser BEFORE any network trip, with the same
     // `normalisePhone` the server uses — one rulebook, two checkpoints. The
@@ -100,17 +85,17 @@ export default function DealerForm() {
     // check exists so a customer with a typo hears about it instantly instead
     // of after a round trip, and so junk never even leaves the device.
     const clientErrors: FieldErrors = {};
-    if (values.name.length < 2) clientErrors.name = "Please enter your name.";
     if (!normalisePhone(values.phone)) {
-      clientErrors.phone =
-        "Please enter a valid 10-digit Indian phone number.";
+      clientErrors.phone = t(
+        "Please enter a valid 10-digit Indian phone number.",
+        "कृपया सही 10 अंकों का भारतीय फ़ोन नंबर लिखें।",
+      );
     }
-    if (values.location.length < 2) {
-      clientErrors.location = "Please enter your city or PIN code.";
-    }
-    // Optional: only complain when something was actually typed.
-    if (normaliseEmail(values.email) === null) {
-      clientErrors.email = "That email doesn't look right — or leave it blank.";
+    if (!values.cameras) {
+      clientErrors.cameras = t(
+        "Roughly how many cameras do you have?",
+        "आपके पास लगभग कितने कैमरे हैं?",
+      );
     }
     if (Object.keys(clientErrors).length > 0) {
       setFieldErrors(clientErrors);
@@ -121,54 +106,24 @@ export default function DealerForm() {
     setStatus("sending");
     setFieldErrors({});
 
-    try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...values,
-          [HONEYPOT_FIELD]: String(data.get(HONEYPOT_FIELD) ?? ""),
-          ref: refRef.current,
-        }),
-        // Lets the request finish even if the customer navigates away the
-        // instant after tapping — a real behaviour on slow mobile connections.
-        keepalive: true,
-      });
+    const out = await submitLead(values, {
+      ref: refRef.current!,
+      cta: "dealer-form",
+      formName: "dealer_demo_request",
+    });
 
-      const body = (await res.json().catch(() => ({}))) as {
-        delivered?: boolean;
-        fieldErrors?: FieldErrors;
-        retryable?: boolean;
-      };
-
-      if (body.fieldErrors && Object.keys(body.fieldErrors).length > 0) {
-        // Recoverable and the customer's to fix — not a failure state.
-        setFieldErrors(body.fieldErrors);
-        setStatus("idle");
-        return;
-      }
-
-      if (res.ok && body.delivered) {
-        setStatus("done");
-        if (!converted.current) {
-          converted.current = true;
-          fbTrack("Lead", { content_name: "Dealer / Demo Request", currency: "INR" });
-          trackLead("dealer_demo_request", {
-            protecting: values.protecting,
-            district: values.location,
-          });
-        }
-        return;
-      }
-
-      setRetryable(body.retryable !== false);
-      setStatus("fallback");
-    } catch {
-      // Network died before we got any answer. The lead may or may not have
-      // landed; either way the customer keeps their data and a way through.
-      setRetryable(true);
-      setStatus("fallback");
+    if (out.kind === "done") {
+      setStatus("done");
+      return;
     }
+    if (out.kind === "fieldErrors") {
+      // Recoverable and the customer's to fix — not a failure state.
+      setFieldErrors(out.fieldErrors);
+      setStatus("idle");
+      return;
+    }
+    setRetryable(out.retryable);
+    setStatus("fallback");
   }
 
   return (
@@ -176,58 +131,82 @@ export default function DealerForm() {
       <div className="wrap">
         <Reveal className="grid items-center gap-10 rounded-[22px] border border-line bg-panel p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <span className="eyebrow mb-4">Find a dealer</span>
+            <span className="eyebrow mb-4">
+              {t("Free — no obligation", "मुफ़्त — कोई बाध्यता नहीं")}
+            </span>
             <h2 className="display mt-4 text-[clamp(1.8rem,3.5vw,2.5rem)]">
-              Talk to a PGAK partner near you.
+              {t("Get your free camera audit.", "अपने कैमरों का मुफ़्त ऑडिट पाएँ।")}
             </h2>
             <p className="mt-3.5 text-ink-soft">
-              PGAK works through a trusted network of dealers across India. Tell
-              us where you are and what you&rsquo;d like to protect — we&rsquo;ll
-              connect you with a verified partner who can set everything up.
+              {t(
+                "Tell us your WhatsApp number and how many cameras you have. We call within one working hour, 9 am to 7 pm Monday to Saturday, and send your audit report within 48 hours — on the cameras you already own.",
+                "अपना WhatsApp नंबर और कैमरों की संख्या बताएँ। हम एक कार्य-घंटे के भीतर कॉल करते हैं (सुबह 9 से शाम 7, सोमवार से शनिवार) और 48 घंटों में ऑडिट रिपोर्ट भेजते हैं — आपके मौजूदा कैमरों पर।",
+              )}
             </p>
-            <div className="mt-7 flex items-center gap-7">
-              <IndiaNetwork className="h-44 w-auto shrink-0" />
-              <div className="flex flex-col gap-5">
-                <div>
-                  <div className="font-display text-[2.1rem] leading-none">PAN</div>
-                  <div className="mt-1 text-[0.82rem] tracking-wide text-ink-faint">
-                    India coverage
-                  </div>
+
+            {/* Desktop only: on a phone this block pushed the first field a
+                whole screen below the heading. */}
+            <div className="mt-8 hidden gap-8 lg:flex">
+              <div>
+                <div className="font-display text-[2rem] leading-none">₹15,995</div>
+                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
+                  {t("Audit value — yours free", "ऑडिट मूल्य — आपके लिए मुफ़्त")}
                 </div>
-                <div>
-                  <div className="font-display text-[2.1rem] leading-none">Verified</div>
-                  <div className="mt-1 text-[0.82rem] tracking-wide text-ink-faint">
-                    Dealer network
-                  </div>
+              </div>
+              <div>
+                <div className="font-display text-[2rem] leading-none">1 hr</div>
+                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
+                  {t("Call-back, working hours", "कॉल-बैक, कार्य-घंटों में")}
+                </div>
+              </div>
+              <div>
+                <div className="font-display text-[2rem] leading-none">48 h</div>
+                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
+                  {t("Report in your hands", "रिपोर्ट आपके हाथ में")}
                 </div>
               </div>
             </div>
           </div>
 
           {status === "done" ? (
-            <div className="py-8 text-center">
+            <div role="status" className="py-6 text-center">
               <div className="mb-2 font-display text-2xl text-accent">
-                Thank you ✓
+                {t("Got it ✓", "मिल गया ✓")}
               </div>
-              <p className="text-ink-soft">
-                A verified PGAK dealer will reach out shortly.
+              <p className="mx-auto max-w-[40ch] text-ink-soft">
+                {t(
+                  "We call within one working hour, 9 am to 7 pm, Monday to Saturday. Outside those hours, first thing next morning.",
+                  "हम एक कार्य-घंटे के भीतर कॉल करते हैं — सुबह 9 से शाम 7, सोमवार से शनिवार। उसके बाद अगली सुबह सबसे पहले।",
+                )}
               </p>
+              <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
+                <a
+                  href={waContinueHref(typed.current, refRef.current!)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="dealer-form-whatsapp-continue"
+                  className="btn btn-primary"
+                >
+                  {t("Message us on WhatsApp now", "अभी WhatsApp पर मैसेज करें")}
+                </a>
+                {BOOKING_URL && (
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="dealer-form-book-slot"
+                    className="btn btn-ghost"
+                  >
+                    {t("Pick a 15-minute slot", "15 मिनट का स्लॉट चुनें")}
+                  </a>
+                )}
+              </div>
             </div>
           ) : (
             <div className="flex flex-col gap-3.5">
               {/* The form is never unmounted on failure — everything typed
                   stays exactly where the customer left it. */}
-              <form onSubmit={submit} className="flex flex-col gap-3.5">
-                <Field label="Your name" error={fieldErrors.name}>
-                  <input
-                    required
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Full name"
-                    className="field-input"
-                  />
-                </Field>
+              <form onSubmit={submit} noValidate className="flex flex-col gap-3.5">
                 <Field label="Phone / WhatsApp" error={fieldErrors.phone}>
                   <input
                     required
@@ -239,32 +218,65 @@ export default function DealerForm() {
                     className="field-input"
                   />
                 </Field>
-                <Field label="City / PIN code" error={fieldErrors.location}>
-                  <input
-                    required
-                    type="text"
-                    name="location"
-                    placeholder="e.g. Ludhiana / 141001"
-                    className="field-input"
-                  />
-                </Field>
-                <Field label="Email (optional)" error={fieldErrors.email}>
-                  <input
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    inputMode="email"
-                    placeholder="you@company.com"
-                    className="field-input"
-                  />
-                </Field>
-                <Field label="What are you protecting?">
-                  <select name="protecting" className="field-input">
-                    {PROTECT_OPTIONS.map((o) => (
-                      <option key={o}>{o}</option>
+                <Field label={t("How many cameras?", "कितने कैमरे?")} error={fieldErrors.cameras}>
+                  <select name="cameras" required defaultValue="" className="field-input">
+                    <option value="" disabled>
+                      {t("Choose a range", "एक रेंज चुनें")}
+                    </option>
+                    {CAMERA_OPTIONS.map((o) => (
+                      <option key={o} value={o}>
+                        {o === "Not sure"
+                          ? t("Not sure yet", "अभी पक्का नहीं")
+                          : `${o} ${t("cameras", "कैमरे")}`}
+                      </option>
                     ))}
                   </select>
                 </Field>
+
+                {/* Segment chips. No default: a blank is recorded as
+                    "Not specified", never as an answer the customer did not give. */}
+                <fieldset className="flex flex-col gap-1.5">
+                  <legend className="text-[0.78rem] uppercase tracking-wide text-ink-faint">
+                    {t("What are you protecting?", "आप क्या सुरक्षित कर रहे हैं?")}{" "}
+                    <span className="normal-case tracking-normal">
+                      ({t("optional", "वैकल्पिक")})
+                    </span>
+                  </legend>
+                  <div className="mt-1 flex flex-wrap gap-2">
+                    {PROTECT_OPTIONS.map((o) => (
+                      <label key={o}>
+                        <input
+                          type="radio"
+                          name="protecting"
+                          value={o}
+                          className="chip-input sr-only"
+                        />
+                        <span className="chip-choice">{o}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <div className="grid gap-3.5 sm:grid-cols-2">
+                  <Field label={`${t("Your name", "आपका नाम")} (${t("optional", "वैकल्पिक")})`}>
+                    <input
+                      type="text"
+                      name="name"
+                      autoComplete="name"
+                      placeholder={t("Full name", "पूरा नाम")}
+                      className="field-input"
+                    />
+                  </Field>
+                  <Field label={`${t("City / PIN code", "शहर / पिन कोड")} (${t("optional", "वैकल्पिक")})`}>
+                    <input
+                      type="text"
+                      name="location"
+                      autoComplete="address-level2"
+                      placeholder="e.g. Ludhiana / 141001"
+                      className="field-input"
+                    />
+                  </Field>
+                </div>
 
                 {/* Honeypot. Hidden from people and assistive tech, reachable
                     by naive bots. Named so no password manager autofills it —
@@ -288,38 +300,48 @@ export default function DealerForm() {
                   className="btn btn-primary mt-1.5 w-full disabled:opacity-60"
                 >
                   {status === "sending"
-                    ? "Sending…"
+                    ? t("Sending…", "भेज रहे हैं…")
                     : status === "fallback"
-                      ? "Try again"
-                      : "Connect me with a dealer"}
+                      ? t("Try again", "फिर कोशिश करें")
+                      : t("Get my free audit →", "मेरा मुफ़्त ऑडिट पाएँ →")}
                 </button>
+                <p className="text-center text-[0.78rem] text-ink-faint">
+                  {t(
+                    "No spam, no new hardware, no pressure to buy anything.",
+                    "कोई स्पैम नहीं, कोई नया हार्डवेयर नहीं, कुछ ख़रीदने का कोई दबाव नहीं।",
+                  )}
+                </p>
               </form>
 
               {status === "fallback" && (
-                <div className="rounded-xl border border-danger/30 bg-danger/[0.06] p-4 text-center">
+                <div className="rounded-[10px] border border-danger/30 bg-danger/[0.06] p-4 text-center">
                   <p className="text-[0.9rem] font-semibold text-ink">
-                    We couldn&rsquo;t submit that just now.
+                    {t("We couldn't submit that just now.", "अभी यह भेजा नहीं जा सका।")}
                   </p>
                   <p className="mt-1 text-[0.82rem] text-ink-soft">
-                    Your details are still here
-                    {retryable ? " — tap “Try again”, or reach us directly:" : " — reach us directly:"}
+                    {retryable
+                      ? t(
+                          "Your details are still here — tap “Try again”, or reach us directly:",
+                          "आपकी जानकारी यहीं है — “फिर कोशिश करें” दबाएँ, या सीधे संपर्क करें:",
+                        )
+                      : t("Your details are still here — reach us directly:", "आपकी जानकारी यहीं है — सीधे संपर्क करें:")}
                   </p>
                   <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-center">
                     <a
-                      href={whatsappHref(typed)}
+                      href={waFallbackHref(typed.current)}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cta="dealer-form-whatsapp-fallback"
                       className="btn btn-primary"
                     >
-                      Send on WhatsApp
+                      {t("Send on WhatsApp", "WhatsApp पर भेजें")}
                     </a>
                     <a
-                      href="tel:+916283993600"
+                      href={TEL_HREF}
                       data-cta="dealer-form-call-fallback"
                       className="btn btn-ghost"
                     >
-                      Call +91 62839 93600
+                      {t("Call", "कॉल करें")} {PHONE_DISPLAY}
                     </a>
                   </div>
                 </div>
@@ -347,7 +369,11 @@ function Field({
         {label}
       </span>
       {children}
-      {error && <span className="text-[0.78rem] text-danger">{error}</span>}
+      {error && (
+        <span role="alert" className="text-[0.78rem] text-danger">
+          {error}
+        </span>
+      )}
     </label>
   );
 }

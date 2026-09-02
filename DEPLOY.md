@@ -206,3 +206,40 @@ Vercel → Deployments → **Instant Rollback**, never a rebuild: a rebuild with
 - **Drop the CORS header** from the ERP's `/api/leads/inbound` once step 6 is
   done. The endpoint is server-to-server now; no browser should ever call it,
   and removing it makes browser-based abuse structurally impossible.
+
+## 7. Lead capture v2 — one offer, two fields, attribution (2026-09-03)
+
+What changed and why, so nobody "fixes" it back:
+
+- **Every button sells the same thing: a free audit of the visitor's existing
+  cameras.** The hero, sticky button, mobile bar, chatbot, footer and bottom
+  block all say so and all land on the form. The form used to say "Find a
+  dealer" under buttons that said "free demo" / "free audit".
+- **The hero carries a two-field form** (`components/sections/QuickLead.tsx`):
+  WhatsApp number + camera band. The full form at `#dealer` asks phone + camera
+  band and offers segment chips, name and city as optional. **Only the phone is
+  required server-side** (`lib/leads.ts`) — never destroy a lead over a missing
+  name.
+- **Segment has no default.** A blank is recorded as `Not specified`; the old
+  pre-selected "Home / Apartment" had filed 24 of 33 leads as homeowners.
+- **Attribution rides with every lead** (`lib/attribution.ts`): page, button,
+  landing page, referrer host, `utm_*`, `gclid`, `fbclid`. It lands in the
+  CRM `message` field as `Page: … | CTA: … | Campaign: …` because the ERP
+  inbound route has no columns for it yet. Tapping any WhatsApp link appends
+  `[from <page title>]` to the prefilled message (`components/LeadAttribution.tsx`).
+- **The thank-you promises a call within one working hour, 9–7 Mon–Sat**, and
+  offers a prefilled WhatsApp continuation. Honour the hour: the new-lead
+  Telegram alert below exists so someone hears about the lead immediately.
+
+Environment (Vercel → Production **and** Preview):
+
+| Variable | Purpose |
+|---|---|
+| `LEAD_ALERT_TELEGRAM_TOKEN`, `LEAD_ALERT_TELEGRAM_CHAT_ID` | Already documented in §6. Now ALSO used to push every delivered lead to the owner's phone. |
+| `LEAD_ALERT_NEW_LEADS` | Optional. `0` keeps only the failure alerts. Default: on when the bot is configured. |
+| `NEXT_PUBLIC_BOOKING_URL` | Optional. Google Calendar appointment page / Cal.com link → "Pick a 15-minute slot" on the thank-you screen. |
+| `NEXT_PUBLIC_CLARITY_ID` | Optional. Microsoft Clarity recordings + heatmaps. Free; set it. |
+
+Verify after deploy: `GET /api/leads` → `{"ok":true,"erp":true,"notify":true,"newLeadAlerts":true}`.
+Then submit the hero form on production with a real number, and check the CRM
+row's `message` shows `Cameras: … | Page: / | CTA: hero-quick | …`.

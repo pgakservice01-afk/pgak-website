@@ -71,11 +71,11 @@ const TOPICS: Topic[] = [
   },
   {
     id: "demo",
-    q: "📅 Book a demo",
-    qHi: "📅 डेमो बुक करें",
-    a: "In a 20-minute live demo we show PGAK turning a real camera feed into intelligent protection. Leave your details and a verified partner near you will set it up.",
-    aHi: "20 मिनट के लाइव डेमो में हम PGAK को असली कैमरा फ़ीड को बुद्धिमान सुरक्षा में बदलते हुए दिखाते हैं। अपनी जानकारी छोड़ें और आपके नज़दीकी सत्यापित पार्टनर इसे सेट कर देंगे।",
-    link: { href: "/#dealer", label: "Book now →", labelHi: "अभी बुक करें →" },
+    q: "📞 Request a call back",
+    qHi: "📞 कॉल-बैक का अनुरोध करें",
+    a: "Leave your WhatsApp number and how many cameras you have. We call within one working hour (9 am–7 pm, Mon–Sat) and start with a free audit of your existing cameras — report within 48 hours.",
+    aHi: "अपना WhatsApp नंबर और कैमरों की संख्या बताएँ। हम एक कार्य-घंटे के भीतर कॉल करते हैं (सुबह 9–शाम 7, सोम–शनि) और आपके मौजूदा कैमरों के मुफ़्त ऑडिट से शुरुआत करते हैं — रिपोर्ट 48 घंटों में।",
+    link: { href: "/#dealer", label: "Request a call back →", labelHi: "कॉल-बैक का अनुरोध करें →" },
   },
   {
     id: "privacy",

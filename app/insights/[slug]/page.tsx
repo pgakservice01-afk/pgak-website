@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { waHref } from "@/lib/whatsapp";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -175,8 +176,14 @@ export default function InsightPost({ params }: Props) {
                   <a href="#dealer" className="btn btn-primary">
                     Get a free AI audit →
                   </a>
-                  <a href="#dealer" className="btn btn-ghost">
-                    Book a demo
+                  <a
+                    href={waHref("Hi PGAK, I'd like a free audit of my existing cameras.")}
+                    target="_blank"
+                    rel="noopener"
+                    data-cta="post-whatsapp"
+                    className="btn btn-ghost"
+                  >
+                    Or WhatsApp us
                   </a>
                 </div>
               </div>

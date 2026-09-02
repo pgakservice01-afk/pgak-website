@@ -1,6 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { toErpPayload, validateLead, type ValidLead } from "@/lib/leads";
+import {
+  cleanAttribution,
+  toErpPayload,
+  validateLead,
+  type Attribution,
+  type ValidLead,
+} from "@/lib/leads";
 
 /**
  * Server-side relay for the "Find a dealer" form.
@@ -35,8 +41,12 @@ const DEADLINE_MS = 8_500;
 const ERP_ATTEMPT_MS = 3_000;
 const ERP_RETRY_GAP_MS = 300;
 const NOTIFY_MS = 3_000;
-/** Bodies are ~200 bytes. 4 KB is roomy for a human and fatal to a payload. */
-const MAX_BODY_BYTES = 4_096;
+/**
+ * Bodies are ~300 bytes; with attribution (page, campaign tags, a whole gclid)
+ * they can approach 2 KB. 8 KB is still roomy for a human and fatal to a
+ * pasted payload.
+ */
+const MAX_BODY_BYTES = 8_192;
 
 const ALLOWED_ORIGINS = ["https://pgak.co.in", "https://www.pgak.co.in"];
 const PREVIEW_ORIGIN = /^https:\/\/[a-z0-9-]+\.vercel\.app$/;
@@ -178,6 +188,82 @@ async function notifyOwner(
   }
 }
 
+// ─── New-lead alert (speed to lead) ───────────────────────────────────────────
+/**
+ * Pushes every DELIVERED lead to the owner's phone the moment it lands.
+ *
+ * The failure sink above exists so a lead cannot be lost; this one exists so a
+ * lead cannot go cold. On 2026-09-02 the CRM held 30 leads that had never left
+ * "New", some 55 days old. A lead phoned within the hour converts several
+ * times more often than one found in a list days later — and the thank-you
+ * screen now promises that hour, so someone has to hear about the lead.
+ *
+ * Uses the same Telegram bot as the failure alert. On by default whenever that
+ * bot is configured; `LEAD_ALERT_NEW_LEADS=0` switches just this alert off.
+ * Never throws and never fails the request: a broken alarm must not break the
+ * lead it is announcing.
+ */
+function newLeadAlertsEnabled(): boolean {
+  const flag = (process.env.LEAD_ALERT_NEW_LEADS ?? "").trim().toLowerCase();
+  if (["0", "false", "off", "no"].includes(flag)) return false;
+  return Boolean(
+    (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim() &&
+      (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
+  );
+}
+
+async function notifyNewLead(
+  lead: ValidLead,
+  ref: string,
+  attribution: Attribution,
+  budgetMs: number,
+): Promise<boolean> {
+  if (!newLeadAlertsEnabled() || budgetMs <= 0) return false;
+  const token = (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim();
+  const chatId = (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim();
+
+  const campaign = attribution.utm_source
+    ? [attribution.utm_source, attribution.utm_medium, attribution.utm_campaign]
+        .filter(Boolean)
+        .join(" / ")
+    : "";
+  const where = [
+    attribution.page ? `Page: ${attribution.page}` : "",
+    attribution.cta ? `Button: ${attribution.cta}` : "",
+    campaign ? `Campaign: ${campaign}` : "",
+    attribution.referrer ? `Referrer: ${attribution.referrer}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const text =
+    `🟢 New website lead — call within the hour\n\n` +
+    `Name: ${lead.name || "(not given)"}\n` +
+    `Phone: ${lead.phone}\n` +
+    `Cameras: ${lead.cameras || "(not given)"}\n` +
+    `Protecting: ${lead.protecting}\n` +
+    `City: ${lead.location || "(not given)"}\n` +
+    (where ? `\n${where}\n` : "") +
+    `\nRef: ${ref}`;
+
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text }),
+      signal: AbortSignal.timeout(budgetMs),
+    });
+    if (!res.ok) {
+      console.error("LEAD_NEW_ALERT_FAILED", res.status, ref);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("LEAD_NEW_ALERT_THREW", String(err), ref);
+    return false;
+  }
+}
+
 // ─── Handler ──────────────────────────────────────────────────────────────────
 type Outcome = {
   status: number;
@@ -276,6 +362,9 @@ export async function POST(request: NextRequest) {
   }
 
   const lead = result.lead;
+  const attribution = cleanAttribution(
+    (parsed as { attribution?: unknown } | null)?.attribution,
+  );
 
   if (rateLimited(clientKey(request))) {
     await notifyOwner(lead, ref, "rate limited", Math.min(NOTIFY_MS, left()));
@@ -291,7 +380,13 @@ export async function POST(request: NextRequest) {
 
   // 3. Relay. Two attempts on timeout/5xx only; never on 4xx, which cannot be
   //    fixed by repeating and could duplicate a lead the ERP already took.
-  const payload = toErpPayload(lead, "www.pgak.co.in", new Date().toISOString(), ref);
+  const payload = toErpPayload(
+    lead,
+    "www.pgak.co.in",
+    new Date().toISOString(),
+    ref,
+    attribution,
+  );
   let notified: Promise<boolean> | null = null;
   let lastReason = "unknown";
   let authFailed = false;
@@ -340,6 +435,10 @@ export async function POST(request: NextRequest) {
         }
 
         if (id) {
+          // Speed to lead: the owner hears about a delivered lead the moment
+          // it lands, not when someone next opens the CRM. Bounded by
+          // NOTIFY_MS so it cannot stall the customer's success response.
+          await notifyNewLead(lead, ref, attribution, Math.min(NOTIFY_MS, left()));
           return json({ status: 200, body: { ok: true, delivered: true, ref } });
         }
 
@@ -407,6 +506,7 @@ export async function GET() {
         (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim() &&
           (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
       ),
+      newLeadAlerts: newLeadAlertsEnabled(),
       env: process.env.VERCEL_ENV ?? "development",
     },
     { headers: { "Cache-Control": "no-store" } },

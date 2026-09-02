@@ -350,8 +350,8 @@ export default function LiveClient() {
 
           <p className="mt-4 text-center text-[0.82rem] text-ink-faint">
             {t("Not a customer yet?", "अभी ग्राहक नहीं हैं?")}{" "}
-            <a href="/#demo" data-cta="live-to-demo" className="text-accent hover:underline">
-              {t("Book a demo", "डेमो बुक करें")}
+            <a href="/#dealer" data-cta="live-to-audit" className="text-accent hover:underline">
+              {t("Get a free camera audit", "मुफ़्त कैमरा ऑडिट पाएँ")}
             </a>
           </p>
         </div>
