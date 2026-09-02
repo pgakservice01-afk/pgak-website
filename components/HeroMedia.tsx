@@ -8,7 +8,7 @@ import HeroScene from "@/components/HeroScene";
  * afford it, and the built-in animated scene (HeroScene) everywhere else.
  *
  * ── Why it is gated rather than always-on ──
- * `public/hero/humanoid.mp4` is 4.6 MB, and this element sits above the fold,
+ * `public/hero/humanoid.mp4` is 1.2 MB, and this element sits above the fold,
  * so `autoPlay` pulls the whole file during the initial page load. Most of this
  * site's traffic is Indian mobile, where that saturates the connection while
  * every other asset queues behind it — and it is real money off the visitor's
@@ -22,23 +22,29 @@ import HeroScene from "@/components/HeroScene";
  * client upgrades to the video only on a wide viewport without Save-Data. Both
  * sit in the same `aspect-video` box, so the upgrade costs no layout shift.
  *
- * ── Still worth doing to the asset itself (needs ffmpeg, not available here) ──
- *   1. A poster frame, which removes the blank gap on desktop too:
- *        ffmpeg -i public/hero/humanoid.mp4 -vframes 1 -q:v 2 /tmp/f.jpg
- *        npx sharp -i /tmp/f.jpg -o public/hero/humanoid.webp
- *      then set POSTER below to "/hero/humanoid.webp".
- *   2. Re-encode: 4.6 MB is far above the "< 3 MB" this file originally asked
- *      for, and at hero size 720p is plenty:
- *        ffmpeg -i humanoid.mp4 -vf scale=-2:720 -c:v libx264 -crf 28 \
- *               -preset slow -an -movflags +faststart humanoid.opt.mp4
- *      Getting it under ~1 MB would make the mobile gate unnecessary.
+ * ── Asset work, done 2026-09-02 ──
+ * Both items this comment used to list as "needs ffmpeg" are now applied.
+ *   1. POSTER is filled in (public/hero/humanoid.webp, 17 KB), so desktop no
+ *      longer shows a blank box while the first frame decodes.
+ *   2. Re-encoded 4.76 MB -> 1.20 MB, a 75% cut, with no resolution change:
+ *        ffmpeg -i humanoid.mp4 -c:v libx264 -crf 32 -preset veryslow -an \
+ *               -pix_fmt yuv420p -movflags +faststart out.mp4
+ *      The source was 848x478 all along, so the old advice to scale to 720p
+ *      would have *upscaled* it; the 4.76 MB was simply a wasteful encode.
+ *      Frames were compared side by side before and after: the overlay text
+ *      stays legible and only dark gradients soften slightly, which is fine
+ *      for a decorative loop.
+ *
+ * The mobile gate below stays. At 1.2 MB the file is close to the ~1 MB this
+ * comment once set as the bar for dropping it, but not under it, and mobile is
+ * exactly the audience paying for those bytes.
  *
  * The video is muted + inline + looped (so it autoplays where allowed), pauses
  * when scrolled off-screen, and honours reduced-motion. If the file is ever
  * missing or fails, it falls back to the animated scene automatically.
  */
 const VIDEO_SRC = "/hero/humanoid.mp4";
-const POSTER = ""; // see (1) above — add public/hero/humanoid.webp
+const POSTER = "/hero/humanoid.webp";
 
 /**
  * Below this width the video is never requested. 768px is Tailwind's `md`, the
