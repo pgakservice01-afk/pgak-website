@@ -1,0 +1,61 @@
+# ==============================================================================
+# robots.txt for https://www.pgak.co.in
+# Optimized for Traditional Search Engines, AEO Snippets, and Generative AI (GEO)
+# ==============================================================================
+
+# --- Global Defaults ---
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*?*filter=
+Disallow: /*?*sort=
+
+# --- Traditional Search Engines (Google & Bing) ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- OpenAI (ChatGPT Search & Retrieval) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# --- Perplexity AI (Direct Citations & Conversational Answers) ---
+User-agent: PerplexityBot
+Allow: /
+
+# --- Anthropic (Claude Search & Web Citations) ---
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# --- Meta / Apple Search & Siri Intelligence ---
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+# --- Scraper Protection (Optional: Block Malicious / Content-Farming Scrapers) ---
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# --- XML Sitemap Reference ---
+Sitemap: https://www.pgak.co.in/sitemap.xml
