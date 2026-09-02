@@ -62,3 +62,8 @@ Systems that conflate them, storing raw biometric data indefinitely as part of t
 Get those five in place and the compliance question stops being the reason to delay a decision.
 
 [Ask for a free feasibility check](#dealer)
+
+## Sources
+
+- [Ministry of Labour and Employment](https://labour.gov.in/) — the central labour statutes and rules governing employer registers and their retention.
+- [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Gazette text behind the storage-limitation and notice obligations described above, hosted by MeitY.

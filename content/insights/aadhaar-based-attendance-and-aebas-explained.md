@@ -68,3 +68,9 @@ If you are a government department, AEBAS is your answer and it is already provi
 If you are a private employer, forget Aadhaar. Ask instead which system gives you a complete, quick, photo-backed record on the gates you actually have — and whether you need to buy hardware to get it.
 
 [Ask for a free feasibility check](#dealer)
+
+## Sources
+
+- [Aadhaar Enabled Biometric Attendance System](https://attendance.gov.in/) — the official AEBAS portal for government departments.
+- [Unique Identification Authority of India](https://uidai.gov.in/) — the authority governing permitted uses of Aadhaar authentication.
+- [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Gazette text behind the notice and retention duties described above, hosted by MeitY.

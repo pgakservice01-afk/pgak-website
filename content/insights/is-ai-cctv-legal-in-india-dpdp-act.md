@@ -94,3 +94,8 @@ AI CCTV is legal in India. Face recognition on your own workforce is legal too, 
 If you want to talk through what your site actually needs — including whether you need face recognition at all, which for a lot of perimeter and theft problems you don't — [tell us what you're trying to prevent](/#dealer) and we'll be straight about the lightest thing that solves it.
 
 *Again: practitioner's summary, not legal advice. Your counsel gets the final word.*
+
+## Sources
+
+- [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Act as published in the Gazette of India, hosted by the Ministry of Electronics and Information Technology. Section 7 sets out the legitimate uses this article refers to.
+- [Ministry of Labour and Employment](https://labour.gov.in/) — central labour legislation and the rules that govern workplace records.

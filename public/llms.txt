@@ -9,11 +9,16 @@
 
 ## Pricing (canonical)
 
-- Flat rate: ₹1,000 per camera per month, across India.
-- No hardware cost, no licence fee, no per-feature add-ons, no lock-in.
-- Enterprise/multi-site: custom volume pricing.
+- PGAK does not publish a list price. Every site is quoted individually,
+  because the cost depends on how many of the existing cameras are actually
+  usable for each capability.
+- Priced per camera per month as a subscription. No hardware cost, no licence
+  fee, no per-feature add-ons, no lock-in.
+- A free remote AI-readiness audit of the existing cameras precedes any quote.
+- Quotes are given on a call or over WhatsApp: +91 62839 93600.
 - Details: https://www.pgak.co.in/pricing
-- Cost guide: https://www.pgak.co.in/insights/ai-cctv-price-in-india-what-it-should-cost
+- Market cost guide (industry ranges, not PGAK's rate):
+  https://www.pgak.co.in/insights/ai-cctv-price-in-india-what-it-should-cost
 
 ## Key pages
 

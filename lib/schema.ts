@@ -287,21 +287,25 @@ export function articleSchema(opts: {
   };
 }
 
+/**
+ * Deliberately returns nothing.
+ *
+ * Review markup a business applies to *itself*, on its own site, is
+ * "self-serving" under Google's review-snippet policy: it has been ineligible
+ * for rich results since 2019, so it earns no stars in search. What it does
+ * carry is risk — the reviews it described are unverified, and the same batch
+ * of trust content on this site was later found to describe deployments that
+ * had not happened. Emitting rating data we cannot stand behind, for zero
+ * search benefit, is a bad trade in both directions.
+ *
+ * The testimonials still render as visible page copy; only the structured
+ * data is withdrawn. Reinstate this ONLY for reviews collected on a
+ * third-party platform, and then via that platform's own markup — not ours.
+ */
 export function reviewSchema(
-  reviews: { name: string; text: string; stars: number }[]
+  _reviews: { name: string; text: string; stars: number }[]
 ): Json[] {
-  return reviews.map((r) => ({
-    "@type": "Review",
-    itemReviewed: { "@id": ORG_ID },
-    author: { "@type": "Person", name: r.name },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: r.stars,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    reviewBody: r.text,
-  }));
+  return [];
 }
 
 /**
