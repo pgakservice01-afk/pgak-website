@@ -23,7 +23,8 @@
     "primaryKeyword": "biometric consent employee",
     "angle": "DPDP consent is real. What a lawful fallback looks like and why forcing it is the wrong fight.",
     "category": "Compliance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-03"
   },
   {
     "slug": "attendance-data-retention-what-to-delete",
@@ -31,7 +32,8 @@
     "primaryKeyword": "attendance data retention",
     "angle": "Separate the statutory register (keep) from the biometric template (delete on exit). Practical retention schedule.",
     "category": "Compliance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-03"
   },
   {
     "slug": "overtime-disputes-common-causes",
