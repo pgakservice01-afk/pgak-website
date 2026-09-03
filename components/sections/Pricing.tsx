@@ -1,13 +1,15 @@
 import Reveal from "@/components/Reveal";
 import { BUSINESS } from "@/lib/seo";
+import { waHref } from "@/lib/whatsapp";
 
 /**
  * Pricing without a price.
  *
  * We quote per site on a call or WhatsApp rather than publishing a rate, so
  * this section does the job a price table used to do — sets expectations about
- * what moves the number and what can never appear on the invoice — and then
- * hands the visitor the two ways to actually get quoted.
+ * what moves the number, offers the sensible starting package, and says what
+ * can never appear on the invoice — and then hands the visitor the two ways to
+ * actually get quoted.
  */
 
 const DRIVERS = [
@@ -25,6 +27,13 @@ const DRIVERS = [
   },
 ];
 
+const STARTER = [
+  "The gate or main entrance — who came in, and when",
+  "The cash counter or dispatch desk — where money and stock change hands",
+  "The stock room or godown — where losses actually happen",
+  "One perimeter line — the wall, the yard, the loading bay after hours",
+];
+
 const NEVER_EXTRA = [
   "New cameras — it runs on the ones you already own",
   "A separate software licence",
@@ -37,12 +46,12 @@ const WA_TEXT =
   "Hi PGAK! I'd like a price for AI CCTV on my existing cameras. Here's my setup:";
 
 export default function Pricing() {
-  const waHref = `${BUSINESS.whatsapp}?text=${encodeURIComponent(WA_TEXT)}`;
+  const wa = waHref(WA_TEXT);
 
   return (
-    <section id="pricing" className="sec">
+    <section id="pricing" className="sec pt-6">
       <div className="wrap">
-        <Reveal className="mx-auto mb-14 max-w-[680px] text-center">
+        <Reveal className="mx-auto mb-12 max-w-[680px] text-center">
           <span className="eyebrow eyebrow-center mb-4">What it costs</span>
           <h2 className="display mt-4 text-[clamp(2rem,4vw,3rem)]">
             We quote your site, not a list price.
@@ -55,7 +64,7 @@ export default function Pricing() {
           </p>
         </Reveal>
 
-        <div className="grid items-stretch gap-[22px] md:grid-cols-[1.15fr_1fr]">
+        <div className="grid items-stretch gap-[22px] lg:grid-cols-3">
           <Reveal className="rounded-2xl border border-line bg-panel p-8">
             <h3 className="text-[1.3rem] font-semibold">
               What decides your number
@@ -72,8 +81,28 @@ export default function Pricing() {
             </ul>
           </Reveal>
 
+          <Reveal delay={0.04} className="rounded-2xl border border-line bg-panel p-8">
+            <span className="eyebrow mb-3">Where most sites start</span>
+            <h3 className="mt-3 text-[1.3rem] font-semibold">
+              Four to six cameras that matter, not every feed
+            </h3>
+            <p className="mt-3 text-[0.92rem] leading-relaxed text-ink-soft">
+              Most sites do not need analytics on every camera. Start with the
+              handful that watch the places where money, stock and people move,
+              and add cameras later at the same per-camera structure.
+            </p>
+            <ul className="mt-5 flex list-none flex-col gap-2.5">
+              {STARTER.map((s) => (
+                <li key={s} className="flex gap-3 text-[0.92rem] text-ink-soft">
+                  <span className="text-accent">→</span>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
           <Reveal
-            delay={0.07}
+            delay={0.08}
             className="panel-dark flex flex-col rounded-2xl border border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17] p-8"
           >
             <h3 className="text-[1.3rem] font-semibold">
@@ -92,7 +121,7 @@ export default function Pricing() {
             </ul>
             <div className="flex flex-col gap-3">
               <a
-                href={waHref}
+                href={wa}
                 target="_blank"
                 rel="noopener"
                 data-cta="pricing-whatsapp"

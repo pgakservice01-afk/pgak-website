@@ -33,6 +33,7 @@ export const LIMITS = {
   location: 120,
   protecting: 60,
   cameras: 20,
+  employees: 20,
   /** RFC 5321's practical ceiling for a whole address. */
   email: 254,
   /** One attribution value: a path, a hostname, a campaign tag, a click id. */
@@ -61,6 +62,9 @@ export const PROTECT_UNSPECIFIED = "Not specified";
 
 /** Camera-count bands. Coarse on purpose: nobody counts before they enquire. */
 export const CAMERA_OPTIONS = ["1–4", "5–15", "16–50", "50+", "Not sure"] as const;
+
+/** Headcount bands, asked only by the attendance variant of the form. */
+export const EMPLOYEE_OPTIONS = ["1–25", "26–100", "101–300", "300+"] as const;
 
 /**
  * Honeypot field name.
@@ -97,6 +101,7 @@ export type LeadInput = {
   location?: unknown;
   protecting?: unknown;
   cameras?: unknown;
+  employees?: unknown;
   /** Optional — see `normaliseEmail`. Empty string and absent are the same. */
   email?: unknown;
   /** See HONEYPOT_FIELD. Hidden + tabindex=-1, so a human never reaches it. */
@@ -113,6 +118,8 @@ export type ValidLead = {
   protecting: string;
   /** One of CAMERA_OPTIONS, or "" when not given. */
   cameras: string;
+  /** One of EMPLOYEE_OPTIONS, or "" when not given (attendance pages only). */
+  employees: string;
   /** Empty string when the customer chose not to give one. */
   email: string;
 };
@@ -229,10 +236,14 @@ export function validateLead(input: LeadInput): ValidationResult {
   const cameras = (CAMERA_OPTIONS as readonly string[]).includes(rawCameras)
     ? rawCameras
     : "";
+  const rawEmployees = clean(input.employees, LIMITS.employees);
+  const employees = (EMPLOYEE_OPTIONS as readonly string[]).includes(rawEmployees)
+    ? rawEmployees
+    : "";
 
   const lead: ValidLead | null =
     Object.keys(fieldErrors).length === 0 && phone && email !== null
-      ? { name, phone, location, protecting, cameras, email }
+      ? { name, phone, location, protecting, cameras, employees, email }
       : null;
 
   if (clean(input[HONEYPOT_FIELD as "website"], 200) !== "") {
@@ -282,6 +293,7 @@ export function toErpPayload(
   const parts = [
     `Protecting: ${lead.protecting}`,
     lead.cameras ? `Cameras: ${lead.cameras}` : "",
+    lead.employees ? `Employees: ${lead.employees}` : "",
     attribution.page ? `Page: ${attribution.page}` : "",
     attribution.cta ? `CTA: ${attribution.cta}` : "",
     attribution.landing ? `Landing: ${attribution.landing}` : "",

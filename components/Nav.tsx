@@ -10,6 +10,7 @@ import {
   SOLUTION_GROUP_LABELS,
 } from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
+import { BUSINESS } from "@/lib/seo";
 
 // "/#..." (not "#...") so links also work from /insights and other pages.
 const LINKS = [
@@ -178,11 +179,31 @@ export default function Nav() {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <LangToggle />
-          {/* Customer sign-in, not a sales CTA. The demo booking action still
-              lives in StickyDemoCTA, MobileActionBar, ChatBot, FinalCTA and the
-              footer — only this nav slot changed, so lead capture is unaffected. */}
-          <a href="/live" data-cta="nav-live" className="btn btn-primary">
+          {/* A security buyer wants to see a phone number before a sign-in
+              button. The number and WhatsApp are always visible on desktop;
+              the sales action is the free audit; Live view (customer sign-in)
+              stays as a quiet text link. */}
+          <a
+            href={`tel:${BUSINESS.phoneE164}`}
+            data-cta="nav-call"
+            className="hidden text-sm text-ink-soft transition-colors hover:text-ink lg:inline-flex"
+          >
+            {BUSINESS.phone}
+          </a>
+          <a
+            href={BUSINESS.whatsapp}
+            target="_blank"
+            rel="noopener"
+            data-cta="nav-whatsapp"
+            className="text-sm text-ink-soft transition-colors hover:text-ink"
+          >
+            WhatsApp
+          </a>
+          <a href="/live" data-cta="nav-live" className="text-sm text-ink-soft transition-colors hover:text-ink">
             {t("Live view", "लाइव व्यू")}
+          </a>
+          <a href="/free-audit" data-cta="nav-audit" className="btn btn-primary">
+            {t("Free audit", "मुफ़्त ऑडिट")}
           </a>
         </div>
 
@@ -246,6 +267,7 @@ export default function Nav() {
           <div className="pt-5">
             {[
               ...LINKS,
+              { href: "/free-audit", en: "Free camera audit", hi: "मुफ़्त कैमरा ऑडिट" },
               { href: "/areas-we-serve", en: "Areas we serve", hi: "हम जहाँ सेवा देते हैं" },
               { href: "/live", en: "Live view", hi: "लाइव व्यू" },
             ].map((l) => (

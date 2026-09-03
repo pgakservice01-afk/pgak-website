@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
+import QuickLead from "@/components/sections/QuickLead";
 import {
   formatDate,
   getAllInsights,
@@ -137,6 +138,41 @@ export default function InsightPost({ params }: Props) {
                 className="article-body mt-9"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
+
+              {/* The lighter ask for readers who are researching, not buying
+                  today: the printable checklist on attendance guides, the
+                  audit everywhere else. Either way a number is captured. */}
+              <div className="mt-10 rounded-[16px] border border-line bg-panel p-6">
+                {/attendance|proxy|payroll|shift|biometric|fingerprint|register|contract-labour/i.test(post.slug) ? (
+                  <>
+                    <p className="eyebrow mb-3">Free checklist</p>
+                    <h2 className="display text-[1.25rem]">
+                      Get the 12-question attendance buying checklist
+                    </h2>
+                    <p className="mt-2 text-[0.95rem] text-ink-soft">
+                      Printable and vendor-neutral — worth applying to us too. Leave
+                      your WhatsApp number and open it right away.
+                    </p>
+                    <div className="mt-4">
+                      <QuickLead cta="post-checklist" offer="checklist" />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="eyebrow mb-3">Free camera audit</p>
+                    <h2 className="display text-[1.25rem]">
+                      Find out what your existing cameras can already do
+                    </h2>
+                    <p className="mt-2 text-[0.95rem] text-ink-soft">
+                      A free readiness audit of your feeds, report in 48 hours, no
+                      new hardware. Your number and camera count is all we need.
+                    </p>
+                    <div className="mt-4">
+                      <QuickLead cta="post-quick" offer="audit" />
+                    </div>
+                  </>
+                )}
+              </div>
 
               {related.length > 0 && (
                 <section className="mt-14 border-t border-line pt-8">

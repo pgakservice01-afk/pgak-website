@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/solutions` },
     { url: `${SITE_URL}/features` },
     { url: `${SITE_URL}/pricing` },
+    { url: `${SITE_URL}/free-audit` },
     { url: `${SITE_URL}/roi-calculator` },
     { url: `${SITE_URL}/insights/case-studies` },
     // The blog index genuinely changes with every published post.
