@@ -59,6 +59,33 @@ const nextConfig = {
         destination: "/insights/case-studies/:slug",
         permanent: true,
       },
+
+      // The old WordPress site's real pages. Google still shows them — in the
+      // 120 days to 2026-09-03 `/career-page/` alone drew 257 impressions for
+      // brand searches — and until now every one of them 404'd. Each goes to
+      // the page that answers the same intent. Only these named paths are
+      // redirected; the gambling spam that shared the host is 410'd by
+      // middleware.ts, never redirected (see DEPLOY.md §5).
+      ...[
+        ["/career-page", "/about"],
+        ["/career/:path*", "/about"],
+        ["/about-us", "/about"],
+        ["/contact-us", "/contact"],
+        ["/home-01-one-page", "/"],
+        ["/home-06", "/"],
+        ["/landing-page-2-0", "/"],
+        ["/terms-conditions", "/terms"],
+        ["/privacy-policy", "/privacy"],
+        ["/shipping-delivery-policy", "/terms"],
+        ["/shop", "/pricing"],
+        ["/our-blog-01", "/insights"],
+        ["/category/news", "/insights"],
+        ["/our-projects3", "/insights/case-studies"],
+        ["/celebrating-remarkable-journeys-success-stories", "/insights/case-studies"],
+        ["/service/custom-ai-software-development", "/video-analytics-software"],
+        ["/service/ai-integration-advisory", "/video-analytics-software"],
+        ["/service/:path*", "/solutions"],
+      ].map(([source, destination]) => ({ source, destination, permanent: true })),
     ];
   },
 

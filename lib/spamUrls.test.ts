@@ -88,6 +88,22 @@ const REAL_ROUTES = [
   "/ai-cctv-moga",
   "/ai-cctv-hoshiarpur",
   "/ai-cctv-batala",
+  // Added 2026-09-03: the attendance and platform solutions, the lead pages,
+  // and Coimbatore. `attendance-system-for-construction-sites` is the longest
+  // real route on the site (4 hyphens) — it is what pins the structural gate.
+  "/free-audit",
+  "/cctv-buying-checklist",
+  "/biometric-attendance",
+  "/face-recognition-attendance-system",
+  "/cctv-installation-company",
+  "/video-analytics-software",
+  "/attendance-system-for-factories",
+  "/attendance-system-for-warehouses",
+  "/attendance-system-for-offices",
+  "/attendance-system-for-schools",
+  "/attendance-system-for-construction-sites",
+  "/ai-cctv-coimbatore",
+  "/terms",
   "/features/face-recognition",
   "/features/false-alarm-filtering",
   "/features/intrusion-alerts",
@@ -205,4 +221,139 @@ test("short route-shaped slugs are exempt even with spam vocabulary", () => {
   // from a route slug. Five hyphens is still route-shaped; seven is not.
   assert.equal(isSpamPath("/ai-cctv-for-hotels-and-casinos"), false); // 5
   assert.equal(isSpamPath("/a-guide-to-online-casino-games-for-you"), true); // 8
+});
+
+/**
+ * Third wave, 2026-09-03: the Search Console page report (120 days) listed 456
+ * legacy URLs and the two vocabulary tiers matched 181. These are copied
+ * verbatim from the 271 misses, one or two per new rule.
+ */
+const SPAM_URLS_ROUND_3 = [
+  // tier 0 — structure
+  "/items/X290017919",
+  "/items/B189114747",
+  "/author/admin",
+  "/tag/ai-agency",
+  "/category/111",
+  "/ctimaiyytd-qumarn-tsiri-cmiyytimizd-nlr-dyiir-pin/feed",
+  "/21752-2",
+  "/24477-2",
+  "/beginner-x27-s-guide-to-navigating-the-world-of-2",
+  "/apercu-complet-des-enjeux-du-jeu-d-x27-argent-en-5",
+  "/%CF%84%CE%B9-%CE%B5%CE%AF%CE%BD%CE%B1%CE%B9-%CE%BF%CE%B9-%CE%BA%CE%BF%CF%85%CE%BB%CE%BF%CF%87%CE%AD%CF%81%CE%B7%CE%B4%CE%B5%CF%82-cluster-pays",
+  "/τι-είναι-οι-κουλοχέρηδες-cluster-pays",
+  // tier 0 — root-level article-length slugs with no gambling word at all
+  "/exploring-the-pros-and-cons-of-online-versus",
+  "/securing-your-iot-devices-essential-strategies-for-18",
+  // tier 1 + context token (short slugs the length gate missed)
+  "/best-litecoin-casinos",
+  "/online-casino-plattformen-und-generation-z",
+  "/explore-the-complete-overview-of-gambling",
+  "/understanding-the-psychology-of-gambling-insights",
+  "/glory-online-casino-safety-and-licensing1792",
+  "/advanced-betting-guide-discover-efbet-casino",
+  // tier 2 — new languages
+  "/tipico-sportwetten-schweiz-ein-umfassender-leitfaden-fur-erfahrene-spieler",
+  "/interwetten-dart-wetten-angebot-ein-umfassender-leitfaden-fur-schweizer-spieler",
+  "/betway-bankuberweisung-osterreich-ein-umfassender-leitfaden",
+  "/estrategias-de-guest-posting-para-websites-de-cassinos",
+  "/platobne-metody-ktore-ponuka-olybet-casino",
+  "/zahranicni-sazkove-kancelare-vse-co-potrebujete-vedet",
+  "/ako-dlho-trvaju-vybery-v-europskych-kasinach-2",
+  "/jake-strategie-pouit-pi-hrani-hazardnich-her",
+  "/tipy-pro-zodpovedne-hrani-a-spravu-bankrollu-na-rollinocasino",
+  "/casual-spins-and-clear-layouts-make-pokies-easy-to-enjoy-on-any-device",
+  "/top-bookmakers-not-on-gamstop-for-united-kingdom-players-seeking-other-options",
+  "/the-changing-landscape-of-igaming-in-2026-insights-and-trends",
+  "/gokken-een-complete-gids-voor-beginners-en-experts-2",
+  "/ontdek-verborgen-geheimen-van-gokkasten",
+  "/hvem-styrer-pengespillene-i-norge-en-guide-for-spillere",
+  "/2026-samye-perspektivnye-ploshhadki-dlia-liubitelei-azartnyx",
+  "/guia-completa-de-los-juegos-de-azar-mas-populares-2",
+  "/tecnicas-avanzadas-para-maximizar-tus-ganancias-en-30",
+  "/kumar-siteleri-trkiye-canl-krupiyeli-oyunlar-sunan-online-kumar",
+  "/kumarhanelerin-kulturel-etki-alanndaki-rolu-pinco",
+  "/descubre-chicken-road-la-nueva-sensacion-en-juegos-7",
+  "/aviator-platformas-n-n-konseptual-i-cmal-nec-i-l-6693",
+  "/the-evolution-of-gaming-technology-how-pin-up",
+  "/ozwin-casino-australia-game-collection86",
+  "/big-bass-bonanza-slot-slot-review6847",
+  "/thepokies-quickfire-play-for-australian-slot-enthu",
+  "/dosificacion-de-peptidos-con-turinabol-beligas-guia-completa",
+  "/w-jaki-sposob-znane-osobistoci-wpywaj-na-wiat-gier",
+];
+
+test("410s the third wave found in Search Console", () => {
+  for (const url of SPAM_URLS_ROUND_3) {
+    assert.equal(isSpamPath(url), true, `should be spam: ${url}`);
+  }
+});
+
+/**
+ * The old WordPress site's own pages. next.config.mjs 301s every one of these
+ * before the middleware runs, but they must be safe here too — a redirect that
+ * is ever removed must fall back to a 404, never a 410.
+ */
+const LEGACY_REAL_PAGES = [
+  "/career-page",
+  "/career/innovation",
+  "/about-us",
+  "/contact-us",
+  "/home-01-one-page",
+  "/home-06",
+  "/landing-page-2-0",
+  "/terms-conditions",
+  "/privacy-policy",
+  "/shipping-delivery-policy",
+  "/shop",
+  "/our-blog-01",
+  "/our-projects3",
+  "/celebrating-remarkable-journeys-success-stories",
+  "/service/custom-ai-software-development",
+  "/service/ai-integration-advisory",
+];
+
+test("never matches the old site's real pages", () => {
+  for (const url of LEGACY_REAL_PAGES) {
+    assert.equal(isSpamPath(url), false, `must NOT be spam: ${url}`);
+  }
+});
+
+test("structural gate: root-level slugs stay safe up to six hyphens", () => {
+  // Six hyphens at the root is still a route (headroom over the real maximum
+  // of four); seven is an article title and 410s even with no gambling word.
+  assert.equal(isSpamPath("/attendance-system-for-small-businesses-in-india"), false); // 6
+  assert.equal(isSpamPath("/how-we-count-people-at-the-factory-gate"), true); // 7
+  // Nested paths are exempt from the length rule entirely.
+  assert.equal(isSpamPath("/trust/reviews/how-we-count-people-at-the-factory-gate"), false);
+  assert.equal(isSpamPath("/insights/how-we-count-people-at-the-factory-gate"), false);
+});
+
+test("context tokens are gated to tier-1 vocabulary, not standalone", () => {
+  // `best`/`guide` on their own are ordinary words; only next to `casino`,
+  // `gambling` etc. do they settle a short slug.
+  assert.equal(isSpamPath("/best-cctv-camera-for-shops"), false);
+  assert.equal(isSpamPath("/cctv-buying-guide"), false);
+  assert.equal(isSpamPath("/ai-cctv-for-casinos"), false);
+  assert.equal(isSpamPath("/casino-security"), false);
+  assert.equal(isSpamPath("/best-casino-security-guide"), true);
+});
+
+test("tier-2 brand words do not swallow ordinary names", () => {
+  // `kumar` is an Indian surname before it is Turkish for gambling, so only the
+  // compound forms observed in the index are matched.
+  assert.equal(isSpamPath("/team/rajesh-kumar"), false);
+  assert.equal(isSpamPath("/rajesh-kumar"), false);
+  assert.equal(isSpamPath("/kumarhanelerin-kulturel-etki-alanndaki-rolu-pinco"), true);
+});
+
+test("WordPress post-ID query strings are spam on any path", () => {
+  assert.equal(isSpamPath("/", "?p=20026"), true);
+  assert.equal(isSpamPath("/", "?utm_source=x&p=25024"), true);
+  assert.equal(isSpamPath("/", "?p=abc"), false);
+  assert.equal(isSpamPath("/", ""), false);
+  assert.equal(isSpamPath("/pricing", "?utm_source=tradeindia&utm_medium=listing"), false);
+  assert.equal(isSpamPath("/?p=1", ""), false); // the query is not part of the pathname
+  // Protected roots win even over the query rule.
+  assert.equal(isSpamPath("/insights", "?p=1"), false);
 });
