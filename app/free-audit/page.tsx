@@ -110,7 +110,7 @@ export default function FreeAuditPage() {
               {AUDIT_TOTAL_VALUE}. Costs nothing. No new hardware.
             </p>
             <div className="mt-8 max-w-[640px]">
-              <QuickLead cta="free-audit-hero" offer="audit" />
+              <QuickLead cta="free-audit-hero" offer="audit" spotlight />
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
                 <a
                   href={wa}

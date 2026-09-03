@@ -121,7 +121,7 @@ export default function ImageHero() {
 
           {/* The ask, in the first screen: number + camera count, one button. */}
           <div className="mt-8 max-w-[640px]">
-            <QuickLead cta="hero-quick" />
+            <QuickLead cta="hero-quick" spotlight />
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
               <a href="#how" className="link-more">
                 {t("See how it works", "देखें यह कैसे काम करता है")}

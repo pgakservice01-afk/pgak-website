@@ -348,6 +348,36 @@ body {
     @apply py-[100px];
   }
 
+  /* Lead spotlight — the free-audit form as a lit card rather than bare
+     inputs on the dark hero. Accent border, soft breathing glow (decorative,
+     stopped under prefers-reduced-motion). Tokens only, so it holds in light
+     mode too. */
+  .lead-spotlight {
+    @apply relative rounded-[20px] p-4 sm:p-5;
+    background: linear-gradient(
+      180deg,
+      rgb(var(--c-panel-2) / 0.94),
+      rgb(var(--c-panel) / 0.94)
+    );
+    border: 1px solid rgb(var(--c-accent) / 0.55);
+    box-shadow:
+      0 0 0 4px rgb(var(--c-accent) / 0.08),
+      0 24px 60px -24px rgb(var(--c-accent) / 0.5);
+    animation: pgak-spotlight 3.2s ease-in-out infinite;
+  }
+  .lead-spotlight-head {
+    @apply mb-3 flex flex-wrap items-center gap-x-2.5 gap-y-1;
+  }
+  .lead-spotlight-badge {
+    @apply inline-flex items-center rounded-full bg-accent px-2.5 py-0.5 font-sans text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#04201a];
+  }
+  .lead-spotlight-title {
+    @apply font-sans text-[0.95rem] font-semibold text-ink;
+  }
+  .lead-spotlight-sub {
+    @apply basis-full text-[0.8rem] text-ink-faint sm:basis-auto sm:before:mr-2.5 sm:before:content-['·'];
+  }
+
   .field-input {
     /* 16px on mobile: anything smaller makes iOS Safari zoom the page on focus. */
     @apply rounded-[11px] border border-line bg-bg px-[15px] py-3 font-sans text-[1rem] text-ink outline-none transition-colors duration-200 focus:border-accent md:text-[0.95rem];
@@ -440,5 +470,25 @@ body {
   }
   .range::-moz-range-track {
     @apply h-1.5 rounded-full bg-line;
+  }
+}
+
+/* Breathing glow for .lead-spotlight (see @layer components). */
+@keyframes pgak-spotlight {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 4px rgb(var(--c-accent) / 0.08),
+      0 24px 60px -24px rgb(var(--c-accent) / 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px rgb(var(--c-accent) / 0.16),
+      0 28px 70px -22px rgb(var(--c-accent) / 0.75);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lead-spotlight {
+    animation: none;
   }
 }
