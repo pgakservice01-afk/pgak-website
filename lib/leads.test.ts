@@ -104,6 +104,7 @@ test("a complete, ordinary submission validates", () => {
     location: "Ludhiana",
     protecting: "Office",
     cameras: "5–15",
+    employees: "",
     email: "", // optional and not given — still a complete lead
   });
 });
@@ -121,6 +122,7 @@ test("a PHONE NUMBER ALONE is a complete lead", () => {
     location: "",
     protecting: PROTECT_UNSPECIFIED,
     cameras: "",
+    employees: "",
     email: "",
   });
 });
@@ -160,6 +162,21 @@ test("camera band: a real option is kept, anything else means 'not given'", () =
     assert.equal(r.ok, true);
     if (!r.ok) return;
     assert.equal(r.lead.cameras, "");
+  }
+});
+
+test("headcount band (attendance pages): kept when real, blank otherwise, and in the message", () => {
+  const r = validateLead({ ...GOOD, employees: "101–300" });
+  assert.equal(r.ok, true);
+  if (!r.ok) return;
+  assert.equal(r.lead.employees, "101–300");
+  const p = toErpPayload(r.lead, "www.pgak.co.in", "2026-09-03T00:00:00.000Z", "r1");
+  assert.match(p.message, /Employees: 101–300/);
+  for (const value of ["", "many", 50, undefined]) {
+    const q = validateLead({ ...GOOD, employees: value });
+    assert.equal(q.ok, true);
+    if (!q.ok) return;
+    assert.equal(q.lead.employees, "");
   }
 });
 
