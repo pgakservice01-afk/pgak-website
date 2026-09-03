@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
 import { CAMERA_OPTIONS, HONEYPOT_FIELD, normalisePhone } from "@/lib/leads";
-import { AUDIT_TOTAL_VALUE, CALLBACK_PROMISE } from "@/lib/audit";
+import { AUDIT_TOTAL_VALUE, AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
   TEL_HREF,
@@ -40,12 +40,20 @@ export type QuickOffer = "audit" | "quote" | "checklist";
 
 type Status = "idle" | "sending" | "done" | "fallback";
 
+/**
+ * `spotlight` wraps the form in a lit, accent-bordered card with a badge and
+ * a one-line promise above the fields. On the dark hero the bare inputs read
+ * as part of the background; the card makes the ask the brightest object in
+ * the first screen. Purely presentational — same fields, same submit path.
+ */
 export default function QuickLead({
   cta = "hero-quick",
   offer = "audit",
+  spotlight = false,
 }: {
   cta?: string;
   offer?: QuickOffer;
+  spotlight?: boolean;
 }) {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
@@ -71,6 +79,15 @@ export default function QuickLead({
         `${CALLBACK_PROMISE.hi} उसके बाद अगली सुबह सबसे पहले।`,
       ),
       formName: "quick_audit_request",
+      badge: t("Free", "मुफ़्त"),
+      head: t(
+        `Camera audit worth ${AUDIT_TOTAL_VALUE}`,
+        `${AUDIT_TOTAL_VALUE} मूल्य का कैमरा ऑडिट`,
+      ),
+      sub: t(
+        `Report in ${AUDIT_TURNAROUND_HOURS} hours · 2 fields, 20 seconds`,
+        `${AUDIT_TURNAROUND_HOURS} घंटों में रिपोर्ट · 2 फ़ील्ड, 20 सेकंड`,
+      ),
     },
     quote: {
       button: t("Get my quote →", "मेरा कोटेशन पाएँ →"),
@@ -84,6 +101,9 @@ export default function QuickLead({
         `${CALLBACK_PROMISE.hi} उसी कॉल पर आपको प्रति-कैमरा आँकड़ा मिलेगा। जल्दी चाहिए? अभी मैसेज करें।`,
       ),
       formName: "quick_quote_request",
+      badge: t("Quote", "कोटेशन"),
+      head: t("Your per-camera number, same day", "आपका प्रति-कैमरा आँकड़ा, उसी दिन"),
+      sub: t("2 fields, 20 seconds", "2 फ़ील्ड, 20 सेकंड"),
     },
     checklist: {
       button: t("Send me the checklist →", "मुझे चेकलिस्ट भेजें →"),
@@ -97,6 +117,9 @@ export default function QuickLead({
         "नीचे खोलें और पेज से PDF सेव करें। हम इसे WhatsApp पर भी भेजेंगे।",
       ),
       formName: "checklist_request",
+      badge: t("Free", "मुफ़्त"),
+      head: t("Printable CCTV buying checklist", "प्रिंट करने योग्य CCTV ख़रीद चेकलिस्ट"),
+      sub: t("Delivered on the spot", "तुरंत मिलती है"),
     },
   }[offer];
 
@@ -152,8 +175,22 @@ export default function QuickLead({
     setStatus("fallback");
   }
 
+  const wrap = (node: React.ReactNode) =>
+    spotlight ? (
+      <div className="lead-spotlight" data-spotlight={cta}>
+        <div className="lead-spotlight-head">
+          <span className="lead-spotlight-badge">{copy.badge}</span>
+          <span className="lead-spotlight-title">{copy.head}</span>
+          <span className="lead-spotlight-sub">{copy.sub}</span>
+        </div>
+        {node}
+      </div>
+    ) : (
+      node
+    );
+
   if (status === "done") {
-    return (
+    return wrap(
       <div
         role="status"
         className="rounded-[12px] border border-accent/30 bg-accent/[0.07] p-5"
@@ -191,11 +228,11 @@ export default function QuickLead({
             </a>
           )}
         </div>
-      </div>
+      </div>,
     );
   }
 
-  return (
+  return wrap(
     <form
       onSubmit={onSubmit}
       noValidate
@@ -309,6 +346,6 @@ export default function QuickLead({
       ) : (
         <p className="mt-2.5 text-[0.8rem] text-ink-faint">{copy.micro}</p>
       )}
-    </form>
+    </form>,
   );
 }
