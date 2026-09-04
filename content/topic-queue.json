@@ -41,7 +41,8 @@
     "primaryKeyword": "overtime calculation attendance",
     "angle": "Rounding, shift-end vs clock-time, weekly-off rates, missed punch-outs, unapproved OT. One fix each.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-04"
   },
   {
     "slug": "migrating-attendance-system-without-losing-history",
@@ -49,7 +50,8 @@
     "primaryKeyword": "migrate attendance system",
     "angle": "Export formats, parallel running, what history actually transfers, and the month-end you should never cut over on.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-04"
   },
   {
     "slug": "attendance-24x7-three-shift-operation",
