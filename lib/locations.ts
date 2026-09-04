@@ -39,6 +39,32 @@ export type Location = {
    * real industry mix — never a claim about deployments we have done.
    */
   attendanceContext?: string;
+  /**
+   * Named sub-areas of the city, each with the security pattern that geography
+   * produces. Rendered as H3s under `localAreas.heading`, so a page can say
+   * something different about Basti Nau and about the Leather Complex instead
+   * of one paragraph covering both.
+   *
+   * This is the main lever against near-duplicate city pages: measured
+   * 2026-09-04, any two city pages shared ~53% of their ten-word phrases, and
+   * Google had already clustered `/ai-cctv-jalandhar` as a duplicate with no
+   * canonical of its own. Named local geography is the part no other page can
+   * repeat.
+   */
+  areas?: { name: string; text: string }[];
+  /**
+   * City-specific FAQs. When present these REPLACE the generated set in
+   * LocationPage (and the FAQPage schema with them), so the answers stop being
+   * the same four sentences with the city name swapped.
+   */
+  faqs?: { q: string; a: string }[];
+  /**
+   * Which solution cards to show, as slugs from lib/solutions.ts. Omit to show
+   * every solution — fine for a broad market, wrong for a city whose demand is
+   * concentrated. A shorter, relevant list is both less boilerplate and a
+   * better answer for the reader.
+   */
+  solutionSlugs?: string[];
 };
 
 export const LOCATIONS: Location[] = [
@@ -72,63 +98,207 @@ export const LOCATIONS: Location[] = [
     city: "Jalandhar",
     region: "Punjab",
     hasOffice: false,
-    focus: "Sports goods, hand tools and leather manufacturing",
+    focus: "Sports goods, hand tools, surgical instruments and leather",
     attendanceContext:
-      "Sports goods and hand-tool units in Jalandhar run piece-rate and shift labour side by side, which makes accurate hours a payment question rather than an HR formality. Leather and tool workshops also produce the hand conditions that defeat fingerprint sensors. Because attendance runs on the entrance camera rather than a reader, the labour gate and the office door can both be covered without buying a second device.",
+      "Jalandhar pays by the piece. A sports-goods unit stitching footballs, a forging shop turning out spanners, a leather works cutting uppers — all of them settle wages against output and hours together, and most run a core staff alongside job-work hands who come and go with the order book. That is the exact combination fingerprint readers handle worst. Forging and buffing leave ridges worn flat, tanning chemicals and adhesives coat the fingertips, and a reader that rejects one worker in six turns the gate into an argument at shift change. Reading faces off the entrance camera removes the device and the queue together, and a job-work hand can be enrolled from a phone in under a minute on the morning they start rather than waiting for the supervisor with the enrolment machine.",
     intro:
-      "Jalandhar's export units — sports goods, hand tools, leather — keep high-value finished stock in small stores next to busy production floors, which is exactly where shrinkage hides. Being an hour from our Ludhiana base, it is part of our regular installation and support circuit.",
+      "Jalandhar is an export town, and the security problem here follows the money: finished goods worth lakhs sitting in a small store beside a busy production floor, in a building where three families have worked for two generations and nobody thinks to lock the internal door. Add the Doaba pattern of houses standing empty for months while the owners are abroad, and the city needs two different kinds of alert. It is a short run up the GT Road from our Ludhiana base, which puts it on the regular installation and support circuit.",
     localContext: [
       "Export houses where a finished-goods store worth lakhs sits behind a single latch, and the camera watching it is never actually watched.",
-      "Factory gates mixing workers, job-work loaders and visitors at the same time of day — face recognition sorts who belongs from who doesn't.",
-      "The Doaba reality: houses that stand locked for months while owners are abroad, needing an alert the family can act on from another continent.",
+      "Gates where staff, job-work loaders and buyers arrive in the same ten minutes, and the register cannot tell one from another.",
+      "Locked family houses in the Doaba belt that need an alert the family can act on from Vancouver or Milan, not footage to review later.",
     ],
     nearby: ["Ludhiana", "Hoshiarpur", "Amritsar", "Batala"],
+    solutionSlugs: [
+      "factory-security",
+      "ai-cctv-for-warehouses",
+      "residential-security",
+      "smart-perimeter-protection",
+      "biometric-attendance",
+      "attendance-system-for-factories",
+    ],
     localAreas: {
       heading: "Where the risk sits in Jalandhar",
-      text: "Sports-goods and hand-tool units around Basti Nau and the Focal Point, leather and rubber works towards Kapurthala Road, and a dense wholesale trade in the old city. Many of these are family-run units with mixed-age camera estates, so the practical question is almost always whether the existing DVR can feed the AI rather than whether new cameras are needed.",
+      text: "Four belts, four different problems. The pattern below is geography and industry, not a claim about work we have done here.",
     },
+    areas: [
+      {
+        name: "Basti Nau and the sports-goods cluster",
+        text: "Small multi-storey units with production on one floor and finished stock on another, connected by a common stair that suppliers, job-workers and family all use. Nothing here needs a perimeter alarm; what it needs is a camera that knows the difference between a face it has seen for eleven years and a face it has never seen, and that says so while the person is still on the stair.",
+      },
+      {
+        name: "Focal Point and the forging shops",
+        text: "Larger compounds, machinery running two shifts, scrap and finished tools both stacked in the open yard. The theft that hurts is not dramatic — it is material walking out with a legitimate vehicle at a legitimate hour. Number-plate logging at the gate turns that into a record somebody can check against the dispatch book.",
+      },
+      {
+        name: "The Leather Complex on Kapurthala Road",
+        text: "Chemical processes, wet floors, and workers whose hands rule out any contact sensor. Attendance and hygiene-zone access are the live questions here, and both run off cameras that are usually already mounted at the entrance.",
+      },
+      {
+        name: "Rainak Bazaar and the old-city wholesale",
+        text: "Shutters down at eight, deliveries at six, and a lane too narrow for anyone to see the far end. After-hours shutter activity is the alert that matters, and it has to reach a phone rather than sound a siren in a residential lane.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Will this work on the DVRs already in Jalandhar's older factory buildings?",
+        a: "Usually yes. Most units here run Hikvision, CP Plus or Dahua recorders installed in the last decade, and any of those will hand over an RTSP stream, which is all PGAK needs. The genuine question is camera placement, not camera brand: a camera aimed down a stairwell from ceiling height sees the tops of heads, and no software recovers a face from that. The free audit tells you which of your existing cameras are usable for recognition and which are only good for general recording, before you spend anything.",
+      },
+      {
+        q: "Our workers change with the order book. How fast can we add someone?",
+        a: "Under a minute, from a phone, at the gate. That matters more in Jalandhar than raw speed at the reader, because a sports-goods or hand-tool unit taking on twenty job-work hands for a shipment cannot spare the supervisor for an afternoon of enrolments. Removing someone is just as quick when the order finishes.",
+      },
+      {
+        q: "Can it watch the finished-goods store without a person watching the screen?",
+        a: "That is the point of it. You mark the store as a restricted zone with the hours it should be empty, and anyone entering outside those hours puts an alert on your phone with the clip attached. Nobody has to sit in front of a wall of feeds, which is what makes it different from the DVR you already own.",
+      },
+      {
+        q: "We are abroad for months. Can the family in Canada get the alert?",
+        a: "Yes. Alerts go to whichever phones you add to the account, in any country, with the clip attached. For a locked house in the Doaba belt the useful configuration is a boundary line rather than motion detection, so a stray dog or a passing bike does not wake anyone at three in the morning but a person crossing the wall does.",
+      },
+      {
+        q: "Who installs and supports it in Jalandhar?",
+        a: "A verified partner covering the Jalandhar belt, with our Ludhiana team behind them for anything that needs escalation. Every deployment follows the same order regardless of who turns up: free camera audit first, then software on the cameras you already own, then a fortnight of tuning against your real footage. The tuning is what decides whether the alerts stay switched on.",
+      },
+    ],
   },
   {
     slug: "amritsar",
     city: "Amritsar",
     region: "Punjab",
     hasOffice: false,
-    focus: "Wholesale trade, hotels and food processing",
+    focus: "Wholesale markets, hotels and food processing",
     attendanceContext:
-      "Wholesale trade and hotels in Amritsar share one attendance pattern: staff arrive across a long window rather than a single shift start, and turnover in kitchens and housekeeping is constant. Enrolling a new joiner in about a minute from a phone matters more here than raw throughput, and hotel entrances are usually already covered by cameras positioned well for recognition.",
+      "Amritsar's attendance problem is a rota problem, not a queue problem. A hotel near the walled city runs housekeeping, kitchen, front desk and security on four different clocks, none of which start at nine, and staff turnover in kitchens and housekeeping is high enough that the enrolment burden matters more than throughput. Food units add a second obstacle: where hygiene rules put workers in gloves, a fingerprint reader is not merely inaccurate, it is something a food-safety auditor will ask about. Reading faces off the door camera sidesteps both. Hotel entrances are usually already fitted with cameras at a sensible height for recognition, because they were installed to see arrivals in the first place.",
     intro:
-      "Amritsar runs on trade and hospitality — wholesale cloth and dry-fruit markets, hotels and guest houses around the walled city, and food-processing units on the bypass. The common thread is stock and guests moving all day, and nobody able to say who entered after closing.",
+      "Trade and hospitality run this city, and both keep their doors open long after the accounts close. Wholesale cloth, dry fruit and jewellery move through the walled-city katras all day on trust and memory; hotels and guest houses on the approaches to Harmandir Sahib turn over guests around the clock. The shared gap is simple. Everything is on camera, and nobody can say who came in after closing until somebody counts the stock and finds it short.",
     localContext: [
-      "Wholesale shops and katra godowns where the loss is discovered at stock-taking, weeks after it happened.",
-      "Hotels and guest houses that need entrance and corridor monitoring without pointing a camera at guests' privacy.",
-      "Papad, wadiyan and other food units where hygiene audits and night intrusion both need answering with the same cameras.",
+      "Katra shops and godowns where the shortfall is discovered at stock-taking, weeks after the night it walked out.",
+      "Hotels that need entrances, corridors and back-of-house covered without pointing anything intrusive at guests.",
+      "Food units where the same cameras have to answer a hygiene audit by day and an intrusion question at night.",
     ],
     nearby: ["Batala", "Jalandhar", "Ludhiana"],
+    solutionSlugs: [
+      "retail-shop-security",
+      "ai-cctv-for-warehouses",
+      "ai-intruder-detection",
+      "hospital-security",
+      "face-recognition-attendance-system",
+      "attendance-system-for-offices",
+    ],
     localAreas: {
       heading: "Where the risk sits in Amritsar",
-      text: "Wholesale markets in the walled city, hotels and guest houses on the approach roads to Harmandir Sahib, and food-processing units out towards the Majitha Road industrial pockets. Hospitality sites here need alerting that is discreet — a manager's phone, not a siren in a lobby full of guests — while the wholesale markets care mainly about after-hours shutter activity.",
+      text: "The city's risk is unusually concentrated by trade. Four pockets, four different asks — geography and industry, not a claim about deployments here.",
     },
+    areas: [
+      {
+        name: "Hall Bazaar, Guru Bazaar and the katras",
+        text: "Dense lanes, shutters within arm's reach of each other, and stock values that would surprise anyone judging by the frontage. Jewellery and cloth traders here rarely want a siren, because a false alarm in a crowded katra costs more goodwill than the risk it prevents. What works is a quiet after-hours line across the shutter and the lane in front of it, sent to two phones.",
+      },
+      {
+        name: "The hotel belt around Heritage Street",
+        text: "Guests at every hour, luggage moving constantly, and a staff door that is propped open half the night. The valuable alerts are back-of-house: the store room, the linen room, the roof access. Anything aimed at guest areas has to be discreet by design, which in practice means a manager's phone rather than a lobby alarm, and no recognition in corridors.",
+      },
+      {
+        name: "Majitha Road and the Chheharta industrial pockets",
+        text: "Papad, wadiyan, spice and cold-storage units with wide compounds and long night gaps between the last dispatch and the first shift. Boundary alerts at the wall and vehicle logging at the gate cover both the theft question and the who-came-in-with-that-truck question.",
+      },
+      {
+        name: "The bypass and the Attari trade road",
+        text: "Transport yards and warehousing serving cross-border and regional trade, where the load is on the vehicle far longer than it is in the building. Number-plate recognition at the gate is worth more here than any camera inside the shed.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Will this identify guests in our hotel?",
+        a: "No, and it should not. The sensible configuration for a hotel in Amritsar puts recognition only on staff entrances and back-of-house doors, with guest corridors either left on ordinary recording or covered by movement rules that flag a door opening at an odd hour without identifying anyone. That distinction is set during the audit, before anything is switched on, and it is written into how the site is configured rather than left to policy.",
+      },
+      {
+        q: "Our shop is in a narrow katra. Will it call the alarm every time somebody walks past?",
+        a: "Not if the line is drawn properly. Instead of motion across the whole frame, a boundary is drawn at your shutter and the strip immediately in front of it, active only in the hours you are closed. Passers-by in the lane do not cross it. Someone standing at your shutter at two in the morning does, and that goes to your phone with the clip attached.",
+      },
+      {
+        q: "We handle food. Does anything have to touch the workers' hands?",
+        a: "Nothing. That is the practical argument for camera-based attendance in a food unit: there is no shared surface at the entrance at all, which removes both the hygiene objection and the auditor's question about a contact device in a production area. Workers walk in and the entrance camera does the rest.",
+      },
+      {
+        q: "The market is busiest during the pilgrimage season. Does that break the counting?",
+        a: "Footfall counting stays reliable at crowd density; recognition is the part that degrades when a doorway is packed, because faces are obscured by other people. For a trading business the honest answer is that the after-hours alerting is the dependable half, and the daytime counting is useful for staffing decisions rather than for security.",
+      },
+      {
+        q: "Who covers Amritsar, and how long does it take?",
+        a: "A verified partner covering the Amritsar and Batala belt handles installation and support, with our Ludhiana team behind them. Most sites are live within a day of the survey. The fortnight after that is tuning against your own footage, and skipping it is the single most common reason people end up muting their own alerts.",
+      },
+    ],
   },
   {
     slug: "chandigarh-mohali",
     city: "Chandigarh & Mohali",
     region: "Punjab / Chandigarh",
     hasOffice: false,
-    focus: "Offices, showrooms and the Zirakpur warehousing corridor",
+    focus: "Corporate offices, IT parks, showrooms and the Zirakpur warehousing corridor",
     attendanceContext:
-      "Offices and showrooms across Chandigarh and Mohali rarely have a queue problem — they have an accuracy and appearance problem. A punching machine at reception is the first thing a client sees, and missed punches surface on payroll day. With attendance running on the entrance camera there is no device at reception at all, and the Zirakpur warehousing corridor gets bay-side coverage the same way.",
+      "The tricity does not have a queue at the gate; it has an accuracy problem and an appearance problem. A punching machine bolted to the wall is the first thing a client sees walking into a Mohali office, and the missed punches it generates surface on payroll day as a hundred small corrections somebody has to approve by hand. There is a second workforce nobody enrols properly: the housekeeping, security and cafeteria staff supplied by contractors, whose hours are billed to the company on the contractor's word. Attendance read from the entrance camera covers both populations from the same hardware, with nothing at reception, and the same approach works at a Zirakpur loading bay where the shift starts outdoors.",
     intro:
-      "The tricity splits into three security problems: IT and corporate offices in Mohali's IT City wanting card-free attendance, showrooms on Madhya Marg protecting displayed stock, and the Zirakpur–Dera Bassi corridor's warehouses feeding half of Punjab's e-commerce deliveries.",
+      "Three cities, three different asks, one contiguous market. Corporate and IT offices across Chandigarh and Mohali want card-free attendance and a record of who entered which room. Showrooms on the main sector roads care about displayed stock after closing and footfall while open. The Zirakpur and Dera Bassi corridor, which now handles a large share of the region's e-commerce and distribution volume, cares about vehicles and loading bays. All three are within a couple of hours of our Ludhiana base.",
     localContext: [
-      "Offices replacing biometric machines with gate face recognition — no queue at 9:30, and attendance that can't be buddy-punched.",
-      "High-street showrooms where after-hours intrusion matters as much as daytime footfall counting.",
-      "Zirakpur warehouses with vehicle movement worth logging by number plate, not by a guard's register.",
+      "Offices retiring the reception punching machine in favour of recognition at the door, with no queue and no buddy-punching.",
+      "Showrooms where the same cameras have to count daytime footfall and hold the line after the shutter comes down.",
+      "Warehouses on the Zirakpur corridor where the useful record is the number plate at the gate, not the guard's register.",
     ],
     nearby: ["Ludhiana", "Patiala", "Khanna"],
+    solutionSlugs: [
+      "ai-cctv-for-offices",
+      "retail-shop-security",
+      "ai-cctv-for-warehouses",
+      "attendance-system-for-offices",
+      "face-recognition-attendance-system",
+      "ai-intruder-detection",
+    ],
     localAreas: {
-      heading: "Where the risk sits in Chandigarh & Mohali",
-      text: "Corporate offices in the Chandigarh sectors, IT units in Mohali's Phase 8 and the Industrial Area, and the warehousing corridor that runs out through Zirakpur. Office sites tend to want attendance and restricted-room logs; the Zirakpur godowns want loading-bay and night-time perimeter cover, which are different configurations of the same cameras.",
+      heading: "Where the risk sits across the tricity",
+      text: "The three sub-markets barely overlap, and a configuration that suits one is wrong for the others. Geography and industry, not a claim about deployments here.",
     },
+    areas: [
+      {
+        name: "Chandigarh sectors and Madhya Marg showrooms",
+        text: "Glass frontages, high-value display stock and a service lane behind. The daytime question is footfall and dwell time by section, which is a merchandising answer as much as a security one. The night question is the rear service door, which is where the shutter is thinnest and the street is emptiest.",
+      },
+      {
+        name: "Mohali IT City, Phase 8 and the Rajiv Gandhi IT Park",
+        text: "Multi-tenant buildings, several entrances, and a permanent flow of visitors, delivery riders and contract staff who are not on anyone's payroll system. Recognition at the main door plus restricted-room logging for server rooms and record stores answers both the attendance question and the audit question, without a device at reception.",
+      },
+      {
+        name: "The Zirakpur, VIP Road and Dera Bassi corridor",
+        text: "Warehousing and last-mile hubs where the goods spend most of their life on a vehicle. Number-plate logging at the gate, loading-bay activity outside scheduled hours, and a boundary line along the yard wall are the three configurations that do the work here; interior cameras matter much less.",
+      },
+      {
+        name: "Kharar, New Chandigarh and the Mohali societies",
+        text: "Gated residential with a guard cabin, a boom barrier and a paper visitor register nobody can read a week later. Resident vehicles recognised automatically and visitors photo-logged at entry replaces the register with something searchable, and the RWA gets a record it can actually produce when asked.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can we take the punching machine off the reception wall entirely?",
+        a: "Yes, and for most tricity offices that is the reason they call. Attendance is read from a camera at the entrance, so there is no device, no queue at half past nine and nothing for a visitor to look at. Staff walk in as normal. The record is a timestamped entry with a face image attached, which also settles the disputes a card system cannot, because a card can be handed to a colleague and a face cannot.",
+      },
+      {
+        q: "How does it handle contractor staff we do not employ directly?",
+        a: "The same way as employees, in a separate group. Housekeeping, security and cafeteria staff are enrolled once and their hours are recorded independently of what the contractor invoices, which is usually the first time a company can check one against the other. Access can be limited to the floors and hours their contract actually covers.",
+      },
+      {
+        q: "Our building has three entrances and two tenants. Is that a problem?",
+        a: "No, it is the ordinary case here. Each entrance is a camera, and each tenant is a separate account with its own people and its own alerts, so neither sees the other's data. What matters at survey time is that at least one camera per entrance is mounted at a height where it sees faces rather than the tops of heads.",
+      },
+      {
+        q: "For the Zirakpur warehouse, what actually gets flagged?",
+        a: "Three things, in order of how often they earn their keep: a vehicle entering or leaving outside scheduled hours with its number plate logged, movement in a loading bay when no dispatch is booked, and anyone crossing the yard boundary after the last shift. Interior aisle coverage is usually the last thing to switch on, not the first.",
+      },
+      {
+        q: "Who handles the tricity, and does the Chandigarh location complicate anything?",
+        a: "A verified partner covers Chandigarh, Mohali, Zirakpur and Panchkula, with our Ludhiana team behind them. The union-territory boundary makes no difference to the deployment. What does make a difference is that many tricity buildings are leased, so it is worth confirming with the landlord that you may add software to the existing camera system before the survey. In almost every case there is nothing to add physically at all.",
+      },
+    ],
   },
   {
     slug: "patiala",
