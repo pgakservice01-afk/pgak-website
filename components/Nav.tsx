@@ -10,7 +10,6 @@ import {
   SOLUTION_GROUP_LABELS,
 } from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
-import { BUSINESS } from "@/lib/seo";
 
 // "/#..." (not "#...") so links also work from /insights and other pages.
 const LINKS = [
@@ -176,29 +175,14 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
           <LangToggle />
-          {/* A security buyer wants to see a phone number before a sign-in
-              button. The number and WhatsApp are always visible on desktop;
-              the sales action is the free audit; Live view (customer sign-in)
-              stays as a quiet text link. */}
-          <a
-            href={`tel:${BUSINESS.phoneE164}`}
-            data-cta="nav-call"
-            className="hidden text-sm text-ink-soft transition-colors hover:text-ink lg:inline-flex"
-          >
-            {BUSINESS.phone}
-          </a>
-          <a
-            href={BUSINESS.whatsapp}
-            target="_blank"
-            rel="noopener"
-            data-cta="nav-whatsapp"
-            className="text-sm text-ink-soft transition-colors hover:text-ink"
-          >
-            WhatsApp
-          </a>
+          {/* The bar carries one sales action (free audit) and one quiet
+              text link (Live view = customer sign-in). Call and WhatsApp
+              were pulled out of here to unclutter it — both still reach the
+              buyer through the floating WhatsApp button, the mobile action
+              bar, the footer and /contact, so no contact route was lost. */}
           <a href="/live" data-cta="nav-live" className="text-sm text-ink-soft transition-colors hover:text-ink">
             {t("Live view", "लाइव व्यू")}
           </a>
