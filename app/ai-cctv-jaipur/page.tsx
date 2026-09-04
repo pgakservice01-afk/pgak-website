@@ -6,15 +6,16 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("jaipur")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV in ${location.city} — Alerts, Not Just Video`,
-  description: `AI alerts on the CCTV cameras your ${location.city} site already owns — intruder detection, face recognition, fewer false alarms. Free readiness audit.`,
+  title: "AI CCTV in Jaipur — Jewellery, Hotels, Sitapura",
+  description:
+    "AI alerts on cameras your Jaipur workshop, hotel or unit already owns. Strong-room zones, discreet back-of-house cover. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
-    `AI CCTV camera ${location.city}`,
-    `CCTV installation ${location.city}`,
-    `AI intruder detection ${location.city}`,
-    `business CCTV ${location.city}`,
-    `smart security system ${location.city}`,
+    "AI CCTV Jaipur",
+    "jewellery shop security Jaipur",
+    "hotel CCTV Jaipur",
+    "strong room monitoring",
+    "factory security Sitapura",
   ],
 });
 

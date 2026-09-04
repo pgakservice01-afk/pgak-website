@@ -6,15 +6,16 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("coimbatore")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV in ${location.city} — Alerts, Not Just Video`,
-  description: `AI alerts on the CCTV cameras your ${location.city} site already owns — intruder detection, face recognition, fewer false alarms. Free readiness audit.`,
+  title: "AI CCTV in Coimbatore — Mills, Pumps, Foundries",
+  description:
+    "AI alerts on cameras your Coimbatore mill or engineering unit already owns. Shift-gate attendance that survives cotton fluff. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
-    `AI CCTV camera ${location.city}`,
-    `CCTV installation ${location.city}`,
-    `AI intruder detection ${location.city}`,
-    `face recognition attendance ${location.city}`,
-    `factory security ${location.city}`,
+    "AI CCTV Coimbatore",
+    "spinning mill security Coimbatore",
+    "factory security system in Coimbatore",
+    "shift attendance Coimbatore",
+    "engineering unit CCTV Coimbatore",
   ],
 });
 
