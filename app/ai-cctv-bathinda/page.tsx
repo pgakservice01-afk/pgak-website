@@ -8,7 +8,7 @@ const location = getLocation("bathinda")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Bathinda — Cotton, Grain and Fuel Belt",
   description:
-    "AI alerts on cameras your Bathinda yard or godown already owns. Boundary lines that ignore lint and cattle, gate plate logging. Free camera audit.",
+    "AI alerts on cameras your Bathinda yard or godown already owns. Boundary lines that ignore lint and cattle. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Bathinda",

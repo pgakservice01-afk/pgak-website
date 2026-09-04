@@ -3,6 +3,7 @@ title: "Your DVR records the theft. It doesn't stop it."
 date: "2026-07-21"
 category: "Security Basics"
 excerpt: "Most CCTV systems in India are evidence machines, not protection. Here's the difference between a camera that watches and a camera that thinks."
+metaDescription: "Most CCTV in India is an evidence machine, not protection. The difference between a camera that watches and one that thinks."
 readTime: 4
 image: "/insights/security-basics.webp"
 ---

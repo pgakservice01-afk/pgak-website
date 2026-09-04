@@ -3,6 +3,7 @@ title: "Twelve questions to ask before buying any attendance system"
 date: "2026-09-01"
 category: "Buying Guide"
 excerpt: "A vendor-neutral checklist. Print it, ask every supplier the same twelve questions, and compare the answers rather than the brochures — including ours."
+metaDescription: "A vendor-neutral checklist. Ask every supplier the same twelve questions and compare answers, not brochures — including ours."
 metaTitle: "12 questions before buying an attendance system"
 readTime: 6
 faqs:

@@ -8,7 +8,7 @@ const location = getLocation("amritsar")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Amritsar — Markets, Hotels, Food Units",
   description:
-    "AI alerts on the cameras your Amritsar shop, hotel or food unit already owns. Quiet after-hours katra alerts, discreet hotel cover. Free audit.",
+    "AI alerts on the Amritsar shop, hotel or food-unit cameras you already own. Quiet after-hours katra alerts. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Amritsar",

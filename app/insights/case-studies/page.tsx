@@ -17,7 +17,7 @@ const PATH = "/insights/case-studies";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV Use Cases — Warehouse, Factory, Retail | PGAK",
   description:
-    "Four worked scenarios showing how warehouses, factories, shops and societies would use AI CCTV on existing cameras. Illustrative, not case reports.",
+    "Four worked scenarios showing how warehouses, factories, shops and societies would use AI CCTV. Illustrative, not case reports.",
   path: PATH,
   keywords: [
     "AI CCTV case study",
@@ -42,7 +42,7 @@ export default function CaseStudiesPage() {
             path: PATH,
             name: "PGAK use-case scenarios",
             description:
-              "Worked scenarios showing how PGAK is configured for warehouses, factory gates, retail chains and housing societies using their existing cameras.",
+              "Worked scenarios showing how PGAK is configured for warehouses, factory gates, retail chains and societies on existing cameras.",
           }),
           breadcrumbSchema(TRAIL),
         ]}

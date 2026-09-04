@@ -3,7 +3,7 @@ title: "How does AI intruder detection actually work?"
 date: "2026-07-30"
 category: "Security Basics"
 excerpt: "Not magic, and not the same as motion detection. A plain explanation of what happens between a person crossing your boundary and your phone buzzing three seconds later."
-metaDescription: "Not magic, and not motion detection. What actually happens between a person crossing your boundary and your phone buzzing three seconds later."
+metaDescription: "Not magic, and not motion detection. What actually happens between a person crossing your boundary and your phone buzzing."
 readTime: 5
 ---
 

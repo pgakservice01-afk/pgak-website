@@ -14,6 +14,9 @@ export type Capability = {
   relatedKeywords: string[];
   title: string;
   description: string;
+  /** Short SERP-safe meta description (<=135 chars so it is not truncated
+   *  on mobile). Falls back to `description`, which stays the on-page copy. */
+  metaDescription?: string;
   /** One line used on the /solutions and /features grids. */
   summary: string;
   h1: string;
@@ -116,6 +119,8 @@ export const CAPABILITIES: Capability[] = [
       "CCTV False Alarm Reduction — Cut the Noise | PGAK",
     description:
       "PGAK filters animals, weather, shadows and headlights before they reach your phone, cutting false alerts by 90%+ so what you get is worth reading.",
+    metaDescription:
+      "PGAK filters animals, weather, shadows and headlights before they reach your phone, so the alerts you do get are worth reading.",
     summary:
       "Animals, rain, shadows and headlights filtered out before anything reaches your phone.",
     h1: "False-alarm filtering — the feature that makes every other feature usable",
@@ -185,6 +190,8 @@ export const CAPABILITIES: Capability[] = [
       "Real-Time CCTV Intrusion Alerts to Your Phone | PGAK",
     description:
       "Zone and line-crossing alerts in under three seconds with a snapshot, camera name and timestamp — plus optional siren, strobe and escalation.",
+    metaDescription:
+      "Zone and line-crossing alerts in seconds with a snapshot, camera name and timestamp — plus optional siren, strobe and escalation.",
     summary:
       "Zone and line-crossing alerts with a snapshot, in under three seconds.",
     h1: "Real-time intrusion alerts — because evidence at 9am is not security",
@@ -253,6 +260,8 @@ export const CAPABILITIES: Capability[] = [
       "Face Recognition Attendance — No Card, No Contact | PGAK",
     description:
       "Replace the punch machine with the cameras at your gate: automatic face-recognition attendance for factories, offices and schools, ready for payroll.",
+    metaDescription:
+      "Replace the punch machine with the cameras at your gate: face-recognition attendance for factories, offices and schools.",
     summary:
       "Automatic attendance from the gate camera. No queue, no card, no fingerprint.",
     h1: "Face recognition attendance — 200 people logged without a queue",
@@ -340,6 +349,8 @@ export const CAPABILITIES: Capability[] = [
       "Loitering Detection CCTV — Spot It Before the Theft | PGAK",
     description:
       "Dwell-time detection that flags a person lingering where they shouldn't — the most reliable pre-theft signal in warehouses, shops and perimeters.",
+    metaDescription:
+      "Dwell-time detection that flags a person lingering where they shouldn't — the most reliable pre-theft signal on a site.",
     summary:
       "Flags a person lingering where they shouldn't — the strongest pre-theft signal there is.",
     h1: "Loitering detection — theft has a shape, and it starts with standing still",
@@ -408,6 +419,8 @@ export const CAPABILITIES: Capability[] = [
       "ANPR & Vehicle Recognition — Every Gate Logged | PGAK",
     description:
       "Number plate and vehicle detection that turn a paper gate register into a searchable log — for societies, warehouses, factories and office parks.",
+    metaDescription:
+      "Number plate and vehicle detection that turns a paper gate register into a searchable log, for societies and warehouses.",
     summary:
       "Number plates and vehicle types logged at the gate, replacing the paper register.",
     h1: "Vehicle and number plate recognition — the gate register that writes itself",

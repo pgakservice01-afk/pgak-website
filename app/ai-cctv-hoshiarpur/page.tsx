@@ -8,7 +8,7 @@ const location = getLocation("hoshiarpur")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Hoshiarpur — Plywood, Timber, NRI Homes",
   description:
-    "AI alerts on cameras your Hoshiarpur unit or locked house already owns. Timber-yard boundary lines and alerts that reach you abroad. Free audit.",
+    "AI alerts on cameras your Hoshiarpur unit or locked house already owns. Timber-yard boundary lines, alerts abroad. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Hoshiarpur",

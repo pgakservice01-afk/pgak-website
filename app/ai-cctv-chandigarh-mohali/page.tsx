@@ -8,7 +8,7 @@ const location = getLocation("chandigarh-mohali")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Chandigarh & Mohali — Offices to Zirakpur",
   description:
-    "Card-free attendance for tricity offices, showroom cover after closing, number-plate logging on the Zirakpur corridor. Free camera audit.",
+    "Card-free attendance for tricity offices, showroom cover after closing, number-plate logging on the Zirakpur corridor. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Chandigarh",

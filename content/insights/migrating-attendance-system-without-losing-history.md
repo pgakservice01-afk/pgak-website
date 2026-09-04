@@ -3,6 +3,7 @@ title: "Switching attendance systems without losing history"
 date: "2026-09-04"
 category: "Attendance"
 excerpt: "Old attendance data rarely moves cleanly to a new system. What actually transfers, what export format to insist on, how long to run both systems in parallel, and the one week of the month to never cut over on."
+metaDescription: "Old attendance data rarely moves cleanly. What actually transfers, which export format to insist on, and when never to cut over."
 readTime: 5
 faqs:
   - q: "How do I migrate to a new attendance system without losing history?"

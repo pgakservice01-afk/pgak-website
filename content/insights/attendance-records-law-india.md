@@ -3,7 +3,7 @@ title: "Attendance records under Indian law: what you must keep"
 date: "2026-09-01"
 category: "Compliance"
 excerpt: "Indian labour law requires employers to maintain attendance and wage registers — and the DPDP Act now governs the biometric data many employers use to produce them. A plain-language guide to both obligations."
-metaDescription: "Indian labour law requires attendance and wage registers; the DPDP Act governs the biometric data used to produce them. A plain guide to both."
+metaDescription: "Indian labour law requires attendance and wage registers; the DPDP Act governs the biometric data behind them. A plain guide."
 metaTitle: "Attendance records under Indian law: what to keep"
 readTime: 6
 faqs:

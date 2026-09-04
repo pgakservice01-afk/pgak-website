@@ -14,7 +14,7 @@ const PATH = "/about";
 export const metadata: Metadata = pageMeta({
   title: "About PGAK — Intelligent CCTV Built for India",
   description:
-    "PGAK turns the cameras India already owns into intelligent guardians — threats caught in seconds, fewer false alarms, video processed on site.",
+    "PGAK turns the cameras India already owns into AI guardians: threats caught in seconds, fewer false alarms, video processed on site.",
   path: PATH,
   keywords: [
     "PGAK",

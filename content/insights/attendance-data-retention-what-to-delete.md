@@ -3,7 +3,7 @@ title: "Attendance data: what to keep, what to delete, when"
 date: "2026-09-03"
 category: "Compliance"
 excerpt: "Attendance retention isn't one number. The statutory register has a legal minimum keep period; the biometric template behind it doesn't, and should usually be deleted on exit. A practical schedule."
-metaDescription: "Attendance retention isn't one number. Keep the statutory register; delete the biometric template on exit. A practical retention schedule."
+metaDescription: "Attendance retention isn't one number. Keep the statutory register; delete the biometric template on exit. A practical schedule."
 readTime: 5
 faqs:
   - q: "How long should attendance data be retained in India?"

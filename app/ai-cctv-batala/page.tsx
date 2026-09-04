@@ -8,7 +8,7 @@ const location = getLocation("batala")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Batala — Foundries and Machine Tools",
   description:
-    "AI alerts on cameras your Batala foundry or workshop already owns. Attendance that survives sand and oil, plate logging at the gate. Free audit.",
+    "AI alerts on cameras your Batala foundry or workshop already owns. Attendance that survives sand and oil. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Batala",

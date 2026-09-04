@@ -45,7 +45,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle:
       "Warehouse Use Case — Cutting Shrinkage on 120 Cameras | PGAK",
     metaDescription:
-      "A worked scenario: how a 120-camera warehouse with nobody watching would use AI CCTV to flag loading-bay and after-hours activity in real time.",
+      "A worked scenario: how a 120-camera warehouse with nobody watching would flag loading-bay and after-hours activity live.",
     keywords: [
       "warehouse security use case",
       "AI CCTV camera for warehouses",
@@ -106,7 +106,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle:
       "Retail Use Case — Cutting False Alarms Staff Ignore | PGAK",
     metaDescription:
-      "A worked scenario: a shop that switched off CCTV alerts after months of false alarms, and how object classification makes them readable again.",
+      "A worked scenario: a shop that switched off CCTV alerts after months of false alarms, and what makes them readable again.",
     keywords: [
       "retail shop security system",
       "CCTV false alarm reduction",
@@ -167,7 +167,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle:
       "Factory Gate Use Case — Face Recognition vs Biometric | PGAK",
     metaDescription:
-      "A worked scenario: where a fingerprint machine fails on dusty hands, and how face recognition at the gate removes the shift-change queue.",
+      "A worked scenario: where a fingerprint machine fails on dusty hands, and how face recognition clears the shift-change queue.",
     keywords: [
       "face recognition attendance system",
       "factory security system",
@@ -232,7 +232,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle:
       "Housing Society Use Case — Automating the Gate Log | PGAK",
     metaDescription:
-      "A worked scenario: replacing a paper visitor register with resident vehicle recognition and photo-logged entries on existing gate cameras.",
+      "A worked scenario: replacing a paper visitor register with vehicle recognition and photo-logged entries on gate cameras.",
     keywords: [
       "society gate security",
       "smart home security system",

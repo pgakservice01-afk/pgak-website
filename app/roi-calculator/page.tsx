@@ -18,7 +18,7 @@ const PATH = "/roi-calculator";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV ROI Calculator — What Would It Save You? | PGAK",
   description:
-    "Enter your staff count, cameras and monthly loss to see what AI CCTV gives back each month and when it pays for itself. Runs in your browser.",
+    "Enter staff count, cameras and monthly loss to see what AI CCTV gives back each month and when it pays for itself.",
   path: PATH,
   keywords: [
     "CCTV ROI calculator",

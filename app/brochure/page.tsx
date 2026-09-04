@@ -21,7 +21,7 @@ import { CAPABILITIES } from "@/lib/capabilities";
 export const metadata: Metadata = pageMeta({
   title: "PGAK Brochure — AI CCTV on Your Existing Cameras (Printable)",
   description:
-    "A one-page PGAK brochure covering what AI CCTV does, which sites it suits, what it costs and how to get started. Print it or save it as a PDF.",
+    "A one-page PGAK brochure: what AI CCTV does, which sites it suits, and how to get started. Print it or save it as a PDF.",
   path: "/brochure",
   keywords: ["PGAK brochure", "AI CCTV brochure", "security system PDF"],
 });

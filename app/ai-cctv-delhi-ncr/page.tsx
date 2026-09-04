@@ -8,7 +8,7 @@ const location = getLocation("delhi-ncr")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Delhi NCR — Retail, Offices, Logistics",
   description:
-    "AI alerts on the cameras your NCR store, office or warehouse already owns. One record across every branch, agency hours you can check. Free audit.",
+    "AI alerts on cameras your NCR store, office or warehouse already owns. One record across every branch. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Delhi NCR",

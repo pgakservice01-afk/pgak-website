@@ -8,7 +8,7 @@ const location = getLocation("jaipur")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Jaipur — Jewellery, Hotels, Sitapura",
   description:
-    "AI alerts on cameras your Jaipur workshop, hotel or unit already owns. Strong-room zones, discreet back-of-house cover. Free camera audit.",
+    "AI alerts on cameras your Jaipur workshop, hotel or unit already owns. Strong-room zones, discreet back-of-house cover. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Jaipur",

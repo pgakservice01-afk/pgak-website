@@ -22,7 +22,7 @@ const PATH = "/solutions";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV for Warehouses, Factories, Offices & Homes | PGAK",
   description:
-    "Where PGAK's AI CCTV works: warehouses, factories, offices, retail, homes, societies, schools and hospitals — on the cameras already installed.",
+    "Where PGAK's AI CCTV works: warehouses, factories, offices, retail, homes, societies, schools and hospitals — on existing cameras.",
   path: PATH,
   keywords: [
     "AI CCTV camera",

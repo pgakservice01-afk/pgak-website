@@ -8,7 +8,7 @@ const location = getLocation("bengaluru")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Bengaluru — Campuses, Peenya, Gated",
   description:
-    "AI alerts on cameras your Bengaluru campus, unit or community already owns. One record across every entrance, agency hours checked. Free audit.",
+    "AI alerts on cameras your Bengaluru campus, unit or community already owns. One record across every entrance. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Bengaluru",

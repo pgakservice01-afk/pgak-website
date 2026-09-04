@@ -8,7 +8,7 @@ const location = getLocation("jalandhar")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Jalandhar — Sports Goods, Tools, Leather",
   description:
-    "AI alerts on the cameras your Jalandhar unit already owns. Finished-goods stores, mixed job-work gates, locked Doaba houses. Free camera audit.",
+    "AI alerts on the cameras your Jalandhar unit already owns. Finished-goods stores, mixed job-work gates. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Jalandhar",

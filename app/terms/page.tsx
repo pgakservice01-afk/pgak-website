@@ -5,7 +5,7 @@ import { BUSINESS, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Terms & Conditions — PGAK",
   description:
-    "The terms and conditions that govern PGAK's AI CCTV service: subscription, cancellation, acceptable use, video data handling, and liability.",
+    "The terms governing PGAK's AI CCTV service: subscription, cancellation, acceptable use, video data handling and liability.",
   path: "/terms",
 });
 

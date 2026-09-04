@@ -3,7 +3,7 @@ title: "How many cameras does a warehouse actually need?"
 date: "2026-09-01"
 category: "Camera Setup"
 excerpt: "Camera count is the wrong first question. Work backwards from the eight positions that matter in a warehouse and the number answers itself — usually lower than the quote you were given."
-metaDescription: "Camera count is the wrong first question. Work back from the eight positions that matter and the number answers itself — usually lower than your quote."
+metaDescription: "Camera count is the wrong first question. Work back from the eight positions that matter — usually fewer than your quote says."
 readTime: 5
 faqs:
   - q: "How many CCTV cameras does a warehouse need?"

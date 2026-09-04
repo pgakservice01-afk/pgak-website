@@ -8,7 +8,7 @@ const location = getLocation("noida")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Noida — Sectors, Expressway, Societies",
   description:
-    "AI alerts on cameras your Noida factory, office or society already owns. Contract-crew hours you can verify, searchable visitor logs. Free audit.",
+    "AI alerts on cameras your Noida factory, office or society already owns. Contract-crew hours you can verify. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Noida",

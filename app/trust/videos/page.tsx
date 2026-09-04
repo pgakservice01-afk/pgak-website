@@ -14,7 +14,7 @@ const PATH = "/trust/videos";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV Videos — Intruder Detection on Real Feeds | PGAK",
   description:
-    "Walkthroughs and live-detection clips showing PGAK AI CCTV working on real camera feeds — intruder detection, face recognition and false-alarm filtering.",
+    "Walkthroughs and live-detection clips of PGAK AI CCTV on real feeds — intruder detection, face recognition, false-alarm filtering.",
   path: PATH,
   keywords: [
     "AI CCTV demo video",

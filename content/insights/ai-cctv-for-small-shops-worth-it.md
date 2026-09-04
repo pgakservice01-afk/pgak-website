@@ -3,6 +3,7 @@ title: "Is AI CCTV worth it for a small shop?"
 date: "2026-07-26"
 category: "Retail"
 excerpt: "Sometimes no. Here's the arithmetic we run with shop owners before selling them anything, including the cases where we tell them to wait."
+metaDescription: "Sometimes no. The arithmetic we run with shop owners before selling them anything — including when we tell them to wait."
 readTime: 4
 ---
 

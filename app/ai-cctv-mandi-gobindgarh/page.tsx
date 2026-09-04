@@ -8,7 +8,7 @@ const location = getLocation("mandi-gobindgarh")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Mandi Gobindgarh — Furnaces & Scrap",
   description:
-    "AI alerts on cameras your Mandi Gobindgarh furnace or scrap yard already owns. Night-shift gate attendance and number-plate logging. Free audit.",
+    "AI alerts on cameras your Mandi Gobindgarh furnace or scrap yard already owns. Night-shift gate attendance, plate logging.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Mandi Gobindgarh",

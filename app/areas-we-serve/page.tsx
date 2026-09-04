@@ -17,7 +17,7 @@ const PATH = "/areas-we-serve";
 export const metadata: Metadata = pageMeta({
   title: "Areas We Serve — AI CCTV Across India | PGAK",
   description:
-    "Where PGAK deploys AI CCTV: Ludhiana, Delhi NCR, Gurugram, Noida, Mumbai, Bengaluru and Jaipur — plus most of India through our verified dealer network.",
+    "Where PGAK deploys AI CCTV: Ludhiana, Delhi NCR, Gurugram, Noida, Mumbai, Bengaluru and Jaipur — plus India via verified dealers.",
   path: PATH,
   keywords: [
     "AI CCTV camera India",

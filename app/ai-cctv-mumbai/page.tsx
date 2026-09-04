@@ -8,7 +8,7 @@ const location = getLocation("mumbai")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Mumbai — Retail, Bhiwandi, Societies",
   description:
-    "AI alerts on cameras your Mumbai store, Bhiwandi warehouse or society already owns. No queue at the door, quiet market alerts. Free camera audit.",
+    "AI alerts on cameras your Mumbai store, Bhiwandi warehouse or society already owns. No queue at the door. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Mumbai",

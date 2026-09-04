@@ -3,7 +3,7 @@ title: "1,000 alerts. Only one is real."
 date: "2026-07-27"
 category: "Alerts"
 excerpt: "When almost every notification is a false alarm, people stop trusting them — and the one that actually matters gets swiped away with the rest. Here's how AI cuts the noise so real threats stand out."
-metaDescription: "When almost every notification is a false alarm, people stop trusting them — and the one that actually matters gets swiped away with the rest."
+metaDescription: "When every alert is a false alarm, people stop looking — and the one that actually matters gets swiped away with the rest."
 readTime: 4
 image: "/insights/false-alarms.webp"
 ---

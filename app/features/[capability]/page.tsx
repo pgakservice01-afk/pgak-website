@@ -35,7 +35,7 @@ export function generateMetadata({
   if (!c) return {};
   return pageMeta({
     title: c.title,
-    description: c.description,
+    description: c.metaDescription ?? c.description,
     path: `/features/${c.slug}`,
     keywords: [c.primaryKeyword, ...c.relatedKeywords],
   });

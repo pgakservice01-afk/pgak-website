@@ -7,7 +7,7 @@ const solution = getSolution("ai-cctv-for-offices")!;
 
 export const metadata: Metadata = pageMeta({
   title: solution.title,
-  description: solution.description,
+  description: solution.metaDescription ?? solution.description,
   path: `/${solution.slug}`,
   keywords: [solution.primaryKeyword, ...solution.relatedKeywords],
 });

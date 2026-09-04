@@ -8,7 +8,7 @@ const location = getLocation("moga")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Moga — Dairy, Food and Cold Chain",
   description:
-    "AI alerts on cameras your Moga food or cold-chain unit already owns. Hygiene-safe attendance with nothing to touch, bay alerts. Free camera audit.",
+    "AI alerts on cameras your Moga food or cold-chain unit already owns. Hygiene-safe attendance, nothing to touch. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Moga",

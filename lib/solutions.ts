@@ -39,6 +39,9 @@ export type Solution = {
   relatedKeywords: string[];
   title: string;
   description: string;
+  /** Short SERP-safe meta description (<=135 chars so it is not truncated
+   *  on mobile). Falls back to `description`, which stays the on-page copy. */
+  metaDescription?: string;
   eyebrow: string;
   h1: string;
   /** First paragraph — must contain the primary keyword naturally. */
@@ -73,6 +76,8 @@ export const SOLUTIONS: Solution[] = [
       "AI Intruder Detection on the CCTV You Already Own | PGAK",
     description:
       "Alerts in seconds when someone crosses a line they shouldn't, on the cameras you already own — cats, shadows and headlights filtered out.",
+    metaDescription:
+      "Alerts in seconds when someone crosses a line they shouldn't, on cameras you already own — cats and headlights filtered out.",
     eyebrow: "Intrusion detection",
     h1: "AI intruder detection that alerts you in seconds, not the next morning",
     intro:
@@ -171,6 +176,8 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV for Warehouses — Stop Stock Loss at the Gate | PGAK",
     description:
       "AI that watches every aisle, dock and gate on your existing cameras, flagging loitering and after-hours movement in seconds. Cut the shrinkage.",
+    metaDescription:
+      "AI watching every aisle, dock and gate on your existing cameras, flagging loitering and after-hours movement in seconds.",
     eyebrow: "Warehouse security",
     h1: "AI CCTV for warehouses — because 120 cameras and nobody watching is not security",
     intro:
@@ -276,6 +283,8 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV for Offices — Attendance & After-Hours Alerts | PGAK",
     description:
       "Face-based attendance, tailgating detection and after-hours intrusion alerts, added to the office CCTV you already have. Free readiness audit.",
+    metaDescription:
+      "Face-based attendance, tailgating detection and after-hours intrusion alerts on the office CCTV you already have.",
     eyebrow: "Office security",
     h1: "AI CCTV for offices — quiet during the day, wide awake at night",
     intro:
@@ -365,6 +374,8 @@ export const SOLUTIONS: Solution[] = [
       "Factory Security System — AI CCTV for Gates & Floors | PGAK",
     description:
       "Gate, perimeter and shop floor on one system: automatic attendance, safety-zone monitoring and intrusion alerts on your existing industrial CCTV.",
+    metaDescription:
+      "Gate, perimeter and shop floor on one system: attendance, safety-zone monitoring and intrusion alerts on existing CCTV.",
     eyebrow: "Factory & industrial",
     h1: "Factory security that watches the gate, the fence and the floor",
     intro:
@@ -938,6 +949,8 @@ export const SOLUTIONS: Solution[] = [
       "Biometric Attendance Without the Machine | PGAK",
     description:
       "Queues at shift change, worn fingers that won't read, a register that still gets fudged. Mark attendance from the CCTV already on your wall.",
+    metaDescription:
+      "Queues at shift change, worn fingers that won't read, a register that gets fudged. Mark attendance from the CCTV on your wall.",
     eyebrow: "Attendance",
     h1: "Biometric attendance, without anyone stopping to touch a machine",
     intro:
@@ -1063,6 +1076,8 @@ export const SOLUTIONS: Solution[] = [
       "Face Recognition Attendance on Your Own Cameras | PGAK",
     description:
       "No terminal to queue at: PGAK recognises enrolled faces on your existing entrance cameras and writes a photo-backed record as people walk in.",
+    metaDescription:
+      "No terminal to queue at: PGAK recognises enrolled faces on your entrance cameras and writes a photo-backed record.",
     eyebrow: "Attendance",
     h1: "A face recognition attendance system with no machine at the gate",
     intro:
@@ -1159,6 +1174,8 @@ export const SOLUTIONS: Solution[] = [
       "CCTV Installation Company in Punjab & India | PGAK",
     description:
       "PGAK installs and services CCTV across Punjab directly and India through verified partners — every install ships with AI alerts, not just recording.",
+    metaDescription:
+      "PGAK installs and services CCTV across Punjab directly and India through partners — every install ships with AI alerts.",
     eyebrow: "Installation & service",
     h1: "A CCTV installation company that leaves you with alerts, not just footage",
     intro:
@@ -1459,6 +1476,8 @@ export const SOLUTIONS: Solution[] = [
       "Warehouse Attendance System — Every Bay Covered | PGAK",
     description:
       "PGAK recognises staff on the cameras already covering your gates and bays, so pickers, loaders and contract crews are logged wherever they enter.",
+    metaDescription:
+      "PGAK recognises staff on the cameras covering your gates and bays, so pickers, loaders and contract crews are logged.",
     eyebrow: "Attendance · Logistics",
     h1: "Warehouse attendance that covers the loading bay, not just the office door",
     intro:
@@ -1564,6 +1583,8 @@ export const SOLUTIONS: Solution[] = [
       "Office Attendance System — No Machine at Reception | PGAK",
     description:
       "Remove the reception queue and the punching machine: face recognition on your existing entrance camera logs staff in, and feeds payroll.",
+    metaDescription:
+      "Remove the reception queue and the punch machine: face recognition on your entrance camera logs staff in and feeds payroll.",
     eyebrow: "Attendance · Office",
     h1: "An office attendance system with nothing to touch at reception",
     intro:
@@ -1669,6 +1690,8 @@ export const SOLUTIONS: Solution[] = [
       "School & College Attendance System — Staff and Campus | PGAK",
     description:
       "PGAK recognises staff on existing campus cameras and logs entry automatically, while the same cameras keep watching gates and boundaries.",
+    metaDescription:
+      "PGAK recognises staff on existing campus cameras and logs entry automatically, while the same cameras watch the gates.",
     eyebrow: "Attendance · Education",
     h1: "School attendance that does not cost you the first ten minutes of the day",
     intro:
@@ -1773,6 +1796,8 @@ export const SOLUTIONS: Solution[] = [
       "Construction Site Attendance for Daily-Wage Labour | PGAK",
     description:
       "Where the workforce changes daily: face recognition on a site camera logs labour at the gate, with no reader to install on a site that moves.",
+    metaDescription:
+      "Where the workforce changes daily: face recognition on a site camera logs labour at the gate, with no reader to install.",
     eyebrow: "Attendance · Construction",
     h1: "Construction attendance for a workforce that changes every week",
     intro:

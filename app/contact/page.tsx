@@ -18,7 +18,7 @@ const PATH = "/contact";
 export const metadata: Metadata = pageMeta({
   title: "Contact PGAK — Talk to Us or Find an AI CCTV Dealer Near You",
   description:
-    "Call, WhatsApp or email PGAK, or request a verified AI CCTV dealer near you. We'll help make the security cameras you already own intelligent.",
+    "Call, WhatsApp or email PGAK, or request a verified AI CCTV dealer near you. We'll make the cameras you own intelligent.",
   path: PATH,
   keywords: [
     "contact PGAK",

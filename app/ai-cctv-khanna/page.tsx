@@ -8,7 +8,7 @@ const location = getLocation("khanna")!;
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV in Khanna — Grain Mandi and Shellers",
   description:
-    "AI alerts on cameras your Khanna sheller or godown already owns. Seasonal crew attendance, weighbridge-matching gate logs. Free camera audit.",
+    "AI alerts on cameras your Khanna sheller or godown already owns. Seasonal crew attendance, weighbridge gate logs. Free audit.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Khanna",
