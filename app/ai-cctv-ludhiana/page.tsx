@@ -6,15 +6,16 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("ludhiana")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV in ${location.city} — Alerts, Not Just Video`,
-  description: `AI alerts on the CCTV cameras your ${location.city} site already owns — intruder detection, face recognition, fewer false alarms. Free readiness audit.`,
+  title: "AI CCTV in Ludhiana — Our Home City, Our Team",
+  description:
+    "AI alerts on the cameras your Ludhiana unit already owns. Gate attendance for hosiery and cycle-parts shifts, godown cover. Surveyed by our own team.",
   path: locationPath(location.slug),
   keywords: [
-    `AI CCTV camera ${location.city}`,
-    `CCTV installation ${location.city}`,
-    `AI intruder detection ${location.city}`,
-    `business CCTV ${location.city}`,
-    `smart security system ${location.city}`,
+    "AI CCTV Ludhiana",
+    "cctv camera ludhiana",
+    "CCTV installation company in Ludhiana",
+    "factory attendance Ludhiana",
+    "warehouse security Ludhiana",
   ],
 });
 
