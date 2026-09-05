@@ -59,7 +59,8 @@
     "primaryKeyword": "3 shift attendance system",
     "angle": "Handover overlaps, midnight attribution, and why continuous operations need exit events not just entries.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-05"
   },
   {
     "slug": "onboarding-employee-into-attendance",
@@ -67,7 +68,8 @@
     "primaryKeyword": "employee onboarding attendance",
     "angle": "Enrolment cost is the hidden tax. What a fast onboarding flow looks like and why it matters for churn-heavy sites.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-05"
   },
   {
     "slug": "late-mark-policy-design",
