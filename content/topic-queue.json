@@ -77,7 +77,8 @@
     "primaryKeyword": "late mark policy",
     "angle": "Grace periods, consistency, and why an unpublished policy generates more disputes than a strict one.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-06"
   },
   {
     "slug": "attendance-seasonal-peak-workforce",
@@ -85,7 +86,8 @@
     "primaryKeyword": "seasonal workforce attendance",
     "angle": "Harvest, festival and procurement peaks. Enrolment throughput is the constraint, not storage.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-06"
   },
   {
     "slug": "face-recognition-accuracy-what-affects-it",
