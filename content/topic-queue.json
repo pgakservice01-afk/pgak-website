@@ -95,7 +95,8 @@
     "primaryKeyword": "face recognition accuracy",
     "angle": "Pixels between the eyes, angle, lighting, motion blur. Debunk blanket accuracy percentages.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-07"
   },
   {
     "slug": "masks-helmets-turbans-face-recognition",
@@ -103,7 +104,8 @@
     "primaryKeyword": "face recognition with mask helmet",
     "angle": "Honest answer per covering. Indian sites specifically — turbans and hard hats are normal.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-07"
   },
   {
     "slug": "how-many-photos-face-enrolment",
