@@ -90,6 +90,13 @@ export default function PricingPage() {
               </Link>
               .
             </p>
+            <p className="mt-4 text-[0.9rem] text-ink-faint">
+              Already a PGAK customer?{" "}
+              <Link href="/billing" className="text-accent underline underline-offset-4">
+                Manage your plan or add cameras
+              </Link>
+              .
+            </p>
           </div>
         </section>
       </main>

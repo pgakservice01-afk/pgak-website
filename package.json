@@ -5,6 +5,7 @@
   "description": "PGAK — Intelligent Security marketing site. Next.js 14 scrollytelling rebuild.",
   "scripts": {
     "dev": "next dev",
+    "mock:cloud": "node scripts/mock-cloud.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

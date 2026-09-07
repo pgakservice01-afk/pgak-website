@@ -991,10 +991,16 @@ export default function WallClient() {
           </div>
         )}
 
+        <a
+          href="/billing"
+          className="ml-auto text-[0.82rem] text-ink-soft underline-offset-2 hover:text-ink hover:underline"
+        >
+          {t("Billing", "बिलिंग")}
+        </a>
         <button
           type="button"
           onClick={signOut}
-          className="ml-auto text-[0.82rem] text-ink-soft underline-offset-2 hover:text-ink hover:underline"
+          className="text-[0.82rem] text-ink-soft underline-offset-2 hover:text-ink hover:underline"
         >
           {t("Sign out", "साइन आउट")}
         </button>
