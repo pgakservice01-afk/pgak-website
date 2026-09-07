@@ -35,6 +35,7 @@ import ChatBot from "@/components/ChatBot";
 import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
 import StickyDemoCTA from "@/components/StickyDemoCTA";
+import MarketingOverlays from "@/components/MarketingOverlays";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
@@ -143,13 +144,18 @@ export default function RootLayout({
           <Interactions />
           <ScrollProgress />
           {children}
-          {/* keeps the last of the footer clear of the mobile action bar */}
-          <div aria-hidden="true" className="h-16 md:hidden" />
-          <WhatsAppButton />
-          <MobileActionBar />
-          <ChatBot />
-          <BackToTop />
-          <StickyDemoCTA />
+          {/* Marketing furniture only — none of it on /live, /wall or
+              /billing, where a customer is signing in, watching cameras or
+              paying (see components/MarketingOverlays). */}
+          <MarketingOverlays>
+            {/* keeps the last of the footer clear of the mobile action bar */}
+            <div aria-hidden="true" className="h-16 md:hidden" />
+            <WhatsAppButton />
+            <MobileActionBar />
+            <ChatBot />
+            <BackToTop />
+            <StickyDemoCTA />
+          </MarketingOverlays>
         </LangProvider>
         <Pixel />
         <Analytics />

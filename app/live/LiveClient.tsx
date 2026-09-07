@@ -66,9 +66,9 @@ export default function LiveClient() {
     }
     if (!email.trim()) {
       setError(signup
-        ? t("Enter your work email.", "अपना वर्क ईमेल दर्ज करें।")
-        : t("Enter the work email your account was set up with.",
-            "जिस वर्क ईमेल से अकाउंट बना है वह दर्ज करें।"));
+        ? t("Enter your email.", "अपना ईमेल दर्ज करें।")
+        : t("Enter the email your account was set up with.",
+            "जिस ईमेल से अकाउंट बना है वह दर्ज करें।"));
       return;
     }
     // Accounts follow a site installation, so a code ties the new user to an
@@ -158,8 +158,24 @@ export default function LiveClient() {
 
       const data = await res.json();
       if (data?.access_token) {
-        sessionStorage.setItem("pgak_token", data.access_token);
-        window.location.href = next ?? WALL_URL;
+        try {
+          sessionStorage.setItem("pgak_token", data.access_token);
+        } catch {
+          // Safari with "Block All Cookies", some in-app browsers. Without
+          // storage the session cannot outlive this page, and calling that a
+          // network problem sends the customer to check their wifi.
+          setError(t(
+            "Your browser is blocking site storage, so sign-in cannot be kept. Allow cookies and site data for pgak.co.in, or open this page in Chrome or Safari.",
+            "आपका ब्राउज़र साइट स्टोरेज रोक रहा है, इसलिए साइन-इन नहीं रह पाएगा। pgak.co.in के लिए कुकीज़ और साइट डेटा अनुमति दें, या यह पेज Chrome या Safari में खोलें।",
+          ));
+          return;
+        }
+        setPassword("");
+        // With a destination, replace this page in history: the Back button
+        // from /billing must not land on a sign-in form with the password
+        // still typed in it.
+        if (next) window.location.replace(next);
+        else window.location.href = WALL_URL;
         return;
       }
       // Signup that needs admin approval returns no token — say so plainly
@@ -262,7 +278,7 @@ export default function LiveClient() {
                   autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 text-[0.95rem] text-ink outline-none transition-colors focus:border-accent"
+                  className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 text-[1rem] text-ink outline-none transition-colors focus:border-accent"
                 />
               </>
             )}
@@ -271,7 +287,7 @@ export default function LiveClient() {
               htmlFor="email"
               className={`${signup ? "mt-4" : "mt-6"} block text-[0.8rem] font-semibold text-ink-soft`}
             >
-              {t("Work email", "वर्क ईमेल")}
+              {t("Email", "ईमेल")}
             </label>
             <input
               id="email"
@@ -279,8 +295,8 @@ export default function LiveClient() {
               autoComplete="username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@company.com"
-              className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 text-[0.95rem] text-ink outline-none transition-colors focus:border-accent"
+              placeholder="you@example.com"
+              className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 text-[1rem] text-ink outline-none transition-colors focus:border-accent"
             />
 
             {signup && (
@@ -299,7 +315,7 @@ export default function LiveClient() {
                   onChange={(e) => setInvite(e.target.value.toUpperCase())}
                   placeholder="PG-XXXX-XXXX"
                   maxLength={16}
-                  className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 font-mono text-[0.95rem] tracking-[0.08em] text-ink outline-none transition-colors focus:border-accent"
+                  className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 font-mono text-[1rem] tracking-[0.08em] text-ink outline-none transition-colors focus:border-accent"
                 />
               </>
             )}
@@ -316,7 +332,7 @@ export default function LiveClient() {
               autoComplete={signup ? "new-password" : "current-password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 text-[0.95rem] text-ink outline-none transition-colors focus:border-accent"
+              className="mt-1.5 w-full rounded-lg border border-line bg-panel px-3 py-2.5 text-[1rem] text-ink outline-none transition-colors focus:border-accent"
             />
             {signup && (
               <p className="mt-1.5 text-[0.78rem] text-ink-faint">
@@ -345,7 +361,7 @@ export default function LiveClient() {
                 <button
                   type="button"
                   onClick={() => switchTo("signin")}
-                  className="text-accent hover:underline"
+                  className="inline-flex min-h-11 items-center px-1 text-accent hover:underline"
                 >
                   {t("Sign in", "साइन इन")}
                 </button>
@@ -356,7 +372,7 @@ export default function LiveClient() {
                 <button
                   type="button"
                   onClick={() => switchTo("signup")}
-                  className="text-accent hover:underline"
+                  className="inline-flex min-h-11 items-center px-1 text-accent hover:underline"
                 >
                   {t("Create an account", "अकाउंट बनाएँ")}
                 </button>
@@ -366,7 +382,11 @@ export default function LiveClient() {
 
           <p className="mt-4 text-center text-[0.82rem] text-ink-faint">
             {t("Not a customer yet?", "अभी ग्राहक नहीं हैं?")}{" "}
-            <a href="/#dealer" data-cta="live-to-audit" className="text-accent hover:underline">
+            <a
+              href="/#dealer"
+              data-cta="live-to-audit"
+              className="inline-flex min-h-11 items-center px-1 text-accent hover:underline"
+            >
               {t("Get a free camera audit", "मुफ़्त कैमरा ऑडिट पाएँ")}
             </a>
           </p>
