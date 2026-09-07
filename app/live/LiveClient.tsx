@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
 import { useLang } from "@/components/LangProvider";
 
@@ -31,6 +31,18 @@ export default function LiveClient() {
   const [invite, setInvite] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  // Where to send the person after sign-in. The wall by default; /billing
+  // arrives with ?next=/billing. Same-origin paths only — never a full URL, so
+  // a crafted link cannot bounce a fresh session to another site.
+  const [next, setNext] = useState<string | null>(null);
+  useEffect(() => {
+    try {
+      const n = new URLSearchParams(window.location.search).get("next");
+      if (n && n.startsWith("/") && !n.startsWith("//")) setNext(n);
+    } catch {
+      /* no usable query string — the wall it is */
+    }
+  }, []);
 
   function switchTo(next: Mode) {
     setMode(next);
@@ -147,7 +159,7 @@ export default function LiveClient() {
       const data = await res.json();
       if (data?.access_token) {
         sessionStorage.setItem("pgak_token", data.access_token);
-        window.location.href = WALL_URL;
+        window.location.href = next ?? WALL_URL;
         return;
       }
       // Signup that needs admin approval returns no token — say so plainly
@@ -213,7 +225,11 @@ export default function LiveClient() {
 
           <form onSubmit={submit} noValidate>
             <h2 className="font-display text-[1.6rem] tracking-tight text-ink">
-              {signup ? t("Create your account", "अपना अकाउंट बनाएँ") : t("Live view", "लाइव व्यू")}
+              {signup
+                ? t("Create your account", "अपना अकाउंट बनाएँ")
+                : next?.startsWith("/billing")
+                  ? t("Sign in to manage billing", "बिलिंग के लिए साइन इन करें")
+                  : t("Live view", "लाइव व्यू")}
             </h2>
             <p className="mt-1.5 text-[0.9rem] text-ink-soft">
               {signup
