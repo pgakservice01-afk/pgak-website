@@ -174,16 +174,35 @@ export const canManageBilling = (me: Me | null): boolean =>
 /** Razorpay statuses under which the customer has a live, paid mandate. */
 export const LIVE = new Set(["active", "authenticated", "charged"]);
 
-const inrFmt = new Intl.NumberFormat("en-IN", {
+// Both min and max are set: older Android WebView / Chrome engines throw a
+// RangeError when only the maximum is pushed below a currency's default of 2,
+// and a formatter that throws at import time blanks the whole page.
+const inrWhole = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
+  minimumFractionDigits: 0,
   maximumFractionDigits: 0,
 });
+const inrPaise = new Intl.NumberFormat("en-IN", {
+  style: "currency",
+  currency: "INR",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
-/** Whole rupees from paise, Indian grouping: 120000 -> "₹1,200". */
-export const inr = (paise: number): string => inrFmt.format(Math.round(paise / 100));
+/** Rupees from paise, Indian grouping: 120000 -> "₹1,200"; 120050 -> "₹1,200.50". */
+export const inr = (paise: number): string =>
+  paise % 100 === 0 ? inrWhole.format(paise / 100) : inrPaise.format(paise / 100);
 
-export const fmtDate = (iso: string | null | undefined): string =>
+/**
+ * "7 Oct 2026" in English, "7 अक्तूबर 2026" in Hindi. The language matters: a
+ * Hindi sentence with an English month in the middle reads as machine output.
+ */
+export const fmtDate = (iso: string | null | undefined, lang: "en" | "hi" = "en"): string =>
   iso
-    ? new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+    ? new Date(iso).toLocaleDateString(lang === "hi" ? "hi-IN" : "en-IN", {
+        day: "numeric",
+        month: lang === "hi" ? "long" : "short",
+        year: "numeric",
+      })
     : "";
