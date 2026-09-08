@@ -18,6 +18,7 @@ import InsightsTeaser from "@/components/sections/InsightsTeaser";
 import HardwareGrid from "@/components/sections/HardwareGrid";
 import FAQ from "@/components/sections/FAQ";
 import DealerForm from "@/components/sections/DealerForm";
+import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -81,6 +82,7 @@ export default function Home() {
         <InsightsTeaser />
         <HardwareGrid />
         <FAQ />
+        <WhoIsPgak />
         <DealerForm />
         <FinalCTA />
       </main>

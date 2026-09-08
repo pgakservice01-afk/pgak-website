@@ -48,9 +48,9 @@ export default function PhoneMockup({ className }: { className?: string }) {
           {/* app header */}
           <div className="px-4 pb-3 pt-2">
             <p className="text-[11px] uppercase tracking-[0.2em] text-ink-faint">Today</p>
-            <h5 className="font-display text-lg font-semibold leading-tight text-ink">
+            <p className="font-display text-lg font-semibold leading-tight text-ink">
               3 events
-            </h5>
+            </p>
           </div>
 
           {/* live camera tile */}

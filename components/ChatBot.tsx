@@ -59,7 +59,7 @@ const TOPICS: Topic[] = [
     qHi: "📷 क्या मेरे कैमरे चलेंगे?",
     a: "Almost certainly yes. PGAK works with CCTV, IP cameras and most DVR/NVR systems — no rip-and-replace. The free audit tells you exactly what your setup can do.",
     aHi: "लगभग निश्चित रूप से हाँ। PGAK सीसीटीवी, आईपी कैमरों और ज़्यादातर DVR/NVR सिस्टम के साथ काम करता है — कुछ भी बदलने की ज़रूरत नहीं। मुफ़्त ऑडिट बताता है कि आपका सेटअप क्या कर सकता है।",
-    link: { href: "/#audit", label: "Get the free audit →", labelHi: "मुफ़्त ऑडिट पाएँ →" },
+    link: { href: "/free-audit", label: "Get the free audit →", labelHi: "मुफ़्त ऑडिट पाएँ →" },
   },
   {
     id: "audit",
@@ -67,7 +67,7 @@ const TOPICS: Topic[] = [
     qHi: "🎁 मुफ़्त ऑडिट क्या है?",
     a: "A ₹15,995-value AI readiness audit — free. We analyse your camera feeds remotely and send a clear report within 48 hours: placement scores, face-recognition readiness, blind spots and false-alarm analysis. Zero pressure to buy.",
     aHi: "₹15,995 मूल्य का एआई-रेडीनेस ऑडिट — बिल्कुल मुफ़्त। हम आपकी कैमरा फ़ीड का रिमोट विश्लेषण करते हैं और 48 घंटों में स्पष्ट रिपोर्ट भेजते हैं: प्लेसमेंट स्कोर, फ़ेस-रिकग्निशन रेडीनेस, ब्लाइंड स्पॉट और झूठे अलार्म का विश्लेषण। ख़रीदने का कोई दबाव नहीं।",
-    link: { href: "/#audit", label: "Claim it →", labelHi: "अभी पाएँ →" },
+    link: { href: "/free-audit", label: "Claim it →", labelHi: "अभी पाएँ →" },
   },
   {
     id: "demo",

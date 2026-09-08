@@ -3,48 +3,13 @@
 import Reveal from "@/components/Reveal";
 import { fbTrack } from "@/lib/fbpixel";
 import { useLang } from "@/components/LangProvider";
+import { AUDIT_ITEMS } from "@/lib/audit";
 
 const WA_HREF = `https://wa.me/916283993600?text=${encodeURIComponent(
   "Hi PGAK! I'd like my free AI readiness audit. I have __ cameras at my __ (home / shop / factory)."
 )}`;
 
-const ITEMS: { t: string; tHi: string; d: string; dHi: string; v: string }[] = [
-  {
-    t: "Per-camera placement & feed-quality score (0–100)",
-    tHi: "प्रति-कैमरा प्लेसमेंट और फ़ीड-क्वालिटी स्कोर (0–100)",
-    d: "Height, angle, lighting and stream health — camera by camera.",
-    dHi: "ऊँचाई, कोण, रोशनी और स्ट्रीम की सेहत — हर कैमरे की।",
-    v: "₹4,999",
-  },
-  {
-    t: "Face-recognition readiness report",
-    tHi: "फ़ेस-रिकग्निशन रेडीनेस रिपोर्ट",
-    d: "Which cameras can actually identify a person — and what to change.",
-    dHi: "कौन-से कैमरे वाक़ई किसी व्यक्ति को पहचान सकते हैं — और क्या बदलना है।",
-    v: "₹2,999",
-  },
-  {
-    t: "Blind-spot & coverage map of your site",
-    tHi: "आपकी साइट का ब्लाइंड-स्पॉट और कवरेज मैप",
-    d: "Where an intruder could walk through unseen today.",
-    dHi: "आज कोई घुसपैठिया कहाँ से बिना दिखे गुज़र सकता है।",
-    v: "₹3,499",
-  },
-  {
-    t: "False-alarm analysis",
-    tHi: "झूठे अलार्म का विश्लेषण",
-    d: "Why your current system cries wolf — and what the AI would filter.",
-    dHi: "आपका मौजूदा सिस्टम बेवजह क्यों चिल्लाता है — और एआई क्या फ़िल्टर करेगा।",
-    v: "₹1,999",
-  },
-  {
-    t: "CCTV-based attendance feasibility check",
-    tHi: "सीसीटीवी-आधारित अटेंडेंस संभाव्यता जाँच",
-    d: "Can your gate cameras replace biometric machines? We'll tell you.",
-    dHi: "क्या आपके गेट कैमरे बायोमेट्रिक मशीनों की जगह ले सकते हैं? हम बताएँगे।",
-    v: "₹2,499",
-  },
-];
+const ITEMS = AUDIT_ITEMS;
 
 export default function FreeAudit() {
   const { t } = useLang();

@@ -8,13 +8,17 @@ import { isSpamPath } from "@/lib/spamUrls";
  * and the safety argument all live in `lib/spamUrls.ts`; tests in
  * `lib/spamUrls.test.ts` (`npm run test:middleware`).
  *
+ * The old site's *legitimate* URLs (`/about-us`, `/career-page`, …) never reach
+ * this file: `next.config.mjs` 301s them to their new homes first.
+ *
  * This is an accelerator, not the cure. The cure is Search Console — verify the
  * BARE `pgak.co.in` host, since that is where the spam is indexed, not `www.`
  * — then check Manual Actions and file a reconsideration request if one is
  * listed. See the "Hacked-WordPress spam cleanup" section of DEPLOY.md.
  */
 export function middleware(request: NextRequest) {
-  if (isSpamPath(request.nextUrl.pathname)) {
+  const { pathname, search } = request.nextUrl;
+  if (isSpamPath(pathname, search)) {
     // No body: 410 is consumed by crawlers, and any human who lands here came
     // from a stale search result for content that was never ours.
     return new NextResponse(null, {

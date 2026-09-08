@@ -6,15 +6,16 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("khanna")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV in ${location.city} — Alerts, Not Just Video`,
-  description: `AI alerts on the CCTV cameras your ${location.city} site already owns — intruder detection, face recognition, fewer false alarms. Free readiness audit.`,
+  title: "AI CCTV in Khanna — Grain Mandi and Shellers",
+  description:
+    "AI alerts on cameras your Khanna sheller or godown already owns. Seasonal crew attendance, weighbridge-matching gate logs. Free camera audit.",
   path: locationPath(location.slug),
   keywords: [
-    `AI CCTV camera ${location.city}`,
-    `CCTV installation ${location.city}`,
-    `AI intruder detection ${location.city}`,
-    `business CCTV ${location.city}`,
-    `smart security system ${location.city}`,
+    "AI CCTV Khanna",
+    "godown security Khanna",
+    "rice sheller CCTV Khanna",
+    "grain mandi security",
+    "seasonal attendance Khanna",
   ],
 });
 

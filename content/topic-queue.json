@@ -41,7 +41,8 @@
     "primaryKeyword": "overtime calculation attendance",
     "angle": "Rounding, shift-end vs clock-time, weekly-off rates, missed punch-outs, unapproved OT. One fix each.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-04"
   },
   {
     "slug": "migrating-attendance-system-without-losing-history",
@@ -49,7 +50,8 @@
     "primaryKeyword": "migrate attendance system",
     "angle": "Export formats, parallel running, what history actually transfers, and the month-end you should never cut over on.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-04"
   },
   {
     "slug": "attendance-24x7-three-shift-operation",
@@ -57,7 +59,8 @@
     "primaryKeyword": "3 shift attendance system",
     "angle": "Handover overlaps, midnight attribution, and why continuous operations need exit events not just entries.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-05"
   },
   {
     "slug": "onboarding-employee-into-attendance",
@@ -65,7 +68,8 @@
     "primaryKeyword": "employee onboarding attendance",
     "angle": "Enrolment cost is the hidden tax. What a fast onboarding flow looks like and why it matters for churn-heavy sites.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-05"
   },
   {
     "slug": "late-mark-policy-design",
@@ -73,7 +77,8 @@
     "primaryKeyword": "late mark policy",
     "angle": "Grace periods, consistency, and why an unpublished policy generates more disputes than a strict one.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-06"
   },
   {
     "slug": "attendance-seasonal-peak-workforce",
@@ -81,7 +86,8 @@
     "primaryKeyword": "seasonal workforce attendance",
     "angle": "Harvest, festival and procurement peaks. Enrolment throughput is the constraint, not storage.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-06"
   },
   {
     "slug": "face-recognition-accuracy-what-affects-it",
@@ -89,7 +95,8 @@
     "primaryKeyword": "face recognition accuracy",
     "angle": "Pixels between the eyes, angle, lighting, motion blur. Debunk blanket accuracy percentages.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-07"
   },
   {
     "slug": "masks-helmets-turbans-face-recognition",
@@ -97,7 +104,8 @@
     "primaryKeyword": "face recognition with mask helmet",
     "angle": "Honest answer per covering. Indian sites specifically — turbans and hard hats are normal.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-07"
   },
   {
     "slug": "how-many-photos-face-enrolment",
@@ -105,7 +113,8 @@
     "primaryKeyword": "face enrolment photos",
     "angle": "Why one photo fails, what a good enrolment set looks like, and how to fix a bad enrolment.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-08"
   },
   {
     "slug": "can-a-photo-fool-face-attendance",
@@ -113,7 +122,8 @@
     "primaryKeyword": "face recognition liveness detection",
     "angle": "Liveness detection explained plainly. What defeats a printed photo, what does not.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-08"
   },
   {
     "slug": "face-recognition-low-light-gate",

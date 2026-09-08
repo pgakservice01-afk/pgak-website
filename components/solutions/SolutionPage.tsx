@@ -2,6 +2,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
+import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -249,15 +250,15 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           <div className="wrap">
             <div className="mx-auto max-w-[720px] rounded-[22px] border border-line bg-panel p-10 text-center">
               <h2 className="display text-[clamp(1.6rem,3vw,2.2rem)]">
-                See it working on your own cameras.
+                Start with a free audit of your own cameras.
               </h2>
               <p className="mx-auto mt-3 max-w-[520px] text-ink-soft">
-                Book a free demo and watch PGAK turn one of your live feeds into
-                intelligent protection — in about 20 minutes.
+                Your number and camera count is all it takes. We call within one
+                working hour and send the report within 48 hours.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link href="#dealer" className="btn btn-primary">
-                  Book a free demo →
+                  Get my free audit →
                 </Link>
                 <Link href="/pricing" className="btn btn-ghost">
                   See pricing
@@ -267,8 +268,11 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </div>
         </section>
 
-        {/* Convert in place — same pattern as the feature pages. */}
-        <DealerForm />
+        {/* Convert in place — same pattern as the feature pages. The
+            attendance pages ask the attendance question; everyone else gets
+            the audit. */}
+        <WhoIsPgak />
+        <DealerForm variant={s.group === "attendance" ? "attendance" : "audit"} />
       </main>
 
       <Footer />

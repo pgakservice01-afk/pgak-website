@@ -117,6 +117,42 @@ cannot be done from the repo:
 **Do not** redirect the spam URLs to the homepage. It reads as a soft 404 and
 carries the spam association onto the page you most want to protect.
 
+**Re-measured 2026-09-03 (Search Console page report, 120 days).** Google
+still reported **454 URLs on the bare host against 22 real pages on `www.`**;
+the bare host drew 4,669 impressions to the real site's 2,012, almost all of it
+casino queries. The Domain property (`sc-domain:pgak.co.in`) is verified, so
+step 1 above is done. Meanwhile `/insights`, `/solutions`, `/about`,
+`/biometric-attendance` and every attendance page were "Discovered – currently
+not indexed, never crawled": Google knows they exist and is declining to fetch
+them, which is what a domain with this spam ratio looks like.
+
+What shipped that day:
+
+- `lib/spamUrls.ts` gained a **structural tier** (`/items/X…`, WordPress
+  taxonomy paths, numeric slugs, the `-x27-` entity artefact, non-ASCII paths,
+  root-level slugs of 7+ hyphens), a context-token rule for short tier-1 slugs,
+  ~60 more tier-2 terms and brands, and `?p=NNN` handling. Coverage of the 456
+  reported legacy URLs went from 181 to 422; the rest are short, wordless
+  slugs that stay ordinary 404s by design.
+- `next.config.mjs` now **301s the old site's real pages** (`/career-page`,
+  `/about-us`, `/contact-us`, `/shop`, `/privacy-policy`, …) to their new
+  homes. `/career-page/` alone had 257 impressions for brand searches.
+
+Still owner-only, in this order:
+
+1. **Search Console → Security & Manual Actions.** Open both reports for the
+   Domain property. If either lists anything, the reconsideration request in
+   step 2 above is the single highest-leverage action on this site.
+2. **Removals → New request → "Remove all URLs with this prefix"** for
+   `https://pgak.co.in/items/`. That is 119 URLs in one request. Do NOT request
+   a prefix removal of the bare root — Google applies removals to every host
+   variant of the URL, so it would hide `www.` too.
+3. **URL Inspection → Request indexing**, ten a day, in the order in
+   `~/Documents/Zoom/pgak-backlinks/07-request-indexing-order.md`.
+4. **Bing Webmaster Tools → Import from Google Search Console**, then
+   `npm run indexnow` after every deploy. Bing does not share Google's crawl
+   reluctance and indexes within a day.
+
 ---
 
 ## 6. Rotating the leaked ERP webhook secret — ✅ DONE 2026-08-14

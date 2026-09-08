@@ -40,6 +40,15 @@ export default function LocationPage({ location }: { location: Location }) {
       )
     : [];
 
+  // Showing all eighteen solution cards on every city page repeats ~200 words
+  // of identical text site-wide. A city that names the handful its market
+  // actually buys gets a shorter, more relevant block and less boilerplate.
+  const solutions = l.solutionSlugs?.length
+    ? l.solutionSlugs
+        .map((slug) => SOLUTIONS.find((x) => x.slug === slug))
+        .filter((x): x is (typeof SOLUTIONS)[number] => Boolean(x))
+    : SOLUTIONS;
+
   const trail = [
     { name: "Home", path: "/" },
     { name: "Areas we serve", path: "/areas-we-serve" },
@@ -50,7 +59,11 @@ export default function LocationPage({ location }: { location: Location }) {
   // direct-team vs dealer) so no two cities publish the same FAQ text — that
   // sameness is what tips templated location pages into doorway territory.
   const nearbyPair = l.nearby.slice(0, 2).join(" and ");
-  const faqs = [
+  // A city that has written its own answers uses them instead — same four
+  // sentences with the name swapped is what makes a set of city pages read as
+  // one page to a crawler, and the FAQPage schema carries whichever set the
+  // page actually renders.
+  const faqs = l.faqs ?? [
     {
       q: `Do you install AI CCTV in ${l.city}?`,
       a: l.hasOffice
@@ -161,6 +174,18 @@ export default function LocationPage({ location }: { location: Location }) {
               <p className="mt-6 max-w-[74ch] text-[1.02rem] leading-relaxed text-ink-soft">
                 {l.localAreas.text}
               </p>
+              {l.areas && l.areas.length > 0 && (
+                <div className="mt-9 grid gap-5 md:grid-cols-2">
+                  {l.areas.map((a) => (
+                    <div key={a.name} className="card p-7">
+                      <h3 className="text-[1.05rem] font-semibold">{a.name}</h3>
+                      <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
+                        {a.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -195,7 +220,7 @@ export default function LocationPage({ location }: { location: Location }) {
               Solutions available in {l.city}
             </h2>
             <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {SOLUTIONS.map((s) => (
+              {solutions.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/${s.slug}`}

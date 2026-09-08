@@ -6,15 +6,16 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("delhi-ncr")!;
 
 export const metadata: Metadata = pageMeta({
-  title: `AI CCTV in ${location.city} — Alerts, Not Just Video`,
-  description: `AI alerts on the CCTV cameras your ${location.city} site already owns — intruder detection, face recognition, fewer false alarms. Free readiness audit.`,
+  title: "AI CCTV in Delhi NCR — Retail, Offices, Logistics",
+  description:
+    "AI alerts on the cameras your NCR store, office or warehouse already owns. One record across every branch, agency hours you can check. Free audit.",
   path: locationPath(location.slug),
   keywords: [
-    `AI CCTV camera ${location.city}`,
-    `CCTV installation ${location.city}`,
-    `AI intruder detection ${location.city}`,
-    `business CCTV ${location.city}`,
-    `smart security system ${location.city}`,
+    "AI CCTV Delhi NCR",
+    "retail chain security Delhi",
+    "warehouse security NCR",
+    "office attendance system Delhi",
+    "CCTV installation Delhi NCR",
   ],
 });
 

@@ -28,7 +28,7 @@ function NodeLabel({ tag, title, sub }: { tag: string; title: string; sub: strin
       <span className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-accent/70">
         {tag}
       </span>
-      <h4 className="mt-1.5 text-[1.05rem] font-semibold">{title}</h4>
+      <h3 className="mt-1.5 text-[1.05rem] font-semibold">{title}</h3>
       <p className="mx-auto mt-1 max-w-[15rem] text-[0.86rem] text-ink-soft">{sub}</p>
     </div>
   );

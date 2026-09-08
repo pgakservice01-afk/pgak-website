@@ -28,7 +28,7 @@ const COMPANY: FooterLink[] = [
 ];
 
 const GET_STARTED: FooterLink[] = [
-  { t: "Free camera audit", tHi: "मुफ़्त कैमरा ऑडिट", href: "/#audit", cta: "footer-audit" },
+  { t: "Free camera audit", tHi: "मुफ़्त कैमरा ऑडिट", href: "/free-audit", cta: "footer-audit" },
   { t: "Request a call back", tHi: "कॉल-बैक का अनुरोध करें", href: "/#dealer", cta: "footer-dealer" },
   { t: "Contact us", tHi: "संपर्क करें", href: "/contact" },
   {

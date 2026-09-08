@@ -5,11 +5,13 @@ import Reveal from "@/components/Reveal";
 import { useLang } from "@/components/LangProvider";
 import {
   CAMERA_OPTIONS,
+  EMPLOYEE_OPTIONS,
   HONEYPOT_FIELD,
   PROTECT_OPTIONS,
   normalisePhone,
   type FieldErrors,
 } from "@/lib/leads";
+import { AUDIT_TOTAL_VALUE, AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
   TEL_HREF,
@@ -27,6 +29,12 @@ import {
  * promises: a free audit of the cameras the visitor already has. It used to
  * say "Find a dealer" under buttons that said "free demo" and "free audit" —
  * the visitor asked for one thing and was offered another.
+ *
+ * Two variants share the component:
+ *   - "audit"      → the free camera audit (default everywhere)
+ *   - "attendance" → the attendance feasibility check, on the attendance
+ *                    pages: same ask, plus a headcount band, because an HR
+ *                    head on those pages is not looking for a dealer.
  *
  * Fields: phone and camera band are all it needs; segment, name and city are
  * optional and the call collects what is missing. The segment is a set of
@@ -51,19 +59,48 @@ import {
  */
 const BOOKING_URL = (process.env.NEXT_PUBLIC_BOOKING_URL ?? "").trim();
 
+export type DealerFormVariant = "audit" | "attendance";
+
 type Status = "idle" | "sending" | "done" | "fallback";
 
-export default function DealerForm() {
+export default function DealerForm({ variant = "audit" }: { variant?: DealerFormVariant }) {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [retryable, setRetryable] = useState(true);
   const typed = useRef<LeadValues>({ phone: "", cameras: "" });
+  const attendance = variant === "attendance";
 
   // Stable for the component's lifetime, so a retry reuses it and the ERP can
   // collapse the duplicate rather than assigning two dealers to one customer.
   const refRef = useRef<string | null>(null);
   if (refRef.current === null) refRef.current = mintRef();
+
+  const copy = attendance
+    ? {
+        eyebrow: t("Free feasibility check", "मुफ़्त संभाव्यता जाँच"),
+        h2: t("Check if your gate cameras can do attendance.", "जाँचें कि आपके गेट कैमरे अटेंडेंस कर सकते हैं या नहीं।"),
+        intro: t(
+          `Tell us your WhatsApp number, how many cameras cover your gates and roughly how many people clock in. ${CALLBACK_PROMISE.en} You get a written feasibility answer within ${AUDIT_TURNAROUND_HOURS} hours — no biometric machine, no new hardware.`,
+          `अपना WhatsApp नंबर, गेट कवर करने वाले कैमरों की संख्या और लगभग कितने लोग हाज़िरी लगाते हैं, यह बताएँ। ${CALLBACK_PROMISE.hi} ${AUDIT_TURNAROUND_HOURS} घंटों में लिखित संभाव्यता उत्तर — कोई बायोमेट्रिक मशीन नहीं, कोई नया हार्डवेयर नहीं।`,
+        ),
+        button: t("Check my cameras →", "मेरे कैमरे जाँचें →"),
+        cta: "dealer-form-attendance",
+        formName: "attendance_feasibility_request",
+        stat3: { big: `${AUDIT_TURNAROUND_HOURS} h`, label: t("Written feasibility answer", "लिखित संभाव्यता उत्तर") },
+      }
+    : {
+        eyebrow: t("Free — no obligation", "मुफ़्त — कोई बाध्यता नहीं"),
+        h2: t("Get your free camera audit.", "अपने कैमरों का मुफ़्त ऑडिट पाएँ।"),
+        intro: t(
+          `Tell us your WhatsApp number and how many cameras you have. ${CALLBACK_PROMISE.en} Your audit report follows within ${AUDIT_TURNAROUND_HOURS} hours — on the cameras you already own.`,
+          `अपना WhatsApp नंबर और कैमरों की संख्या बताएँ। ${CALLBACK_PROMISE.hi} ${AUDIT_TURNAROUND_HOURS} घंटों में ऑडिट रिपोर्ट — आपके मौजूदा कैमरों पर।`,
+        ),
+        button: t("Get my free audit →", "मेरा मुफ़्त ऑडिट पाएँ →"),
+        cta: "dealer-form",
+        formName: "dealer_demo_request",
+        stat3: { big: `${AUDIT_TURNAROUND_HOURS} h`, label: t("Report in your hands", "रिपोर्ट आपके हाथ में") },
+      };
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -72,6 +109,7 @@ export default function DealerForm() {
     const values: LeadValues = {
       phone: String(data.get("phone") ?? "").trim(),
       cameras: String(data.get("cameras") ?? ""),
+      employees: attendance ? String(data.get("employees") ?? "") : "",
       protecting: String(data.get("protecting") ?? ""),
       name: String(data.get("name") ?? "").trim(),
       location: String(data.get("location") ?? "").trim(),
@@ -108,8 +146,8 @@ export default function DealerForm() {
 
     const out = await submitLead(values, {
       ref: refRef.current!,
-      cta: "dealer-form",
-      formName: "dealer_demo_request",
+      cta: copy.cta,
+      formName: copy.formName,
     });
 
     if (out.kind === "done") {
@@ -131,24 +169,15 @@ export default function DealerForm() {
       <div className="wrap">
         <Reveal className="grid items-center gap-10 rounded-[22px] border border-line bg-panel p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <span className="eyebrow mb-4">
-              {t("Free — no obligation", "मुफ़्त — कोई बाध्यता नहीं")}
-            </span>
-            <h2 className="display mt-4 text-[clamp(1.8rem,3.5vw,2.5rem)]">
-              {t("Get your free camera audit.", "अपने कैमरों का मुफ़्त ऑडिट पाएँ।")}
-            </h2>
-            <p className="mt-3.5 text-ink-soft">
-              {t(
-                "Tell us your WhatsApp number and how many cameras you have. We call within one working hour, 9 am to 7 pm Monday to Saturday, and send your audit report within 48 hours — on the cameras you already own.",
-                "अपना WhatsApp नंबर और कैमरों की संख्या बताएँ। हम एक कार्य-घंटे के भीतर कॉल करते हैं (सुबह 9 से शाम 7, सोमवार से शनिवार) और 48 घंटों में ऑडिट रिपोर्ट भेजते हैं — आपके मौजूदा कैमरों पर।",
-              )}
-            </p>
+            <span className="eyebrow mb-4">{copy.eyebrow}</span>
+            <h2 className="display mt-4 text-[clamp(1.8rem,3.5vw,2.5rem)]">{copy.h2}</h2>
+            <p className="mt-3.5 text-ink-soft">{copy.intro}</p>
 
             {/* Desktop only: on a phone this block pushed the first field a
                 whole screen below the heading. */}
             <div className="mt-8 hidden gap-8 lg:flex">
               <div>
-                <div className="font-display text-[2rem] leading-none">₹15,995</div>
+                <div className="font-display text-[2rem] leading-none">{AUDIT_TOTAL_VALUE}</div>
                 <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
                   {t("Audit value — yours free", "ऑडिट मूल्य — आपके लिए मुफ़्त")}
                 </div>
@@ -160,10 +189,8 @@ export default function DealerForm() {
                 </div>
               </div>
               <div>
-                <div className="font-display text-[2rem] leading-none">48 h</div>
-                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
-                  {t("Report in your hands", "रिपोर्ट आपके हाथ में")}
-                </div>
+                <div className="font-display text-[2rem] leading-none">{copy.stat3.big}</div>
+                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">{copy.stat3.label}</div>
               </div>
             </div>
           </div>
@@ -175,8 +202,8 @@ export default function DealerForm() {
               </div>
               <p className="mx-auto max-w-[40ch] text-ink-soft">
                 {t(
-                  "We call within one working hour, 9 am to 7 pm, Monday to Saturday. Outside those hours, first thing next morning.",
-                  "हम एक कार्य-घंटे के भीतर कॉल करते हैं — सुबह 9 से शाम 7, सोमवार से शनिवार। उसके बाद अगली सुबह सबसे पहले।",
+                  `${CALLBACK_PROMISE.en} Outside those hours, first thing next morning.`,
+                  `${CALLBACK_PROMISE.hi} उसके बाद अगली सुबह सबसे पहले।`,
                 )}
               </p>
               <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
@@ -184,7 +211,7 @@ export default function DealerForm() {
                   href={waContinueHref(typed.current, refRef.current!)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-cta="dealer-form-whatsapp-continue"
+                  data-cta={`${copy.cta}-whatsapp-continue`}
                   className="btn btn-primary"
                 >
                   {t("Message us on WhatsApp now", "अभी WhatsApp पर मैसेज करें")}
@@ -194,7 +221,7 @@ export default function DealerForm() {
                     href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-cta="dealer-form-book-slot"
+                    data-cta={`${copy.cta}-book-slot`}
                     className="btn btn-ghost"
                   >
                     {t("Pick a 15-minute slot", "15 मिनट का स्लॉट चुनें")}
@@ -218,20 +245,37 @@ export default function DealerForm() {
                     className="field-input"
                   />
                 </Field>
-                <Field label={t("How many cameras?", "कितने कैमरे?")} error={fieldErrors.cameras}>
-                  <select name="cameras" required defaultValue="" className="field-input">
-                    <option value="" disabled>
-                      {t("Choose a range", "एक रेंज चुनें")}
-                    </option>
-                    {CAMERA_OPTIONS.map((o) => (
-                      <option key={o} value={o}>
-                        {o === "Not sure"
-                          ? t("Not sure yet", "अभी पक्का नहीं")
-                          : `${o} ${t("cameras", "कैमरे")}`}
+                <div className={attendance ? "grid gap-3.5 sm:grid-cols-2" : ""}>
+                  <Field
+                    label={attendance ? t("Cameras on your gates", "आपके गेट पर कैमरे") : t("How many cameras?", "कितने कैमरे?")}
+                    error={fieldErrors.cameras}
+                  >
+                    <select name="cameras" required defaultValue="" className="field-input">
+                      <option value="" disabled>
+                        {t("Choose a range", "एक रेंज चुनें")}
                       </option>
-                    ))}
-                  </select>
-                </Field>
+                      {CAMERA_OPTIONS.map((o) => (
+                        <option key={o} value={o}>
+                          {o === "Not sure"
+                            ? t("Not sure yet", "अभी पक्का नहीं")
+                            : `${o} ${t("cameras", "कैमरे")}`}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                  {attendance && (
+                    <Field label={t("People who clock in", "हाज़िरी लगाने वाले लोग")}>
+                      <select name="employees" defaultValue="" className="field-input">
+                        <option value="">{t("Roughly how many?", "लगभग कितने?")}</option>
+                        {EMPLOYEE_OPTIONS.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </select>
+                    </Field>
+                  )}
+                </div>
 
                 {/* Segment chips. No default: a blank is recorded as
                     "Not specified", never as an answer the customer did not give. */}
@@ -295,7 +339,7 @@ export default function DealerForm() {
 
                 <button
                   type="submit"
-                  data-cta="dealer-form-submit"
+                  data-cta={`${copy.cta}-submit`}
                   disabled={status === "sending"}
                   className="btn btn-primary mt-1.5 w-full disabled:opacity-60"
                 >
@@ -303,7 +347,7 @@ export default function DealerForm() {
                     ? t("Sending…", "भेज रहे हैं…")
                     : status === "fallback"
                       ? t("Try again", "फिर कोशिश करें")
-                      : t("Get my free audit →", "मेरा मुफ़्त ऑडिट पाएँ →")}
+                      : copy.button}
                 </button>
                 <p className="text-center text-[0.78rem] text-ink-faint">
                   {t(
@@ -331,14 +375,14 @@ export default function DealerForm() {
                       href={waFallbackHref(typed.current)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      data-cta="dealer-form-whatsapp-fallback"
+                      data-cta={`${copy.cta}-whatsapp-fallback`}
                       className="btn btn-primary"
                     >
                       {t("Send on WhatsApp", "WhatsApp पर भेजें")}
                     </a>
                     <a
                       href={TEL_HREF}
-                      data-cta="dealer-form-call-fallback"
+                      data-cta={`${copy.cta}-call-fallback`}
                       className="btn btn-ghost"
                     >
                       {t("Call", "कॉल करें")} {PHONE_DISPLAY}

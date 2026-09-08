@@ -21,6 +21,7 @@ import { BUSINESS } from "./seo";
 export type LeadValues = {
   phone: string;
   cameras: string;
+  employees?: string;
   name?: string;
   location?: string;
   protecting?: string;
@@ -62,6 +63,7 @@ export async function submitLead(
         location: values.location ?? "",
         protecting: values.protecting ?? "",
         cameras: values.cameras,
+        employees: values.employees ?? "",
         email: values.email ?? "",
         [HONEYPOT_FIELD]: values.honeypot ?? "",
         ref: opts.ref,
@@ -114,6 +116,7 @@ export function waContinueHref(v: LeadValues, ref: string): string {
     v.name ? `Name: ${v.name}` : "",
     `Phone: ${v.phone}`,
     v.cameras ? `Cameras: ${v.cameras}` : "",
+    v.employees ? `People: ${v.employees}` : "",
     v.protecting ? `Protecting: ${v.protecting}` : "",
     v.location ? `City: ${v.location}` : "",
     `Ref: ${ref.slice(0, 8)}`,

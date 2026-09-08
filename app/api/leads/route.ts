@@ -236,8 +236,13 @@ async function notifyNewLead(
     .filter(Boolean)
     .join("\n");
 
+  // A checklist request is a researcher, not a buyer: send the checklist on
+  // WhatsApp and call only if the camera band says it is worth a call.
+  const checklist = (attribution.cta ?? "").includes("checklist");
   const text =
-    `🟢 New website lead — call within the hour\n\n` +
+    (checklist
+      ? `📋 Checklist request — WhatsApp them the checklist; call if 5+ cameras\n\n`
+      : `🟢 New website lead — call within the hour\n\n`) +
     `Name: ${lead.name || "(not given)"}\n` +
     `Phone: ${lead.phone}\n` +
     `Cameras: ${lead.cameras || "(not given)"}\n` +

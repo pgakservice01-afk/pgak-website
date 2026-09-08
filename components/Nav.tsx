@@ -175,14 +175,19 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
           <LangToggle />
-          {/* Customer sign-in, not a sales CTA. The demo booking action still
-              lives in StickyDemoCTA, MobileActionBar, ChatBot, FinalCTA and the
-              footer — only this nav slot changed, so lead capture is unaffected. */}
-          <a href="/live" data-cta="nav-live" className="btn btn-primary">
+          {/* The bar carries one sales action (free audit) and one quiet
+              text link (Live view = customer sign-in). Call and WhatsApp
+              were pulled out of here to unclutter it — both still reach the
+              buyer through the floating WhatsApp button, the mobile action
+              bar, the footer and /contact, so no contact route was lost. */}
+          <a href="/live" data-cta="nav-live" className="text-sm text-ink-soft transition-colors hover:text-ink">
             {t("Live view", "लाइव व्यू")}
+          </a>
+          <a href="/free-audit" data-cta="nav-audit" className="btn btn-primary">
+            {t("Free audit", "मुफ़्त ऑडिट")}
           </a>
         </div>
 
@@ -246,6 +251,7 @@ export default function Nav() {
           <div className="pt-5">
             {[
               ...LINKS,
+              { href: "/free-audit", en: "Free camera audit", hi: "मुफ़्त कैमरा ऑडिट" },
               { href: "/areas-we-serve", en: "Areas we serve", hi: "हम जहाँ सेवा देते हैं" },
               { href: "/live", en: "Live view", hi: "लाइव व्यू" },
             ].map((l) => (
