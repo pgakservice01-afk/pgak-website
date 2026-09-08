@@ -3,6 +3,7 @@ title: "Attendance for a 24x7 three-shift operation"
 date: "2026-09-05"
 category: "Attendance"
 excerpt: "A 3 shift attendance system doesn't fail on the day shift. It fails at midnight, at handover, and the moment nobody records an exit. Here's what actually breaks and how to fix it."
+metaDescription: "A 3 shift attendance system fails at midnight, at handover and when nobody records an exit. What breaks in a 24x7 operation, and how to fix it."
 readTime: 6
 faqs:
   - q: "What is the biggest problem with a 3 shift attendance system?"

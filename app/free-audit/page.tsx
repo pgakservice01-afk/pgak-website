@@ -25,7 +25,7 @@ const PATH = "/free-audit";
 export const metadata: Metadata = pageMeta({
   title: "Free AI Readiness Audit of Your CCTV Cameras | PGAK",
   description:
-    "Send your number and camera count. We audit your existing cameras remotely and send a report within 48 hours: placement scores, blind spots, false alarms, attendance feasibility. Free.",
+    "Send your number and camera count. We audit your existing cameras remotely and send a free report in 48 hours: blind spots, placement, false alarms.",
   path: PATH,
   keywords: ["free CCTV audit", "AI camera audit", "CCTV readiness check", "camera placement audit"],
 });

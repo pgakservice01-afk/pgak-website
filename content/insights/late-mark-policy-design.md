@@ -3,6 +3,7 @@ title: "Designing a late-mark policy people accept"
 date: "2026-09-06"
 category: "Attendance"
 excerpt: "Most late-mark disputes aren't about the minutes — they're about a policy nobody wrote down. A grace period, an escalation ladder and a timestamp everyone trusts fix most of it."
+metaDescription: "Most late-mark disputes are about a policy nobody wrote down. A grace period, an escalation ladder and a timestamp everyone trusts fix most of it."
 readTime: 5
 faqs:
   - q: "What is a good grace period for a late mark policy?"

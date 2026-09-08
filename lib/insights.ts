@@ -37,7 +37,11 @@ export type InsightMeta = {
    * Both are optional and fall back to `title` / `excerpt`.
    */
   metaTitle?: string;
-  metaDescription?: string;
+  /**
+   * Always populated by `toMeta`: the frontmatter value when the post sets
+   * one, otherwise the excerpt clamped to a length Google will actually show.
+   */
+  metaDescription: string;
   readTime: number; // minutes
   /** Optional cover image, e.g. "/insights/my-post.jpg" in /public. */
   image?: string;
@@ -130,6 +134,36 @@ function clampToToday(iso: string): string {
   return iso > today ? today : iso;
 }
 
+/**
+ * Google renders roughly 155–160 characters of a description and drops the
+ * rest, so anything longer is a snippet the author never got to write. The
+ * `excerpt` is written for the article card, where length is free — when a
+ * post ships without an explicit `metaDescription`, that card text is what
+ * lands in the search result, and the daily publishing routine has shipped
+ * 180–210 character excerpts. Clamp on the way out, at a sentence boundary
+ * where one fits and a word boundary otherwise, so no snippet is ever cut
+ * mid-word.
+ */
+const META_DESCRIPTION_MAX = 155;
+
+function clampDescription(text: string): string {
+  const clean = text.trim().replace(/\s+/g, " ");
+  if (clean.length <= META_DESCRIPTION_MAX) return clean;
+
+  const window = clean.slice(0, META_DESCRIPTION_MAX + 1);
+  const sentenceEnd = Math.max(
+    window.lastIndexOf(". "),
+    window.lastIndexOf("? "),
+    window.lastIndexOf("! ")
+  );
+  // Only cut at a sentence if enough of the description survives to be useful.
+  if (sentenceEnd >= 80) return window.slice(0, sentenceEnd + 1);
+
+  const wordEnd = window.lastIndexOf(" ");
+  const body = window.slice(0, wordEnd > 0 ? wordEnd : META_DESCRIPTION_MAX);
+  return `${body.replace(/[\s,;:—–-]+$/, "")}…`;
+}
+
 function toMeta(
   slug: string,
   data: Record<string, unknown>,
@@ -143,9 +177,9 @@ function toMeta(
     category: String(data.category ?? "Insights"),
     excerpt: String(data.excerpt ?? content.trim().slice(0, 160)),
     metaTitle: data.metaTitle ? String(data.metaTitle) : undefined,
-    metaDescription: data.metaDescription
-      ? String(data.metaDescription)
-      : undefined,
+    metaDescription: clampDescription(
+      String(data.metaDescription ?? data.excerpt ?? content.trim())
+    ),
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
     image: data.image ? String(data.image) : undefined,
     updated: data.updated ? clampToToday(String(data.updated)) : undefined,

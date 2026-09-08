@@ -3,6 +3,7 @@ title: "What actually affects face recognition accuracy"
 date: "2026-09-07"
 category: "Attendance"
 excerpt: "A vendor's 99% accuracy number tells you almost nothing about your gate. Pixel count, camera angle, lighting and motion are what actually decide whether a face is recognised."
+metaDescription: "A vendor's 99% accuracy claim says little about your gate. Pixels between the eyes, camera angle, lighting and motion blur decide the real result."
 readTime: 5
 faqs:
   - q: "What affects face recognition accuracy the most?"

@@ -3,6 +3,7 @@ title: "Getting a new joiner onto attendance in five minutes"
 date: "2026-09-05"
 category: "Attendance"
 excerpt: "Every day a new joiner isn't enrolled is a day of manual entries, disputes and HR chasing paperwork. Employee onboarding attendance shouldn't take longer than the induction talk."
+metaDescription: "Enrolling a new joiner should take minutes, not a week. Where employee onboarding attendance stalls, and why enrolment time costs more than misses."
 readTime: 5
 faqs:
   - q: "What does employee onboarding attendance actually involve?"
