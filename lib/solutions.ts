@@ -270,10 +270,10 @@ export const SOLUTIONS: Solution[] = [
       "business CCTV",
       "workplace access monitoring",
       "tailgating detection",
-      "employee attendance system",
+      "after-hours office intrusion",
     ],
     title:
-      "AI CCTV for Offices — Attendance & After-Hours Alerts | PGAK",
+      "AI CCTV for Offices — Tailgating & After-Hours Alerts | PGAK",
     description:
       "Face-based attendance, tailgating detection and after-hours intrusion alerts, added to the office CCTV you already have. Free readiness audit.",
     eyebrow: "Office security",
@@ -341,7 +341,7 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes. Each site processes locally and reports into one dashboard, with role-based access so branch managers see their own site and head office sees everything.",
       },
     ],
-    related: ["residential-security", "retail-shop-security", "ai-intruder-detection"],
+    related: ["biometric-attendance", "residential-security", "ai-intruder-detection"],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -931,8 +931,8 @@ export const SOLUTIONS: Solution[] = [
       "biometric attendance system",
       "fingerprint attendance system",
       "face recognition attendance",
-      "attendance machine",
-      "biometric time attendance system",
+      "ai cctv camera for attendance",
+      "ai attendance system",
     ],
     title:
       "Biometric Attendance Without the Machine | PGAK",
@@ -1057,7 +1057,7 @@ export const SOLUTIONS: Solution[] = [
       "attendance system using face recognition",
       "face id attendance system",
       "face detection attendance system",
-      "face scanning attendance system",
+      "camera based attendance system",
     ],
     title:
       "Face Recognition Attendance on Your Own Cameras | PGAK",
@@ -1139,6 +1139,7 @@ export const SOLUTIONS: Solution[] = [
       "face-recognition-attendance-vs-biometric-machine",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "is-ai-cctv-legal-in-india-dpdp-act",
+      "aadhaar-based-attendance-and-aebas-explained",
       "how-to-stop-proxy-attendance",
       "what-to-check-before-buying-attendance-system",
     ],
