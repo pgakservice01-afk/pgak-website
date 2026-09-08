@@ -3,6 +3,8 @@ title: "Helmets, turbans and masks: what face recognition can handle"
 date: "2026-09-07"
 category: "Attendance"
 excerpt: "Turbans, hard hats, surgical masks — the honest answer is different for each. Here is what face recognition attendance can actually handle at an Indian factory gate, and where it needs a fallback."
+metaTitle: "Face recognition with helmets, turbans and masks"
+metaDescription: "Turbans and hard hats are fine. Masks, visors and sunglasses are not. What face recognition attendance really handles at an Indian factory gate."
 readTime: 5
 faqs:
   - q: "Does face recognition work for employees wearing turbans?"

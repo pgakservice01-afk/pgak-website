@@ -68,7 +68,7 @@ export default function CustomerTrust() {
               <div className="mb-[18px] grid h-[46px] w-[46px] place-items-center rounded-xl bg-gradient-to-br from-accent to-accent-2 text-[#04201a] shadow-[0_10px_24px_-12px_#7cf5c4] transition-transform duration-300 group-hover:scale-105">
                 <Icon name={p.ic} size={24} strokeWidth={1.8} />
               </div>
-              <h4 className="mb-2 text-[1.2rem] font-semibold">{t(p.t, p.tHi)}</h4>
+              <h3 className="mb-2 text-[1.2rem] font-semibold">{t(p.t, p.tHi)}</h3>
               <p className="text-[0.93rem] text-ink-soft">{t(p.d, p.dHi)}</p>
               {p.href && (
                 <Link

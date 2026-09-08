@@ -214,13 +214,13 @@ export default function HowItWorks() {
                   <div className="font-display text-[0.7rem] font-semibold tracking-[0.18em] text-accent/70">
                     {t("STEP", "चरण")} {s.n}
                   </div>
-                  <h4
+                  <h3
                     className={`mt-0.5 text-[1.15rem] font-semibold ${
                       i === active ? "text-ink" : "text-ink-soft"
                     }`}
                   >
                     {t(s.t, s.tHi)}
-                  </h4>
+                  </h3>
                   <p className="mt-1 text-[0.92rem] text-ink-soft">
                     {t(s.d, s.dHi)}
                   </p>

@@ -3,6 +3,7 @@ title: "Attendance when your workforce triples for a season"
 date: "2026-09-06"
 category: "Attendance"
 excerpt: "Harvest, festival and procurement peaks don't break attendance systems by running out of storage — they break them by running out of enrolment time. Plan for the bottleneck that actually shows up."
+metaDescription: "Seasonal peaks don't break attendance systems by running out of storage. They run out of enrolment time. Plan for the bottleneck that shows up."
 readTime: 5
 faqs:
   - q: "What actually breaks when a seasonal workforce is added quickly?"
