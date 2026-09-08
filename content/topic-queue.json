@@ -113,7 +113,8 @@
     "primaryKeyword": "face enrolment photos",
     "angle": "Why one photo fails, what a good enrolment set looks like, and how to fix a bad enrolment.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-08"
   },
   {
     "slug": "can-a-photo-fool-face-attendance",
@@ -121,7 +122,8 @@
     "primaryKeyword": "face recognition liveness detection",
     "angle": "Liveness detection explained plainly. What defeats a printed photo, what does not.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-08"
   },
   {
     "slug": "face-recognition-low-light-gate",
