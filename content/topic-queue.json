@@ -131,7 +131,8 @@
     "primaryKeyword": "face recognition low light",
     "angle": "Why a lamp is often cheaper than a camera. IR limitations for identification vs detection.",
     "category": "Camera Setup",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-09"
   },
   {
     "slug": "camera-resolution-vs-distance",
@@ -139,7 +140,8 @@
     "primaryKeyword": "cctv camera resolution distance",
     "angle": "Pixels-per-metre. Why 4MP at 40m identifies nobody. Give a simple table.",
     "category": "Camera Setup",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-09"
   },
   {
     "slug": "dvr-vs-nvr-which-do-you-have",
