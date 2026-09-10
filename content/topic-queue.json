@@ -149,7 +149,8 @@
     "primaryKeyword": "dvr vs nvr difference",
     "angle": "Practical identification guide, and what each means for adding analytics later.",
     "category": "Camera Setup",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-10"
   },
   {
     "slug": "cctv-storage-how-many-days",
@@ -157,7 +158,8 @@
     "primaryKeyword": "cctv storage days calculation",
     "angle": "The arithmetic of retention, and why stated retention silently shrinks as cameras are added.",
     "category": "Camera Setup",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-10"
   },
   {
     "slug": "cctv-cabling-corner-cutting",
