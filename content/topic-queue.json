@@ -167,7 +167,8 @@
     "primaryKeyword": "cctv cabling installation",
     "angle": "Cable grade, conduit, joints, PoE budget. The failures that surface in year two.",
     "category": "Buying Guide",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-11"
   },
   {
     "slug": "ip-vs-analogue-cameras-india",
@@ -175,7 +176,8 @@
     "primaryKeyword": "ip vs analog cctv camera",
     "angle": "Cost, cabling, upgrade path. Analogue plus a modern DVR is often the right answer.",
     "category": "Buying Guide",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-11"
   },
   {
     "slug": "cctv-monsoon-failures",
