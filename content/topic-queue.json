@@ -185,7 +185,8 @@
     "primaryKeyword": "cctv camera monsoon problem",
     "angle": "Water ingress, fogged domes, corroded connectors, power surges. A pre-monsoon checklist.",
     "category": "Camera Setup",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-12"
   },
   {
     "slug": "cctv-blind-spots-where-thieves-look",
@@ -193,7 +194,8 @@
     "primaryKeyword": "cctv camera blind spots",
     "angle": "Walk your own perimeter as an intruder would. Practical self-audit.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-12"
   },
   {
     "slug": "anpr-number-plate-recognition-when-it-works",
