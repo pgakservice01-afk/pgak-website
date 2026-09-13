@@ -203,7 +203,8 @@
     "primaryKeyword": "anpr number plate recognition",
     "angle": "Angle, speed, plate condition, Indian plate variation. Set honest expectations.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-13"
   },
   {
     "slug": "loitering-detection-explained",
@@ -211,7 +212,8 @@
     "primaryKeyword": "loitering detection cctv",
     "angle": "Dwell time as a signal. Where it earns its place and where it just adds noise.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-13"
   },
   {
     "slug": "people-counting-footfall-cctv",
