@@ -221,7 +221,8 @@
     "primaryKeyword": "people counting cctv footfall",
     "angle": "Retail and gate footfall. Accuracy caveats and what the number is actually good for.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-14"
   },
   {
     "slug": "cctv-footage-legal-evidence-india",
@@ -229,7 +230,8 @@
     "primaryKeyword": "cctv footage legal evidence india",
     "angle": "Practical guidance on integrity, timestamps, retention and chain of custody. Not legal advice.",
     "category": "Compliance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-14"
   },
   {
     "slug": "cctv-workplace-privacy-india",
