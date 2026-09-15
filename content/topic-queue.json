@@ -239,7 +239,8 @@
     "primaryKeyword": "cctv workplace privacy india",
     "angle": "Bathrooms and changing rooms are out. Notice, purpose, DPDP. A short compliance checklist.",
     "category": "Compliance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-15"
   },
   {
     "slug": "what-to-do-day-after-a-theft",
@@ -247,7 +248,8 @@
     "primaryKeyword": "cctv after theft what to do",
     "angle": "Preserve footage before it overwrites. Exports, timestamps, FIR, insurance. Time-critical steps first.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-15"
   },
   {
     "slug": "cctv-signage-requirements-india",
