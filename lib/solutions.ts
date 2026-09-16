@@ -147,6 +147,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-cctv-for-warehouses",
       "factory-security",
       "video-analytics-software",
+      "ai-surveillance-system",
     ],
     insights: [
       "1000-alerts-only-one-is-real",
@@ -250,6 +251,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-intruder-detection",
       "smart-perimeter-protection",
       "video-analytics-software",
+      "industrial-cctv",
     ],
     insights: [
       "best-ai-cctv-camera-for-warehouses-india",
@@ -352,6 +354,7 @@ export const SOLUTIONS: Solution[] = [
       "residential-security",
       "ai-intruder-detection",
       "cctv-installation-company",
+      "commercial-cctv",
     ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
@@ -460,6 +463,7 @@ export const SOLUTIONS: Solution[] = [
       "smart-perimeter-protection",
       "ai-intruder-detection",
       "video-analytics-software",
+      "industrial-cctv",
     ],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -559,6 +563,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-intruder-detection",
       "residential-security",
       "video-analytics-software",
+      "commercial-cctv",
     ],
     insights: [
       "your-dvr-records-the-theft-it-doesnt-stop-it",
@@ -667,6 +672,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-cctv-for-offices",
       "smart-perimeter-protection",
       "cctv-installation-company",
+      "anpr-number-plate-recognition",
     ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
@@ -760,6 +766,7 @@ export const SOLUTIONS: Solution[] = [
       "residential-security",
       "smart-perimeter-protection",
       "attendance-system-for-schools",
+      "commercial-cctv",
     ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
@@ -853,6 +860,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-cctv-for-offices",
       "ai-intruder-detection",
       "cctv-installation-company",
+      "commercial-cctv",
     ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
@@ -950,6 +958,7 @@ export const SOLUTIONS: Solution[] = [
       "factory-security",
       "ai-cctv-for-warehouses",
       "video-analytics-software",
+      "industrial-cctv",
     ],
     insights: [
       "stop-threats-before-they-happen",
@@ -1079,6 +1088,7 @@ export const SOLUTIONS: Solution[] = [
       "factory-security",
       "ai-cctv-for-offices",
       "attendance-system-for-offices",
+      "multi-site-cctv-monitoring",
     ],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -1283,6 +1293,7 @@ export const SOLUTIONS: Solution[] = [
       "factory-security",
       "smart-perimeter-protection",
       "video-analytics-software",
+      "commercial-cctv",
     ],
     insights: [
       "how-to-choose-a-cctv-installation-company",
@@ -1384,6 +1395,7 @@ export const SOLUTIONS: Solution[] = [
       "biometric-attendance",
       "smart-perimeter-protection",
       "retail-shop-security",
+      "ai-surveillance-system",
     ],
     insights: [
       "what-is-video-analytics-software",
@@ -1944,6 +1956,753 @@ export const SOLUTIONS: Solution[] = [
       "biometric-attendance-machine-price-in-india",
       "attendance-system-for-contract-labour",
       "geofencing-attendance-field-staff",
+    ],
+  },
+  {
+    slug: "commercial-cctv",
+    group: "security",
+    navLabel: "Commercial CCTV",
+    primaryKeyword: "commercial CCTV",
+    relatedKeywords: [
+      "commercial CCTV systems",
+      "business CCTV",
+      "office CCTV installation",
+      "CCTV for commercial premises",
+      "commercial security camera system",
+    ],
+    title: "Commercial CCTV Systems for Business Premises | PGAK",
+    description:
+      "Commercial CCTV that raises alerts instead of only recording — for offices, shops, schools, clinics and mixed-use premises. Runs on the cameras you already have.",
+    eyebrow: "Commercial",
+    h1: "Commercial CCTV that tells someone, instead of just recording it",
+    intro:
+      "Commercial CCTV in most Indian businesses does exactly one job: it records, so that after a loss there is footage to scroll through. That is worth something, but it is not security — nobody is watching at 2am, and the recorder's own motion detection was muted in week one because it fired at every passing headlight. PGAK adds detection to the commercial CCTV system you already own, so a person in the stock room after hours becomes a phone alert while there is still time to do something about it.",
+    painPoints: [
+      "The cameras were installed years ago and nobody has opened the app since the demo.",
+      "After an incident, someone loses half a day scrubbing footage to find ninety seconds.",
+      "Staff, cleaners, contractors and customers all come through the same door and none of it is logged.",
+      "Three premises, three separate recorders, three different apps, no single view.",
+    ],
+    sections: [
+      {
+        h2: "What goes wrong in commercial premises specifically",
+        body: "A commercial site is not a factory and not a home. The risk is concentrated in a few hours and a few doors, and most of it walks in through the front.",
+        points: [
+          {
+            h3: "The out-of-hours window",
+            text: "Almost every commercial loss happens when the premises is closed or nearly empty. That is a small, well-defined window — which is exactly what a time-bound detection rule is good at covering.",
+          },
+          {
+            h3: "The back door nobody watches",
+            text: "Fire exits, service corridors, terrace access and the shutter behind the building are where entry actually happens. They are also where cameras are most often pointed at a wall.",
+          },
+          {
+            h3: "Internal shrinkage",
+            text: "Stock rooms, cash points and store cupboards account for losses that never look like a break-in. A zone rule on a stock-room door during closed hours logs every entry without anyone being accused of anything.",
+          },
+          {
+            h3: "Nobody owns the system",
+            text: "In an office the CCTV belongs to admin, IT and the landlord simultaneously, which means it belongs to nobody. Alerts to a named phone fix the ownership problem faster than any policy does.",
+          },
+        ],
+      },
+      {
+        h2: "Cameras, coverage and recording — the practical version",
+        body: "The questions worth answering before anyone quotes you a camera count.",
+        points: [
+          {
+            h3: "Coverage before count",
+            text: "Entry points, cash handling, stock and the perimeter approach, in that order. A camera covering a corridor nobody enters is a camera not covering the loading shutter.",
+          },
+          {
+            h3: "Resolution against distance",
+            text: "Identification needs far more pixels on the subject than simply noticing that someone is there. A single camera trying to cover a whole floor usually delivers neither.",
+          },
+          {
+            h3: "Retention that matches how you find out",
+            text: "Commercial losses are often discovered at stock-take, not the next morning. Retention should outlast the gap between the event and the day you notice — which for many businesses is longer than the default fortnight.",
+          },
+          {
+            h3: "IP or analogue, and why it matters less than you think",
+            text: "Analytics runs on the stream, not the badge on the camera. A working analogue estate with a DVR is usually a starting point, not a reason to rip everything out.",
+          },
+        ],
+      },
+      {
+        h2: "Remote viewing, alerts and who actually gets them",
+        body: "Live view on a phone is table stakes and it is also the feature people stop using by month two, because opening an app to look at a quiet corridor has no reward. What keeps a commercial system alive is the reverse direction: the system contacts a named person when a rule it was given is broken, with a snapshot attached, and stays quiet otherwise. Routing matters as much as detection — a shop alert should reach the shop manager, and an after-hours alert at head office should reach whoever is actually willing to act at that hour.",
+      },
+      {
+        h2: "Installation, maintenance and the part vendors skip",
+        body: "A commercial install is judged eighteen months later, not on handover day. Cabling that was run loosely will fail in the first serious monsoon, and a camera knocked out of alignment by a delivery trolley will sit unnoticed for months unless something is watching camera health. PGAK's deployment includes tamper and offline detection precisely because the most common cause of 'the CCTV did not catch it' is not a clever thief — it is a camera that had quietly been dead for weeks. An annual maintenance arrangement should name what gets checked and how quickly a dead camera gets attention, in writing.",
+      },
+    ],
+    stats: [
+      { value: "Existing cameras", label: "no rip-and-replace as a precondition" },
+      { value: "After hours", label: "rules that only apply when you are closed" },
+      { value: "Camera health", label: "you are told when one goes dark" },
+      { value: "Free", label: "feasibility check on your actual premises" },
+    ],
+    faqs: [
+      {
+        q: "What is a commercial CCTV system?",
+        a: "A CCTV system specified for business premises rather than a home — typically more cameras, longer retention, multiple people needing access, and a requirement to hold up if footage is ever needed in a dispute or an insurance claim. The technical parts are similar; the obligations around access, retention and staff privacy are not.",
+      },
+      {
+        q: "How many cameras does a commercial premises need?",
+        a: "Fewer than most quotes assume, placed better. Start with entry and exit points, cash and stock, and the approach to the building. A survey that produces a camera count before anyone has walked the site is a price list, not a design.",
+      },
+      {
+        q: "Can PGAK use our existing commercial CCTV cameras?",
+        a: "In most cases yes — the analytics consumes the RTSP streams your cameras and DVR or NVR already produce. The real constraint is where cameras point rather than how old they are. The free feasibility check tells you which of your existing cameras can carry which capability before you commit to anything.",
+      },
+      {
+        q: "Do we need to tell staff and customers that CCTV is recording?",
+        a: "Yes. Visible signage at the entrance is expected practice in India, and workplace monitoring carries obligations around what you record, who can see it and how long you keep it. Covert recording of staff areas is a legal problem, not a security feature.",
+      },
+      {
+        q: "What does commercial CCTV cost?",
+        a: "It is quoted per site, because camera count, the capabilities you switch on and how much of your existing estate is reusable all move the number. PGAK quotes after a free survey rather than from a rate card, and the survey is not conditional on placing an order.",
+      },
+    ],
+    related: [
+      "ai-cctv-for-offices",
+      "retail-shop-security",
+      "cctv-installation-company",
+      "video-analytics-software",
+      "industrial-cctv",
+      "anpr-number-plate-recognition",
+    ],
+    insights: [
+      "cctv-blind-spots-where-thieves-look",
+      "cctv-storage-how-many-days",
+      "your-dvr-records-the-theft-it-doesnt-stop-it",
+      "cctv-workplace-privacy-india",
+      "cctv-signage-requirements-india",
+      "cctv-amc-what-should-it-include",
+      "ip-vs-analogue-cameras-india",
+      "how-to-choose-a-cctv-installation-company",
+    ],
+  },
+  {
+    slug: "industrial-cctv",
+    group: "security",
+    navLabel: "Industrial CCTV",
+    primaryKeyword: "industrial CCTV",
+    relatedKeywords: [
+      "industrial CCTV systems",
+      "factory CCTV",
+      "warehouse CCTV",
+      "industrial security camera system",
+      "CCTV for manufacturing plants",
+    ],
+    title: "Industrial CCTV for Factories & Warehouses | PGAK",
+    description:
+      "Industrial CCTV that watches the fence, the gate and the dispatch bay and raises alerts — built for dust, shift patterns and sites too large to watch.",
+    eyebrow: "Industrial",
+    h1: "Industrial CCTV for sites too big for anyone to watch",
+    intro:
+      "Industrial CCTV fails in a specific, predictable way: the site grows, the camera count grows with it, and the number of people watching stays at zero. A hundred and twenty cameras across a factory or a warehouse estate is not a hundred and twenty times the security of one — past roughly sixteen feeds, a human being stops seeing anything at all. PGAK puts detection behind the industrial camera estate you already run, so the boundary, the gate and the dispatch bay report themselves instead of waiting to be reviewed.",
+    painPoints: [
+      "A hundred-plus cameras and one screen nobody is sitting in front of.",
+      "The compound wall is two kilometres long and the guard covers it on foot, twice a night.",
+      "Material leaves on the wrong truck and it surfaces weeks later at reconciliation.",
+      "Dust, heat and monsoon kill cameras quietly and nobody finds out until footage is needed.",
+    ],
+    sections: [
+      {
+        h2: "The three zones that matter on an industrial site",
+        body: "Industrial risk is geographic. It concentrates at the boundary, the gate and the point where material changes hands.",
+        points: [
+          {
+            h3: "The perimeter, after hours",
+            text: "A long compound wall cannot be patrolled continuously and does not need to be. A boundary rule on the cameras already facing the fence turns the whole length into something that reports a crossing in seconds, with a snapshot, during the hours you specify.",
+          },
+          {
+            h3: "The gate",
+            text: "Everything of value enters and leaves through it, and in most plants the record of that is a notebook. Vehicle and plate logging turns gate movement into a searchable record, and shift-change attendance stops the queue at the biometric machine.",
+          },
+          {
+            h3: "Dispatch and loading",
+            text: "The highest-value, lowest-watched area on most sites. Loading activity outside scheduled hours, or a vehicle at a bay when no dispatch is booked, is a rule worth having.",
+          },
+          {
+            h3: "The yard in between",
+            text: "Scrap piles, finished-goods staging and parked trailers are where things sit unattended longest. Loitering rules catch the pattern that matters: someone present in a zone far longer than a legitimate task requires.",
+          },
+        ],
+      },
+      {
+        h2: "What industrial conditions do to cameras",
+        body: "The environment is the part that separates an industrial specification from a commercial one, and it is where most cheap installs fall over.",
+        points: [
+          {
+            h3: "Dust and airborne particulates",
+            text: "A dome in a grinding or textile environment fogs its own bubble within months. Housings and cleaning intervals are a specification decision, not an afterthought — and a fogged camera is invisible to everyone until something is watching image quality.",
+          },
+          {
+            h3: "Monsoon and cable runs",
+            text: "Water finds the junction box that was left unsealed in March. Most 'the camera stopped working' calls in July trace back to cabling shortcuts taken during installation.",
+          },
+          {
+            h3: "Distance and lighting at the boundary",
+            text: "Perimeter cameras are asked to cover long, dark stretches. What matters is enough pixels on a human figure at the far end of the run to classify it as a person — which is a placement and lens question, settled by survey rather than by brochure.",
+          },
+          {
+            h3: "Vibration and knocks",
+            text: "Forklifts, shutters and trolleys move cameras out of alignment. A camera pointed at the sky is a blind spot that looks exactly like a working camera on the recorder.",
+          },
+        ],
+      },
+      {
+        h2: "Running it across shifts, and across plants",
+        body: "Industrial sites run around the clock, so 'after hours' means different things on different days, and a rule that fires during general shift on a Tuesday is noise. Detection schedules follow the shift pattern rather than the clock. Where a company runs more than one plant, the sensible structure is one view across all of them with alerts routed to the person responsible for that site — not four separate recorders and four separate apps that only the IT team can log into.",
+      },
+      {
+        h2: "Deployment without stopping production",
+        body: "Nothing about adding analytics requires the line to stop. An edge device at the site consumes the streams the existing recorder already receives, so there is no rewiring and no camera replacement as a precondition. A free feasibility check first establishes which of your existing cameras can carry which capability — because a camera mounted high for general yard coverage may be fine for boundary detection and unusable for plate reading, and you should know that before anyone quotes.",
+      },
+    ],
+    stats: [
+      { value: "120+ cameras", label: "estate sizes where nobody can watch" },
+      { value: "Shift-aware", label: "rules that follow the roster, not the clock" },
+      { value: "Perimeter", label: "the whole fence line reports itself" },
+      { value: "No downtime", label: "no rewiring, no production stop" },
+    ],
+    faqs: [
+      {
+        q: "What is industrial CCTV and how is it different?",
+        a: "CCTV specified for factories, warehouses and plants, where the site is large, the environment is harsh and the camera estate is too big for anyone to monitor. The differences that matter are environmental hardening, boundary and gate coverage over long distances, shift-aware rules, and detection — because at industrial camera counts, review-after-the-fact is the only thing a recorder alone can offer.",
+      },
+      {
+        q: "How many cameras does a factory or warehouse need?",
+        a: "It follows the site layout, not the floor area. Boundary length, number of gates, dispatch bays and high-value storage drive the count. A survey that walks the perimeter produces a very different answer from one that multiplies square footage, and the difference is usually fewer cameras placed where losses actually occur.",
+      },
+      {
+        q: "Will this work with the cameras and DVR we already have?",
+        a: "Usually yes. PGAK consumes the streams your existing cameras and recorder already produce, which is why industrial sites are good candidates — the estate is already extensive and mostly serviceable. Placement is the limiting factor rather than camera age, and the free feasibility check tells you camera by camera.",
+      },
+      {
+        q: "Does it work if the site has poor or no internet?",
+        a: "Detection runs on an edge device at the site, so alerting continues through an internet outage. What pauses is remote viewing and cloud sync, which catch up when the link returns. For plants on unreliable connections this is the difference between a system that works and one that is offline every time the link drops.",
+      },
+      {
+        q: "Can one team see several plants at once?",
+        a: "Yes. Multiple sites can be presented in a single view with alerts routed per site, which is the usual requirement once a company runs more than one location. See multi-site CCTV monitoring for how that is structured.",
+      },
+    ],
+    related: [
+      "factory-security",
+      "ai-cctv-for-warehouses",
+      "smart-perimeter-protection",
+      "multi-site-cctv-monitoring",
+      "commercial-cctv",
+      "anpr-number-plate-recognition",
+    ],
+    insights: [
+      "nobody-can-watch-120-camera-feeds",
+      "how-many-cctv-cameras-does-a-factory-need",
+      "how-many-cameras-does-a-warehouse-need",
+      "cctv-monsoon-failures",
+      "cctv-cabling-corner-cutting",
+      "camera-resolution-vs-distance",
+      "does-ai-cctv-work-without-internet",
+      "best-ai-cctv-camera-for-warehouses-india",
+    ],
+  },
+  {
+    slug: "ai-surveillance-system",
+    group: "platform",
+    navLabel: "AI surveillance system",
+    primaryKeyword: "AI surveillance system",
+    relatedKeywords: [
+      "AI surveillance camera",
+      "AI video surveillance",
+      "intelligent surveillance system",
+      "smart CCTV system",
+      "AI CCTV system India",
+    ],
+    title: "AI Surveillance System for Existing CCTV | PGAK",
+    description:
+      "An AI surveillance system that upgrades the cameras you already own — person and vehicle detection, boundary alerts and camera health, without replacing hardware.",
+    eyebrow: "Platform",
+    h1: "An AI surveillance system you can run on the cameras already on your wall",
+    intro:
+      "Most of what is sold as an AI surveillance system in India is a camera with a chip in it, sold one unit at a time, which leaves you with two hundred old cameras and four clever ones. PGAK treats the intelligence as software that sits behind the estate instead: your existing CCTV keeps doing the seeing, and the AI surveillance system does the watching — classifying people and vehicles, applying the rules you set, and raising an alert with a snapshot while the event is still happening.",
+    painPoints: [
+      "Every quote starts with replacing cameras that are working perfectly well.",
+      "'AI camera' turned out to mean motion detection with a new label on the box.",
+      "Vendors quote 99% accuracy and change the subject when asked about your lighting and mounting heights.",
+      "The system that was bought as intelligent still needs a human watching it to be useful.",
+    ],
+    sections: [
+      {
+        h2: "Intelligence in the software, not in each camera",
+        body: "The distinction decides what an upgrade costs and how long it stays current.",
+        points: [
+          {
+            h3: "Per-camera AI ages badly",
+            text: "When the model lives inside the camera, improving it means buying the camera again. A three-year-old smart camera runs a three-year-old model and will keep doing so until it is replaced.",
+          },
+          {
+            h3: "Software covers the whole estate at once",
+            text: "Detection running behind the recorder applies to every stream it can reach, so a mixed estate of old and new cameras gets the same capability on the same day.",
+          },
+          {
+            h3: "The camera's job is the view",
+            text: "What an existing camera needs to contribute is an adequate, well-placed view of the area you care about. That is a placement question, and placement can usually be corrected far more cheaply than hardware can be replaced.",
+          },
+          {
+            h3: "Some things genuinely do need the right camera",
+            text: "Face recognition and plate reading have real pixel requirements, and a camera mounted high for wide coverage will not deliver them. Honest scoping says which cameras qualify for what before you buy, rather than after.",
+          },
+        ],
+      },
+      {
+        h2: "What the system actually does with a frame",
+        body: "Detection, classification, then your rule — in that order, which is the reason false alarms stay low enough that people leave notifications switched on.",
+        points: [
+          {
+            h3: "Classify before alerting",
+            text: "A moving object is identified as a person, vehicle or animal before any rule is applied. Pixel-change motion detection cannot do this, which is why it fires at rain, moths and headlights.",
+          },
+          {
+            h3: "Rules bound by place and time",
+            text: "A zone you drew, during hours you chose, for an object class you named. 'Any person in the dispatch yard between 9pm and 6am' is a rule; 'motion' is not.",
+          },
+          {
+            h3: "Behaviour over time",
+            text: "Loitering, boundary crossing and repeated presence are patterns across frames rather than single events, which is where analytics separates from a tripwire.",
+          },
+          {
+            h3: "Watching itself",
+            text: "The system reports its own blind spots — a camera gone dark, covered, defocused or knocked out of position — because an unnoticed dead camera is the most common reason surveillance fails to catch anything.",
+          },
+        ],
+      },
+      {
+        h2: "What an AI surveillance system cannot do",
+        body: "Worth stating plainly, because the category is full of claims that do not survive contact with a real site. It cannot predict an incident before there is anything to see — anyone selling prediction is selling a detection rule with better marketing. It cannot recognise a face from a camera that does not have enough pixels on the face, no matter how good the model is. It does not reach 100% accuracy in any real deployment, and a vendor quoting a single accuracy number without asking about your cameras has not measured anything. What it does reliably is detect defined events quickly enough for a person to act, and keep doing so at two in the morning.",
+      },
+      {
+        h2: "Edge, cloud, and what happens when the link drops",
+        body: "Detection runs on an edge device at your site, which is what keeps alerting alive when the internet does not. Remote viewing and history sync use the cloud connection and resume when it returns. For Indian sites this split matters more than it does in vendor diagrams — a surveillance system that stops detecting every time the broadband drops is a surveillance system that is off more often than anyone admits.",
+      },
+    ],
+    stats: [
+      { value: "Existing CCTV", label: "the estate you already paid for" },
+      { value: "Classify first", label: "person, vehicle or animal before any rule" },
+      { value: "Works offline", label: "detection continues through an outage" },
+      { value: "Free", label: "camera-by-camera feasibility check" },
+    ],
+    faqs: [
+      {
+        q: "What is an AI surveillance system?",
+        a: "A surveillance setup where software analyses the camera feeds automatically and raises an event when something specific happens, rather than only recording for later review. In PGAK's case the intelligence sits in software behind the estate, so it applies to the cameras already installed instead of requiring new ones.",
+      },
+      {
+        q: "Do I need to buy AI cameras to get AI surveillance?",
+        a: "No. That is the most common and most expensive misconception in this category. A camera with AI on board is one clever camera; analytics running behind your recorder upgrades every camera it can reach. Existing cameras are usually the starting point, with a handful repositioned where a specific capability needs a better view.",
+      },
+      {
+        q: "How accurate is AI surveillance, really?",
+        a: "Accuracy depends on your cameras, lighting and mounting heights, which is why a single headline percentage is close to meaningless. The useful question is how the system behaves on your site — how few false alarms it produces at night, and whether it still catches what matters. That is what a feasibility check on your own cameras answers.",
+      },
+      {
+        q: "Is AI surveillance legal in India?",
+        a: "Yes, with obligations. Recording on your own premises is permitted, and signage is expected. Where it gets stricter is workplace monitoring, biometric data such as face templates, and how long you retain footage and who can access it — all of which fall under the DPDP Act. Consent and retention policy are part of a proper deployment, not an optional extra.",
+      },
+      {
+        q: "Will it flood my phone with alerts?",
+        a: "Not if it is set up correctly, and this is the failure that kills most deployments. Because objects are classified before rules are applied, and rules are bound to zones and hours, the alert volume stays low enough to remain readable. A system producing alerts nobody opens by month three has failed regardless of how accurate its detection is.",
+      },
+    ],
+    related: [
+      "video-analytics-software",
+      "ai-intruder-detection",
+      "cctv-installation-company",
+      "commercial-cctv",
+      "remote-cctv-monitoring",
+    ],
+    insights: [
+      "ai-cctv-vs-normal-cctv",
+      "add-ai-to-existing-cctv-cameras",
+      "reuse-existing-cctv-or-replace",
+      "1000-alerts-only-one-is-real",
+      "is-ai-cctv-legal-in-india-dpdp-act",
+      "does-ai-work-with-tapo-imou-qubo-cameras",
+      "where-to-place-cctv-cameras-for-ai-detection",
+      "ai-cctv-price-in-india-what-it-should-cost",
+    ],
+  },
+  {
+    slug: "remote-cctv-monitoring",
+    group: "platform",
+    navLabel: "Remote CCTV monitoring",
+    primaryKeyword: "remote CCTV monitoring",
+    relatedKeywords: [
+      "remote video monitoring",
+      "CCTV remote viewing",
+      "monitor CCTV from mobile",
+      "remote surveillance monitoring",
+      "off-site CCTV monitoring",
+    ],
+    title: "Remote CCTV Monitoring That Contacts You | PGAK",
+    description:
+      "Remote CCTV monitoring where the system raises the alert instead of waiting to be watched — live view, phone alerts with snapshots, and camera-health reporting.",
+    eyebrow: "Platform",
+    h1: "Remote CCTV monitoring that calls you, not the other way round",
+    intro:
+      "Remote CCTV monitoring is usually sold as an app that lets you look at your cameras from anywhere, and that is genuinely useful for about three weeks. Then it stops being opened, because looking at a quiet corridor has no reward and nobody can watch at 3am anyway. PGAK inverts it: the system monitors continuously and contacts a named person the moment a rule is broken, with a snapshot attached — so remote monitoring stops depending on somebody remembering to look.",
+    painPoints: [
+      "The app was installed during the demo and has not been opened since.",
+      "Watching live feeds is somebody's job in theory and nobody's job in practice.",
+      "By the time anyone looks, the event is hours old and the footage is all that is left.",
+      "The connection drops and nobody knows whether the system is still doing anything.",
+    ],
+    sections: [
+      {
+        h2: "Two kinds of remote monitoring, and only one of them lasts",
+        body: "The difference is direction: who initiates. It decides whether the system is still in use a year later.",
+        points: [
+          {
+            h3: "Pull — you open the app",
+            text: "Useful for checking in on a delivery, confirming a shutter is down, or settling a question. It depends entirely on someone choosing to look, which is why usage decays quickly after installation.",
+          },
+          {
+            h3: "Push — the system contacts you",
+            text: "A rule is broken, an alert arrives with a snapshot, a person decides what to do. This is the mode that still works in month twelve, because it costs the recipient nothing until something actually happens.",
+          },
+          {
+            h3: "Routing to a named person",
+            text: "An alert sent to a group nobody owns is an alert nobody acts on. Routing per site and per shift to a specific phone is the difference between a notification and a response.",
+          },
+          {
+            h3: "Verification before escalation",
+            text: "The snapshot attached to the alert lets the recipient judge in seconds whether this is a stray dog or a person on the wrong side of the fence, before anyone is called out.",
+          },
+        ],
+      },
+      {
+        h2: "What it takes to work on an Indian connection",
+        body: "Bandwidth and reliability are the practical constraints, and most remote monitoring pitches quietly assume neither is a problem.",
+        points: [
+          {
+            h3: "Detection runs at the site",
+            text: "Analysis happens on an edge device on your premises, not in a data centre, so alerting continues when the broadband drops. Only remote viewing and history sync depend on the link.",
+          },
+          {
+            h3: "Streams are not uploaded continuously",
+            text: "Sending every camera to the cloud around the clock is neither affordable nor necessary on most Indian connections. Alerts carry snapshots and clips; full live view is pulled on demand when someone opens it.",
+          },
+          {
+            h3: "Live view without re-encoding",
+            text: "Streams are passed through rather than transcoded where the camera's format allows it, which is what keeps live view usable without a server doing expensive work per viewer.",
+          },
+          {
+            h3: "You are told when it is blind",
+            text: "A camera that has gone dark, or a site that has lost its link, is itself reported. A monitoring system that fails silently is worse than none, because it is trusted.",
+          },
+        ],
+      },
+      {
+        h2: "Who watches, and being honest about it",
+        body: "PGAK provides the detection, the alerting and the tooling — the system watches continuously and tells a named person at your organisation. It is not a manned guarding service with an operator viewing your cameras on your behalf, and it should not be confused with one. For most businesses the automated version is the better fit anyway: it covers every camera at once rather than whichever feed the operator happens to have open, it does not get tired at 4am, and it costs a fraction of paying someone to watch screens overnight.",
+      },
+      {
+        h2: "Keeping remote access under control",
+        body: "Remote viewing is a privacy surface as much as a convenience. Access should be per person and revocable rather than one shared password that outlives three employees, and it should be visible who has access to what. Where a system holds footage of staff areas, the DPDP obligations around access, purpose and retention apply to remote viewing exactly as they do to the recorder in the office.",
+      },
+    ],
+    stats: [
+      { value: "Push, not pull", label: "the system contacts you first" },
+      { value: "Works offline", label: "detection continues through a link outage" },
+      { value: "Snapshot", label: "attached to every alert for verification" },
+      { value: "Per-person", label: "revocable access, not a shared password" },
+    ],
+    faqs: [
+      {
+        q: "What is remote CCTV monitoring?",
+        a: "Watching or being alerted about your CCTV from somewhere other than the site. In practice there are two versions: you open an app and look, or the system detects something and contacts you. The second is what keeps working long-term, because it does not rely on anyone remembering to check.",
+      },
+      {
+        q: "Does PGAK monitor my cameras for me with staff?",
+        a: "No — and it is worth being clear about that. PGAK provides detection and alerting so the system monitors continuously and notifies your people. It is not a manned guarding service. For most sites the automated approach covers more cameras more consistently than an operator watching a video wall could.",
+      },
+      {
+        q: "Will remote monitoring work if our internet is slow or drops?",
+        a: "Detection and alerting continue, because analysis runs on an edge device at the site rather than in the cloud. Live viewing and history sync pause during an outage and catch up afterwards. Sites with unreliable connections are precisely where an edge-first design matters.",
+      },
+      {
+        q: "How much bandwidth does it use?",
+        a: "Far less than continuously uploading every camera, which is what makes cloud-only approaches impractical on many Indian connections. Alerts carry snapshots and short clips, and full live streams are only sent when someone actually opens a view.",
+      },
+      {
+        q: "Can I monitor several locations from one place?",
+        a: "Yes, and that is the usual requirement past the second site — one view across locations with alerts routed to whoever is responsible for each. See multi-site CCTV monitoring for how that is set up.",
+      },
+    ],
+    related: [
+      "multi-site-cctv-monitoring",
+      "video-analytics-software",
+      "ai-surveillance-system",
+      "ai-intruder-detection",
+      "commercial-cctv",
+    ],
+    insights: [
+      "does-ai-cctv-work-without-internet",
+      "nobody-can-watch-120-camera-feeds",
+      "cctv-camera-offline-how-to-know",
+      "ai-cctv-vs-security-guard-cost",
+      "1000-alerts-only-one-is-real",
+      "cctv-camera-tampering-detection",
+      "cctv-workplace-privacy-india",
+    ],
+  },
+  {
+    slug: "multi-site-cctv-monitoring",
+    group: "platform",
+    navLabel: "Multi-site monitoring",
+    primaryKeyword: "multi-site CCTV monitoring",
+    relatedKeywords: [
+      "centralised CCTV monitoring",
+      "multi-location CCTV",
+      "CCTV for multiple branches",
+      "centralized surveillance system",
+      "multi-site security monitoring",
+    ],
+    title: "Multi-Site CCTV Monitoring on One Screen | PGAK",
+    description:
+      "Every branch, plant and godown in one view, with alerts routed to whoever runs each site — instead of one recorder, one app and one password per location.",
+    eyebrow: "Platform",
+    h1: "Every site on one screen, instead of one app per location",
+    intro:
+      "Multi-site CCTV monitoring usually arrives by accident. Each location buys its own recorder from whichever local vendor turned up, and by the fourth site head office is holding four apps, four passwords and no way to answer a simple question across all of them. PGAK presents every location in a single view with alerts routed to the person who actually runs each site, so the estate behaves like one system rather than four unrelated ones that happen to share a logo.",
+    painPoints: [
+      "Four locations, four DVR brands, four apps, four passwords held by four people.",
+      "Head office cannot see a branch without phoning someone to read out a login.",
+      "An alert from the Jaipur godown goes to a group chat and everyone assumes someone else is handling it.",
+      "When a manager leaves, nobody is certain what they still have access to.",
+    ],
+    sections: [
+      {
+        h2: "What changes when the estate is treated as one system",
+        body: "The gain is not a prettier dashboard. It is that questions spanning sites become answerable at all.",
+        points: [
+          {
+            h3: "One view, many locations",
+            text: "Cameras from every site in a single wall, grouped by location, without logging into each recorder in turn. A regional manager sees their sites; head office sees all of them.",
+          },
+          {
+            h3: "Alerts routed per site",
+            text: "A boundary alert at one plant reaches the person responsible for that plant, not a group of forty. Routing is the part that turns notifications into responses.",
+          },
+          {
+            h3: "The same rules everywhere",
+            text: "After-hours detection on the dispatch bay means the same thing at every location, rather than depending on which vendor configured which recorder and what they happened to switch on.",
+          },
+          {
+            h3: "Access you can actually revoke",
+            text: "Per-person access granted per site, removable in one place when someone leaves — instead of a shared DVR password that has been circulating since 2022.",
+          },
+        ],
+      },
+      {
+        h2: "Mixed hardware, which is what every real estate looks like",
+        body: "Nobody standardises across sites on purpose; it happens over years and acquisitions.",
+        points: [
+          {
+            h3: "Brand does not have to match",
+            text: "Sites are connected by consuming the streams each existing recorder already produces, so a Hikvision DVR at one location and a different NVR at another can sit in the same view.",
+          },
+          {
+            h3: "Each site keeps detecting on its own",
+            text: "An edge device per location means a site continues detecting and alerting even if its link to head office is down. The estate does not depend on one central connection staying up.",
+          },
+          {
+            h3: "Connections that survive Indian networks",
+            text: "Sites on consumer broadband, including IPv6-only connections that defeat a lot of standard remote-access setups, are handled at the network layer rather than by asking you to buy static IPs.",
+          },
+          {
+            h3: "Adding a site is configuration, not a project",
+            text: "New locations join the same view without rebuilding anything, which matters most for businesses opening branches faster than they can standardise hardware.",
+          },
+        ],
+      },
+      {
+        h2: "Scale and what is honest about it",
+        body: "PGAK runs live camera walls at estate scale — accounts in the region of ninety-plus cameras across locations — and the practical limit is rarely the software. It is the upstream bandwidth at each site and, more often, the site recorder itself: many DVRs and NVRs will only serve a handful of simultaneous streams before they start refusing connections, which is a hardware constraint no platform can argue its way around. Honest scoping checks the recorder's session limits during the survey, because that is the ceiling that determines how many feeds a site can actually present at once.",
+      },
+      {
+        h2: "Attendance and reporting across locations",
+        body: "Once sites are on one system the same logic extends past security. Attendance across locations becomes a single roll rather than a spreadsheet per branch, which matters for organisations moving staff between sites or running contractors across several. Gate and vehicle records become searchable across the estate rather than per notebook.",
+      },
+    ],
+    stats: [
+      { value: "One view", label: "every location, grouped by site" },
+      { value: "Per-site alerts", label: "routed to whoever runs that location" },
+      { value: "Mixed brands", label: "recorders do not have to match" },
+      { value: "Per-person access", label: "revocable in one place" },
+    ],
+    faqs: [
+      {
+        q: "What is multi-site CCTV monitoring?",
+        a: "Managing CCTV across several locations as one system — a single view of all cameras, consistent detection rules, alerts routed per site and access controlled centrally — instead of a separate recorder, app and password for every branch.",
+      },
+      {
+        q: "Do all our sites need the same cameras and recorders?",
+        a: "No. Sites are connected by consuming the streams each existing recorder already produces, so mixed brands and generations across locations are normal and expected. Standardising hardware first would be the expensive way to solve a software problem.",
+      },
+      {
+        q: "How many cameras can be shown at once?",
+        a: "The software handles estates in the ninety-plus camera range across sites. The practical limit is usually the site recorder rather than the platform — many DVRs and NVRs refuse connections past a handful of simultaneous streams, which is checked during the survey because it sets the real ceiling.",
+      },
+      {
+        q: "What happens if one site loses internet?",
+        a: "That site keeps detecting and alerting locally, because each location runs its own edge device. Its feeds drop out of the central view until the link returns, and history syncs afterwards. One site's outage does not affect the others.",
+      },
+      {
+        q: "Can regional managers see only their own locations?",
+        a: "Yes. Access is granted per person per site, so a branch manager sees their branch, a regional head sees their region, and head office sees everything — and access can be removed centrally when someone changes role or leaves.",
+      },
+    ],
+    related: [
+      "remote-cctv-monitoring",
+      "industrial-cctv",
+      "video-analytics-software",
+      "commercial-cctv",
+      "ai-surveillance-system",
+    ],
+    insights: [
+      "nobody-can-watch-120-camera-feeds",
+      "multi-location-attendance-management",
+      "does-ai-cctv-work-without-internet",
+      "cctv-camera-offline-how-to-know",
+      "dvr-vs-nvr-which-do-you-have",
+      "attendance-system-for-contract-labour",
+    ],
+  },
+  {
+    slug: "anpr-number-plate-recognition",
+    group: "security",
+    navLabel: "ANPR system",
+    primaryKeyword: "ANPR system",
+    relatedKeywords: [
+      "number plate recognition system",
+      "ANPR camera system India",
+      "automatic number plate recognition gate",
+      "vehicle logging system",
+      "licence plate recognition for factories",
+    ],
+    title: "ANPR System for Gates & Vehicle Logging | PGAK",
+    description:
+      "An ANPR system that logs every vehicle at every gate — plate, type, direction, timestamp and snapshot. Sized per lane, with honest limits on where it works.",
+    eyebrow: "Vehicles",
+    h1: "An ANPR system that turns the gate register into something you can search",
+    intro:
+      "An ANPR system earns its place at exactly one moment: when somebody asks which vehicle left with the material, and the only record is a security guard's notebook in handwriting nobody can read. Automatic number plate recognition logs every vehicle at the gate with its plate, type, direction, timestamp and a snapshot — so the question becomes a search rather than an argument. This page covers deploying one across real gates; for how plate recognition works on a camera feed, see vehicle and number plate recognition.",
+    painPoints: [
+      "The gate register is a paper notebook, filled in inconsistently, and unreadable after a month.",
+      "Material left on a truck and reconciling which one took three weeks and never fully resolved.",
+      "Resident and staff vehicles stop at the gate every single day for a check nobody actually performs.",
+      "A previous ANPR quote assumed one camera could cover a two-lane gate and it never worked.",
+    ],
+    sections: [
+      {
+        h2: "Where an ANPR system actually pays for itself",
+        body: "The value is concentrated in a few situations. Outside them, plate recognition is an expensive way to produce a log nobody reads.",
+        points: [
+          {
+            h3: "Dispatch and material movement",
+            text: "Factories and warehouses where goods leave on vehicles. Every movement timestamped against the dispatch schedule turns 'which truck' from an investigation into a query, and an unbooked vehicle at a bay after hours becomes an alert.",
+          },
+          {
+            h3: "Gates with heavy repeat traffic",
+            text: "Housing societies, office parks and campuses where the same few hundred vehicles come and go daily. Registered vehicles pass without stopping; everything unregistered is logged with a photo.",
+          },
+          {
+            h3: "Contractor and fleet oversight",
+            text: "Sites where vehicles belong to other people. Arrival and departure times become evidence for billing disputes rather than a matter of recollection.",
+          },
+          {
+            h3: "Multi-gate estates",
+            text: "Large sites where a vehicle entering gate one and leaving gate three is currently two unrelated notebook entries. One searchable record across gates is the whole point.",
+          },
+        ],
+      },
+      {
+        h2: "The camera is the project",
+        body: "ANPR is the least forgiving capability PGAK deploys, and almost every failed installation traces back to the same few placement decisions rather than to the software.",
+        points: [
+          {
+            h3: "Plate height, not general coverage",
+            text: "A camera mounted high for a wide view of the gate area will see vehicles perfectly and read no plates at all. ANPR needs a camera aimed at plate height, along the direction of travel.",
+          },
+          {
+            h3: "Enough pixels across the plate",
+            text: "The plate must occupy enough of the frame to resolve characters. This is a lens, distance and angle calculation done at survey — not something a better model rescues later.",
+          },
+          {
+            h3: "One camera per lane",
+            text: "A two-lane gate needs two cameras. A single camera asked to cover both lanes reads plates well in one and poorly in the other, which is the most common reason a previous ANPR install disappointed.",
+          },
+          {
+            h3: "Headlights, rain and night",
+            text: "Night is where cheap ANPR falls apart, because headlight glare washes out the plate. Placement and exposure handling are settled during the survey, in the conditions the gate actually experiences.",
+          },
+        ],
+      },
+      {
+        h2: "Indian plates, and why generic models struggle",
+        body: "Off-the-shelf plate recognition is generally trained on European and American plates and degrades noticeably on Indian ones — different aspect ratios, varied fonts, state-code formats, decorative and non-standard plates, and a meaningful share of vehicles whose plates are damaged, obscured or simply not to spec. PGAK's recognition is tuned for Indian plate formats for exactly this reason. It is still not magic: a plate that a person cannot read in the snapshot is a plate the system will not read either, which is why every logged event keeps its image alongside the text.",
+      },
+      {
+        h2: "Sizing the hardware, honestly",
+        body: "Plate recognition is the most computationally demanding thing PGAK runs at the edge, and this is where quotes get optimistic. Measured on real hardware, a low-power edge box handles roughly one lane of ANPR comfortably; the very small form factors that are fine for person and vehicle detection across several cameras do not cope with plate reading on two. A multi-gate site is therefore sized per lane rather than per site, and that arithmetic is done before quoting rather than discovered during commissioning. It is also why an honest ANPR survey takes longer than a general CCTV survey.",
+      },
+    ],
+    stats: [
+      { value: "Per lane", label: "one camera and sized hardware for each" },
+      { value: "Indian plates", label: "tuned for local formats, not imported models" },
+      { value: "Snapshot kept", label: "every logged plate keeps its image" },
+      { value: "Searchable", label: "across gates, instead of per notebook" },
+    ],
+    faqs: [
+      {
+        q: "What is an ANPR system?",
+        a: "Automatic Number Plate Recognition — cameras and software that read vehicle registration plates automatically and log each movement with the plate, vehicle type, direction, time and a snapshot. It replaces the manual gate register with a record you can search.",
+      },
+      {
+        q: "How accurate is ANPR on Indian number plates?",
+        a: "Good when the camera is placed correctly, and poor when it is not — placement matters far more than the model. Indian plates vary in font, format and condition, so PGAK uses recognition tuned for local plates rather than an imported general model. Non-standard, damaged or obscured plates remain genuinely hard, which is why every event keeps its image so a human can confirm.",
+      },
+      {
+        q: "Can ANPR run on our existing gate camera?",
+        a: "Only if that camera is aimed at plate height along the direction of travel with enough resolution across the plate. Many existing gate cameras are mounted for general coverage and will need repositioning or a dedicated lane camera. The feasibility check gives a straight yes or no per camera before anything is quoted.",
+      },
+      {
+        q: "Do we need one camera for each lane?",
+        a: "Yes, for reliable reading. A single camera covering two lanes reads one well and the other badly. Budgeting per lane from the start avoids the most common disappointment with ANPR installations.",
+      },
+      {
+        q: "Can ANPR open a boom barrier automatically?",
+        a: "Recognition of registered vehicles can trigger an action at the gate where suitable barrier hardware is in place and can accept a trigger. Barrier supply and its electricals are a separate scope from recognition, so it is worth confirming what your gate already has before assuming automation is included.",
+      },
+    ],
+    related: [
+      "smart-perimeter-protection",
+      "industrial-cctv",
+      "factory-security",
+      "residential-security",
+      "video-analytics-software",
+    ],
+    insights: [
+      "anpr-number-plate-recognition-when-it-works",
+      "where-to-place-cctv-cameras-for-ai-detection",
+      "camera-resolution-vs-distance",
+      "cctv-footage-legal-evidence-india",
+      "how-many-cctv-cameras-does-a-factory-need",
+      "what-to-do-day-after-a-theft",
     ],
   },
 ];
