@@ -257,7 +257,8 @@
     "primaryKeyword": "cctv signage requirement",
     "angle": "Notice as both a legal step and a deterrent. Sample wording.",
     "category": "Compliance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-16"
   },
   {
     "slug": "hotel-security-and-staff-attendance",
@@ -265,7 +266,8 @@
     "primaryKeyword": "hotel cctv security",
     "angle": "Housekeeping churn, back-of-house entrances, guest privacy boundaries.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-16"
   },
   {
     "slug": "restaurant-kitchen-attendance-hygiene",
