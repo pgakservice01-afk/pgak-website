@@ -80,7 +80,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
               <Link href="#dealer" className="btn btn-primary">
                 Book a free demo →
               </Link>
-              <Link href="/#audit" className="btn btn-ghost">
+              <Link href="/free-audit" className="btn btn-ghost">
                 Get a free camera audit
               </Link>
             </div>

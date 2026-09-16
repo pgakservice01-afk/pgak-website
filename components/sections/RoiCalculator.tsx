@@ -673,7 +673,7 @@ export default function RoiCalculator() {
                 <p className="mt-4 leading-relaxed text-ink-soft">{nextLever}</p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
-                    href="/#audit"
+                    href="/free-audit"
                     data-cta="roi-audit"
                     className="btn btn-ghost"
                   >
