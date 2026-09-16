@@ -146,6 +146,7 @@ export const SOLUTIONS: Solution[] = [
       "smart-perimeter-protection",
       "ai-cctv-for-warehouses",
       "factory-security",
+      "video-analytics-software",
     ],
     insights: [
       "1000-alerts-only-one-is-real",
@@ -244,7 +245,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Every alert is stored as a clipped event with camera, zone and timestamp metadata, which is far more useful to an insurer or auditor than a raw archive nobody can navigate.",
       },
     ],
-    related: ["factory-security", "ai-intruder-detection", "smart-perimeter-protection"],
+    related: [
+      "factory-security",
+      "ai-intruder-detection",
+      "smart-perimeter-protection",
+      "video-analytics-software",
+    ],
     insights: [
       "best-ai-cctv-camera-for-warehouses-india",
       "nobody-can-watch-120-camera-feeds",
@@ -341,7 +347,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes. Each site processes locally and reports into one dashboard, with role-based access so branch managers see their own site and head office sees everything.",
       },
     ],
-    related: ["biometric-attendance", "residential-security", "ai-intruder-detection"],
+    related: [
+      "biometric-attendance",
+      "residential-security",
+      "ai-intruder-detection",
+      "cctv-installation-company",
+    ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -448,6 +459,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-cctv-for-warehouses",
       "smart-perimeter-protection",
       "ai-intruder-detection",
+      "video-analytics-software",
     ],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -542,7 +554,12 @@ export const SOLUTIONS: Solution[] = [
         a: "No. Each shop runs locally but reports into a single account, so you get one app showing all branches with per-branch alerting.",
       },
     ],
-    related: ["ai-cctv-for-offices", "ai-intruder-detection", "residential-security"],
+    related: [
+      "ai-cctv-for-offices",
+      "ai-intruder-detection",
+      "residential-security",
+      "video-analytics-software",
+    ],
     insights: [
       "your-dvr-records-the-theft-it-doesnt-stop-it",
       "1000-alerts-only-one-is-real",
@@ -645,7 +662,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes, and it's one of the most common deployments. Resident vehicles are recognised automatically and every visitor entry becomes a searchable record with a photo instead of a line in a register.",
       },
     ],
-    related: ["school-security", "ai-cctv-for-offices", "smart-perimeter-protection"],
+    related: [
+      "school-security",
+      "ai-cctv-for-offices",
+      "smart-perimeter-protection",
+      "cctv-installation-company",
+    ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
       "1000-alerts-only-one-is-real",
@@ -733,7 +755,12 @@ export const SOLUTIONS: Solution[] = [
         a: "It can produce a live campus-wide roll from gate and entrance recognition. Most schools run it alongside registers for a term and then decide how much of the paper process to retire.",
       },
     ],
-    related: ["hospital-security", "residential-security", "smart-perimeter-protection"],
+    related: [
+      "hospital-security",
+      "residential-security",
+      "smart-perimeter-protection",
+      "attendance-system-for-schools",
+    ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
       "stop-threats-before-they-happen",
@@ -821,7 +848,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes — crowding and rapid-movement patterns in defined areas can raise an alert to the security desk, so a response starts while the situation is still de-escalatable.",
       },
     ],
-    related: ["school-security", "ai-cctv-for-offices", "ai-intruder-detection"],
+    related: [
+      "school-security",
+      "ai-cctv-for-offices",
+      "ai-intruder-detection",
+      "cctv-installation-company",
+    ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
       "nobody-can-watch-120-camera-feeds",
@@ -913,7 +945,12 @@ export const SOLUTIONS: Solution[] = [
         a: "As long as your cameras can see. Coverage is limited by camera placement rather than by the software, and extending it means adding a camera to an existing stretch — not laying new sensor cable.",
       },
     ],
-    related: ["ai-intruder-detection", "factory-security", "ai-cctv-for-warehouses"],
+    related: [
+      "ai-intruder-detection",
+      "factory-security",
+      "ai-cctv-for-warehouses",
+      "video-analytics-software",
+    ],
     insights: [
       "stop-threats-before-they-happen",
       "1000-alerts-only-one-is-real",
@@ -1037,7 +1074,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Buddy punching is far harder, because the record stores the actual frame the recognition came from. If a mark is disputed you look at the photograph of who walked through, rather than trusting that the right finger was on the reader.",
       },
     ],
-    related: ["face-recognition-attendance-system", "factory-security", "ai-cctv-for-offices"],
+    related: [
+      "face-recognition-attendance-system",
+      "factory-security",
+      "ai-cctv-for-offices",
+      "attendance-system-for-offices",
+    ],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "face-recognition-attendance-vs-biometric-machine",
@@ -1134,7 +1176,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Unrecognised faces are flagged for review rather than silently dropped — an admin sees the frame and can mark the person manually while the enrolment photo is improved. The system is designed so a miss costs a tap, not a day's wages.",
       },
     ],
-    related: ["biometric-attendance", "factory-security", "ai-cctv-for-offices"],
+    related: [
+      "biometric-attendance",
+      "factory-security",
+      "ai-cctv-for-offices",
+      "attendance-system-for-warehouses",
+    ],
     insights: [
       "face-recognition-attendance-vs-biometric-machine",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -1231,7 +1278,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes, and it is common. We audit what is installed, recover or reset access you should have been given, restore dead cameras where the cabling allows, and add the alerting layer on top of the estate you already paid for.",
       },
     ],
-    related: ["ai-intruder-detection", "factory-security", "smart-perimeter-protection"],
+    related: [
+      "ai-intruder-detection",
+      "factory-security",
+      "smart-perimeter-protection",
+      "video-analytics-software",
+    ],
     insights: [
       "how-to-choose-a-cctv-installation-company",
       "your-dvr-records-the-theft-it-doesnt-stop-it",
@@ -1327,7 +1379,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Pricing is per camera per month and quoted per site, because camera count and the capabilities you enable drive the number. The feasibility check and quote are free, and there is no hardware licence or per-feature surcharge stacked on top.",
       },
     ],
-    related: ["ai-intruder-detection", "biometric-attendance", "smart-perimeter-protection"],
+    related: [
+      "ai-intruder-detection",
+      "biometric-attendance",
+      "smart-perimeter-protection",
+      "retail-shop-security",
+    ],
     insights: [
       "what-is-video-analytics-software",
       "how-does-ai-intruder-detection-work",
@@ -1434,7 +1491,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes. Shifts, late marks, half days and overtime are computed from the same log and exported for payroll, which removes the retyping step where most attendance errors are actually introduced.",
       },
     ],
-    related: ["biometric-attendance", "face-recognition-attendance-system", "factory-security"],
+    related: [
+      "biometric-attendance",
+      "face-recognition-attendance-system",
+      "factory-security",
+      "attendance-system-for-construction-sites",
+    ],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
       "fingerprint-attendance-system-why-it-fails",
@@ -1541,7 +1603,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Rarely all of them. Bay cameras angled down at vehicles usually need repositioning before they can identify people, while most entrance cameras at normal height already qualify. The feasibility check tells you which is which before you commit.",
       },
     ],
-    related: ["biometric-attendance", "ai-cctv-for-warehouses", "face-recognition-attendance-system"],
+    related: [
+      "biometric-attendance",
+      "ai-cctv-for-warehouses",
+      "face-recognition-attendance-system",
+      "attendance-system-for-factories",
+    ],
     insights: [
       "best-ai-cctv-camera-for-warehouses-india",
       "fingerprint-attendance-system-why-it-fails",
@@ -1646,7 +1713,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Yes, with disclosure and consent. Facial data is personal data under the DPDP Act, so employees must be told what is collected, why, and how long it is retained — a short internal notice at rollout covers the requirement.",
       },
     ],
-    related: ["biometric-attendance", "face-recognition-attendance-system", "ai-cctv-for-offices"],
+    related: [
+      "biometric-attendance",
+      "face-recognition-attendance-system",
+      "ai-cctv-for-offices",
+      "cctv-installation-company",
+    ],
     insights: [
       "face-recognition-attendance-vs-biometric-machine",
       "biometric-attendance-machine-price-in-india",
@@ -1751,7 +1823,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Usually only at the staff entrance if there is not one already. Existing gate and perimeter cameras generally work as-is for boundary alerting, which is the bulk of campus safety value.",
       },
     ],
-    related: ["school-security", "biometric-attendance", "face-recognition-attendance-system"],
+    related: [
+      "school-security",
+      "biometric-attendance",
+      "face-recognition-attendance-system",
+      "cctv-installation-company",
+    ],
     insights: [
       "is-ai-cctv-legal-in-india-dpdp-act",
       "where-to-place-cctv-cameras-for-ai-detection",
@@ -1855,7 +1932,12 @@ export const SOLUTIONS: Solution[] = [
         a: "Placement decides this. A gate camera facing into direct afternoon sun will underperform, and dust reduces clarity over time. The feasibility check is done on your actual gate so you know the answer before committing rather than after.",
       },
     ],
-    related: ["biometric-attendance", "attendance-system-for-factories", "smart-perimeter-protection"],
+    related: [
+      "biometric-attendance",
+      "attendance-system-for-factories",
+      "smart-perimeter-protection",
+      "cctv-installation-company",
+    ],
     insights: [
       "fingerprint-attendance-system-why-it-fails",
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
