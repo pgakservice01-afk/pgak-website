@@ -275,7 +275,8 @@
     "primaryKeyword": "restaurant staff attendance",
     "angle": "Hygiene makes contact biometrics a real problem. Shift patterns in F&B.",
     "category": "Attendance",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-17"
   },
   {
     "slug": "petrol-pump-security-cameras",
@@ -283,7 +284,8 @@
     "primaryKeyword": "petrol pump cctv camera",
     "angle": "Forecourt, till, tanker bay, entry. Drive-offs and cash handling.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-17"
   },
   {
     "slug": "cold-storage-monitoring-cameras",
