@@ -12,9 +12,21 @@ type PixelEvent =
   | "ViewContent"
   | "CompleteRegistration";
 
-/** Fire a standard Pixel event if fbq has loaded. No-ops on the server. */
+/** Queue early conversions until the deferred Meta library is available. */
 export function fbTrack(event: PixelEvent, params?: Record<string, unknown>) {
-  if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-    (window as any).fbq("track", event, params);
+  if (typeof window === "undefined") return;
+  const w = window as any;
+  if (typeof w.fbq !== "function") {
+    const queue: any = function (...args: unknown[]) {
+      if (queue.callMethod) queue.callMethod.apply(queue, args);
+      else queue.queue.push(args);
+    };
+    queue.queue = [];
+    queue.push = queue;
+    queue.loaded = true;
+    queue.version = "2.0";
+    w.fbq = queue;
+    w._fbq = w._fbq || queue;
   }
+  w.fbq("track", event, params);
 }
