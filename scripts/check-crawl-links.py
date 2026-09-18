@@ -15,7 +15,9 @@ for row in rows:
   if u.netloc=='www.pgak.co.in':links.add((u.path or '/',u.fragment))
 def check(path):
  try:
-  with urllib.request.urlopen(origin+path,timeout=30) as r: body=r.read().decode();status=r.status
+  with urllib.request.urlopen(origin+path,timeout=30) as r:
+   status=r.status
+   body=r.read().decode(r.headers.get_content_charset() or 'utf-8') if r.headers.get_content_type() in ('text/html','application/xhtml+xml') else ''
   p=IDs();p.feed(body);return path,(status,p.ids)
  except Exception as e:return path,(str(e),set())
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:pages=dict(pool.map(check,{p for p,f in links}))

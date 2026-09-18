@@ -28,3 +28,5 @@ The production ERP configuration and previously verified delivery path are prese
 Local mobile Lighthouse after deferred video initialization: performance 96, accessibility 100, best practices 100, SEO 100; LCP 2.7 s, TBT 40 ms, CLS 0. The first version with three native players initialized at page load scored 83 with LCP 3.7 s and TBT 260 ms. These are lab measurements, not field INP. The hero WebP was subsequently reduced from 46,856 to 26,898 bytes. The optimized build and Vercel preview build both passed.
 
 Chrome verified zero video elements before Play, creation and successful playback after Play, and keyboard focus transfer to the native player. Responsive checks found no horizontal overflow at 320, 375, 390, 768, 1024 and 1440 pixels. The Book a Demo link and destination page were also visually checked.
+
+The final HTML crawl passed all 141 canonical sitemap pages and 422 internal link/fragment targets, with no missing descriptions/alts, duplicate titles, noncanonical entries, malformed structured data or indexability errors. The link checker now recognises binary media responses rather than attempting to decode MP4 files as HTML.
