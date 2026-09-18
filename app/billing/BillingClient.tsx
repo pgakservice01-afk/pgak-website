@@ -458,7 +458,7 @@ export default function BillingClient() {
 
   if (state === "loading" && !data) {
     return (
-      <main className="grid min-h-screen place-items-center bg-bg text-ink-soft">
+      <main id="main-content" className="grid min-h-screen place-items-center bg-bg text-ink-soft">
         {t("Loading your account…", "आपका अकाउंट लोड हो रहा है…")}
       </main>
     );
@@ -466,7 +466,7 @@ export default function BillingClient() {
 
   if (state === "error" || !data) {
     return (
-      <main className="grid min-h-screen place-items-center bg-bg px-6 text-center">
+      <main id="main-content" className="grid min-h-screen place-items-center bg-bg px-6 text-center">
         <div>
           <p className="text-ink">
             {t(
@@ -498,7 +498,7 @@ export default function BillingClient() {
     "inline-flex min-h-11 items-center px-1 text-[0.9rem] text-ink-soft underline-offset-2 hover:text-ink hover:underline";
 
   return (
-    <main className="min-h-screen bg-bg">
+    <main id="main-content" className="min-h-screen bg-bg">
       <header className="sticky top-0 z-30 flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-line bg-bg/95 px-3 py-1.5 backdrop-blur sm:px-4">
         <a href="/" aria-label="PGAK — home" className="inline-flex min-h-11 items-center px-1">
           <Logo variant="compact" className="text-[1.05rem]" />

@@ -6,9 +6,10 @@ origin = sys.argv[1] if len(sys.argv)>1 else 'https://www.pgak.co.in'
 out = Path(sys.argv[2] if len(sys.argv)>2 else 'docs/seo/evidence/crawl-before.json')
 class Page(HTMLParser):
  def __init__(self):
-  super().__init__(); self.title=''; self.h1=[]; self.canonical=[]; self.description=[]; self.robots=[]; self.links=[]; self.schemas=[]; self.in_title=False; self.in_h1=False; self.in_schema=False; self.script=''; self.images=0; self.missing_alt=0
+  super().__init__(); self.ids=[]; self.title=''; self.h1=[]; self.canonical=[]; self.description=[]; self.robots=[]; self.links=[]; self.schemas=[]; self.in_title=False; self.in_h1=False; self.in_schema=False; self.script=''; self.images=0; self.missing_alt=0
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
+  if a.get('id'): self.ids.append(a['id'])
   if tag=='title': self.in_title=True
   if tag=='h1': self.in_h1=True; self.h1.append('')
   if tag=='meta':
@@ -35,7 +36,7 @@ def audit(url):
  try:
   with urllib.request.urlopen(target,timeout=30) as r: html=r.read().decode(); status=r.status; final=r.url
   p=Page();p.feed(html)
-  return dict(url=url,status=status,final_url=final,title=p.title,h1=p.h1,canonical=p.canonical,description=p.description,robots=p.robots,links=p.links,schemas=p.schemas,images=p.images,missing_alt=p.missing_alt,html_bytes=len(html))
+  return dict(url=url,status=status,final_url=final,title=p.title,h1=p.h1,canonical=p.canonical,description=p.description,robots=p.robots,links=p.links,schemas=p.schemas,images=p.images,missing_alt=p.missing_alt,html_bytes=len(html),ids=p.ids)
  except Exception as e:return dict(url=url,error=str(e))
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool: results=list(pool.map(audit,urls))
 out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(results,indent=2))

@@ -2,7 +2,7 @@
   "name": "pgak-website",
   "version": "1.0.0",
   "private": true,
-  "description": "PGAK — Intelligent Security marketing site. Next.js 14 scrollytelling rebuild.",
+  "description": "PGAK \u2014 Intelligent Security marketing site. Next.js 14 scrollytelling rebuild.",
   "scripts": {
     "dev": "next dev",
     "mock:cloud": "node scripts/mock-cloud.mjs",
@@ -15,7 +15,8 @@
     "test:leads": "node --experimental-strip-types --test lib/leads.test.ts",
     "test": "npm run test:middleware && npm run test:leads",
     "test:analytics": "node --test scripts/test-analytics.cjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:lead-client": "node --test scripts/test-lead-client.cjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

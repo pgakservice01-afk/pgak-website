@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Fraunces } from "next/font/google";
+
 import Script from "next/script";
 import "./globals.css";
+import "./premium.css";
 
 /**
  * GA4 measurement IDs, in order. Every one of them receives the same hits.
@@ -19,55 +20,30 @@ import "./globals.css";
 // Single canonical GA4 property (owner-confirmed 2026-08-21). The old
 // duplicate G-MBYGPSVJ1Z was double-counting every visit.
 const GA_IDS = ["G-6EMP9HSR2F"] as const;
-const GTM_ID = "GTM-MKZWLS7J";
+// GTM-MKZWLS7J contained only the same GA4 config (verified 2026-09-19).
+// Use the direct GA4 loader below once, avoiding a redundant container.
 // Keep preview/local QA out of production acquisition and lead metrics.
 const ANALYTICS_ENABLED = process.env.VERCEL_ENV === "production" || process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import ScrollProgress from "@/components/ScrollProgress";
-import MobileActionBar from "@/components/MobileActionBar";
-import { LangProvider } from "@/components/LangProvider";
-import AmbientFX from "@/components/AmbientFX";
-import Interactions from "@/components/Interactions";
-import SmoothScroll from "@/components/SmoothScroll";
 import ConversionEvents from "@/components/ConversionEvents";
 import LeadAttribution from "@/components/LeadAttribution";
-import ChatBot from "@/components/ChatBot";
-import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
-import StickyDemoCTA from "@/components/StickyDemoCTA";
-import MarketingOverlays from "@/components/MarketingOverlays";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 /** Optional — set NEXT_PUBLIC_CLARITY_ID in .env to enable Microsoft Clarity. */
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
-const sora = Sora({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-sora",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   // Per-page titles win; this template gives any page that forgets one a
   // sensible, branded fallback instead of a bare string.
   title: {
-    default: "PGAK — AI CCTV That Acts Before It's Too Late",
+    default: "PGAK — AI Video Analytics for Existing CCTV",
     template: "%s",
   },
   description:
-    "PGAK turns ordinary cameras into intelligent guardians. AI that detects threats in seconds, cuts false alarms, and gives you real peace of mind — 24×7.",
+    "AI video analytics for existing CCTV cameras. Explore intrusion detection, face recognition, attendance and alerts for your business with PGAK.",
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
@@ -95,7 +71,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a1014",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -104,61 +80,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" className={`${sora.variable} ${fraunces.variable}`}>
+    <html lang="en-IN" data-theme="light">
       <head>
         {/* Warm up the third-party origins the page will hit anyway. */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {ANALYTICS_ENABLED && <link rel="preconnect" href="https://www.googletagmanager.com" />}
+        {ANALYTICS_ENABLED && <link rel="dns-prefetch" href="https://www.google-analytics.com" />}
         {/* Site-wide structured data: Organization/LocalBusiness + WebSite.
             Per-page WebPage, Service, FAQ and Breadcrumb nodes reference these
             by @id, so the whole site resolves into one graph. */}
         <JsonLd nodes={[organizationSchema(), websiteSchema()]} />
       </head>
       <body className="bg-bg font-sans text-ink antialiased">
-        {/* Google Tag Manager (noscript) — immediately after opening <body> */}
-        {ANALYTICS_ENABLED && <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>}
-
-        {/* Google Tag Manager — lazyOnload keeps its 165KB chain out of the
-            LCP-critical window; the dataLayer stub below still queues early
-            events until it arrives. */}
-        {ANALYTICS_ENABLED && <Script id="gtm" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>}
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var t=localStorage.getItem('pgak-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();",
-          }}
-        />
-        <LangProvider>
-          <SmoothScroll />
+        <>
           <LeadAttribution />
           <ConversionEvents />
-          <AmbientFX />
-          <Interactions />
-          <ScrollProgress />
           {children}
-          {/* Marketing furniture only — none of it on /live, /wall or
-              /billing, where a customer is signing in, watching cameras or
-              paying (see components/MarketingOverlays). */}
-          <MarketingOverlays>
-            {/* keeps the last of the footer clear of the mobile action bar */}
-            <div aria-hidden="true" className="h-16 md:hidden" />
-            <WhatsAppButton />
-            <MobileActionBar />
-            <ChatBot />
-            <BackToTop />
-            <StickyDemoCTA />
-          </MarketingOverlays>
-        </LangProvider>
+        </>
         {ANALYTICS_ENABLED && <Pixel />}
         {ANALYTICS_ENABLED && <Analytics />}
 

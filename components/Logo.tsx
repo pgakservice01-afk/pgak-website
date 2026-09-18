@@ -21,16 +21,8 @@ const BLADES = [
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="pgak-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#b9ffe6" />
-          <stop offset="55%" stopColor="#7CF5C4" />
-          <stop offset="100%" stopColor="#3ed8e0" />
-        </linearGradient>
-      </defs>
-
       {/* focus-corner brackets */}
-      <g stroke="url(#pgak-grad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <g stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none">
         <path d="M7 23 L7 13 Q7 7 13 7 L23 7" />
         <path d="M77 7 L87 7 Q93 7 93 13 L93 23" />
         <path d="M7 77 L7 87 Q7 93 13 93 L23 93" />
@@ -38,15 +30,15 @@ export function LogoMark({ className }: { className?: string }) {
       </g>
 
       {/* shield */}
-      <path d={SHIELD} fill="#7CF5C4" fillOpacity="0.06" stroke="url(#pgak-grad)" strokeWidth="3" strokeLinejoin="round" />
+      <path d={SHIELD} fill="currentColor" fillOpacity="0.06" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
 
       {/* aperture */}
-      <g fill="url(#pgak-grad)" stroke="#0c1a20" strokeWidth="0.7" strokeLinejoin="round">
+      <g fill="currentColor" stroke="#0c1a20" strokeWidth="0.7" strokeLinejoin="round">
         {BLADES.map((d, i) => (
           <path key={i} d={d} fillOpacity={i % 2 === 0 ? 0.95 : 0.74} />
         ))}
       </g>
-      <circle cx="50" cy="50" r="18" stroke="url(#pgak-grad)" strokeWidth="1.6" fill="none" />
+      <circle cx="50" cy="50" r="18" stroke="currentColor" strokeWidth="1.6" fill="none" />
       {/* highlight catch-light */}
       <circle cx="60" cy="40" r="2.4" fill="#eafff8" />
     </svg>
@@ -64,7 +56,7 @@ export default function Logo({
 
   return (
     <span className={`inline-flex items-center gap-2.5 ${className ?? ""}`}>
-      <LogoMark className="h-[1.55em] w-[1.55em] shrink-0 drop-shadow-[0_0_14px_rgba(124,245,196,0.35)]" />
+      <LogoMark className="h-[1.55em] w-[1.55em] shrink-0" />
       <span className="flex flex-col justify-center leading-none">
         <span className="font-sans text-[1em] font-extrabold tracking-[0.06em] text-ink">
           PGAK

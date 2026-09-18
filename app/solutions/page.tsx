@@ -55,7 +55,7 @@ export default function SolutionsPage() {
 
       <Nav />
 
-      <main className="pt-[74px]">
+      <main id="main-content" className="pt-[74px]">
         <section className="sec pb-8">
           <div className="wrap">
             <Breadcrumbs trail={TRAIL} />

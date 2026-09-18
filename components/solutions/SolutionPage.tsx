@@ -64,7 +64,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
 
       <Nav />
 
-      <main data-money-page={s.slug} className="pt-[74px]">
+      <main id="main-content" data-money-page={s.slug} className="pt-[74px]">
         {/* ---------------------------------------------------------- hero */}
         <section className="sec pb-10">
           <div className="wrap">
@@ -80,7 +80,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary">
-                Get an AI CCTV assessment →
+                Get Free Camera Audit →
               </Link>
               <a href={waHref(`Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`)} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about this solution</a>
             </div>

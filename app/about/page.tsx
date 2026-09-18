@@ -67,7 +67,7 @@ export default function AboutPage() {
         ]}
       />
       <Nav />
-      <main className="pt-[74px]">
+      <main id="main-content" className="pt-[74px]">
         <section className="sec pb-[60px]">
           <div className="wrap">
             <div className="mx-auto max-w-[720px] text-center">
