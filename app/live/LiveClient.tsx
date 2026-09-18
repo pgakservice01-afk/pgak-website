@@ -192,7 +192,7 @@ export default function LiveClient() {
   const signup = mode === "signup";
 
   return (
-    <main className="grid min-h-screen lg:grid-cols-[1.05fr_0.95fr]">
+    <main id="main-content" className="grid min-h-screen lg:grid-cols-[1.05fr_0.95fr]">
       {/* Left: what you are signing in to. Hidden on small screens, where the
           form should own the viewport rather than share it.
           pb clears the global ChatBot launcher, which is fixed bottom-left. */}

@@ -79,7 +79,7 @@ export default async function InsightPost({ params }: Props) {
         ]}
       />
       <Nav />
-      <main className="pt-[74px]">
+      <main id="main-content" className="pt-[74px]">
         <article className="sec">
           <div className="wrap">
             <div className="mx-auto max-w-[720px]">

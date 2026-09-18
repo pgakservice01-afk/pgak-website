@@ -66,7 +66,7 @@ export default function ChecklistPage() {
         <Nav />
       </div>
 
-      <main className="pt-[74px] print:pt-0">
+      <main id="main-content" className="pt-[74px] print:pt-0">
         <section className="sec">
           <div className="wrap max-w-[880px]">
             <div className="flex flex-wrap items-center justify-between gap-4 print:hidden">

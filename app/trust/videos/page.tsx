@@ -46,7 +46,7 @@ export default function VideosPage() {
         ]}
       />
       <Nav />
-      <main className="pt-[74px]">
+      <main id="main-content" className="pt-[74px]">
         <section className="sec pb-[50px]">
           <div className="wrap">
             <Breadcrumbs trail={TRAIL} />

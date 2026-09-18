@@ -108,7 +108,7 @@ export default function LocationPage({ location }: { location: Location }) {
 
       <Nav />
 
-      <main className="pt-[74px]">
+      <main id="main-content" className="pt-[74px]">
         {/* Extra mobile bottom padding keeps the hero CTA clear of the fixed
             bottom action bar on short viewports. */}
         <section className="sec pb-28 md:pb-10">

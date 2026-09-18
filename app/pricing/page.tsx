@@ -83,7 +83,7 @@ export default function PricingPage() {
         ]}
       />
       <Nav />
-      <main data-money-page="pricing" className="pt-[74px]">
+      <main id="main-content" data-money-page="pricing" className="pt-[74px]">
         <section className="sec pb-10">
           <div className="wrap">
             <Breadcrumbs trail={TRAIL} />

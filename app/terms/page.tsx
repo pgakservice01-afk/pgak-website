@@ -28,7 +28,7 @@ function Section({
 
 export default function TermsOfService() {
   return (
-    <main className="min-h-screen bg-bg text-ink">
+    <main id="main-content" className="min-h-screen bg-bg text-ink">
       <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
         <Link
           href="/"

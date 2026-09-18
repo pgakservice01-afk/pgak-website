@@ -963,7 +963,7 @@ export default function WallClient() {
   if (!token) return null;
 
   return (
-    <main className="min-h-screen bg-bg">
+    <main id="main-content" className="min-h-screen bg-bg">
       <header className="sticky top-0 z-30 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line bg-bg/95 px-4 py-3 backdrop-blur">
         <a href="/" aria-label="PGAK — home">
           <Logo variant="compact" className="text-[1.05rem]" />

@@ -1,7 +1,7 @@
-"use client";
 
 import Logo from "@/components/Logo";
-import { useLang } from "@/components/LangProvider";
+// Server-render the directory; keep service data out of the client bundle.
+const t = (english: string, _hindi?: string) => english;
 import { SOLUTIONS } from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
 import { LOCATIONS, locationPath } from "@/lib/locations";
@@ -68,7 +68,6 @@ const CONTACT: FooterLink[] = [
 ];
 
 function LinkList({ links }: { links: FooterLink[] }) {
-  const { t } = useLang();
   return (
     <>
       {links.map((l) => (
@@ -87,7 +86,6 @@ function LinkList({ links }: { links: FooterLink[] }) {
 }
 
 export default function Footer() {
-  const { t } = useLang();
   const a = BUSINESS.address;
 
   return (
@@ -95,12 +93,12 @@ export default function Footer() {
       <div className="wrap">
         <div className="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <a href="#top" aria-label="PGAK — home" className="mb-4 inline-flex">
+            <a href="/" className="mb-4 inline-flex">
               <Logo variant="full" className="text-[1.5rem]" />
             </a>
             <p className="max-w-[280px] text-[0.92rem] text-ink-soft">
               {t(
-                "Intelligent security that acts before it’s too late. PGAK turns the cameras you already own into AI-powered guardians — for homes, businesses and beyond.",
+                "AI video analytics for the cameras you already own. Built by PGAK Innovations in Ludhiana, India.",
                 "बुद्धिमान सुरक्षा जो बहुत देर होने से पहले कार्रवाई करती है। PGAK आपके पहले से मौजूद कैमरों को एआई-संचालित रक्षकों में बदल देता है — घरों, व्यवसायों और उससे आगे के लिए।",
               )}
             </p>
@@ -140,7 +138,7 @@ export default function Footer() {
         </div>
 
         {/* ------------------------------ solution / feature / city sitemap */}
-        <div className="mt-14 grid gap-9 border-t border-line pt-10 md:grid-cols-3">
+        <details className="footer-directory mt-10 border-t border-line pt-6"><summary>Explore solutions, capabilities and locations <span aria-hidden="true">＋</span></summary><div className="mt-6 grid gap-9 md:grid-cols-3">
           <div>
             <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
               {t("Solutions", "समाधान")}
@@ -199,6 +197,7 @@ export default function Footer() {
           </div>
         </div>
 
+        </details>
         <div className="mt-12 flex flex-wrap justify-between gap-3.5 border-t border-line pt-6 text-[0.84rem] text-ink-faint">
           <span>
             {t("© 2026 PGAK. All rights reserved.", "© 2026 PGAK. सर्वाधिकार सुरक्षित।")}

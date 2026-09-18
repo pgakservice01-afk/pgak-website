@@ -1,72 +1,37 @@
-# PGAK — Interactive Site (Next.js)
+# PGAK website
 
-The pgak.co.in marketing site, rebuilt as an **Awwwards-style scrollytelling
-experience** following the Castimedia "Build a Pro Interactive Portfolio" guide.
+Next.js App Router marketing site for PGAK Innovations. Static HTML carries the SEO content; small client components handle lead forms, attribution and interactive product tools.
 
-**Stack:** Next.js 14 (App Router) · TypeScript · Tailwind CSS · Framer Motion ·
-HTML5 Canvas.
+## Development
 
-## The signature mechanic
-
-The guide's centerpiece is a sticky full-screen canvas that scrubs through an
-image sequence as you scroll. Instead of ~89 pre-rendered WebP frames, this build
-**draws the frame procedurally** so it needs zero external assets and is on-brand
-for PGAK. As you scroll the 5-screen hero, the canvas plays:
-
-1. Feed initialising → 2. Live monitored scene (CAM 02) → 3. AI scanning sweep +
-neural mesh → 4. Subjects identified (KNOWN vs UNKNOWN, with confidence) → 5.
-Threat detected → alert.
-
-Parallax overlay copy rides the story: **centred → left → right** (per the guide).
-
-Key files:
-
-- `components/scrolly/ScrollyHero.tsx` — 500vh scroll track + sticky stage, wires
-  scroll progress into the canvas and overlay.
-- `components/scrolly/ScrollyCanvas.tsx` — the procedural canvas renderer.
-- `components/scrolly/Overlay.tsx` — the three parallax text beats.
-
-To use **real animated frames** later (the literal guide workflow): drop your
-WebP frames in `public/sequence/` and swap the procedural `draw()` in
-`ScrollyCanvas.tsx` for an image-preload + frame-index scrub. The scroll plumbing
-already gives you `progress` (0→1).
-
-## Develop
-
-```bash
+```sh
 npm install
-cp .env.example .env.local   # set your ERP endpoint + webhook secret
-npm run dev                  # http://localhost:3000
+npm run dev
 ```
 
-## Build & deploy
+Copy `.env.example` to `.env.local` only when configuring a backend. Never put ERP secrets in `NEXT_PUBLIC_` variables. See `DEPLOY.md` for the existing ERP relay and Vercel setup.
 
-```bash
+## Verification
+
+```sh
+npm test
+npm run test:analytics
+npm run test:lead-client
 npm run build
-npm run start
+npm run typecheck
 ```
 
-Deploys cleanly to **Vercel** (same account as the ERP) — import the repo, add the
-server-only ERP environment variables, set the domain to `pgak.co.in`. Or `next build` and
-host the `.next` output anywhere that runs Node.
+Use `scripts/mock-lead-erp.cjs` with `ERP_LEADS_ENDPOINT=http://127.0.0.1:4319/success` and a local-only `ERP_WEBHOOK_SECRET` for form testing. The sink also exposes `/failure` for outage recovery tests. Never direct synthetic development leads to the live ERP.
 
-## Lead form → ERP
+## Design and content
 
-The "Find a dealer" form (`components/sections/DealerForm.tsx`) POSTs to your ERP
-leads webhook, preserving the original payload mapping
-(`location → district`, `protecting → message`). Configure via `.env.local`:
+- `app/page.tsx`: server-rendered homepage.
+- `app/premium.css`: white design system and responsive layouts.
+- `components/Nav.tsx`: native, crawlable navigation.
+- `components/sections/Footer.tsx`: server-rendered information directory.
+- `app/book-demo/page.tsx`: demo request page.
+- `components/sections/QuickLead.tsx`, `DealerForm.tsx`: lead forms.
+- `lib/lead-client.ts`, `app/api/leads/route.ts`: confirmed lead delivery and recovery.
+- `lib/solutions.ts`, `lib/capabilities.ts`, `lib/locations.ts`, `content/insights`: detailed SEO content.
 
-```
-ERP_LEADS_ENDPOINT=https://erp.pgak.co.in/api/leads/inbound
-ERP_WEBHOOK_SECRET=your-secret
-```
-
-The browser submits to `/api/leads`; ERP credentials stay on the server. Never
-prefix secrets with `NEXT_PUBLIC_`. See DEPLOY.md for production configuration.
-Analytics loads only on Vercel production deployments. For another production
-host, explicitly set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` at build time.
-
-## Content
-
-Current SEO changes and evidence are recorded in `docs/seo/`. Pricing is quoted
-per site; historical prices are not a current published offer.
+Production deployments are triggered by the existing GitHub–Vercel integration. `docs/redesign/REDESIGN.md` records changes, evidence and rollback; `docs/seo/` retains the prior SEO audit.

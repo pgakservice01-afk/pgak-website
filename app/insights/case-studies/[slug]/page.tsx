@@ -74,7 +74,7 @@ export default async function CaseStudyPage({
 
       <Nav />
 
-      <main className="pt-[74px]">
+      <main id="main-content" className="pt-[74px]">
         <article>
           <section className="sec pb-8">
             <div className="wrap max-w-[860px]">

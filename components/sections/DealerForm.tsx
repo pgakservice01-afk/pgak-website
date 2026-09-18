@@ -11,7 +11,7 @@ import {
   normalisePhone,
   type FieldErrors,
 } from "@/lib/leads";
-import { AUDIT_TOTAL_VALUE, AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
+import { AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
   TEL_HREF,
@@ -173,26 +173,6 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
             <h2 className="display mt-4 text-[clamp(1.8rem,3.5vw,2.5rem)]">{copy.h2}</h2>
             <p className="mt-3.5 text-ink-soft">{copy.intro}</p>
 
-            {/* Desktop only: on a phone this block pushed the first field a
-                whole screen below the heading. */}
-            <div className="mt-8 hidden gap-8 lg:flex">
-              <div>
-                <div className="font-display text-[2rem] leading-none">{AUDIT_TOTAL_VALUE}</div>
-                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
-                  {t("Audit value — yours free", "ऑडिट मूल्य — आपके लिए मुफ़्त")}
-                </div>
-              </div>
-              <div>
-                <div className="font-display text-[2rem] leading-none">1 hr</div>
-                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">
-                  {t("Call-back, working hours", "कॉल-बैक, कार्य-घंटों में")}
-                </div>
-              </div>
-              <div>
-                <div className="font-display text-[2rem] leading-none">{copy.stat3.big}</div>
-                <div className="mt-1.5 text-[0.82rem] tracking-wide text-ink-faint">{copy.stat3.label}</div>
-              </div>
-            </div>
           </div>
 
           {status === "done" ? (
@@ -233,7 +213,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
             <div className="flex flex-col gap-3.5">
               {/* The form is never unmounted on failure — everything typed
                   stays exactly where the customer left it. */}
-              <form onSubmit={submit} noValidate className="flex flex-col gap-3.5">
+              <form data-lead-form={copy.formName} aria-label={attendance ? "Request an attendance assessment" : "Request a camera audit"} onSubmit={submit} noValidate className="flex flex-col gap-3.5">
                 <Field label="Phone / WhatsApp" error={fieldErrors.phone}>
                   <input
                     required

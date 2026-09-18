@@ -36,7 +36,7 @@ import {
 const BOOKING_URL = (process.env.NEXT_PUBLIC_BOOKING_URL ?? "").trim();
 export const CHECKLIST_PATH = "/cctv-buying-checklist";
 
-export type QuickOffer = "audit" | "quote" | "checklist";
+export type QuickOffer = "audit" | "quote" | "checklist" | "demo";
 
 type Status = "idle" | "sending" | "done" | "fallback";
 
@@ -67,6 +67,13 @@ export default function QuickLead({
   const camerasRequired = offer !== "checklist";
 
   const copy = {
+    demo: {
+      button: t("Request my demo →", "डेमो का अनुरोध करें →"),
+      micro: t("We will contact you to arrange a demo. No obligation.", "डेमो का समय तय करने के लिए हम आपसे संपर्क करेंगे।"),
+      doneTitle: t("Demo request received ✓", "डेमो का अनुरोध प्राप्त हुआ ✓"),
+      doneBody: t("Our team will contact you to agree a suitable time and understand your camera setup.", "हमारी टीम समय और कैमरा सेटअप के लिए आपसे संपर्क करेगी।"),
+      formName: "demo_request", badge: "Demo", head: "See PGAK for your site", sub: "Two fields to get started",
+    },
     audit: {
       button: t("Get a free camera audit →", "मुफ़्त कैमरा ऑडिट पाएँ →"),
       micro: t(
@@ -132,6 +139,7 @@ export default function QuickLead({
       phone,
       cameras,
       honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
+      protecting: offer === "demo" ? "Product demo requested" : undefined,
     };
 
     if (!normalisePhone(phone)) {
@@ -237,13 +245,14 @@ export default function QuickLead({
       onSubmit={onSubmit}
       noValidate
       aria-label={
-        offer === "checklist"
+        offer === "demo" ? t("Request a demo", "डेमो का अनुरोध करें") : offer === "checklist"
           ? t("Request the buying checklist", "ख़रीद चेकलिस्ट का अनुरोध")
           : offer === "quote"
             ? t("Request a quote", "कोटेशन का अनुरोध")
             : t("Request a free camera audit", "मुफ़्त कैमरा ऑडिट का अनुरोध")
       }
     >
+      <noscript><p>To arrange this enquiry without JavaScript, <a href="tel:+916283993600">call +91 62839 93600</a> or <a href="https://wa.me/916283993600">contact PGAK on WhatsApp</a>.</p></noscript>
       {/* minmax(0, …) so the inputs can shrink below their placeholder width
           and the button column keeps its full label instead of clipping. */}
       <div className="grid gap-2.5 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_auto]">
