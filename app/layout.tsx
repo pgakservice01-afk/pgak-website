@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "./premium.css";
+import "./spot.css";
 
 /**
  * GA4 measurement IDs, in order. Every one of them receives the same hits.

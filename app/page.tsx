@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import ReferenceFilm from "@/components/ReferenceFilm";
 import Footer from "@/components/sections/Footer";
 import QuickLead from "@/components/sections/QuickLead";
 import JsonLd from "@/components/JsonLd";
@@ -105,8 +106,20 @@ export default function Home() {
         ]}
       />
       <Nav />
-      <main id="main-content" className="premium-home" data-money-page="home">
-        <section className="premium-hero" id="top">
+      <main
+        id="main-content"
+        className="premium-home spot-home"
+        data-money-page="home"
+      >
+        <section className="premium-hero cinema-hero" id="top">
+          <img
+            className="cinema-backdrop"
+            src="/media/real-time-response.webp"
+            width="986"
+            height="720"
+            fetchPriority="high"
+            alt="Illustrative nighttime CCTV view of a commercial yard, from Spot AI"
+          />
           <div className="hero-copy">
             <p className="kicker">PGAK · INTELLIGENT SECURITY</p>
             <h1>
@@ -135,24 +148,21 @@ export default function Home() {
             </div>
             <p className="hero-note">Your cameras. A more intelligent view.</p>
           </div>
-          <figure className="product-figure">
-            <img
-              src="/pgak-intelligence.svg"
-              width="1100"
-              height="760"
-              fetchPriority="high"
-              alt="Illustration of PGAK analysing a warehouse camera, identifying a restricted zone and displaying an intrusion event"
-            />
-            <figcaption>
-              Product illustration. Not customer footage or measured results.
-            </figcaption>
-          </figure>
+          <div className="hero-film-link">
+            <a href="#intelligence-films">
+              <span aria-hidden="true">▶</span> See video intelligence in action
+            </a>
+            <p>
+              Reference footage: Spot AI. Illustrative, not a PGAK deployment.
+            </p>
+          </div>
         </section>
         <section className="premium-section compatibility" id="how-compatible">
           <p className="kicker">WORKS WITH YOUR EXISTING CCTV</p>
           <h2>
-            A smarter system.
-            <br />A familiar starting point.
+            Your cameras can do more.
+            <br />
+            Start with what you have.
           </h2>
           <p className="section-intro">
             Keep compatible cameras. Add an intelligence layer. Start with an
@@ -172,6 +182,90 @@ export default function Home() {
             Explore AI video analytics software{" "}
             <span aria-hidden="true">→</span>
           </a>
+        </section>
+        <section
+          className="intelligence-films"
+          id="intelligence-films"
+          aria-labelledby="films-heading"
+        >
+          <div className="film-intro">
+            <p className="kicker">FROM WATCHING TO UNDERSTANDING</p>
+            <h2 id="films-heading">
+              A clearer picture.
+              <br />A more informed response.
+            </h2>
+            <p>
+              Explore the idea of video intelligence. Then see what PGAK can do
+              on your own cameras.
+            </p>
+          </div>
+          {[
+            {
+              n: "01",
+              title: "See.",
+              subtitle: "Bring the important moments into view.",
+              body: "Your team cannot watch every camera at once. Configure PGAK to flag activity in the areas and hours that matter to your business.",
+              file: "camera-intelligence",
+              label:
+                "Construction camera footage illustrating scene observation",
+              href: "/ai-surveillance-system",
+              link: "Explore AI surveillance",
+            },
+            {
+              n: "02",
+              title: "Understand.",
+              subtitle: "Give each event the context it needs.",
+              body: "Review configured zones, people and activity together. Assess camera placement and image quality before choosing the analytics for your site.",
+              file: "event-context",
+              label: "Factory camera footage illustrating activity context",
+              href: "/video-analytics-software",
+              link: "Explore video analytics",
+            },
+            {
+              n: "03",
+              title: "Respond.",
+              subtitle: "Help the right person act sooner.",
+              body: "Turn configured intrusion and loitering events into alerts your team can review. Agree who responds, how they are notified and what happens next.",
+              file: "real-time-response",
+              label:
+                "Nighttime yard camera footage illustrating security response",
+              href: "/ai-intruder-detection",
+              link: "Explore intrusion detection",
+            },
+          ].map((film) => (
+            <article className="film-row" key={film.n}>
+              <div className="film-copy">
+                <span className="film-number">
+                  {film.n} / INTELLIGENCE IN FOCUS
+                </span>
+                <h3>{film.title}</h3>
+                <h4>{film.subtitle}</h4>
+                <p>{film.body}</p>
+                <a className="text-link" href={film.href}>
+                  {film.link} <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <figure className="film-player">
+                <ReferenceFilm
+                  file={film.file}
+                  label={film.label}
+                  captionId={`film-${film.n}-caption`}
+                />
+                <figcaption id={`film-${film.n}-caption`}>
+                  {film.label}. Reference illustration from{" "}
+                  <a
+                    href="https://www.spot.ai/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Spot AI
+                  </a>
+                  ; any interface or automated actions shown are theirs, not a
+                  demonstration of PGAK.
+                </figcaption>
+              </figure>
+            </article>
+          ))}
         </section>
         <section className="premium-section" id="features">
           <div className="section-heading">
@@ -302,7 +396,11 @@ export default function Home() {
           <span id="audit" />
           <span id="demo" />
           <p className="kicker">LET’S START WITH YOUR CAMERAS</p>
-          <h2>See what’s possible.</h2>
+          <h2>
+            Put your cameras
+            <br />
+            to work.
+          </h2>
           <p className="section-intro">
             Get a free camera audit. Find out what your existing CCTV can do
             with PGAK.
