@@ -293,7 +293,8 @@
     "primaryKeyword": "cold storage cctv monitoring",
     "angle": "Door-open dwell alerts. Why this is a spoilage problem before a theft problem.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-18"
   },
   {
     "slug": "jewellery-shop-security-india",
@@ -301,7 +302,8 @@
     "primaryKeyword": "jewellery shop cctv security",
     "angle": "Counter, strongroom, entry, street. Staff-side risk handled respectfully.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-18"
   },
   {
     "slug": "housing-society-gate-management",
