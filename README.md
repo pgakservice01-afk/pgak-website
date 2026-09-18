@@ -47,7 +47,7 @@ npm run start
 ```
 
 Deploys cleanly to **Vercel** (same account as the ERP) — import the repo, add the
-two `NEXT_PUBLIC_*` env vars, set the domain to `pgak.co.in`. Or `next build` and
+server-only ERP environment variables, set the domain to `pgak.co.in`. Or `next build` and
 host the `.next` output anywhere that runs Node.
 
 ## Lead form → ERP
@@ -57,15 +57,16 @@ leads webhook, preserving the original payload mapping
 (`location → district`, `protecting → message`). Configure via `.env.local`:
 
 ```
-NEXT_PUBLIC_ERP_ENDPOINT=https://erp.pgak.co.in/api/leads/inbound
-NEXT_PUBLIC_WEBHOOK_SECRET=your-secret
+ERP_LEADS_ENDPOINT=https://erp.pgak.co.in/api/leads/inbound
+ERP_WEBHOOK_SECRET=your-secret
 ```
 
-`NEXT_PUBLIC_*` values ship in the browser bundle (same exposure as the old inline
-script). Rotate the secret, or move submission to a server route if it must stay
-hidden.
+The browser submits to `/api/leads`; ERP credentials stay on the server. Never
+prefix secrets with `NEXT_PUBLIC_`. See DEPLOY.md for production configuration.
+Analytics loads only on Vercel production deployments. For another production
+host, explicitly set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` at build time.
 
 ## Content
 
-All copy, pricing (₹1,000/camera), FAQ, and sections were ported 1:1 from the
-previous single-file `pgak-website.html`.
+Current SEO changes and evidence are recorded in `docs/seo/`. Pricing is quoted
+per site; historical prices are not a current published offer.

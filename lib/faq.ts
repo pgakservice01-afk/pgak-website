@@ -12,19 +12,19 @@ export const FAQS: Faq[] = [
   {
     q: "Do I need to buy new cameras?",
     qHi: "क्या मुझे नए कैमरे ख़रीदने होंगे?",
-    a: "No. PGAK is built to work with the cameras you already own — CCTV, IP cameras and most DVR/NVR systems. The intelligence is added as a layer on top, so there's no rip-and-replace.",
-    aHi: "नहीं। PGAK आपके पहले से मौजूद कैमरों — सीसीटीवी, आईपी कैमरे और ज़्यादातर DVR/NVR सिस्टम — के साथ काम करने के लिए बनाया गया है। इंटेलिजेंस को ऊपर एक लेयर के रूप में जोड़ा जाता है, इसलिए कुछ भी बदलने की ज़रूरत नहीं।",
+    a: "PGAK is designed to reuse compatible CCTV and DVR/NVR streams. Camera placement, stream access and processing hardware must be checked before confirming what can be retained.",
+    aHi: "PGAK संगत CCTV और DVR/NVR स्ट्रीम का उपयोग करता है। कैमरे, स्ट्रीम एक्सेस और प्रोसेसिंग हार्डवेयर की जाँच के बाद ही तय होगा कि क्या रखा जा सकता है।",
   },
   {
     q: "How fast does it detect a threat?",
     qHi: "यह ख़तरे का पता कितनी जल्दी लगाता है?",
-    a: "PGAK flags unknown people, intrusions and unusual activity in under three seconds, sending you an alert with a snapshot so you can act before a situation escalates.",
-    aHi: "PGAK अनजान लोगों, घुसपैठ और असामान्य गतिविधि को तीन सेकंड से भी कम में पहचान लेता है, और आपको स्नैपशॉट के साथ अलर्ट भेजता है ताकि स्थिति बिगड़ने से पहले आप कार्रवाई कर सकें।",
+    a: "PGAK sends alerts for configured detection events. End-to-end speed depends on the camera stream, processing device and network; measure it during your site assessment.",
+    aHi: "PGAK चुनी गई घटनाओं के अलर्ट भेजता है। गति कैमरा स्ट्रीम, प्रोसेसिंग डिवाइस और नेटवर्क पर निर्भर करती है; साइट परीक्षण में इसे मापें।",
   },
   {
     q: "What about all the false alarms I get today?",
     qHi: "आज मुझे जो इतने झूठे अलार्म मिलते हैं, उनका क्या?",
-    a: "That's exactly what the AI is designed to fix. It classifies every moving object before deciding to alert you, filtering out wind, shadows, pets and headlights — so the alerts you receive are the ones that genuinely matter. Most sites see false alerts drop by over 90% after the first fortnight of tuning.",
+    a: "That's exactly what the AI is designed to fix. It classifies every moving object before deciding to alert you, filtering out wind, shadows, pets and headlights — so the alerts you receive are the ones that genuinely matter. Review the change in false alerts during a pilot; no fixed reduction is guaranteed.",
     aHi: "एआई इसे ठीक करने के लिए ही बना है। यह आपकी सामान्य दिनचर्या सीखता है और हवा, परछाइयों, पालतू जानवरों और अन्य शोर को फ़िल्टर कर देता है, ताकि आपको मिलने वाले अलर्ट वही हों जो वाक़ई मायने रखते हैं।",
   },
   {
@@ -36,8 +36,8 @@ export const FAQS: Faq[] = [
   {
     q: "Is my footage private and secure?",
     qHi: "क्या मेरी फ़ुटेज निजी और सुरक्षित है?",
-    a: "Yes. Video is processed on an edge device at your own site, so footage stays on your premises by default and never needs to reach an external cloud. What does leave is encrypted, and access is role-controlled. Privacy is a core part of the design, not an afterthought.",
-    aHi: "हाँ। आपका डेटा एंड-टू-एंड एन्क्रिप्शन से सुरक्षित रहता है और आपके नियंत्रण में रहता है। निजता डिज़ाइन का मूल हिस्सा है, बाद का ख़याल नहीं।",
+    a: "PGAK supports on-site edge processing. Confirm where video, snapshots and attendance records are stored, who can access them, encryption and retention settings in your deployment review.",
+    aHi: "PGAK साइट पर एज प्रोसेसिंग का समर्थन करता है। वीडियो, स्नैपशॉट और अटेंडेंस रिकॉर्ड का स्थान, एक्सेस, एन्क्रिप्शन और संग्रह अवधि अपने डिप्लॉयमेंट में जाँचें।",
   },
   {
     q: "Can I monitor multiple locations?",
@@ -48,26 +48,26 @@ export const FAQS: Faq[] = [
   {
     q: "How much does PGAK cost?",
     qHi: "PGAK की क़ीमत कितनी है?",
-    a: "Billing is per camera per month, and we quote your exact rate on a call or WhatsApp once we know your camera count and how many sites you're covering. What we can tell you upfront is what is never charged extra: no hardware, no separate licence, no fee for the software updates that arrive along the way, and no lock-in.",
-    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है, और आपकी सही दर हम कॉल या WhatsApp पर बताते हैं — जब हमें आपके कैमरों की संख्या और साइटों की जानकारी हो जाए। जो हम अभी बता सकते हैं वह यह है कि अतिरिक्त शुल्क कभी नहीं लगता: कोई हार्डवेयर नहीं, अलग से लाइसेंस नहीं, सॉफ़्टवेयर अपडेट का शुल्क नहीं, और कोई लॉक-इन नहीं।",
+    a: "Billing is per camera per month, and we quote your exact rate on a call or WhatsApp once we know your camera count and how many sites you're covering. Confirm processing hardware, setup, support, taxes and contract terms in the written quote.",
+    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है। कैमरों और साइटों की संख्या के आधार पर दर पूछें। प्रोसेसिंग हार्डवेयर, सेटअप, सहायता, कर और अनुबंध की शर्तें लिखित कोटेशन में जाँचें।",
   },
   {
     q: "How long does installation take?",
     qHi: "इंस्टॉलेशन में कितना समय लगता है?",
-    a: "Most sites are live within a day, because there is no cabling to run — we connect to your existing DVR or NVR streams. The part that takes longer is tuning zones, schedules and thresholds against your real footage, which we do over the following fortnight.",
-    aHi: "ज़्यादातर साइटें एक दिन में चालू हो जाती हैं, क्योंकि कोई नई केबलिंग नहीं करनी होती — हम आपके मौजूदा DVR या NVR स्ट्रीम से जुड़ते हैं। ज़्यादा समय ज़ोन और शेड्यूल की ट्यूनिंग में लगता है, जो हम अगले दो हफ़्तों में करते हैं।",
+    a: "Installation timing depends on stream access, network readiness and processing hardware. Agree a rollout schedule after assessment, with time to tune zones and test alerts on your own footage.",
+    aHi: "इंस्टॉलेशन का समय स्ट्रीम एक्सेस, नेटवर्क और प्रोसेसिंग हार्डवेयर पर निर्भर करता है। आकलन के बाद समय तय करें और अपनी फ़ुटेज पर ज़ोन तथा अलर्ट का परीक्षण करें।",
   },
   {
     q: "Which cameras and DVRs are compatible?",
     qHi: "कौन से कैमरे और DVR संगत हैं?",
-    a: "Anything that exposes an RTSP stream, which covers virtually every DVR and NVR installed in the last decade — Hikvision, Dahua, CP Plus and the rest. If your DVR shows footage in a phone app today, it almost certainly works. The free camera audit confirms it before you spend anything.",
-    aHi: "कोई भी सिस्टम जो RTSP स्ट्रीम देता है — पिछले एक दशक में लगे लगभग हर DVR और NVR सहित। अगर आपका DVR आज फ़ोन ऐप पर फ़ुटेज दिखाता है, तो यह लगभग निश्चित रूप से काम करेगा।",
+    a: "An accessible, compatible RTSP stream is a useful starting point. The assessment checks the recorder model, codec, stream access, resolution and camera view; a phone viewing app alone does not establish compatibility.",
+    aHi: "संगत RTSP स्ट्रीम एक शुरुआती आवश्यकता है। आकलन में रिकॉर्डर मॉडल, कोडेक, स्ट्रीम एक्सेस, रिज़ॉल्यूशन और कैमरे का दृश्य जाँचते हैं; फ़ोन ऐप अकेले संगतता का प्रमाण नहीं है।",
   },
   {
     q: "Does it work at night and in poor light?",
     qHi: "क्या यह रात में और कम रोशनी में काम करता है?",
-    a: "Yes — the models are trained on infrared and low-light footage, which is when most intrusions happen. Night performance depends on your cameras having usable IR illumination, and that is one of the things the free audit checks.",
-    aHi: "हाँ — मॉडल इन्फ़्रारेड और कम रोशनी की फ़ुटेज पर प्रशिक्षित हैं, और अधिकांश घुसपैठ तभी होती है। रात का प्रदर्शन आपके कैमरों की IR रोशनी पर निर्भर करता है, जिसे मुफ़्त ऑडिट में जाँचा जाता है।",
+    a: "Low-light suitability depends on usable footage, illumination, camera angle and the detection task. Include day and night footage in the pilot before accepting performance.",
+    aHi: "कम रोशनी में परिणाम फ़ुटेज, रोशनी, कैमरा कोण और कार्य पर निर्भर करते हैं। परिणाम स्वीकार करने से पहले दिन और रात की फ़ुटेज पर परीक्षण करें।",
   },
   {
     q: "What happens if my internet goes down?",
@@ -78,8 +78,8 @@ export const FAQS: Faq[] = [
   {
     q: "Can it replace our biometric attendance machine?",
     qHi: "क्या यह हमारी बायोमेट्रिक अटेंडेंस मशीन की जगह ले सकता है?",
-    a: "For most sites, yes. Face recognition at the gate produces the same attendance record with no contact, no queue and no failures on dusty or damaged fingers. Sites typically run both for a fortnight and then retire the machine.",
-    aHi: "ज़्यादातर साइटों के लिए, हाँ। गेट पर फ़ेस रिकग्निशन वही अटेंडेंस रिकॉर्ड बनाता है — बिना संपर्क, बिना क़तार, और धूल भरे या कटे-फटे उँगलियों पर विफलता के बिना।",
+    a: "Camera-based attendance may suit your site after testing recognition, missed entries and exception handling. Run a pilot alongside your current records before replacing an existing attendance system.",
+    aHi: "कैमरा अटेंडेंस अपनाने से पहले पहचान, छूटी एंट्री और अपवादों का परीक्षण करें। मौजूदा अटेंडेंस सिस्टम बदलने से पहले दोनों के रिकॉर्ड साथ मिलाकर जाँचें।",
   },
   {
     q: "How do I get started?",

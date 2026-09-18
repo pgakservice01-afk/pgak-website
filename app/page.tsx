@@ -32,9 +32,9 @@ import { FAQS } from "@/lib/faq";
 
 export const metadata: Metadata = pageMeta({
   title:
-    "AI CCTV Camera for Business & Home in India | PGAK",
+    "AI Video Analytics for Existing CCTV Cameras | PGAK",
   description:
-    "Turn the CCTV cameras you already own into an AI security system — intruder alerts in seconds, face recognition, far fewer false alarms. Free audit.",
+    "Add AI video analytics to existing CCTV at factories, warehouses and offices. Evaluate intrusion alerts, attendance and camera health. Get a free assessment.",
   path: "/",
   keywords: [
     "AI CCTV camera",
@@ -62,7 +62,7 @@ export default function Home() {
         ]}
       />
       <Nav />
-      <main>
+      <main data-money-page="home">
         <ImageHero />
         <TrustStrip />
         <ProblemSolution />

@@ -23,14 +23,14 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getAllInsights().map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getInsight(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = getInsight((await params).slug);
   if (!post) return {};
   return pageMeta({
     // " | PGAK" rather than " — PGAK Insights": the longer suffix spent 16 of
@@ -44,8 +44,8 @@ export function generateMetadata({ params }: Props): Metadata {
   });
 }
 
-export default function InsightPost({ params }: Props) {
-  const post = getInsight(params.slug);
+export default async function InsightPost({ params }: Props) {
+  const post = getInsight((await params).slug);
   if (!post) notFound();
 
   const path = `/insights/${post.slug}`;

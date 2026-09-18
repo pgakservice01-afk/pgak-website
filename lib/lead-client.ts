@@ -14,7 +14,7 @@
 import { HONEYPOT_FIELD, type FieldErrors } from "./leads";
 import { readAttribution } from "./attribution";
 import { fbTrack } from "./fbpixel";
-import { trackLead } from "./analytics";
+import { trackLead, trackConversion } from "./analytics";
 import { waHref } from "./whatsapp";
 import { BUSINESS } from "./seo";
 
@@ -88,6 +88,9 @@ export async function submitLead(
       if (!converted.has(opts.ref)) {
         converted.add(opts.ref);
         fbTrack("Lead", { content_name: opts.formName, currency: "INR" });
+        trackConversion("form_submit", { form_name: opts.formName, cta: opts.cta });
+        if (opts.formName === "quick_quote_request") trackConversion("pricing_request", { form_name: opts.formName });
+        else trackConversion("assessment_request", { form_name: opts.formName });
         trackLead(opts.formName, {
           cta: opts.cta,
           cameras: values.cameras,
@@ -112,7 +115,7 @@ export async function submitLead(
  */
 export function waContinueHref(v: LeadValues, ref: string): string {
   const lines = [
-    "Hi PGAK, I just requested a free camera audit on your website.",
+    "Hi PGAK, I just submitted an enquiry on your website.",
     v.name ? `Name: ${v.name}` : "",
     `Phone: ${v.phone}`,
     v.cameras ? `Cameras: ${v.cameras}` : "",

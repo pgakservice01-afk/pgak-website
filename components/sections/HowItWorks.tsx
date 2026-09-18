@@ -18,8 +18,8 @@ const STEPS: {
     t: "Connect",
     tHi: "कनेक्ट",
     ic: "link",
-    d: "Link your existing cameras and DVR/NVR to PGAK's AI layer — no new hardware required.",
-    dHi: "अपने मौजूदा कैमरे और DVR/NVR को PGAK की एआई लेयर से जोड़ें — किसी नए हार्डवेयर की ज़रूरत नहीं।",
+    d: "Check compatible camera and DVR/NVR streams, then confirm the on-site processing requirements.",
+    dHi: "कैमरा और DVR/NVR स्ट्रीम की संगतता तथा साइट पर प्रोसेसिंग हार्डवेयर की ज़रूरत जाँचें।",
   },
   {
     n: "02",
@@ -34,8 +34,8 @@ const STEPS: {
     t: "Detect",
     tHi: "पहचान",
     ic: "radar",
-    d: "Unknown faces, loitering, intrusion and unusual activity are flagged in under three seconds.",
-    dHi: "अनजान चेहरे, मँडराना, घुसपैठ और असामान्य गतिविधि तीन सेकंड से भी कम में चिह्नित होते हैं।",
+    d: "Configured events such as intrusion and loitering are flagged for review; speed depends on the site setup.",
+    dHi: "चुनी गई घुसपैठ और मँडराने जैसी घटनाएँ समीक्षा के लिए चिह्नित होती हैं; गति साइट सेटअप पर निर्भर करती है।",
   },
   {
     n: "04",

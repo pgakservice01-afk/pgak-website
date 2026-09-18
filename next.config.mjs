@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // The scrollytelling canvas + animations are the focus; don't let lint warnings
-  // block a production build. Type-checking still runs.
-  eslint: { ignoreDuringBuilds: true },
+  // Enforce lint errors and type checks before production deployment.
+  eslint: { ignoreDuringBuilds: false },
 
   // Gzip/Brotli at the Next layer. Vercel and most CDNs compress at the edge
   // anyway, but this covers self-hosted `next start` deployments too.

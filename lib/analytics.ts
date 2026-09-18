@@ -1,15 +1,5 @@
-/**
- * Conversion tracking helper.
- *
- * Two sinks, one call: GTM's dataLayer (so tags can be configured without a
- * code deploy) and gtag directly (so GA4 records the event even if GTM is
- * blocked or not yet configured). Both are no-ops on the server and safe to
- * call when the scripts haven't loaded.
- *
- * Click-level tracking is handled globally in app/layout.tsx via [data-cta].
- * Use `trackConversion` for things a click can't tell you — a form that
- * actually succeeded, not just a button that was pressed.
- */
+/** GA4 events use one gtag/dataLayer command, including before the loader is ready.
+ * ConversionEvents handles clicks; submitLead records only CRM-confirmed leads. */
 
 type Params = Record<string, unknown>;
 
@@ -26,11 +16,14 @@ export function trackConversion(event: string, params: Params = {}) {
     gtag?: (...args: unknown[]) => void;
   };
 
+  // One GA4 dispatch. gtag commands queue in dataLayer even before the loader.
+  // Do not also push a GTM custom event: that can double-count configured tags.
   w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({ event, ...payload });
-
   if (typeof w.gtag === "function") {
     w.gtag("event", event, payload);
+  } else {
+    const queue = function (..._args: unknown[]) { w.dataLayer!.push(arguments); };
+    queue("event", event, payload);
   }
 }
 

@@ -9,7 +9,7 @@ const FEATURES: { ic: IconName; t: string; d: string; tHi: string; dHi: string }
     ic: "bell",
     t: "Instant Threat Alerts",
     tHi: "तुरंत ख़तरे के अलर्ट",
-    d: "Sub-three-second detection of intrusions and anomalies, pushed straight to your phone with context.",
+    d: "Configured intrusion alerts sent to your phone with context; timing depends on the site setup.",
     dHi: "घुसपैठ और असामान्य गतिविधि की तीन सेकंड से कम में पहचान, संदर्भ के साथ सीधे आपके फ़ोन पर।",
   },
   {
@@ -44,7 +44,7 @@ const FEATURES: { ic: IconName; t: string; d: string; tHi: string; dHi: string }
     ic: "shield-lock",
     t: "Private by Design",
     tHi: "डिज़ाइन से ही निजी",
-    d: "End-to-end encryption keeps your footage and data secure and fully under your control.",
+    d: "Review data access, storage and retention arrangements during your assessment.",
     dHi: "एंड-टू-एंड एन्क्रिप्शन आपकी फ़ुटेज और डेटा को सुरक्षित और पूरी तरह आपके नियंत्रण में रखता है।",
   },
 ];

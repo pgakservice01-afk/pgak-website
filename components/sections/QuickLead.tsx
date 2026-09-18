@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
 import { CAMERA_OPTIONS, HONEYPOT_FIELD, normalisePhone } from "@/lib/leads";
-import { AUDIT_TOTAL_VALUE, AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
+import { AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
   TEL_HREF,
@@ -70,8 +70,8 @@ export default function QuickLead({
     audit: {
       button: t("Get a free camera audit →", "मुफ़्त कैमरा ऑडिट पाएँ →"),
       micro: t(
-        `Free audit worth ${AUDIT_TOTAL_VALUE} · we call within one working hour · no new hardware`,
-        `${AUDIT_TOTAL_VALUE} मूल्य का मुफ़्त ऑडिट · एक कार्य-घंटे के भीतर कॉल · कोई नया हार्डवेयर नहीं`,
+        `Free camera assessment · we call within one working hour · camera compatibility checked`,
+        `मुफ़्त कैमरा आकलन · एक कार्य-घंटे के भीतर कॉल · कैमरा संगतता की जाँच`,
       ),
       doneTitle: t("Got it ✓", "मिल गया ✓"),
       doneBody: t(
@@ -81,8 +81,8 @@ export default function QuickLead({
       formName: "quick_audit_request",
       badge: t("Free", "मुफ़्त"),
       head: t(
-        `Camera audit worth ${AUDIT_TOTAL_VALUE}`,
-        `${AUDIT_TOTAL_VALUE} मूल्य का कैमरा ऑडिट`,
+        `Camera readiness assessment`,
+        `कैमरा रेडीनेस आकलन`,
       ),
       sub: t(
         `Report in ${AUDIT_TURNAROUND_HOURS} hours · 2 fields, 20 seconds`,
@@ -233,7 +233,7 @@ export default function QuickLead({
   }
 
   return wrap(
-    <form
+    <form data-lead-form={copy.formName}
       onSubmit={onSubmit}
       noValidate
       aria-label={

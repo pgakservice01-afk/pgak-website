@@ -5,35 +5,10 @@ import Reveal from "@/components/Reveal";
 import Icon, { type IconName } from "@/components/Icon";
 import { useLang } from "@/components/LangProvider";
 
-const PROOFS: {
-  ic: IconName;
-  t: string;
-  d: string;
-  tHi: string;
-  dHi: string;
-  href?: string;
-}[] = [
-  {
-    ic: "factory",
-    t: "Factory Case Studies",
-    tHi: "फ़ैक्टरी केस स्टडी",
-    d: "In-depth breakdowns of large industrial and warehouse deployments.",
-    dHi: "बड़े औद्योगिक और वेयरहाउस डिप्लॉयमेंट का विस्तृत विश्लेषण।",
-  },
-  {
-    ic: "certificate",
-    t: "Security Certifications",
-    tHi: "सुरक्षा सर्टिफ़िकेशन",
-    d: "Compliance and data-protection standards our platform is built to meet.",
-    dHi: "अनुपालन और डेटा-सुरक्षा मानक जिन्हें पूरा करने के लिए हमारा प्लेटफ़ॉर्म बना है।",
-  },
-  {
-    ic: "chart",
-    t: "Success Stories",
-    tHi: "सफलता की कहानियाँ",
-    d: "Measurable outcomes — theft cut, response times slashed, losses stopped.",
-    dHi: "मापने योग्य नतीजे — चोरी में कमी, तेज़ प्रतिक्रिया, नुक़सान रुका।",
-  },
+const PROOFS: { ic: IconName; t: string; d: string; tHi: string; dHi: string; href: string }[] = [
+ { ic: "factory", t: "Illustrative deployment scenarios", tHi: "डिप्लॉयमेंट के उदाहरण", d: "Worked examples explain the approach. They are not completed customer projects or measured results.", dHi: "ये काम करने का तरीका समझाने वाले उदाहरण हैं, ग्राहक परियोजनाओं के वास्तविक परिणाम नहीं।", href: "/insights/case-studies" },
+ { ic: "devices", t: "Check your own cameras", tHi: "अपने कैमरों की जाँच", d: "Assess streams, placement, lighting and processing requirements before selecting a rollout.", dHi: "डिप्लॉयमेंट से पहले स्ट्रीम, कैमरे की जगह, रोशनी और प्रोसेसिंग की जाँच करें।", href: "/free-audit" },
+ { ic: "chart", t: "Transparent cost assumptions", tHi: "लागत की स्पष्ट जानकारी", d: "Review what determines the quote. Modelled ROI is an estimate, not a promise of savings.", dHi: "कोटेशन का आधार जानें। अनुमानित ROI बचत की गारंटी नहीं है।", href: "/pricing" },
 ];
 
 export default function CustomerTrust() {
@@ -50,8 +25,8 @@ export default function CustomerTrust() {
           </h2>
           <p className="mt-3.5 text-[1.05rem] text-ink-soft">
             {t(
-              "What we can show you before you commit — worked scenarios for sites like yours, the standards the platform is built to, and a free audit of your own cameras.",
-              "प्रतिबद्ध होने से पहले हम आपको क्या दिखा सकते हैं — आपकी जैसी साइटों के उदाहरण, प्लेटफ़ॉर्म जिन मानकों पर बना है, और आपके अपने कैमरों का मुफ़्त ऑडिट।",
+              "Before you commit, review the deployment approach and test suitability on your own cameras. Ask for evidence relevant to your site.",
+              "प्रतिबद्ध होने से पहले हम आपको क्या दिखा सकते हैं — आपकी जैसी साइटों के उदाहरण, डिप्लॉयमेंट की स्पष्ट जानकारी, और आपके अपने कैमरों का मुफ़्त ऑडिट।",
             )}
           </p>
         </Reveal>

@@ -24,7 +24,7 @@ export default function BeforeAfter() {
           <p className="mt-3.5 text-[1.05rem] text-ink-soft">
             Drag the handle. Ordinary CCTV just records two figures — it has no
             idea who they are. PGAK tells your staff from a stranger: the known
-            person passes quietly, the unknown one triggers an instant alert.
+            person passes quietly, the unknown one triggers a configured alert. This is an illustrative animation, not a measured customer result.
           </p>
         </Reveal>
 
@@ -153,18 +153,18 @@ function Scene({ mode }: { mode: "before" | "after" }) {
           {/* known person — recognised, no alarm */}
           <div className="absolute left-[26%] top-[36%] h-[53%] w-[15%] rounded-md border-2 border-[#7CF5C4] shadow-[0_0_16px_rgba(124,245,196,0.45)]">
             <span className="absolute -top-5 left-0 whitespace-nowrap rounded bg-[#7CF5C4] px-1.5 py-0.5 text-[0.6rem] font-bold text-[#04201a]">
-              KNOWN · STAFF 99%
+              KNOWN · STAFF
             </span>
           </div>
           {/* unknown person — flagged, alert fired */}
           <div className="absolute left-[55%] top-[36%] h-[53%] w-[15%] rounded-md border-2 border-[#ff5b5b] shadow-[0_0_16px_rgba(255,91,91,0.5)]">
             <span className="absolute -top-5 left-0 whitespace-nowrap rounded bg-[#ff5b5b] px-1.5 py-0.5 text-[0.6rem] font-bold text-[#2a0d05]">
-              UNKNOWN · 98%
+              UNKNOWN
             </span>
           </div>
           <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-[#ff5b5b]/20 px-2.5 py-1 text-[0.66rem] font-semibold text-[#ff8a6b]">
             <span className="h-1.5 w-1.5 animate-pulseDot rounded-full bg-[#ff5b5b]" />
-            Alert sent · 1.9s
+            Example alert
           </span>
           <span className="absolute bottom-3 left-[38%] flex items-center gap-1.5 rounded-full bg-[#7CF5C4]/15 px-2.5 py-1 text-[0.66rem] font-semibold text-[#7CF5C4]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#7CF5C4]" />

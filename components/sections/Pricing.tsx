@@ -35,11 +35,11 @@ const STARTER = [
 ];
 
 const NEVER_EXTRA = [
-  "New cameras — it runs on the ones you already own",
-  "A separate software licence",
-  "Software updates, for as long as you're with us",
-  "Per-employee or per-enrolment charges on attendance",
-  "The camera audit before you decide anything",
+  "Existing camera compatibility and any replacements",
+  "Software subscription and licensing scope",
+  "Updates and support coverage",
+  "Any employee or enrolment limits for attendance",
+  "Processing hardware, setup and taxes",
 ];
 
 const WA_TEXT =
@@ -106,7 +106,7 @@ export default function Pricing() {
             className="panel-dark flex flex-col rounded-2xl border border-accent bg-gradient-to-b from-[#13332b] to-[#0c1a17] p-8"
           >
             <h3 className="text-[1.3rem] font-semibold">
-              What never appears on the invoice
+              Confirm these items in your quote
             </h3>
             <ul className="my-6 flex-1 list-none">
               {NEVER_EXTRA.map((f) => (
