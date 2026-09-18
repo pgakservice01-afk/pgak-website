@@ -1,0 +1,9 @@
+{
+  "source": "Chrome PageSpeed Insights rendered report",
+  "reportUrl": "https://pagespeed.web.dev/analysis/https-www-pgak-co-in/lja9m4dwe2?form_factor=mobile",
+  "capturedAt": "2026-09-19T04:45:53+05:30",
+  "mobile": {"performance":94,"accessibility":100,"bestPractices":100,"seo":100,"lcpMs":1372,"tbtMs":282,"cls":0},
+  "desktop": {"performance":92,"accessibility":100,"bestPractices":100,"seo":100,"lcpMs":349,"tbtMs":231,"cls":0},
+  "fieldData": "No data",
+  "inpVerified": false
+}
