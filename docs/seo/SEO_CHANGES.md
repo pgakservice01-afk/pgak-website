@@ -30,3 +30,40 @@ No destructive consolidation of attendance/city pages without Search Console que
 ## Rollback
 
 Pre-change commit: e5846068a3df2081b7db901814c88b79abeb82dc. Full backup: ../pgak-before-seo.bundle outside checkout. Revert the release merge through GitHub to trigger the established Vercel production flow; do not force-push or delete routes.
+
+## Production release and verification
+
+Implementation commit 12e033e merged through [PR 18](https://github.com/pgakservice01-afk/pgak-website/pull/18) as **f74377c4e89d7ff9db33ee67be3fbf4c2edd4084**. Vercel preview BKCLqdUdPdf8kojmjf4NHewMLUkt built successfully; Chrome access was denied by deployment protection for the connected account. No access controls were changed. Local production build and Chrome validation supplied the reviewable preview.
+
+[Vercel production deployment](https://vercel.com/pgakservice01-afks-projects/pgak-website/42mENFVXVKHVshv6HcrAGRiYySec) succeeded. The public domain was verified to serve the new title/H1, copy and enquiry forms. GA4/GTM scripts load on production and Chrome reported no site errors. Live `/api/leads` reports ERP and notifications configured; this is not verification of a CRM row.
+
+Final checks:
+- 138/138 production sitemap URLs return 200, one H1 and canonical, and parseable JSON-LD. An initial offices-page network timeout cleared on recheck. Local full crawl also found zero duplicate titles, missing image alt attributes, orphan sitemap pages or non-self canonicals.
+- HTTP/non-www and trailing-slash versions resolve to the canonical HTTPS www URL. Robots and sitemap are reachable and public indexing remains allowed.
+- 13 middleware + 26 lead + 3 analytics tests pass. Lint/typecheck/build pass with documented pre-existing warnings. Local Chrome assessment/quote success tests reach a loopback ERP. An intentional ERP failure shows retry, retains entered details and exposes contextual WhatsApp/phone fallback. No test WhatsApp message or call was sent.
+- [Google Rich Results retest](https://search.google.com/test/rich-results/result?id=_zxD4lk91GygUQQckI8Ccg): three valid items; software retains noncritical issues. Schema.org retest: zero errors, zero warnings, three top-level items.
+- IndexNow accepted six priority URLs with HTTP 200: home, category, warehouse, factory, attendance, pricing. This is acceptance of notification, not proof of indexing. GSC submission remains inaccessible.
+
+### Before/after performance — mixed, not a CWV pass
+
+| Test | Before | After |
+|---|---|---|
+| CLI Lighthouse homepage performance | 58 | 71 |
+| CLI homepage LCP | 7.3 s | 3.9 s |
+| CLI homepage TBT | 400 ms | 630 ms |
+| CLI homepage CLS | 0 | 0 |
+| CLI accessibility / best practices / SEO | 97 / 77 / 100 | 97 / 77 / 100 |
+| PSI mobile homepage performance | 65 | 61 |
+| PSI mobile homepage LCP | 6.4 s | 7.1 s |
+| PSI mobile homepage TBT | 290 ms | 430 ms |
+| PSI mobile homepage CLS | 0 | 0 |
+
+[Fresh PSI mobile report](https://pagespeed.web.dev/analysis/https-www-pgak-co-in/4b4l2vikr3?form_factor=mobile): accessibility 97, best practices 100, SEO 100. No field data. Independent lab environments disagree; do not cherry-pick the improvement or claim real-user CWV targets achieved. The paragraph is now LCP; PSI reports render delay and remaining JavaScript work. Follow-up must reduce measured main-thread/third-party work without breaking measurement or forms.
+
+Attendance-template CLI Lighthouse after deployment: performance 75, accessibility 97, best practices 77, SEO 100; LCP 3.2 s, TBT 600 ms, CLS 0. Raw JSON reports are in evidence/.
+
+Security dependency audit: zero known npm vulnerabilities after patching, versus 11 before. This does not certify the entire application secure.
+
+### Commercial measurement limits
+
+No organic lead, ranking, revenue or AI-visibility improvement can be concluded on release day. GSC access is denied and the connected GA4 account does not expose a verified PGAK property. Current funnel diagnosis and CRM receipt/qualification need that access and elapsed data. Real evidence, city-service validation, content/claim review, tag-container deduplication and authority work remain in the 90-day plan. No current GSC metric, fake customer proof or fabricated booked-demo event was added.

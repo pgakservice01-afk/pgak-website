@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://pgak.co.in/",
+    "status": 200,
+    "final_url": "https://www.pgak.co.in/",
+    "body": ""
+  },
+  {
+    "url": "https://pgak.co.in/",
+    "status": 200,
+    "final_url": "https://www.pgak.co.in/",
+    "body": ""
+  },
+  {
+    "url": "https://www.pgak.co.in/pricing/",
+    "status": 200,
+    "final_url": "https://www.pgak.co.in/pricing",
+    "body": ""
+  },
+  {
+    "url": "https://www.pgak.co.in/robots.txt",
+    "status": 200,
+    "final_url": "https://www.pgak.co.in/robots.txt",
+    "body": "# Public content is available to Google, Bing, OAI-SearchBot and PerplexityBot.\nUser-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /*?*filter=\nDisallow: /*?*sort=\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nSitemap: https://www.pgak.co.in/sitemap.xml\n"
+  },
+  {
+    "url": "https://www.pgak.co.in/api/leads",
+    "status": 200,
+    "final_url": "https://www.pgak.co.in/api/leads",
+    "body": "{\"ok\":true,\"erp\":true,\"notify\":true,\"newLeadAlerts\":true,\"env\":\"production\"}"
+  },
+  {
+    "url": "https://www.pgak.co.in/289fe00c23024b6d9a697fbcf48b59c6.txt",
+    "status": 200,
+    "final_url": "https://www.pgak.co.in/289fe00c23024b6d9a697fbcf48b59c6.txt",
+    "body": ""
+  }
+]

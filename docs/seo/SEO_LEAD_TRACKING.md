@@ -15,7 +15,7 @@ Phone + camera band remain the first-touch fields. Existing full forms collect o
 | generate_lead | Same confirmed submission, deduplicated by form reference | Existing GA4 lead event, not qualified-lead proof |
 | pricing_request | Confirmed quick_quote_request | Quote request delivered |
 | assessment_request | Other confirmed audit/attendance/checklist enquiry | Assessment/content enquiry delivered |
-| download_asset | Checklist/brochure/download action | Asset access intent; not proof a PDF was saved |
+| download_asset | Explicit download link or PDF/CSV/XLSX/ZIP link | Asset access intent; not proof a PDF was saved |
 | video_play | User plays non-autoplay video | Video engagement |
 
 `demo_request` is intentionally not fabricated: the current forms request an assessment, not a confirmed booked demo. Track booked demos and qualification in the CRM after the sales team actually records them.
@@ -27,3 +27,5 @@ Payloads contain path, CTA identifier, form name and camera/site category. No ph
 Primary funnel: organic search → commercial page → contact/form intent → CRM-confirmed lead → sales-qualified lead → booked demo → sale. Use generate_lead as the website lead key event; do not add together form_submit + generate_lead as two leads. Keep click events secondary. Reconcile CRM records and first-touch attribution weekly; classify fit, camera/site count, use case, geography and sales outcome in the CRM.
 
 Validation: analytics queue/deduplication unit tests; existing lead validation and spam-route tests; local production-build form delivery against a loopback mock CRM. A live health endpoint alone cannot verify the final CRM destination. See SEO_CHANGES.md for production delivery limitations and final checks.
+
+Live DOM confirms both GTM and direct GA4 loaders reference G-6EMP9HSR2F. Custom-event duplicate dispatch was removed in code, but container-driven page-view/config overlap remains unverified until GTM/GA4 reporting access is available. Do not claim end-to-end deduplication from unit tests alone.
