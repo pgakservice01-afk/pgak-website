@@ -30,3 +30,9 @@ Local mobile Lighthouse after deferred video initialization: performance 96, acc
 Chrome verified zero video elements before Play, creation and successful playback after Play, and keyboard focus transfer to the native player. Responsive checks found no horizontal overflow at 320, 375, 390, 768, 1024 and 1440 pixels. The Book a Demo link and destination page were also visually checked.
 
 The final HTML crawl passed all 141 canonical sitemap pages and 422 internal link/fragment targets, with no missing descriptions/alts, duplicate titles, noncanonical entries, malformed structured data or indexability errors. The link checker now recognises binary media responses rather than attempting to decode MP4 files as HTML.
+
+## Production follow-up
+
+The first production Google PageSpeed run (https://pagespeed.web.dev/analysis/https-www-pgak-co-in/2c3osqzfx0?form_factor=mobile) reported 72 performance, 100 accessibility/best practices/SEO, LCP 5.6 s, TBT 270 ms and CLS 0. Its LCP breakdown showed substantial render delay. The Meta library was still being injected during initial hydration. The follow-up separates the immediate event queue from the heavy `fbevents.js` download, loading the latter with Next's `lazyOnload` strategy. Early lead events are retained, with initialization placed ahead of the queue. Four dedicated tests verify early retention, loaded dispatch, server safety and initialization order; GA4 and lead-client regression tests also pass.
+
+The deployed redesign returned HTTP 200 with its server-rendered content to Googlebot, Bingbot, OAI-SearchBot and PerplexityBot. All three videos were served locally as `video/mp4` with immutable cache headers; the production hero was confirmed at 26,898 bytes. Production lead-service health confirmed ERP and notification configuration, and live video playback had no browser console errors.
