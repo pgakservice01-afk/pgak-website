@@ -60,9 +60,7 @@ export default function FreeAudit() {
                     </div>
                   </div>
                 </div>
-                <div className="whitespace-nowrap text-[0.95rem] text-ink-faint line-through decoration-danger/70">
-                  {it.v}
-                </div>
+
               </div>
             ))}
           </div>
@@ -70,13 +68,10 @@ export default function FreeAudit() {
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-accent/25 bg-accent/[0.06] px-5 py-4">
             <div>
               <div className="text-[0.78rem] uppercase tracking-[0.14em] text-ink-faint">
-                {t("Total value", "कुल मूल्य")}
+                {t("Assessment", "आकलन")}
               </div>
               <div className="font-display text-[1.5rem] text-ink">
-                <span className="text-ink-faint line-through decoration-danger/70">
-                  ₹15,995
-                </span>{" "}
-                <span className="text-accent">{t("→ FREE", "→ मुफ़्त")}</span>
+                <span className="text-accent">{t("FREE", "मुफ़्त")}</span>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">

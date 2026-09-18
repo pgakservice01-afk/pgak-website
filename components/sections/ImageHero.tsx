@@ -19,45 +19,15 @@ import { waHref } from "@/lib/whatsapp";
 // them back up to the form — two clicks and a confusing jump on the most
 // clicked element of the site.
 
-const STATS: {
-  ic: IconName;
-  big: string;
-  small: string;
-  bigHi: string;
-  smallHi: string;
-}[] = [
-  {
-    ic: "radar",
-    big: "Under 3 sec",
-    small: "Threat detection",
-    bigHi: "3 सेकंड में",
-    smallHi: "खतरे की पहचान",
-  },
-  {
-    ic: "filter",
-    big: "90%",
-    small: "Fewer false alerts",
-    bigHi: "90%",
-    smallHi: "कम झूठे अलर्ट",
-  },
-  {
-    ic: "ai-node",
-    big: "24×7",
-    small: "Smart monitoring",
-    bigHi: "24×7",
-    smallHi: "स्मार्ट निगरानी",
-  },
-  {
-    ic: "camera",
-    big: "No new",
-    small: "hardware needed",
-    bigHi: "कोई नया",
-    smallHi: "हार्डवेयर ज़रूरी नहीं",
-  },
+const STATS: { ic: IconName; big: string; small: string; bigHi: string; smallHi: string }[] = [
+  { ic: "radar", big: "Intrusion", small: "zone alerts", bigHi: "घुसपैठ", smallHi: "ज़ोन अलर्ट" },
+  { ic: "filter", big: "AI filtering", small: "reduce alert noise", bigHi: "एआई फ़िल्टर", smallHi: "बेकार अलर्ट कम करें" },
+  { ic: "ai-node", big: "Attendance", small: "camera-based records", bigHi: "उपस्थिति", smallHi: "कैमरे से रिकॉर्ड" },
+  { ic: "camera", big: "Existing CCTV", small: "compatibility checked", bigHi: "मौजूदा CCTV", smallHi: "संगतता की जाँच" },
 ];
 
 export default function ImageHero() {
-  const { lang, t } = useLang();
+  const { t } = useLang();
   const wa = waHref(
     t(
       "Hi PGAK, I'd like a free audit of my existing cameras.",
@@ -79,44 +49,14 @@ export default function ImageHero() {
           </span>
           {/* The visible headline IS the h1 — an sr-only h1 above a visible h2
               broke the heading order and hid the page's real title. */}
-          <h1 className="display max-w-[14ch] text-[clamp(2.6rem,7vw,5rem)] leading-[1.02]">
-            {lang === "hi" ? (
-              <>
-                आपके कैमरे देख सकते हैं।
-                <br />
-                हम उन्हें <span className="italic text-accent">
-                  सोचना
-                </span>{" "}
-                सिखाते हैं।
-              </>
-            ) : (
-              <>
-                Your cameras can see.
-                <br />
-                We make them <span className="italic text-accent">think.</span>
-              </>
-            )}
+          <h1 className="display max-w-[22ch] text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.08]">
+            {t("AI Video Analytics for Existing CCTV Cameras", "मौजूदा CCTV कैमरों के लिए AI वीडियो एनालिटिक्स")}
           </h1>
-          <p className="mt-6 max-w-[46ch] text-[1.1rem] text-ink-soft">
-            {lang === "hi" ? (
-              <>
-                PGAK आपके पहले से मौजूद कैमरों को{" "}
-                <span className="text-ink underline decoration-accent/50 underline-offset-4">
-                  बुद्धिमान
-                </span>{" "}
-                रक्षकों में बदल देता है — सेकंडों में खतरों की पहचान, झूठे अलार्म
-                में कमी, और 24×7 सच्ची मन की शांति।
-              </>
-            ) : (
-              <>
-                PGAK turns the cameras you already own into{" "}
-                <span className="text-ink underline decoration-accent/50 underline-offset-4">
-                  intelligent
-                </span>{" "}
-                guardians — detecting threats in seconds, cutting false alarms,
-                and giving you real peace of mind, 24×7.
-              </>
-            )}
+          <p className="mt-5 max-w-[52ch] text-[1.05rem] text-ink-soft">
+            {t("Turn existing CCTV into actionable security for factories, warehouses and offices. Evaluate intrusion alerts, face-recognition attendance and camera-health monitoring on your own feeds.", "फ़ैक्टरी, वेयरहाउस और ऑफिस के मौजूदा CCTV को उपयोगी सुरक्षा में बदलें। अपने कैमरों पर घुसपैठ अलर्ट, चेहरा पहचान उपस्थिति और कैमरा-स्वास्थ्य निगरानी का मूल्यांकन करें।")}
+          </p>
+          <p className="mt-3 max-w-[56ch] text-sm text-ink-soft">
+            {t("Compatible RTSP/ONVIF streams are assessed first. An on-site processing device may be needed; camera placement, lighting and network quality affect results.", "पहले RTSP/ONVIF स्ट्रीम की जाँच होती है। साइट पर प्रोसेसिंग डिवाइस की ज़रूरत हो सकती है; कैमरे की जगह, रोशनी और नेटवर्क से परिणाम प्रभावित होते हैं।")}
           </p>
 
           {/* The ask, in the first screen: number + camera count, one button. */}
@@ -160,6 +100,7 @@ export default function ImageHero() {
         {/* ── Right: humanoid video (when provided) or cinematic animated scene ── */}
         <Parallax className="relative" speed={26} scale={0.04}>
           <HeroMedia />
+          <p className="mt-3 text-center text-xs text-ink-soft">Illustrative product animation — not customer footage or measured performance.</p>
         </Parallax>
       </div>
 

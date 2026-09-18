@@ -6,7 +6,7 @@ const CHECKS = [
   "Intrusion, loitering & perimeter detection",
   "Real-time mobile alerts with live snapshots",
   "Monitor home or business from anywhere",
-  "End-to-end encryption — your footage stays yours",
+  "Review footage access and retention before deployment",
 ];
 
 export default function LiveIntelligence() {

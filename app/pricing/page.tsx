@@ -21,9 +21,9 @@ import {
 const PATH = "/pricing";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Camera Price in India, Without New Cameras",
+  title: "AI Video Analytics Pricing in India | Get a Quote | PGAK",
   description:
-    "What AI CCTV costs in India and what moves the number. Billed per camera per month on the cameras you already own, so there is no hardware to buy.",
+    "Get a site-specific quote for AI video analytics on existing CCTV. Compare camera count, processing hardware, setup and support requirements with PGAK.",
   path: PATH,
   keywords: [
     "AI CCTV price India",
@@ -53,8 +53,8 @@ const FAQS = [
     a: "No. Most sites start with the four to six cameras that matter most — the gate, the cash counter, the stock room, the perimeter line — and add more later. Billing follows the cameras you switch on, not the cameras you own.",
   },
   {
-    q: "What is never charged for?",
-    a: "New cameras, a separate software licence, software updates, per-employee or per-enrolment charges on attendance, and the camera audit before you decide anything.",
+    q: "What should the written quote include?",
+    a: "The camera assessment is offered free. Ask for a written breakdown of software, processing hardware, setup and support before agreeing a deployment.",
   },
   {
     q: "How quickly can I get a quote?",
@@ -83,7 +83,7 @@ export default function PricingPage() {
         ]}
       />
       <Nav />
-      <main className="pt-[74px]">
+      <main data-money-page="pricing" className="pt-[74px]">
         <section className="sec pb-10">
           <div className="wrap">
             <Breadcrumbs trail={TRAIL} />
@@ -91,11 +91,10 @@ export default function PricingPage() {
               What AI CCTV costs in India
             </h1>
             <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              PGAK is billed per camera per month and runs on the cameras you
-              already own: no hardware to buy, no separate licence, no charge
-              for updates, no lock-in. The number depends on your camera count
-              and sites, so it is quoted per site — leave your number and you
-              have it on the call within one working hour.
+              PGAK is billed per camera per month. Request a quote based on your
+              camera count, sites and intended analytics. We check existing-camera
+              compatibility and confirm processing hardware, setup, support,
+              updates, taxes and contract terms in the written scope.
             </p>
             <div className="mt-8 max-w-[640px]">
               <QuickLead cta="pricing-quote" offer="quote" />

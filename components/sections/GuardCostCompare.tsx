@@ -73,7 +73,7 @@ export default function GuardCostCompare() {
               />
             </label>
             <label className="flex flex-col gap-1.5">
-              <span className="text-[0.78rem] uppercase tracking-wide text-ink-faint">One guard's monthly cost, ₹</span>
+              <span className="text-[0.78rem] uppercase tracking-wide text-ink-faint">One guard&apos;s monthly cost, ₹</span>
               <input
                 type="number"
                 min={5000}

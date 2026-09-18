@@ -26,12 +26,12 @@ export function generateStaticParams() {
   return CAPABILITIES.map((c) => ({ capability: c.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { capability: string };
-}): Metadata {
-  const c = getCapability(params.capability);
+  params: Promise<{ capability: string }>;
+}): Promise<Metadata> {
+  const c = getCapability((await params).capability);
   if (!c) return {};
   return pageMeta({
     title: c.title,
@@ -41,12 +41,12 @@ export function generateMetadata({
   });
 }
 
-export default function CapabilityPage({
+export default async function CapabilityPage({
   params,
 }: {
-  params: { capability: string };
+  params: Promise<{ capability: string }>;
 }) {
-  const c = getCapability(params.capability);
+  const c = getCapability((await params).capability);
   if (!c) notFound();
 
   const path = `/features/${c.slug}`;

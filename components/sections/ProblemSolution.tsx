@@ -28,7 +28,7 @@ const PAIN: { en: string; hi: string }[] = [
 
 const SOL: { en: string; hi: string }[] = [
   {
-    en: "Get alerted before incidents — not after losses.",
+    en: "Receive alerts for configured events so your team can respond.",
     hi: "घटना से पहले अलर्ट पाएँ — नुक़सान के बाद नहीं।",
   },
   {

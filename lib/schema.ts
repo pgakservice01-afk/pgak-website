@@ -41,11 +41,6 @@ export function organizationSchema(): Json {
       postalCode: BUSINESS.address.postalCode,
       addressCountry: BUSINESS.address.country,
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: BUSINESS.geo.lat,
-      longitude: BUSINESS.geo.lng,
-    },
     openingHours: BUSINESS.openingHours,
     areaServed: { "@type": "Country", name: "India" },
     // Spells out *how* to reach support and in which languages — the detail
@@ -330,7 +325,7 @@ export function softwareApplicationSchema(): Json {
     // mobile apps and the web dashboard.
     operatingSystem: "Web, Android, iOS, Linux (on-site edge device)",
     description:
-      "An AI layer that retrofits existing CCTV, DVR and NVR systems to deliver real-time perimeter protection, instant intruder alerts and human/vehicle classification — without replacing a single camera.",
+      "An AI layer that retrofits existing CCTV, DVR and NVR systems to deliver real-time perimeter protection, instant intruder alerts and human/vehicle classification — subject to stream compatibility and site assessment.",
     image: abs("/hero-landing.webp"),
     creator: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
@@ -338,7 +333,7 @@ export function softwareApplicationSchema(): Json {
     // structured data must never publish a figure the page itself doesn't
     // show. /pricing explains what drives the number instead.
     featureList: [
-      "Real-time intruder alerts in under three seconds",
+      "Intruder alerts for configured detection zones",
       "False-alarm filtering for pets, shadows, wind and headlights",
       "Works with existing analog, IP, DVR and NVR cameras over RTSP",
       "Face recognition: known staff and family versus unknown visitors",

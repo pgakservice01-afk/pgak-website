@@ -20,16 +20,18 @@ import "./globals.css";
 // duplicate G-MBYGPSVJ1Z was double-counting every visit.
 const GA_IDS = ["G-6EMP9HSR2F"] as const;
 const GTM_ID = "GTM-MKZWLS7J";
+// Keep preview/local QA out of production acquisition and lead metrics.
+const ANALYTICS_ENABLED = process.env.VERCEL_ENV === "production" || process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
 import { Analytics } from "@vercel/analytics/next";
 import Pixel from "@/components/Pixel";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollProgress from "@/components/ScrollProgress";
 import MobileActionBar from "@/components/MobileActionBar";
 import { LangProvider } from "@/components/LangProvider";
-import Preloader from "@/components/Preloader";
 import AmbientFX from "@/components/AmbientFX";
 import Interactions from "@/components/Interactions";
 import SmoothScroll from "@/components/SmoothScroll";
+import ConversionEvents from "@/components/ConversionEvents";
 import LeadAttribution from "@/components/LeadAttribution";
 import ChatBot from "@/components/ChatBot";
 import BackToTop from "@/components/BackToTop";
@@ -114,21 +116,21 @@ export default function RootLayout({
       </head>
       <body className="bg-bg font-sans text-ink antialiased">
         {/* Google Tag Manager (noscript) — immediately after opening <body> */}
-        <noscript>
+        {ANALYTICS_ENABLED && <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           />
-        </noscript>
+        </noscript>}
 
         {/* Google Tag Manager — lazyOnload keeps its 165KB chain out of the
             LCP-critical window; the dataLayer stub below still queues early
             events until it arrives. */}
-        <Script id="gtm" strategy="lazyOnload">
+        {ANALYTICS_ENABLED && <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
+        </Script>}
 
         <script
           dangerouslySetInnerHTML={{
@@ -139,7 +141,7 @@ export default function RootLayout({
         <LangProvider>
           <SmoothScroll />
           <LeadAttribution />
-          <Preloader />
+          <ConversionEvents />
           <AmbientFX />
           <Interactions />
           <ScrollProgress />
@@ -157,9 +159,10 @@ export default function RootLayout({
             <StickyDemoCTA />
           </MarketingOverlays>
         </LangProvider>
-        <Pixel />
-        <Analytics />
+        {ANALYTICS_ENABLED && <Pixel />}
+        {ANALYTICS_ENABLED && <Analytics />}
 
+        {ANALYTICS_ENABLED && <>
         {/* Google tag (GA4) — one loader, one `config` per property. */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_IDS[0]}`}
@@ -171,29 +174,17 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 ${GA_IDS.map((id) => `gtag('config', '${id}');`).join("\n")}`}
         </Script>
+        </>}
 
         {/* Microsoft Clarity — behaviour analytics. Only loads when the env
             var is set, so local and preview builds stay out of the data. */}
-        {CLARITY_ID && (
+        {ANALYTICS_ENABLED && CLARITY_ID && (
           <Script id="ms-clarity" strategy="afterInteractive">
             {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
           </Script>
         )}
 
-        {/* Turns clicks on [data-cta] elements into GA4 + GTM conversion
-            events, so demo, audit, call and WhatsApp actions are measurable
-            without wiring a handler into every button. */}
-        <Script id="pgak-conversions" strategy="afterInteractive">
-          {`document.addEventListener('click',function(e){
-  var el=e.target&&e.target.closest?e.target.closest('[data-cta]'):null;
-  if(!el)return;
-  var name=el.getAttribute('data-cta');
-  var payload={event:'cta_click',cta:name,cta_text:(el.innerText||'').trim().slice(0,80),page_path:location.pathname};
-  window.dataLayer=window.dataLayer||[];
-  window.dataLayer.push(payload);
-  if(typeof window.gtag==='function'){window.gtag('event','cta_click',payload);}
-},{capture:true});`}
-        </Script>
+
       </body>
     </html>
   );

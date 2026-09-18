@@ -19,12 +19,12 @@ export function generateStaticParams() {
   return CASE_STUDIES.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const c = getCaseStudy(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const c = getCaseStudy((await params).slug);
   if (!c) return {};
   return pageMeta({
     title: c.metaTitle,
@@ -35,12 +35,12 @@ export function generateMetadata({
   });
 }
 
-export default function CaseStudyPage({
+export default async function CaseStudyPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const c = getCaseStudy(params.slug);
+  const c = getCaseStudy((await params).slug);
   if (!c) notFound();
 
   const path = `/insights/case-studies/${c.slug}`;

@@ -170,11 +170,11 @@ export const SOLUTIONS: Solution[] = [
       "business CCTV",
     ],
     title:
-      "AI CCTV for Warehouses — Stop Stock Loss at the Gate | PGAK",
+      "Warehouse Video Analytics & AI CCTV in India | PGAK",
     description:
       "AI that watches every aisle, dock and gate on your existing cameras, flagging loitering and after-hours movement in seconds. Cut the shrinkage.",
     eyebrow: "Warehouse security",
-    h1: "AI CCTV for warehouses — because 120 cameras and nobody watching is not security",
+    h1: "AI CCTV and video analytics for warehouses",
     intro:
       "An AI CCTV camera system for warehouses solves the problem every logistics manager knows: you have plenty of cameras and no way to watch them. PGAK turns your existing warehouse CCTV into an always-alert observer — flagging after-hours movement in the stock aisles, people loitering at the loading bay, and vehicles at the gate outside dispatch hours — so shrinkage stops being a number you discover at stock-take.",
     painPoints: [
@@ -380,7 +380,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Gate, perimeter and shop floor on one system: automatic attendance, safety-zone monitoring and intrusion alerts on your existing industrial CCTV.",
     eyebrow: "Factory & industrial",
-    h1: "Factory security that watches the gate, the fence and the floor",
+    h1: "AI CCTV video analytics for factory security",
     intro:
       "A factory security system has to do more than deter thieves. PGAK turns your existing industrial CCTV into one layer that handles all three of a plant's real problems — automatic attendance at the gate, intrusion detection along the perimeter, and safety-zone monitoring on the shop floor — without adding a single new machine to the queue at shift change.",
     painPoints: [
@@ -1112,11 +1112,11 @@ export const SOLUTIONS: Solution[] = [
       "camera based attendance system",
     ],
     title:
-      "Face Recognition Attendance on Your Own Cameras | PGAK",
+      "Face Recognition Attendance System for CCTV | PGAK",
     description:
       "No terminal to queue at: PGAK recognises enrolled faces on your existing entrance cameras and writes a photo-backed record as people walk in.",
     eyebrow: "Attendance",
-    h1: "A face recognition attendance system with no machine at the gate",
+    h1: "Face recognition attendance using existing CCTV",
     intro:
       "A face recognition attendance system replaces the queue at the fingerprint reader with a camera that simply watches people walk in. PGAK runs face recognition on the CCTV cameras already mounted at your entrances — each enrolled person is recognised at walking pace and logged with a timestamp and the exact frame, so the register fills itself and every entry carries its own proof.",
     painPoints: [
@@ -1129,7 +1129,7 @@ export const SOLUTIONS: Solution[] = [
     sections: [
       {
         h2: "How face recognition attendance actually works",
-        body: "There is no new hardware in this system. The work happens in software, on the camera feeds you already record.",
+        body: "The software uses compatible camera feeds. The assessment confirms camera placement, lighting and any on-site processing hardware needed.",
         points: [
           {
             h3: "Enrol each person once, from a phone",
@@ -1317,13 +1317,13 @@ export const SOLUTIONS: Solution[] = [
       "intelligent video analytics",
     ],
     title:
-      "Video Analytics Software for Existing CCTV | PGAK",
+      "AI Video Analytics Software for CCTV in India | PGAK",
     description:
       "Person and vehicle detection, boundary alerts, face-recognition attendance and camera-health monitoring — on the CCTV you already own.",
     eyebrow: "Platform",
-    h1: "Video analytics software that runs on the cameras you already own",
+    h1: "AI video analytics software for existing CCTV cameras",
     intro:
-      "Video analytics software is the difference between cameras that record and cameras that report. PGAK analyses every frame from your existing CCTV — classifying people and vehicles, watching the boundaries you draw, recognising enrolled faces for attendance — and turns the events that matter into alerts on your phone while there is still time to act.",
+      "Video analytics software is the difference between cameras that record and cameras that report. PGAK analyses compatible streams from your existing CCTV — classifying people and vehicles, watching the boundaries you draw, recognising enrolled faces for attendance — and turns the events that matter into alerts on your phone while there is still time to act.",
     painPoints: [
       "Footage is only ever reviewed after something has already gone wrong.",
       "The recorder's built-in motion detection cried wolf for a week, so it was muted.",

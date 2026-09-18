@@ -47,7 +47,7 @@ import {
  * A lead here is worth thousands of rupees, so **nothing in this component may
  * destroy one**. Concretely:
  *
- *   - The inputs are UNCONTROLLED and the <form> stays mounted through every
+ *   - The inputs are UNCONTROLLED and the <form data-lead-form={copy.formName}> stays mounted through every
  *     failure, so whatever the customer typed is still on screen. Only a
  *     confirmed success swaps it for the thank-you panel.
  *   - Any non-success offers WhatsApp and phone, prefilled with what they
@@ -81,7 +81,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
         eyebrow: t("Free feasibility check", "मुफ़्त संभाव्यता जाँच"),
         h2: t("Check if your gate cameras can do attendance.", "जाँचें कि आपके गेट कैमरे अटेंडेंस कर सकते हैं या नहीं।"),
         intro: t(
-          `Tell us your WhatsApp number, how many cameras cover your gates and roughly how many people clock in. ${CALLBACK_PROMISE.en} You get a written feasibility answer within ${AUDIT_TURNAROUND_HOURS} hours — no biometric machine, no new hardware.`,
+          `Tell us your WhatsApp number, how many cameras cover your gates and roughly how many people clock in. ${CALLBACK_PROMISE.en} You get a written feasibility answer within ${AUDIT_TURNAROUND_HOURS} hours — with camera and processing requirements confirmed.`,
           `अपना WhatsApp नंबर, गेट कवर करने वाले कैमरों की संख्या और लगभग कितने लोग हाज़िरी लगाते हैं, यह बताएँ। ${CALLBACK_PROMISE.hi} ${AUDIT_TURNAROUND_HOURS} घंटों में लिखित संभाव्यता उत्तर — कोई बायोमेट्रिक मशीन नहीं, कोई नया हार्डवेयर नहीं।`,
         ),
         button: t("Check my cameras →", "मेरे कैमरे जाँचें →"),
@@ -351,7 +351,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                 </button>
                 <p className="text-center text-[0.78rem] text-ink-faint">
                   {t(
-                    "No spam, no new hardware, no pressure to buy anything.",
+                    "No spam. Camera compatibility checked. No pressure to buy.",
                     "कोई स्पैम नहीं, कोई नया हार्डवेयर नहीं, कुछ ख़रीदने का कोई दबाव नहीं।",
                   )}
                 </p>

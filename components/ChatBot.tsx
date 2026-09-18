@@ -65,8 +65,8 @@ const TOPICS: Topic[] = [
     id: "audit",
     q: "🎁 What's the free audit?",
     qHi: "🎁 मुफ़्त ऑडिट क्या है?",
-    a: "A ₹15,995-value AI readiness audit — free. We analyse your camera feeds remotely and send a clear report within 48 hours: placement scores, face-recognition readiness, blind spots and false-alarm analysis. Zero pressure to buy.",
-    aHi: "₹15,995 मूल्य का एआई-रेडीनेस ऑडिट — बिल्कुल मुफ़्त। हम आपकी कैमरा फ़ीड का रिमोट विश्लेषण करते हैं और 48 घंटों में स्पष्ट रिपोर्ट भेजते हैं: प्लेसमेंट स्कोर, फ़ेस-रिकग्निशन रेडीनेस, ब्लाइंड स्पॉट और झूठे अलार्म का विश्लेषण। ख़रीदने का कोई दबाव नहीं।",
+    a: "A free AI readiness assessment. We analyse your camera feeds remotely and send a clear report within 48 hours: placement scores, face-recognition readiness, blind spots and false-alarm analysis. Zero pressure to buy.",
+    aHi: "मुफ़्त एआई-रेडीनेस आकलन। हम आपकी कैमरा फ़ीड का रिमोट विश्लेषण करते हैं और 48 घंटों में स्पष्ट रिपोर्ट भेजते हैं: प्लेसमेंट स्कोर, फ़ेस-रिकग्निशन रेडीनेस, ब्लाइंड स्पॉट और झूठे अलार्म का विश्लेषण। ख़रीदने का कोई दबाव नहीं।",
     link: { href: "/free-audit", label: "Claim it →", labelHi: "अभी पाएँ →" },
   },
   {
