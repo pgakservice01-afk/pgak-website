@@ -1,0 +1,26 @@
+[
+  {
+    "bot": "Googlebot",
+    "robots_allowed": true,
+    "http_status": 200,
+    "has_html_h1": true
+  },
+  {
+    "bot": "Bingbot",
+    "robots_allowed": true,
+    "http_status": 200,
+    "has_html_h1": true
+  },
+  {
+    "bot": "OAI-SearchBot",
+    "robots_allowed": true,
+    "http_status": 200,
+    "has_html_h1": true
+  },
+  {
+    "bot": "PerplexityBot",
+    "robots_allowed": true,
+    "http_status": 200,
+    "has_html_h1": true
+  }
+]

@@ -1,41 +1,40 @@
-# PGAK — AI CCTV Intelligence for Indian Businesses
+# PGAK — AI Video Analytics for Existing CCTV Cameras
 
-> PGAK (PGAK Innovations Pvt. Ltd., Ludhiana, Punjab, India) turns the CCTV
-> cameras a business already owns into an intelligent monitoring system:
-> intruder detection, face-recognition attendance, false-alarm filtering,
-> loitering detection and vehicle/ANPR — with alerts on the owner's phone.
-> No new cameras or hardware are required; the software runs on existing
-> CCTV/DVR setups via RTSP.
+> PGAK Innovations Pvt. Ltd. builds AI video analytics for existing CCTV cameras. Assess intrusion detection, face recognition, attendance, loitering, camera health and real-time alerts for factories, warehouses, offices, retail and commercial sites in India.
 
-## Pricing (canonical)
+Compatibility is checked on each site's feeds. RTSP or ONVIF access, camera placement, lighting, connectivity and processing requirements affect suitability. An on-site processing device may be required. Detection quality and alert timing should be measured in a pilot; there is no universal accuracy or latency guarantee.
 
-- PGAK does not publish a list price. Every site is quoted individually,
-  because the cost depends on how many of the existing cameras are actually
-  usable for each capability.
-- Priced per camera per month as a subscription. No hardware cost, no licence
-  fee, no per-feature add-ons, no lock-in.
-- A free remote AI-readiness audit of the existing cameras precedes any quote.
-- Quotes are given on a call or over WhatsApp: +91 62839 93600.
-- Details: https://www.pgak.co.in/pricing
-- Market cost guide (industry ranges, not PGAK's rate):
-  https://www.pgak.co.in/insights/ai-cctv-price-in-india-what-it-should-cost
+PGAK quotes each deployment individually. Confirm cameras, sites, analytics, hardware, setup, subscription, support and taxes in the written quote. Published deployment scenarios are illustrative, not verified customer case studies or measured results.
 
-## Key pages
+## Product and enquiries
 
-- Home: https://www.pgak.co.in/
-- Pricing: https://www.pgak.co.in/pricing
-- Solutions (factories, warehouses, retail, schools, hospitals, homes): https://www.pgak.co.in/solutions
-- Face-recognition attendance: https://www.pgak.co.in/features/attendance-automation
-- Intruder detection: https://www.pgak.co.in/ai-intruder-detection
-- ROI calculator: https://www.pgak.co.in/roi-calculator
-- Case studies: https://www.pgak.co.in/insights/case-studies
-- Articles: https://www.pgak.co.in/insights
-- Cities served: https://www.pgak.co.in/areas-we-serve
-- Contact: https://www.pgak.co.in/contact
+- [PGAK homepage](https://www.pgak.co.in/): AI video analytics overview.
+- [AI video analytics software](https://www.pgak.co.in/video-analytics-software): Compatibility and deployment approach.
+- [Features](https://www.pgak.co.in/features): Available analytics capabilities.
+- [Book a demo](https://www.pgak.co.in/book-demo): Request a product demonstration; the team confirms the time.
+- [Free camera audit](https://www.pgak.co.in/free-audit): Assess existing-camera suitability.
+- [Pricing](https://www.pgak.co.in/pricing): Request a site-specific written quote.
+- [Contact](https://www.pgak.co.in/contact): Official business contact details.
 
-## Facts
+## Solutions
 
-- Company: PGAK Innovations Pvt. Ltd. (HQ: BK Towers, 2480/2, Gill Rd, Ludhiana, Punjab 141003, India)
-- Phone/WhatsApp: +91 62839 93600
-- Service model: direct team in Punjab-region cities; verified dealer network across India.
-- Works with existing cameras of any brand that exposes an RTSP stream (Hikvision, CP Plus, Dahua and similar DVR/NVR setups).
+- [Factory security](https://www.pgak.co.in/factory-security): Factory perimeter and entrance analytics.
+- [Warehouse analytics](https://www.pgak.co.in/ai-cctv-for-warehouses): Loading bays, stock areas and after-hours monitoring.
+- [Office analytics](https://www.pgak.co.in/ai-cctv-for-offices): Office security and operations.
+- [Retail security](https://www.pgak.co.in/retail-shop-security): Shop-floor and stockroom monitoring.
+- [Commercial CCTV](https://www.pgak.co.in/commercial-cctv): Commercial-site applications.
+- [Face recognition attendance](https://www.pgak.co.in/face-recognition-attendance-system): Camera-based attendance with human review of exceptions.
+- [Intrusion detection](https://www.pgak.co.in/ai-intruder-detection): Configured zones and event alerts.
+- [All solutions](https://www.pgak.co.in/solutions): Full solution directory.
+
+## Company and resources
+
+- [About PGAK](https://www.pgak.co.in/about): Company and leadership information.
+- [Insights](https://www.pgak.co.in/insights): CCTV and video analytics guides.
+- [Deployment scenarios](https://www.pgak.co.in/insights/case-studies): Illustrative examples, not verified customer outcomes.
+- [Service areas](https://www.pgak.co.in/areas-we-serve): Location information.
+- [Privacy policy](https://www.pgak.co.in/privacy): Data handling information.
+- [XML sitemap](https://www.pgak.co.in/sitemap.xml): Canonical public content URLs.
+- [Robots policy](https://www.pgak.co.in/robots.txt): Crawler access rules. This file does not override robots.txt.
+
+PGAK Innovations Pvt. Ltd. is based at BK Towers, 2480/2, Gill Rd, New Janta Nagar, Janta Nagar, Ludhiana, Punjab 141003, India. Phone and WhatsApp: +91 62839 93600. Email: Pgakinnovation@gmail.com.
