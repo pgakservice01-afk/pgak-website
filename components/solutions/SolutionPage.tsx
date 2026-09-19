@@ -79,14 +79,34 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary">
-                Get Free Camera Audit →
+              <Link
+                href="#dealer"
+                data-cta="solution-assessment"
+                data-intent="assessment"
+                className="btn btn-primary"
+              >
+                Check my cameras →
               </Link>
-              <a href={waHref(`Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`)} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about this solution</a>
+              <a
+                href={waHref(
+                  `Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`,
+                )}
+                data-cta="solution-whatsapp"
+                className="btn btn-ghost"
+              >
+                WhatsApp about this solution
+              </a>
             </div>
 
-            <div className="mt-7 max-w-[640px]"><QuickLead cta={`solution-${s.slug}`} /></div>
-            <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">Compatibility, detection quality and processing requirements are confirmed on your own camera feeds. Published scenarios are illustrative, not verified customer results.</p>
+            <div className="mt-7 max-w-[640px]">
+              <QuickLead cta={`solution-${s.slug}`} />
+            </div>
+            <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
+              Treat this page as evaluation guidance. Product availability and
+              site suitability require an approved configuration and technical
+              test. Published scenarios are illustrative, not verified customer
+              results.
+            </p>
           </div>
         </section>
 
@@ -126,7 +146,9 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                   <div className="mt-7 grid gap-4 sm:grid-cols-2">
                     {sec.points.map((pt) => (
                       <div key={pt.h3} className="card p-6">
-                        <h3 className="text-[1.02rem] font-semibold">{pt.h3}</h3>
+                        <h3 className="text-[1.02rem] font-semibold">
+                          {pt.h3}
+                        </h3>
                         <p className="mt-2 text-[0.94rem] leading-relaxed text-ink-soft">
                           {pt.text}
                         </p>
@@ -139,18 +161,55 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </div>
         </section>
 
-        <section className="sec"><div className="wrap max-w-[76ch]">
-          <h2 className="display text-3xl">What to check before deployment</h2>
-          <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-            {[
-              ["Camera and recorder streams", "Confirm RTSP access or ONVIF discovery, stream stability and the views that matter. Do not send camera passwords in the enquiry form."],
-              ["On-site processing", "Ask which processing device is needed, how it is sized, what runs locally and what information leaves the site."],
-              [s.group === "attendance" ? "Attendance acceptance" : "Alert acceptance", s.group === "attendance" ? "Test real entrance conditions and enrolled staff with consent. Agree how missed or disputed records will be corrected before payroll use." : "Test agreed zones in daytime and at night. Record useful alerts, nuisance alerts, missed events and end-to-end alert delay."],
-              ["Complete commercial quote", "Confirm enabled cameras, sites, subscription, setup, hardware, taxes and support. Use the assessed scope to compare proposals."],
-            ].map(([term,description])=><div key={term} className="card p-5"><dt className="font-semibold">{term}</dt><dd className="mt-2 text-ink-soft">{description}</dd></div>)}
-          </dl>
-          <p className="mt-6"><Link href="/pricing" className="text-accent underline">Get a site-specific AI video analytics price</Link> or <Link href="/cctv-buying-checklist" className="text-accent underline">use the CCTV buying checklist</Link>.</p>
-        </div></section>
+        <section className="sec">
+          <div className="wrap max-w-[76ch]">
+            <h2 className="display text-3xl">
+              What to check before deployment
+            </h2>
+            <dl className="mt-6 grid gap-5 sm:grid-cols-2">
+              {[
+                [
+                  "Camera and recorder streams",
+                  "Confirm RTSP access or ONVIF discovery, stream stability and the views that matter. Do not send camera passwords in the enquiry form.",
+                ],
+                [
+                  "On-site processing",
+                  "Ask which processing device is needed, how it is sized, what runs locally and what information leaves the site.",
+                ],
+                [
+                  s.group === "attendance"
+                    ? "Attendance acceptance"
+                    : "Alert acceptance",
+                  s.group === "attendance"
+                    ? "Test real entrance conditions and enrolled staff with consent. Agree how missed or disputed records will be corrected before payroll use."
+                    : "Test agreed zones in daytime and at night. Record useful alerts, nuisance alerts, missed events and end-to-end alert delay.",
+                ],
+                [
+                  "Complete commercial quote",
+                  "Confirm enabled cameras, sites, subscription, setup, hardware, taxes and support. Use the assessed scope to compare proposals.",
+                ],
+              ].map(([term, description]) => (
+                <div key={term} className="card p-5">
+                  <dt className="font-semibold">{term}</dt>
+                  <dd className="mt-2 text-ink-soft">{description}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-6">
+              <Link href="/pricing" className="text-accent underline">
+                Get a site-specific AI video analytics price
+              </Link>{" "}
+              or{" "}
+              <Link
+                href="/cctv-buying-checklist"
+                className="text-accent underline"
+              >
+                use the CCTV buying checklist
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
 
         {/* ----------------------------------------------------------- FAQ */}
         <section className="sec-band sec">
@@ -264,7 +323,11 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                 working hour and send the report within 48 hours.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="#dealer" data-cta="solution-bottom-assessment" className="btn btn-primary">
+                <Link
+                  href="#dealer"
+                  data-cta="solution-bottom-assessment"
+                  className="btn btn-primary"
+                >
                   Get my free audit →
                 </Link>
                 <Link href="/pricing" className="btn btn-ghost">
@@ -279,7 +342,9 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             attendance pages ask the attendance question; everyone else gets
             the audit. */}
         <WhoIsPgak />
-        <DealerForm variant={s.group === "attendance" ? "attendance" : "audit"} />
+        <DealerForm
+          variant={s.group === "attendance" ? "attendance" : "audit"}
+        />
       </main>
 
       <Footer />

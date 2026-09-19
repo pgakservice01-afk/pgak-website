@@ -97,3 +97,23 @@ test("server field errors are returned for correction without conversions", asyn
   assert.equal(result.fieldErrors.phone, "Invalid number");
   assert.equal(h.events.length, 0);
 });
+test("durable receipt counts once while CRM delivery is queued", async () => {
+  const h = setup({
+    ok: true,
+    body: { received: true, delivered: false, receiptToken: "test-token" },
+  });
+  const opts = {
+    ref: "durable-reference",
+    cta: "assessment",
+    formName: "quick_audit_request",
+  };
+  const out = await h.submitLead(
+    { ...values, context: "Synthetic QA warehouse brief" },
+    opts,
+  );
+  assert.equal(out.kind, "done");
+  assert.equal(out.receiptToken, "test-token");
+  await h.submitLead(values, opts);
+  assert.equal(h.events.filter((e) => e.name === "generate_lead").length, 1);
+  assert.ok(!JSON.stringify(h.events).includes("Synthetic QA"));
+});

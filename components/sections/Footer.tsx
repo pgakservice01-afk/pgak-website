@@ -1,219 +1,82 @@
-
 import Logo from "@/components/Logo";
-// Server-render the directory; keep service data out of the client bundle.
-const t = (english: string, _hindi?: string) => english;
-import { SOLUTIONS } from "@/lib/solutions";
-import { CAPABILITIES } from "@/lib/capabilities";
-import { LOCATIONS, locationPath } from "@/lib/locations";
 import { BUSINESS } from "@/lib/seo";
-
-type FooterLink = {
-  t: string;
-  tHi: string;
-  href: string;
-  ext?: boolean;
-  cta?: string;
-};
-
-const COMPANY: FooterLink[] = [
-  { t: "How it works", tHi: "कैसे काम करता है", href: "/#how" },
-  { t: "Solutions", tHi: "समाधान", href: "/solutions" },
-  { t: "Features", tHi: "विशेषताएँ", href: "/features" },
-  { t: "Pricing", tHi: "मूल्य", href: "/pricing" },
-  { t: "ROI calculator", tHi: "आरओआई कैलकुलेटर", href: "/roi-calculator" },
-  { t: "About", tHi: "हमारे बारे में", href: "/about" },
-  { t: "Insights", tHi: "ब्लॉग", href: "/insights" },
-  { t: "Case studies", tHi: "केस स्टडी", href: "/insights/case-studies" },
-  { t: "Areas we serve", tHi: "सेवा क्षेत्र", href: "/areas-we-serve" },
-];
-
-const GET_STARTED: FooterLink[] = [
-  { t: "Free camera audit", tHi: "मुफ़्त कैमरा ऑडिट", href: "/free-audit", cta: "footer-audit" },
-  { t: "Request a call back", tHi: "कॉल-बैक का अनुरोध करें", href: "/#dealer", cta: "footer-dealer" },
-  { t: "Contact us", tHi: "संपर्क करें", href: "/contact" },
+const groups = [
   {
-    t: "Brochure (print / save as PDF)",
-    tHi: "ब्रोशर (प्रिंट / PDF सेव करें)",
-    href: "/brochure",
-    cta: "footer-brochure",
+    title: "Explore",
+    links: [
+      ["/solutions", "Solutions"],
+      ["/platform", "Platform & requirements"],
+      ["/pricing", "Pricing & scope"],
+      ["/resources", "Resources"],
+      ["/areas-we-serve", "Service locations"],
+    ],
+  },
+  {
+    title: "Plan a project",
+    links: [
+      ["/free-audit", "Camera readiness assessment"],
+      ["/book-demo", "Product demonstration"],
+      ["/resources/evaluation-method", "Pilot test worksheet"],
+      ["/roi-calculator", "Cost & benefit calculator"],
+      ["/brochure", "Company brochure"],
+    ],
+  },
+  {
+    title: "Company & support",
+    links: [
+      ["/about", "About PGAK"],
+      ["/contact", "Contact & support"],
+      ["/partners", "Dealer / integrator enquiries"],
+      ["/residential-security", "Residential security"],
+      ["/live", "Customer sign in"],
+    ],
   },
 ];
-
-const CONTACT: FooterLink[] = [
-  {
-    t: BUSINESS.phone,
-    tHi: BUSINESS.phone,
-    href: `tel:${BUSINESS.phoneE164}`,
-    cta: "footer-phone",
-  },
-  {
-    t: BUSINESS.email,
-    tHi: BUSINESS.email,
-    href: `mailto:${BUSINESS.email}`,
-    cta: "footer-email",
-  },
-  {
-    t: "Instagram",
-    tHi: "Instagram",
-    href: "https://www.instagram.com/pgakinnovation/",
-    ext: true,
-  },
-  {
-    t: "WhatsApp",
-    tHi: "व्हाट्सएप",
-    href: BUSINESS.whatsapp,
-    ext: true,
-    cta: "footer-whatsapp",
-  },
-];
-
-function LinkList({ links }: { links: FooterLink[] }) {
-  return (
-    <>
-      {links.map((l) => (
-        <a
-          key={l.href}
-          href={l.href}
-          {...(l.ext ? { target: "_blank", rel: "noopener" } : {})}
-          {...(l.cta ? { "data-cta": l.cta } : {})}
-          className="block py-1.5 text-[0.9rem] text-ink-soft transition-colors hover:text-accent [overflow-wrap:anywhere]"
-        >
-          {t(l.t, l.tHi)}
-        </a>
-      ))}
-    </>
-  );
-}
-
 export default function Footer() {
   const a = BUSINESS.address;
-
   return (
-    <footer id="contact" className="sec-band border-t border-line pb-8 pt-16">
-      <div className="wrap">
-        <div className="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+    <footer id="contact" className="buyer-footer">
+      <div className="buyer-wrap">
+        <div className="buyer-footer-grid">
           <div>
-            <a href="/" className="mb-4 inline-flex">
+            <a href="/" aria-label="PGAK Intelligent Security — home">
               <Logo variant="full" className="text-[1.5rem]" />
             </a>
-            <p className="max-w-[280px] text-[0.92rem] text-ink-soft">
-              {t(
-                "AI video analytics for the cameras you already own. Built by PGAK Innovations in Ludhiana, India.",
-                "बुद्धिमान सुरक्षा जो बहुत देर होने से पहले कार्रवाई करती है। PGAK आपके पहले से मौजूद कैमरों को एआई-संचालित रक्षकों में बदल देता है — घरों, व्यवसायों और उससे आगे के लिए।",
-              )}
+            <p>
+              AI video analytics for compatible existing CCTV. A clearer
+              starting point for your business.
             </p>
-
-            {/* NAP — must stay byte-identical to the Google Business Profile. */}
-            <address className="mt-6 not-italic text-[0.88rem] leading-relaxed text-ink-faint">
+            <address>
               {BUSINESS.legalName}
               <br />
-              {a.street}
-              <br />
-              {a.area}
+              {a.street}, {a.area}
               <br />
               {a.locality}, {a.region} {a.postalCode}, India
             </address>
-          </div>
-
-          <div>
-            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-              {t("Company", "कंपनी")}
-            </p>
-            <LinkList links={COMPANY} />
-          </div>
-
-          <div>
-            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-              {t("Get started", "शुरू करें")}
-            </p>
-            <LinkList links={GET_STARTED} />
-          </div>
-
-          <div>
-            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-              {t("Contact", "संपर्क")}
-            </p>
-            <LinkList links={CONTACT} />
-          </div>
-        </div>
-
-        {/* ------------------------------ solution / feature / city sitemap */}
-        <details className="footer-directory mt-10 border-t border-line pt-6"><summary>Explore solutions, capabilities and locations <span aria-hidden="true">＋</span></summary><div className="mt-6 grid gap-9 md:grid-cols-3">
-          <div>
-            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-              {t("Solutions", "समाधान")}
-            </p>
-            <ul>
-              {SOLUTIONS.map((s) => (
-                <li key={s.slug}>
-                  <a
-                    href={`/${s.slug}`}
-                    className="block py-1 text-[0.88rem] text-ink-soft transition-colors hover:text-accent"
-                  >
-                    {s.primaryKeyword}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-              {t("Capabilities", "क्षमताएँ")}
-            </p>
-            <ul>
-              {CAPABILITIES.map((c) => (
-                <li key={c.slug}>
-                  <a
-                    href={`/features/${c.slug}`}
-                    className="block py-1 text-[0.88rem] text-ink-soft transition-colors hover:text-accent"
-                  >
-                    {c.navLabel}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="mb-4 text-[0.78rem] uppercase tracking-[0.16em] text-ink-faint">
-              {t("Cities we serve", "हमारे सेवा शहर")}
-            </p>
-            <ul>
-              {LOCATIONS.map((l) => (
-                <li key={l.slug}>
-                  <a
-                    href={locationPath(l.slug)}
-                    className="block py-1 text-[0.88rem] text-ink-soft transition-colors hover:text-accent"
-                  >
-                    {t(
-                      `AI CCTV in ${l.city}`,
-                      `${l.city} में एआई सीसीटीवी`,
-                    )}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        </details>
-        <div className="mt-12 flex flex-wrap justify-between gap-3.5 border-t border-line pt-6 text-[0.84rem] text-ink-faint">
-          <span>
-            {t("© 2026 PGAK. All rights reserved.", "© 2026 PGAK. सर्वाधिकार सुरक्षित।")}
-          </span>
-          <span className="flex gap-5">
-            <a href="/terms" className="hover:text-ink-soft">
-              {t("Terms & Conditions", "नियम व शर्तें")}
-            </a>{" "}
-            ·{" "}
-            <a href="/privacy" className="hover:text-ink-soft">
-              {t("Privacy Policy", "गोपनीयता नीति")}
+            <a href={`tel:${BUSINESS.phoneE164}`} data-cta="footer-phone">
+              {BUSINESS.phone}
             </a>
-            <a href="/sitemap.xml" className="hover:text-ink-soft">
-              {t("Sitemap", "साइटमैप")}
+            <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
+            <a href={BUSINESS.whatsapp} data-cta="footer-whatsapp">
+              WhatsApp PGAK
             </a>
-          </span>
+          </div>
+          {groups.map((g) => (
+            <nav key={g.title} aria-label={g.title}>
+              <h2>{g.title}</h2>
+              {g.links.map(([href, label]) => (
+                <a href={href} key={href}>
+                  {label}
+                </a>
+              ))}
+            </nav>
+          ))}
+        </div>
+        <div className="buyer-footer-base">
+          <span>© 2026 PGAK Innovations</span>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/sitemap.xml">Sitemap</a>
         </div>
       </div>
     </footer>
