@@ -1,0 +1,145 @@
+{
+  "guides": [
+    {
+      "slug": "natural-language-search",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "cross-camera-search",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "event-summaries",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "custom-text-alerts",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "edge-ai",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "object-classification",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "virtual-perimeter",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "loitering",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "ptz-tracking",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "people-counting",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "queue-analytics",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "tailgating",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "ppe-detection",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "onsite-learning",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "scene-change",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "sound-classification",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "privacy-masking",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "low-light-ai",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "smoke-flame",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    },
+    {
+      "slug": "number-plates",
+      "status": 200,
+      "h1": 1,
+      "image": true,
+      "canonical": true
+    }
+  ],
+  "sitemapGuides": 20
+}
