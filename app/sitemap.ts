@@ -4,6 +4,7 @@ import { SOLUTIONS } from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
 import { LOCATIONS, locationPath } from "@/lib/locations";
 import { CASE_STUDIES } from "@/lib/caseStudies";
+import { EXPLORER_FEATURES } from "@/lib/feature-explorer";
 import { SITE_URL } from "@/lib/seo";
 
 /**
@@ -71,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...core,
     ...solutions,
     ...capabilities,
+    ...EXPLORER_FEATURES.map(f => ({ url: `${SITE_URL}/features/guides/${f.slug}` })),
     ...locations,
     ...caseStudies,
     ...posts,

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FeatureExplorer from "@/components/FeatureExplorer";
 import Nav from "@/components/Nav";
 import ReferenceFilm from "@/components/ReferenceFilm";
 import Footer from "@/components/sections/Footer";
@@ -17,50 +18,6 @@ export const metadata: Metadata = pageMeta({
     "AI video analytics software for your existing CCTV. Evaluate intrusion detection, face recognition, attendance and real-time alerts. Book a PGAK demo in India.",
   path: "/",
 });
-const features = [
-  [
-    "01",
-    "Threat detection",
-    "Bring configured security events to your team’s attention.",
-    "/ai-surveillance-system",
-  ],
-  [
-    "02",
-    "Face recognition",
-    "Recognise enrolled people on suitable camera feeds.",
-    "/features/face-recognition",
-  ],
-  [
-    "03",
-    "Attendance",
-    "Turn entrance events into records your team can review.",
-    "/face-recognition-attendance-system",
-  ],
-  [
-    "04",
-    "Intrusion",
-    "Define restricted zones and the hours that matter.",
-    "/ai-intruder-detection",
-  ],
-  [
-    "05",
-    "Loitering",
-    "Flag extended presence in configured areas.",
-    "/features/loitering-detection",
-  ],
-  [
-    "06",
-    "Camera health",
-    "Know when a camera feed needs attention.",
-    "/multi-site-cctv-monitoring",
-  ],
-  [
-    "07",
-    "Real-time alerts",
-    "Get event context so the right person can respond.",
-    "/features/intrusion-alerts",
-  ],
-];
 const industries = [
   ["Factories", "Perimeters. Entrances. Shift changes.", "/factory-security"],
   [
@@ -287,37 +244,7 @@ export default function Home() {
             </article>
           ))}
         </section>
-        <section className="premium-section" id="features">
-          <div className="section-heading">
-            <div>
-              <p className="kicker">WHAT PGAK DETECTS</p>
-              <h2>
-                See what matters.
-                <br />
-                Know when to act.
-              </h2>
-            </div>
-            <p>
-              Purposeful intelligence for the moments your team needs to know
-              about.
-            </p>
-          </div>
-          <div className="detection-grid">
-            {features.map(([n, title, body, href]) => (
-              <a className="detection-item" href={href} key={title}>
-                <span className="item-number">{n}</span>
-                <h3>
-                  {title} <span aria-hidden="true">↗</span>
-                </h3>
-                <p>{body}</p>
-              </a>
-            ))}
-          </div>
-          <p className="fine-print">
-            Capabilities and alert timing depend on camera suitability,
-            configuration, processing and connectivity.
-          </p>
-        </section>
+        <div id="features"><FeatureExplorer /></div>
         <section className="premium-section industry-section" id="sites">
           <p className="kicker">BUILT AROUND YOUR BUSINESS</p>
           <h2>
