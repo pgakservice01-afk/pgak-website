@@ -311,7 +311,8 @@
     "primaryKeyword": "housing society cctv gate",
     "angle": "Visitor logs, resident vehicles, and the committee politics of who sees footage.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-19"
   },
   {
     "slug": "rice-sheller-grain-mandi-security",
@@ -319,7 +320,8 @@
     "primaryKeyword": "grain mandi security camera",
     "angle": "Procurement-season churn, weighbridge, open yards.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-19"
   },
   {
     "slug": "textile-unit-security-attendance",
