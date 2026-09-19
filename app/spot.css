@@ -460,3 +460,37 @@ body:has(.spot-home) .site-nav {
 .film-launch:hover .film-play-icon {
   background: #4230a1;
 }
+
+/* On phones, prioritize readable messaging and controls; show the scene next. */
+.mobile-camera-scene {
+  display: none;
+}
+@media (max-width: 760px) {
+  .spot-home .cinema-hero {
+    min-height: max(790px, 100svh);
+  }
+  .cinema-backdrop {
+    display: none;
+  }
+  .cinema-hero::after {
+    display: none;
+  }
+  .mobile-camera-scene {
+    display: block;
+    margin: 0;
+    background: #111015;
+    padding: 0 25px 30px;
+  }
+  .mobile-camera-scene img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+  }
+  .mobile-camera-scene figcaption {
+    color: #c0bacd;
+    font-size: 11px;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+}

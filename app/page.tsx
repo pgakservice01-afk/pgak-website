@@ -105,6 +105,13 @@ export default function Home() {
           faqSchema(faqs),
         ]}
       />
+      <link
+        rel="preload"
+        as="image"
+        href="/media/real-time-response.webp"
+        media="(min-width: 761px)"
+        fetchPriority="high"
+      />
       <Nav />
       <main
         id="main-content"
@@ -117,7 +124,7 @@ export default function Home() {
             src="/media/real-time-response.webp"
             width="986"
             height="720"
-            fetchPriority="high"
+            loading="lazy"
             alt="Illustrative nighttime CCTV view of a commercial yard, from Spot AI"
           />
           <div className="hero-copy">
@@ -157,6 +164,19 @@ export default function Home() {
             </p>
           </div>
         </section>
+        <figure className="mobile-camera-scene">
+          <img
+            src="/media/real-time-response.webp"
+            width="986"
+            height="720"
+            loading="lazy"
+            decoding="async"
+            alt="Nighttime CCTV view of a commercial yard, illustrating the type of scene video analytics can help teams review"
+          />
+          <figcaption>
+            Reference illustration from Spot AI. Not a PGAK deployment.
+          </figcaption>
+        </figure>
         <section className="premium-section compatibility" id="how-compatible">
           <p className="kicker">WORKS WITH YOUR EXISTING CCTV</p>
           <h2>
