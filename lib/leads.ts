@@ -61,7 +61,13 @@ export const PROTECT_OPTIONS = [
 export const PROTECT_UNSPECIFIED = "Not specified";
 
 /** Camera-count bands. Coarse on purpose: nobody counts before they enquire. */
-export const CAMERA_OPTIONS = ["1–4", "5–15", "16–50", "50+", "Not sure"] as const;
+export const CAMERA_OPTIONS = [
+  "1–4",
+  "5–15",
+  "16–50",
+  "50+",
+  "Not sure",
+] as const;
 
 /** Headcount bands, asked only by the attendance variant of the form. */
 export const EMPLOYEE_OPTIONS = ["1–25", "26–100", "101–300", "300+"] as const;
@@ -80,6 +86,8 @@ export const HONEYPOT_FIELD = "website";
 
 /** Attribution keys the client may send. Anything else is dropped unread. */
 export const ATTRIBUTION_KEYS = [
+  "first_landing",
+  "first_source",
   "page",
   "cta",
   "landing",
@@ -93,9 +101,12 @@ export const ATTRIBUTION_KEYS = [
   "fbclid",
 ] as const;
 
-export type Attribution = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>>;
+export type Attribution = Partial<
+  Record<(typeof ATTRIBUTION_KEYS)[number], string>
+>;
 
 export type LeadInput = {
+  context?: unknown;
   name?: unknown;
   phone?: unknown;
   location?: unknown;
@@ -109,6 +120,7 @@ export type LeadInput = {
 };
 
 export type ValidLead = {
+  context?: string;
   /** Empty string when not given — the call collects it. */
   name: string;
   phone: string;
@@ -171,7 +183,8 @@ export function normalisePhone(raw: unknown): string | null {
   // Strip country code / trunk prefixes, longest and most specific first.
   let local = digits;
   if (local.length === 13 && local.startsWith("091")) local = local.slice(3);
-  else if (local.length === 12 && local.startsWith("91")) local = local.slice(2);
+  else if (local.length === 12 && local.startsWith("91"))
+    local = local.slice(2);
   else if (local.length === 11 && local.startsWith("0")) local = local.slice(1);
 
   if (!/^[1-9]\d{9}$/.test(local)) return null;
@@ -227,7 +240,9 @@ export function validateLead(input: LeadInput): ValidationResult {
   // losing a lead over a chip would be absurd — but so would inventing an
   // answer the customer did not give.
   const rawProtecting = clean(input.protecting, LIMITS.protecting);
-  const protecting = (PROTECT_OPTIONS as readonly string[]).includes(rawProtecting)
+  const protecting = (PROTECT_OPTIONS as readonly string[]).includes(
+    rawProtecting,
+  )
     ? rawProtecting
     : PROTECT_UNSPECIFIED;
 
@@ -237,13 +252,26 @@ export function validateLead(input: LeadInput): ValidationResult {
     ? rawCameras
     : "";
   const rawEmployees = clean(input.employees, LIMITS.employees);
-  const employees = (EMPLOYEE_OPTIONS as readonly string[]).includes(rawEmployees)
+  const employees = (EMPLOYEE_OPTIONS as readonly string[]).includes(
+    rawEmployees,
+  )
     ? rawEmployees
     : "";
 
   const lead: ValidLead | null =
     Object.keys(fieldErrors).length === 0 && phone && email !== null
-      ? { name, phone, location, protecting, cameras, employees, email }
+      ? {
+          name,
+          phone,
+          location,
+          protecting,
+          cameras,
+          employees,
+          email,
+          ...(clean(input.context, 1200)
+            ? { context: clean(input.context, 1200) }
+            : {}),
+        }
       : null;
 
   if (clean(input[HONEYPOT_FIELD as "website"], 200) !== "") {
@@ -292,8 +320,13 @@ export function toErpPayload(
 
   const parts = [
     `Protecting: ${lead.protecting}`,
+    lead.context ? `Project brief: ${lead.context}` : "",
     lead.cameras ? `Cameras: ${lead.cameras}` : "",
     lead.employees ? `Employees: ${lead.employees}` : "",
+    attribution.first_landing
+      ? `First landing: ${attribution.first_landing}`
+      : "",
+    attribution.first_source ? `First source: ${attribution.first_source}` : "",
     attribution.page ? `Page: ${attribution.page}` : "",
     attribution.cta ? `CTA: ${attribution.cta}` : "",
     attribution.landing ? `Landing: ${attribution.landing}` : "",

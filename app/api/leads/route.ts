@@ -1,3 +1,9 @@
+import {
+  intakeConfigured,
+  intakeRpc,
+  receiptToken,
+  tokenHash,
+} from "@/lib/lead-intake";
 import { NextResponse, type NextRequest } from "next/server";
 
 import {
@@ -115,7 +121,8 @@ function readConfig() {
     ""
   ).trim();
 
-  if (!endpoint || !secret) return { ok: false as const, reason: "LEAD_CONFIG_MISSING" };
+  if (!endpoint || !secret)
+    return { ok: false as const, reason: "LEAD_CONFIG_MISSING" };
   // Printable ASCII only — anything else cannot be a legal header value.
   if (!/^[\x21-\x7e]+$/.test(secret)) {
     return { ok: false as const, reason: "LEAD_CONFIG_MALFORMED" };
@@ -149,14 +156,11 @@ async function notifyOwner(
   const chatId = (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim();
 
   if (!token || !chatId) {
-    console.error(
-      "LEAD_NOTIFY_UNCONFIGURED",
-      JSON.stringify({ ref, why, lead }),
-    );
+    console.error("LEAD_NOTIFY_UNCONFIGURED", JSON.stringify({ ref, why }));
     return false;
   }
   if (budgetMs <= 0) {
-    console.error("LEAD_NOTIFY_NO_BUDGET", JSON.stringify({ ref, why, lead }));
+    console.error("LEAD_NOTIFY_NO_BUDGET", JSON.stringify({ ref, why }));
     return false;
   }
 
@@ -167,14 +171,17 @@ async function notifyOwner(
     `Call them back manually — this lead exists nowhere else.`;
 
   try {
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text }),
-      signal: AbortSignal.timeout(budgetMs),
-    });
+    const res = await fetch(
+      `https://api.telegram.org/bot${token}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text }),
+        signal: AbortSignal.timeout(budgetMs),
+      },
+    );
     if (!res.ok) {
-      console.error("LEAD_NOTIFY_FAILED", res.status, JSON.stringify({ ref, lead }));
+      console.error("LEAD_NOTIFY_FAILED", res.status, JSON.stringify({ ref }));
       return false;
     }
     return true;
@@ -182,7 +189,7 @@ async function notifyOwner(
     console.error(
       "LEAD_NOTIFY_THREW",
       String(err),
-      JSON.stringify({ ref, why, lead }),
+      JSON.stringify({ ref, why }),
     );
     return false;
   }
@@ -208,7 +215,7 @@ function newLeadAlertsEnabled(): boolean {
   if (["0", "false", "off", "no"].includes(flag)) return false;
   return Boolean(
     (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim() &&
-      (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
+    (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
   );
 }
 
@@ -252,12 +259,15 @@ async function notifyNewLead(
     `\nRef: ${ref}`;
 
   try {
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text }),
-      signal: AbortSignal.timeout(budgetMs),
-    });
+    const res = await fetch(
+      `https://api.telegram.org/bot${token}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text }),
+        signal: AbortSignal.timeout(budgetMs),
+      },
+    );
     if (!res.ok) {
       console.error("LEAD_NEW_ALERT_FAILED", res.status, ref);
       return false;
@@ -309,15 +319,23 @@ export async function POST(request: NextRequest) {
   let ref = crypto.randomUUID();
 
   // 1. Cheapest checks first — each one is quota protection, not style.
-  if (!(request.headers.get("content-type") ?? "").startsWith("application/json")) {
-    return json({ status: 415, body: { ok: false, delivered: false, ref, fallback: true } });
+  if (
+    !(request.headers.get("content-type") ?? "").startsWith("application/json")
+  ) {
+    return json({
+      status: 415,
+      body: { ok: false, delivered: false, ref, fallback: true },
+    });
   }
 
   const raw = await request.text();
   // Measured on the ACTUAL bytes. `content-length` is absent under chunked
   // encoding and coerces to 0, which would wave through an unbounded body.
   if (Buffer.byteLength(raw, "utf8") > MAX_BODY_BYTES) {
-    return json({ status: 413, body: { ok: false, delivered: false, ref, fallback: true } });
+    return json({
+      status: 413,
+      body: { ok: false, delivered: false, ref, fallback: true },
+    });
   }
 
   const origin = request.headers.get("origin");
@@ -329,7 +347,10 @@ export async function POST(request: NextRequest) {
       // a developer fixing local dev cannot widen the production list by accident.
       (process.env.VERCEL_ENV !== "production" && LOCAL_ORIGIN.test(origin));
     if (!allowed) {
-      return json({ status: 403, body: { ok: false, delivered: false, ref, fallback: true } });
+      return json({
+        status: 403,
+        body: { ok: false, delivered: false, ref, fallback: true },
+      });
     }
   }
   // A MISSING Origin is accepted: old in-app WebViews omit it, and rejecting
@@ -339,7 +360,10 @@ export async function POST(request: NextRequest) {
   try {
     parsed = JSON.parse(raw);
   } catch {
-    return json({ status: 400, body: { ok: false, delivered: false, ref, fallback: true } });
+    return json({
+      status: 400,
+      body: { ok: false, delivered: false, ref, fallback: true },
+    });
   }
 
   ref = resolveRef((parsed as { ref?: unknown } | null)?.ref);
@@ -352,9 +376,17 @@ export async function POST(request: NextRequest) {
   //    shown the WhatsApp route instead of a fake "we'll call you".
   if (!result.ok && result.honeypot) {
     if (result.lead) {
-      await notifyOwner(result.lead, ref, "honeypot tripped (may be a real customer)", Math.min(NOTIFY_MS, left()));
+      await notifyOwner(
+        result.lead,
+        ref,
+        "honeypot tripped (may be a real customer)",
+        Math.min(NOTIFY_MS, left()),
+      );
     }
-    return json({ status: 200, body: { ok: false, delivered: false, ref, fallback: true } });
+    return json({
+      status: 200,
+      body: { ok: false, delivered: false, ref, fallback: true },
+    });
   }
 
   if (!result.ok) {
@@ -362,7 +394,12 @@ export async function POST(request: NextRequest) {
     // rescue. Tell the user precisely which field to fix.
     return json({
       status: 400,
-      body: { ok: false, delivered: false, ref, fieldErrors: result.fieldErrors },
+      body: {
+        ok: false,
+        delivered: false,
+        ref,
+        fieldErrors: result.fieldErrors,
+      },
     });
   }
 
@@ -373,14 +410,64 @@ export async function POST(request: NextRequest) {
 
   if (rateLimited(clientKey(request))) {
     await notifyOwner(lead, ref, "rate limited", Math.min(NOTIFY_MS, left()));
-    return json({ status: 429, body: { ok: false, delivered: false, ref, fallback: true } });
+    return json({
+      status: 429,
+      body: { ok: false, delivered: false, ref, fallback: true },
+    });
+  }
+
+  if (intakeConfigured()) {
+    try {
+      const token = receiptToken(ref, lead.phone);
+      const payload = toErpPayload(
+        lead,
+        "www.pgak.co.in",
+        new Date().toISOString(),
+        ref,
+        attribution,
+      );
+      const accepted = await intakeRpc("accept_website_lead", {
+        p_ref: ref,
+        p_token_hash: tokenHash(token),
+        p_payload: payload,
+      });
+      if (accepted.received !== true || accepted.ref !== ref)
+        throw new Error("NO_RECEIPT");
+      return json({
+        status: 202,
+        body: {
+          ok: true,
+          received: true,
+          delivered: accepted.state === "delivered",
+          state: accepted.state,
+          ref,
+          receiptToken: token,
+        },
+      });
+    } catch {
+      console.error("LEAD_INTAKE_UNAVAILABLE", ref);
+      return json({
+        status: 503,
+        body: {
+          ok: false,
+          received: false,
+          delivered: false,
+          ref,
+          retryable: true,
+          fallback: true,
+        },
+      });
+    }
   }
 
   const config = readConfig();
   if (!config.ok) {
     console.error(config.reason, JSON.stringify({ ref }));
     await notifyOwner(lead, ref, config.reason, Math.min(NOTIFY_MS, left()));
-    return json({ status: 503, body: { ok: false, delivered: false, ref, fallback: true } });
+    return json({
+      status: 503,
+      body: { ok: false, delivered: false, ref, fallback: true },
+    });
   }
 
   // 3. Relay. Two attempts on timeout/5xx only; never on 4xx, which cannot be
@@ -443,8 +530,16 @@ export async function POST(request: NextRequest) {
           // Speed to lead: the owner hears about a delivered lead the moment
           // it lands, not when someone next opens the CRM. Bounded by
           // NOTIFY_MS so it cannot stall the customer's success response.
-          await notifyNewLead(lead, ref, attribution, Math.min(NOTIFY_MS, left()));
-          return json({ status: 200, body: { ok: true, delivered: true, ref } });
+          await notifyNewLead(
+            lead,
+            ref,
+            attribution,
+            Math.min(NOTIFY_MS, left()),
+          );
+          return json({
+            status: 200,
+            body: { ok: true, delivered: true, ref },
+          });
         }
 
         lastReason = "ERP accepted the request but returned no row id";
@@ -467,7 +562,12 @@ export async function POST(request: NextRequest) {
     // the notify would be the thing the deadline kills — i.e. exactly the sink
     // the design depends on.
     if (attempt === 1 && !notified) {
-      notified = notifyOwner(lead, ref, lastReason, Math.min(NOTIFY_MS, left()));
+      notified = notifyOwner(
+        lead,
+        ref,
+        lastReason,
+        Math.min(NOTIFY_MS, left()),
+      );
       await new Promise((r) => setTimeout(r, ERP_RETRY_GAP_MS));
     }
   }
@@ -477,7 +577,10 @@ export async function POST(request: NextRequest) {
   }
   await notified;
 
-  console.error("LEAD_ERP_UNREACHABLE", JSON.stringify({ ref, reason: lastReason }));
+  console.error(
+    "LEAD_ERP_UNREACHABLE",
+    JSON.stringify({ ref, reason: lastReason }),
+  );
 
   return json({
     status: 502,
@@ -507,9 +610,10 @@ export async function GET() {
     {
       ok: true,
       erp: config.ok,
+      durableIntake: intakeConfigured(),
       notify: Boolean(
         (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim() &&
-          (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
+        (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
       ),
       newLeadAlerts: newLeadAlertsEnabled(),
       env: process.env.VERCEL_ENV ?? "development",

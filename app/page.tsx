@@ -1,446 +1,283 @@
-import type { Metadata } from "next";
-import Nav from "@/components/Nav";
-import ReferenceFilm from "@/components/ReferenceFilm";
-import Footer from "@/components/sections/Footer";
-import QuickLead from "@/components/sections/QuickLead";
-import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
-import {
-  softwareApplicationSchema,
-  webPageSchema,
-  faqSchema,
-} from "@/lib/schema";
-
-export const metadata: Metadata = pageMeta({
+import Nav from "@/components/Nav";
+import Footer from "@/components/sections/Footer";
+import Architecture from "@/components/b2b/Architecture";
+import ReadinessAssessment from "@/components/b2b/ReadinessAssessment";
+import { PROOF_NOTICE } from "@/lib/b2b/claims";
+export const metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
   description:
-    "AI video analytics software for your existing CCTV. Evaluate intrusion detection, face recognition, attendance and real-time alerts. Book a PGAK demo in India.",
+    "Evaluate AI video analytics for compatible existing CCTV at factories, warehouses and multi-site businesses in India. Prepare a camera readiness brief with PGAK.",
   path: "/",
 });
-const features = [
+const questions = [
   [
-    "01",
-    "Threat detection",
-    "Bring configured security events to your team’s attention.",
-    "/ai-surveillance-system",
+    "Can I keep my existing cameras and recorder?",
+    "Often that is the starting point, but compatibility is not inferred from a brand name. The camera/recorder model, firmware, authorised stream, placement, lighting, network and processing requirements need technical review.",
   ],
   [
-    "02",
-    "Face recognition",
-    "Recognise enrolled people on suitable camera feeds.",
-    "/features/face-recognition",
+    "Is PGAK a replacement VMS?",
+    "This website positions PGAK as an analytics layer for compatible existing CCTV. Replacement recording, playback, retention and permission workflows are not verified as a complete VMS offering. Keep your existing recorder responsibilities in scope.",
   ],
   [
-    "03",
-    "Attendance",
-    "Turn entrance events into records your team can review.",
-    "/face-recognition-attendance-system",
+    "What happens to footage and identification data?",
+    "Agree the processing location, authorised users, permitted purpose, retention, deletion and review procedure before a pilot. Do not send footage or camera credentials through the marketing form.",
   ],
   [
-    "04",
-    "Intrusion",
-    "Define restricted zones and the hours that matter.",
-    "/ai-intruder-detection",
+    "What does a quote need to cover?",
+    "Software scope, enabled cameras and use cases, processing hardware, setup, integration, support, taxes and contract terms. A written scope should name customer and supplier responsibilities, including who responds to alerts.",
   ],
   [
-    "05",
-    "Loitering",
-    "Flag extended presence in configured areas.",
-    "/features/loitering-detection",
+    "Can AI miss an event or raise a false alert?",
+    "Yes. Lighting, camera angle, occlusion, motion and connectivity affect results. Test representative conditions and record useful alerts, false alerts, missed events and delays. Analytics supplements human review and site safety procedures.",
   ],
-  [
-    "06",
-    "Camera health",
-    "Know when a camera feed needs attention.",
-    "/multi-site-cctv-monitoring",
-  ],
-  [
-    "07",
-    "Real-time alerts",
-    "Get event context so the right person can respond.",
-    "/features/intrusion-alerts",
-  ],
-];
-const industries = [
-  ["Factories", "Perimeters. Entrances. Shift changes.", "/factory-security"],
-  [
-    "Warehouses",
-    "Loading bays. Stock areas. After hours.",
-    "/ai-cctv-for-warehouses",
-  ],
-  ["Offices", "People. Access. Everyday operations.", "/ai-cctv-for-offices"],
-  ["Retail", "Shop floors. Stockrooms. Entry points.", "/retail-shop-security"],
-  [
-    "Commercial sites",
-    "Multiple cameras. One clearer picture.",
-    "/commercial-cctv",
-  ],
-];
-const faqs = [
-  {
-    q: "Will PGAK work with my existing CCTV?",
-    a: "PGAK assesses compatible RTSP or ONVIF streams from your cameras and DVR/NVR. Camera placement, lighting, stream access and network quality are checked before confirming what can be reused. An on-site processing device may be needed.",
-  },
-  {
-    q: "What does AI video analytics software detect?",
-    a: "PGAK supports evaluation of configured intrusion, loitering, face recognition, attendance and camera-health events. The right combination depends on your site and camera feeds. Agree a pilot and acceptance criteria before rollout.",
-  },
-  {
-    q: "How much does PGAK cost?",
-    a: "Pricing is scoped to your camera count, sites, enabled analytics and processing requirements. Ask for a written quote covering hardware, setup, subscription, support and taxes.",
-  },
 ];
 export default function Home() {
   return (
     <>
-      <JsonLd
-        nodes={[
-          webPageSchema({
-            path: "/",
-            name: "AI video analytics for existing CCTV cameras",
-            description:
-              "PGAK AI CCTV software for factories, warehouses, offices and commercial sites in India.",
-          }),
-          softwareApplicationSchema(),
-          faqSchema(faqs),
-        ]}
-      />
-      <link
-        rel="preload"
-        as="image"
-        href="/media/real-time-response.webp"
-        media="(min-width: 761px)"
-        fetchPriority="high"
-      />
       <Nav />
-      <main
-        id="main-content"
-        className="premium-home spot-home"
-        data-money-page="home"
-      >
-        <section className="premium-hero cinema-hero" id="top">
-          <img
-            className="cinema-backdrop"
-            src="/media/real-time-response.webp"
-            width="986"
-            height="720"
-            loading="lazy"
-            alt="Illustrative nighttime CCTV view of a commercial yard, from Spot AI"
-          />
-          <div className="hero-copy">
-            <p className="kicker">PGAK · INTELLIGENT SECURITY</p>
-            <h1>
-              AI Video Analytics
-              <br />
-              for Existing
-              <br />
-              <span>CCTV Cameras.</span>
-            </h1>
-            <p className="hero-description">
-              Turn your existing CCTV into intelligent security with AI-powered
-              intrusion detection, face recognition, attendance and real-time
-              alerts.
-            </p>
-            <div className="action-row">
-              <a
-                href="/book-demo"
-                className="btn btn-primary"
-                data-cta="hero-demo"
-              >
-                Book a Demo <span aria-hidden="true">↗</span>
-              </a>
-              <a href="/free-audit" className="text-link" data-cta="hero-audit">
-                Get Free Camera Audit <span aria-hidden="true">→</span>
-              </a>
-            </div>
-            <p className="hero-note">Your cameras. A more intelligent view.</p>
-          </div>
-          <div className="hero-film-link">
-            <a href="#intelligence-films">
-              <span aria-hidden="true">▶</span> See video intelligence in action
-            </a>
-            <p>
-              Reference footage: Spot AI. Illustrative, not a PGAK deployment.
-            </p>
-          </div>
-        </section>
-        <figure className="mobile-camera-scene">
-          <img
-            src="/media/real-time-response.webp"
-            width="986"
-            height="720"
-            loading="lazy"
-            decoding="async"
-            alt="Nighttime CCTV view of a commercial yard, illustrating the type of scene video analytics can help teams review"
-          />
-          <figcaption>
-            Reference illustration from Spot AI. Not a PGAK deployment.
-          </figcaption>
-        </figure>
-        <section className="premium-section compatibility" id="how-compatible">
-          <p className="kicker">WORKS WITH YOUR EXISTING CCTV</p>
-          <h2>
-            Your cameras can do more.
-            <br />
-            Start with what you have.
-          </h2>
-          <p className="section-intro">
-            Keep compatible cameras. Add an intelligence layer. Start with an
-            assessment of what you already own.
-          </p>
-          <div className="compatibility-row">
-            <span>IP cameras</span>
-            <span>DVR / NVR</span>
-            <span>RTSP</span>
-            <span>ONVIF</span>
-          </div>
-          <p className="fine-print">
-            Stream access, placement, lighting and processing hardware are
-            checked before deployment.
-          </p>
-          <a className="text-link" href="/video-analytics-software">
-            Explore AI video analytics software{" "}
-            <span aria-hidden="true">→</span>
-          </a>
-        </section>
-        <section
-          className="intelligence-films"
-          id="intelligence-films"
-          aria-labelledby="films-heading"
-        >
-          <div className="film-intro">
-            <p className="kicker">FROM WATCHING TO UNDERSTANDING</p>
-            <h2 id="films-heading">
-              A clearer picture.
-              <br />A more informed response.
-            </h2>
-            <p>
-              Explore the idea of video intelligence. Then see what PGAK can do
-              on your own cameras.
-            </p>
-          </div>
-          {[
-            {
-              n: "01",
-              title: "See.",
-              subtitle: "Bring the important moments into view.",
-              body: "Your team cannot watch every camera at once. Configure PGAK to flag activity in the areas and hours that matter to your business.",
-              file: "camera-intelligence",
-              label:
-                "Construction camera footage illustrating scene observation",
-              href: "/ai-surveillance-system",
-              link: "Explore AI surveillance",
-            },
-            {
-              n: "02",
-              title: "Understand.",
-              subtitle: "Give each event the context it needs.",
-              body: "Review configured zones, people and activity together. Assess camera placement and image quality before choosing the analytics for your site.",
-              file: "event-context",
-              label: "Factory camera footage illustrating activity context",
-              href: "/video-analytics-software",
-              link: "Explore video analytics",
-            },
-            {
-              n: "03",
-              title: "Respond.",
-              subtitle: "Help the right person act sooner.",
-              body: "Turn configured intrusion and loitering events into alerts your team can review. Agree who responds, how they are notified and what happens next.",
-              file: "real-time-response",
-              label:
-                "Nighttime yard camera footage illustrating security response",
-              href: "/ai-intruder-detection",
-              link: "Explore intrusion detection",
-            },
-          ].map((film) => (
-            <article className="film-row" key={film.n}>
-              <div className="film-copy">
-                <span className="film-number">
-                  {film.n} / INTELLIGENCE IN FOCUS
-                </span>
-                <h3>{film.title}</h3>
-                <h4>{film.subtitle}</h4>
-                <p>{film.body}</p>
-                <a className="text-link" href={film.href}>
-                  {film.link} <span aria-hidden="true">↗</span>
+      <main id="main-content" className="buyer-home" data-money-page="home">
+        <div className="buyer-wrap">
+          <section className="buyer-hero" id="top">
+            <div>
+              <p className="kicker">AI VIDEO ANALYTICS FOR EXISTING CCTV</p>
+              <h1>
+                Turn existing CCTV into <span>useful alerts</span> for your
+                business.
+              </h1>
+              <p className="buyer-lede">
+                Evaluate security and operational use cases for your factory,
+                warehouse or multi-site business. Check camera compatibility and
+                deployment requirements before choosing a pilot.
+              </p>
+              <div className="action-row">
+                <a
+                  href="#camera-readiness"
+                  className="btn btn-primary"
+                  data-cta="hero-camera-check"
+                >
+                  Check my cameras <span aria-hidden="true">→</span>
+                </a>
+                <a href="/book-demo" className="text-link" data-cta="hero-demo">
+                  See a product demonstration ↗
                 </a>
               </div>
-              <figure className="film-player">
-                <ReferenceFilm
-                  file={film.file}
-                  label={film.label}
-                  captionId={`film-${film.n}-caption`}
-                />
-                <figcaption id={`film-${film.n}-caption`}>
-                  {film.label}. Reference illustration from{" "}
-                  <a
-                    href="https://www.spot.ai/"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Spot AI
-                  </a>
-                  ; any interface or automated actions shown are theirs, not a
-                  demonstration of PGAK.
-                </figcaption>
-              </figure>
-            </article>
-          ))}
+              <p className="buyer-micro">
+                Camera compatibility and processing requirements are assessed
+                first.
+              </p>
+            </div>
+            <Architecture compact />
+          </section>
+          <nav className="buyer-strip" aria-label="Business settings">
+            <span>START WITH YOUR SETTING</span>
+            <a href="/factory-security">Factories ↗</a>
+            <a href="/ai-cctv-for-warehouses">Warehouses ↗</a>
+            <a href="/multi-site-cctv-monitoring">Multi-site businesses ↗</a>
+          </nav>
+          <section className="buyer-section" id="features">
+            <div className="buyer-section-head">
+              <div>
+                <p className="kicker">01 / CHOOSE THE PROBLEM</p>
+                <h2>
+                  Focus on what needs
+                  <br />
+                  your team’s attention.
+                </h2>
+              </div>
+              <p>
+                Start with a defined event and a practical response. These are
+                evaluation areas; site-specific support is confirmed through
+                technical review.
+              </p>
+            </div>
+            <div className="buyer-links">
+              {[
+                [
+                  "Perimeter events",
+                  "Restricted zones, after-hours movement and legitimate deliveries. Define the difference before testing.",
+                  "/ai-intruder-detection",
+                ],
+                [
+                  "Attendance exceptions",
+                  "Entrance events, ambiguous matches and missing records. Keep authorised enrolment and human correction in the workflow.",
+                  "/face-recognition-attendance-system",
+                ],
+                [
+                  "Camera-feed health",
+                  "A lost feed needs an owner. Test interruption, notification and recovery across your sites.",
+                  "/multi-site-cctv-monitoring",
+                ],
+              ].map(([title, body, href], i) => (
+                <article key={href}>
+                  <span className="index">0{i + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                  <a href={href}>Explore requirements →</a>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+        <section className="buyer-surface" id="how">
+          <div className="buyer-wrap buyer-section">
+            <div className="buyer-section-head">
+              <div>
+                <p className="kicker">02 / DEFINE THE WORKFLOW</p>
+                <h2>
+                  An event is a starting point.
+                  <br />A response needs an owner.
+                </h2>
+              </div>
+              <p>
+                A proposed operating process, to verify in your demonstration.
+                Confirm the supported evidence format and notification
+                destination before rollout.
+              </p>
+            </div>
+            <ol className="buyer-steps">
+              {[
+                ["Observe", "Define a zone, event and operating hours."],
+                [
+                  "Review evidence",
+                  "Check what happened and whether the event is useful.",
+                ],
+                [
+                  "Notify",
+                  "Test delivery to the agreed, authorised recipient.",
+                ],
+                [
+                  "Handle",
+                  "A named person reviews, responds and records the outcome.",
+                ],
+              ].map(([title, body], i) => (
+                <li key={title}>
+                  <span>0{i + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="buyer-micro mt-8">
+              False alerts and missed events belong in the evaluation, alongside
+              successful detections.
+            </p>
+            <a href="/resources/evaluation-method" className="text-link">
+              Use the pilot evaluation worksheet →
+            </a>
+          </div>
         </section>
-        <section className="premium-section" id="features">
-          <div className="section-heading">
+        <div className="buyer-wrap">
+          <section className="buyer-section buyer-split" id="how-compatible">
             <div>
-              <p className="kicker">WHAT PGAK DETECTS</p>
+              <p className="kicker">03 / CHECK WHETHER IT FITS</p>
               <h2>
-                See what matters.
+                Keep what works.
                 <br />
-                Know when to act.
+                Verify what needs to change.
+              </h2>
+              <p className="buyer-lede">
+                Your existing recorder can remain part of the system. Stream
+                access, processing and the scene itself determine what can be
+                evaluated.
+              </p>
+              <ul className="buyer-list">
+                <li>Camera and DVR/NVR model, firmware and stream format</li>
+                <li>Placement, distance, lighting and occlusion</li>
+                <li>Network, power and processing hardware</li>
+                <li>Access, retention and response responsibilities</li>
+              </ul>
+              <a href="/platform/compatibility" className="text-link">
+                Read compatibility requirements →
+              </a>
+            </div>
+            <div className="buyer-notice">
+              <p className="kicker">TECHNICAL REVIEW, NOT A BRAND CHECK</p>
+              <h3>“RTSP” alone is not a compatibility result.</h3>
+              <p className="mt-4">
+                Codec, resolution, frame rate, stream stability and the specific
+                task all matter. No model or firmware is marked compatible
+                without a verified record.
+              </p>
+              <a className="text-link block mt-6" href="/platform/deployment">
+                Explore deployment responsibilities →
+              </a>
+            </div>
+          </section>
+          <section
+            className="buyer-section buyer-split border-t border-line"
+            id="trust"
+          >
+            <div>
+              <p className="kicker">04 / INSPECT THE EVIDENCE</p>
+              <h2>
+                Proof should be specific
+                <br />
+                to the claim.
               </h2>
             </div>
-            <p>
-              Purposeful intelligence for the moments your team needs to know
-              about.
-            </p>
-          </div>
-          <div className="detection-grid">
-            {features.map(([n, title, body, href]) => (
-              <a className="detection-item" href={href} key={title}>
-                <span className="item-number">{n}</span>
-                <h3>
-                  {title} <span aria-hidden="true">↗</span>
-                </h3>
-                <p>{body}</p>
-              </a>
-            ))}
-          </div>
-          <p className="fine-print">
-            Capabilities and alert timing depend on camera suitability,
-            configuration, processing and connectivity.
-          </p>
-        </section>
-        <section className="premium-section industry-section" id="sites">
-          <p className="kicker">BUILT AROUND YOUR BUSINESS</p>
-          <h2>
-            Different spaces.
-            <br />
-            One clearer view.
-          </h2>
-          <div className="industry-list">
-            {industries.map(([title, body, href]) => (
-              <a href={href} key={title}>
-                <h3>{title}</h3>
-                <p>{body}</p>
-                <span aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </div>
-        </section>
-        <section className="premium-section" id="how">
-          <p className="kicker">HOW IT WORKS</p>
-          <h2>From camera to clarity.</h2>
-          <ol className="steps">
-            {[
-              [
-                "Connect",
-                "Check compatible streams and confirm processing requirements.",
-              ],
-              [
-                "Analyse",
-                "Configure the scenes, zones and schedules for your site.",
-              ],
-              [
-                "Detect",
-                "Identify the events your team has chosen to monitor.",
-              ],
-              [
-                "Alert",
-                "Send event context to the people responsible for responding.",
-              ],
-            ].map(([title, body], i) => (
-              <li key={title}>
-                <span className="step-number">0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-        <section className="premium-section proof-section" id="trust">
-          <div>
-            <p className="kicker">PROOF BEFORE PROMISES</p>
-            <h2>
-              Your site.
-              <br />
-              Your cameras.
-              <br />A real evaluation.
-            </h2>
-          </div>
-          <div className="proof-copy">
-            <p className="large-copy">
-              The most useful proof is what works on your own feeds.
-            </p>
-            <p>
-              Start with a camera assessment. Agree the zones to monitor, review
-              useful and missed events, and measure alert delay before a wider
-              rollout.
-            </p>
-            <p>
-              Our published deployment scenarios explain the approach. They are
-              illustrations, not verified customer case studies.
-            </p>
-            <a className="text-link" href="/insights/case-studies">
-              Explore deployment scenarios →
+            <div>
+              <p>{PROOF_NOTICE}</p>
+              <p className="mt-4">
+                Ask for a dated demonstration of your intended function, the
+                conditions it was tested under and what did not work.
+              </p>
+              <div className="action-row mt-6">
+                <a href="/resources/evidence" className="text-link">
+                  Evidence & limitations →
+                </a>
+                <a href="/platform/capabilities" className="text-link">
+                  Capability register →
+                </a>
+              </div>
+            </div>
+          </section>
+          <section className="buyer-section border-t border-line">
+            <p className="kicker">05 / A CLEAR COMMERCIAL PATH</p>
+            <h2>Assess. Pilot. Then decide.</h2>
+            <div className="buyer-links mt-10">
+              {[
+                [
+                  "Assessment",
+                  "Document your cameras, intended events, requirements and open questions.",
+                ],
+                [
+                  "Scoped pilot",
+                  "Agree the feeds, conditions, responsibilities and acceptance criteria in writing.",
+                ],
+                [
+                  "Rollout",
+                  "Use the pilot findings to scope cameras, processing, support and contract terms.",
+                ],
+              ].map(([t, b]) => (
+                <article key={t}>
+                  <h3>{t}</h3>
+                  <p>{b}</p>
+                </article>
+              ))}
+            </div>
+            <a href="/pricing" className="text-link">
+              Understand the cost drivers →
             </a>
-            <a className="text-link" href="/about">
-              Meet PGAK Innovations →
-            </a>
-          </div>
-        </section>
-        <section className="premium-section compact-faq">
-          <p className="kicker">A FEW THINGS TO KNOW</p>
-          <h2>Clear answers.</h2>
-          {faqs.map((f) => (
-            <details key={f.q}>
-              <summary>
-                {f.q}
-                <span aria-hidden="true">＋</span>
-              </summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-          <a href="/insights" className="text-link">
-            Read our CCTV guides →
-          </a>
-        </section>
-        <section className="premium-section final-enquiry" id="dealer">
-          <span id="audit" />
-          <span id="demo" />
-          <p className="kicker">LET’S START WITH YOUR CAMERAS</p>
-          <h2>
-            Put your cameras
-            <br />
-            to work.
-          </h2>
-          <p className="section-intro">
-            Get a free camera audit. Find out what your existing CCTV can do
-            with PGAK.
-          </p>
-          <div className="home-form">
-            <QuickLead cta="home-audit" />
-          </div>
-          <div className="action-row">
-            <a href="/book-demo" className="text-link" data-cta="final-demo">
-              Book a Demo →
-            </a>
-            <a
-              href="https://wa.me/916283993600"
-              className="text-link"
-              data-cta="final-whatsapp"
-            >
-              Talk on WhatsApp ↗
-            </a>
-          </div>
-        </section>
+          </section>
+          <section className="buyer-section border-t border-line">
+            <p className="kicker">BEFORE PROCUREMENT</p>
+            <h2>Good questions. Clear boundaries.</h2>
+            <div className="buyer-faq mt-8">
+              {questions.map(([q, a]) => (
+                <details key={q}>
+                  <summary>{q}</summary>
+                  <p>{a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+          <section className="buyer-section border-t border-line" id="dealer">
+            <span id="audit" />
+            <span id="demo" />
+            <ReadinessAssessment />
+          </section>
+        </div>
       </main>
       <Footer />
     </>

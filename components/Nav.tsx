@@ -1,10 +1,9 @@
 import Logo from "@/components/Logo";
-
 const links = [
   ["/solutions", "Solutions"],
-  ["/features", "Features"],
+  ["/platform", "Platform"],
   ["/pricing", "Pricing"],
-  ["/insights", "Insights"],
+  ["/resources", "Resources"],
   ["/about", "Company"],
 ];
 export default function Nav() {
@@ -29,12 +28,11 @@ export default function Nav() {
             Sign in
           </a>
           <a
-            href="/book-demo"
+            href="/free-audit"
             className="btn btn-primary"
-            data-cta="nav-demo"
-            data-intent="demo"
+            data-cta="nav-camera-check"
           >
-            Book a Demo
+            Check my cameras
           </a>
         </div>
         <details className="mobile-nav">
@@ -47,8 +45,9 @@ export default function Nav() {
                 {label}
               </a>
             ))}
-            <a href="/free-audit">Free camera audit</a>
-            <a href="/contact">Contact</a>
+            <a href="/free-audit">Check my cameras</a>
+            <a href="/contact">Support & contact</a>
+            <a href="/partners">Partner enquiries</a>
             <a href="/live">Customer sign in</a>
           </nav>
         </details>
