@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 
-import Script from "next/script";
 import "./globals.css";
 import "./premium.css";
 import "./spot.css";
@@ -25,8 +24,8 @@ const GA_IDS = ["G-6EMP9HSR2F"] as const;
 // Use the direct GA4 loader below once, avoiding a redundant container.
 // Keep preview/local QA out of production acquisition and lead metrics.
 const ANALYTICS_ENABLED = process.env.VERCEL_ENV === "production" || process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
-import { Analytics } from "@vercel/analytics/next";
-import Pixel from "@/components/Pixel";
+import DeferredAnalytics from "@/components/DeferredAnalytics";
+import { FB_PIXEL_ID } from "@/lib/fbpixel";
 import ConversionEvents from "@/components/ConversionEvents";
 import LeadAttribution from "@/components/LeadAttribution";
 import JsonLd from "@/components/JsonLd";
@@ -97,32 +96,8 @@ export default function RootLayout({
           <ConversionEvents />
           {children}
         </>
-        {ANALYTICS_ENABLED && <Pixel />}
-        {ANALYTICS_ENABLED && <Analytics />}
-
-        {ANALYTICS_ENABLED && <>
-        {/* Google tag (GA4) — one loader, one `config` per property. */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_IDS[0]}`}
-          strategy="lazyOnload"
-        />
-        <Script id="ga4-init" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-${GA_IDS.map((id) => `gtag('config', '${id}');`).join("\n")}`}
-        </Script>
-        </>}
-
-        {/* Microsoft Clarity — behaviour analytics. Only loads when the env
-            var is set, so local and preview builds stay out of the data. */}
-        {ANALYTICS_ENABLED && CLARITY_ID && (
-          <Script id="ms-clarity" strategy="afterInteractive">
-            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
-          </Script>
-        )}
-
-
+        {ANALYTICS_ENABLED && <DeferredAnalytics gaIds={GA_IDS} clarityId={CLARITY_ID} />}
+        {ANALYTICS_ENABLED && <noscript dangerouslySetInnerHTML={{ __html: `<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1" />` }} />}
       </body>
     </html>
   );
