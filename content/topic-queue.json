@@ -347,7 +347,8 @@
     "primaryKeyword": "medical store cctv camera",
     "angle": "Controlled-substance cabinet, till, after-hours. Compliance angle.",
     "category": "Security Basics",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-21"
   },
   {
     "slug": "cctv-total-cost-of-ownership-5-years",
@@ -355,7 +356,8 @@
     "primaryKeyword": "cctv system cost india",
     "angle": "Hardware, cabling, storage, AMC, replacement, electricity. The number nobody quotes.",
     "category": "Buying Guide",
-    "status": "pending"
+    "status": "published",
+    "publishedOn": "2026-09-21"
   },
   {
     "slug": "how-to-write-a-cctv-tender",
