@@ -5,7 +5,12 @@ import Reveal from "@/components/Reveal";
 import { useLang } from "@/components/LangProvider";
 import {
   CAMERA_OPTIONS,
+  NEW_SITE_CAMERAS,
+  PROJECT_EXISTING,
+  PROJECT_NEW,
+  TIMELINE_OPTIONS,
   cameraOptionLabel,
+  timelineLabel,
   EMPLOYEE_OPTIONS,
   HONEYPOT_FIELD,
   PROTECT_OPTIONS,
@@ -60,30 +65,64 @@ import {
  */
 const BOOKING_URL = (process.env.NEXT_PUBLIC_BOOKING_URL ?? "").trim();
 
-export type DealerFormVariant = "audit" | "attendance";
+/**
+ * audit       → "Upgrade my existing CCTV" (free camera assessment)
+ * attendance  → gate-camera attendance feasibility
+ * new-install → "Plan a new CCTV installation" — never framed as an audit of
+ *               cameras the buyer does not have yet.
+ */
+export type DealerFormVariant = "audit" | "attendance" | "new-install";
 
 type Status = "idle" | "sending" | "done" | "fallback";
 
-export default function DealerForm({ variant = "audit" }: { variant?: DealerFormVariant }) {
+export default function DealerForm({
+  variant = "audit",
+  id = "dealer",
+  cityHint = "",
+}: {
+  variant?: DealerFormVariant;
+  /** Anchor id; pages that show two journeys give each form its own. */
+  id?: string;
+  /**
+   * City pages suggest their city as the placeholder only — never as a value,
+   * so a visitor who skips the field is recorded as "not given", not guessed.
+   * The CRM already receives the page path for routing.
+   */
+  cityHint?: string;
+}) {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [retryable, setRetryable] = useState(true);
   const typed = useRef<LeadValues>({ phone: "", cameras: "" });
   const attendance = variant === "attendance";
+  const newInstall = variant === "new-install";
 
   // Stable for the component's lifetime, so a retry reuses it and the ERP can
   // collapse the duplicate rather than assigning two dealers to one customer.
   const refRef = useRef<string | null>(null);
   if (refRef.current === null) refRef.current = mintRef();
 
-  const copy = attendance
+  const copy = newInstall
+    ? {
+        eyebrow: t("New installation", "नया इंस्टॉलेशन"),
+        h2: t("Plan a new CCTV installation.", "नए CCTV इंस्टॉलेशन की योजना बनाएँ।"),
+        intro: t(
+          `For a new factory, warehouse, office or other site. Tell us your WhatsApp number, the project city and roughly how many cameras the site will need. ${CALLBACK_PROMISE.en} We discuss the site first; installation availability, delivery arrangements and timelines are confirmed for your project before quotation.`,
+          `नई फ़ैक्टरी, गोदाम, ऑफ़िस या अन्य साइट के लिए। अपना WhatsApp नंबर, प्रोजेक्ट का शहर और साइट को लगभग कितने कैमरे चाहिए, यह बताएँ। ${CALLBACK_PROMISE.hi} पहले साइट पर बात होती है; इंस्टॉलेशन की उपलब्धता, व्यवस्था और समय-सीमा कोटेशन से पहले आपके प्रोजेक्ट के लिए पुष्टि की जाती है।`,
+        ),
+        button: t("Request a site consultation →", "साइट परामर्श का अनुरोध करें →"),
+        cta: "dealer-form-new-install",
+        formName: "new_installation_request",
+        stat3: { big: "", label: "" },
+      }
+    : attendance
     ? {
         eyebrow: t("Free feasibility check", "मुफ़्त संभाव्यता जाँच"),
         h2: t("Check if your gate cameras can do attendance.", "जाँचें कि आपके गेट कैमरे अटेंडेंस कर सकते हैं या नहीं।"),
         intro: t(
           `Tell us your WhatsApp number, how many cameras cover your gates and roughly how many people clock in. ${CALLBACK_PROMISE.en} You get a written feasibility answer within ${AUDIT_TURNAROUND_HOURS} hours — with camera and processing requirements confirmed.`,
-          `अपना WhatsApp नंबर, गेट कवर करने वाले कैमरों की संख्या और लगभग कितने लोग हाज़िरी लगाते हैं, यह बताएँ। ${CALLBACK_PROMISE.hi} ${AUDIT_TURNAROUND_HOURS} घंटों में लिखित संभाव्यता उत्तर — कोई बायोमेट्रिक मशीन नहीं, कोई नया हार्डवेयर नहीं।`,
+          `अपना WhatsApp नंबर, गेट कवर करने वाले कैमरों की संख्या और लगभग कितने लोग हाज़िरी लगाते हैं, यह बताएँ। ${CALLBACK_PROMISE.hi} ${AUDIT_TURNAROUND_HOURS} घंटों में लिखित संभाव्यता उत्तर — कैमरे और प्रोसेसिंग की ज़रूरतों की पुष्टि के साथ।`,
         ),
         button: t("Check my cameras →", "मेरे कैमरे जाँचें →"),
         cta: "dealer-form-attendance",
@@ -112,6 +151,15 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
       cameras: String(data.get("cameras") ?? ""),
       employees: attendance ? String(data.get("employees") ?? "") : "",
       protecting: String(data.get("protecting") ?? ""),
+      // The journey is known from the form, except that the upgrade form's
+      // "None yet — new site" answer means a new installation after all.
+      project:
+        newInstall || String(data.get("cameras") ?? "") === NEW_SITE_CAMERAS
+          ? PROJECT_NEW
+          : attendance
+            ? ""
+            : PROJECT_EXISTING,
+      timeline: newInstall ? String(data.get("timeline") ?? "") : "",
       name: String(data.get("name") ?? "").trim(),
       location: String(data.get("location") ?? "").trim(),
       honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
@@ -131,10 +179,15 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
       );
     }
     if (!values.cameras) {
-      clientErrors.cameras = t(
-        "Roughly how many cameras do you have?",
-        "आपके पास लगभग कितने कैमरे हैं?",
-      );
+      clientErrors.cameras = newInstall
+        ? t(
+            "Roughly how many cameras will the site need? “Not sure yet” is fine.",
+            "साइट को लगभग कितने कैमरे चाहिए? “अभी पक्का नहीं” भी ठीक है।",
+          )
+        : t(
+            "Roughly how many cameras do you have?",
+            "आपके पास लगभग कितने कैमरे हैं?",
+          );
     }
     if (Object.keys(clientErrors).length > 0) {
       setFieldErrors(clientErrors);
@@ -166,7 +219,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
   }
 
   return (
-    <section id="dealer" className="sec">
+    <section id={id} className="sec">
       <div className="wrap">
         <Reveal className="grid items-center gap-10 rounded-[22px] border border-line bg-panel p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
@@ -187,6 +240,14 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                   `${CALLBACK_PROMISE.hi} उसके बाद अगली सुबह सबसे पहले।`,
                 )}
               </p>
+              {typed.current.project === PROJECT_NEW && (
+                <p className="mx-auto mt-3 max-w-[44ch] text-[0.92rem] text-ink-soft">
+                  {t(
+                    "On that call we go through the site, the areas to cover and your timeline. Scope, availability and a quotation follow from that — nothing is assumed about cameras you don't have yet.",
+                    "उस कॉल पर हम साइट, कवर किए जाने वाले हिस्से और आपकी समय-सीमा पर बात करेंगे। दायरा, उपलब्धता और कोटेशन उसी के बाद — जो कैमरे अभी नहीं हैं, उनके बारे में कुछ मान कर नहीं चलते।",
+                  )}
+                </p>
+              )}
               <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
                 <a
                   href={waContinueHref(typed.current, refRef.current!)}
@@ -214,7 +275,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
             <div className="flex flex-col gap-3.5">
               {/* The form is never unmounted on failure — everything typed
                   stays exactly where the customer left it. */}
-              <form data-lead-form={copy.formName} aria-label={attendance ? "Request an attendance assessment" : "Request a camera audit"} onSubmit={submit} noValidate className="flex flex-col gap-3.5">
+              <form data-lead-form={copy.formName} aria-label={newInstall ? "Plan a new CCTV installation" : attendance ? "Request an attendance assessment" : "Request a camera audit"} onSubmit={submit} noValidate className="flex flex-col gap-3.5">
                 <Field label="Phone / WhatsApp" error={fieldErrors.phone}>
                   <input
                     required
@@ -226,22 +287,40 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                     className="field-input"
                   />
                 </Field>
-                <div className={attendance ? "grid gap-3.5 sm:grid-cols-2" : ""}>
+                <div className={attendance || newInstall ? "grid gap-3.5 sm:grid-cols-2" : ""}>
                   <Field
-                    label={attendance ? t("Cameras on your gates", "आपके गेट पर कैमरे") : t("How many cameras?", "कितने कैमरे?")}
+                    label={
+                      newInstall
+                        ? t("Cameras the site will need", "साइट को कितने कैमरे चाहिए")
+                        : attendance
+                          ? t("Cameras on your gates", "आपके गेट पर कैमरे")
+                          : t("How many cameras?", "कितने कैमरे?")
+                    }
                     error={fieldErrors.cameras}
                   >
                     <select name="cameras" required defaultValue="" className="field-input">
                       <option value="" disabled>
                         {t("Choose a range", "एक रेंज चुनें")}
                       </option>
-                      {CAMERA_OPTIONS.map((o) => (
+                      {CAMERA_OPTIONS.filter((o) => !newInstall || o !== NEW_SITE_CAMERAS).map((o) => (
                         <option key={o} value={o}>
                           {cameraOptionLabel(o, t)}
                         </option>
                       ))}
                     </select>
                   </Field>
+                  {newInstall && (
+                    <Field label={`${t("Timeline", "समय-सीमा")} (${t("optional", "वैकल्पिक")})`}>
+                      <select name="timeline" defaultValue="" className="field-input">
+                        <option value="">{t("When do you need it?", "कब तक चाहिए?")}</option>
+                        {TIMELINE_OPTIONS.map((o) => (
+                          <option key={o} value={o}>
+                            {timelineLabel(o, t)}
+                          </option>
+                        ))}
+                      </select>
+                    </Field>
+                  )}
                   {attendance && (
                     <Field label={t("People who clock in", "हाज़िरी लगाने वाले लोग")}>
                       <select name="employees" defaultValue="" className="field-input">
@@ -290,12 +369,14 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                       className="field-input"
                     />
                   </Field>
-                  <Field label={`${t("City / PIN code", "शहर / पिन कोड")} (${t("optional", "वैकल्पिक")})`}>
+                  <Field
+                    label={`${newInstall ? t("Project city / PIN code", "प्रोजेक्ट का शहर / पिन कोड") : t("City / PIN code", "शहर / पिन कोड")} (${t("optional", "वैकल्पिक")})`}
+                  >
                     <input
                       type="text"
                       name="location"
                       autoComplete="address-level2"
-                      placeholder="e.g. Ludhiana / 141001"
+                      placeholder={cityHint ? `e.g. ${cityHint}` : "e.g. Ludhiana / 141001"}
                       className="field-input"
                     />
                   </Field>

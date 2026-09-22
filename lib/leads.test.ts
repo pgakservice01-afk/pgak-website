@@ -5,6 +5,9 @@ import {
   ATTRIBUTION_KEYS,
   CAMERA_OPTIONS,
   NEW_SITE_CAMERAS,
+  PROJECT_NEW,
+  PROJECT_OPTIONS,
+  TIMELINE_OPTIONS,
   HONEYPOT_FIELD,
   PROTECT_OPTIONS,
   PROTECT_UNSPECIFIED,
@@ -105,6 +108,8 @@ test("a complete, ordinary submission validates", () => {
     location: "Ludhiana",
     protecting: "Office",
     cameras: "5–15",
+    project: "",
+    timeline: "",
     employees: "",
     email: "", // optional and not given — still a complete lead
   });
@@ -123,6 +128,8 @@ test("a PHONE NUMBER ALONE is a complete lead", () => {
     location: "",
     protecting: PROTECT_UNSPECIFIED,
     cameras: "",
+    project: "",
+    timeline: "",
     employees: "",
     email: "",
   });
@@ -367,4 +374,56 @@ test("a new-site buyer with zero cameras can enquire without a false band", () =
   if (!r.ok) return;
   // Must survive the length clamp intact, or the sales email loses the signal.
   assert.equal(r.lead.cameras, NEW_SITE_CAMERAS);
+});
+
+test("journey and timeline: whitelisted values kept, anything else blank", () => {
+  for (const project of PROJECT_OPTIONS) {
+    const r = validateLead({ ...GOOD, project });
+    assert.equal(r.ok, true);
+    if (!r.ok) return;
+    assert.equal(r.lead.project, project);
+  }
+  for (const timeline of TIMELINE_OPTIONS) {
+    const r = validateLead({ ...GOOD, timeline });
+    assert.equal(r.ok, true);
+    if (!r.ok) return;
+    assert.equal(r.lead.timeline, timeline);
+  }
+  for (const junk of ["", "Refurbish", "<script>", 42, undefined]) {
+    const r = validateLead({ ...GOOD, project: junk, timeline: junk });
+    assert.equal(r.ok, true);
+    if (!r.ok) return;
+    assert.equal(r.lead.project, "");
+    assert.equal(r.lead.timeline, "");
+  }
+});
+
+test("a new-installation enquiry reaches the ERP message with journey and timeline", () => {
+  const r = validateLead({
+    ...GOOD,
+    project: PROJECT_NEW,
+    cameras: "16–50",
+    timeline: "1–3 months",
+  });
+  assert.equal(r.ok, true);
+  if (!r.ok) return;
+  const p = toErpPayload(r.lead, "www.pgak.co.in", "2026-09-22T00:00:00Z", "abc123", {
+    page: "/cctv-installation-company",
+    cta: "dealer-form-new-install",
+  });
+  assert.match(p.message, /^Project: New CCTV installation \| /);
+  assert.match(p.message, /Cameras: 16–50/);
+  assert.match(p.message, /Timeline: 1–3 months/);
+  assert.match(p.message, /Page: \/cctv-installation-company/);
+  // The ERP's columns are unchanged: new detail travels in `message` only.
+  assert.deepEqual(Object.keys(p).sort(), ["district", "email", "message", "name", "phone", "ref", "source"]);
+});
+
+test("an existing-camera enquiry without the new fields keeps its old message shape", () => {
+  const r = validateLead({ ...GOOD });
+  assert.equal(r.ok, true);
+  if (!r.ok) return;
+  const p = toErpPayload(r.lead, "www.pgak.co.in", "2026-09-22T00:00:00Z", "abc123");
+  assert.doesNotMatch(p.message, /Project:|Timeline:/);
+  assert.match(p.message, /^Protecting: /);
 });

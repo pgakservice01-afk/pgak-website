@@ -1,0 +1,376 @@
+[
+  {
+    "slug": "video-analytics-software",
+    "title": "AI Video Analytics Software for CCTV in India | PGAK",
+    "description": "Person and vehicle detection, boundary alerts, face-recognition attendance and camera-health monitoring — on the CCTV you already own.",
+    "h1": "AI video analytics software for existing CCTV cameras",
+    "intro": "Video analytics software is the difference between cameras that record and cameras that report. PGAK analyses compatible streams from your existing CCTV — classifying people and vehicles, watching the boundaries you draw, recognising enrolled faces for attendance — and turns the events that matter into alerts on your phone while there is still time to act.",
+    "faqQuestions": [
+      "What is video analytics software?",
+      "Does video analytics software work with existing CCTV cameras?",
+      "Is video analytics the same as motion detection?",
+      "Can video analytics predict incidents before they happen?",
+      "What does video analytics software cost in India?"
+    ],
+    "related": [
+      "ai-intruder-detection",
+      "biometric-attendance",
+      "smart-perimeter-protection",
+      "retail-shop-security",
+      "ai-surveillance-system"
+    ],
+    "stats": [
+      {
+        "value": "Existing cameras",
+        "label": "runs on the CCTV you already own"
+      },
+      {
+        "value": "Seconds",
+        "label": "from event to alert on your phone"
+      },
+      {
+        "value": "4-in-1",
+        "label": "intrusion, attendance, counting, camera health"
+      },
+      {
+        "value": "Free",
+        "label": "feasibility check on your actual cameras"
+      }
+    ]
+  },
+  {
+    "slug": "cctv-installation-company",
+    "title": "CCTV Installation Company in Punjab & India | PGAK",
+    "description": "PGAK installs and services CCTV across Punjab directly and India through verified partners — every install ships with AI alerts, not just recording.",
+    "h1": "A CCTV installation company that leaves you with alerts, not just footage",
+    "intro": "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Direct installation teams cover Ludhiana and the Punjab belt; verified partners cover the rest of India.",
+    "faqQuestions": [
+      "Do you install new CCTV cameras or only add software to existing ones?",
+      "Which areas does your CCTV installation service cover?",
+      "How much does CCTV installation cost?",
+      "What makes PGAK different from a local CCTV installer?",
+      "Can you take over a CCTV system another company installed?"
+    ],
+    "related": [
+      "ai-intruder-detection",
+      "factory-security",
+      "smart-perimeter-protection",
+      "video-analytics-software",
+      "commercial-cctv"
+    ],
+    "stats": [
+      {
+        "value": "11 cities",
+        "label": "direct installation & service in Punjab"
+      },
+      {
+        "value": "Day one",
+        "label": "you own every password, in writing"
+      },
+      {
+        "value": "2 weeks",
+        "label": "of post-install tuning included"
+      },
+      {
+        "value": "AI alerts",
+        "label": "every install ships with detection, not just recording"
+      }
+    ]
+  },
+  {
+    "slug": "factory-security",
+    "title": "Factory Security System — AI CCTV for Gates & Floors | PGAK",
+    "description": "Gate, perimeter and shop floor on one system: automatic attendance, safety-zone monitoring and intrusion alerts on your existing industrial CCTV.",
+    "h1": "AI CCTV video analytics for factory security",
+    "intro": "A factory security system has to do more than deter thieves. PGAK turns your existing industrial CCTV into one layer that handles all three of a plant's real problems — automatic attendance at the gate, intrusion detection along the perimeter, and safety-zone monitoring on the shop floor — without adding a single new machine to the queue at shift change.",
+    "faqQuestions": [
+      "Why do biometric attendance machines fail at a factory gate?",
+      "Can it monitor PPE compliance?",
+      "Our plant has patchy internet. Does that break it?",
+      "How long does deployment take?"
+    ],
+    "related": [
+      "ai-cctv-for-warehouses",
+      "smart-perimeter-protection",
+      "ai-intruder-detection",
+      "video-analytics-software",
+      "industrial-cctv"
+    ],
+    "stats": [
+      {
+        "value": "200+",
+        "label": "Workers logged per shift, no queue"
+      },
+      {
+        "value": "0",
+        "label": "Fingerprint failures on dusty hands"
+      },
+      {
+        "value": "Edge",
+        "label": "Runs on-site, survives internet drops"
+      }
+    ]
+  },
+  {
+    "slug": "ai-cctv-for-warehouses",
+    "title": "Warehouse Video Analytics & AI CCTV in India | PGAK",
+    "description": "AI that watches every aisle, dock and gate on your existing cameras, flagging loitering and after-hours movement in seconds. Cut the shrinkage.",
+    "h1": "AI CCTV and video analytics for warehouses",
+    "intro": "An AI CCTV camera system for warehouses solves the problem every logistics manager knows: you have plenty of cameras and no way to watch them. PGAK turns your existing warehouse CCTV into an always-alert observer — flagging after-hours movement in the stock aisles, people loitering at the loading bay, and vehicles at the gate outside dispatch hours — so shrinkage stops being a number you discover at stock-take.",
+    "faqQuestions": [
+      "How many cameras can PGAK handle in one warehouse?",
+      "Can it tell the difference between staff and an intruder?",
+      "Will it work with our existing DVR and cameras?",
+      "How much does AI CCTV for a warehouse cost?",
+      "Does it help with insurance or audit evidence?"
+    ],
+    "related": [
+      "factory-security",
+      "ai-intruder-detection",
+      "smart-perimeter-protection",
+      "video-analytics-software",
+      "industrial-cctv"
+    ],
+    "stats": [
+      {
+        "value": "120+",
+        "label": "Cameras supported on a single site"
+      },
+      {
+        "value": "< 3s",
+        "label": "Alert latency on a dock or aisle breach"
+      },
+      {
+        "value": "Minutes",
+        "label": "To review an incident, instead of days"
+      }
+    ]
+  },
+  {
+    "slug": "industrial-cctv",
+    "title": "Industrial CCTV for Factories & Warehouses | PGAK",
+    "description": "Industrial CCTV that watches the fence, the gate and the dispatch bay and raises alerts — built for dust, shift patterns and sites too large to watch.",
+    "h1": "Industrial CCTV for sites too big for anyone to watch",
+    "intro": "Industrial CCTV fails in a specific, predictable way: the site grows, the camera count grows with it, and the number of people watching stays at zero. A hundred and twenty cameras across a factory or a warehouse estate is not a hundred and twenty times the security of one — past roughly sixteen feeds, a human being stops seeing anything at all. PGAK puts detection behind the industrial camera estate you already run, so the boundary, the gate and the dispatch bay report themselves instead of waiting to be reviewed.",
+    "faqQuestions": [
+      "What is industrial CCTV and how is it different?",
+      "How many cameras does a factory or warehouse need?",
+      "Will this work with the cameras and DVR we already have?",
+      "Does it work if the site has poor or no internet?",
+      "Can one team see several plants at once?"
+    ],
+    "related": [
+      "factory-security",
+      "ai-cctv-for-warehouses",
+      "smart-perimeter-protection",
+      "multi-site-cctv-monitoring",
+      "commercial-cctv",
+      "anpr-number-plate-recognition"
+    ],
+    "stats": [
+      {
+        "value": "120+ cameras",
+        "label": "estate sizes where nobody can watch"
+      },
+      {
+        "value": "Shift-aware",
+        "label": "rules that follow the roster, not the clock"
+      },
+      {
+        "value": "Perimeter",
+        "label": "the whole fence line reports itself"
+      },
+      {
+        "value": "No downtime",
+        "label": "no rewiring, no production stop"
+      }
+    ]
+  },
+  {
+    "slug": "ai-intruder-detection",
+    "title": "AI Intruder Detection on the CCTV You Already Own | PGAK",
+    "description": "Alerts in seconds when someone crosses a line they shouldn't, on the cameras you already own — cats, shadows and headlights filtered out.",
+    "h1": "AI intruder detection that alerts you in seconds, not the next morning",
+    "intro": "AI intruder detection is the difference between a camera that records a break-in and a system that stops one. PGAK layers real-time person detection onto the CCTV cameras you already own, so the moment someone crosses a boundary they shouldn't, the alert is on your phone — with a clip, a timestamp and the exact camera — while the intruder is still standing there.",
+    "faqQuestions": [
+      "How is AI intruder detection different from normal CCTV motion alerts?",
+      "Do I need to buy new AI CCTV cameras?",
+      "Does it work at night?",
+      "Will it alert me for stray dogs or cats?",
+      "What happens to my footage — is it sent to the cloud?"
+    ],
+    "related": [
+      "smart-perimeter-protection",
+      "ai-cctv-for-warehouses",
+      "factory-security",
+      "video-analytics-software",
+      "ai-surveillance-system"
+    ],
+    "stats": [
+      {
+        "value": "< 3s",
+        "label": "From detection to alert on your phone"
+      },
+      {
+        "value": "90%+",
+        "label": "Reduction in false alerts after tuning"
+      },
+      {
+        "value": "24×7",
+        "label": "Every camera watched, every night"
+      }
+    ]
+  },
+  {
+    "slug": "smart-perimeter-protection",
+    "title": "Smart Perimeter Protection — Virtual Fencing | PGAK",
+    "description": "No trenching, no cable: draw virtual boundaries on the cameras you already own and get alerts the moment a person or vehicle crosses.",
+    "h1": "Smart perimeter protection — a fence that reports itself",
+    "intro": "Smart perimeter protection replaces the physical sensors nobody maintains with virtual boundaries drawn on the cameras you already own. Mark a line along the compound wall, the yard edge or the roof access, and PGAK raises a real-time alert the moment a person or vehicle crosses it — while filtering out the animals, weather and moving foliage that made your old perimeter alarm unusable.",
+    "faqQuestions": [
+      "How is virtual fencing different from beam sensors?",
+      "Will wind, rain or animals trigger it?",
+      "Can it trigger a siren or light, not just my phone?",
+      "How long a perimeter can this cover?"
+    ],
+    "related": [
+      "ai-intruder-detection",
+      "factory-security",
+      "ai-cctv-for-warehouses",
+      "video-analytics-software",
+      "industrial-cctv"
+    ],
+    "stats": [
+      {
+        "value": "1 min",
+        "label": "To draw a new virtual boundary"
+      },
+      {
+        "value": "0m",
+        "label": "Of new cable trenched"
+      },
+      {
+        "value": "< 3s",
+        "label": "From boundary crossing to alert"
+      }
+    ]
+  },
+  {
+    "slug": "anpr-number-plate-recognition",
+    "title": "ANPR System for Gates & Vehicle Logging | PGAK",
+    "description": "An ANPR system that logs every vehicle at every gate — plate, type, direction, timestamp and snapshot. Sized per lane, with honest limits on where it works.",
+    "h1": "An ANPR system that turns the gate register into something you can search",
+    "intro": "An ANPR system earns its place at exactly one moment: when somebody asks which vehicle left with the material, and the only record is a security guard's notebook in handwriting nobody can read. Automatic number plate recognition logs every vehicle at the gate with its plate, type, direction, timestamp and a snapshot — so the question becomes a search rather than an argument. This page covers deploying one across real gates; for how plate recognition works on a camera feed, see vehicle and number plate recognition.",
+    "faqQuestions": [
+      "What is an ANPR system?",
+      "How accurate is ANPR on Indian number plates?",
+      "Can ANPR run on our existing gate camera?",
+      "Do we need one camera for each lane?",
+      "Can ANPR open a boom barrier automatically?"
+    ],
+    "related": [
+      "smart-perimeter-protection",
+      "industrial-cctv",
+      "factory-security",
+      "residential-security",
+      "video-analytics-software"
+    ],
+    "stats": [
+      {
+        "value": "Per lane",
+        "label": "one camera and sized hardware for each"
+      },
+      {
+        "value": "Indian plates",
+        "label": "tuned for local formats, not imported models"
+      },
+      {
+        "value": "Snapshot kept",
+        "label": "every logged plate keeps its image"
+      },
+      {
+        "value": "Searchable",
+        "label": "across gates, instead of per notebook"
+      }
+    ]
+  },
+  {
+    "slug": "multi-site-cctv-monitoring",
+    "title": "Multi-Site CCTV Monitoring on One Screen | PGAK",
+    "description": "Every branch, plant and godown in one view, with alerts routed to whoever runs each site — instead of one recorder, one app and one password per location.",
+    "h1": "Every site on one screen, instead of one app per location",
+    "intro": "Multi-site CCTV monitoring usually arrives by accident. Each location buys its own recorder from whichever local vendor turned up, and by the fourth site head office is holding four apps, four passwords and no way to answer a simple question across all of them. PGAK presents every location in a single view with alerts routed to the person who actually runs each site, so the estate behaves like one system rather than four unrelated ones that happen to share a logo.",
+    "faqQuestions": [
+      "What is multi-site CCTV monitoring?",
+      "Do all our sites need the same cameras and recorders?",
+      "How many cameras can be shown at once?",
+      "What happens if one site loses internet?",
+      "Can regional managers see only their own locations?"
+    ],
+    "related": [
+      "remote-cctv-monitoring",
+      "industrial-cctv",
+      "video-analytics-software",
+      "commercial-cctv",
+      "ai-surveillance-system"
+    ],
+    "stats": [
+      {
+        "value": "One view",
+        "label": "every location, grouped by site"
+      },
+      {
+        "value": "Per-site alerts",
+        "label": "routed to whoever runs that location"
+      },
+      {
+        "value": "Mixed brands",
+        "label": "recorders do not have to match"
+      },
+      {
+        "value": "Per-person access",
+        "label": "revocable in one place"
+      }
+    ]
+  },
+  {
+    "slug": "commercial-cctv",
+    "title": "Commercial CCTV Systems for Business Premises | PGAK",
+    "description": "Commercial CCTV that raises alerts instead of only recording — for offices, shops, schools, clinics and mixed-use premises. Runs on the cameras you already have.",
+    "h1": "Commercial CCTV that tells someone, instead of just recording it",
+    "intro": "Commercial CCTV in most Indian businesses does exactly one job: it records, so that after a loss there is footage to scroll through. That is worth something, but it is not security — nobody is watching at 2am, and the recorder's own motion detection was muted in week one because it fired at every passing headlight. PGAK adds detection to the commercial CCTV system you already own, so a person in the stock room after hours becomes a phone alert while there is still time to do something about it.",
+    "faqQuestions": [
+      "What is a commercial CCTV system?",
+      "How many cameras does a commercial premises need?",
+      "Can PGAK use our existing commercial CCTV cameras?",
+      "Do we need to tell staff and customers that CCTV is recording?",
+      "What does commercial CCTV cost?"
+    ],
+    "related": [
+      "ai-cctv-for-offices",
+      "retail-shop-security",
+      "cctv-installation-company",
+      "video-analytics-software",
+      "industrial-cctv",
+      "anpr-number-plate-recognition"
+    ],
+    "stats": [
+      {
+        "value": "Existing cameras",
+        "label": "no rip-and-replace as a precondition"
+      },
+      {
+        "value": "After hours",
+        "label": "rules that only apply when you are closed"
+      },
+      {
+        "value": "Camera health",
+        "label": "you are told when one goes dark"
+      },
+      {
+        "value": "Free",
+        "label": "feasibility check on your actual premises"
+      }
+    ]
+  }
+]

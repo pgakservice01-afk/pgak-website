@@ -11,6 +11,7 @@ import {
   webPageSchema,
   faqSchema,
 } from "@/lib/schema";
+import JourneyChooser from "@/components/sections/JourneyChooser";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
@@ -134,6 +135,15 @@ export default function Home() {
             Reference illustration from Spot AI. Not a PGAK deployment.
           </figcaption>
         </figure>
+        <section className="sec" id="journeys" aria-label="Choose your starting point">
+          <div className="wrap">
+            <JourneyChooser
+              heading="Upgrading existing CCTV, or planning a new site?"
+              upgradeHref="#dealer"
+              ctaPrefix="home-journey"
+            />
+          </div>
+        </section>
         <section className="premium-section compatibility" id="how-compatible">
           <p className="kicker">WORKS WITH YOUR EXISTING CCTV</p>
           <h2>
@@ -351,6 +361,16 @@ export default function Home() {
           <p className="section-intro">
             Get a free camera audit. Find out what your existing CCTV can do
             with PGAK.
+          </p>
+          <p className="section-intro">
+            No cameras yet?{" "}
+            <a
+              href="/cctv-installation-company#plan"
+              className="text-link"
+              data-cta="final-new-install"
+            >
+              Plan a new CCTV installation →
+            </a>
           </p>
           <div className="home-form">
             <QuickLead cta="home-audit" />

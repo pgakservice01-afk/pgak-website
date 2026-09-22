@@ -4,6 +4,7 @@ import QuickLead from "@/components/sections/QuickLead";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
+import JourneyChooser from "@/components/sections/JourneyChooser";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
@@ -26,6 +27,7 @@ import { SOLUTIONS, type Solution } from "@/lib/solutions";
  */
 export default function SolutionPage({ solution }: { solution: Solution }) {
   const s = solution;
+  const isNew = s.journey === "new-install";
   const path = `/${s.slug}`;
 
   const trail = [
@@ -78,15 +80,46 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
               {s.intro}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary">
-                Get Free Camera Audit →
-              </Link>
-              <a href={waHref(`Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`)} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about this solution</a>
-            </div>
+            {isNew ? (
+              <>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href="#plan" data-cta="solution-plan-new" data-intent="new-installation" className="btn btn-primary">
+                    Plan a new installation →
+                  </Link>
+                  <a href={waHref("Hi PGAK, I am planning a new CCTV installation and would like to discuss the site.")} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about a new site</a>
+                </div>
+                <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
+                  Already have cameras?{" "}
+                  <Link href="/free-audit" data-cta="solution-existing-audit" className="text-accent underline underline-offset-2">
+                    Check what they can do with a free assessment
+                  </Link>
+                  .
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary">
+                    Get Free Camera Audit →
+                  </Link>
+                  <a href={waHref(`Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`)} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about this solution</a>
+                </div>
 
-            <div className="mt-7 max-w-[640px]"><QuickLead cta={`solution-${s.slug}`} /></div>
-            <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">Compatibility, detection quality and processing requirements are confirmed on your own camera feeds. Published scenarios are illustrative, not verified customer results.</p>
+                <div className="mt-7 max-w-[640px]"><QuickLead cta={`solution-${s.slug}`} /></div>
+                <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
+                  Compatibility, detection quality and processing requirements are confirmed on your own camera feeds. Published scenarios are illustrative, not verified customer results.{" "}
+                  {s.group !== "attendance" && (
+                    <>
+                      No cameras yet?{" "}
+                      <Link href="/cctv-installation-company#plan" data-cta="solution-new-install" className="text-accent underline underline-offset-2">
+                        Plan a new installation
+                      </Link>
+                      .
+                    </>
+                  )}
+                </p>
+              </>
+            )}
           </div>
         </section>
 
@@ -142,12 +175,17 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
         <section className="sec"><div className="wrap max-w-[76ch]">
           <h2 className="display text-3xl">What to check before deployment</h2>
           <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-            {[
+            {(isNew ? [
+              ["Site survey and coverage plan", "Agree the areas that must be covered — gates, boundaries, loading bays, entrances — and what each camera must be able to see or detect, before camera models are chosen."],
+              ["Cabling, power and network", "Confirm cable routes, power points, network and where the recorder and processing unit will sit. These drive cost as much as the cameras do."],
+              ["Recording and storage", "Decide how many days of footage you need to keep and size storage to that, rather than to a default disk."],
+              ["Itemised quotation", "Ask for cameras, cabling, power, recorder, storage, AI setup, commissioning, handover and support as separate lines, with what is included and what is optional."],
+            ] : [
               ["Camera and recorder streams", "Confirm RTSP access or ONVIF discovery, stream stability and the views that matter. Do not send camera passwords in the enquiry form."],
               ["On-site processing", "Ask which processing device is needed, how it is sized, what runs locally and what information leaves the site."],
               [s.group === "attendance" ? "Attendance acceptance" : "Alert acceptance", s.group === "attendance" ? "Test real entrance conditions and enrolled staff with consent. Agree how missed or disputed records will be corrected before payroll use." : "Test agreed zones in daytime and at night. Record useful alerts, nuisance alerts, missed events and end-to-end alert delay."],
               ["Complete commercial quote", "Confirm enabled cameras, sites, subscription, setup, hardware, taxes and support. Use the assessed scope to compare proposals."],
-            ].map(([term,description])=><div key={term} className="card p-5"><dt className="font-semibold">{term}</dt><dd className="mt-2 text-ink-soft">{description}</dd></div>)}
+            ]).map(([term,description])=><div key={term} className="card p-5"><dt className="font-semibold">{term}</dt><dd className="mt-2 text-ink-soft">{description}</dd></div>)}
           </dl>
           <p className="mt-6"><Link href="/pricing" className="text-accent underline">Get a site-specific AI video analytics price</Link> or <Link href="/cctv-buying-checklist" className="text-accent underline">use the CCTV buying checklist</Link>.</p>
         </div></section>
@@ -253,6 +291,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
         </section>
 
         {/* ----------------------------------------------------------- CTA */}
+        {s.group === "attendance" ? (
         <section className="sec pt-0">
           <div className="wrap">
             <div className="mx-auto max-w-[720px] rounded-[22px] border border-line bg-panel p-10 text-center">
@@ -274,12 +313,27 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             </div>
           </div>
         </section>
+        ) : (
+          <section className="sec pt-0">
+            <div className="wrap">
+              <JourneyChooser
+                upgradeHref={isNew ? "/free-audit" : "#dealer"}
+                newHref={isNew ? "#plan" : "/cctv-installation-company#plan"}
+                ctaPrefix={`solution-${s.slug}-journey`}
+              />
+            </div>
+          </section>
+        )}
 
         {/* Convert in place — same pattern as the feature pages. The
             attendance pages ask the attendance question; everyone else gets
             the audit. */}
         <WhoIsPgak />
-        <DealerForm variant={s.group === "attendance" ? "attendance" : "audit"} />
+        {isNew ? (
+          <DealerForm variant="new-install" id="plan" />
+        ) : (
+          <DealerForm variant={s.group === "attendance" ? "attendance" : "audit"} />
+        )}
       </main>
 
       <Footer />

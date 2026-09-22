@@ -54,6 +54,12 @@ export type Solution = {
   insights: string[];
   /** Case-study links proving this solution (hub → spoke). */
   caseStudies?: { href: string; label: string }[];
+  /**
+   * "new-install" makes this page the home of the "Plan a new CCTV
+   * installation" journey: hero and form ask about the project, not about
+   * cameras the visitor may not have. Omit for the upgrade journey (default).
+   */
+  journey?: "new-install";
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -72,7 +78,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "AI Intruder Detection on the CCTV You Already Own | PGAK",
     description:
-      "Alerts in seconds when someone crosses a line they shouldn't, on the cameras you already own — cats, shadows and headlights filtered out.",
+      "A phone alert with a clip when a person crosses a boundary after hours — animals, shadows and headlights filtered. On compatible CCTV; free camera check.",
     eyebrow: "Intrusion detection",
     h1: "AI intruder detection that alerts you in seconds, not the next morning",
     intro:
@@ -172,7 +178,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Warehouse Video Analytics & AI CCTV in India | PGAK",
     description:
-      "AI that watches every aisle, dock and gate on your existing cameras, flagging loitering and after-hours movement in seconds. Cut the shrinkage.",
+      "Alerts for after-hours movement in the aisles, loitering at the loading bay and vehicles at the gate — on your existing warehouse CCTV. Free camera check first.",
     eyebrow: "Warehouse security",
     h1: "AI CCTV and video analytics for warehouses",
     intro:
@@ -247,11 +253,12 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     related: [
-      "factory-security",
+      "anpr-number-plate-recognition",
       "ai-intruder-detection",
-      "smart-perimeter-protection",
-      "video-analytics-software",
+      "multi-site-cctv-monitoring",
       "industrial-cctv",
+      "attendance-system-for-warehouses",
+      "cctv-installation-company",
     ],
     insights: [
       "best-ai-cctv-camera-for-warehouses-india",
@@ -376,9 +383,9 @@ export const SOLUTIONS: Solution[] = [
       "AI CCTV camera",
     ],
     title:
-      "Factory Security System — AI CCTV for Gates & Floors | PGAK",
+      "Factory Security System — Gate, Perimeter, Attendance | PGAK",
     description:
-      "Gate, perimeter and shop floor on one system: automatic attendance, safety-zone monitoring and intrusion alerts on your existing industrial CCTV.",
+      "Intrusion alerts on the boundary, vehicle logging at the gate and face-recognition attendance at shift change — on compatible factory CCTV. Free camera check.",
     eyebrow: "Factory & industrial",
     h1: "AI CCTV video analytics for factory security",
     intro:
@@ -459,11 +466,12 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     related: [
-      "ai-cctv-for-warehouses",
-      "smart-perimeter-protection",
-      "ai-intruder-detection",
-      "video-analytics-software",
       "industrial-cctv",
+      "ai-intruder-detection",
+      "anpr-number-plate-recognition",
+      "attendance-system-for-factories",
+      "smart-perimeter-protection",
+      "cctv-installation-company",
     ],
     insights: [
       "why-biometric-attendance-machines-fail-at-the-factory-gate",
@@ -883,7 +891,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Smart Perimeter Protection — Virtual Fencing | PGAK",
     description:
-      "No trenching, no cable: draw virtual boundaries on the cameras you already own and get alerts the moment a person or vehicle crosses.",
+      "Virtual fencing on compatible cameras along walls, yards and roof access — no trenching or perimeter cabling. Person and vehicle alerts, optional siren.",
     eyebrow: "Perimeter protection",
     h1: "Smart perimeter protection — a fence that reports itself",
     intro:
@@ -936,6 +944,10 @@ export const SOLUTIONS: Solution[] = [
       { value: "< 3s", label: "From boundary crossing to alert" },
     ],
     faqs: [
+      {
+        q: "Is this different from AI intruder detection?",
+        a: "It uses the same person and vehicle detection, applied to a long boundary instead of a single area: lines along the compound wall, the yard edge and roof access, with schedules and linked sirens or lights. If you need to know when anyone enters one room or zone after hours, start with intruder detection; if the problem is the length of the boundary, this page is the one.",
+      },
       {
         q: "How is virtual fencing different from beam sensors?",
         a: "Beams detect that something broke the beam — a bird does that as well as a person. Virtual fencing on camera classifies the object first, so it tells you a person crossed rather than that something did. It also needs no trenching, no power runs along the fence and no field maintenance.",
@@ -1204,6 +1216,7 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "cctv-installation-company",
     group: "platform",
+    journey: "new-install",
     navLabel: "CCTV installation",
     primaryKeyword: "CCTV installation company",
     relatedKeywords: [
@@ -1214,13 +1227,13 @@ export const SOLUTIONS: Solution[] = [
       "cctv installation service",
     ],
     title:
-      "CCTV Installation Company in Punjab & India | PGAK",
+      "CCTV Installation Company — Itemised Quotes | PGAK",
     description:
-      "PGAK installs and services CCTV across Punjab directly and India through verified partners — every install ships with AI alerts, not just recording.",
+      "New factory, warehouse or office? A designed CCTV system with AI alerts, every line itemised. Availability and timelines are confirmed per project.",
     eyebrow: "Installation & service",
     h1: "A CCTV installation company that leaves you with alerts, not just footage",
     intro:
-      "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Direct installation teams cover Ludhiana and the Punjab belt; verified partners cover the rest of India.",
+      "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation.",
     painPoints: [
       "The last installer vanished after handover — four cameras have been dark for months.",
       "Nobody gave you the recorder's admin password, so you can't change anything.",
@@ -1252,8 +1265,8 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Where we install directly — and where partners do",
-        body: "Our own teams handle installation and service across Ludhiana, Jalandhar, Amritsar, Patiala, Khanna, Moga, Bathinda, Batala, Hoshiarpur, Mandi Gobindgarh and Chandigarh–Mohali. In metros further afield — Delhi NCR, Mumbai, Bengaluru, Jaipur and others — installation is carried out by verified partners while monitoring, alerts and support stay with PGAK. Either way the system, the software and the accountability are ours.",
+        h2: "Where we install",
+        body: "PGAK is based in Ludhiana, Punjab, and takes installation enquiries from across India. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation. Before you sign any installation contract — ours or anyone else's — ask who will carry out the work on site and who will answer the phone when a camera goes dark, and get both in writing.",
       },
       {
         h2: "Questions to ask any CCTV installation company",
@@ -1261,19 +1274,27 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     stats: [
-      { value: "11 cities", label: "direct installation & service in Punjab" },
+      { value: "Itemised", label: "cameras, cabling, storage and support quoted as separate lines" },
       { value: "Day one", label: "you own every password, in writing" },
       { value: "2 weeks", label: "of post-install tuning included" },
       { value: "AI alerts", label: "every install ships with detection, not just recording" },
     ],
     faqs: [
       {
+        q: "What should a CCTV installation quotation include?",
+        a: "Separate lines for cameras, cabling and power runs, the recorder, storage sized to how many days of footage you need, network equipment, AI setup, commissioning, handover and support — with what is included, what is optional and what is excluded. A single bundled per-camera figure makes proposals impossible to compare.",
+      },
+      {
+        q: "We are building a new site. When should we plan the CCTV?",
+        a: "Before the electrical and network cabling is finalised. Camera positions, cable routes, power points and where the recorder and processing unit sit are far cheaper to design into a new building than to add afterwards. Share drawings or a site walk-through early and the coverage plan can follow the layout.",
+      },
+      {
         q: "Do you install new CCTV cameras or only add software to existing ones?",
         a: "Both. If you have no cameras, we design and install the full system. If you already have cameras, we reuse every serviceable one and add the intelligence layer — most sites end up with a mix of kept cameras, a few repositioned ones, and new units only where coverage is genuinely missing.",
       },
       {
         q: "Which areas does your CCTV installation service cover?",
-        a: "Our own teams install and service across the Punjab belt — Ludhiana, Jalandhar, Amritsar, Patiala, Khanna, Moga, Bathinda, Batala, Hoshiarpur, Mandi Gobindgarh and Chandigarh–Mohali. Beyond Punjab, verified partners handle the physical installation while PGAK runs the software, alerts and support.",
+        a: "PGAK is based in Ludhiana, Punjab, and takes enquiries from across India. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation — tell us the project city and we will say plainly whether and how we can deliver there.",
       },
       {
         q: "How much does CCTV installation cost?",
@@ -1289,10 +1310,11 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     related: [
-      "ai-intruder-detection",
       "factory-security",
-      "smart-perimeter-protection",
-      "video-analytics-software",
+      "ai-cctv-for-warehouses",
+      "industrial-cctv",
+      "anpr-number-plate-recognition",
+      "ai-intruder-detection",
       "commercial-cctv",
     ],
     insights: [
@@ -1317,9 +1339,9 @@ export const SOLUTIONS: Solution[] = [
       "intelligent video analytics",
     ],
     title:
-      "AI Video Analytics Software for CCTV in India | PGAK",
+      "AI Video Analytics Software for Your Existing CCTV | PGAK",
     description:
-      "Person and vehicle detection, boundary alerts, face-recognition attendance and camera-health monitoring — on the CCTV you already own.",
+      "Person and vehicle alerts, boundary detection, attendance and camera-health checks on compatible CCTV. We check your own feeds first, then quote.",
     eyebrow: "Platform",
     h1: "AI video analytics software for existing CCTV cameras",
     intro:
@@ -1370,6 +1392,10 @@ export const SOLUTIONS: Solution[] = [
     ],
     faqs: [
       {
+        q: "Can I see what it would do on my own cameras before buying?",
+        a: "Yes. The free assessment is done on your own camera streams, and you get a written answer on which cameras can support which features — and what processing hardware is needed — before any quotation. Placement and lighting decide more than the software does, so it is worth knowing camera by camera rather than assuming.",
+      },
+      {
         q: "What is video analytics software?",
         a: "Software that analyses camera feeds automatically and raises an event when something specific happens — a person crossing a boundary, a vehicle stopping where it shouldn't, a camera going dark. It replaces the assumption that a human is watching the wall of screens, which on real sites is almost never true.",
       },
@@ -1392,9 +1418,10 @@ export const SOLUTIONS: Solution[] = [
     ],
     related: [
       "ai-intruder-detection",
-      "biometric-attendance",
       "smart-perimeter-protection",
-      "retail-shop-security",
+      "anpr-number-plate-recognition",
+      "face-recognition-attendance-system",
+      "multi-site-cctv-monitoring",
       "ai-surveillance-system",
     ],
     insights: [
@@ -1972,7 +1999,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     title: "Commercial CCTV Systems for Business Premises | PGAK",
     description:
-      "Commercial CCTV that raises alerts instead of only recording — for offices, shops, schools, clinics and mixed-use premises. Runs on the cameras you already have.",
+      "Commercial CCTV that raises alerts instead of only recording — for offices, shops, clinics and mixed-use premises. Upgrade existing cameras or plan new.",
     eyebrow: "Commercial",
     h1: "Commercial CCTV that tells someone, instead of just recording it",
     intro:
@@ -2096,9 +2123,10 @@ export const SOLUTIONS: Solution[] = [
       "industrial security camera system",
       "CCTV for manufacturing plants",
     ],
-    title: "Industrial CCTV for Factories & Warehouses | PGAK",
+    title:
+      "Industrial CCTV for Factories & Warehouses | PGAK",
     description:
-      "Industrial CCTV that watches the fence, the gate and the dispatch bay and raises alerts — built for dust, shift patterns and sites too large to watch.",
+      "Upgrade existing industrial cameras with AI alerts, or plan a new installation for a factory or warehouse. Built for dust, shift patterns and large sites.",
     eyebrow: "Industrial",
     h1: "Industrial CCTV for sites too big for anyone to watch",
     intro:
@@ -2224,7 +2252,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     title: "AI Surveillance System for Existing CCTV | PGAK",
     description:
-      "An AI surveillance system that upgrades the cameras you already own — person and vehicle detection, boundary alerts and camera health, without replacing hardware.",
+      "An AI surveillance system for the cameras you already own — person and vehicle detection, boundary alerts and camera health, checked on your feeds first.",
     eyebrow: "Platform",
     h1: "An AI surveillance system you can run on the cameras already on your wall",
     intro:
@@ -2471,9 +2499,10 @@ export const SOLUTIONS: Solution[] = [
       "centralized surveillance system",
       "multi-site security monitoring",
     ],
-    title: "Multi-Site CCTV Monitoring on One Screen | PGAK",
+    title:
+      "Multi-Site CCTV Monitoring — Every Branch, One Screen | PGAK",
     description:
-      "Every branch, plant and godown in one view, with alerts routed to whoever runs each site — instead of one recorder, one app and one password per location.",
+      "Every branch, plant and godown in one view, with alerts routed to whoever runs each site — instead of one app and password per location. Free site check.",
     eyebrow: "Platform",
     h1: "Every site on one screen, instead of one app per location",
     intro:
@@ -2594,9 +2623,10 @@ export const SOLUTIONS: Solution[] = [
       "vehicle logging system",
       "licence plate recognition for factories",
     ],
-    title: "ANPR System for Gates & Vehicle Logging | PGAK",
+    title:
+      "ANPR System for Factory & Warehouse Gates | PGAK",
     description:
-      "An ANPR system that logs every vehicle at every gate — plate, type, direction, timestamp and snapshot. Sized per lane, with honest limits on where it works.",
+      "Log every vehicle at the gate — plate, type, direction, time and snapshot — searchable later. Sized per lane, with honest limits on where ANPR works.",
     eyebrow: "Vehicles",
     h1: "An ANPR system that turns the gate register into something you can search",
     intro:
@@ -2669,6 +2699,10 @@ export const SOLUTIONS: Solution[] = [
     ],
     faqs: [
       {
+        q: "Which ANPR camera is best for a factory gate?",
+        a: "The one specified for your lane rather than a model name: plate height and distance, vehicle speed at the capture point, the angle of approach and night lighting decide what reads reliably. A general-purpose CCTV camera pointed at a wide gate often cannot read plates at all. We size the camera per lane after looking at the gate, and say where ANPR will not be reliable.",
+      },
+      {
         q: "What is an ANPR system?",
         a: "Automatic Number Plate Recognition — cameras and software that read vehicle registration plates automatically and log each movement with the plate, vehicle type, direction, time and a snapshot. It replaces the manual gate register with a record you can search.",
       },
@@ -2690,11 +2724,12 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     related: [
-      "smart-perimeter-protection",
-      "industrial-cctv",
       "factory-security",
+      "ai-cctv-for-warehouses",
+      "industrial-cctv",
+      "smart-perimeter-protection",
+      "multi-site-cctv-monitoring",
       "residential-security",
-      "video-analytics-software",
     ],
     insights: [
       "anpr-number-plate-recognition-when-it-works",

@@ -34,6 +34,8 @@ export const LIMITS = {
   protecting: 60,
   cameras: 20,
   employees: 20,
+  project: 40,
+  timeline: 30,
   /** RFC 5321's practical ceiling for a whole address. */
   email: 254,
   /** One attribution value: a path, a hostname, a campaign tag, a click id. */
@@ -76,6 +78,39 @@ export const CAMERA_OPTIONS = [
   "Not sure",
   NEW_SITE_CAMERAS,
 ] as const;
+
+/**
+ * Which journey the enquiry came from. Optional: older forms and quick forms
+ * don't ask, and a blank is recorded as blank, never guessed.
+ */
+export const PROJECT_EXISTING = "Upgrade existing CCTV";
+export const PROJECT_NEW = "New CCTV installation";
+export const PROJECT_OPTIONS = [PROJECT_EXISTING, PROJECT_NEW] as const;
+
+/** Optional project timeline, asked only on the new-installation journey. */
+export const TIMELINE_OPTIONS = [
+  "Within 1 month",
+  "1–3 months",
+  "3–6 months",
+  "Just researching",
+] as const;
+
+/** Visible label for a timeline option, in the page's language. */
+export function timelineLabel(
+  o: (typeof TIMELINE_OPTIONS)[number],
+  t: (en: string, hi: string) => string
+): string {
+  switch (o) {
+    case "Within 1 month":
+      return t("Within 1 month", "1 महीने के अंदर");
+    case "1–3 months":
+      return t("1–3 months", "1–3 महीने");
+    case "3–6 months":
+      return t("3–6 months", "3–6 महीने");
+    default:
+      return t("Just researching", "अभी सिर्फ़ जानकारी ले रहे हैं");
+  }
+}
 
 /** Visible label for a camera option, in the page's language. */
 export function cameraOptionLabel(
@@ -127,6 +162,8 @@ export type LeadInput = {
   protecting?: unknown;
   cameras?: unknown;
   employees?: unknown;
+  project?: unknown;
+  timeline?: unknown;
   /** Optional — see `normaliseEmail`. Empty string and absent are the same. */
   email?: unknown;
   /** See HONEYPOT_FIELD. Hidden + tabindex=-1, so a human never reaches it. */
@@ -145,6 +182,10 @@ export type ValidLead = {
   cameras: string;
   /** One of EMPLOYEE_OPTIONS, or "" when not given (attendance pages only). */
   employees: string;
+  /** One of PROJECT_OPTIONS, or "" when the form did not ask. */
+  project: string;
+  /** One of TIMELINE_OPTIONS, or "" when not given. */
+  timeline: string;
   /** Empty string when the customer chose not to give one. */
   email: string;
 };
@@ -266,9 +307,19 @@ export function validateLead(input: LeadInput): ValidationResult {
     ? rawEmployees
     : "";
 
+  // Journey and timeline follow the same rule: whitelisted, or blank.
+  const rawProject = clean(input.project, LIMITS.project);
+  const project = (PROJECT_OPTIONS as readonly string[]).includes(rawProject)
+    ? rawProject
+    : "";
+  const rawTimeline = clean(input.timeline, LIMITS.timeline);
+  const timeline = (TIMELINE_OPTIONS as readonly string[]).includes(rawTimeline)
+    ? rawTimeline
+    : "";
+
   const lead: ValidLead | null =
     Object.keys(fieldErrors).length === 0 && phone && email !== null
-      ? { name, phone, location, protecting, cameras, employees, email }
+      ? { name, phone, location, protecting, cameras, employees, project, timeline, email }
       : null;
 
   if (clean(input[HONEYPOT_FIELD as "website"], 200) !== "") {
@@ -316,9 +367,11 @@ export function toErpPayload(
     : "";
 
   const parts = [
+    lead.project ? `Project: ${lead.project}` : "",
     `Protecting: ${lead.protecting}`,
     lead.cameras ? `Cameras: ${lead.cameras}` : "",
     lead.employees ? `Employees: ${lead.employees}` : "",
+    lead.timeline ? `Timeline: ${lead.timeline}` : "",
     attribution.page ? `Page: ${attribution.page}` : "",
     attribution.cta ? `CTA: ${attribution.cta}` : "",
     attribution.landing ? `Landing: ${attribution.landing}` : "",
