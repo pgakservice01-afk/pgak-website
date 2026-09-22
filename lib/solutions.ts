@@ -1233,7 +1233,7 @@ export const SOLUTIONS: Solution[] = [
     eyebrow: "Installation & service",
     h1: "A CCTV installation company that leaves you with alerts, not just footage",
     intro:
-      "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Direct installation teams cover Ludhiana and the Punjab belt; verified partners cover the rest of India.",
+      "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation.",
     painPoints: [
       "The last installer vanished after handover — four cameras have been dark for months.",
       "Nobody gave you the recorder's admin password, so you can't change anything.",
@@ -1265,8 +1265,8 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Where we install directly — and where partners do",
-        body: "Our own teams handle installation and service across Ludhiana, Jalandhar, Amritsar, Patiala, Khanna, Moga, Bathinda, Batala, Hoshiarpur, Mandi Gobindgarh and Chandigarh–Mohali. In metros further afield — Delhi NCR, Mumbai, Bengaluru, Jaipur and others — installation is carried out by verified partners while monitoring, alerts and support stay with PGAK. Either way the system, the software and the accountability are ours.",
+        h2: "Where we install",
+        body: "PGAK is based in Ludhiana, Punjab, and takes installation enquiries from across India. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation. Before you sign any installation contract — ours or anyone else's — ask who will carry out the work on site and who will answer the phone when a camera goes dark, and get both in writing.",
       },
       {
         h2: "Questions to ask any CCTV installation company",
@@ -1274,7 +1274,7 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     stats: [
-      { value: "11 cities", label: "direct installation & service in Punjab" },
+      { value: "Itemised", label: "cameras, cabling, storage and support quoted as separate lines" },
       { value: "Day one", label: "you own every password, in writing" },
       { value: "2 weeks", label: "of post-install tuning included" },
       { value: "AI alerts", label: "every install ships with detection, not just recording" },
@@ -1294,7 +1294,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "Which areas does your CCTV installation service cover?",
-        a: "Our own teams install and service across the Punjab belt — Ludhiana, Jalandhar, Amritsar, Patiala, Khanna, Moga, Bathinda, Batala, Hoshiarpur, Mandi Gobindgarh and Chandigarh–Mohali. Beyond Punjab, verified partners handle the physical installation while PGAK runs the software, alerts and support.",
+        a: "PGAK is based in Ludhiana, Punjab, and takes enquiries from across India. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation — tell us the project city and we will say plainly whether and how we can deliver there.",
       },
       {
         q: "How much does CCTV installation cost?",
