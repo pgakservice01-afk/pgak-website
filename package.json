@@ -13,10 +13,11 @@
     "indexnow": "node scripts/indexnow.mjs",
     "test:middleware": "node --experimental-strip-types --test lib/spamUrls.test.ts",
     "test:leads": "node --experimental-strip-types --test lib/leads.test.ts",
-    "test": "npm run test:middleware && npm run test:leads",
+    "test": "npm run test:middleware && npm run test:leads && npm run test:locations",
     "test:analytics": "node --test scripts/test-analytics.cjs",
     "typecheck": "tsc --noEmit",
-    "test:lead-client": "node --test scripts/test-lead-client.cjs"
+    "test:lead-client": "node --test scripts/test-lead-client.cjs",
+    "test:locations": "node --experimental-strip-types --test lib/locations.test.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
