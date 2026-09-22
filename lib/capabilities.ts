@@ -457,6 +457,7 @@ export const CAPABILITIES: Capability[] = [
       },
     ],
     solutions: [
+      "anpr-number-plate-recognition",
       "residential-security",
       "ai-cctv-for-warehouses",
       "factory-security",
