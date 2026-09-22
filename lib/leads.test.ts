@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   ATTRIBUTION_KEYS,
   CAMERA_OPTIONS,
+  NEW_SITE_CAMERAS,
   HONEYPOT_FIELD,
   PROTECT_OPTIONS,
   PROTECT_UNSPECIFIED,
@@ -357,4 +358,13 @@ test("the ERP payload carries the email in its own column", () => {
   assert.equal(p.email, "owner@factory.co.in");
   // The dealer-routing key is still the city, not the email.
   assert.equal(p.district, "Ludhiana");
+});
+
+test("a new-site buyer with zero cameras can enquire without a false band", () => {
+  assert.ok((CAMERA_OPTIONS as readonly string[]).includes(NEW_SITE_CAMERAS));
+  const r = validateLead({ ...GOOD, cameras: NEW_SITE_CAMERAS });
+  assert.equal(r.ok, true);
+  if (!r.ok) return;
+  // Must survive the length clamp intact, or the sales email loses the signal.
+  assert.equal(r.lead.cameras, NEW_SITE_CAMERAS);
 });

@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import { useLang } from "@/components/LangProvider";
 import {
   CAMERA_OPTIONS,
+  cameraOptionLabel,
   EMPLOYEE_OPTIONS,
   HONEYPOT_FIELD,
   PROTECT_OPTIONS,
@@ -236,9 +237,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                       </option>
                       {CAMERA_OPTIONS.map((o) => (
                         <option key={o} value={o}>
-                          {o === "Not sure"
-                            ? t("Not sure yet", "अभी पक्का नहीं")
-                            : `${o} ${t("cameras", "कैमरे")}`}
+                          {cameraOptionLabel(o, t)}
                         </option>
                       ))}
                     </select>
@@ -332,7 +331,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                 <p className="text-center text-[0.78rem] text-ink-faint">
                   {t(
                     "No spam. Camera compatibility checked. No pressure to buy.",
-                    "कोई स्पैम नहीं, कोई नया हार्डवेयर नहीं, कुछ ख़रीदने का कोई दबाव नहीं।",
+                    "कोई स्पैम नहीं। कैमरों की अनुकूलता जाँची जाती है। ख़रीदने का कोई दबाव नहीं।",
                   )}
                 </p>
               </form>

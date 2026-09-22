@@ -290,7 +290,7 @@ export const CAPABILITIES: Capability[] = [
     faqs: [
       {
         q: "How much does face recognition attendance cost in India?",
-        a: "With PGAK it is billed per camera per month — one gate camera typically covers 150–250 employees, so most factories in India pay less for attendance than they spent maintaining fingerprint machines. There is no enrolment fee, no per-employee charge and no hardware to buy, because it runs on the CCTV camera already at your gate. Call or WhatsApp us with your gate count for the exact figure.",
+        a: "With PGAK it is billed per camera per month — one gate camera typically covers 150–250 employees, so most factories in India pay less for attendance than they spent maintaining fingerprint machines. There is no enrolment fee, no per-employee charge and no new attendance device at the gate, because it reads faces from the CCTV camera already there — processing hardware is confirmed in the quote. Call or WhatsApp us with your gate count for the exact figure.",
       },
       {
         q: "Can this replace our biometric fingerprint machine?",

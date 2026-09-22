@@ -60,8 +60,33 @@ export const PROTECT_OPTIONS = [
  */
 export const PROTECT_UNSPECIFIED = "Not specified";
 
+/**
+ * Buyer planning a new site with no cameras yet. Without this a turnkey
+ * enquiry had to pick a false camera band; the sales email shows it verbatim
+ * so the lead can be routed to a new-installation proposal.
+ */
+export const NEW_SITE_CAMERAS = "None yet — new site";
+
 /** Camera-count bands. Coarse on purpose: nobody counts before they enquire. */
-export const CAMERA_OPTIONS = ["1–4", "5–15", "16–50", "50+", "Not sure"] as const;
+export const CAMERA_OPTIONS = [
+  "1–4",
+  "5–15",
+  "16–50",
+  "50+",
+  "Not sure",
+  NEW_SITE_CAMERAS,
+] as const;
+
+/** Visible label for a camera option, in the page's language. */
+export function cameraOptionLabel(
+  o: (typeof CAMERA_OPTIONS)[number],
+  t: (en: string, hi: string) => string
+): string {
+  if (o === "Not sure") return t("Not sure yet", "अभी पक्का नहीं");
+  if (o === NEW_SITE_CAMERAS)
+    return t("None yet — planning a new site", "अभी कोई नहीं — नई साइट की योजना");
+  return `${o} ${t("cameras", "कैमरे")}`;
+}
 
 /** Headcount bands, asked only by the attendance variant of the form. */
 export const EMPLOYEE_OPTIONS = ["1–25", "26–100", "101–300", "300+"] as const;

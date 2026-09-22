@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
-import { CAMERA_OPTIONS, HONEYPOT_FIELD, normalisePhone } from "@/lib/leads";
+import { CAMERA_OPTIONS, HONEYPOT_FIELD, cameraOptionLabel, normalisePhone } from "@/lib/leads";
 import { AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
@@ -286,9 +286,7 @@ export default function QuickLead({
           </option>
           {CAMERA_OPTIONS.map((o) => (
             <option key={o} value={o}>
-              {o === "Not sure"
-                ? t("Not sure yet", "अभी पक्का नहीं")
-                : `${o} ${t("cameras", "कैमरे")}`}
+              {cameraOptionLabel(o, t)}
             </option>
           ))}
         </select>

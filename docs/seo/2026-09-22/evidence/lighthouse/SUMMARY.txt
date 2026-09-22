@@ -1,0 +1,12 @@
+Local production build (next start, localhost:3100), Lighthouse 12 default mobile emulation + simulated throttling, 3 runs each. LAB data only — not field CWV, not production.
+page                                   perf            LCP s          CLS         TBT ms a11y bp seo
+_ai-cctv-mumbai                  99 [99–99] 2.19 [2.10–2.20] 0.000 [0.000–0.000]     35 [26–41] 96 100 100
+_free-audit                      98 [81–99] 2.29 [2.20–2.56] 0.000 [0.000–0.000]    66 [35–615] 100 100 100
+_home                            96 [96–96] 2.70 [2.69–2.71] 0.000 [0.000–0.000]     28 [24–29] 100 100 100
+_video-analytics-software        99 [98–99] 2.19 [2.18–2.31] 0.000 [0.000–0.000]     12 [11–90] 100 100 100
+
+PRODUCTION https://www.pgak.co.in (baseline commit 0881ce5, before this branch), same settings, 3 runs each, run from this Mac over the public internet. LAB only. Production loads GA4 + Meta Pixel + Vercel Analytics; local builds disable analytics (ANALYTICS_ENABLED), so TBT is not like-for-like. TBT is not INP.
+_ai-cctv-mumbai              perf     85 [83–88]  LCP   2.38 [2.25–2.48]s  CLS 0.000 [0.000–0.000]  TBT 410 [326–568]ms  a11y 96
+_free-audit                  perf     87 [78–89]  LCP   2.18 [1.97–2.81]s  CLS 0.000 [0.000–0.000]  TBT 376 [320–421]ms  a11y 100
+_home                        perf     89 [86–92]  LCP   2.12 [2.06–2.14]s  CLS 0.000 [0.000–0.000]  TBT 302 [251–426]ms  a11y 100
+_video-analytics-software    perf     90 [70–91]  LCP   1.98 [1.97–3.69]s  CLS 0.000 [0.000–0.000]  TBT 346 [346–485]ms  a11y 100

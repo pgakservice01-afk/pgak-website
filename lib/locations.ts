@@ -23,7 +23,22 @@ export type Location = {
   focus: string;
   intro: string;
   localContext: string[];
+  /**
+   * Approximate public city-centre reference (not an office address). Used
+   * only to keep "nearby" honest: see NEARBY_MAX_KM and locations.test.ts.
+   */
+  geo: { lat: number; lng: number };
+  /**
+   * Genuine geographic neighbours only — each must lie within NEARBY_MAX_KM
+   * (straight line). Rendered under "near {city}". Never list a distant metro
+   * here because it is commercially related; use `otherCities` for that.
+   */
   nearby: string[];
+  /**
+   * Other markets worth linking that are NOT near this city (e.g. Mumbai →
+   * Bengaluru). Rendered under an "Other cities" label, never as "nearby".
+   */
+  otherCities?: string[];
   /** A use-case scenario set in this city (hub → spoke link). */
   caseStudy?: { href: string; label: string };
   /**
@@ -73,6 +88,7 @@ export const LOCATIONS: Location[] = [
     city: "Ludhiana",
     region: "Punjab",
     hasOffice: true,
+    geo: { lat: 30.901, lng: 75.857 },
     focus: "Hosiery, cycle parts, machine tools and distribution warehousing",
     attendanceContext:
       "Ludhiana's attendance problem is a shift-change problem. A hosiery unit off Chandigarh Road or a cycle-parts works in the Focal Point puts several hundred people through one gate inside ten minutes, and the hands on those lines are exactly the ones fingerprint readers reject: dye, oil and ridges worn flat by years of press work. Add contractor gangs that turn over weekly and migrant labour that arrives with the season, and the register in the supervisor's drawer quietly becomes the real record of who worked. Reading faces off the gate camera removes the queue and the failed scan together, and because it is the camera doing the work, the same gate that logs attendance is still watching the gate.",
@@ -146,6 +162,7 @@ export const LOCATIONS: Location[] = [
     city: "Jalandhar",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 31.326, lng: 75.576 },
     focus: "Sports goods, hand tools, surgical instruments and leather",
     attendanceContext:
       "Jalandhar pays by the piece. A sports-goods unit stitching footballs, a forging shop turning out spanners, a leather works cutting uppers — all of them settle wages against output and hours together, and most run a core staff alongside job-work hands who come and go with the order book. That is the exact combination fingerprint readers handle worst. Forging and buffing leave ridges worn flat, tanning chemicals and adhesives coat the fingertips, and a reader that rejects one worker in six turns the gate into an argument at shift change. Reading faces off the entrance camera removes the device and the queue together, and a job-work hand can be enrolled from a phone in under a minute on the morning they start rather than waiting for the supervisor with the enrolment machine.",
@@ -215,6 +232,7 @@ export const LOCATIONS: Location[] = [
     city: "Amritsar",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 31.634, lng: 74.872 },
     focus: "Wholesale markets, hotels and food processing",
     attendanceContext:
       "Amritsar's attendance problem is a rota problem, not a queue problem. A hotel near the walled city runs housekeeping, kitchen, front desk and security on four different clocks, none of which start at nine, and staff turnover in kitchens and housekeeping is high enough that the enrolment burden matters more than throughput. Food units add a second obstacle: where hygiene rules put workers in gloves, a fingerprint reader is not merely inaccurate, it is something a food-safety auditor will ask about. Reading faces off the door camera sidesteps both. Hotel entrances are usually already fitted with cameras at a sensible height for recognition, because they were installed to see arrivals in the first place.",
@@ -284,6 +302,7 @@ export const LOCATIONS: Location[] = [
     city: "Chandigarh & Mohali",
     region: "Punjab / Chandigarh",
     hasOffice: false,
+    geo: { lat: 30.733, lng: 76.779 },
     focus: "Corporate offices, IT parks, showrooms and the Zirakpur warehousing corridor",
     attendanceContext:
       "The tricity does not have a queue at the gate; it has an accuracy problem and an appearance problem. A punching machine bolted to the wall is the first thing a client sees walking into a Mohali office, and the missed punches it generates surface on payroll day as a hundred small corrections somebody has to approve by hand. There is a second workforce nobody enrols properly: the housekeeping, security and cafeteria staff supplied by contractors, whose hours are billed to the company on the contractor's word. Attendance read from the entrance camera covers both populations from the same hardware, with nothing at reception, and the same approach works at a Zirakpur loading bay where the shift starts outdoors.",
@@ -353,6 +372,7 @@ export const LOCATIONS: Location[] = [
     city: "Patiala",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 30.34, lng: 76.386 },
     focus: "University campuses, agri-machinery works and large residential kothis",
     attendanceContext:
       "Patiala has two workforces that break attendance in opposite directions. Education campuses run hundreds of staff plus contracted housekeeping, security and mess workers whose hours are billed by an agency rather than recorded by the institution, and a card system there is only ever as honest as the person carrying the card. Agri-machinery and foundry units on the Rajpura side have the opposite problem: grease and metal dust on every hand at the gate. Camera-based attendance covers both from equipment already mounted at entrances, and for a campus it does something a reader cannot — the same footage answers who was in the block at the time, which is the question that actually gets asked after an incident.",
@@ -422,6 +442,7 @@ export const LOCATIONS: Location[] = [
     city: "Bathinda",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 30.211, lng: 74.945 },
     focus: "Cotton ginning, grain and fuel trade, and refinery-belt contracting",
     attendanceContext:
       "Bathinda's workforce is seasonal and contracted, which makes attendance a billing question before it is an HR one. A ginning factory staffs up for the cotton arrival and empties out again; refinery-belt contractors move crews between sites week to week; grain-market labour is engaged by the day. In all three cases somebody is paying against a headcount they cannot verify, and a fingerprint reader in a cotton shed collects lint until it stops reading at all. Attendance taken from the gate camera survives the dust, enrols a new crew in about a minute a head, and produces a record with a face image attached that settles a contractor's invoice without an argument.",
@@ -491,6 +512,7 @@ export const LOCATIONS: Location[] = [
     city: "Mandi Gobindgarh",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 30.667, lng: 76.3 },
     focus: "Induction furnaces, rolling mills and the scrap trade",
     attendanceContext:
       "Steel town attendance is a round-the-clock problem. Furnaces do not stop, so the gate turns over three times a day including once in the middle of the night, and the crews are heavily contracted. Heat, scale and gloves make a contact reader both unreliable and unsafe to queue at when men are coming off a hot floor. Because the camera reads faces as people walk through, the night change is recorded as accurately as the morning one, and a supervisor is not standing at a machine at two in the morning ticking names. For a unit paying contractor crews by shift, that record with a face image attached is the difference between an invoice you accept and one you can check.",
@@ -560,6 +582,7 @@ export const LOCATIONS: Location[] = [
     city: "Khanna",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 30.705, lng: 76.222 },
     focus: "Grain mandi trade, rice shellers and highway godowns",
     attendanceContext:
       "Khanna's labour arrives with the crop. A sheller that runs a skeleton crew for half the year takes on dozens of hands for the milling season, engaged through a thekedar and paid against days worked. Nobody is going to enrol that on a fingerprint machine, and grain dust would defeat it if they tried. Attendance from the gate camera handles the surge because enrolling a new hand takes about a minute from a phone, and it produces a day-by-day record with a face image attached — which is precisely the document that settles the seasonal wage argument that arrives at the end of every milling run.",
@@ -629,6 +652,7 @@ export const LOCATIONS: Location[] = [
     city: "Moga",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 30.817, lng: 75.171 },
     focus: "Dairy and food processing, grain trade and cold-chain distribution",
     attendanceContext:
       "Food and dairy work puts a hygiene rule between a worker and any shared surface. Where staff are gloved, hair-netted and moving between a wet zone and a dry one, a fingerprint reader at the entrance is not just unreliable, it is the thing a food-safety auditor asks about. Moga's other attendance pressure is the clock: dairy intake and dispatch run early and late, so the gate turns over at hours when no supervisor is standing at a machine. Reading faces from the entrance camera removes the shared surface entirely and records the five-in-the-morning change as accurately as the mid-shift one.",
@@ -698,6 +722,7 @@ export const LOCATIONS: Location[] = [
     city: "Hoshiarpur",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 31.532, lng: 75.911 },
     focus: "Plywood and timber, wood-based units and the NRI residential belt",
     attendanceContext:
       "Plywood and timber work is piece-rate and physical, and the hands that come off a press or a saw line are exactly the ones a fingerprint reader rejects — resin, dust and worn ridges in combination. Hoshiarpur units also run heavy job-work labour that changes with the order book, so the enrolment burden matters more than the reading speed. Attendance from the gate camera solves both, and it does something a reader cannot in a yard full of stacked timber: the same camera that records who arrived is still watching the yard when the shift ends.",
@@ -767,6 +792,7 @@ export const LOCATIONS: Location[] = [
     city: "Batala",
     region: "Punjab",
     hasOffice: false,
+    geo: { lat: 31.819, lng: 75.203 },
     focus: "Iron foundries, castings, machine tools and agricultural implements",
     attendanceContext:
       "Foundry hands are the hardest case a fingerprint reader ever meets: sand, oil, heat and skin worn smooth by years of moulding work. Batala's units also run heavily on contracted and piece-rate labour, with crews that follow the order book between workshops. Attendance from the gate camera removes the reader entirely, enrols a new hand in about a minute, and produces a record with a face image attached — which matters in a town where a large share of the wage bill is settled against a contractor's count rather than a payroll system.",
@@ -836,6 +862,7 @@ export const LOCATIONS: Location[] = [
     city: "Delhi NCR",
     region: "Delhi, Haryana & Uttar Pradesh",
     hasOffice: false,
+    geo: { lat: 28.614, lng: 77.209 },
     focus: "Retail chains, wholesale markets, offices and logistics parks",
     attendanceContext:
       "NCR's attendance problem is scale and outsourcing rather than dirty hands. A retail chain with fourteen stores has fourteen registers and no single view; an office building's housekeeping, security and pantry staff are supplied by agencies who invoice against a headcount nobody independently counts; a logistics park runs loaders through a gate at hours when the HR office is closed. Camera-based attendance gives a head office one record across every site without a device in any of them, and the agency invoice finally has something to be checked against.",
@@ -896,7 +923,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         q: "How quickly does a site go live?",
-        a: "Most are live within a day of the survey, because in the ordinary case nothing physical is installed. The fortnight afterwards is the part that matters: tuning zones, schedules and thresholds against your real footage is what decides whether the alerts are still switched on in month three.",
+        a: "Most are live within a day of the survey, because in the ordinary case the cameras and cabling stay as they are and the work is connecting their streams to the on-site processing unit. The fortnight afterwards is the part that matters: tuning zones, schedules and thresholds against your real footage is what decides whether the alerts are still switched on in month three.",
       },
     ],
   },
@@ -905,6 +932,7 @@ export const LOCATIONS: Location[] = [
     city: "Gurugram",
     region: "Haryana",
     hasOffice: false,
+    geo: { lat: 28.459, lng: 77.027 },
     focus: "Corporate offices, gated residential and the Manesar industrial belt",
     attendanceContext:
       "Gurugram runs on badges and a large contracted workforce, and both fail in the same direction. A badge can be handed to a colleague, and the housekeeping, security, cafeteria and facilities staff who keep a tower running are billed by agencies against numbers the tenant cannot check. Face recognition at the entrance closes the first gap because a face cannot be lent, and it closes the second because contracted staff are recorded in their own group independently of the invoice. Neither requires a device at a reception desk that clients walk past.",
@@ -974,6 +1002,7 @@ export const LOCATIONS: Location[] = [
     city: "Noida",
     region: "Uttar Pradesh",
     hasOffice: false,
+    geo: { lat: 28.535, lng: 77.391 },
     focus: "Industrial sectors, expressway offices and large housing societies",
     attendanceContext:
       "Noida's sector industry runs shifts and contract labour; its expressway offices run badges and outsourced facilities staff; its societies run guards on a roster. All three record attendance in a way that nobody can audit afterwards. Reading faces at the entrance produces the same record for a factory gate, an office door and a guard cabin, which matters most for the population everybody forgets — the contracted housekeeping, security and pantry workers whose hours reach the client as a number on an agency invoice.",
@@ -1043,6 +1072,7 @@ export const LOCATIONS: Location[] = [
     city: "Mumbai",
     region: "Maharashtra",
     hasOffice: false,
+    geo: { lat: 19.076, lng: 72.878 },
     focus: "Retail, the Bhiwandi warehousing belt and high-density residential",
     attendanceContext:
       "Mumbai's attendance problem is commute-shaped. Staff arrive across a long window because the trains decide when they get in, so a device at the door creates a queue at exactly the wrong moment, and retail chains compound it by keeping a separate record in every store. Warehousing in the Bhiwandi belt runs the opposite pattern: loaders engaged by the day through contractors, at hours when no office is open. Camera-based attendance suits both, because there is no queue to form and enrolling a new hand takes about a minute from a phone at the gate.",
@@ -1053,7 +1083,8 @@ export const LOCATIONS: Location[] = [
       "Warehousing in the Bhiwandi belt with long boundaries, night dispatch and contracted loaders.",
       "Housing societies with several wings, one gate and a paper visitor book nobody can search.",
     ],
-    nearby: ["Delhi NCR", "Bengaluru"],
+    nearby: [],
+    otherCities: ["Delhi NCR", "Bengaluru"],
     solutionSlugs: [
       "retail-shop-security",
       "ai-cctv-for-warehouses",
@@ -1112,6 +1143,7 @@ export const LOCATIONS: Location[] = [
     city: "Bengaluru",
     region: "Karnataka",
     hasOffice: false,
+    geo: { lat: 12.972, lng: 77.595 },
     focus: "Tech offices and campuses, Peenya industry and gated communities",
     attendanceContext:
       "Bengaluru offices already have badges, so the gap is not recording attendance — it is that the record is soft. A badge is a token that can be handed over, and the facilities workforce that actually keeps a campus running is supplied by agencies whose invoices are accepted on trust. The industrial belt has the older problem: shift gates and contract crews with no independent count. Face recognition at the entrance covers both, and on a campus with several buildings it does something a turnstile cannot, which is give one consistent record across every entrance without a device at any of them.",
@@ -1122,7 +1154,8 @@ export const LOCATIONS: Location[] = [
       "Facilities, housekeeping and security staff supplied by agencies and billed on an unverified headcount.",
       "Industrial estates with shift gates, contract crews and long boundary walls.",
     ],
-    nearby: ["Coimbatore", "Mumbai"],
+    nearby: ["Coimbatore"],
+    otherCities: ["Mumbai"],
     solutionSlugs: [
       "ai-cctv-for-offices",
       "factory-security",
@@ -1181,6 +1214,7 @@ export const LOCATIONS: Location[] = [
     city: "Jaipur",
     region: "Rajasthan",
     hasOffice: false,
+    geo: { lat: 26.912, lng: 75.787 },
     focus: "Jewellery and gem trade, retail, hospitality and the Sitapura industrial belt",
     attendanceContext:
       "Jaipur's jewellery and gem workshops run skilled piece-rate artisans, often in small units where the same family has worked for years and attendance is remembered rather than recorded — until a wage dispute makes memory insufficient. Hotels bring the opposite pattern: four departments on four different clocks and constant turnover in housekeeping and kitchens, where enrolling a new joiner quickly matters more than reading speed. Camera-based attendance at the entrance serves both, and in a jewellery unit it adds something a reader cannot, because the same camera that records the arrival is watching the door to the strong room.",
@@ -1250,6 +1284,7 @@ export const LOCATIONS: Location[] = [
     city: "Coimbatore",
     region: "Tamil Nadu",
     hasOffice: false,
+    geo: { lat: 11.017, lng: 76.956 },
     focus: "Spinning mills, pump and motor manufacturing, foundries and engineering job-work",
     attendanceContext:
       "Coimbatore's mills run continuous shifts with a workforce that includes a large migrant contingent housed nearby, and the gate turns over three times a day including once at night. Cotton fluff in a spinning shed and machining oil in an engineering unit are both hard on contact readers, and the change-over crowd makes a queue at a device genuinely costly. Reading faces as people walk through removes the queue and survives the fluff, and for units paying contract crews by shift it produces a record with a face image attached that can be set beside the contractor's invoice.",
@@ -1260,7 +1295,8 @@ export const LOCATIONS: Location[] = [
       "Pump, motor and job-work units with finished goods and castings stacked in open yards.",
       "Contract and migrant crews engaged by the season, billed on a headcount nobody counts independently.",
     ],
-    nearby: ["Bengaluru", "Mumbai"],
+    nearby: ["Bengaluru"],
+    otherCities: ["Mumbai"],
     solutionSlugs: [
       "factory-security",
       "ai-cctv-for-warehouses",
@@ -1315,6 +1351,62 @@ export const LOCATIONS: Location[] = [
     ],
   },
 ];
+
+/** Straight-line distance within which a city may be called "nearby". */
+export const NEARBY_MAX_KM = 250;
+
+/** Great-circle distance in km between two locations' `geo` references. */
+export function distanceKm(
+  a: { lat: number; lng: number },
+  b: { lat: number; lng: number }
+): number {
+  const rad = (d: number) => (d * Math.PI) / 180;
+  const dLat = rad(b.lat - a.lat);
+  const dLng = rad(b.lng - a.lng);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(h));
+}
+
+/**
+ * Alternative spellings and former names → slug. Aliases are ways of writing
+ * an existing location, never additional cities.
+ */
+const LOCATION_ALIASES: Record<string, string> = {
+  bangalore: "bengaluru",
+  gurgaon: "gurugram",
+  delhi: "delhi-ncr",
+  "new delhi": "delhi-ncr",
+  ncr: "delhi-ncr",
+  chandigarh: "chandigarh-mohali",
+  mohali: "chandigarh-mohali",
+  "sas nagar": "chandigarh-mohali",
+  bombay: "mumbai",
+  gobindgarh: "mandi-gobindgarh",
+};
+
+const normaliseName = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[–—&]/g, " ")
+    .replace(/[^a-z ]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+/**
+ * Resolve a city name as written in copy ("Chandigarh & Mohali", "Bangalore",
+ * "Delhi NCR") to its location entry. Exact names, slugs and declared aliases
+ * only — no substring guessing, so "Delhi NCR" can never match "Noida".
+ */
+export function resolveLocationName(name: string): Location | undefined {
+  const n = normaliseName(name);
+  const aliased = LOCATION_ALIASES[n];
+  if (aliased) return getLocation(aliased);
+  return LOCATIONS.find(
+    (l) => normaliseName(l.city) === n || normaliseName(l.slug) === n
+  );
+}
 
 export function getLocation(slug: string): Location | undefined {
   return LOCATIONS.find((l) => l.slug === slug);

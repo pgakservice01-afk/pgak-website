@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
 import { fbTrack } from "@/lib/fbpixel";
+import { HARDWARE_NOTE, HARDWARE_NOTE_HI } from "@/lib/offer";
 
 /**
  * PGAK assistant — a free, guided chatbot (no AI backend, no API keys).
@@ -37,8 +38,8 @@ const TOPICS: Topic[] = [
     id: "pricing",
     q: "💰 What does it cost?",
     qHi: "💰 कीमत क्या है?",
-    a: "Billing is per camera per month, and we give you the exact rate on a call or WhatsApp once we know your camera count. It runs on the cameras you already own, so there's no new hardware to buy and no hidden fees.",
-    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है, और सही दर हम कॉल या WhatsApp पर बताते हैं — जब हमें आपके कैमरों की संख्या पता हो। यह आपके मौजूदा कैमरों पर चलता है, इसलिए कोई नया हार्डवेयर नहीं और कोई छिपी फ़ीस नहीं।",
+    a: "Billing is per camera per month, and we give you the exact rate on a call or WhatsApp once we know your camera count. " + HARDWARE_NOTE + " No hidden fees.",
+    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है, और सही दर हम कॉल या WhatsApp पर बताते हैं — जब हमें आपके कैमरों की संख्या पता हो। " + HARDWARE_NOTE_HI + " कोई छिपी फ़ीस नहीं।",
     link: {
       href: "/pricing",
       label: "How pricing works →",

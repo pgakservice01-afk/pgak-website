@@ -11,9 +11,15 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 import { BUSINESS } from "@/lib/seo";
-import { LOCATIONS, locationPath, type Location } from "@/lib/locations";
+import {
+  LOCATIONS,
+  locationPath,
+  resolveLocationName,
+  type Location,
+} from "@/lib/locations";
 import { SOLUTIONS } from "@/lib/solutions";
 import { getAllInsights } from "@/lib/insights";
+import { HARDWARE_NOTE_LONG } from "@/lib/offer";
 
 /**
  * Shared template for city pages. Each page's genuinely local content lives in
@@ -59,6 +65,14 @@ export default function LocationPage({ location }: { location: Location }) {
   // direct-team vs dealer) so no two cities publish the same FAQ text — that
   // sameness is what tips templated location pages into doorway territory.
   const nearbyPair = l.nearby.slice(0, 2).join(" and ");
+  // Exact-name resolution (aliases allowed), never substring matching, and
+  // "nearby" only for genuine neighbours — see NEARBY_MAX_KM.
+  const toPages = (names: string[]) =>
+    names
+      .map(resolveLocationName)
+      .filter((x): x is Location => !!x && x.slug !== l.slug);
+  const nearbyPages = toPages(l.nearby);
+  const otherPages = toPages(l.otherCities ?? []);
   // A city that has written its own answers uses them instead — same four
   // sentences with the name swapped is what makes a set of city pages read as
   // one page to a crawler, and the FAQPage schema carries whichever set the
@@ -72,7 +86,7 @@ export default function LocationPage({ location }: { location: Location }) {
     },
     {
       q: `Do I need to buy new cameras in ${l.city}?`,
-      a: `Almost never. PGAK runs as software on the CCTV you already own, provided the DVR or NVR exposes an RTSP stream — which nearly all systems installed in the last decade do. In ${l.city} that check usually means the DVRs already running in ${l.focus.toLowerCase()} — the free audit confirms yours before you spend anything.`,
+      a: `Usually not, provided the DVR or NVR exposes an RTSP stream — which nearly all systems installed in the last decade do. ${HARDWARE_NOTE_LONG} In ${l.city} that check usually means the DVRs already running in ${l.focus.toLowerCase()} — the free audit confirms yours before you spend anything.`,
     },
     {
       q: `What does AI CCTV cost in ${l.city}?`,
@@ -308,16 +322,22 @@ export default function LocationPage({ location }: { location: Location }) {
         <section className="sec">
           <div className="wrap grid gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
-                Also serving near {l.city}
-              </h2>
-              <p className="mt-4 text-ink-soft">
-                {l.nearby.join(" · ")}
-              </p>
+              {l.nearby.length > 0 ? (
+                <>
+                  <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
+                    Also serving near {l.city}
+                  </h2>
+                  <p className="mt-4 text-ink-soft">{l.nearby.join(" · ")}</p>
+                </>
+              ) : (
+                <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
+                  Outside {l.city}?
+                </h2>
+              )}
               <p className="mt-4 text-[0.9rem] text-ink-faint">
                 Not on the list? We cover most of India through our dealer
                 network —{" "}
-                <Link href="/contact" className="text-accent hover:underline">
+                <Link href="/contact" className="text-accent underline underline-offset-2">
                   ask us about your area
                 </Link>
                 .
@@ -325,37 +345,36 @@ export default function LocationPage({ location }: { location: Location }) {
             </div>
 
             <div>
-              <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
-                Nearby city pages
-              </h2>
-              {/* Curated by geography, not a sitewide directory: an identical
-                  17-link block on every city page is a doorway-page signal. */}
-              <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-                {LOCATIONS.filter(
-                  (x) =>
-                    x.slug !== l.slug &&
-                    l.nearby.some(
-                      (n) => x.city.includes(n) || n.includes(x.city)
-                    )
-                ).map((x) => (
-                  <li key={x.slug}>
-                    <Link
-                      href={locationPath(x.slug)}
-                      className="text-ink-soft transition-colors hover:text-accent"
-                    >
-                      {x.city}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link
-                    href="/areas-we-serve"
-                    className="text-accent transition-colors hover:underline"
+              {nearbyPages.length > 0 && (
+                <>
+                  <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
+                    Nearby city pages
+                  </h2>
+                  {/* Curated by geography, not a sitewide directory: an identical
+                      17-link block on every city page is a doorway-page signal. */}
+                  <CityLinks cities={nearbyPages} />
+                </>
+              )}
+              {otherPages.length > 0 && (
+                <>
+                  <h2
+                    className={`display text-[clamp(1.4rem,2.6vw,1.9rem)]${
+                      nearbyPages.length > 0 ? " mt-10" : ""
+                    }`}
                   >
-                    All cities we serve →
-                  </Link>
-                </li>
-              </ul>
+                    Other cities
+                  </h2>
+                  <CityLinks cities={otherPages} />
+                </>
+              )}
+              <p className="mt-5">
+                <Link
+                  href="/areas-we-serve"
+                  className="text-accent transition-colors hover:underline"
+                >
+                  All cities we serve →
+                </Link>
+              </p>
             </div>
           </div>
         </section>
@@ -366,5 +385,22 @@ export default function LocationPage({ location }: { location: Location }) {
 
       <Footer />
     </>
+  );
+}
+
+function CityLinks({ cities }: { cities: Location[] }) {
+  return (
+    <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+      {cities.map((x) => (
+        <li key={x.slug}>
+          <Link
+            href={locationPath(x.slug)}
+            className="text-ink-soft transition-colors hover:text-accent"
+          >
+            {x.city}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

@@ -107,7 +107,7 @@ export default function FreeAuditPage() {
               Before you spend a rupee, know exactly what your existing setup can
               do. We analyse your feeds remotely, camera by camera, and send a
               clear report within {AUDIT_TURNAROUND_HOURS} hours. Worth{" "}
-              {AUDIT_TOTAL_VALUE}. Costs nothing. No new hardware.
+              {AUDIT_TOTAL_VALUE}. Costs nothing, and nothing to install for the audit.
             </p>
             <div className="mt-8 max-w-[640px]">
               <QuickLead cta="free-audit-hero" offer="audit" spotlight />

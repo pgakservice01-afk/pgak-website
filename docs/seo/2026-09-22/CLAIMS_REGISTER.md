@@ -1,0 +1,21 @@
+# Claim and capability register — 22 September 2026
+
+Status values: `evidenced` (source on file), `qualified` (wording now matches what can be shown), `OWNER_EVIDENCE_REQUIRED` (public claim with no substantiation in the repo), `conflict` (two public pages disagree).
+Owner/reviewer and expiry columns are blank until PGAK assigns them; nothing here is approved by default.
+
+| # | Claim (as published) | Where | Status | Evidence on file | Action taken / needed | Owner | Review by |
+|---|---|---|---|---|---|---|---|
+| C1 | "No new hardware" / "no hardware to buy" / "nothing physical is installed" | free-audit, brochure, solutions hub, chat (EN+HI), attendance pricing FAQ, Gurugram FAQ, DealerForm HI footer | **qualified** (this branch) | Site's own copy says detection runs on an on-site edge device (lib/solutions.ts, lib/faq.ts, lib/schema.ts) | Replaced with `lib/offer.ts` wording: compatible cameras reused, processing hardware confirmed and quoted before commitment | | |
+| C2 | Who installs in 10 Punjab cities (Jalandhar … Batala) | city pages say **verified partner**; `/cctv-installation-company` says **"Our own teams"** + stat "11 cities — direct installation & service" | **conflict** | none | Not edited — owner must state the true delivery model per city; then one of the two pages is corrected | | |
+| C3 | "Delivered by a verified PGAK partner" in Delhi NCR, Gurugram, Noida, Mumbai, Bengaluru, Jaipur, Coimbatore | city pages | OWNER_EVIDENCE_REQUIRED | none (partner names/agreements not in repo — correctly so; keep private) | Record partner agreement + last operational check privately; set `operational_verification` in COVERAGE_REGISTRY | | |
+| C4 | "We cover most of India through our dealer network" | every city page, areas-we-serve | OWNER_EVIDENCE_REQUIRED | none | Qualify to "ask about your area" if coverage is assessment-required | | |
+| C5 | Free audit "Worth ₹15,995" (`AUDIT_TOTAL_VALUE`) | /free-audit, audit sections | OWNER_EVIDENCE_REQUIRED | line-item values in `lib/audit.ts`, no basis recorded | Owner to confirm this is a price actually charged/quoted, or remove the value framing | | |
+| C6 | "Report within 48 hours", "call within one working hour" | free-audit, FinalCTA, ChatBot, SolutionPage, DealerForm | OWNER_EVIDENCE_REQUIRED | none | Confirm current SLA is met; keep as-is until then | | |
+| C7 | "Most sites are live within a day of the survey" | Amritsar, Gurugram FAQs, brochure, factory FAQ | OWNER_EVIDENCE_REQUIRED | none | Confirm with deployment records; qualify if not typical | | |
+| C8 | "One gate camera typically covers 150–250 employees" | attendance pricing FAQ (lib/capabilities.ts) | OWNER_EVIDENCE_REQUIRED | none | Needs field measurement or remove figure | | |
+| C9 | CCTV Essential Requirements / STQC — dates (OM 16 Jan 2026, effective 1 Apr 2026) | /insights/cctv-new-rule-2026-india-stqc-er-compliance | OWNER_EVIDENCE_REQUIRED (legal) | none linked | Link the official MeitY/STQC source; competent review before further promotion | | |
+| C10 | Case studies at /insights/case-studies/* | 5 pages | evidenced as **illustrative** | `lib/caseStudies.ts` header; pages carry visible "illustrative" labels | Keep labels. Section/breadcrumb is still titled "Case studies" — consider "Use-case scenarios" (owner choice; URL unchanged) | | |
+| C11 | Reviews / ratings | site-wide | evidenced (none published) | `lib/reviews.ts` empty; no AggregateRating in any page's JSON-LD | None — correct | | |
+| C12 | Reference footage "from Spot AI" on homepage | homepage video stories | labelled | visible caption: "Reference illustration from Spot AI; any interface or automated actions shown are theirs" | Usage rights not on file → OWNER_EVIDENCE_REQUIRED; replace with original PGAK footage when available | | |
+| C13 | "2 weeks of post-install tuning included" | /cctv-installation-company | OWNER_EVIDENCE_REQUIRED | none | Confirm it is in standard quotes | | |
+| C14 | Turnkey installation for sites with no cameras | /cctv-installation-company FAQ | stated by site; relied on for the new-site form option | none beyond copy | Owner to confirm scope (survey, cameras, cabling, recording, commissioning, handover) per delivery mode | | |
