@@ -337,7 +337,7 @@ export default function LocationPage({ location }: { location: Location }) {
               <p className="mt-4 text-[0.9rem] text-ink-faint">
                 Not on the list? We cover most of India through our dealer
                 network —{" "}
-                <Link href="/contact" className="text-accent hover:underline">
+                <Link href="/contact" className="text-accent underline underline-offset-2">
                   ask us about your area
                 </Link>
                 .
