@@ -8,6 +8,7 @@ import PrintButton from "@/components/PrintButton";
 import { pageMeta } from "@/lib/seo";
 import { SOLUTIONS } from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
+import { HARDWARE_NOTE } from "@/lib/offer";
 
 /**
  * Print-ready one-page brochure.
@@ -78,8 +79,8 @@ export default function BrochurePage() {
                 <strong className="text-ink">
                   Billed per camera per month.
                 </strong>{" "}
-                No hardware to buy, no separate licence fee, no charge for
-                software updates, and no lock-in contract. Your rate depends on
+                No separate licence fee, no charge for software updates, and no
+                lock-in contract. {HARDWARE_NOTE} Your rate depends on
                 camera count and sites — call or WhatsApp us and you&rsquo;ll
                 have it the same day.
               </p>

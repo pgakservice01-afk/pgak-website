@@ -923,7 +923,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         q: "How quickly does a site go live?",
-        a: "Most are live within a day of the survey, because in the ordinary case nothing physical is installed. The fortnight afterwards is the part that matters: tuning zones, schedules and thresholds against your real footage is what decides whether the alerts are still switched on in month three.",
+        a: "Most are live within a day of the survey, because in the ordinary case the cameras and cabling stay as they are and the work is connecting their streams to the on-site processing unit. The fortnight afterwards is the part that matters: tuning zones, schedules and thresholds against your real footage is what decides whether the alerts are still switched on in month three.",
       },
     ],
   },

@@ -19,6 +19,7 @@ import {
 } from "@/lib/locations";
 import { SOLUTIONS } from "@/lib/solutions";
 import { getAllInsights } from "@/lib/insights";
+import { HARDWARE_NOTE_LONG } from "@/lib/offer";
 
 /**
  * Shared template for city pages. Each page's genuinely local content lives in
@@ -85,7 +86,7 @@ export default function LocationPage({ location }: { location: Location }) {
     },
     {
       q: `Do I need to buy new cameras in ${l.city}?`,
-      a: `Almost never. PGAK runs as software on the CCTV you already own, provided the DVR or NVR exposes an RTSP stream — which nearly all systems installed in the last decade do. In ${l.city} that check usually means the DVRs already running in ${l.focus.toLowerCase()} — the free audit confirms yours before you spend anything.`,
+      a: `Usually not, provided the DVR or NVR exposes an RTSP stream — which nearly all systems installed in the last decade do. ${HARDWARE_NOTE_LONG} In ${l.city} that check usually means the DVRs already running in ${l.focus.toLowerCase()} — the free audit confirms yours before you spend anything.`,
     },
     {
       q: `What does AI CCTV cost in ${l.city}?`,

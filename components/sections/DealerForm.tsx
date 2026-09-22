@@ -332,7 +332,7 @@ export default function DealerForm({ variant = "audit" }: { variant?: DealerForm
                 <p className="text-center text-[0.78rem] text-ink-faint">
                   {t(
                     "No spam. Camera compatibility checked. No pressure to buy.",
-                    "कोई स्पैम नहीं, कोई नया हार्डवेयर नहीं, कुछ ख़रीदने का कोई दबाव नहीं।",
+                    "कोई स्पैम नहीं। कैमरों की अनुकूलता जाँची जाती है। ख़रीदने का कोई दबाव नहीं।",
                   )}
                 </p>
               </form>

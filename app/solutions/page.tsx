@@ -65,9 +65,9 @@ export default function SolutionsPage() {
             </h1>
             <p className="mt-6 max-w-[64ch] text-[1.05rem] leading-relaxed text-ink-soft">
               The same intelligence, tuned to what each site actually loses.
-              Every solution below runs as software on the security cameras you
-              already own — no rip-and-replace, no new cabling, billed per
-              camera per month.
+              Every solution below reuses the compatible security cameras you
+              already own — no rip-and-replace, billed per camera per month,
+              with any on-site processing hardware confirmed before you commit.
             </p>
           </div>
         </section>
