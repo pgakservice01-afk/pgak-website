@@ -112,6 +112,7 @@ test("new-installation enquiry: journey and timeline reach the server, one lead 
   await h.submitLead(v, opts); // a retry/double tap must not count twice
   assert.equal(h.requests[0].project, "New CCTV installation");
   assert.equal(h.requests[0].timeline, "1–3 months");
+  assert.deepEqual(h.events.map((e) => e.name), ["form_submit", "installation_request", "generate_lead"]);
   const leads = h.events.filter((e) => e.name === "generate_lead");
   assert.equal(leads.length, 1);
   assert.equal(leads[0].params.lead_ref, "test-new-install-1");

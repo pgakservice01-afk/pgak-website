@@ -93,7 +93,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                   <Link href="/free-audit" data-cta="solution-existing-audit" className="text-accent underline underline-offset-2">
                     Check what they can do with a free assessment
                   </Link>
-                  . Installation availability, delivery arrangements and timelines are confirmed for your project before quotation.
+                  .
                 </p>
               </>
             ) : (

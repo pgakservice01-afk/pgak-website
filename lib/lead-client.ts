@@ -96,6 +96,7 @@ export async function submitLead(
         trackConversion("form_submit", { form_name: opts.formName, cta: opts.cta });
         if (opts.formName === "quick_quote_request") trackConversion("pricing_request", { form_name: opts.formName });
         else if (opts.formName === "demo_request") trackConversion("demo_request", { form_name: opts.formName });
+        else if (opts.formName === "new_installation_request") trackConversion("installation_request", { form_name: opts.formName });
         else trackConversion("assessment_request", { form_name: opts.formName });
         trackLead(opts.formName, {
           cta: opts.cta,
