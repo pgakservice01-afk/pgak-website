@@ -163,7 +163,9 @@ async function notifyOwner(
   const text =
     `🔴 PGAK website lead did NOT reach the CRM\n\n` +
     `Name: ${lead.name}\nPhone: ${lead.phone}\nCity: ${lead.location}\n` +
-    `Protecting: ${lead.protecting}\n\nReason: ${why}\nRef: ${ref}\n\n` +
+    `Protecting: ${lead.protecting}\n` +
+    (lead.project ? `Project: ${lead.project}\n` : "") +
+    `\nReason: ${why}\nRef: ${ref}\n\n` +
     `Call them back manually — this lead exists nowhere else.`;
 
   try {
@@ -245,7 +247,9 @@ async function notifyNewLead(
       : `🟢 New website lead — call within the hour\n\n`) +
     `Name: ${lead.name || "(not given)"}\n` +
     `Phone: ${lead.phone}\n` +
+    (lead.project ? `Project: ${lead.project}\n` : "") +
     `Cameras: ${lead.cameras || "(not given)"}\n` +
+    (lead.timeline ? `Timeline: ${lead.timeline}\n` : "") +
     `Protecting: ${lead.protecting}\n` +
     `City: ${lead.location || "(not given)"}\n` +
     (where ? `\n${where}\n` : "") +

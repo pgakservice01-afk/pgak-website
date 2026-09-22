@@ -97,3 +97,34 @@ test("server field errors are returned for correction without conversions", asyn
   assert.equal(result.fieldErrors.phone, "Invalid number");
   assert.equal(h.events.length, 0);
 });
+test("new-installation enquiry: journey and timeline reach the server, one lead event with a stable ref", async () => {
+  const h = setup({ ok: true, body: { delivered: true } });
+  const v = {
+    phone: "9876501234",
+    cameras: "16–50",
+    project: "New CCTV installation",
+    timeline: "1–3 months",
+    name: "Test Buyer",
+    location: "Test City",
+  };
+  const opts = { ref: "test-new-install-1", cta: "dealer-form-new-install", formName: "new_installation_request" };
+  assert.equal((await h.submitLead(v, opts)).kind, "done");
+  await h.submitLead(v, opts); // a retry/double tap must not count twice
+  assert.equal(h.requests[0].project, "New CCTV installation");
+  assert.equal(h.requests[0].timeline, "1–3 months");
+  const leads = h.events.filter((e) => e.name === "generate_lead");
+  assert.equal(leads.length, 1);
+  assert.equal(leads[0].params.lead_ref, "test-new-install-1");
+  assert.equal(leads[0].params.project_type, "New CCTV installation");
+  // No contact details in analytics.
+  const blob = JSON.stringify(h.events);
+  for (const pii of [v.phone, v.name, v.location]) assert.ok(!blob.includes(pii), pii);
+});
+test("existing-camera enquiry keeps working without the new fields", async () => {
+  const h = setup({ ok: true, body: { delivered: true } });
+  const opts = { ref: "test-existing-1", cta: "dealer-form", formName: "dealer_demo_request" };
+  assert.equal((await h.submitLead({ phone: "9876501234", cameras: "5–15" }, opts)).kind, "done");
+  assert.equal(h.requests[0].project, "");
+  assert.equal(h.requests[0].timeline, "");
+  assert.equal(h.events.filter((e) => e.name === "generate_lead").length, 1);
+});

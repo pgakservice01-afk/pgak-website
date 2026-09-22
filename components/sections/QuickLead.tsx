@@ -2,7 +2,15 @@
 
 import { useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
-import { CAMERA_OPTIONS, HONEYPOT_FIELD, cameraOptionLabel, normalisePhone } from "@/lib/leads";
+import {
+  CAMERA_OPTIONS,
+  HONEYPOT_FIELD,
+  NEW_SITE_CAMERAS,
+  PROJECT_EXISTING,
+  PROJECT_NEW,
+  cameraOptionLabel,
+  normalisePhone,
+} from "@/lib/leads";
 import { AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
@@ -140,6 +148,14 @@ export default function QuickLead({
       cameras,
       honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
       protecting: offer === "demo" ? "Product demo requested" : undefined,
+      // "None yet — new site" is a new installation whatever the offer; the
+      // audit offer otherwise asks about cameras the visitor already has.
+      project:
+        cameras === NEW_SITE_CAMERAS
+          ? PROJECT_NEW
+          : offer === "audit" && cameras
+            ? PROJECT_EXISTING
+            : undefined,
     };
 
     if (!normalisePhone(phone)) {

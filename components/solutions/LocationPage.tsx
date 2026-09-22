@@ -143,13 +143,24 @@ export default function LocationPage({ location }: { location: Location }) {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="#dealer" className="btn btn-primary">
+              <Link href="#dealer" data-cta={`city-${l.slug}-assessment`} data-intent="assessment" className="btn btn-primary">
                 Free camera audit in {l.city} →
               </Link>
               <a href={`tel:${BUSINESS.phoneE164}`} className="btn btn-ghost">
                 Call {BUSINESS.phone}
               </a>
             </div>
+            <p className="mt-4 text-[0.92rem] text-ink-soft">
+              Planning a new site in {l.city} with no cameras yet?{" "}
+              <Link
+                href="#how-delivery-works"
+                data-cta={`city-${l.slug}-new-install`}
+                className="text-accent underline underline-offset-2"
+              >
+                See how a new installation works
+              </Link>
+              .
+            </p>
             {l.caseStudy && (
               <p className="mt-5 text-ink-soft">
                 Worked example for {l.city}:{" "}
@@ -248,6 +259,55 @@ export default function LocationPage({ location }: { location: Location }) {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* How each journey is delivered here. Deliberately neutral on who
+            installs: that is an owner decision (CLAIMS_REGISTER C2), so the
+            page says what is confirmed per project instead of guessing. */}
+        <section className="sec pt-0" id="how-delivery-works">
+          <div className="wrap">
+            <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+              How delivery works in {l.city}
+            </h2>
+            <div className="mt-7 grid gap-5 md:grid-cols-2">
+              <div className="card p-6 sm:p-7">
+                <h3 className="text-[1.05rem] font-semibold">
+                  Upgrading CCTV you already have
+                </h3>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">
+                  The camera assessment starts remotely from your recorder&rsquo;s
+                  streams, so it does not wait for a site visit. What the
+                  software needs on site — the processing unit, setup and any
+                  camera changes — is confirmed and itemised in the quote.
+                </p>
+                <Link
+                  href="#dealer"
+                  data-cta={`city-${l.slug}-delivery-upgrade`}
+                  className="mt-4 inline-block text-accent underline underline-offset-2"
+                >
+                  Check my cameras →
+                </Link>
+              </div>
+              <div className="card p-6 sm:p-7">
+                <h3 className="text-[1.05rem] font-semibold">
+                  A new CCTV installation
+                </h3>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">
+                  New sites need on-site survey and installation work.
+                  Installation availability, delivery arrangements and
+                  timelines are confirmed for your project in {l.city} before
+                  quotation.
+                </p>
+                <Link
+                  href="/cctv-installation-company#plan"
+                  data-cta={`city-${l.slug}-delivery-new`}
+                  className="mt-4 inline-block text-accent underline underline-offset-2"
+                >
+                  Plan a new installation →
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -380,7 +440,7 @@ export default function LocationPage({ location }: { location: Location }) {
         </section>
 
         {/* Convert in place — the hero CTA targets this on-page form. */}
-        <DealerForm />
+        <DealerForm cityHint={l.city} />
       </main>
 
       <Footer />

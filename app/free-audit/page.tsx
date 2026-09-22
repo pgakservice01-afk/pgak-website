@@ -125,6 +125,17 @@ export default function FreeAuditPage() {
                   Call {BUSINESS.phone}
                 </a>
               </div>
+              <p className="mt-4 text-[0.92rem] text-ink-soft">
+                No cameras yet? This audit is for existing systems —{" "}
+                <Link
+                  href="/cctv-installation-company#plan"
+                  data-cta="free-audit-new-install"
+                  className="text-accent underline underline-offset-2"
+                >
+                  plan a new CCTV installation instead
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </section>

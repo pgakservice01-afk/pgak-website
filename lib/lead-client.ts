@@ -25,6 +25,9 @@ export type LeadValues = {
   name?: string;
   location?: string;
   protecting?: string;
+  /** PROJECT_OPTIONS value when the form knows the journey. */
+  project?: string;
+  timeline?: string;
   email?: string;
   honeypot?: string;
 };
@@ -64,6 +67,8 @@ export async function submitLead(
         protecting: values.protecting ?? "",
         cameras: values.cameras,
         employees: values.employees ?? "",
+        project: values.project ?? "",
+        timeline: values.timeline ?? "",
         email: values.email ?? "",
         [HONEYPOT_FIELD]: values.honeypot ?? "",
         ref: opts.ref,
@@ -96,6 +101,10 @@ export async function submitLead(
           cta: opts.cta,
           cameras: values.cameras,
           protecting: values.protecting ?? "",
+          project_type: values.project ?? "",
+          // Random per-form id, not personal data: lets reports count one
+          // accepted enquiry once even if an event is ever sent twice.
+          lead_ref: opts.ref,
         });
       }
       return { kind: "done" };
@@ -119,7 +128,9 @@ export function waContinueHref(v: LeadValues, ref: string): string {
     "Hi PGAK, I just submitted an enquiry on your website.",
     v.name ? `Name: ${v.name}` : "",
     `Phone: ${v.phone}`,
+    v.project ? `Project: ${v.project}` : "",
     v.cameras ? `Cameras: ${v.cameras}` : "",
+    v.timeline ? `Timeline: ${v.timeline}` : "",
     v.employees ? `People: ${v.employees}` : "",
     v.protecting ? `Protecting: ${v.protecting}` : "",
     v.location ? `City: ${v.location}` : "",
@@ -135,7 +146,9 @@ export function waFallbackHref(v: LeadValues): string {
     "",
     v.name ? `Name: ${v.name}` : "",
     `Phone: ${v.phone}`,
+    v.project ? `Project: ${v.project}` : "",
     v.cameras ? `Cameras: ${v.cameras}` : "",
+    v.timeline ? `Timeline: ${v.timeline}` : "",
     v.protecting ? `Protecting: ${v.protecting}` : "",
     v.location ? `City: ${v.location}` : "",
   ].filter((line, i) => line !== "" || i === 1);

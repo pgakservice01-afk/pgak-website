@@ -54,6 +54,12 @@ export type Solution = {
   insights: string[];
   /** Case-study links proving this solution (hub → spoke). */
   caseStudies?: { href: string; label: string }[];
+  /**
+   * "new-install" makes this page the home of the "Plan a new CCTV
+   * installation" journey: hero and form ask about the project, not about
+   * cameras the visitor may not have. Omit for the upgrade journey (default).
+   */
+  journey?: "new-install";
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -1204,6 +1210,7 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "cctv-installation-company",
     group: "platform",
+    journey: "new-install",
     navLabel: "CCTV installation",
     primaryKeyword: "CCTV installation company",
     relatedKeywords: [
