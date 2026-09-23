@@ -1,30 +1,54 @@
-# PGAK lead register — shared sheet + alert emails
+# PGAK leads — Google Sheet + Gmail
 
-**What it does.** Every valid enquiry produces: the existing ERP record, one row
-in the **PGAK — Master Leads** Google Sheet, and one alert email to
-**director@securedengineers.com** and **mittaladitya18@gmail.com** — with a
-separate delivery status for each destination.
+**The lead system is one Google Sheet and one email to each of you.** Every valid
+enquiry on the website writes a row in **PGAK — Master Leads** and emails
+**director@securedengineers.com** and **mittaladitya18@gmail.com**. That is all
+you have to look at.
 
 | Piece | Where |
 |---|---|
-| Sheet | https://docs.google.com/spreadsheets/d/1u0tDeTWSvmOO-J7i917EgdhIqDQP6meQ3T6K6KNyizk/edit |
-| Sheet owner | director@securedengineers.com (company account). Shared: mittaladitya18@gmail.com as **Editor**. Not public; no link sharing. |
-| Apps Script project | "PGAK Leads - sheet row + alert emails", bound to that sheet (Extensions → Apps Script) |
-| Script source of truth | [`integrations/pgak-leads-appsscript.gs`](../../integrations/pgak-leads-appsscript.gs) in this repo |
+| The sheet | https://docs.google.com/spreadsheets/d/1u0tDeTWSvmOO-J7i917EgdhIqDQP6meQ3T6K6KNyizk/edit |
+| Who can open it | director@securedengineers.com (owner) and mittaladitya18@gmail.com (Editor). Private — no link sharing. |
+| What sends the row and the emails | A Google Apps Script bound to that sheet, running as the sheet's owner: [`integrations/pgak-leads-appsscript.gs`](../../integrations/pgak-leads-appsscript.gs) |
 | Website side | [`lib/leadRegister.ts`](../../lib/leadRegister.ts), called from `app/api/leads/route.ts` |
-| Replay | `POST /api/leads/replay` (guarded by `LEAD_REPLAY_SECRET`) |
+
+## Turn it on — three steps
+
+1. **Authorise the script.** Open the sheet → Extensions → Apps Script → choose
+   `setupSheet` → **Run** → Review permissions → pick director@securedengineers.com
+   → Advanced → "Go to … (unsafe)" → **Allow**. It builds the Leads tab.
+2. **Deploy it.** Deploy → New deployment → **Web app** → Execute as **Me**,
+   Who has access **Anyone** → Deploy → copy the URL ending `/exec`.
+3. **Tell the website.** In Vercel → Settings → Environment Variables add
+   `LEAD_REGISTER_URL` (that `/exec` URL) and `LEAD_REGISTER_SECRET` (the same
+   value as the script's `SECRET` property), then redeploy.
+
+Check it worked: `https://www.pgak.co.in/api/leads` should say
+`"register": true`. Then send me a message and I will run a labelled test
+enquiry and show you the row and both emails.
+
+**"Anyone" does not make your sheet public.** It only means the website's server
+can POST to that one URL without a Google login. The sheet stays private to you
+two, and the script writes nothing unless the request carries the right
+signature.
+
+## About the ERP
+
+The ERP relay is **optional**. Leave its variables set and every lead goes to
+both the ERP and the sheet; clear them and the sheet plus the two emails are the
+whole system (`/api/leads` then reports `"mode":"sheet-and-email"`). Either way
+the customer sees the same thing, and nothing about the forms changes.
 
 ## Flow
 
 ```
 customer submits
   → /api/leads validates (phone required, honeypot, rate limit, origin)
-  → ERP relay (unchanged: 2 attempts, idempotency key = lead id)
-  → register: signed POST to the Apps Script web app
+  → [optional] ERP relay, if its variables are set
+  → signed POST to the Apps Script web app
         → one sheet row per lead id
-        → alert email to each recipient
-  → statuses recorded per destination; customer sees success once the lead is
-    held by the ERP **or** by the register
+        → alert email to director@ and to mittaladitya18@
+  → the customer sees success once the lead is actually held somewhere
 ```
 
 **Failure behaviour**

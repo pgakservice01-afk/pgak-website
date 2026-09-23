@@ -437,7 +437,12 @@ export async function POST(request: NextRequest) {
   }
 
   const config = readConfig();
-  if (!config.ok) {
+  // Sheet-and-email mode: with the register configured and no ERP endpoint set,
+  // the Google Sheet + the two alert emails ARE the lead system. Clearing the
+  // ERP variables is therefore a supported setup, not a broken one — and when
+  // both are configured, both still receive every lead.
+  const registerOnly = !config.ok && registerConfig().ok;
+  if (!config.ok && !registerOnly) {
     console.error(config.reason, JSON.stringify({ ref }));
     await notifyOwner(lead, ref, config.reason, Math.min(NOTIFY_MS, left()));
     return json({ status: 503, body: { ok: false, delivered: false, ref, fallback: true } });
@@ -453,10 +458,10 @@ export async function POST(request: NextRequest) {
     attribution,
   );
   let notified: Promise<boolean> | null = null;
-  let lastReason = "unknown";
+  let lastReason = registerOnly ? "ERP not configured (sheet-and-email mode)" : "unknown";
   let authFailed = false;
 
-  for (let attempt = 1; attempt <= 2; attempt += 1) {
+  for (let attempt = 1; config.ok && attempt <= 2; attempt += 1) {
     const reserve = registerConfig().ok ? REGISTER_MS : 0;
     const budget = Math.min(ERP_ATTEMPT_MS, left() - 200 - reserve);
     if (budget <= 0) {
@@ -544,12 +549,15 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  if (!notified) {
-    notified = notifyOwner(lead, ref, lastReason, Math.min(NOTIFY_MS, left()));
+  // In sheet-and-email mode there is no ERP to fail, so the owner alarm stays
+  // silent unless the register itself fails (handled below).
+  if (!registerOnly) {
+    if (!notified) {
+      notified = notifyOwner(lead, ref, lastReason, Math.min(NOTIFY_MS, left()));
+    }
+    await notified;
+    console.error("LEAD_ERP_UNREACHABLE", JSON.stringify({ ref, reason: lastReason }));
   }
-  await notified;
-
-  console.error("LEAD_ERP_UNREACHABLE", JSON.stringify({ ref, reason: lastReason }));
 
   // The ERP is down, not the enquiry. If the shared register takes the row and
   // both recipients are alerted, the lead is captured and someone will call —
@@ -560,7 +568,7 @@ export async function POST(request: NextRequest) {
     ref,
     attribution,
     formId,
-    `failed: ${lastReason}`.slice(0, 120),
+    registerOnly ? "not in use (sheet-and-email mode)" : `failed: ${lastReason}`.slice(0, 120),
     Math.min(REGISTER_MS, left()),
   );
   if (register.ok) {
@@ -568,6 +576,12 @@ export async function POST(request: NextRequest) {
       status: 200,
       body: { ok: true, delivered: true, ref, erp: false, register: true },
     });
+  }
+
+  // The register was the only destination and it did not take the lead: raise
+  // the owner alarm that the ERP path would otherwise have raised.
+  if (registerOnly && !notified) {
+    await notifyOwner(lead, ref, `register failed: ${register.error}`, Math.min(NOTIFY_MS, left()));
   }
 
   return json({
@@ -598,6 +612,7 @@ export async function GET() {
     {
       ok: true,
       erp: config.ok,
+      mode: config.ok ? (registerConfig().ok ? "erp+register" : "erp only") : registerConfig().ok ? "sheet-and-email" : "not configured",
       notify: Boolean(
         (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim() &&
           (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
