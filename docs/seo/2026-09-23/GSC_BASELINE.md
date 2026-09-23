@@ -128,7 +128,29 @@ Roughly **47 real pages in the sitemap are not indexed.**
 
 Nothing is technically wrong with either. Google crawled them and declined to index. **An unindexed page cannot be cited by an AI Overview or by any assistant that grounds on a search index**, which makes this an AI-visibility problem, not only an SEO one.
 
-**Not diagnosed today: the 94 server errors (5xx)**, whose validation is already "Started" — meaning someone or something requested it previously. This is the one bucket that is neither explained by the spam history nor verified as harmless, and it is the first thing to open next session.
+### The 94 server errors (5xx) — diagnosed, stale, no action
+
+Opened later the same day. This bucket is also the WordPress compromise, and the fault it records no longer exists.
+
+Every URL in it is on the **bare host** and is legacy spam — the `/items/X106085020/` fake catalogue and casino slugs such as `/1win-skacat-prilozenie-bukmekerskoi-kontory2019-2//` (note the double trailing slash) and `/top-oferte-cazino-online-champagne-slot-pentru-cazinou-romania-2026-bonusuri-exclusive/`. **All 94 were last crawled 1 June 2026** — before the `410 Gone` middleware shipped.
+
+Ten samples requested as Googlebot on 2026-09-23, following redirects to the terminal status:
+
+```
+https://pgak.co.in/items/X106085020/            308 → www → 410
+https://pgak.co.in/1win-skacat-…-kontory2019-2//  308 → www → 410
+https://pgak.co.in/items/S94857414/             308 → www → 410
+…10 of 10 identical
+```
+
+Every one now ends in `410 Gone`, which is exactly what `middleware.ts` and `lib/spamUrls.ts` are built to do. **Validation (started 7 September): 94 pending, 0 failed.** Zero failures means nothing Google has re-checked still errors; the 94 are simply awaiting a re-crawl that Google is in no hurry to schedule for URLs it last touched in June and knows are dead.
+
+Checked for a live fault and found none:
+
+- All **178 sitemap URLs** requested as Googlebot → **every one 200**.
+- Middleware edge cases that could plausibly throw — `//`, `/items//`, `/%2e%2e/etc/passwd`, `/insights/%ff%fe`, a 900-character path, `?filter=&sort=`, a trailing slash on a real article — returned 308, 400 or 404. **No 5xx on any path tested.**
+
+**Action: none.** Do not re-click "Validate Fix" — Google states that resubmitting does not change queue position or priority, and restarting would discard 16 days of an already-clean run. Expect the bucket to decay on its own, alongside the 2,555 404s and the 1,356 crawled-not-indexed rows that share the same origin. Treat a *rise* in this number, or any `FAILED` count above zero, as the signal worth acting on.
 
 ## What this drives
 
@@ -147,8 +169,8 @@ Changes made today, and the gap in this document each one closes:
 
 Same property, same "3 months" preset, same Web search type. Record: totals row; top 10 queries by impressions; the five cluster sums over the top 100 queries; top 10 pages; the full indexing table. Then check, in this order:
 
-1. Did the 94 5xx errors move?
-2. Are the two held-out articles indexed?
+1. Did the 94 5xx count rise, or any validation move to FAILED? (A fall needs no action; see the 5xx section.)
+2. Are the two held-out articles indexed? (Indexing was requested for both on 2026-09-23.)
 3. Did any non-brand cluster record a first click?
 4. Did GA4 record any `ai_referral` event, and the lead register any `AI assistant:` source?
 5. Do the Vercel logs contain `ai-crawl` lines, and from which operators?
