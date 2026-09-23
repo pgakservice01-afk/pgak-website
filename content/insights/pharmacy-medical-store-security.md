@@ -4,7 +4,7 @@ date: "2026-09-21"
 category: "Security Basics"
 excerpt: "A medical store has three risks stacked in one small room — controlled-substance theft, till shortages and after-hours break-ins. One camera at the door catches none of them properly."
 readTime: 5
-image: "/insights/category/security-basics.webp"
+image: "/insights/covers/pharmacy-medical-store-security.webp"
 faqs:
   - q: "What CCTV does a medical store or pharmacy actually need?"
     a: "A pharmacy needs at least three camera positions, not one: the controlled-substance cabinet with a close, well-lit view of hands at the shelf, the counter and till from an angle that also captures the customer's face, and the entrance covering after-hours break-ins. A single door camera misses all three risks a pharmacy actually carries."

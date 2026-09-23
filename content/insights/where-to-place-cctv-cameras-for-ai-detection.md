@@ -6,7 +6,7 @@ excerpt: "The most common reason AI detection underperforms isn't the software â
 metaDescription: "The usual reason AI detection underperforms is not the software â€” it is a camera four metres up in a corner, seeing everything and identifying nothing."
 metaTitle: "Where to place CCTV cameras for AI detection"
 readTime: 5
-image: "/insights/category/camera-setup.webp"
+image: "/insights/covers/where-to-place-cctv-cameras-for-ai-detection.webp"
 ---
 
 We audit a lot of camera estates. The pattern is consistent enough to be predictable: cameras high, cameras in corners, cameras covering the maximum floor area possible.

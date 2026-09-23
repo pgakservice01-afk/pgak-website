@@ -4,7 +4,7 @@ date: "2026-09-12"
 category: "Security Basics"
 excerpt: "Anyone casing a site before a theft isn't looking for your cameras — they're looking for the three metres between them. A practical way to walk your own perimeter and find your blind spots before someone else does."
 readTime: 5
-image: "/insights/category/security-basics.webp"
+image: "/insights/covers/cctv-blind-spots-where-thieves-look.webp"
 faqs:
   - q: "What are CCTV camera blind spots?"
     a: "A blind spot is any area a person can stand, walk through, or work in that no camera actually covers clearly — not just areas with no camera at all, but also zones a nearby camera technically faces but can't resolve, because of distance, an obstruction, or a bad angle. Corners, gaps between two cameras' fields of view, and areas behind pillars or stacked stock are the most common ones."

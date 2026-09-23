@@ -5,7 +5,7 @@ category: "Compliance"
 excerpt: "Attendance retention isn't one number. The statutory register has a legal minimum keep period; the biometric template behind it doesn't, and should usually be deleted on exit. A practical schedule."
 metaDescription: "Attendance retention isn't one number. Keep the statutory register; delete the biometric template on exit. A practical retention schedule."
 readTime: 5
-image: "/insights/category/compliance-2.webp"
+image: "/insights/covers/attendance-data-retention-what-to-delete.webp"
 faqs:
   - q: "How long should attendance data be retained in India?"
     a: "There isn't a single answer — it depends on which record you mean. The statutory attendance register required under labour law typically has a minimum retention period set by state rules, often several years. The biometric template used to capture that attendance is a different kind of data and should usually be deleted much sooner, typically on the employee's exit."

@@ -4,7 +4,7 @@ date: "2026-09-16"
 category: "Security Basics"
 excerpt: "Hotel security usually gets judged on guest floors, but the weak point is housekeeping attendance and back-of-house doors. What good coverage and a workable attendance system actually look like."
 readTime: 5
-image: "/insights/category/security-basics-2.webp"
+image: "/insights/covers/hotel-security-and-staff-attendance.webp"
 faqs:
   - q: "Is it legal to install CCTV cameras in a hotel in India?"
     a: "Yes, in public and back-of-house areas — lobby, corridors, parking, kitchen, staff entrances — provided you give notice as required under India's DPDP Act. Rules on notice and retention vary by state, so verify the specifics with a compliance advisor. Guest rooms and attached bathrooms are always off-limits."

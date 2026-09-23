@@ -4,7 +4,7 @@ date: "2026-09-16"
 category: "Compliance"
 excerpt: "A camera without a notice is a compliance gap and a wasted deterrent. What the law actually expects, sample wording, and where the sign should go."
 readTime: 5
-image: "/insights/category/compliance.webp"
+image: "/insights/covers/cctv-signage-requirements-india.webp"
 faqs:
   - q: "Is CCTV signage legally required in India?"
     a: "There is no single national law mandating a specific sign, but rules vary by state and sector, and India's DPDP Act requires notifying people before collecting their personal data — which a camera capturing faces does. In practice, put up a clear notice at every monitored entrance, and verify the specifics for your state and industry with a compliance advisor."

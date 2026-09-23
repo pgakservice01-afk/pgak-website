@@ -5,7 +5,7 @@ category: "Attendance"
 excerpt: "Old attendance data rarely moves cleanly to a new system. What actually transfers, what export format to insist on, how long to run both systems in parallel, and the one week of the month to never cut over on."
 metaDescription: "What actually transfers when you switch attendance systems, the export format to insist on, and the one week of the month never to cut over on."
 readTime: 5
-image: "/insights/category/attendance-2.webp"
+image: "/insights/covers/migrating-attendance-system-without-losing-history.webp"
 faqs:
   - q: "How do I migrate to a new attendance system without losing history?"
     a: "Export your existing records in a plain, dated format before you touch anything — CSV with one row per punch, not a summarised monthly report. Run the old and new systems in parallel for at least one full pay cycle so you can compare them directly. Keep the old system's raw exports permanently, even after cutover, because a new vendor will migrate the summary but rarely the underlying punch-level data."

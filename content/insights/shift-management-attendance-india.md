@@ -6,7 +6,7 @@ excerpt: "Rotating shifts break most attendance systems quietly — a night shif
 metaDescription: "Rotating shifts break most attendance systems quietly — a night shift crossing midnight lands two dates, and the whole month drifts."
 metaTitle: "Rotating shifts and attendance rules in India"
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/covers/shift-management-attendance-india.webp"
 faqs:
   - q: "How do attendance systems handle rotating shifts?"
     a: "The system must know which shift each employee was rostered to on each date before it can judge whether an arrival was late. Without a roster, the machine only records timestamps and every downstream calculation — late marks, half days, overtime — is guesswork applied afterwards by a person."
