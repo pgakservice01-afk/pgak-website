@@ -162,9 +162,23 @@ export function buildRegisterPayload(
 /**
  * HMAC-SHA256 over `timestamp.body`, so a captured request cannot be replayed
  * days later and an attacker who finds the web app URL cannot write rows.
+ *
+ * `body` is the BASE64 of the UTF-8 payload, never raw JSON. Apps Script's
+ * Utilities.computeHmacSha256Signature does not default to UTF-8, so one
+ * non-ASCII character — the en dash in "5–15", or any Hindi text — produced a
+ * different digest there: verified against the live deployment on 2026-09-23,
+ * where an ASCII payload was accepted and the same payload with an en dash
+ * came back "bad signature". Signing ASCII base64 removes the charset question
+ * on both sides, and the receiver decodes instead of re-serialising, so JSON
+ * key order cannot drift either.
  */
 export function signRegisterBody(body: string, secret: string, timestamp: string): string {
   return createHmac("sha256", secret).update(`${timestamp}.${body}`).digest("hex");
+}
+
+/** Base64 of the UTF-8 payload — what travels, and what is signed. */
+export function encodeRegisterBody(payload: RegisterPayload): string {
+  return Buffer.from(JSON.stringify(payload), "utf8").toString("base64");
 }
 
 /** Constant-time compare, for the replay endpoint. */
@@ -212,11 +226,9 @@ export async function postToRegister(
   const config = registerConfig();
   if (!config.ok) return { ...EMPTY, error: "register not configured" };
   const deadline = Date.now() + budgetMs;
-  // Signed over the payload exactly as serialised here. Apps Script cannot read
-  // custom request headers, so the timestamp and signature ride along as two
-  // extra keys appended last — the script strips them and re-serialises the
-  // rest, which reproduces this string because JSON key order is preserved.
-  const body = JSON.stringify(payload);
+  // Apps Script cannot read custom request headers, so the timestamp and the
+  // signature travel in the body beside the base64 payload.
+  const body = encodeRegisterBody(payload);
   let error = "no attempt made";
 
   for (let attempt = 1; attempt <= 2; attempt += 1) {
@@ -225,7 +237,7 @@ export async function postToRegister(
     const timestamp = String(Date.now());
     try {
       const envelope = JSON.stringify({
-        ...payload,
+        __b64: body,
         __ts: timestamp,
         __sig: signRegisterBody(body, config.secret, timestamp),
       });

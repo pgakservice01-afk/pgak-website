@@ -6,8 +6,13 @@
  * access *Anyone*. "Anyone" is required because Vercel's servers call it
  * without a Google session — the request is what proves itself, not the caller:
  *
- *   X-PGAK-Timestamp  epoch ms, must be within SKEW_MS
- *   X-PGAK-Signature  HMAC-SHA256 hex over "<timestamp>.<body>" with SECRET
+ *   __ts   epoch ms, must be within SKEW_MS
+ *   __b64  base64 of the UTF-8 JSON payload
+ *   __sig  HMAC-SHA256 hex over "<__ts>.<__b64>" with SECRET
+ *
+ * The payload is signed as base64 because computeHmacSha256Signature does not
+ * default to UTF-8: signing raw JSON rejected every lead containing an en dash
+ * ("5–15") or Hindi text, while ASCII payloads passed (verified live 23 Sep).
  *
  * An unsigned, mis-signed or stale request is rejected and writes nothing.
  * The same lead_id twice never adds a second row and never re-sends the email.
@@ -220,31 +225,30 @@ function doPost(e) {
     var secret = prop_('SECRET');
     if (!secret) return json_({ ok: false, error: 'script SECRET not set' });
 
-    var body = (e && e.postData && e.postData.contents) || '';
-    var headers = (e && e.parameter) || {};
-    // Apps Script hides request headers, so the signature travels in the body
-    // envelope when headers are unavailable. The Vercel sender sends both.
-    var payload;
+    var raw = (e && e.postData && e.postData.contents) || '';
+    var envelope;
     try {
-      payload = JSON.parse(body);
+      envelope = JSON.parse(raw);
     } catch (err) {
       return json_({ ok: false, error: 'body is not JSON' });
     }
 
-    var ts = String(payload.__ts || headers.ts || '');
-    var sig = String(payload.__sig || headers.sig || '');
-    if (payload.__ts) {
-      // Re-serialise exactly what was signed: the envelope fields are removed.
-      var inner = {};
-      Object.keys(payload).forEach(function (k) {
-        if (k !== '__ts' && k !== '__sig') inner[k] = payload[k];
-      });
-      body = JSON.stringify(inner);
-      payload = inner;
-    }
-    if (!ts || !sig) return json_({ ok: false, error: 'missing signature' });
+    var ts = String(envelope.__ts || '');
+    var b64 = String(envelope.__b64 || '');
+    var sig = String(envelope.__sig || '');
+    if (!ts || !sig || !b64) return json_({ ok: false, error: 'missing signature' });
     if (Math.abs(Date.now() - Number(ts)) > SKEW_MS) return json_({ ok: false, error: 'stale request' });
-    if (!validSignature_(body, secret, ts, sig)) return json_({ ok: false, error: 'bad signature' });
+    if (!validSignature_(b64, secret, ts, sig)) return json_({ ok: false, error: 'bad signature' });
+
+    var payload;
+    try {
+      // Decode rather than re-serialise: no charset or key-order assumptions.
+      payload = JSON.parse(
+        Utilities.newBlob(Utilities.base64Decode(b64)).getDataAsString('UTF-8')
+      );
+    } catch (err) {
+      return json_({ ok: false, error: 'payload is not valid base64 JSON' });
+    }
 
     return json_(record_(payload));
   } catch (err) {
@@ -253,6 +257,8 @@ function doPost(e) {
 }
 
 function validSignature_(body, secret, ts, sig) {
+  // Both parts are ASCII here (digits and base64), so the charset default
+  // cannot change the digest.
   var bytes = Utilities.computeHmacSha256Signature(ts + '.' + body, secret);
   var hex = bytes
     .map(function (b) { return ('0' + (b & 0xff).toString(16)).slice(-2); })
