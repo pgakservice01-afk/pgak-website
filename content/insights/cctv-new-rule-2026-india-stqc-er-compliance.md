@@ -6,6 +6,7 @@ category: "Compliance"
 excerpt: "Network CCTV cameras sold in India must meet security Essential Requirements, and a grace period for older stock was reported to end on 1 April 2026. The rule is about making and selling cameras — not about the ones already on your wall."
 metaDescription: "India's CCTV security rule restricts what can be made, imported and sold, not what is already installed. What it covers, what it excludes, and how to check a camera on the BIS list before you buy."
 readTime: 6
+image: "/insights/category/compliance.webp"
 faqs:
   - q: "Is my existing CCTV camera illegal in India from April 2026?"
     a: "Nothing in the notifications requires cameras that are already installed and working to be removed. The rule restricts manufacture, import, storage and sale, so it applies when cameras are made and sold, not to a system already on your wall. If a supplier tells you your current cameras must be replaced because of this rule, ask them to show you the provision — there isn't one."

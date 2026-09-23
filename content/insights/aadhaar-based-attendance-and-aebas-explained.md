@@ -7,6 +7,7 @@ excerpt: "AEBAS is the government's Aadhaar-linked attendance system, and it is 
 metaTitle: "Aadhaar Based Attendance and AEBAS, Explained"
 metaDescription: "AEBAS is the government's Aadhaar-linked attendance system. Who is actually required to use it, why private employers cannot, and what they use instead."
 readTime: 9
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "What is AEBAS?"
     a: "AEBAS stands for Aadhaar Enabled Biometric Attendance System. It is the Government of India's attendance platform, in which an employee enters their Aadhaar number or employee ID at a terminal and authenticates with a fingerprint or iris scan against the UIDAI database. It is used across central and many state government offices."

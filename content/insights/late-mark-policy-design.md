@@ -5,6 +5,7 @@ category: "Attendance"
 excerpt: "Most late-mark disputes aren't about the minutes — they're about a policy nobody wrote down. A grace period, an escalation ladder and a timestamp everyone trusts fix most of it."
 metaDescription: "Most late-mark disputes are about a policy nobody wrote down. A grace period, an escalation ladder and a timestamp everyone trusts fix most of it."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "What is a good grace period for a late mark policy?"
     a: "Most Indian factories and offices settle somewhere between five and fifteen minutes, timed from the official shift start rather than from the first punch of the day. The exact number matters less than picking one, writing it down, and applying it the same way to everyone — an unpublished or unevenly enforced grace period causes more arguments than a strict published one."

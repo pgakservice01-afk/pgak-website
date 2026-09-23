@@ -5,6 +5,7 @@ category: "Camera Setup"
 excerpt: "Most site owners can't say whether their recorder is a DVR or an NVR, and it matters the day you want to add AI analytics. A two-minute way to check, and what each answer means for you."
 metaDescription: "A practical guide to telling your DVR from your NVR, and what the difference actually means when you want to add analytics later."
 readTime: 5
+image: "/insights/category/camera-setup.webp"
 faqs:
   - q: "What is the difference between a DVR and an NVR?"
     a: "A DVR (Digital Video Recorder) takes an analogue video signal over a coaxial cable and digitises it inside the box. An NVR (Network Video Recorder) takes an already-digital stream over an Ethernet cable from an IP camera and just stores it. The camera type you have decides which recorder you need — you cannot mix them without a converter."

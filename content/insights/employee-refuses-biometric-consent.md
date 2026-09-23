@@ -5,6 +5,7 @@ category: "Compliance"
 excerpt: "An employee can refuse fingerprint or face-based attendance under the DPDP Act, and forcing it is the wrong fight. What a lawful fallback looks like, and why it rarely comes to that."
 metaDescription: "An employee can refuse biometric attendance under the DPDP Act. What a lawful fallback looks like, and why forcing it is the wrong fight."
 readTime: 5
+image: "/insights/category/compliance.webp"
 faqs:
   - q: "Can an employee legally refuse biometric attendance in India?"
     a: "Yes. Biometric data is personal data under the DPDP Act, 2023, and collecting it needs informed consent. An employee can decline, and an employer cannot make biometric enrolment the only way to be marked present — a lawful non-biometric fallback has to exist."

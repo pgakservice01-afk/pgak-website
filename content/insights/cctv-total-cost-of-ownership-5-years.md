@@ -4,6 +4,7 @@ date: "2026-09-21"
 category: "Buying Guide"
 excerpt: "The quote you get is the smallest number you'll pay for your CCTV system over five years. Cabling, storage growth, AMC, replacement and electricity are the line items nobody puts on the invoice."
 readTime: 6
+image: "/insights/category/buying-guide.webp"
 faqs:
   - q: "What is the real cost of a CCTV system over five years, not just the quote?"
     a: "The upfront quote for cameras, DVR/NVR and installation is usually the smallest slice of five-year cost. On top of it sit cabling and conduit already baked into the quote, then ongoing costs the quote doesn't show: storage that needs expanding as retention requirements grow, an annual maintenance contract, electricity for cameras and recorder running continuously, and at least one round of hardware replacement — cameras and recorders both have a working life, not an indefinite one."

@@ -5,6 +5,7 @@ category: "Attendance"
 excerpt: "Three sites usually means three attendance systems, three exports and a spreadsheet that merges them badly. What a genuinely multi-site setup has to do differently."
 metaDescription: "Three sites usually means three attendance systems, three exports and a spreadsheet that merges them badly."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "How do you manage attendance across multiple locations?"
     a: "With one system holding all sites rather than one system per site. The requirements are a single employee master across locations, per-site shift and holiday rules, site-level access for local managers, a consolidated view for head office, and a single payroll export covering everyone."

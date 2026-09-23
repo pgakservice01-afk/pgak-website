@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "Footage overwrites on a schedule, and most people notice a theft after that schedule has already run. What to do in the first hours, in order, before the recording you need is gone."
 metaDescription: "CCTV footage overwrites on a schedule. The exact steps to take in the first hours after a theft — export, timestamps, FIR, insurance — before the recording is gone."
 readTime: 6
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "What should I do first after discovering a theft caught on CCTV?"
     a: "Export the relevant footage immediately, before doing anything else, onto a separate device — not just a phone video of the screen. Rolling storage overwrites on a fixed cycle, often just days, and a theft is frequently noticed after that cycle has already erased the recording you need."

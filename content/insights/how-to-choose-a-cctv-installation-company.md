@@ -5,6 +5,7 @@ category: "Buying Guide"
 excerpt: "Most CCTV installation quotes are priced per camera and say nothing about whether the system will actually work. Seven questions that separate an installer who will still answer the phone in month six from one who won't."
 metaDescription: "Most CCTV installation quotes are priced per camera and say nothing about whether the system will actually work."
 readTime: 6
+image: "/insights/category/buying-guide.webp"
 faqs:
   - q: "What should I ask a CCTV installation company before signing?"
     a: "Ask who owns the recorder password, what the response time is for a dead camera, whether the quote includes cabling and power, what happens to footage when the disk fills, and whether they will show you a live view from a site they installed over a year ago. An installer who cannot answer the last one has no long-lived work to point at."

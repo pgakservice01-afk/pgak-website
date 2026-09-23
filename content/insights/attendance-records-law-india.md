@@ -6,6 +6,7 @@ excerpt: "Indian labour law requires employers to maintain attendance and wage r
 metaDescription: "Indian labour law requires attendance and wage registers; the DPDP Act governs the biometric data used to produce them. A plain guide to both."
 metaTitle: "Attendance records under Indian law: what to keep"
 readTime: 6
+image: "/insights/category/compliance.webp"
 faqs:
   - q: "Are employers in India required to maintain attendance records?"
     a: "Yes. Maintaining registers of attendance and wages is a long-standing requirement under Indian labour legislation, including the Factories Act and shops and establishments legislation in each state, and is carried forward under the labour codes. Exact register formats and retention periods vary by state and by which statute applies to your establishment."

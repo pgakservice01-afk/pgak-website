@@ -5,6 +5,7 @@ category: "Attendance"
 excerpt: "Every day a new joiner isn't enrolled is a day of manual entries, disputes and HR chasing paperwork. Employee onboarding attendance shouldn't take longer than the induction talk."
 metaDescription: "Enrolling a new joiner should take minutes, not a week. Where employee onboarding attendance stalls, and why enrolment time costs more than misses."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "What does employee onboarding attendance actually involve?"
     a: "Capturing whatever the attendance system needs to recognise that person going forward — a fingerprint template, a card assignment, or a small set of face photos — and linking it to their employee record before their first shift starts. The step people underestimate is the last part: a credential captured but not linked to payroll and shift data is enrolment in name only."

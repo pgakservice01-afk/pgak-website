@@ -6,6 +6,7 @@ excerpt: "Most Indian sites still run a register alongside whatever machine they
 metaDescription: "Most Indian sites still run a register alongside whatever machine they bought."
 metaTitle: "Replacing the paper attendance register"
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "Why do businesses still keep a paper attendance register?"
     a: "Usually because the electronic system fails often enough that a fallback is needed — failed fingerprint scans, missed punches, or entrances the machine does not cover. The register survives as the exception handler, and once it exists as a fallback it tends to become the real record."

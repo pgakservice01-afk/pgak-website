@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "Not magic, and not the same as motion detection. A plain explanation of what happens between a person crossing your boundary and your phone buzzing three seconds later."
 metaDescription: "Not magic, and not motion detection. What actually happens between a person crossing your boundary and your phone buzzing three seconds later."
 readTime: 5
+image: "/insights/category/security-basics.webp"
 ---
 
 People ask us this in two very different tones. Some want reassurance that it isn't magic. Others want reassurance that it is.

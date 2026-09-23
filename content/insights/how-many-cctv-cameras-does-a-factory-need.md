@@ -5,6 +5,7 @@ category: "Camera Setup"
 excerpt: "Not a number per square foot. Count the ways in, the places value concentrates, and the events you want to be told about — the camera count falls out of that list, and it is usually smaller than the quote you were given."
 metaDescription: "Not a number per square foot. Count the ways in, where value concentrates, and the events you want flagged — the camera count falls out of that."
 readTime: 7
+image: "/insights/category/camera-setup.webp"
 faqs:
   - q: "How many CCTV cameras does a warehouse need?"
     a: "It follows from entry points and value concentration rather than floor area. A typical mid-sized warehouse needs one camera per external door and shutter, one per loading bay, two to four covering the perimeter, one on the despatch and returns desk, one over any high-value or bonded storage, and wide coverage of the main floor. That usually lands between 12 and 30 cameras. Two warehouses of identical size can legitimately differ by double if one has four shutters and the other has one."

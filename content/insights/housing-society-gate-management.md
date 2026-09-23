@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "The visitor register at most housing society gates is a formality nobody checks until something goes wrong. What a gate actually needs to record, and why the argument over who can watch the footage matters as much as the cameras themselves."
 metaDescription: "What a housing society gate needs to track visitors and vehicles properly, and how committees should handle access to CCTV footage."
 readTime: 5
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "What CCTV does a housing society gate need?"
     a: "One camera facing incoming traffic at face height and vehicle-plate height, and a second facing the exit. The entry camera should be positioned so it captures a usable face image before the boom barrier, not after — most societies place it too close to the barrier and only catch the top of a helmet."

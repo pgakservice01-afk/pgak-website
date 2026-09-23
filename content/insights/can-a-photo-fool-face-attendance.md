@@ -4,6 +4,7 @@ date: "2026-09-08"
 category: "Attendance"
 excerpt: "A printed photo, a phone screen held up to the camera — does it actually work? What liveness detection checks for, and where it still has gaps."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "Can you fool face recognition attendance with a photo?"
     a: "Not if the system has liveness detection, which is now standard in most face attendance products. Liveness checks look for signs of a live, three-dimensional person — subtle movement, depth, sometimes a prompted blink or head turn — and reject a flat printed photo or a phone screen held up to the camera because those don't move or reflect light the way a real face does."

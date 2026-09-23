@@ -4,6 +4,7 @@ date: "2026-09-08"
 category: "Attendance"
 excerpt: "One photo is why half your 'face recognition failures' aren't accuracy problems at all. What a proper enrolment set looks like and how to fix a bad one."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "How many photos are needed to enrol someone in face recognition attendance?"
     a: "A reliable enrolment needs several photos of the same person, not one — typically covering a straight-on view, a slight left and right turn, and the everyday look of their face at the gate, including any headgear or glasses they normally wear. One photo teaches the system a single angle and lighting condition, and it will struggle the moment the real gate looks different."

@@ -6,6 +6,7 @@ excerpt: "Most warehouse camera advice is about resolution. It should be about c
 metaDescription: "Most warehouse camera advice is about resolution. It should be about coverage, angles and what happens after the footage is recorded."
 metaTitle: "Choosing an AI CCTV camera for an Indian warehouse"
 readTime: 6
+image: "/insights/category/warehouse-security.webp"
 ---
 
 Every warehouse owner who calls us asks the same first question: which camera should I buy?

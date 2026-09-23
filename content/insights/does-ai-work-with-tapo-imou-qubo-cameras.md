@@ -5,6 +5,7 @@ category: "Camera Setup"
 excerpt: "We have tested Tapo, Prama and Qubo directly. But the honest answer is that the brand is not really the question — what matters is whether the camera will hand over an RTSP stream."
 metaDescription: "We have tested Tapo, Prama and Qubo. Whether AI video analysis works with your camera depends on RTSP, not the badge — here is how to check yours in two minutes."
 readTime: 7
+image: "/insights/category/camera-setup.webp"
 faqs:
   - q: "Does AI CCTV work with Tapo cameras?"
     a: "Yes — we have tested Tapo directly. It applies to the mains-powered models, which support RTSP and ONVIF Profile S. Two things are needed first: create a Camera Account inside the Tapo app under Device Settings, Advanced Settings, Camera Account — this is a separate username and password from your TP-Link cloud login, and the cloud login will not work. Then use rtsp://username:password@CAMERA-IP:554/stream1 for the high-quality stream or /stream2 for the lower one. Most battery-powered Tapo models do not offer RTSP at all, so those are the exception."

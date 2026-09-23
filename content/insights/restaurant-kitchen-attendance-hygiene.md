@@ -5,6 +5,7 @@ category: "Attendance"
 excerpt: "A fingerprint scanner outside a kitchen is touched by every hand that later touches food. Why restaurants are moving staff attendance to a camera at the door, and where that still needs a backup plan."
 metaDescription: "A fingerprint scanner outside a kitchen is touched by every hand that later touches food. What restaurants use instead, and where it still needs a backup."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "Why is fingerprint attendance a hygiene problem in a restaurant kitchen?"
     a: "A fingerprint scanner is a single surface that every staff member presses with the same hand they use to prep food, right before or after a shift. It sits at odds with basic kitchen hygiene, and oil, flour and wet hands also make the scans unreliable, which pushes staff toward pressing harder or repeating attempts on the same pad."

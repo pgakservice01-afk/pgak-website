@@ -4,6 +4,7 @@ date: "2026-09-20"
 category: "Attendance"
 excerpt: "Fingerprint scanners fail hardest on a textile floor — yarn and fabric wear down the ridges the machine needs to read. What actually holds up in a mill, and where the real security gaps sit."
 readTime: 6
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "Why do fingerprint attendance machines fail so often in textile factories?"
     a: "Constant contact with yarn and fabric wears down the ridge pattern on fingertips, and dust and lint coat the sensor glass through the shift. Both push rejection rates up, which is when supervisors start making manual entries and the attendance record stops meaning anything."
