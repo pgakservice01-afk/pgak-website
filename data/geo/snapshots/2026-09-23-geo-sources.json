@@ -1,0 +1,3166 @@
+{
+  "retrievedAt": "2026-09-23T13:24:59.823Z",
+  "stateSource": "lgd-authoritative",
+  "districtSource": "igod-crosscheck",
+  "sources": {
+    "states": {
+      "url": "https://lgdirectory.gov.in/globalviewdistrictforcitizen.do",
+      "publisher": "Local Government Directory (LGD), Ministry of Panchayati Raj, Government of India",
+      "licence": "Government Open Data Licence – India (GODL)",
+      "note": "State/UT selector only. The district listing behind this endpoint is CAPTCHA-gated and was not retrieved.",
+      "captchaGated": true,
+      "checksum": "23f6964159d9f9d19be22a5db7791cc7138f17ad12dbefb523f283114360f5f7",
+      "count": 36
+    },
+    "districts": {
+      "url": "https://igod.gov.in/districts",
+      "publisher": "Integrated Government Online Directory (igod), NIC, Government of India",
+      "licence": "Government Open Data Licence – India (GODL)",
+      "note": "Directory of district WEBSITES. Carries no LGD district code, no state field and no effective dates. Cross-check only — not the administrative master.",
+      "requests": 16,
+      "rowsRead": 784,
+      "exhausted": true,
+      "count": 748
+    }
+  },
+  "states": [
+    {
+      "lgdStateCode": 1,
+      "name": "Jammu And Kashmir"
+    },
+    {
+      "lgdStateCode": 2,
+      "name": "Himachal Pradesh"
+    },
+    {
+      "lgdStateCode": 3,
+      "name": "Punjab"
+    },
+    {
+      "lgdStateCode": 4,
+      "name": "Chandigarh"
+    },
+    {
+      "lgdStateCode": 5,
+      "name": "Uttarakhand"
+    },
+    {
+      "lgdStateCode": 6,
+      "name": "Haryana"
+    },
+    {
+      "lgdStateCode": 7,
+      "name": "Delhi"
+    },
+    {
+      "lgdStateCode": 8,
+      "name": "Rajasthan"
+    },
+    {
+      "lgdStateCode": 9,
+      "name": "Uttar Pradesh"
+    },
+    {
+      "lgdStateCode": 10,
+      "name": "Bihar"
+    },
+    {
+      "lgdStateCode": 11,
+      "name": "Sikkim"
+    },
+    {
+      "lgdStateCode": 12,
+      "name": "Arunachal Pradesh"
+    },
+    {
+      "lgdStateCode": 13,
+      "name": "Nagaland"
+    },
+    {
+      "lgdStateCode": 14,
+      "name": "Manipur"
+    },
+    {
+      "lgdStateCode": 15,
+      "name": "Mizoram"
+    },
+    {
+      "lgdStateCode": 16,
+      "name": "Tripura"
+    },
+    {
+      "lgdStateCode": 17,
+      "name": "Meghalaya"
+    },
+    {
+      "lgdStateCode": 18,
+      "name": "Assam"
+    },
+    {
+      "lgdStateCode": 19,
+      "name": "West Bengal"
+    },
+    {
+      "lgdStateCode": 20,
+      "name": "Jharkhand"
+    },
+    {
+      "lgdStateCode": 21,
+      "name": "Odisha"
+    },
+    {
+      "lgdStateCode": 22,
+      "name": "Chhattisgarh"
+    },
+    {
+      "lgdStateCode": 23,
+      "name": "Madhya Pradesh"
+    },
+    {
+      "lgdStateCode": 24,
+      "name": "Gujarat"
+    },
+    {
+      "lgdStateCode": 27,
+      "name": "Maharashtra"
+    },
+    {
+      "lgdStateCode": 28,
+      "name": "Andhra Pradesh"
+    },
+    {
+      "lgdStateCode": 29,
+      "name": "Karnataka"
+    },
+    {
+      "lgdStateCode": 30,
+      "name": "Goa"
+    },
+    {
+      "lgdStateCode": 31,
+      "name": "Lakshadweep"
+    },
+    {
+      "lgdStateCode": 32,
+      "name": "Kerala"
+    },
+    {
+      "lgdStateCode": 33,
+      "name": "Tamil Nadu"
+    },
+    {
+      "lgdStateCode": 34,
+      "name": "Puducherry"
+    },
+    {
+      "lgdStateCode": 35,
+      "name": "Andaman And Nicobar Islands"
+    },
+    {
+      "lgdStateCode": 36,
+      "name": "Telangana"
+    },
+    {
+      "lgdStateCode": 37,
+      "name": "Ladakh"
+    },
+    {
+      "lgdStateCode": 38,
+      "name": "The Dadra And Nagar Haveli And Daman And Diu"
+    }
+  ],
+  "districts": [
+    {
+      "name": "Adilabad",
+      "website": "https://adilabad.telangana.gov.in"
+    },
+    {
+      "name": "Agar-Malwa",
+      "website": "https://agarmalwa.nic.in"
+    },
+    {
+      "name": "Agra",
+      "website": "https://agra.nic.in"
+    },
+    {
+      "name": "Ahilyanagar",
+      "website": "https://ahmednagar.nic.in"
+    },
+    {
+      "name": "Ahmedabad",
+      "website": "https://ahmedabad.nic.in"
+    },
+    {
+      "name": "Aizawl",
+      "website": "https://aizawl.nic.in"
+    },
+    {
+      "name": "Ajmer",
+      "website": "https://ajmer.rajasthan.gov.in"
+    },
+    {
+      "name": "Akola",
+      "website": "https://akola.gov.in"
+    },
+    {
+      "name": "Alappuzha",
+      "website": "https://alappuzha.nic.in"
+    },
+    {
+      "name": "Aligarh",
+      "website": "https://aligarh.nic.in"
+    },
+    {
+      "name": "Alipurduar",
+      "website": "https://alipurduar.gov.in"
+    },
+    {
+      "name": "Alirajpur",
+      "website": "https://alirajpur.nic.in"
+    },
+    {
+      "name": "Alluri Sitharama Raju",
+      "website": "https://allurisitharamaraju.ap.gov.in"
+    },
+    {
+      "name": "Almora",
+      "website": "https://almora.nic.in"
+    },
+    {
+      "name": "Alwar",
+      "website": "https://alwar.rajasthan.gov.in"
+    },
+    {
+      "name": "Ambala",
+      "website": "https://ambala.gov.in"
+    },
+    {
+      "name": "Ambedkar Nagar",
+      "website": "https://ambedkarnagar.nic.in"
+    },
+    {
+      "name": "Amethi",
+      "website": "https://amethi.nic.in"
+    },
+    {
+      "name": "Amravati",
+      "website": "https://amravati.gov.in"
+    },
+    {
+      "name": "Amreli",
+      "website": "https://amreli.nic.in"
+    },
+    {
+      "name": "Amritsar",
+      "website": "https://amritsar.nic.in"
+    },
+    {
+      "name": "Amroha",
+      "website": "https://amroha.nic.in"
+    },
+    {
+      "name": "Anakapalli",
+      "website": "https://anakapalli.ap.gov.in"
+    },
+    {
+      "name": "Anand",
+      "website": "https://anand.nic.in"
+    },
+    {
+      "name": "Ananthapuramu",
+      "website": "https://ananthapuramu.ap.gov.in"
+    },
+    {
+      "name": "Anantnag",
+      "website": "https://anantnag.nic.in"
+    },
+    {
+      "name": "Anjaw",
+      "website": "https://anjaw.nic.in"
+    },
+    {
+      "name": "Annamayya",
+      "website": "https://annamayya.ap.gov.in"
+    },
+    {
+      "name": "Anugola",
+      "website": "https://angul.odisha.gov.in"
+    },
+    {
+      "name": "Anuppur",
+      "website": "https://anuppur.nic.in"
+    },
+    {
+      "name": "Araria",
+      "website": "https://araria.nic.in"
+    },
+    {
+      "name": "Ariyalur",
+      "website": "https://ariyalur.nic.in"
+    },
+    {
+      "name": "Arvalli",
+      "website": "https://arvalli.nic.in"
+    },
+    {
+      "name": "Arwal",
+      "website": "https://arwal.nic.in"
+    },
+    {
+      "name": "Ashoknagar",
+      "website": "https://ashoknagar.nic.in"
+    },
+    {
+      "name": "Auraiya",
+      "website": "https://auraiya.nic.in"
+    },
+    {
+      "name": "Aurangabad",
+      "website": "https://aurangabad.bih.nic.in"
+    },
+    {
+      "name": "Ayodhya",
+      "website": "https://ayodhya.nic.in"
+    },
+    {
+      "name": "Azamgarh",
+      "website": "https://azamgarh.nic.in"
+    },
+    {
+      "name": "Bagalkote",
+      "website": "https://bagalkot.nic.in"
+    },
+    {
+      "name": "Bageshwar",
+      "website": "https://bageshwar.nic.in"
+    },
+    {
+      "name": "Baghpat",
+      "website": "https://bagpat.nic.in"
+    },
+    {
+      "name": "Bahraich",
+      "website": "https://bahraich.nic.in"
+    },
+    {
+      "name": "Bajali",
+      "website": "https://bajali.assam.gov.in"
+    },
+    {
+      "name": "Baksa",
+      "website": "https://baksa.assam.gov.in"
+    },
+    {
+      "name": "Balaghat",
+      "website": "https://balaghat.nic.in"
+    },
+    {
+      "name": "Balangir",
+      "website": "https://balangir.odisha.gov.in"
+    },
+    {
+      "name": "Baleshwar",
+      "website": "https://balasore.odisha.gov.in"
+    },
+    {
+      "name": "Ballari",
+      "website": "https://ballari.nic.in"
+    },
+    {
+      "name": "Ballia",
+      "website": "https://ballia.nic.in"
+    },
+    {
+      "name": "Balod",
+      "website": "https://balod.gov.in"
+    },
+    {
+      "name": "Balodabazar-Bhatapara",
+      "website": "https://balodabazar.gov.in"
+    },
+    {
+      "name": "Balotra",
+      "website": "https://balotra.rajasthan.gov.in"
+    },
+    {
+      "name": "Balrampur",
+      "website": "https://balrampur.nic.in"
+    },
+    {
+      "name": "Balrampur-Ramanujganj",
+      "website": "https://balrampur.gov.in"
+    },
+    {
+      "name": "Banas Kantha",
+      "website": "https://banaskantha.nic.in"
+    },
+    {
+      "name": "Banda",
+      "website": "https://banda.nic.in"
+    },
+    {
+      "name": "Bandipora",
+      "website": "https://bandipore.nic.in"
+    },
+    {
+      "name": "Banka",
+      "website": "https://banka.nic.in"
+    },
+    {
+      "name": "Bankura",
+      "website": "https://bankura.gov.in"
+    },
+    {
+      "name": "Banswara",
+      "website": "https://banswara.rajasthan.gov.in"
+    },
+    {
+      "name": "Bapatla",
+      "website": "https://bapatla.ap.gov.in"
+    },
+    {
+      "name": "Bara Banki",
+      "website": "https://barabanki.nic.in"
+    },
+    {
+      "name": "Baragada",
+      "website": "https://bargarh.odisha.gov.in"
+    },
+    {
+      "name": "Baramulla",
+      "website": "https://baramulla.nic.in"
+    },
+    {
+      "name": "Baran",
+      "website": "https://baran.rajasthan.gov.in"
+    },
+    {
+      "name": "Bareilly",
+      "website": "https://bareilly.nic.in"
+    },
+    {
+      "name": "Barmer",
+      "website": "https://barmer.rajasthan.gov.in"
+    },
+    {
+      "name": "Barnala",
+      "website": "https://barnala.gov.in"
+    },
+    {
+      "name": "Barpeta",
+      "website": "https://barpeta.assam.gov.in"
+    },
+    {
+      "name": "Barwani",
+      "website": "https://barwani.nic.in"
+    },
+    {
+      "name": "Bastar",
+      "website": "https://bastar.gov.in"
+    },
+    {
+      "name": "Basti",
+      "website": "https://basti.nic.in"
+    },
+    {
+      "name": "Bathinda",
+      "website": "https://bathinda.nic.in"
+    },
+    {
+      "name": "Beawar",
+      "website": "https://beawar.rajasthan.gov.in"
+    },
+    {
+      "name": "Beed",
+      "website": "https://beed.gov.in"
+    },
+    {
+      "name": "Begusarai",
+      "website": "https://begusarai.nic.in"
+    },
+    {
+      "name": "Belagavi",
+      "website": "https://belagavi.nic.in"
+    },
+    {
+      "name": "Bemetara",
+      "website": "https://bemetara.gov.in"
+    },
+    {
+      "name": "Bengaluru Rural",
+      "website": "https://bangalorerural.nic.in"
+    },
+    {
+      "name": "Bengaluru South",
+      "website": "https://ramanagara.nic.in"
+    },
+    {
+      "name": "Bengaluru Urban",
+      "website": "https://bengaluruurban.nic.in"
+    },
+    {
+      "name": "Betul",
+      "website": "https://betul.nic.in"
+    },
+    {
+      "name": "Bhadohi",
+      "website": "https://bhadohi.nic.in"
+    },
+    {
+      "name": "Bhadradri Kothagudem",
+      "website": "https://kothagudem.telangana.gov.in"
+    },
+    {
+      "name": "Bhadrak",
+      "website": "https://bhadrak.odisha.gov.in"
+    },
+    {
+      "name": "Bhagalpur",
+      "website": "https://bhagalpur.nic.in"
+    },
+    {
+      "name": "Bhandara",
+      "website": "https://bhandara.gov.in"
+    },
+    {
+      "name": "Bharatpur",
+      "website": "https://bharatpur.rajasthan.gov.in"
+    },
+    {
+      "name": "Bharuch",
+      "website": "https://bharuch.nic.in"
+    },
+    {
+      "name": "Bhavnagar",
+      "website": "https://bhavnagar.nic.in"
+    },
+    {
+      "name": "Bhilwara",
+      "website": "https://bhilwara.rajasthan.gov.in"
+    },
+    {
+      "name": "Bhind",
+      "website": "https://bhind.nic.in"
+    },
+    {
+      "name": "Bhiwani",
+      "website": "https://bhiwani.gov.in"
+    },
+    {
+      "name": "Bhojpur",
+      "website": "https://bhojpur.nic.in"
+    },
+    {
+      "name": "Bhopal",
+      "website": "https://bhopal.nic.in"
+    },
+    {
+      "name": "Bidar",
+      "website": "https://bidar.nic.in"
+    },
+    {
+      "name": "Bijapur",
+      "website": "https://bijapur.gov.in"
+    },
+    {
+      "name": "Bijnor",
+      "website": "https://bijnor.nic.in"
+    },
+    {
+      "name": "Bikaner",
+      "website": "https://bikaner.rajasthan.gov.in"
+    },
+    {
+      "name": "Bilaspur",
+      "website": "https://hpbilaspur.nic.in"
+    },
+    {
+      "name": "Bilaspur",
+      "website": "https://bilaspur.gov.in"
+    },
+    {
+      "name": "Birbhum",
+      "website": "https://birbhum.gov.in"
+    },
+    {
+      "name": "Bishnupur",
+      "website": "https://bishnupur.nic.in"
+    },
+    {
+      "name": "Biswanath",
+      "website": "https://biswanath.gov.in"
+    },
+    {
+      "name": "Bokaro",
+      "website": "https://bokaro.nic.in"
+    },
+    {
+      "name": "Bongaigaon",
+      "website": "https://bongaigaon.gov.in"
+    },
+    {
+      "name": "Botad",
+      "website": "https://botad.nic.in"
+    },
+    {
+      "name": "Boudh",
+      "website": "https://boudh.odisha.gov.in"
+    },
+    {
+      "name": "Budaun",
+      "website": "https://budaun.nic.in"
+    },
+    {
+      "name": "Budgam",
+      "website": "https://budgam.nic.in"
+    },
+    {
+      "name": "Bulandshahr",
+      "website": "https://bulandshahar.nic.in"
+    },
+    {
+      "name": "Buldhana",
+      "website": "https://buldhana.nic.in"
+    },
+    {
+      "name": "Bundi",
+      "website": "https://bundi.rajasthan.gov.in"
+    },
+    {
+      "name": "Burhanpur",
+      "website": "https://burhanpur.nic.in"
+    },
+    {
+      "name": "Buxar",
+      "website": "https://buxar.nic.in"
+    },
+    {
+      "name": "Cachar",
+      "website": "https://cachar.gov.in"
+    },
+    {
+      "name": "Central",
+      "website": "https://dccentral.delhi.gov.in"
+    },
+    {
+      "name": "Chamarajanagar",
+      "website": "https://chamrajnagar.nic.in"
+    },
+    {
+      "name": "Chamba",
+      "website": "https://hpchamba.nic.in"
+    },
+    {
+      "name": "Chamoli",
+      "website": "https://chamoli.gov.in"
+    },
+    {
+      "name": "Champawat",
+      "website": "https://champawat.nic.in"
+    },
+    {
+      "name": "Champhai",
+      "website": "https://champhai.nic.in"
+    },
+    {
+      "name": "Chandauli",
+      "website": "https://chandauli.nic.in"
+    },
+    {
+      "name": "Chandel",
+      "website": "https://chandel.nic.in"
+    },
+    {
+      "name": "Chandigarh",
+      "website": "https://chandigarhdistrict.nic.in"
+    },
+    {
+      "name": "Chandrapur",
+      "website": "https://chanda.nic.in"
+    },
+    {
+      "name": "Changlang",
+      "website": "https://changlang.nic.in"
+    },
+    {
+      "name": "Charaideo",
+      "website": "https://charaideo.gov.in"
+    },
+    {
+      "name": "Charkhi Dadri",
+      "website": "https://charkhidadri.gov.in"
+    },
+    {
+      "name": "Chatra",
+      "website": "https://chatra.nic.in"
+    },
+    {
+      "name": "Chengalpattu",
+      "website": "https://chengalpattu.nic.in"
+    },
+    {
+      "name": "Chennai",
+      "website": "https://chennai.nic.in"
+    },
+    {
+      "name": "Chhatarpur",
+      "website": "https://chhatarpur.nic.in"
+    },
+    {
+      "name": "Chhatrapati Sambhajinagar",
+      "website": "https://aurangabad.gov.in"
+    },
+    {
+      "name": "Chhindwara",
+      "website": "https://chhindwara.nic.in"
+    },
+    {
+      "name": "Chhotaudepur",
+      "website": "https://chhotaudepur.nic.in"
+    },
+    {
+      "name": "Chikkaballapura",
+      "website": "https://chikkaballapur.nic.in"
+    },
+    {
+      "name": "Chikkamagaluru",
+      "website": "https://chikkamagaluru.nic.in"
+    },
+    {
+      "name": "Chirang",
+      "website": "https://chirang.assam.gov.in"
+    },
+    {
+      "name": "Chitradurga",
+      "website": "https://chitradurga.nic.in"
+    },
+    {
+      "name": "Chitrakoot",
+      "website": "https://chitrakoot.nic.in"
+    },
+    {
+      "name": "Chittoor",
+      "website": "https://chittoor.ap.gov.in"
+    },
+    {
+      "name": "Chittorgarh",
+      "website": "https://chittorgarh.rajasthan.gov.in"
+    },
+    {
+      "name": "Chumoukedima",
+      "website": "https://chumoukedima.nic.in"
+    },
+    {
+      "name": "Churachandpur",
+      "website": "https://churachandpur.nic.in"
+    },
+    {
+      "name": "Churu",
+      "website": "https://churu.rajasthan.gov.in"
+    },
+    {
+      "name": "Coimbatore",
+      "website": "https://coimbatore.nic.in"
+    },
+    {
+      "name": "Cooch Behar",
+      "website": "https://coochbehar.gov.in"
+    },
+    {
+      "name": "Cuddalore",
+      "website": "https://cuddalore.nic.in"
+    },
+    {
+      "name": "Dadra And Nagar Haveli",
+      "website": "https://dnh.gov.in"
+    },
+    {
+      "name": "Dahod",
+      "website": "https://dahod.gujarat.gov.in"
+    },
+    {
+      "name": "Dakshin Bastar Dantewada",
+      "website": "https://dantewada.nic.in"
+    },
+    {
+      "name": "Dakshin Dinajpur",
+      "website": "https://ddinajpur.nic.in"
+    },
+    {
+      "name": "Dakshina Kannada",
+      "website": "https://dk.nic.in"
+    },
+    {
+      "name": "Daman",
+      "website": "https://daman.nic.in/websites/collectorate_daman/index.asp"
+    },
+    {
+      "name": "Damoh",
+      "website": "https://damoh.nic.in"
+    },
+    {
+      "name": "Dangs",
+      "website": "https://dangs.nic.in"
+    },
+    {
+      "name": "Darbhanga",
+      "website": "https://darbhanga.nic.in"
+    },
+    {
+      "name": "Darjeeling",
+      "website": "https://darjeeling.gov.in"
+    },
+    {
+      "name": "Darrang",
+      "website": "https://darrang.gov.in"
+    },
+    {
+      "name": "Datia",
+      "website": "https://datia.nic.in"
+    },
+    {
+      "name": "Dausa",
+      "website": "https://dausa.rajasthan.gov.in"
+    },
+    {
+      "name": "Davanagere",
+      "website": "https://davanagere.nic.in"
+    },
+    {
+      "name": "Debagada",
+      "website": "https://deogarh.odisha.gov.in"
+    },
+    {
+      "name": "Deeg",
+      "website": "https://deeg.rajasthan.gov.in"
+    },
+    {
+      "name": "Dehradun",
+      "website": "https://dehradun.nic.in"
+    },
+    {
+      "name": "Deoghar",
+      "website": "https://deoghar.nic.in"
+    },
+    {
+      "name": "Deoria",
+      "website": "https://deoria.nic.in"
+    },
+    {
+      "name": "Devbhumi Dwarka",
+      "website": "https://devbhumidwarka.nic.in"
+    },
+    {
+      "name": "Dewas",
+      "website": "https://dewas.nic.in"
+    },
+    {
+      "name": "Dhalai",
+      "website": "https://dhalai.nic.in"
+    },
+    {
+      "name": "Dhamtari",
+      "website": "https://dhamtari.gov.in"
+    },
+    {
+      "name": "Dhanbad",
+      "website": "https://dhanbad.nic.in"
+    },
+    {
+      "name": "Dhar",
+      "website": "https://dhar.nic.in"
+    },
+    {
+      "name": "Dharashiv",
+      "website": "https://osmanabad.gov.in"
+    },
+    {
+      "name": "Dharmapuri",
+      "website": "https://dharmapuri.nic.in"
+    },
+    {
+      "name": "Dharwad",
+      "website": "https://dharwad.nic.in"
+    },
+    {
+      "name": "Dhemaji",
+      "website": "https://dhemaji.gov.in"
+    },
+    {
+      "name": "Dhenkanal",
+      "website": "https://dhenkanal.odisha.gov.in"
+    },
+    {
+      "name": "Dholpur",
+      "website": "https://dholpur.rajasthan.gov.in"
+    },
+    {
+      "name": "Dhubri",
+      "website": "https://dhubri.gov.in"
+    },
+    {
+      "name": "Dhule",
+      "website": "https://dhule.gov.in"
+    },
+    {
+      "name": "Dibang Valley",
+      "website": "https://dibangvalley.nic.in"
+    },
+    {
+      "name": "Dibrugarh",
+      "website": "https://dibrugarh.assam.gov.in"
+    },
+    {
+      "name": "Dima Hasao",
+      "website": "https://dimahasao.assam.gov.in"
+    },
+    {
+      "name": "Dimapur",
+      "website": "https://dimapur.nic.in"
+    },
+    {
+      "name": "Dindigul",
+      "website": "https://dindigul.nic.in"
+    },
+    {
+      "name": "Dindori",
+      "website": "https://dindori.nic.in"
+    },
+    {
+      "name": "Diu",
+      "website": "https://diu.gov.in"
+    },
+    {
+      "name": "Doda",
+      "website": "https://doda.nic.in"
+    },
+    {
+      "name": "Dr. B.R. Ambedkar Konaseema",
+      "website": "https://konaseema.ap.gov.in"
+    },
+    {
+      "name": "Dumka",
+      "website": "https://dumka.nic.in"
+    },
+    {
+      "name": "Dungarpur",
+      "website": "https://dungarpur.rajasthan.gov.in"
+    },
+    {
+      "name": "Durg",
+      "website": "https://durg.gov.in"
+    },
+    {
+      "name": "East",
+      "website": "https://dmeast.delhi.gov.in"
+    },
+    {
+      "name": "East Garo Hills",
+      "website": "https://eastgarohills.gov.in"
+    },
+    {
+      "name": "East Godavari",
+      "website": "https://eastgodavari.ap.gov.in"
+    },
+    {
+      "name": "East Jaintia Hills",
+      "website": "https://eastjaintiahills.gov.in"
+    },
+    {
+      "name": "East Kameng",
+      "website": "https://eastkameng.nic.in"
+    },
+    {
+      "name": "East Khasi Hills",
+      "website": "https://eastkhasihills.gov.in"
+    },
+    {
+      "name": "East Siang",
+      "website": "https://eastsiang.nic.in"
+    },
+    {
+      "name": "East Singhbum",
+      "website": "https://jamshedpur.nic.in"
+    },
+    {
+      "name": "Eluru",
+      "website": "https://eluru.ap.gov.in"
+    },
+    {
+      "name": "Ernakulam",
+      "website": "https://ernakulam.nic.in"
+    },
+    {
+      "name": "Erode",
+      "website": "https://erode.nic.in"
+    },
+    {
+      "name": "Etah",
+      "website": "https://etah.nic.in"
+    },
+    {
+      "name": "Etawah",
+      "website": "https://etawah.nic.in"
+    },
+    {
+      "name": "Faridabad",
+      "website": "https://faridabad.nic.in"
+    },
+    {
+      "name": "Faridkot",
+      "website": "https://faridkot.nic.in"
+    },
+    {
+      "name": "Farrukhabad",
+      "website": "https://farrukhabad.nic.in"
+    },
+    {
+      "name": "Fatehabad",
+      "website": "https://fatehabad.nic.in"
+    },
+    {
+      "name": "Fatehgarh Sahib",
+      "website": "https://fatehgarhsahib.nic.in"
+    },
+    {
+      "name": "Fatehpur",
+      "website": "https://fatehpur.nic.in"
+    },
+    {
+      "name": "Fazilka",
+      "website": "https://fazilka.nic.in"
+    },
+    {
+      "name": "Ferozepur",
+      "website": "https://ferozepur.nic.in"
+    },
+    {
+      "name": "Firozabad",
+      "website": "https://firozabad.nic.in"
+    },
+    {
+      "name": "Gadag",
+      "website": "https://gadag.nic.in"
+    },
+    {
+      "name": "Gadchiroli",
+      "website": "https://gadchiroli.gov.in"
+    },
+    {
+      "name": "Gajapati",
+      "website": "https://gajapati.odisha.gov.in"
+    },
+    {
+      "name": "Ganderbal",
+      "website": "https://ganderbal.nic.in"
+    },
+    {
+      "name": "Gandhinagar",
+      "website": "https://gandhinagar.nic.in"
+    },
+    {
+      "name": "Ganganagar",
+      "website": "https://sriganganagar.rajasthan.gov.in"
+    },
+    {
+      "name": "Ganjam",
+      "website": "https://ganjam.odisha.gov.in"
+    },
+    {
+      "name": "Garhwa",
+      "website": "https://garhwa.nic.in"
+    },
+    {
+      "name": "Gariyaband",
+      "website": "https://gariaband.gov.in"
+    },
+    {
+      "name": "Gaurela-Pendra-Marwahi",
+      "website": "https://gaurela-pendra-marwahi.cg.gov.in"
+    },
+    {
+      "name": "Gautam Buddha Nagar",
+      "website": "https://gbnagar.nic.in"
+    },
+    {
+      "name": "Gaya",
+      "website": "https://gaya.nic.in"
+    },
+    {
+      "name": "Ghaziabad",
+      "website": "https://ghaziabad.nic.in"
+    },
+    {
+      "name": "Ghazipur",
+      "website": "https://ghazipur.nic.in"
+    },
+    {
+      "name": "Gir Somnath",
+      "website": "https://girsomnath.gujarat.gov.in"
+    },
+    {
+      "name": "Giridih",
+      "website": "https://giridih.nic.in"
+    },
+    {
+      "name": "Goalpara",
+      "website": "https://goalpara.assam.gov.in"
+    },
+    {
+      "name": "Godda",
+      "website": "https://godda.nic.in"
+    },
+    {
+      "name": "Golaghat",
+      "website": "https://golaghat.gov.in"
+    },
+    {
+      "name": "Gomati",
+      "website": "https://gomati.nic.in"
+    },
+    {
+      "name": "Gonda",
+      "website": "https://gonda.nic.in"
+    },
+    {
+      "name": "Gondia",
+      "website": "https://gondia.gov.in"
+    },
+    {
+      "name": "Gopalganj",
+      "website": "https://gopalganj.nic.in"
+    },
+    {
+      "name": "Gorakhpur",
+      "website": "https://gorakhpur.nic.in"
+    },
+    {
+      "name": "Gumla",
+      "website": "https://gumla.nic.in"
+    },
+    {
+      "name": "Guna",
+      "website": "https://guna.nic.in"
+    },
+    {
+      "name": "Guntur",
+      "website": "https://guntur.ap.gov.in"
+    },
+    {
+      "name": "Gurdaspur",
+      "website": "https://gurdaspur.nic.in"
+    },
+    {
+      "name": "Gurugram",
+      "website": "https://gurugram.gov.in"
+    },
+    {
+      "name": "Gwalior",
+      "website": "https://gwalior.nic.in"
+    },
+    {
+      "name": "Hailakandi",
+      "website": "https://hailakandi.assam.gov.in"
+    },
+    {
+      "name": "Hamirpur",
+      "website": "https://hamirpur.nic.in"
+    },
+    {
+      "name": "Hamirpur",
+      "website": "https://hphamirpur.nic.in"
+    },
+    {
+      "name": "Hanumakonda",
+      "website": "https://hanumakonda.telangana.gov.in"
+    },
+    {
+      "name": "Hanumangarh",
+      "website": "https://hanumangarh.rajasthan.gov.in"
+    },
+    {
+      "name": "Hapur",
+      "website": "https://hapur.nic.in"
+    },
+    {
+      "name": "Harda",
+      "website": "https://harda.nic.in"
+    },
+    {
+      "name": "Hardoi",
+      "website": "https://hardoi.nic.in"
+    },
+    {
+      "name": "Haridwar",
+      "website": "https://haridwar.nic.in"
+    },
+    {
+      "name": "Hassan",
+      "website": "https://hassan.nic.in"
+    },
+    {
+      "name": "Hathras",
+      "website": "https://hathras.nic.in"
+    },
+    {
+      "name": "Haveri",
+      "website": "https://haveri.nic.in"
+    },
+    {
+      "name": "Hazaribagh",
+      "website": "https://hazaribag.nic.in"
+    },
+    {
+      "name": "Hingoli",
+      "website": "https://hingoli.nic.in"
+    },
+    {
+      "name": "Hisar",
+      "website": "https://hisar.gov.in"
+    },
+    {
+      "name": "Hojai",
+      "website": "https://hojai.assam.gov.in"
+    },
+    {
+      "name": "Hooghly",
+      "website": "https://hooghly.nic.in"
+    },
+    {
+      "name": "Hoshiarpur",
+      "website": "https://hoshiarpur.nic.in"
+    },
+    {
+      "name": "Howrah",
+      "website": "https://howrah.gov.in"
+    },
+    {
+      "name": "Hyderabad",
+      "website": "https://hyderabad.telangana.gov.in"
+    },
+    {
+      "name": "Idukki",
+      "website": "https://idukki.nic.in"
+    },
+    {
+      "name": "Imphal East",
+      "website": "https://imphaleast.nic.in"
+    },
+    {
+      "name": "Imphal West",
+      "website": "https://imphalwest.nic.in"
+    },
+    {
+      "name": "Indore",
+      "website": "https://indore.nic.in"
+    },
+    {
+      "name": "Jabalpur",
+      "website": "https://jabalpur.nic.in"
+    },
+    {
+      "name": "Jagatsinghapur",
+      "website": "https://jagatsinghpur.odisha.gov.in"
+    },
+    {
+      "name": "Jagitial",
+      "website": "https://jagtial.telangana.gov.in"
+    },
+    {
+      "name": "Jaipur",
+      "website": "https://jaipur.rajasthan.gov.in"
+    },
+    {
+      "name": "Jaisalmer",
+      "website": "https://jaisalmer.rajasthan.gov.in"
+    },
+    {
+      "name": "Jajpur",
+      "website": "https://jajpur.odisha.gov.in"
+    },
+    {
+      "name": "Jalandhar",
+      "website": "https://jalandhar.nic.in"
+    },
+    {
+      "name": "Jalaun",
+      "website": "https://jalaun.nic.in"
+    },
+    {
+      "name": "Jalgaon",
+      "website": "https://jalgaon.gov.in"
+    },
+    {
+      "name": "Jalna",
+      "website": "https://jalna.gov.in"
+    },
+    {
+      "name": "Jalore",
+      "website": "https://jalore.rajasthan.gov.in"
+    },
+    {
+      "name": "Jalpaiguri",
+      "website": "https://jalpaiguri.gov.in"
+    },
+    {
+      "name": "Jammu",
+      "website": "https://jammu.nic.in"
+    },
+    {
+      "name": "Jamnagar",
+      "website": "https://jamnagar.nic.in"
+    },
+    {
+      "name": "Jamtara",
+      "website": "https://jamtara.nic.in"
+    },
+    {
+      "name": "Jamui",
+      "website": "https://jamui.nic.in"
+    },
+    {
+      "name": "Jangoan",
+      "website": "https://jangaon.telangana.gov.in"
+    },
+    {
+      "name": "Janjgir-Champa",
+      "website": "https://janjgir-champa.gov.in"
+    },
+    {
+      "name": "Jashpur",
+      "website": "https://jashpur.nic.in"
+    },
+    {
+      "name": "Jaunpur",
+      "website": "https://jaunpur.nic.in"
+    },
+    {
+      "name": "Jayashankar Bhupalapally",
+      "website": "https://bhoopalapally.telangana.gov.in"
+    },
+    {
+      "name": "Jehanabad",
+      "website": "https://jehanabad.nic.in"
+    },
+    {
+      "name": "Jhabua",
+      "website": "https://jhabua.nic.in"
+    },
+    {
+      "name": "Jhajjar",
+      "website": "https://jhajjar.nic.in"
+    },
+    {
+      "name": "Jhalawar",
+      "website": "https://jhalawar.rajasthan.gov.in"
+    },
+    {
+      "name": "Jhansi",
+      "website": "https://jhansi.nic.in"
+    },
+    {
+      "name": "Jhargram",
+      "website": "https://jhargram.gov.in"
+    },
+    {
+      "name": "Jharsuguda",
+      "website": "https://jharsuguda.odisha.gov.in"
+    },
+    {
+      "name": "Jhunjhunu",
+      "website": "https://jhunjhunu.rajasthan.gov.in"
+    },
+    {
+      "name": "Jind",
+      "website": "https://jind.gov.in"
+    },
+    {
+      "name": "Jodhpur",
+      "website": "https://jodhpur.rajasthan.gov.in"
+    },
+    {
+      "name": "Jogulamba Gadwal",
+      "website": "https://gadwal.telangana.gov.in"
+    },
+    {
+      "name": "Jorhat",
+      "website": "https://jorhat.assam.gov.in"
+    },
+    {
+      "name": "Junagadh",
+      "website": "https://junagadh.nic.in"
+    },
+    {
+      "name": "Kabeerdham",
+      "website": "https://kawardha.gov.in"
+    },
+    {
+      "name": "Kachchh",
+      "website": "https://kachchh.nic.in"
+    },
+    {
+      "name": "Kaimur (Bhabua)",
+      "website": "https://kaimur.nic.in"
+    },
+    {
+      "name": "Kaithal",
+      "website": "https://kaithal.gov.in"
+    },
+    {
+      "name": "Kakching",
+      "website": "https://kakching.nic.in"
+    },
+    {
+      "name": "Kakinada",
+      "website": "https://kakinada.ap.gov.in"
+    },
+    {
+      "name": "Kalaburagi",
+      "website": "https://kalaburagi.nic.in"
+    },
+    {
+      "name": "Kalahandi",
+      "website": "https://kalahandi.odisha.gov.in"
+    },
+    {
+      "name": "Kalimpong",
+      "website": "https://kalimpong.gov.in"
+    },
+    {
+      "name": "Kallakurichi",
+      "website": "https://kallakurichi.nic.in"
+    },
+    {
+      "name": "Kamareddy",
+      "website": "https://kamareddy.telangana.gov.in"
+    },
+    {
+      "name": "Kamjong",
+      "website": "https://kamjong.nic.in"
+    },
+    {
+      "name": "Kamrup",
+      "website": "https://kamrup.assam.gov.in"
+    },
+    {
+      "name": "Kamrup Metro",
+      "website": "https://kamrupmetro.assam.gov.in"
+    },
+    {
+      "name": "Kancheepuram",
+      "website": "https://kancheepuram.nic.in"
+    },
+    {
+      "name": "Kandhamala",
+      "website": "https://kandhamal.odisha.gov.in"
+    },
+    {
+      "name": "Kangpokpi",
+      "website": "https://kangpokpi.nic.in"
+    },
+    {
+      "name": "Kangra",
+      "website": "https://hpkangra.nic.in"
+    },
+    {
+      "name": "Kannauj",
+      "website": "https://kannauj.nic.in"
+    },
+    {
+      "name": "Kanniyakumari",
+      "website": "https://kanniyakumari.nic.in"
+    },
+    {
+      "name": "Kannur",
+      "website": "https://kannur.nic.in"
+    },
+    {
+      "name": "Kanpur Dehat",
+      "website": "https://kanpurdehat.nic.in"
+    },
+    {
+      "name": "Kanpur Nagar",
+      "website": "https://kanpurnagar.nic.in"
+    },
+    {
+      "name": "Kapurthala",
+      "website": "https://kapurthala.gov.in"
+    },
+    {
+      "name": "Karaikal",
+      "website": "https://karaikal.gov.in"
+    },
+    {
+      "name": "Karauli",
+      "website": "https://karauli.rajasthan.gov.in"
+    },
+    {
+      "name": "Karbi Anglong",
+      "website": "https://karbianglong.gov.in"
+    },
+    {
+      "name": "Kargil",
+      "website": "https://kargil.nic.in"
+    },
+    {
+      "name": "Karimnagar",
+      "website": "https://karimnagar.telangana.gov.in"
+    },
+    {
+      "name": "Karnal",
+      "website": "https://karnal.gov.in"
+    },
+    {
+      "name": "Karur",
+      "website": "https://karur.nic.in"
+    },
+    {
+      "name": "Kasaragod",
+      "website": "https://kasargod.nic.in"
+    },
+    {
+      "name": "Kasganj",
+      "website": "https://kasganj.nic.in"
+    },
+    {
+      "name": "Kataka",
+      "website": "https://cuttack.odisha.gov.in"
+    },
+    {
+      "name": "Kathua",
+      "website": "https://kathua.nic.in"
+    },
+    {
+      "name": "Katihar",
+      "website": "https://katihar.nic.in"
+    },
+    {
+      "name": "Katni",
+      "website": "https://katni.nic.in"
+    },
+    {
+      "name": "Kaushambi",
+      "website": "https://kaushambi.nic.in"
+    },
+    {
+      "name": "Kendrapada",
+      "website": "https://kendrapara.odisha.gov.in"
+    },
+    {
+      "name": "Kendujhar",
+      "website": "https://kendujhar.odisha.gov.in"
+    },
+    {
+      "name": "Khagaria",
+      "website": "https://khagaria.nic.in"
+    },
+    {
+      "name": "Khairthal-Tijara",
+      "website": "https://khairthaltijara.rajasthan.gov.in"
+    },
+    {
+      "name": "Khammam",
+      "website": "https://khammam.telangana.gov.in"
+    },
+    {
+      "name": "Khandwa (East Nimar)",
+      "website": "https://khandwa.nic.in"
+    },
+    {
+      "name": "Khargone (West Nimar)",
+      "website": "https://khargone.nic.in"
+    },
+    {
+      "name": "Kheda",
+      "website": "https://kheda.nic.in"
+    },
+    {
+      "name": "Kheri",
+      "website": "https://kheri.nic.in"
+    },
+    {
+      "name": "Khordha",
+      "website": "https://khordha.odisha.gov.in"
+    },
+    {
+      "name": "Khowai",
+      "website": "https://khowai.nic.in"
+    },
+    {
+      "name": "Khunti",
+      "website": "https://khunti.nic.in"
+    },
+    {
+      "name": "Kinnaur",
+      "website": "https://hpkinnaur.nic.in"
+    },
+    {
+      "name": "Kiphire",
+      "website": "https://kiphire.nic.in"
+    },
+    {
+      "name": "Kishanganj",
+      "website": "https://kishanganj.nic.in"
+    },
+    {
+      "name": "Kishtwar",
+      "website": "https://kishtwar.nic.in"
+    },
+    {
+      "name": "Kodagu",
+      "website": "https://kodagu.nic.in"
+    },
+    {
+      "name": "Koderma",
+      "website": "https://koderma.nic.in"
+    },
+    {
+      "name": "Kohima",
+      "website": "https://kohima.nic.in"
+    },
+    {
+      "name": "Kokrajhar",
+      "website": "https://kokrajhar.assam.gov.in"
+    },
+    {
+      "name": "Kolar",
+      "website": "https://kolar.nic.in"
+    },
+    {
+      "name": "Kolasib",
+      "website": "https://kolasib.nic.in"
+    },
+    {
+      "name": "Kolhapur",
+      "website": "https://kolhapur.gov.in"
+    },
+    {
+      "name": "Kollam",
+      "website": "https://kollam.nic.in"
+    },
+    {
+      "name": "Kondagaon",
+      "website": "https://kondagaon.gov.in"
+    },
+    {
+      "name": "Koppal",
+      "website": "https://koppal.nic.in"
+    },
+    {
+      "name": "Koraput",
+      "website": "https://koraput.odisha.gov.in"
+    },
+    {
+      "name": "Korba",
+      "website": "https://korba.gov.in"
+    },
+    {
+      "name": "Korea",
+      "website": "https://korea.gov.in"
+    },
+    {
+      "name": "Kota",
+      "website": "https://kota.rajasthan.gov.in"
+    },
+    {
+      "name": "Kotputli-Behror",
+      "website": "https://kotputlibehror.rajasthan.gov.in"
+    },
+    {
+      "name": "Kottayam",
+      "website": "https://kottayam.nic.in"
+    },
+    {
+      "name": "Kozhikode",
+      "website": "https://kozhikode.nic.in"
+    },
+    {
+      "name": "Kra Daadi",
+      "website": "https://kradaadi.nic.in"
+    },
+    {
+      "name": "Krishna",
+      "website": "https://krishna.ap.gov.in"
+    },
+    {
+      "name": "Krishnagiri",
+      "website": "https://krishnagiri.nic.in"
+    },
+    {
+      "name": "Kulgam",
+      "website": "https://kulgam.nic.in"
+    },
+    {
+      "name": "Kullu",
+      "website": "https://hpkullu.nic.in"
+    },
+    {
+      "name": "Kumuram Bheem Asifabad",
+      "website": "https://asifabad.telangana.gov.in"
+    },
+    {
+      "name": "Kupwara",
+      "website": "https://kupwara.nic.in"
+    },
+    {
+      "name": "Kurnool",
+      "website": "https://kurnool.ap.gov.in"
+    },
+    {
+      "name": "Kurukshetra",
+      "website": "https://kurukshetra.gov.in"
+    },
+    {
+      "name": "Kurung Kumey",
+      "website": "https://kurungkumey.nic.in"
+    },
+    {
+      "name": "Kushinagar",
+      "website": "https://kushinagar.nic.in"
+    },
+    {
+      "name": "Lahaul And Spiti",
+      "website": "https://hplahaulspiti.nic.in"
+    },
+    {
+      "name": "Lakhimpur",
+      "website": "https://lakhimpur.nic.in"
+    },
+    {
+      "name": "Lakhisarai",
+      "website": "https://lakhisarai.nic.in"
+    },
+    {
+      "name": "Lakshadweep District",
+      "website": "https://lakshadweep.gov.in/district-panchayath"
+    },
+    {
+      "name": "Lalitpur",
+      "website": "https://lalitpur.nic.in"
+    },
+    {
+      "name": "Latehar",
+      "website": "https://latehar.nic.in"
+    },
+    {
+      "name": "Latur",
+      "website": "https://latur.gov.in"
+    },
+    {
+      "name": "Lawngtlai",
+      "website": "https://lawngtlai.nic.in"
+    },
+    {
+      "name": "Leh Ladakh",
+      "website": "https://leh.nic.in"
+    },
+    {
+      "name": "Lohardaga",
+      "website": "https://lohardaga.nic.in"
+    },
+    {
+      "name": "Lohit",
+      "website": "https://lohit.nic.in"
+    },
+    {
+      "name": "Longding",
+      "website": "https://longding.nic.in"
+    },
+    {
+      "name": "Longleng",
+      "website": "https://longleng.nic.in"
+    },
+    {
+      "name": "Lower Dibang Valley",
+      "website": "https://roing.nic.in"
+    },
+    {
+      "name": "Lower Subansiri",
+      "website": "https://lowersubansiri.nic.in"
+    },
+    {
+      "name": "Lucknow",
+      "website": "https://lucknow.nic.in"
+    },
+    {
+      "name": "Ludhiana",
+      "website": "https://ludhiana.nic.in"
+    },
+    {
+      "name": "Lunglei",
+      "website": "https://lunglei.nic.in"
+    },
+    {
+      "name": "Madhepura",
+      "website": "https://madhepura.nic.in"
+    },
+    {
+      "name": "Madhubani",
+      "website": "https://madhubani.nic.in"
+    },
+    {
+      "name": "Madurai",
+      "website": "https://madurai.nic.in"
+    },
+    {
+      "name": "Mahabubabad",
+      "website": "https://mahabubabad.telangana.gov.in"
+    },
+    {
+      "name": "Mahabubnagar",
+      "website": "https://mahabubnagar.telangana.gov.in"
+    },
+    {
+      "name": "Mahasamund",
+      "website": "https://mahasamund.gov.in"
+    },
+    {
+      "name": "Mahendragarh",
+      "website": "https://mahendragarh.gov.in"
+    },
+    {
+      "name": "Mahesana",
+      "website": "https://mahesana.nic.in"
+    },
+    {
+      "name": "Mahisagar",
+      "website": "https://mahisagar.gujarat.gov.in"
+    },
+    {
+      "name": "Mahoba",
+      "website": "https://mahoba.nic.in"
+    },
+    {
+      "name": "Mahrajganj",
+      "website": "https://maharajganj.nic.in"
+    },
+    {
+      "name": "Mainpuri",
+      "website": "https://mainpuri.nic.in"
+    },
+    {
+      "name": "Majuli",
+      "website": "https://majuli.gov.in"
+    },
+    {
+      "name": "Malappuram",
+      "website": "https://malappuram.nic.in"
+    },
+    {
+      "name": "Malda",
+      "website": "https://malda.gov.in"
+    },
+    {
+      "name": "Malerkotla",
+      "website": "https://malerkotla.nic.in"
+    },
+    {
+      "name": "Malkangiri",
+      "website": "https://malkangiri.odisha.gov.in"
+    },
+    {
+      "name": "Mamit",
+      "website": "https://mamit.nic.in"
+    },
+    {
+      "name": "Mancherial",
+      "website": "https://mancherial.telangana.gov.in"
+    },
+    {
+      "name": "Mandi",
+      "website": "https://hpmandi.nic.in"
+    },
+    {
+      "name": "Mandla",
+      "website": "https://mandla.nic.in"
+    },
+    {
+      "name": "Mandsaur",
+      "website": "https://mandsaur.nic.in"
+    },
+    {
+      "name": "Mandya",
+      "website": "https://mandya.nic.in"
+    },
+    {
+      "name": "Mangan",
+      "website": "https://mangan.nic.in"
+    },
+    {
+      "name": "Mansa",
+      "website": "https://mansa.nic.in"
+    },
+    {
+      "name": "Marigaon",
+      "website": "https://morigaon.gov.in"
+    },
+    {
+      "name": "Mathura",
+      "website": "https://mathura.nic.in"
+    },
+    {
+      "name": "Mau",
+      "website": "https://mau.nic.in"
+    },
+    {
+      "name": "MAUGANJ",
+      "website": "https://mauganj.nic.in/en"
+    },
+    {
+      "name": "Mayiladuthurai",
+      "website": "https://mayiladuthurai.nic.in"
+    },
+    {
+      "name": "Mayurbhanj",
+      "website": "https://mayurbhanj.odisha.gov.in"
+    },
+    {
+      "name": "Medak",
+      "website": "https://medak.telangana.gov.in"
+    },
+    {
+      "name": "Medchal Malkajgiri",
+      "website": "https://medchal-malkajgiri.telangana.gov.in"
+    },
+    {
+      "name": "Meerut",
+      "website": "https://meerut.nic.in"
+    },
+    {
+      "name": "Mirzapur",
+      "website": "https://mirzapur.nic.in"
+    },
+    {
+      "name": "Moga",
+      "website": "https://moga.nic.in"
+    },
+    {
+      "name": "Mohla-Manpur-Ambagarh Chouki",
+      "website": "https://mohla-manpur-ambagarhchowki.cg.gov.in"
+    },
+    {
+      "name": "Mokokchung",
+      "website": "https://mokokchung.nic.in"
+    },
+    {
+      "name": "Mon",
+      "website": "https://mon.nic.in"
+    },
+    {
+      "name": "Moradabad",
+      "website": "https://moradabad.nic.in"
+    },
+    {
+      "name": "Morbi",
+      "website": "https://morbi.gujarat.gov.in"
+    },
+    {
+      "name": "Morena",
+      "website": "https://morena.nic.in"
+    },
+    {
+      "name": "Mulugu",
+      "website": "https://mulugu.telangana.gov.in"
+    },
+    {
+      "name": "Mumbai",
+      "website": "https://mumbaicity.gov.in"
+    },
+    {
+      "name": "Mumbai Suburban",
+      "website": "https://mumbaisuburban.gov.in"
+    },
+    {
+      "name": "Mungeli",
+      "website": "https://mungeli.gov.in"
+    },
+    {
+      "name": "Munger",
+      "website": "https://munger.nic.in"
+    },
+    {
+      "name": "Murshidabad",
+      "website": "https://murshidabad.gov.in"
+    },
+    {
+      "name": "Muzaffarnagar",
+      "website": "https://muzaffarnagar.nic.in"
+    },
+    {
+      "name": "Muzaffarpur",
+      "website": "https://muzaffarpur.nic.in"
+    },
+    {
+      "name": "Mysuru",
+      "website": "https://mysore.nic.in"
+    },
+    {
+      "name": "Nabarangpur",
+      "website": "https://nabarangpur.odisha.gov.in"
+    },
+    {
+      "name": "Nadia",
+      "website": "https://nadia.gov.in"
+    },
+    {
+      "name": "Nagaon",
+      "website": "https://nagaon.assam.gov.in"
+    },
+    {
+      "name": "Nagapattinam",
+      "website": "https://www.nagapattinam.nic.in"
+    },
+    {
+      "name": "Nagarkurnool",
+      "website": "https://nagarkurnool.telangana.gov.in"
+    },
+    {
+      "name": "Nagaur",
+      "website": "https://nagaur.rajasthan.gov.in"
+    },
+    {
+      "name": "Nagpur",
+      "website": "https://nagpur.gov.in"
+    },
+    {
+      "name": "Nainital",
+      "website": "https://nainital.nic.in"
+    },
+    {
+      "name": "Nalanda",
+      "website": "https://nalanda.nic.in"
+    },
+    {
+      "name": "Nalbari",
+      "website": "https://nalbari.gov.in"
+    },
+    {
+      "name": "Nalgonda",
+      "website": "https://nalgonda.telangana.gov.in"
+    },
+    {
+      "name": "Namakkal",
+      "website": "https://namakkal.nic.in"
+    },
+    {
+      "name": "Namsai",
+      "website": "https://namsai.nic.in"
+    },
+    {
+      "name": "Nanded",
+      "website": "https://nanded.gov.in"
+    },
+    {
+      "name": "Nandurbar",
+      "website": "https://nandurbar.gov.in"
+    },
+    {
+      "name": "Nandyal",
+      "website": "https://nandyal.ap.gov.in"
+    },
+    {
+      "name": "Narayanpet",
+      "website": "https://narayanpet.telangana.gov.in"
+    },
+    {
+      "name": "Narayanpur",
+      "website": "https://narayanpur.gov.in"
+    },
+    {
+      "name": "Narmada",
+      "website": "https://narmada.nic.in"
+    },
+    {
+      "name": "Narmadapuram",
+      "website": "https://narmadapuram.nic.in"
+    },
+    {
+      "name": "Narsimhapur",
+      "website": "https://narsinghpur.nic.in"
+    },
+    {
+      "name": "Nashik",
+      "website": "https://nashik.gov.in"
+    },
+    {
+      "name": "Navsari",
+      "website": "https://navsari.nic.in"
+    },
+    {
+      "name": "Nawada",
+      "website": "https://nawada.nic.in"
+    },
+    {
+      "name": "Nayagada",
+      "website": "https://nayagarh.odisha.gov.in"
+    },
+    {
+      "name": "Neemuch",
+      "website": "https://neemuch.nic.in"
+    },
+    {
+      "name": "New Delhi",
+      "website": "https://dmnewdelhi.delhi.gov.in"
+    },
+    {
+      "name": "Nicobars",
+      "website": "https://nicobars.andaman.nic.in"
+    },
+    {
+      "name": "Nirmal",
+      "website": "https://nirmal.telangana.gov.in"
+    },
+    {
+      "name": "Niwari",
+      "website": "https://niwari.nic.in"
+    },
+    {
+      "name": "Nizamabad",
+      "website": "https://nizamabad.telangana.gov.in"
+    },
+    {
+      "name": "Noklak",
+      "website": "https://noklak.nic.in"
+    },
+    {
+      "name": "North",
+      "website": "https://dmnorth.delhi.gov.in"
+    },
+    {
+      "name": "North 24 Parganas",
+      "website": "https://north24parganas.gov.in"
+    },
+    {
+      "name": "North And Middle Andaman",
+      "website": "https://northmiddle.andaman.nic.in"
+    },
+    {
+      "name": "North East",
+      "website": "https://dmnortheast.delhi.gov.in"
+    },
+    {
+      "name": "North Garo Hills",
+      "website": "https://northgarohills.gov.in"
+    },
+    {
+      "name": "North Goa",
+      "website": "https://northgoa.gov.in"
+    },
+    {
+      "name": "North Tripura",
+      "website": "https://northtripura.nic.in"
+    },
+    {
+      "name": "North West",
+      "website": "https://dmnorthwest.delhi.gov.in"
+    },
+    {
+      "name": "Ntr",
+      "website": "https://ntr.ap.gov.in"
+    },
+    {
+      "name": "Nuapada",
+      "website": "https://nuapada.odisha.gov.in"
+    },
+    {
+      "name": "Nuh",
+      "website": "https://nuh.gov.in"
+    },
+    {
+      "name": "Pakur",
+      "website": "https://pakur.nic.in"
+    },
+    {
+      "name": "Palakkad",
+      "website": "https://palakkad.nic.in"
+    },
+    {
+      "name": "Palamu",
+      "website": "https://palamu.nic.in"
+    },
+    {
+      "name": "Palghar",
+      "website": "https://palghar.gov.in"
+    },
+    {
+      "name": "Pali",
+      "website": "https://pali.rajasthan.gov.in"
+    },
+    {
+      "name": "Palnadu",
+      "website": "https://palnadu.ap.gov.in"
+    },
+    {
+      "name": "Palwal",
+      "website": "https://palwal.gov.in"
+    },
+    {
+      "name": "Panch Mahals",
+      "website": "https://panchmahals.nic.in"
+    },
+    {
+      "name": "Panchkula",
+      "website": "https://panchkula.nic.in"
+    },
+    {
+      "name": "Panipat",
+      "website": "https://panipat.gov.in"
+    },
+    {
+      "name": "Panna",
+      "website": "https://panna.nic.in"
+    },
+    {
+      "name": "Papum Pare",
+      "website": "https://papumpare.nic.in"
+    },
+    {
+      "name": "Parbhani",
+      "website": "https://parbhani.gov.in"
+    },
+    {
+      "name": "Parvathipuram Manyam",
+      "website": "https://parvathipurammanyam.ap.gov.in"
+    },
+    {
+      "name": "Paschim Bardhaman",
+      "website": "https://paschimbardhaman.gov.in"
+    },
+    {
+      "name": "Paschim Medinipur",
+      "website": "https://paschimmedinipur.gov.in"
+    },
+    {
+      "name": "Pashchim Champaran",
+      "website": "https://westchamparan.nic.in"
+    },
+    {
+      "name": "Patan",
+      "website": "https://patan.nic.in"
+    },
+    {
+      "name": "Pathanamthitta",
+      "website": "https://pathanamthitta.nic.in"
+    },
+    {
+      "name": "Pathankot",
+      "website": "https://pathankot.nic.in"
+    },
+    {
+      "name": "Patiala",
+      "website": "https://patiala.nic.in"
+    },
+    {
+      "name": "Patna",
+      "website": "https://patna.nic.in"
+    },
+    {
+      "name": "Pauri Garhwal",
+      "website": "https://pauri.nic.in"
+    },
+    {
+      "name": "Peddapalli",
+      "website": "https://peddapalli.telangana.gov.in"
+    },
+    {
+      "name": "Perambalur",
+      "website": "https://perambalur.nic.in"
+    },
+    {
+      "name": "Peren",
+      "website": "https://peren-district.nic.in"
+    },
+    {
+      "name": "Phalodi",
+      "website": "https://phalodi.rajasthan.gov.in"
+    },
+    {
+      "name": "Phek",
+      "website": "https://phek.nic.in"
+    },
+    {
+      "name": "Pherzawl",
+      "website": "https://pherzawl.nic.in"
+    },
+    {
+      "name": "Pilibhit",
+      "website": "https://pilibhit.nic.in"
+    },
+    {
+      "name": "Pithoragarh",
+      "website": "https://pithoragarh.nic.in"
+    },
+    {
+      "name": "Poonch",
+      "website": "https://poonch.nic.in"
+    },
+    {
+      "name": "Porbandar",
+      "website": "https://porbandar.nic.in"
+    },
+    {
+      "name": "Prakasam",
+      "website": "https://prakasam.ap.gov.in"
+    },
+    {
+      "name": "Pratapgarh",
+      "website": "https://pratapgarh.nic.in"
+    },
+    {
+      "name": "Pratapgarh",
+      "website": "https://pratapgarh.rajasthan.gov.in"
+    },
+    {
+      "name": "Prayagraj",
+      "website": "https://prayagraj.nic.in"
+    },
+    {
+      "name": "Puducherry",
+      "website": "https://puducherry-dt.gov.in"
+    },
+    {
+      "name": "Pudukkottai",
+      "website": "https://pudukkottai.nic.in"
+    },
+    {
+      "name": "Pulwama",
+      "website": "https://pulwama.gov.in"
+    },
+    {
+      "name": "Pune",
+      "website": "https://pune.gov.in"
+    },
+    {
+      "name": "Purba Bardhaman",
+      "website": "https://purbabardhaman.nic.in"
+    },
+    {
+      "name": "Purba Medinipur",
+      "website": "https://purbamedinipur.gov.in"
+    },
+    {
+      "name": "Purbi Champaran",
+      "website": "https://eastchamparan.nic.in"
+    },
+    {
+      "name": "Puri",
+      "website": "https://puri.odisha.gov.in"
+    },
+    {
+      "name": "Purnia",
+      "website": "https://purnea.nic.in"
+    },
+    {
+      "name": "Purulia",
+      "website": "https://purulia.gov.in"
+    },
+    {
+      "name": "Rae Bareli",
+      "website": "https://raebareli.nic.in"
+    },
+    {
+      "name": "Raichur",
+      "website": "https://raichur.nic.in"
+    },
+    {
+      "name": "Raigad",
+      "website": "https://raigad.gov.in"
+    },
+    {
+      "name": "Raigarh",
+      "website": "https://raigarh.gov.in"
+    },
+    {
+      "name": "Raipur",
+      "website": "https://raipur.gov.in"
+    },
+    {
+      "name": "Raisen",
+      "website": "https://raisen.nic.in"
+    },
+    {
+      "name": "Rajanna Sircilla",
+      "website": "https://rajannasircilla.telangana.gov.in"
+    },
+    {
+      "name": "Rajgarh",
+      "website": "https://rajgarh.nic.in"
+    },
+    {
+      "name": "Rajkot",
+      "website": "https://rajkot.nic.in"
+    },
+    {
+      "name": "Rajnandgaon",
+      "website": "https://rajnandgaon.nic.in"
+    },
+    {
+      "name": "Rajouri",
+      "website": "https://rajouri.nic.in"
+    },
+    {
+      "name": "Rajsamand",
+      "website": "https://rajsamand.rajasthan.gov.in"
+    },
+    {
+      "name": "Ramanathapuram",
+      "website": "https://ramanathapuram.nic.in"
+    },
+    {
+      "name": "Ramban",
+      "website": "https://ramban.gov.in"
+    },
+    {
+      "name": "Ramgarh",
+      "website": "https://ramgarh.nic.in"
+    },
+    {
+      "name": "Rampur",
+      "website": "https://rampur.nic.in"
+    },
+    {
+      "name": "Ranchi",
+      "website": "https://ranchi.nic.in"
+    },
+    {
+      "name": "Ranga Reddy",
+      "website": "https://rangareddy.telangana.gov.in"
+    },
+    {
+      "name": "Ratlam",
+      "website": "https://ratlam.nic.in"
+    },
+    {
+      "name": "Ratnagiri",
+      "website": "https://ratnagiri.gov.in"
+    },
+    {
+      "name": "Rayagada",
+      "website": "https://rayagada.odisha.gov.in"
+    },
+    {
+      "name": "Reasi",
+      "website": "https://reasi.nic.in"
+    },
+    {
+      "name": "Rewa",
+      "website": "https://rewa.nic.in"
+    },
+    {
+      "name": "Rewari",
+      "website": "https://rewari.gov.in"
+    },
+    {
+      "name": "Ri Bhoi",
+      "website": "https://ribhoi.gov.in"
+    },
+    {
+      "name": "Rohtak",
+      "website": "https://rohtak.gov.in"
+    },
+    {
+      "name": "Rohtas",
+      "website": "https://rohtas.nic.in"
+    },
+    {
+      "name": "Rudraprayag",
+      "website": "https://rudraprayag.gov.in"
+    },
+    {
+      "name": "Rupnagar",
+      "website": "https://rupnagar.nic.in"
+    },
+    {
+      "name": "S.A.S Nagar",
+      "website": "https://sasnagar.nic.in"
+    },
+    {
+      "name": "Sabar Kantha",
+      "website": "https://sabarkantha.nic.in"
+    },
+    {
+      "name": "Sagar",
+      "website": "https://sagar.nic.in"
+    },
+    {
+      "name": "Saharanpur",
+      "website": "https://saharanpur.nic.in"
+    },
+    {
+      "name": "Saharsa",
+      "website": "https://saharsa.nic.in"
+    },
+    {
+      "name": "Sahebganj",
+      "website": "https://sahibganj.nic.in"
+    },
+    {
+      "name": "Salem",
+      "website": "https://salem.nic.in"
+    },
+    {
+      "name": "Salumbar",
+      "website": "https://salumber.rajasthan.gov.in"
+    },
+    {
+      "name": "Samastipur",
+      "website": "https://samastipur.nic.in"
+    },
+    {
+      "name": "Samba",
+      "website": "https://samba.gov.in"
+    },
+    {
+      "name": "Sambalpur",
+      "website": "https://sambalpur.odisha.gov.in"
+    },
+    {
+      "name": "Sambhal",
+      "website": "https://sambhal.nic.in"
+    },
+    {
+      "name": "Sangareddy",
+      "website": "https://sangareddy.telangana.gov.in"
+    },
+    {
+      "name": "Sangli",
+      "website": "https://sangli.nic.in"
+    },
+    {
+      "name": "Sangrur",
+      "website": "https://sangrur.nic.in"
+    },
+    {
+      "name": "Sant Kabir Nagar",
+      "website": "https://sknagar.nic.in"
+    },
+    {
+      "name": "Saraikela Kharsawan",
+      "website": "https://seraikela.nic.in"
+    },
+    {
+      "name": "Saran",
+      "website": "https://saran.nic.in"
+    },
+    {
+      "name": "Satara",
+      "website": "https://www.satara.gov.in"
+    },
+    {
+      "name": "Satna",
+      "website": "https://satna.nic.in"
+    },
+    {
+      "name": "Sawai Madhopur",
+      "website": "https://sawaimadhopur.rajasthan.gov.in"
+    },
+    {
+      "name": "Sehore",
+      "website": "https://sehore.nic.in"
+    },
+    {
+      "name": "Senapati",
+      "website": "https://senapati.nic.in"
+    },
+    {
+      "name": "Seoni",
+      "website": "https://seoni.nic.in"
+    },
+    {
+      "name": "Sepahijala",
+      "website": "https://sepahijala.nic.in"
+    },
+    {
+      "name": "Serchhip",
+      "website": "https://serchhip.nic.in"
+    },
+    {
+      "name": "Shahdol",
+      "website": "https://shahdol.nic.in"
+    },
+    {
+      "name": "Shahid Bhagat Singh Nagar",
+      "website": "https://nawanshahr.nic.in"
+    },
+    {
+      "name": "Shahjahanpur",
+      "website": "https://shahjahanpur.nic.in"
+    },
+    {
+      "name": "Shajapur",
+      "website": "https://shajapur.nic.in"
+    },
+    {
+      "name": "Shamator",
+      "website": "https://shamator.nic.in"
+    },
+    {
+      "name": "Shamli",
+      "website": "https://shamli.nic.in"
+    },
+    {
+      "name": "Sheikhpura",
+      "website": "https://sheikhpura.nic.in"
+    },
+    {
+      "name": "Sheohar",
+      "website": "https://sheohar.nic.in"
+    },
+    {
+      "name": "Sheopur",
+      "website": "https://sheopur.nic.in"
+    },
+    {
+      "name": "Shi Yomi",
+      "website": "https://shiyomi.nic.in"
+    },
+    {
+      "name": "Shimla",
+      "website": "https://hpshimla.nic.in"
+    },
+    {
+      "name": "Shivamogga",
+      "website": "https://shimoga.nic.in"
+    },
+    {
+      "name": "Shivpuri",
+      "website": "https://shivpuri.nic.in"
+    },
+    {
+      "name": "Shopian",
+      "website": "https://shopian.nic.in"
+    },
+    {
+      "name": "Shrawasti",
+      "website": "https://shravasti.nic.in"
+    },
+    {
+      "name": "Siaha",
+      "website": "https://siaha.nic.in"
+    },
+    {
+      "name": "Siang",
+      "website": "https://siang.nic.in"
+    },
+    {
+      "name": "Siddharthnagar",
+      "website": "https://siddharthnagar.nic.in"
+    },
+    {
+      "name": "Siddipet",
+      "website": "https://siddipet.telangana.gov.in"
+    },
+    {
+      "name": "Sidhi",
+      "website": "https://sidhi.nic.in"
+    },
+    {
+      "name": "Sikar",
+      "website": "https://sikar.rajasthan.gov.in"
+    },
+    {
+      "name": "Simdega",
+      "website": "https://simdega.nic.in"
+    },
+    {
+      "name": "Sindhudurg",
+      "website": "https://sindhudurg.nic.in"
+    },
+    {
+      "name": "Singrauli",
+      "website": "https://singrauli.nic.in"
+    },
+    {
+      "name": "Sirmaur",
+      "website": "https://hpsirmaur.nic.in"
+    },
+    {
+      "name": "Sirohi",
+      "website": "https://sirohi.rajasthan.gov.in"
+    },
+    {
+      "name": "Sirsa",
+      "website": "https://sirsa.gov.in"
+    },
+    {
+      "name": "Sitamarhi",
+      "website": "https://sitamarhi.nic.in"
+    },
+    {
+      "name": "Sitapur",
+      "website": "https://sitapur.nic.in"
+    },
+    {
+      "name": "Sivaganga",
+      "website": "https://sivaganga.nic.in"
+    },
+    {
+      "name": "Sivasagar",
+      "website": "https://sivasagar.assam.gov.in"
+    },
+    {
+      "name": "Siwan",
+      "website": "https://siwan.nic.in"
+    },
+    {
+      "name": "Solan",
+      "website": "https://hpsolan.nic.in"
+    },
+    {
+      "name": "Solapur",
+      "website": "https://solapur.gov.in"
+    },
+    {
+      "name": "Sonbhadra",
+      "website": "https://sonbhadra.nic.in"
+    },
+    {
+      "name": "Sonipat",
+      "website": "https://sonipat.gov.in"
+    },
+    {
+      "name": "Sonitpur",
+      "website": "https://sonitpur.gov.in"
+    },
+    {
+      "name": "Soreng",
+      "website": "https://soreng.nic.in"
+    },
+    {
+      "name": "South",
+      "website": "https://dmsouth.delhi.gov.in"
+    },
+    {
+      "name": "South 24 Parganas",
+      "website": "https://s24pgs.gov.in"
+    },
+    {
+      "name": "South Andamans",
+      "website": "https://southandaman.nic.in"
+    },
+    {
+      "name": "South East",
+      "website": "https://dmsoutheast.delhi.gov.in"
+    },
+    {
+      "name": "South Garo Hills",
+      "website": "https://southgarohills.gov.in"
+    },
+    {
+      "name": "South Goa",
+      "website": "https://southgoa.nic.in"
+    },
+    {
+      "name": "South Salmara Mancachar",
+      "website": "https://southsalmaramankachar.assam.gov.in"
+    },
+    {
+      "name": "South Tripura",
+      "website": "https://southtripura.nic.in"
+    },
+    {
+      "name": "South West",
+      "website": "https://dmsouthwest.delhi.gov.in"
+    },
+    {
+      "name": "South West Garo Hills",
+      "website": "https://southwestgarohills.gov.in"
+    },
+    {
+      "name": "South West Khasi Hills",
+      "website": "https://southwestkhasihills.gov.in"
+    },
+    {
+      "name": "Sri Muktsar Sahib",
+      "website": "https://muktsar.nic.in"
+    },
+    {
+      "name": "Sri Potti Sriramulu Nellore",
+      "website": "https://spsnellore.ap.gov.in"
+    },
+    {
+      "name": "Sri Sathya Sai",
+      "website": "https://srisathyasai.ap.gov.in"
+    },
+    {
+      "name": "Sribhumi",
+      "website": "https://karimganj.gov.in"
+    },
+    {
+      "name": "Srikakulam",
+      "website": "https://srikakulam.ap.gov.in"
+    },
+    {
+      "name": "Srinagar",
+      "website": "https://srinagar.nic.in"
+    },
+    {
+      "name": "Subarnapur",
+      "website": "https://subarnapur.odisha.gov.in"
+    },
+    {
+      "name": "Sukma",
+      "website": "https://sukma.gov.in"
+    },
+    {
+      "name": "Sultanpur",
+      "website": "https://sultanpur.nic.in"
+    },
+    {
+      "name": "Sundaragada",
+      "website": "https://sundargarh.odisha.gov.in"
+    },
+    {
+      "name": "Supaul",
+      "website": "https://supaul.nic.in"
+    },
+    {
+      "name": "Surajpur",
+      "website": "https://surajpur.nic.in"
+    },
+    {
+      "name": "Surat",
+      "website": "https://surat.nic.in"
+    },
+    {
+      "name": "Surendranagar",
+      "website": "https://surendranagar.nic.in"
+    },
+    {
+      "name": "Surguja",
+      "website": "https://surguja.gov.in"
+    },
+    {
+      "name": "Suryapet",
+      "website": "https://suryapet.telangana.gov.in"
+    },
+    {
+      "name": "Tamenglong",
+      "website": "https://tamenglong.nic.in"
+    },
+    {
+      "name": "Tapi",
+      "website": "https://tapi.nic.in"
+    },
+    {
+      "name": "Tarn Taran",
+      "website": "https://tarntaran.nic.in"
+    },
+    {
+      "name": "Tawang",
+      "website": "https://tawang.nic.in"
+    },
+    {
+      "name": "Tehri Garhwal",
+      "website": "https://tehri.nic.in"
+    },
+    {
+      "name": "Tengnoupal",
+      "website": "https://tengnoupal.nic.in"
+    },
+    {
+      "name": "Tenkasi",
+      "website": "https://tenkasi.nic.in"
+    },
+    {
+      "name": "Thane",
+      "website": "https://thane.nic.in"
+    },
+    {
+      "name": "Thanjavur",
+      "website": "https://thanjavur.nic.in"
+    },
+    {
+      "name": "The Nilgiris",
+      "website": "https://nilgiris.nic.in"
+    },
+    {
+      "name": "Theni",
+      "website": "https://theni.nic.in"
+    },
+    {
+      "name": "Thiruvallur",
+      "website": "https://tiruvallur.nic.in"
+    },
+    {
+      "name": "Thiruvananthapuram",
+      "website": "https://trivandrum.nic.in"
+    },
+    {
+      "name": "Thiruvarur",
+      "website": "https://tiruvarur.nic.in"
+    },
+    {
+      "name": "Thoothukkudi",
+      "website": "https://thoothukudi.nic.in"
+    },
+    {
+      "name": "Thoubal",
+      "website": "https://thoubal.nic.in"
+    },
+    {
+      "name": "Thrissur",
+      "website": "https://thrissur.nic.in"
+    },
+    {
+      "name": "Tikamgarh",
+      "website": "https://tikamgarh.nic.in"
+    },
+    {
+      "name": "Tinsukia",
+      "website": "https://tinsukia.assam.gov.in"
+    },
+    {
+      "name": "Tirap",
+      "website": "https://tirap.nic.in"
+    },
+    {
+      "name": "Tiruchirappalli",
+      "website": "https://tiruchirappalli.nic.in"
+    },
+    {
+      "name": "Tirunelveli",
+      "website": "https://tirunelveli.nic.in"
+    },
+    {
+      "name": "Tirupathur",
+      "website": "https://tirupathur.nic.in"
+    },
+    {
+      "name": "Tirupati",
+      "website": "https://tirupati.ap.gov.in"
+    },
+    {
+      "name": "Tiruppur",
+      "website": "https://tiruppur.nic.in"
+    },
+    {
+      "name": "Tiruvannamalai",
+      "website": "https://tiruvannamalai.nic.in"
+    },
+    {
+      "name": "Tonk",
+      "website": "https://tonk.rajasthan.gov.in"
+    },
+    {
+      "name": "Tseminyu",
+      "website": "https://tseminyu.nic.in"
+    },
+    {
+      "name": "Tuensang",
+      "website": "https://tuensang.nic.in"
+    },
+    {
+      "name": "Tumakuru",
+      "website": "https://tumkur.nic.in"
+    },
+    {
+      "name": "Udaipur",
+      "website": "https://udaipur.rajasthan.gov.in"
+    },
+    {
+      "name": "Udalguri",
+      "website": "https://udalguri.assam.gov.in"
+    },
+    {
+      "name": "Udham Singh Nagar",
+      "website": "https://usnagar.nic.in"
+    },
+    {
+      "name": "Udhampur",
+      "website": "https://udhampur.nic.in"
+    },
+    {
+      "name": "Udupi",
+      "website": "https://udupi.nic.in"
+    },
+    {
+      "name": "Ujjain",
+      "website": "https://ujjain.nic.in"
+    },
+    {
+      "name": "Ukhrul",
+      "website": "https://ukhrul.nic.in"
+    },
+    {
+      "name": "Umaria",
+      "website": "https://umaria.nic.in"
+    },
+    {
+      "name": "Una",
+      "website": "https://hpuna.nic.in"
+    },
+    {
+      "name": "Unakoti",
+      "website": "https://unakoti.nic.in"
+    },
+    {
+      "name": "Unnao",
+      "website": "https://unnao.nic.in"
+    },
+    {
+      "name": "Upper Siang",
+      "website": "https://uppersiang.nic.in"
+    },
+    {
+      "name": "Upper Subansiri",
+      "website": "https://uppersubansiri.nic.in"
+    },
+    {
+      "name": "Uttar Bastar Kanker",
+      "website": "https://kanker.gov.in"
+    },
+    {
+      "name": "Uttar Dinajpur",
+      "website": "https://uttardinajpur.gov.in"
+    },
+    {
+      "name": "Uttara Kannada",
+      "website": "https://uttarakannada.nic.in"
+    },
+    {
+      "name": "Uttarkashi",
+      "website": "https://uttarkashi.nic.in"
+    },
+    {
+      "name": "Vadodara",
+      "website": "https://vadodara.nic.in"
+    },
+    {
+      "name": "Vaishali",
+      "website": "https://vaishali.nic.in"
+    },
+    {
+      "name": "Valsad",
+      "website": "https://valsad.nic.in"
+    },
+    {
+      "name": "Varanasi",
+      "website": "https://varanasi.nic.in"
+    },
+    {
+      "name": "Vellore",
+      "website": "https://vellore.nic.in"
+    },
+    {
+      "name": "Vidisha",
+      "website": "https://vidisha.nic.in"
+    },
+    {
+      "name": "Vijayanagara",
+      "website": "https://vijayanagara.nic.in"
+    },
+    {
+      "name": "Vijayapura",
+      "website": "https://vijayapura.nic.in"
+    },
+    {
+      "name": "Vikarabad",
+      "website": "https://vikarabad.telangana.gov.in"
+    },
+    {
+      "name": "Viluppuram",
+      "website": "https://viluppuram.nic.in"
+    },
+    {
+      "name": "Virudhunagar",
+      "website": "https://virudhunagar.nic.in"
+    },
+    {
+      "name": "Visakhapatnam",
+      "website": "https://visakhapatnam.ap.gov.in"
+    },
+    {
+      "name": "Vizianagaram",
+      "website": "https://vizianagaram.ap.gov.in"
+    },
+    {
+      "name": "Wanaparthy",
+      "website": "https://wanaparthy.telangana.gov.in"
+    },
+    {
+      "name": "Warangal",
+      "website": "https://warangal.telangana.gov.in"
+    },
+    {
+      "name": "Wardha",
+      "website": "https://wardha.gov.in"
+    },
+    {
+      "name": "Washim",
+      "website": "https://washim.gov.in"
+    },
+    {
+      "name": "Wayanad",
+      "website": "https://wayanad.gov.in"
+    },
+    {
+      "name": "West",
+      "website": "https://dcwestrev.delhi.gov.in"
+    },
+    {
+      "name": "West Garo Hills",
+      "website": "https://westgarohills.gov.in"
+    },
+    {
+      "name": "West Godavari",
+      "website": "https://westgodavari.ap.gov.in"
+    },
+    {
+      "name": "West Jaintia Hills",
+      "website": "https://westjaintiahills.gov.in"
+    },
+    {
+      "name": "West Kameng",
+      "website": "https://westkameng.nic.in"
+    },
+    {
+      "name": "West Karbi Anglong",
+      "website": "https://westkarbianglong.assam.gov.in"
+    },
+    {
+      "name": "West Khasi Hills",
+      "website": "https://westkhasihills.gov.in"
+    },
+    {
+      "name": "West Siang",
+      "website": "https://westsiang.nic.in"
+    },
+    {
+      "name": "West Singhbhum",
+      "website": "https://chaibasa.nic.in"
+    },
+    {
+      "name": "West Tripura",
+      "website": "https://westtripura.nic.in"
+    },
+    {
+      "name": "Wokha",
+      "website": "https://wokha.nic.in"
+    },
+    {
+      "name": "Y.S.R. Kadapa",
+      "website": "https://kadapa.ap.gov.in"
+    },
+    {
+      "name": "Yadadri Bhuvanagiri",
+      "website": "https://yadadri.telangana.gov.in"
+    },
+    {
+      "name": "Yadgir",
+      "website": "https://yadgir.nic.in"
+    },
+    {
+      "name": "Yamunanagar",
+      "website": "https://yamunanagar.nic.in"
+    },
+    {
+      "name": "Yavatmal",
+      "website": "https://yavatmal.gov.in"
+    },
+    {
+      "name": "Zunheboto",
+      "website": "https://zunheboto.nic.in"
+    }
+  ]
+}
