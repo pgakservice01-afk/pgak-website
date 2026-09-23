@@ -5,7 +5,7 @@ category: "Security Basics"
 excerpt: "Most jewellery shops respond to a scare by adding cameras at the door. The bigger gaps are usually at the counter, the strongroom and the street outside — and inside the staff roster, handled fairly."
 metaDescription: "Most jewellery shops respond to a scare by adding cameras at the door. The bigger gaps are usually at the counter, the strongroom and outside."
 readTime: 6
-image: "/insights/category/security-basics.webp"
+image: "/insights/category/security-basics-2.webp"
 faqs:
   - q: "How many cameras does a jewellery shop need for good security?"
     a: "There's no fixed number — the count matters less than covering four specific positions: the counter (close enough to see hands and the display case), the strongroom or vault entry, the shop entrance, and the street outside. A shop with eight well-placed cameras at those points is better covered than one with twenty scattered ones."

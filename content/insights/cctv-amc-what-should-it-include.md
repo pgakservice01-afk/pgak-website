@@ -5,7 +5,7 @@ category: "Buying Guide"
 excerpt: "Most CCTV annual maintenance contracts are priced as a percentage of hardware and defined as 'we will come when you call'. The seven clauses that separate a real AMC from an invoice."
 metaDescription: "Most CCTV annual maintenance contracts are priced as a percentage of hardware and defined as 'we will come when you call'."
 readTime: 5
-image: "/insights/category/buying-guide.webp"
+image: "/insights/category/buying-guide-3.webp"
 faqs:
   - q: "What should a CCTV AMC include?"
     a: "A defined response time in hours, scheduled preventive visits, lens and housing cleaning, storage and retention verification, firmware updates, a documented spares policy, and a written report after every visit. Anything vaguer than this is a payment schedule rather than a maintenance contract."

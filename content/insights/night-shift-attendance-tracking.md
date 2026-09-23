@@ -5,7 +5,7 @@ category: "Attendance"
 excerpt: "Night shift is where attendance systems are least supervised and most gamed. Four controls that give you a defensible record of the shift nobody watches."
 metaTitle: "Night shift attendance: proving who was there"
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-2.webp"
 faqs:
   - q: "How do you track night shift attendance reliably?"
     a: "With a record that does not depend on supervision: an automated log at every entrance that stores visual evidence, plus alerts for gate movement during shift hours. Night shift is precisely when a supervisor-dependent process is weakest, so the control has to work with nobody watching."

@@ -6,7 +6,7 @@ excerpt: "Most attendance errors are not scanning errors — they are introduced
 metaDescription: "Most attendance errors are not scanning errors — they are introduced between the machine and the payslip, by a person with a spreadsheet."
 metaTitle: "Connecting biometric attendance to payroll"
 readTime: 6
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-2.webp"
 faqs:
   - q: "How does biometric attendance integrate with payroll?"
     a: "A proper integration converts raw punches into payable hours automatically — applying shift rules, grace periods, half-day thresholds, overtime multipliers and leave — then exports a payroll-ready file. Weak integrations only export raw punch times, leaving the actual calculation to a person and a spreadsheet."

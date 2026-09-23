@@ -4,7 +4,7 @@ date: "2026-09-09"
 category: "Camera Setup"
 excerpt: "A gate camera that works fine all day suddenly stops recognising the same employees after dark. The fix is usually a ₹200 lamp, not a new camera."
 readTime: 4
-image: "/insights/category/camera-setup.webp"
+image: "/insights/category/camera-setup-3.webp"
 faqs:
   - q: "Does face recognition work in low light?"
     a: "Poorly, and it is worth separating two different jobs. Detecting that a person is present works fine in low light because infrared sensors are built for exactly that. Identifying which specific person it is needs far more detail — skin tone, contrast and fine facial features — which infrared footage does not preserve well. That is why a gate camera can 'see' someone perfectly at night and still fail to recognise them."

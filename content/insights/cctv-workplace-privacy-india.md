@@ -5,7 +5,7 @@ category: "Compliance"
 excerpt: "Workplace CCTV is legal in India, but not everywhere and not without conditions. What you can point a camera at, what's off-limits, and the notice you owe employees before you switch it on."
 metaDescription: "Workplace CCTV is legal in India, but bathrooms and changing rooms are off-limits, and employees need notice. A plain-language compliance checklist."
 readTime: 6
-image: "/insights/category/compliance.webp"
+image: "/insights/category/compliance-2.webp"
 faqs:
   - q: "Is CCTV in the workplace legal in India?"
     a: "Yes. Employers can install CCTV in work areas — entrances, floors, warehouses, cash counters — for security, safety and operational reasons. What isn't automatically legal is where you point it and whether employees were told. Certain private spaces are off-limits, and India's data protection law expects clear notice about why footage is collected and how it's used."

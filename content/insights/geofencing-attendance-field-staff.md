@@ -6,7 +6,7 @@ excerpt: "Geofencing can prove a service engineer reached the client site, or it
 metaDescription: "Geofencing can prove a service engineer reached the client site, or it can turn into tracking someone's lunch break."
 metaTitle: "Field staff attendance without micromanaging"
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-3.webp"
 faqs:
   - q: "What is geofencing attendance for field staff?"
     a: "Geofencing attendance marks a field employee present when their phone's GPS location enters a defined radius around a client site, warehouse, or branch — usually by prompting a check-in on the phone rather than tracking silently. It answers 'were you at the site' for staff who don't work at a fixed gate a camera or biometric machine can watch."

@@ -6,7 +6,7 @@ excerpt: "The comparison every site owner runs, done properly — what a guard g
 metaDescription: "What a guard genuinely does better, what software genuinely does better, and why the honest answer is usually not 'replace the guard'."
 metaTitle: "AI CCTV vs another security guard: an honest look"
 readTime: 6
-image: "/insights/category/buying-guide.webp"
+image: "/insights/category/buying-guide-2.webp"
 faqs:
   - q: "Is AI CCTV cheaper than hiring a security guard?"
     a: "Over a year, monitoring software across a whole camera estate typically costs less than one additional full-time guard post, because a guard post covering 24 hours requires roughly four people once shifts, weekly offs and leave are accounted for. But the two are not interchangeable, so cost alone is the wrong basis for the decision."

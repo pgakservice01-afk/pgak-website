@@ -5,7 +5,7 @@ category: "Attendance"
 excerpt: "Almost every overtime argument in payroll traces back to one of five causes — rounding, shift-end confusion, weekly-off rates, missed punch-outs, or unapproved hours. A fix for each."
 metaDescription: "Rounding, shift-end confusion, weekly-off rates, missed punch-outs, unapproved hours. The five causes of every overtime dispute, and a fix for each."
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-3.webp"
 faqs:
   - q: "What causes most overtime disputes?"
     a: "Nearly every overtime dispute traces back to one of five causes: rounding rules that shave minutes off real work, confusion between shift-end time and actual clock-out time, wrong rates on weekly-off or holiday overtime, missed punch-outs that get guessed at, and overtime worked without prior approval. Fixing the record-keeping around each one removes the argument, because there is no longer a fact in dispute."
