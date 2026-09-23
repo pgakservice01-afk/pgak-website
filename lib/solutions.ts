@@ -232,6 +232,10 @@ export const SOLUTIONS: Solution[] = [
     ],
     faqs: [
       {
+        q: "Which cameras suit a warehouse, and do we need new ones?",
+        a: "For analytics, what matters is the view rather than the brand: an aisle camera has to see a person's whole body, a loading-bay camera has to cover the dock edge and the vehicle, and a gate camera reading plates has to be positioned for plate height and speed. Most warehouse estates already have serviceable cameras on the aisles and bays, so the free assessment checks stream access and each view first and tells you which cameras can support which alerts — and which ones are only useful as a recording.",
+      },
+      {
         q: "How many cameras can PGAK handle in one warehouse?",
         a: "Sites running 120 or more cameras are routine. Processing is distributed across edge devices at your premises, so capacity scales with hardware at the site rather than with your internet bandwidth.",
       },
@@ -1391,6 +1395,10 @@ export const SOLUTIONS: Solution[] = [
       { value: "Free", label: "feasibility check on your actual cameras" },
     ],
     faqs: [
+      {
+        q: "How much does AI video analytics cost per camera in India?",
+        a: "PGAK bills per camera per month on the cameras you choose to make intelligent, and quotes each site rather than publishing a rate — the number moves with how many cameras you enable, which analytics run on each, how many sites report into one account, and the on-site processing hardware the site needs. Ask any vendor, including us, for those four lines separately: a single bundled per-camera figure hides whether hardware, setup and support are included. Published market figures for 'AI CCTV in India' mix standalone AI cameras, AI recorders and software subscriptions, which is why they vary so widely.",
+      },
       {
         q: "Can I see what it would do on my own cameras before buying?",
         a: "Yes. The free assessment is done on your own camera streams, and you get a written answer on which cameras can support which features — and what processing hardware is needed — before any quotation. Placement and lighting decide more than the software does, so it is worth knowing camera by camera rather than assuming.",
