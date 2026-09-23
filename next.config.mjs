@@ -59,6 +59,16 @@ const nextConfig = {
         permanent: true,
       },
 
+      // Consolidated 2026-09-23 (owner approved). Search Console listed this
+      // page as "Duplicate without user-selected canonical" against the same
+      // intent as /video-analytics-software, which IS indexed. Permanent, so
+      // the signals move rather than splitting.
+      {
+        source: "/ai-surveillance-system",
+        destination: "/video-analytics-software",
+        permanent: true,
+      },
+
       // The old WordPress site's real pages. Google still shows them — in the
       // 120 days to 2026-09-03 `/career-page/` alone drew 257 impressions for
       // brand searches — and until now every one of them 404'd. Each goes to

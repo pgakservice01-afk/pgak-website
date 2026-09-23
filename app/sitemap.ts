@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllInsights } from "@/lib/insights";
+import { liveCalculators } from "@/lib/calc/registry";
 import { SOLUTIONS } from "@/lib/solutions";
 import { CAPABILITIES } from "@/lib/capabilities";
 import { LOCATIONS, locationPath } from "@/lib/locations";
@@ -35,6 +36,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/free-audit` },
     { url: `${SITE_URL}/book-demo` },
     { url: `${SITE_URL}/roi-calculator` },
+    { url: `${SITE_URL}/calculators` },
+    ...liveCalculators()
+      .filter((c) => c.path !== "/roi-calculator")
+      .map((c) => ({ url: `${SITE_URL}${c.path}` })),
     { url: `${SITE_URL}/insights/case-studies` },
     // The blog index genuinely changes with every published post.
     { url: `${SITE_URL}/insights`, ...(newestPost ? { lastModified: newestPost } : {}) },

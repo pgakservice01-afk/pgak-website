@@ -11,8 +11,11 @@
   --c-panel-2: 19 37 46;
   --c-ink: 234 243 242;
   --c-ink-soft: 159 180 182;
-  --c-ink-faint: 101 128 127;
+  /* 4.01:1 on panel before — now 5.28:1 (measured 2026-09-23). */
+  --c-ink-faint: 124 148 147;
   --c-accent: 124 245 196;
+  /* Accent is legible as text on dark, so the text token matches it. */
+  --c-accent-text: 124 245 196;
   --c-accent-2: 62 216 224;
   --c-accent-deep: 15 184 154;
   --c-danger: 255 138 107;
@@ -27,8 +30,11 @@
   --c-panel-2: 240 245 244;
   --c-ink: 12 24 28;
   --c-ink-soft: 74 92 95;
-  --c-ink-faint: 116 134 135;
+  /* 3.82:1 on panel before — now 6.20:1. */
+  --c-ink-faint: 84 100 101;
   --c-accent: 13 150 122;
+  /* Light-theme accent text was 3.53:1 on page background. 7.25:1 now. */
+  --c-accent-text: 6 95 79;
   --c-accent-2: 17 145 160;
   --c-accent-deep: 11 120 100;
   --c-danger: 200 60 40;
@@ -450,14 +456,21 @@ body {
      styled twice: -webkit- for Chrome/Safari/Edge, -moz- for Firefox. Keep the
      two blocks in sync. Shared — don't delete with the calculator. */
   .range {
-    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-line;
+    /* 24px tall so the thumb meets WCAG 2.2 target size (2.5.8); the visible
+       track stays thin via the track pseudo-elements below. axe-core flagged
+       the 18px thumb on /roi-calculator, 2026-09-23. */
+    @apply h-6 w-full cursor-pointer appearance-none bg-transparent;
     outline: none;
+  }
+  .range::-webkit-slider-runnable-track {
+    @apply h-1.5 rounded-full bg-line;
   }
   .range:focus-visible {
     @apply ring-2 ring-accent ring-offset-2 ring-offset-bg;
   }
   .range::-webkit-slider-thumb {
-    @apply h-[18px] w-[18px] appearance-none rounded-full border-none bg-accent;
+    @apply h-6 w-6 appearance-none rounded-full border-none bg-accent;
+    margin-top: -9px;
     box-shadow: 0 2px 10px -2px theme("colors.accent");
     transition: transform 0.15s ease;
   }
@@ -465,7 +478,7 @@ body {
     transform: scale(1.15);
   }
   .range::-moz-range-thumb {
-    @apply h-[18px] w-[18px] rounded-full border-none bg-accent;
+    @apply h-6 w-6 rounded-full border-none bg-accent;
     box-shadow: 0 2px 10px -2px theme("colors.accent");
   }
   .range::-moz-range-track {

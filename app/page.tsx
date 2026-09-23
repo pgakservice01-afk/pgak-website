@@ -195,8 +195,8 @@ export default function Home() {
               file: "camera-intelligence",
               label:
                 "Construction camera footage illustrating scene observation",
-              href: "/ai-surveillance-system",
-              link: "Explore AI surveillance",
+              href: "/video-analytics-software",
+              link: "Explore AI video analytics",
             },
             {
               n: "02",
