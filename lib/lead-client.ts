@@ -72,6 +72,7 @@ export async function submitLead(
         email: values.email ?? "",
         [HONEYPOT_FIELD]: values.honeypot ?? "",
         ref: opts.ref,
+        form: opts.formName,
         attribution: readAttribution(opts.cta),
       }),
       // Lets the request finish even if the customer navigates away the

@@ -63,6 +63,20 @@ credential behind a `NEXT_PUBLIC_` prefix.
 Redeploy after adding them. Without these, the dealer lead form falls back to
 WhatsApp for every submission (the site still works; leads just don't reach the
 CRM automatically). `GET /api/leads` answers `{"erp":true}` when they are set.
+
+**Shared lead register (Google Sheet + alert emails to both recipients).** Add
+these too, once the Apps Script web app is deployed
+(see `docs/integrations/LEAD_REGISTER.md`):
+
+| Name | Value |
+|---|---|
+| `LEAD_REGISTER_URL` | the Apps Script web app URL, ending `/exec` |
+| `LEAD_REGISTER_SECRET` | the same value as the script's `SECRET` property |
+| `LEAD_REPLAY_SECRET` | *optional* — enables `POST /api/leads/replay`; unset disables it |
+
+`GET /api/leads` answers `{"register":true}` when the first two are set. The
+register is additive: the ERP relay above is unchanged, and if the register is
+not configured the site behaves exactly as it did before.
 (For local testing, copy `.env.example` to `.env.local` and fill the same values.)
 
 ## 4. Verify after deploy
