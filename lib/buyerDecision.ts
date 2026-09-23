@@ -294,6 +294,126 @@ export const BUYER_DECISIONS: Record<string, BuyerDecision> = {
   },
 };
 
+
+/**
+ * The three pages below were excluded from Google's index as "Duplicate
+ * without user-selected canonical" (Search Console, pgak.co.in, 23 Sep 2026),
+ * even though each serves a self-referencing canonical and runs ~2,000 words.
+ * The cause is not thinness or canonicals: they share a template and a topic
+ * with a page Google did index — /factory-security and /ai-cctv-for-warehouses
+ * for industrial CCTV, /video-analytics-software for AI surveillance,
+ * /remote-cctv-monitoring for multi-site. Each entry therefore leads with what
+ * this page answers that its neighbour does not.
+ */
+BUYER_DECISIONS["industrial-cctv"] = {
+  answer:
+    "Industrial CCTV is the estate-level question: forty, a hundred and twenty, or several hundred cameras across sheds, yards and gates that nobody can watch. PGAK adds detection to the compatible cameras already there and processes on site, so alerts do not depend on the plant's internet line. Where /factory-security covers one plant's gate, boundary and shop floor, this page is about running that across a large or multi-shed estate.",
+  supported: [
+    "Zones and schedules per area across a large camera count, not just a few cameras.",
+    "Alerts routed by area to the person responsible for it.",
+    "Camera-offline reporting across the estate, so a dead camera is noticed the same day.",
+    "Several plants or yards reporting into one account.",
+  ],
+  notSupported: [
+    "Process or production monitoring, machine vision and quality inspection.",
+    "Turning a camera count into coverage: unviewed areas stay unviewed.",
+    "A single accuracy figure across mixed cameras, lighting and weather.",
+  ],
+  requirements: COMMON.requirements,
+  scope: {
+    included: [
+      "Connecting compatible cameras across the estate, zones and schedules per area, alert routing, and a fortnight of tuning against real traffic.",
+    ],
+    excluded: [
+      "New cameras, cabling, poles or lighting; network works between buildings; and any civil or electrical work.",
+    ],
+  },
+  priceFactors: [
+    "How many cameras carry analytics, across how many buildings.",
+    "Processing hardware per site, which follows camera count.",
+    "Whether gate plate capture and attendance are included.",
+    "Number of sites reporting into one account.",
+  ],
+  quoteIncludes: COMMON.quoteIncludes,
+  pilot: COMMON.pilot,
+  afterEnquiry: COMMON.afterEnquiry,
+};
+
+BUYER_DECISIONS["multi-site-cctv-monitoring"] = {
+  answer:
+    "Multi-site monitoring is about one account across locations rather than one app per recorder: every branch, plant or godown in a single view, with alerts routed to whoever runs each site and access limited to what each manager should see. Recorders and camera brands can differ between sites, because each site is connected through its own on-site processing unit. /remote-cctv-monitoring answers how one site reaches you; this page answers how fourteen do.",
+  supported: [
+    "One view across sites, with alerts routed per site to the people who run it.",
+    "Per-site access, so a regional manager sees their own locations.",
+    "Mixed recorders and camera makes across sites, subject to the usual stream checks.",
+    "Camera-health reporting per site, so a location that stops reporting is visible centrally.",
+  ],
+  notSupported: [
+    "A guarantee that every existing recorder at every site is compatible — each is checked.",
+    "Staffed monitoring: PGAK does not watch your cameras for you.",
+    "Central live view of every camera at once on one screen, which no operator can usefully watch.",
+  ],
+  requirements: [
+    "Stream access at each site (RTSP or ONVIF) and a processing unit per site.",
+    "A working internet connection per site for alerts and the central view — detection itself continues locally if it drops.",
+    "A decision on who should see which sites.",
+  ],
+  scope: {
+    included: [
+      "Per-site connection and zones, alert routing rules, user access per site, and tuning at each site.",
+    ],
+    excluded: [
+      "New cameras or recorders at any site, inter-site networking, and staffed monitoring.",
+    ],
+  },
+  priceFactors: [
+    "Number of sites, and cameras made intelligent at each.",
+    "Processing hardware per site.",
+    "Which analytics run where — sites rarely need the same set.",
+  ],
+  quoteIncludes: COMMON.quoteIncludes,
+  pilot: [
+    "Start with two or three representative sites, not the whole chain.",
+    "Check alert routing: the right person at the right site, with the clip attached.",
+    "Confirm what happens at a site when its internet drops, and what catches up afterwards.",
+  ],
+  afterEnquiry: COMMON.afterEnquiry,
+};
+
+BUYER_DECISIONS["ai-surveillance-system"] = {
+  answer:
+    "An AI surveillance system, bought as a system rather than as clever cameras, means the intelligence sits behind the estate you already own: existing cameras keep seeing, an on-site unit does the detecting, and the alerts, attendance records and camera-health reporting arrive in one place. /video-analytics-software describes the software and its compatibility rules; this page is for deciding between buying AI cameras one at a time and adding one layer across everything you already have.",
+  supported: [
+    "One layer over mixed camera makes and ages, rather than a few smart cameras among many ordinary ones.",
+    "Person, vehicle, boundary, loitering and face-based attendance from the same estate.",
+    "Camera health and offline alerts across every connected camera.",
+    "Adding cameras to the layer later without replacing anything.",
+  ],
+  notSupported: [
+    "Making an unusable camera view usable, whatever the software.",
+    "Replacing a recorder: retention and storage stay with your DVR/NVR.",
+    "Published accuracy figures that hold on any site without a pilot.",
+  ],
+  requirements: COMMON.requirements,
+  scope: {
+    included: [
+      "Connecting compatible cameras, enabling the analytics you choose per camera, alerting, and a fortnight of tuning.",
+    ],
+    excluded: [
+      "Cameras, recorders, cabling and storage; any network or electrical work.",
+    ],
+  },
+  priceFactors: [
+    "Cameras enabled, and which analytics on each.",
+    "Processing hardware sized to that count.",
+    "Number of sites on one account.",
+    "Whether attendance enrolment is included.",
+  ],
+  quoteIncludes: COMMON.quoteIncludes,
+  pilot: COMMON.pilot,
+  afterEnquiry: COMMON.afterEnquiry,
+};
+
 export function buyerDecisionFor(slug: string): BuyerDecision | undefined {
   return BUYER_DECISIONS[slug];
 }
