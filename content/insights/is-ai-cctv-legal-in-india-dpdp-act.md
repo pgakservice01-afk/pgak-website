@@ -5,7 +5,7 @@ category: "Compliance"
 excerpt: "CCTV in a workplace is lawful in India. Face recognition on employees is where it gets specific — and where most vendor answers are wrong in both directions. A practical read of what the DPDP Act asks of you."
 metaDescription: "Workplace CCTV is lawful in India. Face recognition on employees is where it gets specific, and where most vendor answers are wrong both ways."
 readTime: 8
-image: "/insights/category/compliance.webp"
+image: "/insights/category/compliance-3.webp"
 faqs:
   - q: "Is CCTV legal in workplaces in India?"
     a: "Yes. Indian employers routinely and lawfully operate CCTV in entries and exits, production and loading areas, parking, cash counters, stores and server rooms. The recognised limits are that cameras must not cover places where people have a reasonable expectation of privacy — washrooms and changing rooms in particular — and that covert audio recording is treated far more strictly than video. The Digital Personal Data Protection Act, 2023 does not ban workplace CCTV; it governs how the resulting personal data is handled."

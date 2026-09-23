@@ -5,7 +5,7 @@ category: "Buying Guide"
 excerpt: "A vendor-neutral checklist. Print it, ask every supplier the same twelve questions, and compare the answers rather than the brochures — including ours."
 metaTitle: "12 questions before buying an attendance system"
 readTime: 6
-image: "/insights/category/buying-guide.webp"
+image: "/insights/category/buying-guide-3.webp"
 faqs:
   - q: "What should I check before buying an attendance system?"
     a: "Focus on what happens after the punch: how shift, grace, half-day and overtime rules are encoded, what the payroll export actually contains, how missed punches are handled, what coverage exists beyond the main entrance, and what the total cost is across all doors including software and maintenance over several years."

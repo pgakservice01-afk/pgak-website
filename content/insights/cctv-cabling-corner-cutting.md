@@ -4,7 +4,7 @@ date: "2026-09-11"
 category: "Buying Guide"
 excerpt: "Cameras rarely die in year one. Cabling does — a wrong cable grade, an outdoor joint with no conduit, a PoE budget nobody calculated. What to check before you sign off an installation."
 readTime: 6
-image: "/insights/category/buying-guide.webp"
+image: "/insights/category/buying-guide-2.webp"
 faqs:
   - q: "What cable should be used for CCTV installation?"
     a: "IP cameras need outdoor-rated CAT6 (or CAT5e at a push) carrying both data and power over PoE. Analogue cameras need coaxial cable rated for the resolution in use, plus a separate power run. Indoor-grade cable used outdoors is the single most common wrong choice — it cracks and lets in moisture within a year or two."

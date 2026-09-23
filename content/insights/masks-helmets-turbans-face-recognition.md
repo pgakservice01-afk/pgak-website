@@ -6,7 +6,7 @@ excerpt: "Turbans, hard hats, surgical masks — the honest answer is different 
 metaTitle: "Face recognition with helmets, turbans and masks"
 metaDescription: "Turbans and hard hats are fine. Masks, visors and sunglasses are not. What face recognition attendance really handles at an Indian factory gate."
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-3.webp"
 faqs:
   - q: "Does face recognition work for employees wearing turbans?"
     a: "Yes, in almost all cases. A turban covers the hair and scalp, not the facial landmarks — eyes, nose, mouth, jawline — that face recognition actually measures. It works the same way it would for anyone wearing a cap or a hijab, because the covering sits outside the region the algorithm reads."

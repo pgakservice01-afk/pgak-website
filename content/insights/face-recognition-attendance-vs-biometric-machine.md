@@ -5,7 +5,7 @@ updated: "2026-08-21"
 category: "Attendance"
 excerpt: "Fingerprint readers fail exactly where factories need them most. But face-based attendance has its own limits, and you should know both before switching."
 readTime: 7
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-2.webp"
 faqs:
   - q: "Is face recognition attendance better than a biometric machine?"
     a: "For industrial gates where many people arrive at once, usually yes: there is no queue, no contact, and no PIN fallback for buddy punching. For a small air-conditioned office with ten staff, a fingerprint machine is often fine. The honest test is to run both for a fortnight and compare the records."

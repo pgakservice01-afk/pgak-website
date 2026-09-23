@@ -17,15 +17,21 @@ something the article does not.
 
 `/public/insights/category/<slug>.webp`, one per category, 1600×900 WebP:
 
-| Category | File | Source |
+| Category | Files | Source |
 | --- | --- | --- |
-| Attendance | `attendance.webp` | Pexels 37538043 |
-| Security Basics | `security-basics.webp` | Pexels 12689714 |
-| Camera Setup | `camera-setup.webp` | Pexels 10143239 |
-| Buying Guide | `buying-guide.webp` | Canva AI image (design `DAHWA5BoWvA`) |
-| Compliance | `compliance.webp` | Pexels 7658352 |
+| Attendance | `attendance.webp`, `-2`, `-3` | Pexels 37538043, 13657444, 7824263 |
+| Security Basics | `security-basics.webp`, `-2` | Pexels 12689714, 29280895 |
+| Camera Setup | `camera-setup.webp`, `-2`, `-3` | Pexels 10143239, 31306020, 19653611 |
+| Buying Guide | `buying-guide.webp`, `-2`, `-3` | Canva AI image (design `DAHWA5BoWvA`), Pexels 4483555, 4487363 |
+| Compliance | `compliance.webp`, `-2`, `-3` | Pexels 7658352, 7735769, 8296977 |
 | Warehouse Security | `warehouse-security.webp` | Pexels 36398150 |
 | Retail | `retail.webp` | Pexels 26861411 |
+
+Categories with many articles carry two or three variants. The insights index
+is date-sorted, so each category's articles are assigned round-robin in that
+same order — which is what stops three identical covers landing side by side
+in the grid. If you add an article, re-run that distribution rather than
+picking a variant by hand.
 
 Alerts, Monitoring and Proactive Security have one article each, and each of
 those already has a bespoke cover, so they need no category image.

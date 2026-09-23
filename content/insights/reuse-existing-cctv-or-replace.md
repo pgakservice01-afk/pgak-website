@@ -6,7 +6,7 @@ excerpt: "Every vendor with cameras to sell will tell you your estate is obsolet
 metaDescription: "Every vendor with cameras to sell will tell you your estate is obsolete."
 metaTitle: "Reuse your existing CCTV or replace it?"
 readTime: 5
-image: "/insights/category/buying-guide.webp"
+image: "/insights/category/buying-guide-2.webp"
 faqs:
   - q: "Can AI software work with old CCTV cameras?"
     a: "Usually yes. What matters is whether the camera produces a standard RTSP stream and has a usable view of the area you care about. A five-year-old camera correctly positioned outperforms a brand-new one mounted in the wrong place, because placement determines what is in frame and no amount of resolution recovers a subject the camera cannot see."

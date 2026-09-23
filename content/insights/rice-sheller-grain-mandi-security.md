@@ -5,7 +5,7 @@ category: "Security Basics"
 excerpt: "For a few weeks each procurement season, a mandi or rice sheller triples its headcount and stacks its yard full of bags worth more than the rest of the year's stock combined. Why the security plan that works in the off-season falls apart exactly when it matters most."
 metaDescription: "How to secure a rice sheller or grain mandi during procurement season, when seasonal labour and open-yard stock create the highest risk."
 readTime: 5
-image: "/insights/category/security-basics.webp"
+image: "/insights/category/security-basics-2.webp"
 faqs:
   - q: "What cameras does a grain mandi or rice sheller need?"
     a: "Coverage at the weighbridge, the gate, and the open yard where bags are stacked, prioritised in that order. The weighbridge and gate are where disputes and theft concentrate during procurement season; the yard needs enough coverage to see the rows, not necessarily every bag."

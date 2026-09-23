@@ -4,7 +4,7 @@ date: "2026-09-12"
 category: "Camera Setup"
 excerpt: "Monsoon doesn't kill CCTV systems all at once — it finds the one loose connector, one fogged dome, one unearthed junction box. A practical pre-monsoon checklist that catches the failure before the footage does."
 readTime: 5
-image: "/insights/category/camera-setup.webp"
+image: "/insights/category/camera-setup-2.webp"
 faqs:
   - q: "What CCTV problems does monsoon cause in India?"
     a: "The four repeat failures every monsoon are water entering through loose cable glands and open junction boxes, condensation fogging the inside of dome camera housings, corrosion at outdoor connectors that were never sealed, and power surges or outages during storms that reboot or damage recorders. The camera body itself is usually weather-rated and rarely the actual point of failure."

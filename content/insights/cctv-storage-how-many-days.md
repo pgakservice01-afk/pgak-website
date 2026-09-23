@@ -5,7 +5,7 @@ category: "Camera Setup"
 excerpt: "The retention figure quoted at installation almost always shrinks — quietly, as cameras get added and nobody redoes the math. A simple calculation to find your real number today."
 metaDescription: "How to calculate real CCTV storage retention in days, and why stated retention silently shrinks as cameras are added to a system."
 readTime: 5
-image: "/insights/category/camera-setup.webp"
+image: "/insights/category/camera-setup-3.webp"
 faqs:
   - q: "How do you calculate CCTV storage days?"
     a: "Divide your recorder's total storage capacity in gigabytes by the total daily storage used across all cameras. Daily use per camera depends on resolution, frame rate, compression and how much motion the scene has, so the only reliable way to know it is to check the recorder's own storage statistics rather than estimate from a spec sheet."

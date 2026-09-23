@@ -4,7 +4,7 @@ date: "2026-09-13"
 category: "Security Basics"
 excerpt: "Motion detection fires on anything that moves. Loitering detection adds a dimension motion can't see — how long someone stays. Where that difference earns its place, and where it just adds noise."
 readTime: 5
-image: "/insights/category/security-basics.webp"
+image: "/insights/category/security-basics-2.webp"
 faqs:
   - q: "What is loitering detection in CCTV?"
     a: "Loitering detection is a video analytics feature that measures how long a person or vehicle stays in a defined zone, and raises an alert once that dwell time crosses a threshold you set — for example, someone standing near a cash counter or a parked vehicle for more than two minutes. It is built on top of the same person-tracking that motion detection uses, with a timer added."

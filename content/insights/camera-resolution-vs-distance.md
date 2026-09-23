@@ -4,7 +4,7 @@ date: "2026-09-09"
 category: "Camera Setup"
 excerpt: "A 4MP camera sounds sharp on the box, but at 40 metres it can leave a face as a 40-pixel smudge. The megapixel number alone tells you almost nothing without distance."
 readTime: 5
-image: "/insights/category/camera-setup.webp"
+image: "/insights/category/camera-setup-2.webp"
 faqs:
   - q: "Does more megapixels mean I can identify faces further away?"
     a: "Not on its own. Megapixels tell you the total detail a sensor captures across its whole field of view. If that field of view is wide, the same pixels get spread thin over a large area, so a high-megapixel camera with a wide lens can still show a face as a handful of blurry pixels at distance. What matters is pixels per metre at the exact spot the face appears, not the megapixel number on the box."

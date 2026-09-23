@@ -6,7 +6,7 @@ excerpt: "Every site that muted its alerts did so for a good reason. The four ca
 metaDescription: "Every site that muted its alerts had a good reason. The four causes of alert fatigue, and the tuning sequence that makes notifications readable again."
 metaTitle: "Why your CCTV alerts got muted — and how to fix it"
 readTime: 5
-image: "/insights/category/security-basics.webp"
+image: "/insights/category/security-basics-2.webp"
 faqs:
   - q: "Why do CCTV motion alerts produce so many false alarms?"
     a: "Because motion detection compares pixels between frames rather than identifying objects. Rain, insects near the lens, swaying vegetation, headlights and shadows all change pixels, so all of them trigger alerts. The system is working exactly as designed — the design is simply not suited to the job."

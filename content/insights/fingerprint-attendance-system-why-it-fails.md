@@ -6,7 +6,7 @@ excerpt: "Fingerprint attendance is cheap and everywhere — and on factory gate
 metaDescription: "Fingerprint attendance is cheap and everywhere — and on factory gates it quietly falls apart."
 metaTitle: "Fingerprint attendance: where it works and fails"
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-2.webp"
 faqs:
   - q: "Why does a fingerprint attendance system fail for some employees?"
     a: "Manual work wears down fingerprint ridges. Masons, machinists, loaders, kitchen and textile workers routinely present prints too faint for the sensor, and wet, dusty or cut fingers fail even for office staff. On labour-heavy sites a meaningful share of the workforce simply cannot scan reliably."

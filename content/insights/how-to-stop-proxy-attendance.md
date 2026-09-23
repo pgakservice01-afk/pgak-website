@@ -6,7 +6,7 @@ excerpt: "Proxy attendance survives fingerprint machines, cards and registers be
 metaDescription: "Proxy attendance survives fingerprint machines, cards and registers because all three record a credential, not a person."
 metaTitle: "How to stop proxy attendance for good"
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/category/attendance-3.webp"
 faqs:
   - q: "What is proxy attendance?"
     a: "Proxy attendance, also called buddy punching, is when one employee marks attendance on behalf of another who is absent or late. It is possible with any system that records a credential — a card, a PIN, or a shared fingerprint — rather than verifying the person who is physically present."

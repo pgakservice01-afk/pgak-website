@@ -4,7 +4,7 @@ date: "2026-09-11"
 category: "Buying Guide"
 excerpt: "Every quote pushes IP cameras as the upgrade. For a lot of Indian sites, a modern analogue system with a good DVR does the job for less money and less cabling headache. Here's when each one actually wins."
 readTime: 6
-image: "/insights/category/buying-guide.webp"
+image: "/insights/category/buying-guide-3.webp"
 faqs:
   - q: "What is the difference between IP and analogue CCTV cameras?"
     a: "IP cameras digitise video inside the camera and send it over a network cable (usually CAT6 with PoE for power). Analogue cameras send an unprocessed video signal down a coaxial cable to a DVR, which does the digitising centrally. IP typically gives higher resolution and easier scaling; analogue typically costs less and uses simpler, more forgiving cabling."

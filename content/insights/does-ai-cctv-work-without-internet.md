@@ -5,7 +5,7 @@ category: "Security Basics"
 excerpt: "If the detection runs on a device at your site, it keeps working when the link drops — what stops is delivery of the alert to your phone. The distinction matters more in India than most vendors admit."
 metaDescription: "If the detection runs on a device at your site, it keeps working when the link drops — what stops is delivery of the alert to your phone."
 readTime: 6
-image: "/insights/category/security-basics.webp"
+image: "/insights/category/security-basics-2.webp"
 faqs:
   - q: "Does AI CCTV work without internet?"
     a: "It depends entirely on where the analysis happens. If detection runs on a device installed at your site, the cameras keep recording and the AI keeps detecting through an internet outage — what pauses is delivery of alerts to your phone, which resumes when the link returns. If the system sends video to a cloud service to be analysed, detection itself stops when the connection does. Ask any vendor which of the two they are selling before you compare prices."
