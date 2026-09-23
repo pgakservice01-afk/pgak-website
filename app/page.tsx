@@ -110,6 +110,9 @@ export default function Home() {
               <a href="/free-audit" className="text-link" data-cta="hero-audit">
                 Get Free Camera Audit <span aria-hidden="true">→</span>
               </a>
+              <a href="/roi-calculator" className="text-link" data-cta="hero-business-case">
+                Calculate my business case <span aria-hidden="true">→</span>
+              </a>
             </div>
             <p className="hero-note">Your cameras. A more intelligent view.</p>
           </div>
@@ -144,6 +147,59 @@ export default function Home() {
             />
           </div>
         </section>
+        <section className="sec" id="calculators" aria-label="Work out your numbers">
+          <div className="wrap">
+            <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+              Work out your numbers before anyone quotes you
+            </h2>
+            <p className="mt-4 max-w-[64ch] text-ink-soft">
+              Three of the questions buyers have to settle first. They run in your browser, they
+              assume no PGAK price, and they show a negative answer as readily as a positive one.
+            </p>
+            <div className="mt-7 grid gap-5 md:grid-cols-3">
+              {[
+                {
+                  href: "/roi-calculator",
+                  title: "Business case, payback and budget",
+                  body: "Enter your quotation and only the benefits you can defend. Net cash per month, payback month, ROI% and what you could afford to spend.",
+                  cta: "home-calc-roi",
+                },
+                {
+                  href: "/calculators/cctv-storage",
+                  title: "Storage and retention",
+                  body: "How much disk keeps 30 days of footage? Cameras × bitrate × hours, in decimal TB, with the free-space reserve and RAID kept separate.",
+                  cta: "home-calc-storage",
+                },
+                {
+                  href: "/calculators/retrofit-vs-replacement",
+                  title: "Retrofit vs replacement",
+                  body: "Adding AI to the cameras you own, against replacing the system — same scope, same horizon. Retrofit does not automatically win.",
+                  cta: "home-calc-tco",
+                },
+              ].map((c) => (
+                <article key={c.href} className="card flex flex-col p-6">
+                  <h3 className="text-[1.05rem] font-semibold">
+                    <a href={c.href} className="text-ink hover:text-accent">
+                      {c.title}
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-[0.92rem] leading-relaxed text-ink-soft">{c.body}</p>
+                  <p className="mt-auto pt-5">
+                    <a href={c.href} data-cta={c.cta} className="btn btn-ghost">
+                      Open the calculator →
+                    </a>
+                  </p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 text-[0.92rem] text-ink-soft">
+              <a href="/calculators" data-cta="home-calc-hub" className="text-accent underline underline-offset-2">
+                All calculators, and the ones still in progress
+              </a>
+            </p>
+          </div>
+        </section>
+
         <section className="premium-section compatibility" id="how-compatible">
           <p className="kicker">WORKS WITH YOUR EXISTING CCTV</p>
           <h2>
