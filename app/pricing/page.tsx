@@ -91,7 +91,11 @@ export default function PricingPage() {
               What AI CCTV costs in India
             </h1>
             <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              PGAK is billed per camera per month. Request a quote based on your
+              PGAK is billed per camera per month. Before you ask, you can{" "}
+              <a href="/roi-calculator" className="text-accent underline underline-offset-2">
+                work out what the numbers would have to look like
+              </a>{" "}
+              and what you could afford to spend. Request a quote based on your
               camera count, sites and intended analytics. We check existing-camera
               compatibility and confirm processing hardware, setup, support,
               updates, taxes and contract terms in the written scope.

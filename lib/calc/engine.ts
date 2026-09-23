@@ -448,3 +448,133 @@ export const formatNumber = (n: number, digits = 2): string =>
 /** Percentage points are not percentages: kept explicit at the call site. */
 export const formatPercent = (n: number, digits = 2): string =>
   `${formatNumber(n, digits)}%`;
+
+// ── Batch 2 models ───────────────────────────────────────────────────────────
+
+/**
+ * Documented loss × the improvement YOU believe in. There is deliberately no
+ * default "typical recovery" here: an industry average applied to someone
+ * else's shrinkage is how these tools start lying.
+ */
+export function computeShrinkage(i: {
+  documentedLossPerMonth: number | null;
+  eligibleSharePercent: number;
+  improvementPercent: number;
+}): { eligibleLoss: number | null; scenarioBenefit: number | null; unknown: boolean } {
+  const unknown = i.documentedLossPerMonth === null;
+  if (unknown) return { eligibleLoss: null, scenarioBenefit: null, unknown };
+  const clamp = (p: number) => Math.min(100, Math.max(0, p));
+  const eligibleLoss = round2((i.documentedLossPerMonth as number) * (clamp(i.eligibleSharePercent) / 100));
+  return {
+    eligibleLoss,
+    scenarioBenefit: round2(eligibleLoss * (clamp(i.improvementPercent) / 100)),
+    unknown,
+  };
+}
+
+/** Admin hours before vs after. Any payment correction stays a separate line. */
+export function computeAdminTime(i: {
+  hoursBefore: number;
+  hoursAfter: number;
+  hourlyCost: number | null;
+  verifiedPaymentCorrection: number | null;
+}): {
+  hoursReleased: number;
+  capacityValue: number | null;
+  paymentCorrection: number | null;
+} {
+  const hoursReleased = round2(Math.max(0, i.hoursBefore - i.hoursAfter));
+  return {
+    hoursReleased,
+    capacityValue: i.hourlyCost === null ? null : round2(hoursReleased * i.hourlyCost),
+    paymentCorrection: i.verifiedPaymentCorrection,
+  };
+}
+
+/** Nuisance alerts: fewer must mean better classification, not less coverage. */
+export function computeFalseAlarms(i: {
+  alertsPerDayBefore: number;
+  alertsPerDayAfter: number;
+  minutesPerAlert: number;
+  daysPerMonth: number;
+  hourlyCost: number | null;
+}): { alertsAvoided: number; hoursPerMonth: number; capacityValue: number | null } {
+  const perDay = Math.max(0, i.alertsPerDayBefore - i.alertsPerDayAfter);
+  const alertsAvoided = round2(perDay * i.daysPerMonth);
+  const hoursPerMonth = round2((alertsAvoided * i.minutesPerAlert) / 60);
+  return {
+    alertsAvoided,
+    hoursPerMonth,
+    capacityValue: i.hourlyCost === null ? null : round2(hoursPerMonth * i.hourlyCost),
+  };
+}
+
+/** Travel avoided: expense is cash, the hours are capacity. Never merged. */
+export function computeTravel(i: {
+  avoidableVisitsPerMonth: number;
+  expensePerVisit: number | null;
+  hoursPerVisit: number;
+  hourlyCost: number | null;
+}): { cashPerMonth: number | null; hoursPerMonth: number; capacityValue: number | null } {
+  const hoursPerMonth = round2(i.avoidableVisitsPerMonth * i.hoursPerVisit);
+  return {
+    cashPerMonth:
+      i.expensePerVisit === null ? null : round2(i.avoidableVisitsPerMonth * i.expensePerVisit),
+    hoursPerMonth,
+    capacityValue: i.hourlyCost === null ? null : round2(hoursPerMonth * i.hourlyCost),
+  };
+}
+
+/**
+ * Gate processing. Two different things are reported: time your own staff stop
+ * spending (which can be capacity), and time drivers stop waiting (which is
+ * NOT your cash unless you pay for it — demurrage, hired vehicles).
+ */
+export function computeAnprGate(i: {
+  vehiclesPerDay: number;
+  secondsBefore: number;
+  secondsAfter: number;
+  daysPerMonth: number;
+  gateStaffHourlyCost: number | null;
+  driverTimeIsBilledToYou: boolean;
+  driverHourlyCost: number | null;
+}): {
+  secondsSavedPerVehicle: number;
+  gateHoursPerMonth: number;
+  gateCapacityValue: number | null;
+  driverHoursPerMonth: number;
+  driverCashValue: number | null;
+} {
+  const delta = Math.max(0, i.secondsBefore - i.secondsAfter);
+  const hours = round2((i.vehiclesPerDay * delta * i.daysPerMonth) / 3600);
+  return {
+    secondsSavedPerVehicle: delta,
+    gateHoursPerMonth: hours,
+    gateCapacityValue:
+      i.gateStaffHourlyCost === null ? null : round2(hours * i.gateStaffHourlyCost),
+    driverHoursPerMonth: hours,
+    driverCashValue:
+      i.driverTimeIsBilledToYou && i.driverHourlyCost !== null
+        ? round2(hours * i.driverHourlyCost)
+        : null,
+  };
+}
+
+/** Retail scenario. Percentage POINTS, never percent of a percent. */
+export function computeRetailContribution(i: {
+  visitorsPerMonth: number;
+  conversionChangePercentagePoints: number;
+  averageOrderValue: number | null;
+  contributionMarginPercent: number;
+  extraCostsPerMonth: number;
+}): { extraOrders: number; contributionPerMonth: number | null } {
+  const extraOrders = round2((i.visitorsPerMonth * i.conversionChangePercentagePoints) / 100);
+  if (i.averageOrderValue === null) return { extraOrders, contributionPerMonth: null };
+  const margin = Math.min(100, Math.max(0, i.contributionMarginPercent)) / 100;
+  return {
+    extraOrders,
+    contributionPerMonth: round2(
+      extraOrders * (i.averageOrderValue as number) * margin - i.extraCostsPerMonth
+    ),
+  };
+}

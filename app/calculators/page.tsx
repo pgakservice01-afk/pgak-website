@@ -58,7 +58,7 @@ export default function CalculatorsHub() {
               Work out the numbers before anyone quotes you
             </h1>
             <p className="mt-6 max-w-[66ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              Four tools, built on one published set of formulas. They run entirely in your
+              Twelve tools, built on one published set of formulas. They run entirely in your
               browser, they show a negative answer as readily as a positive one, and none of them
               assumes a PGAK price — you type in the quotation you were given.
             </p>
@@ -86,6 +86,7 @@ export default function CalculatorsHub() {
           </div>
         </section>
 
+        {planned.length > 0 && (
         <section className="sec">
           <div className="wrap">
             <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">In progress</h2>
@@ -103,6 +104,7 @@ export default function CalculatorsHub() {
             </ul>
           </div>
         </section>
+        )}
 
         <section className="sec pt-0">
           <div className="wrap">
