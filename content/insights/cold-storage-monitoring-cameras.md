@@ -5,7 +5,7 @@ category: "Security Basics"
 excerpt: "In cold storage, a door left open for ten minutes is a bigger loss than most thefts. What camera-based door monitoring actually catches, and where a plain door sensor still does the job better."
 metaDescription: "In cold storage, a door left open for ten minutes is a bigger loss than most thefts. What camera-based door monitoring actually catches."
 readTime: 6
-image: "/insights/category/security-basics.webp"
+image: "/insights/covers/cold-storage-monitoring-cameras.webp"
 faqs:
   - q: "Can CCTV cameras help prevent spoilage in cold storage?"
     a: "Yes, indirectly. A camera watching a cold room door can be paired with an analytics rule that flags the door being open beyond a set number of minutes, so someone is alerted before the temperature swing damages stock — the camera doesn't stop spoilage itself, it stops the delay in noticing."

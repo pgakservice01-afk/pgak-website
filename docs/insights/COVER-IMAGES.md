@@ -54,3 +54,28 @@ office shot with another company's logo on the glass.
 Drop a new 1600×900 WebP at the same path — no frontmatter changes needed. If
 you ever commission real photography of a PGAK site, prefer it over these, and
 record on this page which deployment it shows.
+
+## 3. Per-article covers (36 articles)
+
+`/public/insights/covers/<slug>.webp` — one photograph chosen for that single
+article (ANPR gets a boom barrier, the grain-mandi piece gets a mandi, the
+jewellery piece gets a jeweller's counter).
+
+These were picked from a larger automated shortlist and then **vetted by eye,
+one at a time**. That vetting is not optional overhead — it is the job. An
+automated keyword match against a stock library produced, among other things,
+a blood-pressure monitor for a fingerprint-attendance article, night-vision
+goggles for intruder detection, branded Nikon bodies for "AI CCTV vs normal
+CCTV", and a vegetable size-comparison flat-lay for "how to choose an
+installation company". Roughly half the machine's suggestions were unusable.
+Anything not clearly right was discarded rather than shipped.
+
+So: if you add covers in bulk, look at every one before it goes live.
+
+## Where this is unfinished
+
+80 articles currently share 56 images; the most-reused image sits on 5
+articles. Getting to one unique image per article needs either AI generation
+credits (Canva's free allowance was exhausted, Gamma's workspace is at zero)
+or a licensed stock subscription plus the same by-eye curation. It is not a
+job to finish by loosening the vetting.

@@ -5,7 +5,7 @@ category: "Attendance"
 excerpt: "A 3 shift attendance system doesn't fail on the day shift. It fails at midnight, at handover, and the moment nobody records an exit. Here's what actually breaks and how to fix it."
 metaDescription: "A 3 shift attendance system fails at midnight, at handover and when nobody records an exit. What breaks in a 24x7 operation, and how to fix it."
 readTime: 6
-image: "/insights/category/attendance-3.webp"
+image: "/insights/covers/attendance-24x7-three-shift-operation.webp"
 faqs:
   - q: "What is the biggest problem with a 3 shift attendance system?"
     a: "Midnight attribution. When a shift crosses midnight, the clock resets to a new calendar day mid-shift, and most systems attribute hours to whichever date the punch timestamp falls on rather than the shift the worker was actually on. This splits one continuous shift into two partial days on the report, which then disagrees with the payroll register."

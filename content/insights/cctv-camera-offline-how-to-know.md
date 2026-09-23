@@ -6,7 +6,7 @@ excerpt: "On nearly every estate we audit, at least one camera is already dark â
 metaDescription: "On nearly every estate we audit, at least one camera is already dark â€” and nobody knew."
 metaTitle: "Would you know if a camera went offline?"
 readTime: 4
-image: "/insights/category/camera-setup.webp"
+image: "/insights/covers/cctv-camera-offline-how-to-know.webp"
 faqs:
   - q: "How do I know if a CCTV camera is offline?"
     a: "Without automated monitoring, you generally do not until footage is needed. Manual checks are the only alternative: open the live view of every camera on a fixed schedule and compare against your expected camera count. Automated camera-health monitoring reports an offline camera within minutes instead."

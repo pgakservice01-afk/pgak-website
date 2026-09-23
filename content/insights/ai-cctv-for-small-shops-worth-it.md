@@ -4,7 +4,7 @@ date: "2026-07-26"
 category: "Retail"
 excerpt: "Sometimes no. Here's the arithmetic we run with shop owners before selling them anything, including the cases where we tell them to wait."
 readTime: 4
-image: "/insights/category/retail.webp"
+image: "/insights/covers/ai-cctv-for-small-shops-worth-it.webp"
 ---
 
 AI CCTV on a twelve-camera shop is a real monthly cost for a small business, and it deserves a real answer rather than a pitch.

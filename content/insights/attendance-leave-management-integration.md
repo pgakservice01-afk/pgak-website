@@ -5,7 +5,7 @@ category: "Attendance"
 excerpt: "An employee takes approved leave, and the attendance report still shows an unpaid absence. The fix isn't stricter approvals — it's one calendar instead of two."
 metaDescription: "An employee takes approved leave, and the attendance report still shows an unpaid absence."
 readTime: 5
-image: "/insights/category/attendance.webp"
+image: "/insights/covers/attendance-leave-management-integration.webp"
 faqs:
   - q: "What is attendance and leave management?"
     a: "Attendance and leave management is the practice of tracking who is present, absent, or on approved leave from a single calendar, so an approved leave day and a physical entry log never contradict each other. When the two run as separate systems reconciled by hand, mismatches between them become a routine payroll problem."

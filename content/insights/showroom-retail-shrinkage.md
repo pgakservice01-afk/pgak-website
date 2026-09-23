@@ -4,7 +4,7 @@ date: "2026-09-20"
 category: "Security Basics"
 excerpt: "Retail shop theft CCTV rarely stops anything in the moment. Its real value is turning 'we lost stock somewhere this month' into a searchable index you can actually audit against."
 readTime: 6
-image: "/insights/category/security-basics-2.webp"
+image: "/insights/covers/showroom-retail-shrinkage.webp"
 faqs:
   - q: "Does retail shop theft CCTV actually stop theft in real time?"
     a: "Rarely, on its own. Cameras deter some casual theft just by being visible, but a determined shoplifter or a dishonest employee who knows where the blind spots are will not be stopped by a camera watching. The real value of CCTV in most showrooms is as evidence after the fact, not prevention in the moment."
