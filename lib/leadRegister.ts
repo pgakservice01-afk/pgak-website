@@ -2,6 +2,9 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 
 import type { Attribution, ValidLead } from "./leads.ts";
 import { PROJECT_EXISTING, PROJECT_NEW } from "./leads.ts";
+// Explicit extension: this module is also executed directly by
+// `node --experimental-strip-types` in lib/leadRegister.test.ts.
+import { aiReferrerName } from "./aiReferrers.ts";
 
 /**
  * The shared sales register: one row per enquiry in the "PGAK — Master Leads"
@@ -100,6 +103,10 @@ function sourceOf(a: Attribution): string {
   if (a.utm_source) return [a.utm_source, a.utm_medium].filter(Boolean).join(" / ");
   if (a.gclid) return "Google Ads";
   if (a.fbclid) return "Meta ads";
+  // Named before the generic referral line so sales can see at a glance that
+  // an assistant recommended us — the one channel no campaign tag ever marks.
+  const assistant = aiReferrerName(a.referrer);
+  if (assistant) return `AI assistant: ${assistant}`;
   if (a.referrer) return `Referral: ${a.referrer}`;
   return "Website (direct/organic)";
 }

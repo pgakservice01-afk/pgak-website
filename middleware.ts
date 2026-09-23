@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { isSpamPath } from "@/lib/spamUrls";
+import { aiCrawlerName } from "@/lib/aiReferrers";
 
 /**
  * Answers the leftover WordPress gambling-spam URLs with `410 Gone` so Google
@@ -28,6 +29,21 @@ export function middleware(request: NextRequest) {
         "X-Robots-Tag": "noindex",
       },
     });
+  }
+
+  // ── AI crawler visibility ────────────────────────────────────────────────
+  // An assistant can only cite a page its operator has actually fetched, and
+  // no bot runs the GA4 tag, so this is the only place that fact is
+  // observable. One line per fetch, prefixed so it can be filtered in the
+  // Vercel runtime logs (`ai-crawl`) and counted per operator and per path.
+  // A response header carries the same label for anyone reading a single
+  // request; it is inert for browsers, which never match here.
+  const crawler = aiCrawlerName(request.headers.get("user-agent"));
+  if (crawler) {
+    console.log(`ai-crawl operator="${crawler}" path="${pathname}"`);
+    const response = NextResponse.next();
+    response.headers.set("X-AI-Crawler", crawler);
+    return response;
   }
 
   return NextResponse.next();

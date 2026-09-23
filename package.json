@@ -2,7 +2,7 @@
   "name": "pgak-website",
   "version": "1.0.0",
   "private": true,
-  "description": "PGAK \u2014 Intelligent Security marketing site. Next.js 14 scrollytelling rebuild.",
+  "description": "PGAK — Intelligent Security marketing site. Next.js 14 scrollytelling rebuild.",
   "scripts": {
     "dev": "next dev",
     "mock:cloud": "node scripts/mock-cloud.mjs",
@@ -13,14 +13,15 @@
     "indexnow": "node scripts/indexnow.mjs",
     "test:middleware": "node --experimental-strip-types --test lib/spamUrls.test.ts",
     "test:leads": "node --experimental-strip-types --test lib/leads.test.ts",
-    "test": "npm run test:middleware && npm run test:leads && npm run test:locations && npm run test:register && npm run test:calc",
+    "test": "npm run test:middleware && npm run test:leads && npm run test:locations && npm run test:register && npm run test:calc && npm run test:ai-referrers",
     "test:analytics": "node --test scripts/test-analytics.cjs",
     "typecheck": "tsc --noEmit",
     "test:lead-client": "node --test scripts/test-lead-client.cjs",
     "test:locations": "node --experimental-strip-types --test lib/locations.test.ts",
     "test:register": "node --experimental-strip-types --test lib/leadRegister.test.ts",
     "mock:register": "node scripts/mock-lead-register.cjs",
-    "test:calc": "node --experimental-strip-types --test lib/calc/engine.test.ts"
+    "test:calc": "node --experimental-strip-types --test lib/calc/engine.test.ts",
+    "test:ai-referrers": "node --experimental-strip-types --test lib/aiReferrers.test.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

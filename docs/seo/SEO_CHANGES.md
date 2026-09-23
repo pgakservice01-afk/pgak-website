@@ -67,3 +67,20 @@ Security dependency audit: zero known npm vulnerabilities after patching, versus
 ### Commercial measurement limits
 
 No organic lead, ranking, revenue or AI-visibility improvement can be concluded on release day. GSC access is denied and the connected GA4 account does not expose a verified PGAK property. Current funnel diagnosis and CRM receipt/qualification need that access and elapsed data. Real evidence, city-service validation, content/claim review, tag-container deduplication and authority work remain in the 90-day plan. No current GSC metric, fake customer proof or fabricated booked-demo event was added.
+
+## 23 September 2026 — Search Console read, and AI-visibility plumbing
+
+GSC access was obtained for `sc-domain:pgak.co.in` and read for the first time. Full figures, method and limits: `docs/seo/2026-09-23/GSC_BASELINE.md`. This supersedes the "GSC submission remains inaccessible" and "GSC access is denied" statements above for all reporting from this date; those statements stay as the record of what was true on release day.
+
+Headline, 90 days to 2026-09-20: 150 clicks, 6.1K impressions, 2.5% CTR, average position 8.4. 63 of the 150 clicks are the query `pgak`. Non-brand demand concentrates in four question clusters (CCTV retention ≥304 impressions, AEBAS/Aadhaar ≥109, attendance fraud ≥99, AI CCTV price ≥47) that recorded zero clicks between them, each against a published article that already answers it. Indexing: 120 indexed against 4,290 not indexed, the bulk of it the documented WordPress spam already answered with `410 Gone`; ~47 real sitemap URLs are unindexed, including two live articles Google crawled and declined.
+
+Changes shipped against that reading:
+
+- `public/llms.txt` (static, 20 commercial links, no articles) replaced by `app/llms.txt/route.ts`, generated from the same data files as `app/sitemap.ts` — 160 links including all 80 answer articles, grouped with the highest-demand clusters first. A new post appears in it on the push that publishes it.
+- `lib/aiReferrers.ts`: recognises assistant referrers (ChatGPT, Perplexity, Claude, Gemini, Copilot and others) and AI crawler user agents, keeping answer-time fetchers separate from index crawlers. Host matching is anchored to dot boundaries so a lookalike domain cannot be mislabelled; `lib/aiReferrers.test.ts` covers that case explicitly and is wired into `npm test`.
+- `lib/attribution.ts` fires a GA4 `ai_referral` event once per session when an assistant sent the visit; `lib/leadRegister.ts` labels such leads `AI assistant: <name>` ahead of the generic referral line.
+- `middleware.ts` logs one `ai-crawl operator="…" path="…"` line per AI bot fetch and sets an `X-AI-Crawler` response header.
+
+These close three measurement gaps that `docs/seo/2026-09-23/AI_VISIBILITY_BASELINE.md` had named without a mechanism: AI-referral sessions, AI-sourced enquiries, and server-log evidence of whether AI agents are actually served.
+
+No citation, ranking or traffic improvement is claimed from any of it. `llms.txt` is a convention no platform has committed to honouring; the rest produces evidence, not visitors. Verification today was local only: `npm test` (30 tests), `npm run test:analytics`, `npm run test:lead-client`, `npm run typecheck`, `npm run lint` and `npm run build` all pass, and `/llms.txt` prerenders to 160 links. Not diagnosed: the 94 server errors (5xx) in the indexing report, whose validation is already "Started".

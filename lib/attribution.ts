@@ -23,6 +23,8 @@
  *     never a precondition.
  */
 import type { Attribution } from "./leads";
+import { aiReferrerName } from "./aiReferrers";
+import { trackConversion } from "./analytics";
 
 const KEY = "pgak-touch";
 
@@ -96,11 +98,27 @@ export function captureTouch(): void {
   const existing = read();
   if (existing && !tagged) return; // first touch stands
 
+  const referrer = referrerHost();
   write({
     ...tags,
     landing: cap(window.location.pathname),
-    referrer: referrerHost(),
+    referrer,
   });
+
+  // A visit sent by an assistant means PGAK was cited in an answer, which is
+  // invisible in GA4 otherwise — ChatGPT and Perplexity land in "Referral"
+  // beside every other site. Fired here rather than on every page view so it
+  // counts sessions, not pages, and only on the touch that is actually
+  // recorded. GA4 is best-effort by design; trackConversion is a no-op server
+  // side and queues in dataLayer before the loader is ready.
+  const assistant = aiReferrerName(referrer);
+  if (assistant) {
+    trackConversion("ai_referral", {
+      ai_assistant: assistant,
+      ai_referrer_host: referrer,
+      landing_page: cap(window.location.pathname),
+    });
+  }
 }
 
 /**
