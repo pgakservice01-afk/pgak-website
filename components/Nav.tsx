@@ -4,6 +4,7 @@ const links = [
   ["/solutions", "Solutions"],
   ["/features", "Features"],
   ["/pricing", "Pricing"],
+  ["/calculators", "Calculators"],
   ["/insights", "Insights"],
   ["/about", "Company"],
 ];

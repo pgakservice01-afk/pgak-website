@@ -301,8 +301,7 @@ export const BUYER_DECISIONS: Record<string, BuyerDecision> = {
  * even though each serves a self-referencing canonical and runs ~2,000 words.
  * The cause is not thinness or canonicals: they share a template and a topic
  * with a page Google did index — /factory-security and /ai-cctv-for-warehouses
- * for industrial CCTV, /video-analytics-software for AI surveillance,
- * /remote-cctv-monitoring for multi-site. Each entry therefore leads with what
+ * for industrial CCTV, /remote-cctv-monitoring for multi-site. Each entry therefore leads with what
  * this page answers that its neighbour does not.
  */
 BUYER_DECISIONS["industrial-cctv"] = {
@@ -380,39 +379,6 @@ BUYER_DECISIONS["multi-site-cctv-monitoring"] = {
   afterEnquiry: COMMON.afterEnquiry,
 };
 
-BUYER_DECISIONS["ai-surveillance-system"] = {
-  answer:
-    "An AI surveillance system, bought as a system rather than as clever cameras, means the intelligence sits behind the estate you already own: existing cameras keep seeing, an on-site unit does the detecting, and the alerts, attendance records and camera-health reporting arrive in one place. /video-analytics-software describes the software and its compatibility rules; this page is for deciding between buying AI cameras one at a time and adding one layer across everything you already have.",
-  supported: [
-    "One layer over mixed camera makes and ages, rather than a few smart cameras among many ordinary ones.",
-    "Person, vehicle, boundary, loitering and face-based attendance from the same estate.",
-    "Camera health and offline alerts across every connected camera.",
-    "Adding cameras to the layer later without replacing anything.",
-  ],
-  notSupported: [
-    "Making an unusable camera view usable, whatever the software.",
-    "Replacing a recorder: retention and storage stay with your DVR/NVR.",
-    "Published accuracy figures that hold on any site without a pilot.",
-  ],
-  requirements: COMMON.requirements,
-  scope: {
-    included: [
-      "Connecting compatible cameras, enabling the analytics you choose per camera, alerting, and a fortnight of tuning.",
-    ],
-    excluded: [
-      "Cameras, recorders, cabling and storage; any network or electrical work.",
-    ],
-  },
-  priceFactors: [
-    "Cameras enabled, and which analytics on each.",
-    "Processing hardware sized to that count.",
-    "Number of sites on one account.",
-    "Whether attendance enrolment is included.",
-  ],
-  quoteIncludes: COMMON.quoteIncludes,
-  pilot: COMMON.pilot,
-  afterEnquiry: COMMON.afterEnquiry,
-};
 
 export function buyerDecisionFor(slug: string): BuyerDecision | undefined {
   return BUYER_DECISIONS[slug];

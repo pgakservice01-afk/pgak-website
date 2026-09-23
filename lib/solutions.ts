@@ -153,7 +153,6 @@ export const SOLUTIONS: Solution[] = [
       "ai-cctv-for-warehouses",
       "factory-security",
       "video-analytics-software",
-      "ai-surveillance-system",
     ],
     insights: [
       "1000-alerts-only-one-is-real",
@@ -1430,7 +1429,6 @@ export const SOLUTIONS: Solution[] = [
       "anpr-number-plate-recognition",
       "face-recognition-attendance-system",
       "multi-site-cctv-monitoring",
-      "ai-surveillance-system",
     ],
     insights: [
       "what-is-video-analytics-software",
@@ -2247,131 +2245,6 @@ export const SOLUTIONS: Solution[] = [
     ],
   },
   {
-    slug: "ai-surveillance-system",
-    group: "platform",
-    navLabel: "AI surveillance system",
-    primaryKeyword: "AI surveillance system",
-    relatedKeywords: [
-      "AI surveillance camera",
-      "AI video surveillance",
-      "intelligent surveillance system",
-      "smart CCTV system",
-      "AI CCTV system India",
-    ],
-    title: "AI Surveillance System for Existing CCTV | PGAK",
-    description:
-      "An AI surveillance system for the cameras you already own — person and vehicle detection, boundary alerts and camera health, checked on your feeds first.",
-    eyebrow: "Platform",
-    h1: "An AI surveillance system you can run on the cameras already on your wall",
-    intro:
-      "Most of what is sold as an AI surveillance system in India is a camera with a chip in it, sold one unit at a time, which leaves you with two hundred old cameras and four clever ones. PGAK treats the intelligence as software that sits behind the estate instead: your existing CCTV keeps doing the seeing, and the AI surveillance system does the watching — classifying people and vehicles, applying the rules you set, and raising an alert with a snapshot while the event is still happening.",
-    painPoints: [
-      "Every quote starts with replacing cameras that are working perfectly well.",
-      "'AI camera' turned out to mean motion detection with a new label on the box.",
-      "Vendors quote 99% accuracy and change the subject when asked about your lighting and mounting heights.",
-      "The system that was bought as intelligent still needs a human watching it to be useful.",
-    ],
-    sections: [
-      {
-        h2: "Intelligence in the software, not in each camera",
-        body: "The distinction decides what an upgrade costs and how long it stays current.",
-        points: [
-          {
-            h3: "Per-camera AI ages badly",
-            text: "When the model lives inside the camera, improving it means buying the camera again. A three-year-old smart camera runs a three-year-old model and will keep doing so until it is replaced.",
-          },
-          {
-            h3: "Software covers the whole estate at once",
-            text: "Detection running behind the recorder applies to every stream it can reach, so a mixed estate of old and new cameras gets the same capability on the same day.",
-          },
-          {
-            h3: "The camera's job is the view",
-            text: "What an existing camera needs to contribute is an adequate, well-placed view of the area you care about. That is a placement question, and placement can usually be corrected far more cheaply than hardware can be replaced.",
-          },
-          {
-            h3: "Some things genuinely do need the right camera",
-            text: "Face recognition and plate reading have real pixel requirements, and a camera mounted high for wide coverage will not deliver them. Honest scoping says which cameras qualify for what before you buy, rather than after.",
-          },
-        ],
-      },
-      {
-        h2: "What the system actually does with a frame",
-        body: "Detection, classification, then your rule — in that order, which is the reason false alarms stay low enough that people leave notifications switched on.",
-        points: [
-          {
-            h3: "Classify before alerting",
-            text: "A moving object is identified as a person, vehicle or animal before any rule is applied. Pixel-change motion detection cannot do this, which is why it fires at rain, moths and headlights.",
-          },
-          {
-            h3: "Rules bound by place and time",
-            text: "A zone you drew, during hours you chose, for an object class you named. 'Any person in the dispatch yard between 9pm and 6am' is a rule; 'motion' is not.",
-          },
-          {
-            h3: "Behaviour over time",
-            text: "Loitering, boundary crossing and repeated presence are patterns across frames rather than single events, which is where analytics separates from a tripwire.",
-          },
-          {
-            h3: "Watching itself",
-            text: "The system reports its own blind spots — a camera gone dark, covered, defocused or knocked out of position — because an unnoticed dead camera is the most common reason surveillance fails to catch anything.",
-          },
-        ],
-      },
-      {
-        h2: "What an AI surveillance system cannot do",
-        body: "Worth stating plainly, because the category is full of claims that do not survive contact with a real site. It cannot predict an incident before there is anything to see — anyone selling prediction is selling a detection rule with better marketing. It cannot recognise a face from a camera that does not have enough pixels on the face, no matter how good the model is. It does not reach 100% accuracy in any real deployment, and a vendor quoting a single accuracy number without asking about your cameras has not measured anything. What it does reliably is detect defined events quickly enough for a person to act, and keep doing so at two in the morning.",
-      },
-      {
-        h2: "Edge, cloud, and what happens when the link drops",
-        body: "Detection runs on an edge device at your site, which is what keeps alerting alive when the internet does not. Remote viewing and history sync use the cloud connection and resume when it returns. For Indian sites this split matters more than it does in vendor diagrams — a surveillance system that stops detecting every time the broadband drops is a surveillance system that is off more often than anyone admits.",
-      },
-    ],
-    stats: [
-      { value: "Existing CCTV", label: "the estate you already paid for" },
-      { value: "Classify first", label: "person, vehicle or animal before any rule" },
-      { value: "Works offline", label: "detection continues through an outage" },
-      { value: "Free", label: "camera-by-camera feasibility check" },
-    ],
-    faqs: [
-      {
-        q: "What is an AI surveillance system?",
-        a: "A surveillance setup where software analyses the camera feeds automatically and raises an event when something specific happens, rather than only recording for later review. In PGAK's case the intelligence sits in software behind the estate, so it applies to the cameras already installed instead of requiring new ones.",
-      },
-      {
-        q: "Do I need to buy AI cameras to get AI surveillance?",
-        a: "No. That is the most common and most expensive misconception in this category. A camera with AI on board is one clever camera; analytics running behind your recorder upgrades every camera it can reach. Existing cameras are usually the starting point, with a handful repositioned where a specific capability needs a better view.",
-      },
-      {
-        q: "How accurate is AI surveillance, really?",
-        a: "Accuracy depends on your cameras, lighting and mounting heights, which is why a single headline percentage is close to meaningless. The useful question is how the system behaves on your site — how few false alarms it produces at night, and whether it still catches what matters. That is what a feasibility check on your own cameras answers.",
-      },
-      {
-        q: "Is AI surveillance legal in India?",
-        a: "Yes, with obligations. Recording on your own premises is permitted, and signage is expected. Where it gets stricter is workplace monitoring, biometric data such as face templates, and how long you retain footage and who can access it — all of which fall under the DPDP Act. Consent and retention policy are part of a proper deployment, not an optional extra.",
-      },
-      {
-        q: "Will it flood my phone with alerts?",
-        a: "Not if it is set up correctly, and this is the failure that kills most deployments. Because objects are classified before rules are applied, and rules are bound to zones and hours, the alert volume stays low enough to remain readable. A system producing alerts nobody opens by month three has failed regardless of how accurate its detection is.",
-      },
-    ],
-    related: [
-      "video-analytics-software",
-      "ai-intruder-detection",
-      "cctv-installation-company",
-      "commercial-cctv",
-      "remote-cctv-monitoring",
-    ],
-    insights: [
-      "ai-cctv-vs-normal-cctv",
-      "add-ai-to-existing-cctv-cameras",
-      "reuse-existing-cctv-or-replace",
-      "1000-alerts-only-one-is-real",
-      "is-ai-cctv-legal-in-india-dpdp-act",
-      "does-ai-work-with-tapo-imou-qubo-cameras",
-      "where-to-place-cctv-cameras-for-ai-detection",
-      "ai-cctv-price-in-india-what-it-should-cost",
-    ],
-  },
-  {
     slug: "remote-cctv-monitoring",
     group: "platform",
     navLabel: "Remote CCTV monitoring",
@@ -2481,7 +2354,6 @@ export const SOLUTIONS: Solution[] = [
     related: [
       "multi-site-cctv-monitoring",
       "video-analytics-software",
-      "ai-surveillance-system",
       "ai-intruder-detection",
       "commercial-cctv",
     ],
@@ -2608,7 +2480,6 @@ export const SOLUTIONS: Solution[] = [
       "industrial-cctv",
       "video-analytics-software",
       "commercial-cctv",
-      "ai-surveillance-system",
     ],
     insights: [
       "nobody-can-watch-120-camera-feeds",

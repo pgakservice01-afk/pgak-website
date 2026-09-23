@@ -5,7 +5,7 @@ import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import RoiCalculator from "@/components/sections/RoiCalculator";
+import RoiBusinessCase from "@/components/calc/RoiBusinessCase";
 import { pageMeta } from "@/lib/seo";
 import {
   breadcrumbSchema,
@@ -16,9 +16,9 @@ import {
 const PATH = "/roi-calculator";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV ROI Calculator — What Would It Save You? | PGAK",
+  title: "CCTV ROI & Payback Calculator — Your Numbers | PGAK",
   description:
-    "Enter your staff count, cameras and monthly loss to see what AI CCTV gives back each month and when it pays for itself. Runs in your browser.",
+    "Enter your quotation and only the benefits you can defend. Shows net cash per month, payback month, ROI% and benefit/cost ratio — including when the answer is no.",
   path: PATH,
   keywords: [
     "CCTV ROI calculator",
@@ -37,11 +37,11 @@ const TRAIL = [
 const FAQS = [
   {
     q: "How accurate is this ROI calculator?",
-    a: "It is an estimate built entirely from numbers you enter, and it is deliberately conservative — the 'Careful' setting loads by default and discounts every line. We count only a fraction of the loss you state rather than all of it. If the result looks too good, switch to Careful and check the 'How this was worked out' section, which shows every percentage being applied.",
+    a: "It is exactly as accurate as the figures you enter, because it applies no hidden recovery rates of its own. Every benefit is a line you switch on, label and value yourself; nothing is assumed about lateness, shrinkage or staffing. The formulas are published on the page with a version number, so the same inputs always produce the same answer.",
   },
   {
-    q: "What does the calculator deliberately leave out?",
-    a: "Three real savings we don't count: the biometric machines and AMC you no longer buy, faster insurance and police paperwork, and customers your staff missed while distracted. Leaving them out is what makes the remaining numbers defensible.",
+    q: "Why is released staff time not counted as a saving?",
+    a: "Because hours released only become money when something specific changes — a post is not refilled, overtime stops, or the work is redeployed. The calculator shows those hours and what they are worth as capacity, and adds them to the cash result only if you state the mechanism. That is also why ROI stays incomplete when a cost is unknown: an unknown is not zero.",
   },
   {
     q: "Does PGAK guarantee these savings?",
@@ -53,7 +53,7 @@ const FAQS = [
   },
   {
     q: "Is anything I type here sent to PGAK?",
-    a: "No. Everything runs in your browser. Nothing reaches us unless you press the WhatsApp button, which opens a chat with your result pre-filled so you can decide whether to send it.",
+    a: "No. Everything runs in your browser, nothing is written into the address bar, and no figure is saved or shared. If you ask for a review, the page first shows you exactly which summary lines would be sent, and nothing leaves until you submit the enquiry form yourself. You can print or save the result without giving any contact details.",
   },
 ];
 
@@ -87,19 +87,20 @@ export default function RoiCalculatorPage() {
               Security is a hard thing to justify, because the benefit is an
               absence — the theft that didn&rsquo;t happen, the queue that
               didn&rsquo;t form. This turns that into a number you can check.
-              Enter your own figures and it shows what PGAK recovers each month,
-              the month it pays for itself, and what you keep after a year.
+              Enter your quotation and only the benefits you can defend, and it
+              shows the net cash each month, the month it pays for itself, the
+              return over your horizon and what you could afford to spend.
             </p>
             <p className="mt-5 max-w-[64ch] text-[0.95rem] leading-relaxed text-ink-faint">
-              It is built to under-promise. The conservative setting loads by
-              default, three genuine savings are left out entirely, and if your
-              numbers don&rsquo;t add up to a return it says so and hides the
-              chart rather than tuning the answer.
+              It starts empty on purpose: no PGAK price, no assumed recovery
+              rates, no benefit switched on for you. If the numbers do not add
+              up, it says so and keeps the chart on screen — an answer of “not
+              yet” is worth more than a flattering one.
             </p>
           </div>
         </section>
 
-        <RoiCalculator />
+        <RoiBusinessCase />
 
         {/* --------------------------------------------------------- FAQ */}
         <section className="sec-band sec">

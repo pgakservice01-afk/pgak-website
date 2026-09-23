@@ -18,6 +18,7 @@ const config: Config = {
         ink: "rgb(var(--c-ink) / <alpha-value>)",
         "ink-soft": "rgb(var(--c-ink-soft) / <alpha-value>)",
         "ink-faint": "rgb(var(--c-ink-faint) / <alpha-value>)",
+        "accent-text": "rgb(var(--c-accent-text) / <alpha-value>)",
         line: "var(--c-line)",
         accent: "rgb(var(--c-accent) / <alpha-value>)",
         "accent-2": "rgb(var(--c-accent-2) / <alpha-value>)",
