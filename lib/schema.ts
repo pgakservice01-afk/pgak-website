@@ -335,7 +335,9 @@ export function softwareApplicationSchema(): Json {
     featureList: [
       "Intruder alerts for configured detection zones",
       "False-alarm filtering for pets, shadows, wind and headlights",
-      "Works with existing analog, IP, DVR and NVR cameras over RTSP",
+      // Qualified deliberately: lib/offer.ts exists to stop this being stated
+      // as an absolute, and structured data must not out-claim the page.
+      "Runs on compatible existing analog, IP, DVR and NVR cameras that expose an RTSP stream, confirmed at site assessment",
       "Face recognition: known staff and family versus unknown visitors",
       "Mobile app and multi-site web dashboard",
     ],

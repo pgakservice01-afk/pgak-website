@@ -63,13 +63,12 @@ export default function Home() {
           faqSchema(faqs),
         ]}
       />
-      <link
-        rel="preload"
-        as="image"
-        href="/media/real-time-response.webp"
-        media="(min-width: 761px)"
-        fetchPriority="high"
-      />
+      {/* No manual <link rel="preload"> for the hero image. React hoists one
+          into <head> and drops the `media` scope on the way, so the page shipped
+          two preloads for the same file and the unscoped one fired on phones —
+          the breakpoint it was written to avoid. The backdrop <img> is the first
+          element in <main> and carries fetchPriority="high", which the preload
+          scanner acts on just as early, with nothing to duplicate. */}
       <Nav />
       <main
         id="main-content"
@@ -77,12 +76,19 @@ export default function Home() {
         data-money-page="home"
       >
         <section className="premium-hero cinema-hero" id="top">
+          {/* The LCP element on desktop, and the preload above is scoped to
+              the same breakpoint that reveals it. It must therefore load
+              eagerly and at high priority: `loading="lazy"` here contradicted
+              the preload and pushed the largest paint later.
+              The phone copy below stays lazy — the backdrop is hidden under
+              760px and that figure sits below the fold. */}
           <img
             className="cinema-backdrop"
             src="/media/real-time-response.webp"
             width="986"
             height="720"
-            loading="lazy"
+            fetchPriority="high"
+            decoding="async"
             alt="Illustrative nighttime CCTV view of a commercial yard, from Spot AI"
           />
           <div className="hero-copy">
