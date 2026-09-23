@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 import {
   buildRegisterPayload,
+  encodeRegisterBody,
   isTestRef,
   postToRegister,
   signRegisterBody,
@@ -131,11 +132,11 @@ test("the request carries the signed envelope and the lead id", async (t) => {
   assert.equal(res.ok, true);
   assert.equal(res.emails.director, "accepted by Gmail");
   const sent = JSON.parse(seen!.body) as Record<string, string>;
-  assert.equal(sent.lead_id, "lead-77");
   assert.equal(seen!.headers["Idempotency-Key"], "lead-77");
-  // The envelope is verifiable, and it signs the payload without the envelope.
-  const { __ts, __sig, ...inner } = sent;
-  assert.equal(signRegisterBody(JSON.stringify(inner), "s3cret", __ts), __sig);
+  // Base64 payload, signed exactly as sent; decoding returns the lead intact.
+  const decoded = JSON.parse(Buffer.from(sent.__b64, "base64").toString("utf8"));
+  assert.equal(decoded.lead_id, "lead-77");
+  assert.equal(signRegisterBody(sent.__b64, "s3cret", sent.__ts), sent.__sig);
 });
 
 test("a refusal is reported, not swallowed, and 403 is not retried", async (t) => {
@@ -193,4 +194,22 @@ test("without configuration the sink is inert, never throwing", async () => {
   );
   assert.equal(res.ok, false);
   assert.match(res.error, /not configured/);
+});
+
+test("non-ASCII leads survive the signature (regression: live 'bad signature')", () => {
+  // "16–50" (en dash) and Hindi are ordinary lead content. Signing raw JSON
+  // made the deployed Apps Script reject exactly these while ASCII passed.
+  const p = buildRegisterPayload(
+    lead({ cameras: "16–50", location: "मोहाली 160055", name: "टेस्ट — नई साइट" }),
+    "test-utf8",
+    {},
+    { erpStatus: "delivered" },
+  );
+  const b64 = encodeRegisterBody(p);
+  assert.match(b64, /^[A-Za-z0-9+/=]+$/); // pure ASCII on the wire
+  const decoded = JSON.parse(Buffer.from(b64, "base64").toString("utf8"));
+  assert.equal(decoded.cameras, "16–50");
+  assert.equal(decoded.city, "मोहाली 160055");
+  assert.equal(decoded.name, "टेस्ट — नई साइट");
+  assert.equal(signRegisterBody(b64, "s3cret", "1000"), signRegisterBody(b64, "s3cret", "1000"));
 });

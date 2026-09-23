@@ -42,15 +42,14 @@ http
       }
       const ts = String(envelope.__ts || "");
       const sig = String(envelope.__sig || "");
-      const inner = {};
-      for (const k of Object.keys(envelope)) if (k !== "__ts" && k !== "__sig") inner[k] = envelope[k];
-      const body = JSON.stringify(inner);
-      if (!ts || !sig) return reply(res, { ok: false, error: "missing signature" });
+      const body = String(envelope.__b64 || "");
+      if (!ts || !sig || !body) return reply(res, { ok: false, error: "missing signature" });
       if (Math.abs(Date.now() - Number(ts)) > SKEW_MS) return reply(res, { ok: false, error: "stale request" });
       const expected = createHmac("sha256", secret).update(`${ts}.${body}`).digest("hex");
       if (expected !== sig) return reply(res, { ok: false, error: "bad signature" });
       if (fail === "refuse") return reply(res, { ok: false, error: "refused by mock" });
 
+      const inner = JSON.parse(Buffer.from(body, "base64").toString("utf8"));
       const id = String(inner.lead_id || "");
       if (!id) return reply(res, { ok: false, error: "lead_id missing" });
       if (rows.has(id)) {
