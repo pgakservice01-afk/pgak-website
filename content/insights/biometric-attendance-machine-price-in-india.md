@@ -6,6 +6,7 @@ excerpt: "Machines are listed from ₹3,000 and quoted per door — but the stic
 metaDescription: "Machines are listed from ₹3,000 and quoted per door — but the sticker is less than half the real cost."
 metaTitle: "Biometric attendance machine price in India"
 readTime: 6
+image: "/insights/category/buying-guide.webp"
 faqs:
   - q: "What is the price of a biometric attendance machine in India?"
     a: "Entry fingerprint attendance machines list from roughly ₹3,000–₹6,000, mid-range fingerprint-plus-card units run about ₹6,000–₹15,000, and wall-mounted face recognition terminals typically cost ₹15,000–₹50,000 per device. Every figure is per door — covering three entrances means buying three machines."

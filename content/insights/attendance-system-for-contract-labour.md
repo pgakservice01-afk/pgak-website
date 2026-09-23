@@ -6,6 +6,7 @@ excerpt: "Contract workers rotate faster than any enrolment process, yet the pri
 metaDescription: "Contract workers rotate faster than any enrolment process, yet the principal employer often carries obligations for them."
 metaTitle: "Contract labour attendance: the compliance gap"
 readTime: 5
+image: "/insights/category/compliance.webp"
 faqs:
   - q: "Does a principal employer need attendance records for contract labour?"
     a: "In many situations yes. Indian contract labour legislation places obligations on the principal employer alongside the contractor, including in relation to registers and wage payment where the contractor defaults. Treating contract workers as invisible to your attendance system is therefore a compliance risk as well as an operational one."

@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "Video analytics software turns cameras that record into cameras that report. Here is what the term actually covers, which claims to distrust, and the honest test for whether your site needs it."
 metaDescription: "Video analytics software turns cameras that record into cameras that report."
 readTime: 5
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "What is video analytics software?"
     a: "Video analytics software analyses a camera feed automatically and raises an event when something specific happens — a person crossing a boundary, a vehicle stopping where it shouldn't, a camera being covered. It replaces the assumption that a human is watching the screen, which on almost every site is not true."

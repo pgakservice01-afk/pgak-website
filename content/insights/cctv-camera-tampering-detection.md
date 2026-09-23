@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "The most common thing that happens to a camera during a break-in is that it stops working. There is no footage of that — the only useful signal is that the feed went dead, and whether anyone was told."
 metaDescription: "The most common thing that happens to a camera during a break-in is that it stops working."
 readTime: 6
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "What is CCTV tampering detection?"
     a: "It is the system watching its own cameras for signs of interference rather than watching for people. A lens being covered or sprayed, a camera being twisted away from what it was pointed at, or the view going suddenly dark are all detectable from the video itself, because each produces a distinctive change across the whole frame. Separately, a camera that stops sending frames altogether — unplugged, cable cut, or the recorder removed — can be detected by its absence."

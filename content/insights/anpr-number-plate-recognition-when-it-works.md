@@ -4,6 +4,7 @@ date: "2026-09-13"
 category: "Security Basics"
 excerpt: "ANPR reads number plates reliably in a narrower set of conditions than most brochures admit. What actually makes it work, and where it quietly fails."
 readTime: 5
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "What is ANPR (automatic number plate recognition)?"
     a: "ANPR is software that reads the characters on a vehicle's number plate from a camera image and turns them into text a computer can log, search or match against a list. It needs a plate that is sharp, roughly level, and large enough in the frame — everything after that depends on getting those three things right."

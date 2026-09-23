@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "You don't need new hardware to know how many people walked through your gate or store today. What CCTV-based people counting gets right, where it drifts, and what the number is actually useful for."
 metaDescription: "CCTV-based people counting works on cameras you already own. Here's how accurate it really is and what the footfall number is good for."
 readTime: 5
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "Can CCTV cameras count footfall without new hardware?"
     a: "Yes. If a camera has a clear, mostly overhead or angled view of an entrance, video analytics software can count people crossing that line without replacing the camera. The exception is a camera mounted too low or too far back to separate people walking close together — that one may need repositioning first."

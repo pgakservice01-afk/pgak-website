@@ -5,6 +5,7 @@ category: "Security Basics"
 excerpt: "Most petrol pump CCTV setups have cameras but still miss the theft that happens. Four camera positions that actually cover the risk — forecourt, till, tanker bay, entry — and what cameras alone can't stop."
 metaDescription: "Four petrol pump CCTV camera positions that actually cover the risk — forecourt, till, tanker bay and entry — and what cameras alone can't stop."
 readTime: 5
+image: "/insights/category/security-basics.webp"
 faqs:
   - q: "How many cameras does a petrol pump need and where should they go?"
     a: "Four positions cover the core risk at most petrol pumps: the forecourt (nozzles and vehicles at each island), the cashier till, the tanker unloading bay, and the entry-exit gate. A larger pump with more islands needs one forecourt camera per two to three nozzles rather than one wide shot trying to cover everything."

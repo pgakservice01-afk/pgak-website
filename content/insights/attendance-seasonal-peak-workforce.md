@@ -5,6 +5,7 @@ category: "Attendance"
 excerpt: "Harvest, festival and procurement peaks don't break attendance systems by running out of storage — they break them by running out of enrolment time. Plan for the bottleneck that actually shows up."
 metaDescription: "Seasonal peaks don't break attendance systems by running out of storage. They run out of enrolment time. Plan for the bottleneck that shows up."
 readTime: 5
+image: "/insights/category/attendance.webp"
 faqs:
   - q: "What actually breaks when a seasonal workforce is added quickly?"
     a: "Not storage and not camera capacity — enrolment throughput. Every new worker needs to be registered into the system with a usable photo or fingerprint before they can be tracked, and that registration step takes real minutes per person. Three hundred workers arriving over two days can overwhelm enrolment even on a system that has plenty of room to store their records."

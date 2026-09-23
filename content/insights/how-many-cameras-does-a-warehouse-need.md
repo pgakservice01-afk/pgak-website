@@ -5,6 +5,7 @@ category: "Camera Setup"
 excerpt: "Camera count is the wrong first question. Work backwards from the eight positions that matter in a warehouse and the number answers itself — usually lower than the quote you were given."
 metaDescription: "Camera count is the wrong first question. Work back from the eight positions that matter and the number answers itself — usually lower than your quote."
 readTime: 5
+image: "/insights/category/camera-setup.webp"
 faqs:
   - q: "How many CCTV cameras does a warehouse need?"
     a: "Rather than a per-square-foot rule, count the positions that must be covered: each loading bay, each pedestrian entrance, the despatch and receiving desks, high-value stock aisles, the yard gate, and the perimeter corners. A typical single-unit warehouse lands between eight and twenty cameras once positions are counted this way."

@@ -5,6 +5,7 @@ category: "Compliance"
 excerpt: "CCTV footage can be used as evidence in Indian courts, but only if you can prove it wasn't altered. What actually makes footage admissible — timestamps, certificates and chain of custody — explained in plain language."
 metaDescription: "CCTV footage can be admissible evidence in Indian courts if you can prove it's authentic. Timestamps, certificates and chain of custody explained."
 readTime: 6
+image: "/insights/category/compliance.webp"
 faqs:
   - q: "Is CCTV footage admissible as evidence in an Indian court?"
     a: "Yes, CCTV footage can be admitted as evidence in Indian courts, but electronic records need to satisfy specific legal requirements to be relied on — mainly proof that the recording is authentic and hasn't been altered. This is a general explanation, not legal advice; how a specific case is argued should be checked with a lawyer or compliance advisor."

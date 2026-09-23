@@ -5,6 +5,7 @@ category: "Buying Guide"
 excerpt: "Usually yes — if your DVR exposes a video stream, software can read it. The camera doesn't need to be 'AI-ready'. What actually decides it is where each camera points and how many pixels land on the thing you care about."
 metaDescription: "Usually yes — if your DVR exposes a video stream, software can read it."
 readTime: 7
+image: "/insights/category/buying-guide.webp"
 faqs:
   - q: "Can you add AI to existing CCTV cameras?"
     a: "In most cases yes. AI video analytics reads the video stream your DVR or NVR already produces, usually over RTSP, so the camera itself does not need to be 'AI-ready' or replaced. What decides whether a given camera works is not its brand or age but its angle, its lighting and how many pixels land on the subject — a 2MP camera pointed well is more useful than an 8MP camera pointed at a roof."
