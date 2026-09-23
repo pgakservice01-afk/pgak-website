@@ -3,6 +3,12 @@ import assert from "node:assert/strict";
 
 import {
   FORMULA_VERSION,
+  computeAdminTime,
+  computeAnprGate,
+  computeFalseAlarms,
+  computeRetailContribution,
+  computeShrinkage,
+  computeTravel,
   breakEvenBudget,
   computeBandwidth,
   computeCase,
@@ -309,4 +315,66 @@ test("every result carries the formula version", () => {
       .formulaVersion,
     "1.0.0"
   );
+});
+
+// ── Batch 2 models ───────────────────────────────────────────────────────────
+
+test("shrinkage: no default recovery rate, unknown loss blocks the answer", () => {
+  const r = computeShrinkage({ documentedLossPerMonth: 200_000, eligibleSharePercent: 50, improvementPercent: 20 });
+  assert.equal(r.eligibleLoss, 100_000);
+  assert.equal(r.scenarioBenefit, 20_000);
+  const unknown = computeShrinkage({ documentedLossPerMonth: null, eligibleSharePercent: 50, improvementPercent: 20 });
+  assert.equal(unknown.scenarioBenefit, null);
+  // A nonsense percentage is clamped, not inverted.
+  const silly = computeShrinkage({ documentedLossPerMonth: 100, eligibleSharePercent: 400, improvementPercent: -20 });
+  assert.equal(silly.eligibleLoss, 100);
+  assert.equal(silly.scenarioBenefit, 0);
+});
+
+test("attendance admin: hours released and payment correction stay separate", () => {
+  const r = computeAdminTime({ hoursBefore: 30, hoursAfter: 8, hourlyCost: 400, verifiedPaymentCorrection: 5_000 });
+  assert.equal(r.hoursReleased, 22);
+  assert.equal(r.capacityValue, 8_800);
+  assert.equal(r.paymentCorrection, 5_000);
+  const slower = computeAdminTime({ hoursBefore: 5, hoursAfter: 9, hourlyCost: 400, verifiedPaymentCorrection: null });
+  assert.equal(slower.hoursReleased, 0);
+  assert.equal(slower.paymentCorrection, null);
+});
+
+test("false alarms: avoided alerts become hours, not money by default", () => {
+  const r = computeFalseAlarms({ alertsPerDayBefore: 40, alertsPerDayAfter: 6, minutesPerAlert: 3, daysPerMonth: 30, hourlyCost: 300 });
+  assert.equal(r.alertsAvoided, 1_020);
+  assert.equal(r.hoursPerMonth, 51);
+  assert.equal(r.capacityValue, 15_300);
+  const noCost = computeFalseAlarms({ alertsPerDayBefore: 10, alertsPerDayAfter: 10, minutesPerAlert: 3, daysPerMonth: 30, hourlyCost: null });
+  assert.equal(noCost.hoursPerMonth, 0);
+  assert.equal(noCost.capacityValue, null);
+});
+
+test("travel: expense is cash, hours are capacity", () => {
+  const r = computeTravel({ avoidableVisitsPerMonth: 8, expensePerVisit: 1_200, hoursPerVisit: 3, hourlyCost: 500 });
+  assert.equal(r.cashPerMonth, 9_600);
+  assert.equal(r.hoursPerMonth, 24);
+  assert.equal(r.capacityValue, 12_000);
+  const unknownExpense = computeTravel({ avoidableVisitsPerMonth: 8, expensePerVisit: null, hoursPerVisit: 3, hourlyCost: null });
+  assert.equal(unknownExpense.cashPerMonth, null);
+  assert.equal(unknownExpense.capacityValue, null);
+});
+
+test("ANPR: drivers' waiting time is not the client's cash without a mechanism", () => {
+  const r = computeAnprGate({ vehiclesPerDay: 120, secondsBefore: 90, secondsAfter: 20, daysPerMonth: 26, gateStaffHourlyCost: 250, driverTimeIsBilledToYou: false, driverHourlyCost: 400 });
+  assert.equal(r.secondsSavedPerVehicle, 70);
+  assert.equal(r.gateHoursPerMonth, 60.67);
+  assert.equal(r.gateCapacityValue, 15_167.5);
+  assert.equal(r.driverCashValue, null); // not billed to you → not your saving
+  const billed = computeAnprGate({ ...{ vehiclesPerDay: 120, secondsBefore: 90, secondsAfter: 20, daysPerMonth: 26, gateStaffHourlyCost: 250 }, driverTimeIsBilledToYou: true, driverHourlyCost: 400 });
+  assert.equal(billed.driverCashValue, 24_268);
+});
+
+test("retail: percentage POINTS, and an unknown order value blocks the money", () => {
+  const r = computeRetailContribution({ visitorsPerMonth: 10_000, conversionChangePercentagePoints: 0.5, averageOrderValue: 1_200, contributionMarginPercent: 40, extraCostsPerMonth: 5_000 });
+  assert.equal(r.extraOrders, 50); // 0.5 pp of 10,000 — not 0.5% of a rate
+  assert.equal(r.contributionPerMonth, 19_000); // 50 × 1200 × 0.4 − 5000
+  const unknown = computeRetailContribution({ visitorsPerMonth: 10_000, conversionChangePercentagePoints: 0.5, averageOrderValue: null, contributionMarginPercent: 40, extraCostsPerMonth: 0 });
+  assert.equal(unknown.contributionPerMonth, null);
 });

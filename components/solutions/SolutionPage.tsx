@@ -16,6 +16,7 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 import { buyerDecisionFor } from "@/lib/buyerDecision";
+import { calculatorsForPage } from "@/lib/calc/registry";
 import { getAllInsights } from "@/lib/insights";
 import { SOLUTIONS, type Solution } from "@/lib/solutions";
 
@@ -32,6 +33,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
   const isNew = s.journey === "new-install";
   const decision = buyerDecisionFor(s.slug);
   const path = `/${s.slug}`;
+  const calculators = calculatorsForPage(path);
 
   const trail = [
     { name: "Home", path: "/" },
@@ -204,6 +206,34 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </dl>
           <p className="mt-6"><Link href="/pricing" className="text-accent underline">Get a site-specific AI video analytics price</Link> or <Link href="/cctv-buying-checklist" className="text-accent underline">use the CCTV buying checklist</Link>.</p>
         </div></section>
+        )}
+
+        {calculators.length > 0 && (
+          <section className="sec pt-0" aria-label="Calculators for this page">
+            <div className="wrap">
+              <div className="card p-6 sm:p-7">
+                <h2 className="text-[1.1rem] font-semibold">Work out the numbers yourself</h2>
+                <p className="mt-2 max-w-[64ch] text-[0.94rem] text-ink-soft">
+                  Free, runs in your browser, assumes no PGAK price, and shows a negative answer
+                  as readily as a positive one.
+                </p>
+                <ul className="mt-4 flex flex-col gap-2">
+                  {calculators.map((c) => (
+                    <li key={c.id}>
+                      <Link
+                        href={c.path!}
+                        data-cta={`solution-${s.slug}-calc-${c.id}`}
+                        className="text-accent underline underline-offset-2"
+                      >
+                        {c.title}
+                      </Link>
+                      <span className="text-ink-soft"> — {c.question}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
         )}
 
         {/* ----------------------------------------------------------- FAQ */}

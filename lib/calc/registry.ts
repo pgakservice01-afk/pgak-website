@@ -124,6 +124,7 @@ export const CALCULATORS: CalculatorRecord[] = [
   },
   {
     id: "shrinkage",
+    path: "/calculators/shrinkage-reduction",
     title: "Inventory shrinkage reduction",
     question: "What is a realistic recovery on documented stock loss?",
     summary:
@@ -135,11 +136,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/retail-shop-security",
     relatedLabel: "Retail security",
     cta: "Discuss a measured pilot",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "investigation-time",
+    path: "/calculators/investigation-time",
     title: "Investigation time released",
     question: "How many hours does searching footage cost us each month?",
     summary: "Incidents × (minutes before − minutes after) ÷ 60, reported as hours and capacity value, separate from any cash saving.",
@@ -150,11 +152,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/video-analytics-software",
     relatedLabel: "Search and alerts",
     cta: "Ask for a review",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "attendance-admin",
+    path: "/calculators/attendance-admin-time",
     title: "Attendance administration time",
     question: "What does reconciling attendance actually cost us?",
     summary: "Actual administration and reconciliation hours before versus after, with any verified payment correction kept separate.",
@@ -165,11 +168,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/face-recognition-attendance-system",
     relatedLabel: "Attendance from CCTV",
     cta: "Check feasibility at your gate",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "false-alarms",
+    path: "/calculators/false-alarm-cost",
     title: "False-alarm handling cost",
     question: "What do nuisance alerts cost us every month?",
     summary: "Difference in false alerts × handling minutes × days ÷ 60, as hours and capacity value.",
@@ -180,11 +184,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/ai-intruder-detection",
     relatedLabel: "Intruder detection",
     cta: "Tune alerts on your footage",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "multi-site-travel",
+    path: "/calculators/multi-site-travel",
     title: "Multi-site travel avoided",
     question: "Which site visits could remote checks replace?",
     summary: "Avoidable visits × actual travel and accommodation expense. Travel time is reported separately as capacity.",
@@ -195,11 +200,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/multi-site-cctv-monitoring",
     relatedLabel: "Multi-site monitoring",
     cta: "Review your site list",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "anpr-gate",
+    path: "/calculators/anpr-gate-time",
     title: "ANPR gate processing",
     question: "How much gate time would plate recognition save?",
     summary: "Vehicles × processing-time difference × days, with theoretical capacity shown separately from real queue throughput.",
@@ -210,11 +216,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/anpr-number-plate-recognition",
     relatedLabel: "ANPR at gates",
     cta: "Size it per lane",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "retail-contribution",
+    path: "/calculators/retail-contribution",
     title: "Retail conversion contribution (scenario)",
     question: "What would a small conversion change be worth?",
     summary: "Visitors × conversion-rate change (in percentage points) × order value × contribution margin, minus extra costs.",
@@ -225,11 +232,12 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/retail-shop-security",
     relatedLabel: "Retail security",
     cta: "Discuss what is measurable",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
   {
     id: "electricity",
+    path: "/calculators/electricity-cost",
     title: "Electricity running cost",
     question: "What will this add to the power bill?",
     summary: "Watts × hours ÷ 1000 × tariff, with whole-system power and the incremental project power kept apart.",
@@ -240,12 +248,16 @@ export const CALCULATORS: CalculatorRecord[] = [
     relatedPath: "/industrial-cctv",
     relatedLabel: "Industrial CCTV",
     cta: "Ask what your site would draw",
-    status: "planned",
+    status: "live",
     formulaVersion: v,
   },
 ];
 
 export const liveCalculators = () => CALCULATORS.filter((c) => c.status === "live");
 export const plannedCalculators = () => CALCULATORS.filter((c) => c.status === "planned");
+/** Calculators that belong beside a given commercial page. */
+export const calculatorsForPage = (pagePath: string) =>
+  CALCULATORS.filter((c) => c.status === "live" && c.relatedPath === pagePath);
+
 export const calculatorByPath = (path: string) =>
   CALCULATORS.find((c) => c.path === path);
