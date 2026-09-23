@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
 import JourneyChooser from "@/components/sections/JourneyChooser";
+import BuyerDecisionPack from "@/components/solutions/BuyerDecisionPack";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
@@ -14,6 +15,7 @@ import {
   serviceSchema,
   webPageSchema,
 } from "@/lib/schema";
+import { buyerDecisionFor } from "@/lib/buyerDecision";
 import { getAllInsights } from "@/lib/insights";
 import { SOLUTIONS, type Solution } from "@/lib/solutions";
 
@@ -28,6 +30,7 @@ import { SOLUTIONS, type Solution } from "@/lib/solutions";
 export default function SolutionPage({ solution }: { solution: Solution }) {
   const s = solution;
   const isNew = s.journey === "new-install";
+  const decision = buyerDecisionFor(s.slug);
   const path = `/${s.slug}`;
 
   const trail = [
@@ -172,6 +175,18 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </div>
         </section>
 
+        {/* The deciding facts, in crawlable HTML. Pages with a buyer-decision
+            entry answer them in full (lib/buyerDecision.ts); the rest keep the
+            shorter pre-deployment checklist. Never both: the same content twice
+            helps nobody and dilutes the page. */}
+        {decision ? (
+          <BuyerDecisionPack
+            decision={decision}
+            heading={`${s.primaryKeyword}: what to know before you buy`}
+            planHref={isNew ? "#plan" : "#dealer"}
+            ctaLabel={isNew ? "Plan a new installation" : "Start with the free camera check"}
+          />
+        ) : (
         <section className="sec"><div className="wrap max-w-[76ch]">
           <h2 className="display text-3xl">What to check before deployment</h2>
           <dl className="mt-6 grid gap-5 sm:grid-cols-2">
@@ -189,6 +204,7 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </dl>
           <p className="mt-6"><Link href="/pricing" className="text-accent underline">Get a site-specific AI video analytics price</Link> or <Link href="/cctv-buying-checklist" className="text-accent underline">use the CCTV buying checklist</Link>.</p>
         </div></section>
+        )}
 
         {/* ----------------------------------------------------------- FAQ */}
         <section className="sec-band sec">
