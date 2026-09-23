@@ -1,6 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import {
+  buildRegisterPayload,
+  postToRegister,
+  registerConfig,
+} from "@/lib/leadRegister";
+import {
   cleanAttribution,
   toErpPayload,
   validateLead,
@@ -41,6 +46,11 @@ const DEADLINE_MS = 8_500;
 const ERP_ATTEMPT_MS = 3_000;
 const ERP_RETRY_GAP_MS = 300;
 const NOTIFY_MS = 3_000;
+/**
+ * Reserved out of the deadline so the shared register (Google Sheet + the two
+ * alert emails) always gets a turn, even when the ERP used both its attempts.
+ */
+const REGISTER_MS = 3_000;
 /**
  * Bodies are ~300 bytes; with attribution (page, campaign tags, a whole gclid)
  * they can approach 2 KB. 8 KB is still roomy for a human and fatal to a
@@ -273,6 +283,51 @@ async function notifyNewLead(
   }
 }
 
+/**
+ * Shared sales register: one row in the "PGAK — Master Leads" sheet plus one
+ * alert email to each internal recipient, through the signed Apps Script web
+ * app (see lib/leadRegister.ts).
+ *
+ * Never throws. Every destination's outcome is logged separately, so a failed
+ * email can never be mistaken for a missing row — or for a missing lead.
+ */
+async function recordInRegister(
+  lead: ValidLead,
+  ref: string,
+  attribution: Attribution,
+  formId: string,
+  erpStatus: string,
+  budgetMs: number,
+) {
+  if (!registerConfig().ok || budgetMs < 500) {
+    return { ok: false, row: "", emails: { director: "skipped", aditya: "skipped" }, error: "register not configured" };
+  }
+  const payload = buildRegisterPayload(lead, ref, attribution, {
+    formId,
+    erpRef: erpStatus === "delivered" ? ref : "",
+    erpStatus,
+  });
+  const result = await postToRegister(payload, budgetMs);
+  console[result.ok ? "log" : "error"](
+    result.ok ? "LEAD_REGISTER_OK" : "LEAD_REGISTER_FAILED",
+    JSON.stringify({
+      ref,
+      row: result.row,
+      emailDirector: result.emails.director,
+      emailAditya: result.emails.aditya,
+      error: result.error,
+    }),
+  );
+  return result;
+}
+
+/** Form identifier, for the register's "submission form" column. */
+function resolveFormId(candidate: unknown): string {
+  if (typeof candidate !== "string") return "";
+  const trimmed = candidate.trim().slice(0, 60);
+  return /^[a-z0-9_-]*$/i.test(trimmed) ? trimmed : "";
+}
+
 // ─── Handler ──────────────────────────────────────────────────────────────────
 type Outcome = {
   status: number;
@@ -374,6 +429,7 @@ export async function POST(request: NextRequest) {
   const attribution = cleanAttribution(
     (parsed as { attribution?: unknown } | null)?.attribution,
   );
+  const formId = resolveFormId((parsed as { form?: unknown } | null)?.form);
 
   if (rateLimited(clientKey(request))) {
     await notifyOwner(lead, ref, "rate limited", Math.min(NOTIFY_MS, left()));
@@ -401,7 +457,8 @@ export async function POST(request: NextRequest) {
   let authFailed = false;
 
   for (let attempt = 1; attempt <= 2; attempt += 1) {
-    const budget = Math.min(ERP_ATTEMPT_MS, left() - 200);
+    const reserve = registerConfig().ok ? REGISTER_MS : 0;
+    const budget = Math.min(ERP_ATTEMPT_MS, left() - 200 - reserve);
     if (budget <= 0) {
       lastReason = "deadline reached before ERP could be contacted";
       break;
@@ -448,7 +505,18 @@ export async function POST(request: NextRequest) {
           // it lands, not when someone next opens the CRM. Bounded by
           // NOTIFY_MS so it cannot stall the customer's success response.
           await notifyNewLead(lead, ref, attribution, Math.min(NOTIFY_MS, left()));
-          return json({ status: 200, body: { ok: true, delivered: true, ref } });
+          const register = await recordInRegister(
+            lead,
+            ref,
+            attribution,
+            formId,
+            "delivered",
+            Math.min(REGISTER_MS, left()),
+          );
+          return json({
+            status: 200,
+            body: { ok: true, delivered: true, ref, erp: true, register: register.ok },
+          });
         }
 
         lastReason = "ERP accepted the request but returned no row id";
@@ -483,6 +551,25 @@ export async function POST(request: NextRequest) {
 
   console.error("LEAD_ERP_UNREACHABLE", JSON.stringify({ ref, reason: lastReason }));
 
+  // The ERP is down, not the enquiry. If the shared register takes the row and
+  // both recipients are alerted, the lead is captured and someone will call —
+  // so the customer is told it arrived, and the ERP failure is carried in the
+  // row, the log and the owner alert rather than in a second form submission.
+  const register = await recordInRegister(
+    lead,
+    ref,
+    attribution,
+    formId,
+    `failed: ${lastReason}`.slice(0, 120),
+    Math.min(REGISTER_MS, left()),
+  );
+  if (register.ok) {
+    return json({
+      status: 200,
+      body: { ok: true, delivered: true, ref, erp: false, register: true },
+    });
+  }
+
   return json({
     status: 502,
     body: {
@@ -516,6 +603,7 @@ export async function GET() {
           (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),
       ),
       newLeadAlerts: newLeadAlertsEnabled(),
+      register: registerConfig().ok,
       env: process.env.VERCEL_ENV ?? "development",
     },
     { headers: { "Cache-Control": "no-store" } },
