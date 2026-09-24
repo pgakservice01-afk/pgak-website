@@ -494,3 +494,24 @@ body:has(.spot-home) .site-nav {
     line-height: 1.6;
   }
 }
+
+/* Nine nav links between 1025px and 1280px.
+   spot.css is imported after premium.css, so this is the last word on the
+   header row in that band. Partners and Our story took the row from seven
+   links to nine; at 1101px it needed 1100px of content in a 1035px container
+   and clipped the demo button. Tightening the two gaps and the side padding
+   buys back roughly 130px, which clears it at every width down to the 1024px
+   breakpoint where the row collapses to the mobile menu.
+   Above 1280px nothing here applies — the row already has 76px to spare. */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .nav-inner {
+    padding-inline: 20px;
+    gap: 16px;
+  }
+  .desktop-nav {
+    gap: 15px;
+  }
+  .nav-actions {
+    gap: 14px;
+  }
+}

@@ -16,6 +16,8 @@ const links = [
   ["/pricing", "Pricing"],
   ["/calculators", "Calculators"],
   ["/insights", "Insights"],
+  ["/partners", "Partners"],
+  ["/our-story", "Our story"],
   ["/about", "Company"],
 ];
 export default function Nav() {
@@ -58,14 +60,11 @@ export default function Nav() {
                 {label}
               </a>
             ))}
-            {/* The mobile menu is a vertical list with room to spare, so the
-                company pages go here in full. The desktop row cannot take two
-                more items without overflowing again — "Company" leads to
-                /about, which lists them. */}
-            <a href="/our-story">Our story</a>
+            {/* Only what the shared list does not already carry. Our story
+                and Partners moved into `links`, so repeating them here would
+                print them twice in the mobile menu. */}
             <a href="/leadership">Leadership</a>
             <a href="/free-audit">Free camera audit</a>
-            <a href="/partners">Become a partner</a>
             <a href="/contact">Contact</a>
             <a href="/live">Customer sign in</a>
           </nav>
