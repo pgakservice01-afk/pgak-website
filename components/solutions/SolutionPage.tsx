@@ -9,6 +9,7 @@ import BuyerDecisionPack from "@/components/solutions/BuyerDecisionPack";
 import ProofBlock from "@/components/solutions/ProofBlock";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import WhyPgak from "@/components/sections/WhyPgak";
+import CoverageWalkthrough from "@/components/solutions/CoverageWalkthrough";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -175,6 +176,11 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             photograph behind it reads very differently from the claim alone.
             Only pages with genuine original material render this. */}
         {s.proof && <ProofBlock proof={s.proof} />}
+
+        {/* Then the illustrated design argument, which is a drawing and never
+            a customer's site. Proof comes first where a page has both, so a
+            reader meets the evidence before the illustration. */}
+        {s.coverage && <CoverageWalkthrough coverage={s.coverage} />}
 
         {/* ------------------------------------------------------- content */}
         <section className="sec">
