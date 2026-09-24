@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import ProofVideo from "@/components/ProofVideo";
+
 import type { SolutionProof } from "@/lib/solutions";
 
 /**
@@ -30,7 +32,19 @@ export default function ProofBlock({ proof }: { proof: SolutionProof }) {
         <p className="mt-4 max-w-[68ch] text-ink-soft">{proof.intro}</p>
 
         <div className="mt-9 grid gap-8 lg:grid-cols-2">
-          {proof.items.map((item, i) => (
+          {proof.items.map((item, i) =>
+            item.video ? (
+              <ProofVideo
+                key={item.src}
+                src={item.video.src}
+                poster={item.src}
+                title={item.title}
+                caption={item.caption}
+                conditions={item.conditions}
+                redaction={item.redaction}
+                durationSeconds={item.video.durationSeconds}
+              />
+            ) : (
             <figure key={item.src} className="m-0">
               <div className="overflow-hidden rounded-[18px] border border-line bg-panel">
                 <Image
@@ -65,7 +79,8 @@ export default function ProofBlock({ proof }: { proof: SolutionProof }) {
               </figcaption>
               {i === 0 && <span className="sr-only">Original PGAK photograph.</span>}
             </figure>
-          ))}
+            ),
+          )}
         </div>
 
         <p className="mt-8 max-w-[68ch] text-[0.9rem] leading-relaxed text-ink-faint">
