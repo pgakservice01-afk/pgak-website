@@ -204,6 +204,9 @@ export default function LeadershipPage() {
                   </div>
                 </dl>
                 <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href="/our-story" className="btn btn-ghost">
+                    Why PGAK was built
+                  </Link>
                   <Link href="/about" className="btn btn-ghost">
                     More about the company
                   </Link>

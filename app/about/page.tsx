@@ -169,7 +169,14 @@ export default function AboutPage() {
                     the founders and CEO are named here
                   </Link>{" "}
                   alongside the company&rsquo;s registration number, so you can
-                  check the record yourself.
+                  check the record yourself &mdash; and{" "}
+                  <Link
+                    href="/our-story"
+                    className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                  >
+                    our story sets out the claims we decided not to make
+                  </Link>
+                  .
                 </p>
                 <dl className="mt-7 grid gap-x-10 gap-y-4 text-[0.93rem] sm:grid-cols-2">
                   <div>
