@@ -46,7 +46,7 @@ export default function BookDemo() {
         <Breadcrumbs trail={trail} />
         <p className="kicker mt-8">SEE PGAK IN ACTION</p>
         <h1>
-          Request a demonstration
+          Request a demonstration{" "}
           <br />
           for your site.
         </h1>
