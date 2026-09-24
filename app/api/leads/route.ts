@@ -299,8 +299,25 @@ async function recordInRegister(
   erpStatus: string,
   budgetMs: number,
 ) {
-  if (!registerConfig().ok || budgetMs < 500) {
-    return { ok: false, row: "", emails: { director: "skipped", aditya: "skipped" }, error: "register not configured" };
+  // Two very different reasons to skip, and conflating them is exactly what
+  // let a missing Vercel variable go unnoticed. The register shipped on
+  // 2026-09-23; LEAD_REGISTER_URL / LEAD_REGISTER_SECRET were never set in
+  // Production, so every enquiry took this branch in silence — no sheet row,
+  // no alert email — while the ERP relay and the Telegram alert kept working
+  // and nothing in the runtime log said why. `GET /api/leads` reported
+  // "register": false the whole time, but only if someone thought to look.
+  //
+  // Misconfiguration is persistent and needs a person to act on it; an
+  // exhausted budget is a single slow request. Both now log at error level so
+  // either is greppable in the Vercel runtime log as LEAD_REGISTER_SKIPPED,
+  // and `error` says which one happened instead of always blaming the config.
+  const configured = registerConfig().ok;
+  if (!configured || budgetMs < 500) {
+    const why = configured
+      ? `register skipped: no budget left (${budgetMs}ms)`
+      : "register not configured: set LEAD_REGISTER_URL and LEAD_REGISTER_SECRET in Vercel, then redeploy";
+    console.error("LEAD_REGISTER_SKIPPED", JSON.stringify({ ref, why, budgetMs }));
+    return { ok: false, row: "", emails: { director: "skipped", aditya: "skipped" }, error: why };
   }
   const payload = buildRegisterPayload(lead, ref, attribution, {
     formId,
