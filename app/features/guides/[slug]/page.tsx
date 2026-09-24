@@ -14,7 +14,40 @@ export function generateStaticParams() { return EXPLORER_FEATURES.map(f => ({slu
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}) {
   const {slug}=await params; const f=EXPLORER_FEATURES.find(f=>f.slug===slug); const g=FEATURE_GUIDES[slug];
   if(!f||!g) return {};
-  return pageMeta({title:`${g.keyword}: Uses & Setup | PGAK`,description:f.description,path:`/features/guides/${slug}`});
+  return pageMeta({title:guideTitle(g.keyword),description:guideDescription(g.intro,f.description),path:`/features/guides/${slug}`});
+}
+
+/**
+ * Titles and descriptions for 24 template-generated pages.
+ *
+ * Both were measured against the live site on 2026-09-24 and both were wrong
+ * in the same systematic way a template gets things wrong — every page at once.
+ *
+ * Titles: "<keyword>: Uses & Setup | PGAK" fitted most keywords and pushed four
+ * past 60 characters, so the suffix is dropped when the keyword is long rather
+ * than letting the brand get cut off mid-word in the SERP.
+ *
+ * Descriptions: the card blurb (`f.description`) was reused as the meta
+ * description, which left 23 of 24 pages under 120 characters — a third of the
+ * snippet width thrown away on the pages the homepage chooser feeds. The
+ * guide's own intro is longer, per-page and already written for a reader, so it
+ * is trimmed to a sentence or word boundary instead.
+ */
+function guideTitle(keyword: string): string {
+  const full = `${keyword}: Uses & Setup | PGAK`;
+  if (full.length <= 60) return full;
+  const short = `${keyword} | PGAK`;
+  return short.length <= 60 ? short : keyword.slice(0, 57).trimEnd() + "…";
+}
+
+function guideDescription(intro: string, fallback: string): string {
+  const source = intro.length >= 120 ? intro : `${intro} ${fallback}`.trim();
+  if (source.length <= 158) return source;
+  // Prefer ending on a sentence; otherwise the last whole word.
+  const window = source.slice(0, 158);
+  const stop = Math.max(window.lastIndexOf(". "), window.lastIndexOf("? "));
+  if (stop >= 120) return window.slice(0, stop + 1);
+  return window.slice(0, window.lastIndexOf(" ")).trimEnd() + "…";
 }
 export default async function Guide({params}:{params:Promise<{slug:string}>}) {
   const {slug}=await params; const f=EXPLORER_FEATURES.find(f=>f.slug===slug); const g=FEATURE_GUIDES[slug];
