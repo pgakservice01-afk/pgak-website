@@ -1409,6 +1409,37 @@ export const SOLUTIONS: Solution[] = [
         h2: "Deployment, honestly described",
         body: "An edge device at your site (or a cloud connection where bandwidth allows) picks up the streams your cameras already produce — no rewiring, no camera replacement as a precondition. A free feasibility check first confirms which of your cameras can support which capability, because a camera mounted for general coverage sometimes needs repositioning before face recognition will work on it. You get that answer before any commitment, not after.",
       },
+      {
+        // The brand question, answered on the page where it is asked.
+        //
+        // Every line here restates something the site already publishes:
+        // content/insights/does-ai-work-with-tapo-imou-qubo-cameras.md for the
+        // tested brands and the stream paths, and the Ludhiana FAQ in
+        // lib/locations.ts for the recorder families. Nothing is new, and the
+        // tested / expected-to-work distinction is carried over intact —
+        // collapsing it into "works with everything" would be the one change
+        // that turns honest content into a claim we cannot stand behind.
+        h2: "Will it work with the cameras you already have?",
+        body: "Almost always, and the badge on the camera is not what decides it. Analysis reads the RTSP stream a camera or recorder already produces, so the real question is whether yours will hand one over — most mains-powered cameras will, and most battery ones will not, whatever the brand. The free assessment answers it camera by camera rather than in general.",
+        points: [
+          {
+            h3: "Tested by us: Tapo, Prama and Qubo",
+            text: "We have connected these three ourselves. Tapo needs a Camera Account created in the app first (Device Settings → Advanced Settings → Camera Account) — the TP-Link cloud login will not authenticate. Qubo is worth one check per model, because not every unit in the range exposes a stream.",
+          },
+          {
+            h3: "Hikvision, Dahua and CP Plus recorders",
+            text: "These use the two stream-path families a scan tries first, so cameras behind them are normally found automatically once the recorder's IP address and login are entered. Prama, which we tested directly, is the Hikvision line in India and uses that same path.",
+          },
+          {
+            h3: "Imou: expected to work, not tested by us",
+            text: "Imou is part of Dahua and uses the Dahua stream path, which is also tried early — so it should behave the same way. We have not connected one ourselves, and we would rather say that than imply we have.",
+          },
+          {
+            h3: "What genuinely cannot be used",
+            text: "Cloud-only cameras that talk to nothing but their own app, and most battery models, which sleep between events and so produce no continuous stream to read. That is not a limitation of this software in particular — there is nothing for any third-party system to open.",
+          },
+        ],
+      },
     ],
     stats: [
       { value: "Existing cameras", label: "runs on the CCTV you already own" },
@@ -1432,6 +1463,18 @@ export const SOLUTIONS: Solution[] = [
       {
         q: "Does video analytics software work with existing CCTV cameras?",
         a: "Yes — that is PGAK's entire model. The software consumes the RTSP streams your cameras and DVR/NVR already produce. The constraint is camera placement rather than camera age: a usable view of the area you care about matters far more than the year the camera was made.",
+      },
+      {
+        q: "Does it work with Hikvision, CP Plus, Dahua, Tapo, Prama, Qubo or Imou cameras?",
+        a: "Tapo, Prama and Qubo we have connected and tested ourselves. Hikvision, Dahua and CP Plus recorders use the two RTSP stream-path families a scan tries first, so cameras behind them are normally detected automatically once the recorder's IP address and login are entered — Prama is the Hikvision line in India and uses that same path. Imou we have not tested ourselves; it is part of Dahua and uses the Dahua path, so it is expected to behave the same way. Tapo needs a Camera Account created inside the Tapo app first, because the TP-Link cloud login will not authenticate. The brand is rarely the deciding factor: what matters is whether the camera hands over an RTSP stream.",
+      },
+      {
+        q: "Which cameras genuinely cannot be used?",
+        a: "Two kinds. Cloud-only cameras, which talk to nothing but the manufacturer's own app and never expose a stream — no third-party software can read those, because there is nothing to read. And most battery-powered models, which sleep between events to save power, so there is no continuous stream to analyse; a few work when hardwired and kept awake. Age and brand are not disqualifying on their own: a ten-year-old mains-powered camera that exposes RTSP can be used, and a new cloud-only one cannot.",
+      },
+      {
+        q: "How do I check whether my camera supports RTSP?",
+        a: "Open the camera or recorder's own settings and look for a section named RTSP, ONVIF, or sometimes Network or Advanced. If there is a way to enable RTSP or set a stream port — 554 is the usual one — the camera can hand over a stream. If the manufacturer's app is the only way to see the video and no such setting exists, it is cloud-only. The free assessment does this check for you across the whole estate and reports it camera by camera.",
       },
       {
         q: "Is video analytics the same as motion detection?",
@@ -1458,6 +1501,9 @@ export const SOLUTIONS: Solution[] = [
       "how-does-ai-intruder-detection-work",
       "1000-alerts-only-one-is-real",
       "add-ai-to-existing-cctv-cameras",
+      // The brand-compatibility article was missing from this page, which is
+      // exactly where the question gets asked.
+      "does-ai-work-with-tapo-imou-qubo-cameras",
       "ai-cctv-vs-normal-cctv",
       "cctv-camera-offline-how-to-know",
     ],
