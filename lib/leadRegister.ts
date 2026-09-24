@@ -196,6 +196,58 @@ export function secretMatches(a: string, b: string): boolean {
   return timingSafeEqual(left, right);
 }
 
+/**
+ * Which specific piece of the register config is missing or wrong.
+ *
+ * `registerConfig()` answers one boolean, and on 2026-09-23 that was not
+ * enough: production read `"register": false` for a day and the only way to
+ * tell WHY was to open Vercel. There are four distinct ways to land on false
+ * and they need four different fixes, so this names the one that applies.
+ *
+ * Values never leave the server. The secret is reported only as set/not set,
+ * and the URL only as three booleans — the `/exec` URL is itself a capability
+ * (anyone who learns it can post to the sheet, which is why every request is
+ * signed), so it must not be echoed by a public endpoint either.
+ *
+ * `endsWithExec` is here because it is the mistake people actually make:
+ * pasting the Apps Script editor URL, or the `/dev` deployment, instead of the
+ * `/exec` one from Deploy → New deployment.
+ */
+export type RegisterConfigDetail = {
+  urlSet: boolean;
+  urlHttps: boolean;
+  endsWithExec: boolean;
+  secretSet: boolean;
+  /** The one thing to fix next, or "" when the config is complete. */
+  nextAction: string;
+};
+
+export function registerConfigDetail(): RegisterConfigDetail {
+  const url = (process.env.LEAD_REGISTER_URL ?? "").trim();
+  const secret = (process.env.LEAD_REGISTER_SECRET ?? "").trim();
+  const urlSet = url.length > 0;
+  const urlHttps = /^https:\/\//.test(url);
+  const endsWithExec = /\/exec$/.test(url);
+  const secretSet = secret.length > 0;
+
+  let nextAction = "";
+  if (!urlSet && !secretSet) {
+    nextAction =
+      "Set LEAD_REGISTER_URL and LEAD_REGISTER_SECRET in Vercel (Production), then redeploy — env vars do not apply to an existing deployment.";
+  } else if (!urlSet) {
+    nextAction = "LEAD_REGISTER_SECRET is set but LEAD_REGISTER_URL is not. Add the Apps Script /exec URL, then redeploy.";
+  } else if (!secretSet) {
+    nextAction = "LEAD_REGISTER_URL is set but LEAD_REGISTER_SECRET is not. Add the script's SECRET property value, then redeploy.";
+  } else if (!urlHttps) {
+    nextAction = "LEAD_REGISTER_URL is set but is not https:// — Apps Script /exec URLs are https. Correct it, then redeploy.";
+  } else if (!endsWithExec) {
+    nextAction =
+      "LEAD_REGISTER_URL does not end in /exec — this is usually the script editor or /dev URL. Use Deploy → New deployment → Web app, then redeploy.";
+  }
+
+  return { urlSet, urlHttps, endsWithExec, secretSet, nextAction };
+}
+
 export function registerConfig(): { ok: true; url: string; secret: string } | { ok: false } {
   const url = (process.env.LEAD_REGISTER_URL ?? "").trim();
   const secret = (process.env.LEAD_REGISTER_SECRET ?? "").trim();

@@ -6,6 +6,7 @@ import {
   encodeRegisterBody,
   isTestRef,
   postToRegister,
+  registerConfigDetail,
   signRegisterBody,
 } from "./leadRegister.ts";
 import { PROJECT_EXISTING, PROJECT_NEW, validateLead } from "./leads.ts";
@@ -212,4 +213,102 @@ test("non-ASCII leads survive the signature (regression: live 'bad signature')",
   assert.equal(decoded.city, "मोहाली 160055");
   assert.equal(decoded.name, "टेस्ट — नई साइट");
   assert.equal(signRegisterBody(b64, "s3cret", "1000"), signRegisterBody(b64, "s3cret", "1000"));
+});
+
+/**
+ * The register diagnostic. These exist because a single boolean was not enough
+ * to act on: production read "register": false for a day and the only way to
+ * learn why was to open Vercel. Each case below is a real way to get there,
+ * and each needs a different fix.
+ *
+ * The last assertion in each case is the important one — no test may allow the
+ * URL or the secret to appear in the output, because this is served by a public
+ * endpoint and the /exec URL is itself a capability.
+ */
+function withEnv(env: Record<string, string | undefined>, run: () => void) {
+  const saved = {
+    LEAD_REGISTER_URL: process.env.LEAD_REGISTER_URL,
+    LEAD_REGISTER_SECRET: process.env.LEAD_REGISTER_SECRET,
+  };
+  for (const [k, v] of Object.entries(env)) {
+    if (v === undefined) delete process.env[k];
+    else process.env[k] = v;
+  }
+  try {
+    run();
+  } finally {
+    for (const [k, v] of Object.entries(saved)) {
+      if (v === undefined) delete process.env[k];
+      else process.env[k] = v;
+    }
+  }
+}
+
+const EXEC = "https://script.google.com/macros/s/AKfycbxSECRETID/exec";
+
+test("diagnostic: neither variable set names both and says to redeploy", () => {
+  withEnv({ LEAD_REGISTER_URL: undefined, LEAD_REGISTER_SECRET: undefined }, () => {
+    const d = registerConfigDetail();
+    assert.equal(d.urlSet, false);
+    assert.equal(d.secretSet, false);
+    assert.match(d.nextAction, /LEAD_REGISTER_URL and LEAD_REGISTER_SECRET/);
+    assert.match(d.nextAction, /redeploy/);
+  });
+});
+
+test("diagnostic: only the URL missing is reported as only the URL", () => {
+  withEnv({ LEAD_REGISTER_URL: "", LEAD_REGISTER_SECRET: "s3cret" }, () => {
+    const d = registerConfigDetail();
+    assert.equal(d.urlSet, false);
+    assert.equal(d.secretSet, true);
+    assert.match(d.nextAction, /LEAD_REGISTER_URL is not/);
+  });
+});
+
+test("diagnostic: only the secret missing is reported as only the secret", () => {
+  withEnv({ LEAD_REGISTER_URL: EXEC, LEAD_REGISTER_SECRET: "  " }, () => {
+    const d = registerConfigDetail();
+    // whitespace is not a secret
+    assert.equal(d.secretSet, false);
+    assert.equal(d.urlSet, true);
+    assert.match(d.nextAction, /LEAD_REGISTER_SECRET is not/);
+  });
+});
+
+test("diagnostic: a non-https URL is called out as such", () => {
+  withEnv({ LEAD_REGISTER_URL: "http://script.google.com/macros/s/x/exec", LEAD_REGISTER_SECRET: "s3cret" }, () => {
+    const d = registerConfigDetail();
+    assert.equal(d.urlHttps, false);
+    assert.match(d.nextAction, /not https/);
+  });
+});
+
+test("diagnostic: the /dev and editor URLs are caught before they cost a day", () => {
+  // The mistake people actually make: copying the editor or /dev URL.
+  for (const wrong of [
+    "https://script.google.com/macros/s/AKfycbxSECRETID/dev",
+    "https://script.google.com/home/projects/AKfycbxSECRETID/edit",
+  ]) {
+    withEnv({ LEAD_REGISTER_URL: wrong, LEAD_REGISTER_SECRET: "s3cret" }, () => {
+      const d = registerConfigDetail();
+      assert.equal(d.endsWithExec, false, wrong);
+      assert.match(d.nextAction, /\/exec/);
+    });
+  }
+});
+
+test("diagnostic: a complete config asks for nothing", () => {
+  withEnv({ LEAD_REGISTER_URL: EXEC, LEAD_REGISTER_SECRET: "s3cret" }, () => {
+    const d = registerConfigDetail();
+    assert.deepEqual(d, { urlSet: true, urlHttps: true, endsWithExec: true, secretSet: true, nextAction: "" });
+  });
+});
+
+test("diagnostic: never leaks the URL or the secret", () => {
+  withEnv({ LEAD_REGISTER_URL: EXEC, LEAD_REGISTER_SECRET: "top-secret-value" }, () => {
+    const serialised = JSON.stringify(registerConfigDetail());
+    assert.equal(serialised.includes("top-secret-value"), false, "secret leaked");
+    assert.equal(serialised.includes("AKfycbxSECRETID"), false, "URL leaked");
+    assert.equal(serialised.includes("script.google.com"), false, "URL host leaked");
+  });
 });

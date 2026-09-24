@@ -4,6 +4,7 @@ import {
   buildRegisterPayload,
   postToRegister,
   registerConfig,
+  registerConfigDetail,
 } from "@/lib/leadRegister";
 import {
   cleanAttribution,
@@ -636,6 +637,9 @@ export async function GET() {
       ),
       newLeadAlerts: newLeadAlertsEnabled(),
       register: registerConfig().ok,
+      // Which piece is missing, when `register` is false. Booleans and a next
+      // action only — never the URL or the secret; see registerConfigDetail().
+      registerDetail: registerConfigDetail(),
       env: process.env.VERCEL_ENV ?? "development",
     },
     { headers: { "Cache-Control": "no-store" } },
