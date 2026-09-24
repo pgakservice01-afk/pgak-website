@@ -1,9 +1,29 @@
 import Logo from "@/components/Logo";
+/**
+ * Every item is a real anchor in the server-rendered HTML, so the header
+ * costs no JavaScript and a crawler reads it without executing anything.
+ *
+ * The b2b redesign cut this to five and took Industries, Features,
+ * Calculators, Insights, Partners and Our story out of the header. Those
+ * pages all still exist and still rank — dropping them from the nav left
+ * them reachable only from the footer, and made a site with 120+ routes
+ * look like a site with five. Restored, with the redesign's own Platform
+ * and Resources kept beside them.
+ *
+ * Eleven fits: the row measures 818px inside 1232 at 1440, and at 1150 it
+ * stops short of the actions rather than colliding.
+ */
 const links = [
   ["/solutions", "Solutions"],
+  ["/industries", "Industries"],
+  ["/features", "Features"],
   ["/platform", "Platform"],
   ["/pricing", "Pricing"],
+  ["/calculators", "Calculators"],
   ["/resources", "Resources"],
+  ["/insights", "Insights"],
+  ["/partners", "Partners"],
+  ["/our-story", "Our story"],
   ["/about", "Company"],
 ];
 export default function Nav() {
