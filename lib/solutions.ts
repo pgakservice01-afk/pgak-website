@@ -21,6 +21,22 @@ export type SolutionSection = {
 };
 
 /** Nav/listing grouping. Keeps the Solutions menu readable as the set grows. */
+/**
+ * A worked coverage example: where cameras go on a plausible building and what
+ * each position is for.
+ *
+ * Deliberately separate from any "proof" type. Proof is a photograph of
+ * something that exists; this is an illustration of a design argument, and
+ * conflating the two is how a site ends up implying customers it does not have.
+ */
+export type SolutionCoverage = {
+  heading: string;
+  intro: string;
+  image: { src: string; alt: string; width: number; height: number; caption: string };
+  positions: { place: string; detects: string; needs: string; href?: string; linkLabel?: string }[];
+  limits: string[];
+};
+
 export type SolutionGroup = "security" | "attendance" | "platform";
 
 /**
@@ -102,6 +118,8 @@ export type Solution = {
   offer?: { label: string; note: string };
   /** Original photographs or product screenshots for this page, if any exist. */
   proof?: SolutionProof;
+  /** An illustrated walkthrough of where cameras go. Never a customer site. */
+  coverage?: SolutionCoverage;
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -655,6 +673,81 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "residential-security",
     group: "security",
+    coverage: {
+      heading: "Where the cameras go on a house like this",
+      intro:
+        "A home is not a small factory. The positions that matter are the gate, the boundary and the approach, and there are usually four or five of them rather than twenty. This walks a plausible house position by position, with what each camera is actually for and what it needs to work.",
+      image: {
+        src: "/illustrations/home-coverage.webp",
+        alt: "A two-storey Indian house at dusk with a boundary wall, gate, driveway and lit balcony, overlaid with a decorative ring graphic",
+        width: 1600,
+        height: 994,
+        caption:
+          "AI-generated illustration, not a photograph of a customer's home, and the ring graphic is decorative rather than any real detection boundary. Camera positions are described below rather than drawn on, because where a camera goes depends on the building.",
+      },
+      positions: [
+        {
+          place: "The gate, at plate height",
+          detects:
+            "Vehicles in and out, with the plate logged so the question later is a search rather than an argument. People arriving on foot are classified separately from cars.",
+          needs:
+            "A camera at roughly 1.5 metres, angled along the lane rather than down at the roof of the car. Mounted high it will see that a vehicle arrived but not which one.",
+          href: "/anpr-number-plate-recognition",
+          linkLabel: "See a real gate camera and console",
+        },
+        {
+          place: "The boundary wall and side lane",
+          detects:
+            "Someone crossing a line you draw, on the schedule you set — so a delivery at four in the afternoon is not an event and the same movement at two in the morning is.",
+          needs:
+            "A view along the wall rather than across it, and a fortnight of tuning against your own traffic. Overhanging branches and passing headlights are the usual culprits.",
+          href: "/features/intrusion-alerts",
+          linkLabel: "How line crossing works",
+        },
+        {
+          place: "The approach and front door",
+          detects:
+            "A person waiting near the gate or door for longer than the time you set. Waiting is not suspicious in itself, which is why this is a prompt to look rather than an accusation.",
+          needs:
+            "A dwell threshold set per position. Set it too low and every neighbour reading their phone becomes an alert.",
+          href: "/features/loitering-detection",
+          linkLabel: "How dwell time works",
+        },
+        {
+          place: "Everything, after dark",
+          detects:
+            "The hours when residential incidents actually happen. Detection at night depends on what the sensor captured, not on processing applied afterwards.",
+          needs:
+            "A camera specified for your lighting, and usually some light at the gate. Software cannot recover detail the camera never recorded.",
+          href: "/features/guides/low-light-ai",
+          linkLabel: "What low light really needs",
+        },
+        {
+          place: "A way to say something",
+          detects:
+            "Nothing on its own — this is the speaker. Being able to tell a visitor where to wait, or make it plain to someone on the boundary that they have been seen, is often the whole intervention.",
+          needs:
+            "A speaker and microphone at that position, with power and network to it. Recording audio carries obligations beyond those for video and is a separate decision.",
+          href: "/features/guides/two-way-audio",
+          linkLabel: "Two-way audio and its limits",
+        },
+        {
+          place: "The alerts themselves",
+          detects:
+            "Dogs, shadows, branches and headlights filtered out, so the notifications that arrive are worth opening. A household that has learned to ignore its own alerts has no security system.",
+          needs:
+            "Tuning on your own footage. Filtering reduces false alerts; it does not remove them, and anyone promising zero is guessing.",
+          href: "/features/false-alarm-filtering",
+          linkLabel: "How false alarms are cut",
+        },
+      ],
+      limits: [
+        "It does not stop an intrusion. It tells you, and gives you a clip, sooner than you would otherwise have known — the response is still yours or the guard's.",
+        "It does not make a badly placed camera useful. A camera pointed at the street watches the street, whatever runs on it.",
+        "It does not extend how long footage is kept. Retention stays your recorder's job.",
+        "It is not a claim about your house. Which of these positions apply, and whether your existing cameras can carry them, is confirmed on your own feeds before anything is quoted.",
+      ],
+    },
     navLabel: "Homes & societies",
     primaryKeyword: "smart home security system",
     relatedKeywords: [
