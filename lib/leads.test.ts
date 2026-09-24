@@ -112,6 +112,11 @@ test("a complete, ordinary submission validates", () => {
     timeline: "",
     employees: "",
     email: "", // optional and not given — still a complete lead
+    // Free-text fields, added 2026-09-24 for the homepage assessment form.
+    // Every other form leaves them empty, which is what this asserts.
+    company: "",
+    requirement: "",
+    contactTime: "",
   });
 });
 
@@ -132,6 +137,9 @@ test("a PHONE NUMBER ALONE is a complete lead", () => {
     timeline: "",
     employees: "",
     email: "",
+    company: "",
+    requirement: "",
+    contactTime: "",
   });
 });
 

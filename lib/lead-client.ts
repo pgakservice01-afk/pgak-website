@@ -30,6 +30,10 @@ export type LeadValues = {
   project?: string;
   timeline?: string;
   email?: string;
+  /** Homepage assessment form only. See LIMITS in lib/leads.ts. */
+  company?: string;
+  requirement?: string;
+  contactTime?: string;
   honeypot?: string;
 };
 

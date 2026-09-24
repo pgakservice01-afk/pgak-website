@@ -129,17 +129,22 @@ export function buildRegisterPayload(
     name: lead.name,
     phone: lead.phone,
     email: lead.email,
-    // No form asks for a company yet; the column stays for manual entry and
-    // for any future form, rather than being guessed from an email domain.
-    company: "",
+    // Filled since 2026-09-24 by the homepage assessment form, which asks for
+    // it directly. Still empty for every other form — never guessed from an
+    // email domain, which is how a gmail.com lead becomes "Gmail".
+    company: lead.company,
     city: lead.location,
     category: categoryOf(opts.formId ?? "", attribution.cta ?? ""),
     requirement: requirementOf(lead),
     product: productOf(page),
     cameras: lead.cameras,
-    // The site never collects free text from the customer; the structured
-    // answers are the message. Kept as one readable line for the sales team.
+    // The homepage assessment form collects one free-text requirement; every
+    // other form is structured answers only. Where the customer wrote
+    // something, it leads — their sentence is worth more to the person making
+    // the call than the chips they tapped afterwards.
     message: [
+      lead.requirement,
+      lead.contactTime ? `Best time to call: ${lead.contactTime}` : "",
       lead.protecting ? `Protecting: ${lead.protecting}` : "",
       lead.employees ? `People clocking in: ${lead.employees}` : "",
     ]

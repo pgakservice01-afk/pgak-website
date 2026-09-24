@@ -40,6 +40,17 @@ export const LIMITS = {
   email: 254,
   /** One attribution value: a path, a hostname, a campaign tag, a click id. */
   attribution: 160,
+  /** Registered company name. Indian company names run long. */
+  company: 160,
+  /**
+   * The customer's own description of what they need. The only free text this
+   * site collects, added 2026-09-24 for the homepage assessment form — a form
+   * that asks "brief requirement" and then discards the answer is worse than
+   * one that never asked. Capped well below the sheet cell limit.
+   */
+  requirement: 600,
+  /** "Morning", "After 6pm", "Weekdays only" — a phrase, not an essay. */
+  contactTime: 60,
 } as const;
 
 /**
@@ -166,6 +177,9 @@ export type LeadInput = {
   timeline?: unknown;
   /** Optional — see `normaliseEmail`. Empty string and absent are the same. */
   email?: unknown;
+  company?: unknown;
+  requirement?: unknown;
+  contactTime?: unknown;
   /** See HONEYPOT_FIELD. Hidden + tabindex=-1, so a human never reaches it. */
   website?: unknown;
 };
@@ -189,6 +203,15 @@ export type ValidLead = {
   timeline: string;
   /** Empty string when the customer chose not to give one. */
   email: string;
+  /**
+   * Free text and company name, both empty unless the form asked. These three
+   * are carried rather than validated against a whitelist, because there is no
+   * whitelist a company name or a requirement could belong to — they are
+   * length-capped and escaped at the boundary instead.
+   */
+  company: string;
+  requirement: string;
+  contactTime: string;
 };
 
 export type FieldErrors = Partial<
@@ -275,6 +298,12 @@ export function validateLead(input: LeadInput): ValidationResult {
   // Optional. A one-letter name is odd but not a reason to lose a lead.
   const name = clean(input.name, LIMITS.name);
 
+  // Free text and company: cleaned and capped, never rejected. A malformed
+  // requirement is still a customer telling us what they want.
+  const company = clean(input.company, LIMITS.company);
+  const requirement = clean(input.requirement, LIMITS.requirement);
+  const contactTime = clean(input.contactTime, LIMITS.contactTime);
+
   const phone = normalisePhone(input.phone);
   if (!phone) {
     fieldErrors.phone = "Please enter a valid 10-digit Indian phone number.";
@@ -335,6 +364,12 @@ export function validateLead(input: LeadInput): ValidationResult {
           project,
           timeline,
           email,
+          // Homepage assessment form. Always present, empty on every other form.
+          company,
+          requirement,
+          contactTime,
+          // Readiness journey. Omitted entirely when absent, so the ERP payload
+          // shape for older forms is unchanged.
           ...(clean(input.context, 1200)
             ? { context: clean(input.context, 1200) }
             : {}),
@@ -386,6 +421,12 @@ export function toErpPayload(
     : "";
 
   const parts = [
+    // The customer's own sentence leads, ahead of every structured answer.
+    // A salesperson opening this reads the top line and nothing else if they
+    // are busy, and "what they actually asked for" beats "which chip they tapped".
+    lead.requirement ? `Requirement: ${lead.requirement}` : "",
+    lead.company ? `Company: ${lead.company}` : "",
+    lead.contactTime ? `Best time to call: ${lead.contactTime}` : "",
     lead.project ? `Project: ${lead.project}` : "",
     `Protecting: ${lead.protecting}`,
     lead.context ? `Project brief: ${lead.context}` : "",
