@@ -11,7 +11,6 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 import { LOCATIONS, locationPath } from "@/lib/locations";
-import { waHref } from "@/lib/whatsapp";
 
 const PATH = "/areas-we-serve";
 
@@ -116,20 +115,17 @@ export default function AreasPage() {
                 <Link href="/contact" className="btn btn-primary">
                   Ask about your area →
                 </Link>
-                {/* Dealer applications go to their own WhatsApp thread, never
-                    into the customer enquiry form below — a dealer is not a
-                    customer lead and must not be counted as one. */}
-                <a
-                  href={waHref(
-                    "Hi PGAK, I'd like to apply to become a PGAK dealer/installation partner. My company and city: "
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="dealer-application-whatsapp"
+                {/* Dealer applications go to /partners, whose form opens their
+                    own WhatsApp thread — never into the customer enquiry form
+                    below. A dealer is not a customer lead and must not be
+                    counted as one. */}
+                <Link
+                  href="/partners"
+                  data-cta="dealer-application-partners"
                   className="btn btn-ghost"
                 >
-                  Become a dealer (WhatsApp)
-                </a>
+                  Become a partner →
+                </Link>
               </div>
             </div>
           </div>

@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // The blog index genuinely changes with every published post.
     { url: `${SITE_URL}/insights`, ...(newestPost ? { lastModified: newestPost } : {}) },
     { url: `${SITE_URL}/areas-we-serve` },
+    { url: `${SITE_URL}/partners` },
     { url: `${SITE_URL}/contact` },
     { url: `${SITE_URL}/about` },
     { url: `${SITE_URL}/leadership` },

@@ -27,6 +27,9 @@ const COMPANY: FooterLink[] = [
   { t: "Insights", tHi: "ब्लॉग", href: "/insights" },
   { t: "Case studies", tHi: "केस स्टडी", href: "/insights/case-studies" },
   { t: "Areas we serve", tHi: "सेवा क्षेत्र", href: "/areas-we-serve" },
+  // Dealer-facing, not customer-facing — sits under Company rather than
+  // "Get started", which is the customer's column.
+  { t: "Become a partner", tHi: "पार्टनर बनें", href: "/partners", cta: "footer-partners" },
 ];
 
 const GET_STARTED: FooterLink[] = [

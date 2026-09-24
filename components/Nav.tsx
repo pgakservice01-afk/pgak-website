@@ -59,6 +59,7 @@ export default function Nav() {
               </a>
             ))}
             <a href="/free-audit">Free camera audit</a>
+            <a href="/partners">Become a partner</a>
             <a href="/contact">Contact</a>
             <a href="/live">Customer sign in</a>
           </nav>
