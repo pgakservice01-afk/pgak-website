@@ -1,8 +1,11 @@
 import QuickLead from "@/components/sections/QuickLead";
 export default function DealerForm({
   variant = "default",
+  cityHint = "",
 }: {
   variant?: string;
+  /** Passed by the city pages so the city field shows a local example. */
+  cityHint?: string;
 }) {
   return (
     <section id="dealer" className="buyer-wrap buyer-section">
@@ -14,6 +17,7 @@ export default function DealerForm({
       </p>
       <QuickLead
         cta={`project-${variant}`}
+        cityHint={cityHint}
         context={
           variant === "attendance"
             ? "Attendance evaluation requested; enrolment, privacy, retention and human correction require review."
