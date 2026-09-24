@@ -13,6 +13,7 @@ import {
 } from "@/lib/schema";
 import JourneyChooser from "@/components/sections/JourneyChooser";
 import FeatureChooser from "@/components/sections/FeatureChooser";
+import HomeProof from "@/components/sections/HomeProof";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
@@ -240,6 +241,11 @@ export default function Home() {
             anchor and its section are untouched — they are linked from the
             hero and from elsewhere. */}
         <FeatureChooser />
+
+        {/* Our own footage before the borrowed illustrations. A visitor who
+            scrolls past this section has still seen the product work; one who
+            met the reference films first would have seen a competitor's. */}
+        <HomeProof />
 
         <section
           className="intelligence-films"
