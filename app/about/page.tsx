@@ -85,6 +85,40 @@ export default function AboutPage() {
               </p>
             </div>
 
+            {/* "Company" in the main nav points here, so this page has to act
+                like a hub. The story and leadership pages were previously
+                reachable only from the footer and from one sentence buried
+                further down — which is the same as not existing. */}
+            <nav
+              aria-label="Company pages"
+              className="mx-auto mt-12 grid max-w-[900px] gap-4 sm:grid-cols-3"
+            >
+              <a href="/our-story" className="card group p-6 transition-colors hover:border-accent/40">
+                <span className="font-display text-[1.05rem] font-medium text-ink group-hover:text-accent">
+                  Our story →
+                </span>
+                <span className="mt-2 block text-[0.9rem] leading-relaxed text-ink-soft">
+                  Why PGAK was built, and the claims we decided not to make.
+                </span>
+              </a>
+              <a href="/leadership" className="card group p-6 transition-colors hover:border-accent/40">
+                <span className="font-display text-[1.05rem] font-medium text-ink group-hover:text-accent">
+                  Leadership →
+                </span>
+                <span className="mt-2 block text-[0.9rem] leading-relaxed text-ink-soft">
+                  The founders and CEO, named, with the company number to check.
+                </span>
+              </a>
+              <a href="/contact" className="card group p-6 transition-colors hover:border-accent/40">
+                <span className="font-display text-[1.05rem] font-medium text-ink group-hover:text-accent">
+                  Contact →
+                </span>
+                <span className="mt-2 block text-[0.9rem] leading-relaxed text-ink-soft">
+                  Phone, WhatsApp and the registered office in Ludhiana.
+                </span>
+              </a>
+            </nav>
+
             <div className="mx-auto mt-14 grid max-w-[900px] gap-6 md:grid-cols-2">
               <div className="card p-8">
                 <h2 className="font-display text-[1.4rem] font-medium text-ink">

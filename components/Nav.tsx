@@ -58,6 +58,12 @@ export default function Nav() {
                 {label}
               </a>
             ))}
+            {/* The mobile menu is a vertical list with room to spare, so the
+                company pages go here in full. The desktop row cannot take two
+                more items without overflowing again — "Company" leads to
+                /about, which lists them. */}
+            <a href="/our-story">Our story</a>
+            <a href="/leadership">Leadership</a>
             <a href="/free-audit">Free camera audit</a>
             <a href="/partners">Become a partner</a>
             <a href="/contact">Contact</a>

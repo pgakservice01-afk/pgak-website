@@ -49,14 +49,26 @@ export default function WhoIsPgak() {
               </div>
             )}
             <div>
+              {/* The names were plain text, which meant the two pages that
+                  exist to answer "who are these people" were reachable only
+                  from the footer. This block renders on /pricing, /free-audit
+                  and every solution page — the places a reader is deciding
+                  whether to trust us — so it is where the link belongs. */}
               <dt className="text-ink-faint">Leadership</dt>
               <dd className="mt-1 text-ink">
-                {LEADERSHIP.map((p, i) => (
-                  <span key={p.name}>
-                    {i > 0 && " · "}
-                    {p.name}
-                  </span>
-                ))}
+                <a href="/leadership" className="underline decoration-line underline-offset-4 hover:text-accent">
+                  {LEADERSHIP.map((p, i) => (
+                    <span key={p.name}>
+                      {i > 0 && " · "}
+                      {p.name}
+                    </span>
+                  ))}
+                </a>
+              </dd>
+              <dd className="mt-2 text-[0.85rem]">
+                <a href="/our-story" className="text-ink-soft underline decoration-line underline-offset-4 hover:text-accent">
+                  Why PGAK was built →
+                </a>
               </dd>
             </div>
             <div className="sm:col-span-2">
