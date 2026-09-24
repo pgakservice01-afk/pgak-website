@@ -10,6 +10,8 @@ own.
 | `public/proof/anpr-camera-mount.webp` | Photograph of a PGAK ANPR camera fitted to a gate pillar, with the mounting height and angle annotated on the image | Owner, 2026-09-24 | `/anpr-number-plate-recognition` | 1000×1501, 135 KB |
 | `public/proof/anpr-gate-console.webp` | Screenshot of the PGAK Gate Console — live vehicle reads, approve/deny, allow-list labels, per-read diagnostics | Owner, 2026-09-24 | `/anpr-number-plate-recognition` | 1440×1000, 44 KB. **Plates redacted** |
 
+| `public/proof/dock-count.webp` | Frame from PGAK dock-counting footage — counting line with live in/out counters, evening unload | Owner, 2026-09-24 | `/ai-cctv-for-warehouses` | 1400×787, 120 KB. **Transport company name and phone numbers blurred** |
+
 ## The redaction, and why it matters
 
 Two versions of the console screenshot were supplied: one with readable number
@@ -25,6 +27,27 @@ text and the plate crop thumbnails are blurred on every visible card, including
 the partially cut-off one at the bottom. No character is recoverable.
 
 **The unredacted version is not in this repository and should not be added.**
+
+The dock frame required the same treatment for a different reason. The lorry
+carries a transport association's name and three telephone numbers painted
+along its side, legible in the footage. Those belong to a third party who has
+no relationship with this website, so they are blurred. Verified after
+blurring: no lettering or digits are recoverable.
+
+### The source video is not published
+
+`stock counter.mp4` is H.264 and would play in a browser, but it is **not**
+published, for three reasons:
+
+1. The phone numbers are legible for the whole 57 seconds. Blurring a still is
+   a one-line operation; blurring video needs a re-encode.
+2. 52 MB for 57 seconds — about 7.4 Mbps. That is a heavy download for a
+   marketing page even behind `preload="none"`.
+3. Its `moov` atom sits after `mdat`, so it is not fast-start and cannot begin
+   playing until the container index has been fetched from the end.
+
+A trimmed, blurred, fast-start H.264 export of roughly 10-15 seconds would be
+publishable. That needs an encoder this machine does not have.
 
 ## What these two images do and do not establish
 
