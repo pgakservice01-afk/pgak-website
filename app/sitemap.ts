@@ -38,6 +38,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/book-demo` },
     { url: `${SITE_URL}/roi-calculator` },
     { url: `${SITE_URL}/calculators` },
+    // Platform and resources: static routes rather than generated ones, so
+    // unlike the lists below they have to be named here or they are indexed
+    // by nothing.
+    { url: `${SITE_URL}/platform` },
+    { url: `${SITE_URL}/platform/capabilities` },
+    { url: `${SITE_URL}/platform/compatibility` },
+    { url: `${SITE_URL}/platform/deployment` },
+    { url: `${SITE_URL}/platform/vms-integration` },
+    { url: `${SITE_URL}/resources` },
+    { url: `${SITE_URL}/resources/evaluation-method` },
+    { url: `${SITE_URL}/resources/evidence` },
+    { url: `${SITE_URL}/resources/storage-bandwidth` },
     ...liveCalculators()
       .filter((c) => c.path !== "/roi-calculator")
       .map((c) => ({ url: `${SITE_URL}${c.path}` })),
