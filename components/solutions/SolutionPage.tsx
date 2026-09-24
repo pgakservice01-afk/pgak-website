@@ -8,6 +8,7 @@ import JourneyChooser from "@/components/sections/JourneyChooser";
 import BuyerDecisionPack from "@/components/solutions/BuyerDecisionPack";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import WhyPgak from "@/components/sections/WhyPgak";
+import CoverageWalkthrough from "@/components/solutions/CoverageWalkthrough";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -164,6 +165,11 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             LocationPage is deliberately left out until the delivery model per
             city is settled (CLAIMS_REGISTER C2). */}
         <WhyPgak />
+
+        {/* An illustrated design argument, and only on pages that define one.
+            Kept distinct from any photograph so a drawing can never be taken
+            for a customer's site. */}
+        {s.coverage && <CoverageWalkthrough coverage={s.coverage} />}
 
         {/* ------------------------------------------------------- content */}
         <section className="sec">
