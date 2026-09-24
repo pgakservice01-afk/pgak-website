@@ -60,6 +60,17 @@ export type Solution = {
    * cameras the visitor may not have. Omit for the upgrade journey (default).
    */
   journey?: "new-install";
+  /**
+   * This page's own offer, in the buyer's words.
+   *
+   * Every solution page used to show the same "Get Free Camera Audit" button.
+   * A factory manager weighing perimeter alerts and someone with no cameras at
+   * all were being asked for the identical thing, so the button described PGAK
+   * rather than what that reader gets. `label` is the button; `note` is the one
+   * line under it that says what the offer actually is. Omit to keep the
+   * generic CTA — an unconsidered offer is worse than the default.
+   */
+  offer?: { label: string; note: string };
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -376,6 +387,10 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "factory-security",
     group: "security",
+    offer: {
+      label: "Check my factory's cameras and perimeter",
+      note: "We look at the cameras covering your gates, boundary and yard, and tell you which ones can carry intrusion and after-hours alerts as they stand — and which are pointed somewhere that cannot work.",
+    },
     navLabel: "Factories",
     primaryKeyword: "factory security system",
     relatedKeywords: [
@@ -1220,6 +1235,10 @@ export const SOLUTIONS: Solution[] = [
     slug: "cctv-installation-company",
     group: "platform",
     journey: "new-install",
+    offer: {
+      label: "Request a CCTV project assessment",
+      note: "For a site with no cameras yet, or one being rebuilt. We work out what each area has to see, then quote it as itemised lines — cameras, cabling, recording, networking, processing, commissioning and support.",
+    },
     navLabel: "CCTV installation",
     primaryKeyword: "CCTV installation company",
     relatedKeywords: [
@@ -1332,6 +1351,10 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "video-analytics-software",
     group: "platform",
+    offer: {
+      label: "Check which of my cameras can run PGAK analytics",
+      note: "Send us your camera list or a few stream details. You get back which cameras can carry analytics as they stand, which need repositioning, and which cannot do the job whatever we run on them.",
+    },
     navLabel: "Video analytics software",
     primaryKeyword: "video analytics software",
     relatedKeywords: [

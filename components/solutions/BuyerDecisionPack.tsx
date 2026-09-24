@@ -25,7 +25,7 @@ export default function BuyerDecisionPack({
   planHref: string;
   ctaLabel: string;
 }) {
-  const { supported, notSupported, requirements, scope, priceFactors, quoteIncludes, pilot, afterEnquiry } =
+  const { supported, notSupported, requirements, scope, priceFactors, quoteIncludes, pilot, afterEnquiry, sampleScope } =
     decision;
 
   return (
@@ -143,6 +143,63 @@ export default function BuyerDecisionPack({
             </p>
           </div>
         </div>
+
+        {/* A new-site buyer cannot picture "quoted per site", but they can read
+            a line list. No figures anywhere: PGAK quotes per site, and printing
+            an example rate would invent a number no page shows. */}
+        {sampleScope && (
+          <div className="mt-12 max-w-[76ch]">
+            <h3 className="display text-[clamp(1.3rem,2.4vw,1.75rem)]">
+              What a quotation covers
+            </h3>
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
+              The lines a PGAK installation quote is itemised into. There are no
+              prices here on purpose — every site is quoted on its own survey,
+              and a figure printed on a web page would be wrong for most people
+              reading it. This is the shape of the quote, so you can check any
+              vendor&rsquo;s against it, not just ours.
+            </p>
+
+            <dl className="mt-7 grid gap-4 sm:grid-cols-2">
+              {sampleScope.lines.map((l) => (
+                <div key={l.item} className="card p-5">
+                  <dt className="text-[1rem] font-semibold">{l.item}</dt>
+                  <dd className="mt-2 text-[0.93rem] leading-relaxed text-ink-soft">
+                    {l.detail}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-7 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h4 className="text-[0.98rem] font-semibold">
+                  What this example assumes
+                </h4>
+                <ul className="mt-3 grid gap-2 text-[0.93rem] leading-relaxed text-ink-soft">
+                  {sampleScope.assumptions.map((a) => (
+                    <li key={a}>{a}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-[0.98rem] font-semibold">
+                  What it would not include
+                </h4>
+                <ul className="mt-3 grid gap-2 text-[0.93rem] leading-relaxed text-ink-soft">
+                  {sampleScope.exclusions.map((e) => (
+                    <li key={e}>{e}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <p className="mt-6 text-[0.9rem] text-ink-faint">
+              An example of how a quotation is structured — not a quotation, and
+              not a record of a customer&rsquo;s project.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

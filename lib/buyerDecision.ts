@@ -18,6 +18,24 @@
  * owner's evidence first (docs/seo/2026-09-22/CLAIMS_REGISTER.md).
  */
 
+/**
+ * A worked example of what a quotation covers, with no rupee figures.
+ *
+ * A new-project buyer cannot picture "we'll quote per site". They can picture
+ * a line list. The deliberate absence of prices is the point: PGAK quotes per
+ * site, so printing an example rate would invent a number no page shows and
+ * hand the reader a figure to hold us to. Every line here has to be something
+ * a real quotation would carry.
+ */
+export type SampleScope = {
+  /** Each line a quotation would itemise, and what decides its size. */
+  lines: { item: string; detail: string }[];
+  /** What the example assumes about the site. */
+  assumptions: string[];
+  /** What such a quotation would not carry. */
+  exclusions: string[];
+};
+
 export type BuyerDecision = {
   /** Two or three sentences a search engine could quote as the answer. */
   answer: string;
@@ -30,6 +48,8 @@ export type BuyerDecision = {
   quoteIncludes: string[];
   pilot: string[];
   afterEnquiry: string[];
+  /** Only where a site is designed from nothing — see SampleScope. */
+  sampleScope?: SampleScope;
 };
 
 const COMMON = {
@@ -145,6 +165,59 @@ export const BUYER_DECISIONS: Record<string, BuyerDecision> = {
       "Scope and availability are confirmed for your project, then quoted with each line itemised.",
       "Nothing is assumed about cameras you do not have yet.",
     ],
+    sampleScope: {
+      lines: [
+        {
+          item: "Cameras",
+          detail:
+            "One line per camera type, each tied to the view it has to cover — a gate that needs plates read is a different camera from an aisle that only needs a person detected.",
+        },
+        {
+          item: "Cabling and power",
+          detail:
+            "Cable runs, routing and power points. On most sites this moves the total more than the camera count does, because distance and obstruction decide the labour.",
+        },
+        {
+          item: "Recording and storage",
+          detail:
+            "Recorder and disk sized to the number of days you must keep, rather than to a default that happens to ship with the box.",
+        },
+        {
+          item: "Networking",
+          detail:
+            "Switches, PoE and the link between the recorder and the processing unit. Your internet connection is yours to provide.",
+        },
+        {
+          item: "Processing hardware",
+          detail:
+            "The on-site unit the analytics run on. It follows camera count and which analytics are enabled, and it is quoted as its own line rather than folded into the software.",
+        },
+        {
+          item: "Installation and commissioning",
+          detail:
+            "Mounting, aiming, configuration, and handover with credentials in writing.",
+        },
+        {
+          item: "Analytics subscription",
+          detail:
+            "Per camera per month, on the cameras you switch on — separate from the hardware, so you can see what is one-off and what recurs.",
+        },
+        {
+          item: "Support",
+          detail: "The support arrangement, its term, and what it covers.",
+        },
+      ],
+      assumptions: [
+        "A single site, with power available near each camera position.",
+        "Mounting on existing structures — walls, poles or beams already in place.",
+        "Someone on site can give access during working hours.",
+      ],
+      exclusions: [
+        "Civil and electrical work beyond the quoted lines — trenching, new poles, new circuits.",
+        "Internet connectivity and any monthly cost for it.",
+        "Anything not named on the quotation. If it is not a line, it is not included.",
+      ],
+    },
   },
 
   "factory-security": {

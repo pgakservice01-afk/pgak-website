@@ -39,6 +39,10 @@ export type SubmitOutcome =
 
 /** Refs whose conversion has already been reported. */
 const converted = new Set<string>();
+/** Same dedup rule as `converted`, one step earlier in the funnel. */
+const attempted = new Set<string>();
+/** So a customer retrying three times reports one failure, not three. */
+const failureReported = new Set<string>();
 
 /**
  * One ref per form instance, reused on every retry, so the ERP can collapse a
@@ -52,10 +56,38 @@ export function mintRef(): string {
   return String(Math.random()).slice(2).padEnd(12, "0");
 }
 
+/**
+ * A submission that reached us and did not land.
+ *
+ * This is the event nobody thinks to add, and the one that matters most: a
+ * silent delivery failure and a visitor who changed their mind look identical
+ * in every other report. `reason` stays coarse on purpose — "network" or
+ * "not_delivered", never the response body, which could carry what the
+ * customer typed.
+ */
+function reportFailure(opts: { ref: string; cta: string; formName: string }, reason: string): void {
+  if (failureReported.has(opts.ref)) return;
+  failureReported.add(opts.ref);
+  trackConversion("lead_delivery_failed", {
+    form_name: opts.formName,
+    cta: opts.cta,
+    reason,
+  });
+}
+
 export async function submitLead(
   values: LeadValues,
   opts: { ref: string; cta: string; formName: string },
 ): Promise<SubmitOutcome> {
+  // Counted once per form instance, not per retry: `ref` is minted with the
+  // form and reused on every attempt, so a customer who retries twice is one
+  // person trying to reach us, not three. Without this the funnel jumps
+  // straight from "started typing" to "server accepted it", and a delivery
+  // problem looks identical to someone changing their mind.
+  if (!attempted.has(opts.ref)) {
+    attempted.add(opts.ref);
+    trackConversion("form_submit_attempt", { form_name: opts.formName, cta: opts.cta });
+  }
   try {
     const res = await fetch("/api/leads", {
       method: "POST",
@@ -112,10 +144,12 @@ export async function submitLead(
       return { kind: "done" };
     }
 
+    reportFailure(opts, "not_delivered");
     return { kind: "fallback", retryable: body.retryable !== false };
   } catch {
     // Network died before any answer. The lead may or may not have landed;
     // either way the customer keeps their data and a way through.
+    reportFailure(opts, "network");
     return { kind: "fallback", retryable: true };
   }
 }

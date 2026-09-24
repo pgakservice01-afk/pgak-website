@@ -88,11 +88,16 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             {isNew ? (
               <>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="#plan" data-cta="solution-plan-new" data-intent="new-installation" className="btn btn-primary">
-                    Plan a new installation →
+                  <Link href="#plan" data-cta="solution-plan-new" data-intent="new-installation" className="btn btn-primary btn-wrap">
+                    {s.offer ? s.offer.label : "Plan a new installation"} →
                   </Link>
                   <a href={waHref("Hi PGAK, I am planning a new CCTV installation and would like to discuss the site.")} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about a new site</a>
                 </div>
+                {/* What the button actually gets them. A CTA that names the
+                    offer still needs one line saying what lands afterwards. */}
+                {s.offer && (
+                  <p className="mt-5 max-w-[70ch] leading-relaxed text-ink-soft">{s.offer.note}</p>
+                )}
                 <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
                   Already have cameras?{" "}
                   <Link href="/free-audit" data-cta="solution-existing-audit" className="text-accent underline underline-offset-2">
@@ -104,11 +109,14 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             ) : (
               <>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary">
-                    Get Free Camera Audit →
+                  <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary btn-wrap">
+                    {s.offer ? s.offer.label : "Get Free Camera Audit"} →
                   </Link>
                   <a href={waHref(`Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`)} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about this solution</a>
                 </div>
+                {s.offer && (
+                  <p className="mt-5 max-w-[70ch] leading-relaxed text-ink-soft">{s.offer.note}</p>
+                )}
 
                 <div className="mt-7 max-w-[640px]"><QuickLead cta={`solution-${s.slug}`} /></div>
                 <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
