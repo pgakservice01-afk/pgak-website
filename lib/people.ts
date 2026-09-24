@@ -50,6 +50,15 @@ export type Person = {
   credentials: string[];
   /** Where a reader can verify `bio` and `credentials`. */
   source?: string;
+  /**
+   * Headshot under /public/team. All three were treated the same way —
+   * greyscale, edges falling to black — so three photographs taken in three
+   * different rooms read as one set. The treatment is a crop and a vignette
+   * done locally with sharp: no face was regenerated or retouched by a model,
+   * because an AI-altered photograph of a real person is not that person, and
+   * this is the page that asks a stranger to trust us.
+   */
+  photo?: string;
 };
 
 export const PEOPLE: Person[] = [
@@ -59,6 +68,7 @@ export const PEOPLE: Person[] = [
     role: "Founder",
     founder: true,
     linkedin: "https://www.linkedin.com/in/puneetgarg-damsun/",
+    photo: "/team/puneet-garg.webp",
     bio: [],
     credentials: [],
   },
@@ -67,6 +77,7 @@ export const PEOPLE: Person[] = [
     name: "Ankur Kaplesh",
     role: "Founder",
     founder: true,
+    photo: "/team/ankur-kaplesh.webp",
     bio: [
       "An engineer-entrepreneur who founded Secured Engineers Pvt. Ltd. in 2011 and has run it as Founder & CMD since — an ISO 9001:2015-certified MEPF and Solar EPC contractor working in industrial, commercial and infrastructure projects across India.",
       "That is a different company and a different trade from PGAK's, and the work belongs to it rather than here. What it brings to PGAK is fifteen years of being accountable for what happens on a live industrial site — which is the kind of site PGAK's software has to work on.",
@@ -85,6 +96,7 @@ export const PEOPLE: Person[] = [
     role: "CEO",
     founder: false,
     linkedin: "https://www.linkedin.com/in/adityamittal-pgak/",
+    photo: "/team/aditya-mittal.webp",
     bio: [
       "Leads PGAK as chief executive and is the named author behind the company's published guides — the pricing breakdowns, camera-compatibility explainers and buying checklists on this site carry his byline.",
     ],

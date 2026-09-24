@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import Nav from "@/components/Nav";
@@ -84,6 +85,38 @@ export default function LeadershipPage() {
                 can check yourself before you spend a rupee.
               </p>
             </div>
+
+            {/* The faces, up front. A trust page that makes you scroll to find
+                out who these people are is doing the opposite of its job. */}
+            <ul className="mx-auto mt-12 flex max-w-[640px] flex-wrap items-start justify-center gap-x-10 gap-y-8">
+              {PEOPLE.map((p) => (
+                <li key={p.slug} className="w-[150px] text-center">
+                  <a href={`#${p.slug}`} className="group block">
+                    {p.photo ? (
+                      <Image
+                        src={p.photo}
+                        alt={`${p.name}, ${p.role} of ${BUSINESS.legalName}`}
+                        width={300}
+                        height={300}
+                        className="mx-auto h-[120px] w-[120px] rounded-full object-cover ring-1 ring-line transition-all group-hover:ring-accent"
+                        priority
+                      />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="mx-auto grid h-[120px] w-[120px] place-items-center rounded-full bg-accent/10 font-display text-[1.6rem] text-accent"
+                      >
+                        {initials(p.name)}
+                      </span>
+                    )}
+                    <span className="mt-4 block font-display text-[1.02rem] font-medium text-ink group-hover:text-accent">
+                      {p.name}
+                    </span>
+                    <span className="mt-1 block text-[0.85rem] text-accent">{p.role}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -101,12 +134,22 @@ export default function LeadershipPage() {
                 {PEOPLE.map((person) => (
                   <div key={person.slug} id={person.slug} className="card scroll-mt-24 p-8">
                     <div className="flex flex-wrap items-center gap-5">
-                      <span
-                        aria-hidden="true"
-                        className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-accent/10 font-display text-[1.25rem] font-medium text-accent"
-                      >
-                        {initials(person.name)}
-                      </span>
+                      {person.photo ? (
+                        <Image
+                          src={person.photo}
+                          alt={`${person.name}, ${person.role} of ${BUSINESS.legalName}`}
+                          width={160}
+                          height={160}
+                          className="h-16 w-16 shrink-0 rounded-full object-cover ring-1 ring-line"
+                        />
+                      ) : (
+                        <span
+                          aria-hidden="true"
+                          className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-accent/10 font-display text-[1.25rem] font-medium text-accent"
+                        >
+                          {initials(person.name)}
+                        </span>
+                      )}
                       <div>
                         <h3 className="font-display text-[1.35rem] font-medium text-ink">
                           {person.name}

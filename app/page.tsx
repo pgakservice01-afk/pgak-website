@@ -14,6 +14,7 @@ import {
 import JourneyChooser from "@/components/sections/JourneyChooser";
 import FeatureChooser from "@/components/sections/FeatureChooser";
 import HomeProof from "@/components/sections/HomeProof";
+import FoundersStrip from "@/components/sections/FoundersStrip";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
@@ -379,6 +380,8 @@ export default function Home() {
             ))}
           </ol>
         </section>
+        <FoundersStrip />
+
         <section className="premium-section proof-section" id="trust">
           <div>
             <p className="kicker">PROOF BEFORE PROMISES</p>
