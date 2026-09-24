@@ -17,7 +17,9 @@ import FeatureChooser from "@/components/sections/FeatureChooser";
 export const metadata: Metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
   description:
-    "AI video analytics software for your existing CCTV. Evaluate intrusion detection, face recognition, attendance and real-time alerts. Request a PGAK demonstration in India.",
+    // 160 characters is where Google truncates. Changing "demo" to
+    // "demonstration" last week pushed this to 171 and cut the snippet.
+    "AI video analytics for the CCTV you already own — intrusion alerts, face recognition and attendance. Get a free PGAK camera audit before you buy.",
   path: "/",
 });
 const industries = [
@@ -95,9 +97,9 @@ export default function Home() {
           <div className="hero-copy">
             <p className="kicker">PGAK · INTELLIGENT SECURITY</p>
             <h1>
-              AI Video Analytics
+              AI Video Analytics{" "}
               <br />
-              for Existing
+              for Existing{" "}
               <br />
               <span>CCTV Cameras.</span>
             </h1>
