@@ -53,12 +53,17 @@ export default function QuickLead({
   spotlight = false,
   context = "",
   initialCameras = "",
+  cityHint = "",
 }: {
   cta?: string;
   offer?: QuickOffer;
   spotlight?: boolean;
   context?: string;
   initialCameras?: string;
+  /** Shown as an example in the city placeholder, never as a prefilled value:
+   *  a city page tells us where the reader is looking, not where their site
+   *  is, and a value they did not choose would be recorded as if they had. */
+  cityHint?: string;
 }) {
   const { t } = useLang();
   const [hydrated, setHydrated] = useState(false);
@@ -154,9 +159,11 @@ export default function QuickLead({
     const data = new FormData(e.currentTarget);
     const phone = String(data.get("phone") ?? "").trim();
     const cameras = String(data.get("cameras") ?? "");
+    const location = String(data.get("location") ?? "").trim();
     typed.current = {
       phone,
       cameras,
+      location,
       context,
       honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
       protecting: offer === "demo" ? "Product demo requested" : undefined,
@@ -315,6 +322,27 @@ export default function QuickLead({
             aria-invalid={Boolean(error)}
             aria-describedby={error ? `${cta}-error` : undefined}
             placeholder={t("Phone / WhatsApp number", "फ़ोन / WhatsApp नंबर")}
+            className="field-input"
+          />
+        </label>
+        {/* Optional, and last of the three, because the b2b form's whole
+            argument is that a phone number is enough to start. But the city
+            is what routes the enquiry to a dealer, and asking costs one
+            field: without it routing has to guess from the page, which is
+            wrong for every visitor who is not enquiring about where they
+            happen to be reading. */}
+        <label htmlFor={`${cta}-location`}>
+          {t("City (optional)", "शहर (वैकल्पिक)")}
+          <input
+            id={`${cta}-location`}
+            name="location"
+            type="text"
+            autoComplete="address-level2"
+            placeholder={
+              cityHint
+                ? t(`City — e.g. ${cityHint}`, `शहर — जैसे ${cityHint}`)
+                : t("City (optional)", "शहर (वैकल्पिक)")
+            }
             className="field-input"
           />
         </label>

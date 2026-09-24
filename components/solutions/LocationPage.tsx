@@ -439,13 +439,9 @@ export default function LocationPage({ location }: { location: Location }) {
           </div>
         </section>
 
-        {/* Convert in place — the hero CTA targets this on-page form.
-
-            cityHint is gone because the b2b form has no city field: it asks
-            for a phone number and a camera count and nothing else. The city
-            is still known from the page itself, so routing can read it from
-            there, but it is no longer something the visitor confirms. */}
-        <DealerForm />
+        {/* Convert in place — the hero CTA targets this on-page form. The
+            city field is back, and this page knows which city to suggest. */}
+        <DealerForm cityHint={l.city} />
       </main>
 
       <Footer />
