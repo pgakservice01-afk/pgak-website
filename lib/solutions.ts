@@ -205,6 +205,28 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "ai-cctv-for-warehouses",
     group: "security",
+    proof: {
+      heading: "Counting what crosses the line at the dock",
+      intro:
+        "A frame from a PGAK camera at a loading bay, taken during an evening unload. The vertical line is the counting boundary an operator drew, and the counters beside it move as things cross it.",
+      items: [
+        {
+          src: "/proof/dock-count.webp",
+          alt: "Night CCTV of a truck backed onto a loading bay, with a vertical counting line drawn across the dock entrance and in and out counters displayed beside it",
+          width: 1400,
+          height: 787,
+          title: "in: 3, out: 0 — a running count of crossings",
+          caption:
+            "Each item carried across the line increments the count in the direction it moved. The number is available at the end of the unload instead of being reconstructed afterwards from memory, so it can be checked against the challan while the lorry is still at the bay.",
+          conditions:
+            "Evening unload, existing dock camera, one counting line. Counting depends on the line being crossed cleanly — two people through the gap shoulder to shoulder, or a load carried back out and in again, are the cases to test on your own bay before relying on the figure.",
+          redaction:
+            "The transport company's name and telephone numbers, painted along the side of the lorry, are blurred. They belong to a third party and are not ours to publish.",
+        },
+      ],
+      limits:
+        "This counts what crosses a line. It is not an inventory system: it does not know what the items are, does not read a label and does not reconcile against a stock ledger. What it gives you is a machine count of movements in and out at that bay, which is a figure to check a document against — not a replacement for counting the stock itself.",
+    },
     navLabel: "Warehouses",
     primaryKeyword: "AI CCTV camera for warehouses",
     relatedKeywords: [
