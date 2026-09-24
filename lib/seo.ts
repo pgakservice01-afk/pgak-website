@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { PEOPLE } from "./people.ts";
+
 /**
  * Single source of truth for everything SEO: the canonical origin, the
  * business NAP (name / address / phone) used by LocalBusiness schema, and a
@@ -49,20 +51,26 @@ export const BUSINESS = {
   ],
 } as const;
 
-/** Named author for insights posts and case studies (E-E-A-T byline + Person schema). */
+/**
+ * Named author for insights posts and case studies (E-E-A-T byline + Person
+ * schema). The job title was "Founder & CEO, PGAK" until the owner corrected
+ * it on 2026-09-24: Aditya leads the company but did not found it, so the
+ * byline on every article now reads CEO. See lib/people.ts.
+ */
 export const AUTHOR = {
   name: "Aditya Mittal",
-  jobTitle: "Founder & CEO, PGAK",
-  url: `${SITE_URL}/about`,
+  jobTitle: "CEO, PGAK",
+  url: `${SITE_URL}/leadership`,
   sameAs: ["https://www.linkedin.com/in/adityamittal-pgak"],
 } as const;
 
-/** Company leadership shown on /about (owner-approved 2026-08-21). */
-export const LEADERSHIP = [
-  { name: "Aditya Mittal", role: "Founder & CEO" },
-  { name: "Puneet Garg", role: "Director" },
-  { name: "Ankur Kaplesh", role: "Director" },
-] as const;
+/**
+ * Company leadership shown on /about and /leadership. Derived from
+ * lib/people.ts so a role correction lands everywhere at once — the previous
+ * hard-coded copy of this list is how the site came to publish one set of
+ * roles here and a contradicting set in Organization schema.
+ */
+export const LEADERSHIP = PEOPLE.map((p) => ({ name: p.name, role: p.role }));
 
 /**
  * Social card image. Pre-cropped to 1200×630 (the size every card renderer

@@ -7,6 +7,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import DealerForm from "@/components/sections/DealerForm";
 import { AUTHOR, BUSINESS, LEADERSHIP, pageMeta } from "@/lib/seo";
+import { founders } from "@/lib/people";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 const PATH = "/about";
@@ -145,13 +146,30 @@ export default function AboutPage() {
                 </h2>
                 <p className="mt-4 max-w-[68ch] text-[0.98rem] leading-relaxed text-ink-soft">
                   PGAK was founded in {BUSINESS.founded} by{" "}
-                  <span className="text-ink">{AUTHOR.name}</span> in Ludhiana,
-                  Punjab — a city of factories, mills and godowns whose owners
+                  {founders().map((p, i) => (
+                    <span key={p.slug}>
+                      {i > 0 && " and "}
+                      <span className="text-ink">{p.name}</span>
+                    </span>
+                  ))}{" "}
+                  in Ludhiana, Punjab — a city of factories, mills and godowns whose owners
                   had all bought CCTV and were all still getting robbed. The
                   product came out of that gap: the cameras were already there;
                   the intelligence wasn&rsquo;t. Today PGAK runs on sites across
                   India through a verified partner network, while engineering
                   stays close to the factories it was built for.
+                </p>
+                <p className="mt-4 max-w-[68ch] text-[0.98rem] leading-relaxed text-ink-soft">
+                  If you want to know who you are buying from before you spend
+                  anything,{" "}
+                  <Link
+                    href="/leadership"
+                    className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                  >
+                    the founders and CEO are named here
+                  </Link>{" "}
+                  alongside the company&rsquo;s registration number, so you can
+                  check the record yourself.
                 </p>
                 <dl className="mt-7 grid gap-x-10 gap-y-4 text-[0.93rem] sm:grid-cols-2">
                   <div>

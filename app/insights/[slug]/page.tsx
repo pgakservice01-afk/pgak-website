@@ -16,6 +16,7 @@ import {
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { AUTHOR, pageMeta } from "@/lib/seo";
+import { bylineAuthor, personPath } from "@/lib/people";
 import {
   articleSchema,
   breadcrumbSchema,
@@ -110,7 +111,7 @@ export default async function InsightPost({ params }: Props) {
               <p className="mt-3 text-[0.9rem] text-ink-faint">
                 By{" "}
                 <Link
-                  href="/about"
+                  href={personPath(bylineAuthor())}
                   className="text-ink-soft transition-colors hover:text-accent"
                 >
                   {AUTHOR.name}

@@ -13,7 +13,7 @@
     "indexnow": "node scripts/indexnow.mjs",
     "test:middleware": "node --experimental-strip-types --test lib/spamUrls.test.ts",
     "test:leads": "node --experimental-strip-types --test lib/leads.test.ts",
-    "test": "npm run test:middleware && npm run test:leads && npm run test:locations && npm run test:register && npm run test:calc && npm run test:ai-referrers && npm run test:geo && npm run test:industries",
+    "test": "npm run test:middleware && npm run test:leads && npm run test:locations && npm run test:register && npm run test:calc && npm run test:ai-referrers && npm run test:geo && npm run test:industries && npm run test:people",
     "test:analytics": "node --test scripts/test-analytics.cjs",
     "typecheck": "tsc --noEmit",
     "test:lead-client": "node --test scripts/test-lead-client.cjs",
@@ -26,7 +26,8 @@
     "geo:check": "node scripts/geo/fetch-sources.mjs --check",
     "geo:build": "node scripts/geo/build-states.mjs",
     "test:geo": "node --experimental-strip-types --test lib/geo/registry.test.ts",
-    "test:industries": "node --experimental-strip-types --test lib/industries.test.ts"
+    "test:industries": "node --experimental-strip-types --test lib/industries.test.ts",
+    "test:people": "node --experimental-strip-types --test lib/people.test.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

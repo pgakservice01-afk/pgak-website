@@ -1,4 +1,5 @@
 import { AUTHOR, BUSINESS, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, abs } from "@/lib/seo";
+import { founders } from "@/lib/people";
 
 /**
  * JSON-LD builders. Every schema node gets a stable `@id` so Google can link
@@ -54,13 +55,16 @@ export function organizationSchema(): Json {
       availableLanguage: ["English", "Hindi", "Punjabi"],
     },
     sameAs: [...BUSINESS.social],
-    founder: {
+    // The people who actually founded the company. This named Aditya Mittal
+    // (the CEO) until 2026-09-24; publishing the wrong founder in structured
+    // data is the kind of error a reader checks and does not forgive.
+    founder: founders().map((p) => ({
       "@type": "Person",
-      name: AUTHOR.name,
-      jobTitle: AUTHOR.jobTitle,
-      url: AUTHOR.url,
-      sameAs: [...AUTHOR.sameAs],
-    },
+      name: p.name,
+      jobTitle: p.role,
+      url: `${SITE_URL}/leadership#${p.slug}`,
+      ...(p.linkedin ? { sameAs: [p.linkedin] } : {}),
+    })),
     // No aggregateRating here: Google treats ratings a business publishes
     // about itself as self-serving (ineligible), and we only markup figures
     // that real, visible reviews back. Reinstate from GBP data via
