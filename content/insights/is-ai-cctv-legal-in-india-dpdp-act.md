@@ -100,4 +100,4 @@ If you want to talk through what your site actually needs — including whether 
 ## Sources
 
 - [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Act as published in the Gazette of India, hosted by the Ministry of Electronics and Information Technology. Section 7 sets out the legitimate uses this article refers to.
-- [Ministry of Labour and Employment](https://labour.gov.in/) — central labour legislation and the rules that govern workplace records.
+- [Ministry of Labour and Employment](https://www.labour.gov.in/) — central labour legislation and the rules that govern workplace records.

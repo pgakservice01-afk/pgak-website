@@ -116,6 +116,6 @@ If you are a private employer, forget Aadhaar. Ask instead which system gives yo
 ## Sources
 
 - [Aadhaar Enabled Biometric Attendance System](https://attendance.gov.in/) — the official AEBAS portal for government departments.
-- [Unique Identification Authority of India](https://uidai.gov.in/) — the authority governing permitted uses of Aadhaar authentication.
+- [Unique Identification Authority of India](https://uidai.gov.in/en) — the authority governing permitted uses of Aadhaar authentication.
 - [The Aadhaar Act, 2016, as amended](https://uidai.gov.in/images/Aadhaar_Act_2016_as_amended.pdf) — the consolidated text, including the Section 4 authentication conditions introduced in 2019, hosted by UIDAI.
 - [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Gazette text behind the notice and retention duties described above, hosted by MeitY.
