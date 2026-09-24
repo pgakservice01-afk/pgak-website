@@ -339,6 +339,14 @@ body {
   .btn-ghost {
     @apply border border-line bg-transparent text-ink hover:border-accent hover:text-accent;
   }
+  /* For labels a page supplies rather than the design fixing.
+     `.btn` is whitespace-nowrap with overflow:hidden, so a label longer than
+     the button silently loses its ends — on a 375px screen "Check which of my
+     cameras can run PGAK analytics" rendered as "eck which of my cameras can".
+     Clipping a call to action is worse than two lines of one. */
+  .btn-wrap {
+    @apply whitespace-normal text-center leading-snug;
+  }
 
   /* Cards */
   .card {

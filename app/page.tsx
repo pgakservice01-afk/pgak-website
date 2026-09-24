@@ -16,7 +16,7 @@ import JourneyChooser from "@/components/sections/JourneyChooser";
 export const metadata: Metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
   description:
-    "AI video analytics software for your existing CCTV. Evaluate intrusion detection, face recognition, attendance and real-time alerts. Book a PGAK demo in India.",
+    "AI video analytics software for your existing CCTV. Evaluate intrusion detection, face recognition, attendance and real-time alerts. Request a PGAK demonstration in India.",
   path: "/",
 });
 const industries = [
@@ -111,7 +111,7 @@ export default function Home() {
                 className="btn btn-primary"
                 data-cta="hero-demo"
               >
-                Book a Demo <span aria-hidden="true">↗</span>
+                Request a demo <span aria-hidden="true">↗</span>
               </a>
               <a href="/free-audit" className="text-link" data-cta="hero-audit">
                 Get Free Camera Audit <span aria-hidden="true">→</span>
@@ -439,7 +439,7 @@ export default function Home() {
           </div>
           <div className="action-row">
             <a href="/book-demo" className="text-link" data-cta="final-demo">
-              Book a Demo →
+              Request a demo →
             </a>
             <a
               href="https://wa.me/916283993600"

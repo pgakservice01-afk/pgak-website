@@ -12,6 +12,33 @@ export default function ConversionEvents() {
     if (document.querySelector('[data-money-page]')) {
       trackConversion("view_money_page", { use_case: pathname });
     }
+    // Without this the funnel has no denominator: "form starts" can only be
+    // read against how many people actually saw a form, not how many landed on
+    // a page that happens to contain one far below the fold.
+    const seen = new WeakSet<HTMLFormElement>();
+    const io =
+      typeof IntersectionObserver === "undefined"
+        ? null
+        : new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                const form = entry.target as HTMLFormElement;
+                if (seen.has(form)) continue;
+                seen.add(form);
+                trackConversion("form_view", { form_name: form.dataset.leadForm });
+                io?.unobserve(form);
+              }
+            },
+            // Half of it on screen: a form clipped by one pixel was not "seen".
+            { threshold: 0.5 },
+          );
+    if (io) {
+      document
+        .querySelectorAll<HTMLFormElement>("form[data-lead-form]")
+        .forEach((form) => io.observe(form));
+    }
+
     const started = new WeakSet<HTMLFormElement>();
     const onFocus = (event: FocusEvent) => {
       const field = event.target as HTMLElement | null;
@@ -45,6 +72,7 @@ export default function ConversionEvents() {
       document.removeEventListener("focusin", onFocus);
       document.removeEventListener("click", onClick, true);
       document.removeEventListener("play", onPlay, true);
+      io?.disconnect();
     };
   }, [pathname]);
   return null;

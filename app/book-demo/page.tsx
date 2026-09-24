@@ -5,15 +5,27 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
+/**
+ * This page takes a callback request. It does not book anything.
+ *
+ * "Book a Demo" promised a confirmed appointment and then asked for a phone
+ * number — the visitor arrives expecting a slot and leaves without one, which
+ * is the kind of small dishonesty that costs a second enquiry. There is no
+ * calendar behind this form, so the words say "request". If a real scheduling
+ * process ever exists, "Book" can come back and mean it.
+ *
+ * URL stays /book-demo: it is linked from the nav, the sitemap and elsewhere,
+ * and the promise was the problem, not the path.
+ */
 export const metadata = pageMeta({
-  title: "Book an AI Video Analytics Demo | PGAK",
+  title: "Request an AI Video Analytics Demonstration | PGAK",
   description:
-    "See how PGAK AI video analytics can work with your existing CCTV cameras. Request a demo for your factory, warehouse, office or commercial site.",
+    "Ask PGAK to demonstrate AI video analytics on your own site. Tell us your cameras and what you need to detect, and we call back to arrange it.",
   path: "/book-demo",
 });
 const trail = [
   { name: "Home", path: "/" },
-  { name: "Book a Demo", path: "/book-demo" },
+  { name: "Request a demo", path: "/book-demo" },
 ];
 export default function BookDemo() {
   return (
@@ -34,13 +46,14 @@ export default function BookDemo() {
         <Breadcrumbs trail={trail} />
         <p className="kicker mt-8">SEE PGAK IN ACTION</p>
         <h1>
-          Better intelligence.
+          Request a demonstration
           <br />
-          Starts with a conversation.
+          for your site.
         </h1>
         <p className="section-intro">
-          Book a demo of PGAK’s AI video analytics. Tell us your camera count
-          and we’ll contact you to arrange a time.
+          This is a request, not a booking — there is no calendar behind this
+          form. Tell us your cameras and what you need to detect, and we call
+          you back to arrange a time that suits you.
         </p>
         <QuickLead cta="book-demo" offer="demo" />
         <p className="mt-5 text-sm text-ink-soft">
@@ -49,6 +62,14 @@ export default function BookDemo() {
             Privacy policy
           </a>
           .
+        </p>
+        <h2 className="mt-12 text-[1.15rem] font-semibold">What the call covers</h2>
+        <p className="mt-3 max-w-[70ch] text-ink-soft">
+          We walk through the software and how an alert reaches you, against
+          your own camera positions. What we cannot do on a first call is tell
+          you how well detection will perform on your site — that needs your
+          footage, which is what the camera assessment and the tuning period are
+          for.
         </p>
         <ol className="steps">
           <li>

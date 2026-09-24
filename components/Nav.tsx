@@ -35,7 +35,7 @@ export default function Nav() {
             data-cta="nav-demo"
             data-intent="demo"
           >
-            Book a Demo
+            Request a demo
           </a>
         </div>
         <details className="mobile-nav">
