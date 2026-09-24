@@ -58,5 +58,5 @@ If you cannot compare them, that is the finding. If you can and they differ, tha
 
 ## Sources
 
-- [Ministry of Labour and Employment](https://labour.gov.in/) — the Contract Labour (Regulation and Abolition) framework and the registers a principal employer is required to maintain.
+- [Ministry of Labour and Employment](https://www.labour.gov.in/) — the Contract Labour (Regulation and Abolition) framework and the registers a principal employer is required to maintain.
 - [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Gazette text behind the storage-limitation principle referenced above.
