@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     { url: SITE_URL },
     { url: `${SITE_URL}/solutions` },
+    { url: `${SITE_URL}/industries` },
     { url: `${SITE_URL}/features` },
     { url: `${SITE_URL}/pricing` },
     { url: `${SITE_URL}/free-audit` },
