@@ -17,12 +17,12 @@ export default function FeatureExplorer() {
         <div className={styles.filters} aria-label="Filter features by category">{FEATURE_CATEGORIES.map(c => <button key={c} type="button" aria-pressed={category === c} onClick={() => setCategory(c)}>{c === 'All features' ? 'All features · 20' : c}</button>)}</div>
         <label className={styles.search}><span className="sr-only">Search features</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Try ‘plates’ or ‘factory’" value={query} onChange={e => setQuery(e.target.value)} /></label>
       </div>
-      <p className={styles.resultCount} aria-live="polite">{visible.length} of 20 features · Expand a card for use cases and requirements</p>
+      <p className={styles.resultCount} aria-live="polite">{visible.length} of {EXPLORER_FEATURES.length} features · Expand a card for use cases and requirements</p>
       <div className={styles.grid}>
-        {visible.map(f => { const photo = FEATURE_PHOTOS[f.image]; const n = EXPLORER_FEATURES.indexOf(f) + 1; return <article className={styles.card} key={f.slug} id={f.slug}>
-          <div className={styles.photo}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" /></div>
-          <p className={styles.photoCaption}>AI-generated feature illustration</p><div className={styles.cardBody}><p className={styles.category}>{String(n).padStart(2,'0')} / {f.tag}</p><h3>{f.tag}</h3><p className={styles.description}>{f.description}</p>
-            <Link href={`/features/guides/${f.slug}`} className={styles.guideLink}>Read the full feature guide ↗</Link><details className={styles.details}><summary>Explore this feature <span aria-hidden="true">＋</span></summary><div className={styles.detailBody}><h4>An Indian use case</h4><p>{f.useCase}</p><h4>What your setup needs</h4><p>{f.requirement}</p><a href={f.source} target="_blank" rel="noreferrer">View technology reference ↗</a><Link href="/free-audit">Check my camera compatibility →</Link></div></details>
+        {visible.map(f => { const photo = f.image ? FEATURE_PHOTOS[f.image] : null; const n = EXPLORER_FEATURES.indexOf(f) + 1; return <article className={styles.card} key={f.slug} id={f.slug}>
+          {photo && <><div className={styles.photo}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" /></div>
+          <p className={styles.photoCaption}>AI-generated feature illustration</p></>}<div className={styles.cardBody}><p className={styles.category}>{String(n).padStart(2,'0')} / {f.tag}</p><h3>{f.tag}</h3><p className={styles.description}>{f.description}</p>
+            <Link href={`/features/guides/${f.slug}`} className={styles.guideLink}>Read the full feature guide ↗</Link><details className={styles.details}><summary>Explore this feature <span aria-hidden="true">＋</span></summary><div className={styles.detailBody}><h4>An Indian use case</h4><p>{f.useCase}</p><h4>What your setup needs</h4><p>{f.requirement}</p>{f.source && <a href={f.source} target="_blank" rel="noreferrer">View technology reference ↗</a>}<Link href="/free-audit">Check my camera compatibility →</Link></div></details>
           </div>
         </article>; })}
       </div>

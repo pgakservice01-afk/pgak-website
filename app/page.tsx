@@ -12,6 +12,7 @@ import {
   faqSchema,
 } from "@/lib/schema";
 import JourneyChooser from "@/components/sections/JourneyChooser";
+import FeatureChooser from "@/components/sections/FeatureChooser";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Video Analytics for Existing CCTV Cameras | PGAK",
@@ -232,6 +233,12 @@ export default function Home() {
             <span aria-hidden="true">→</span>
           </a>
         </section>
+        {/* The collection sits directly above the films: pick what you need
+            detected, then watch what that looks like. The #intelligence-films
+            anchor and its section are untouched — they are linked from the
+            hero and from elsewhere. */}
+        <FeatureChooser />
+
         <section
           className="intelligence-films"
           id="intelligence-films"
