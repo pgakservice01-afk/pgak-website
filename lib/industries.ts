@@ -200,6 +200,31 @@ export function industrySolutionSlugs(): string[] {
 }
 
 /**
+ * The inverse of `solution` / `capabilities`: which sectors point AT this page.
+ *
+ * The hub was shipped linking out to 42 pages with nothing linking back, which
+ * makes it a router rather than a cluster — it hands authority out and receives
+ * none, and nothing on a solution page tells a reader or a crawler that the
+ * sector cut exists. These two lookups feed the return link.
+ *
+ * They return the industries themselves, not a boolean, because the link text
+ * names the actual sectors. That matters: this site already has 19 URLs filed
+ * as "Duplicate without user-selected canonical", so adding one identical
+ * sentence to 24 pages would feed the very problem the hub was built to avoid.
+ * A page with no matching sector renders nothing rather than filler.
+ *
+ * Industry slugs are anchors on /industries, not routes, so callers link to
+ * `/industries#${slug}`.
+ */
+export function industriesForSolution(slug: string): Industry[] {
+  return INDUSTRIES.filter((i) => i.solution === slug);
+}
+
+export function industriesForCapability(slug: string): Industry[] {
+  return INDUSTRIES.filter((i) => i.capabilities.includes(slug));
+}
+
+/**
  * Referential integrity. Returns a list of problems — empty means every slug
  * on every industry resolves to a page that exists. Called by the test so a
  * renamed solution, capability or article cannot silently leave a dead link
