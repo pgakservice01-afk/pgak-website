@@ -24,7 +24,7 @@ import {
  * Counts come from the registry. The number in the heading cannot drift.
  */
 
-function Card({ f, priority }: { f: FeatureEntry; priority: boolean }) {
+function Card({ f }: { f: FeatureEntry }) {
   return (
     <li className="card group flex flex-col overflow-hidden">
       {f.image ? (
@@ -34,10 +34,12 @@ function Card({ f, priority }: { f: FeatureEntry; priority: boolean }) {
             alt={f.imageAlt}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
-            // Only the first row is eager: a phone should not pull eighteen
-            // images before the visitor has scrolled to any of them.
-            priority={priority}
-            loading={priority ? undefined : "lazy"}
+            // Every card is lazy. Marking the first row `priority` put two
+            // extra preloads in <head> competing with the hero image, and this
+            // section is several screens below the fold on a phone — it pushed
+            // homepage mobile LCP from ~2.5s to 3.1s. Nothing here is ever the
+            // LCP element, so nothing here should be preloaded.
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -76,8 +78,6 @@ function Card({ f, priority }: { f: FeatureEntry; priority: boolean }) {
 }
 
 export default function FeatureChooser() {
-  let rendered = 0;
-
   return (
     <section className="sec" id="choose-detection" aria-labelledby="choose-detection-h">
       <div className="wrap">
@@ -106,11 +106,9 @@ export default function FeatureChooser() {
                 </span>
               </h3>
               <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((f) => {
-                  const priority = rendered < 3;
-                  rendered += 1;
-                  return <Card key={f.id} f={f} priority={priority} />;
-                })}
+                {items.map((f) => (
+                  <Card key={f.id} f={f} />
+                ))}
               </ul>
             </div>
           );
