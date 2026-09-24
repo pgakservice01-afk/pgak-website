@@ -20,6 +20,8 @@ const COMPANY: FooterLink[] = [
   { t: "Solutions", tHi: "समाधान", href: "/solutions" },
   { t: "Features", tHi: "विशेषताएँ", href: "/features" },
   { t: "Pricing", tHi: "मूल्य", href: "/pricing" },
+  { t: "Platform", tHi: "प्लेटफ़ॉर्म", href: "/platform" },
+  { t: "Resources", tHi: "संसाधन", href: "/resources" },
   { t: "ROI calculator", tHi: "आरओआई कैलकुलेटर", href: "/roi-calculator" },
   { t: "About", tHi: "हमारे बारे में", href: "/about" },
   { t: "Leadership", tHi: "नेतृत्व", href: "/leadership" },

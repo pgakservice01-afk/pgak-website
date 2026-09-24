@@ -58,10 +58,14 @@ export default function QuickLead({
   cta = "hero-quick",
   offer = "audit",
   spotlight = false,
+  initialCameras = "",
 }: {
   cta?: string;
   offer?: QuickOffer;
   spotlight?: boolean;
+  /** Pre-selects the camera count when a page already knows it — the
+   *  readiness assessment asks before it hands the visitor to this form. */
+  initialCameras?: string;
 }) {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>("idle");
@@ -292,7 +296,8 @@ export default function QuickLead({
           id={`${cta}-cameras`}
           name="cameras"
           required={camerasRequired}
-          defaultValue=""
+          key={initialCameras}
+          defaultValue={initialCameras}
           className="field-input"
         >
           <option value="" disabled={camerasRequired}>
