@@ -282,13 +282,57 @@ function record_(p) {
 
     var existing = findRow_(sh, idCol, leadId);
     if (existing > 0) {
+      // A repeat never adds a second row — but it must not claim the emails
+      // went out either. This branch used to answer a hardcoded
+      // 'already sent' for both recipients without reading anything, so a
+      // recipient whose send had FAILED could never be recovered: every
+      // retry reported success and nothing was resent. The row's own
+      // per-recipient cells are the record, so read them and act on them.
+      var priorDirector = String(sh.getRange(existing, colIndex_('mail_director')).getValue() || '');
+      var priorAditya = String(sh.getRange(existing, colIndex_('mail_aditya')).getValue() || '');
+
+      var retry = [];
+      if (!mailSettled_(priorDirector)) retry.push('director');
+      if (!mailSettled_(priorAditya)) retry.push('aditya');
+
+      if (retry.length === 0) {
+        return {
+          ok: true,
+          row: 'duplicate',
+          rowNumber: existing,
+          sheetSyncedAt: new Date().toISOString(),
+          emails: { director: priorDirector, aditya: priorAditya },
+          error: ''
+        };
+      }
+
+      // Recover only the unsettled recipients. A recorded acceptance is never
+      // re-sent, so the settled recipient cannot be mailed twice.
+      //
+      // An EMPTY cell is treated as unattempted and retried. It can also mean
+      // the send happened and the write-back did not, in which case that
+      // recipient gets the alert twice — accepted deliberately, because a
+      // duplicate internal alert costs far less than a lead nobody hears
+      // about, and MailApp offers no way to ask what it already sent. This is
+      // at-least-once for the unsettled case, not exactly-once.
+      var redo = sendAlerts_(p, existing, retry);
+      if (retry.indexOf('director') >= 0) {
+        priorDirector = redo.director;
+        sh.getRange(existing, colIndex_('mail_director')).setValue(redo.director);
+      }
+      if (retry.indexOf('aditya') >= 0) {
+        priorAditya = redo.aditya;
+        sh.getRange(existing, colIndex_('mail_aditya')).setValue(redo.aditya);
+      }
+      if (redo.error) sh.getRange(existing, colIndex_('delivery_error')).setValue(redo.error);
+
       return {
         ok: true,
-        row: 'duplicate',
+        row: 'duplicate-recovered',
         rowNumber: existing,
         sheetSyncedAt: new Date().toISOString(),
-        emails: { director: 'already sent', aditya: 'already sent' },
-        error: ''
+        emails: { director: priorDirector, aditya: priorAditya },
+        error: redo.error || ''
       };
     }
 
@@ -347,20 +391,51 @@ function findRow_(sh, col, value) {
 
 // ── Alert emails ─────────────────────────────────────────────────────────────
 
-function sendAlerts_(p, rowNumber) {
+/**
+ * Whether a recorded per-recipient value means the send is finished and must
+ * not be repeated. Only an acceptance recorded by MailApp counts. Empty,
+ * 'failed' and 'not sent — …' are all recoverable, and anything unrecognised
+ * is treated as recoverable too: re-sending an internal alert is cheaper than
+ * assuming a state we cannot read.
+ *
+ * Note what this can and cannot mean. MailApp reports that Gmail ACCEPTED the
+ * message, never that it reached an inbox — so a settled recipient here is a
+ * recorded handoff, not proof of receipt.
+ */
+function mailSettled_(value) {
+  return /^accepted by Gmail\b/.test(String(value || '').trim());
+}
+
+/**
+ * Send the alert. `only` optionally restricts it to a subset of recipient keys
+ * ('director', 'aditya') so a recovery can mail the failed recipient without
+ * mailing the one whose acceptance is already recorded. Omit it to send to
+ * everybody, which is what a brand-new row does.
+ */
+function sendAlerts_(p, rowNumber, only) {
   var out = { director: '', aditya: '', error: '' };
   var list = recipients_();
+  var wanted = function (key) {
+    return !only || only.indexOf(key) >= 0;
+  };
   var subject = alertSubject_(p);
   var html = alertHtml_(p, rowNumber);
   var text = alertText_(p, rowNumber);
+  var needed = 0;
+  list.forEach(function (to, i) {
+    if (wanted(i === 0 ? 'director' : 'aditya')) needed++;
+  });
   var quota = MailApp.getRemainingDailyQuota();
-  if (quota < list.length) {
-    out.director = out.aditya = 'not sent — daily mail quota exhausted';
+  if (quota < needed) {
+    // Only the recipients this call was actually going to attempt.
+    if (wanted('director')) out.director = 'not sent — daily mail quota exhausted';
+    if (wanted('aditya')) out.aditya = 'not sent — daily mail quota exhausted';
     out.error = 'MailApp quota ' + quota;
     return out;
   }
   list.forEach(function (to, i) {
     var key = i === 0 ? 'director' : 'aditya';
+    if (!wanted(key)) return;
     try {
       MailApp.sendEmail({
         to: to,

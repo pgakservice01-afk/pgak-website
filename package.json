@@ -25,7 +25,8 @@
     "geo:fetch": "node scripts/geo/fetch-sources.mjs",
     "geo:check": "node scripts/geo/fetch-sources.mjs --check",
     "geo:build": "node scripts/geo/build-states.mjs",
-    "test:geo": "node --experimental-strip-types --test lib/geo/registry.test.ts"
+    "test:geo": "node --experimental-strip-types --test lib/geo/registry.test.ts",
+    "test:appsscript": "node --test scripts/test-appsscript-register.cjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
