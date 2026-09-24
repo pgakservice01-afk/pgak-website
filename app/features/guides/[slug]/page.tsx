@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Footer from '@/components/sections/Footer';
 import JsonLd from '@/components/JsonLd';
+import ProofVideo from '@/components/ProofVideo';
 import { EXPLORER_FEATURES, FEATURE_PHOTOS } from '@/lib/feature-explorer';
 import { FEATURE_GUIDES } from '@/lib/feature-guides';
 import { pageMeta } from '@/lib/seo';
@@ -62,6 +63,7 @@ export default async function Guide({params}:{params:Promise<{slug:string}>}) {
       <header className={styles.header}><p className={styles.eyebrow}>{f.category} · Feature guide</p><h1>{g.keyword}</h1><p className={styles.lead}>{g.intro}</p></header>
       {photo&&<figure className={styles.figure}><Image src={photo.src} alt={photo.alt} width={1200} height={800} priority sizes="(max-width: 800px) 100vw, 1100px"/><figcaption>AI-generated illustration of {f.tag.toLowerCase()}. The scene and overlays explain the concept; they are not a PGAK screenshot or measured result.</figcaption></figure>}
       <div className={styles.body}><article>
+        {g.proofVideo && <section><h2>Seen on a real line</h2><p>Everything else illustrated on this site is a drawing of the idea. This is the product running.</p><div style={{marginTop:'1rem'}}><ProofVideo src={g.proofVideo.src} poster={g.proofVideo.poster} title={g.proofVideo.title} caption={g.proofVideo.caption} conditions={g.proofVideo.conditions} durationSeconds={g.proofVideo.durationSeconds} /></div></section>}
         <section><h2>How it works</h2><p>{f.description}</p></section>
         <section><h2>Where it could help your business</h2><p>{f.useCase}</p><p>{g.advice}</p></section>
         <section><h2>What your camera setup needs</h2><p>{f.requirement}</p></section>

@@ -1,4 +1,8 @@
-export const FEATURE_GUIDES: Record<string, { keyword: string; intro: string; advice: string; question: string; answer: string }> = {
+/**
+ * `proofVideo` is original PGAK footage for that capability. Only a guide that
+ * has one gets one; nothing here is illustrative or borrowed.
+ */
+export const FEATURE_GUIDES: Record<string, { keyword: string; intro: string; advice: string; question: string; answer: string; proofVideo?: { src: string; poster: string; durationSeconds: number; title: string; caption: string; conditions: string } }> = {
 'natural-language-search': {
 keyword:'Natural language video search',
 intro:'You know what you are looking for, but not when it happened. Natural language video search lets you describe a person, vehicle or object and review matching recordings. A warehouse manager might search for a white van near the gate instead of opening every camera and guessing the time.',
@@ -68,7 +72,16 @@ question:'Does tailgating detection stop someone entering?',answer:'Detection by
 keyword:'AI PPE detection camera',
 intro:'A supervisor cannot watch every site entrance at once. AI PPE detection can flag supported conditions such as a missing hard hat or high-visibility vest, giving the team another way to review equipment use. It supports supervision rather than replacing it.',
 advice:'Ask exactly which equipment types the system detects. Test the helmets, vests, uniforms and working positions used on your site. A clear checkpoint view may be more useful than a distant camera covering an entire construction area.',
-question:'Does PPE detection prove that a site is compliant?',answer:'No. It checks supported visible conditions within a camera view. Equipment quality, correct use and wider safety obligations require separate assessment.'},
+question:'Does PPE detection prove that a site is compliant?',answer:'No. It checks supported visible conditions within a camera view. Equipment quality, correct use and wider safety obligations require separate assessment.',
+proofVideo: {
+  src: '/proof/ppe-gloves.mp4',
+  poster: '/proof/ppe-gloves-poster.webp',
+  durationSeconds: 14,
+  title: 'Bare hands flagged on an assembly line',
+  caption: 'Fourteen seconds from a vehicle-chassis line. The box is drawn on the hand, not the person, and the number beside each label is the model\u2019s confidence in that detection. Two workers are flagged here at 0.75 and 0.27 \u2014 the low one is left in deliberately, because that is exactly the sort of detection a supervisor should be checking rather than a system acting on by itself.',
+  conditions: 'Recorded 1 April 2025, 16:57, on an existing overhead line camera. Gloves are one PPE class; which classes apply to your site is confirmed before anything is quoted. The clip carries no audio track and the camera angle does not show faces.',
+},
+},
 'onsite-learning': {
 keyword:'Custom object detection CCTV',
 intro:'Your site may use equipment that a standard camera model does not recognise. On-site learning allows supported systems to learn a custom object from examples, such as a particular trolley used on a production floor. The result depends on the training material and installation.',

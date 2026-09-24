@@ -41,6 +41,8 @@ export type SolutionProof = {
     alt: string;
     width: number;
     height: number;
+    /** When set, `src` is a poster and this is the clip it plays. */
+    video?: { src: string; durationSeconds: number };
     title: string;
     caption: string;
     conditions?: string;
@@ -211,21 +213,22 @@ export const SOLUTIONS: Solution[] = [
         "A frame from a PGAK camera at a loading bay, taken during an evening unload. The vertical line is the counting boundary an operator drew, and the counters beside it move as things cross it.",
       items: [
         {
-          src: "/proof/dock-count.webp",
+          src: "/proof/dock-count-poster.webp",
+          video: { src: "/proof/dock-count.mp4", durationSeconds: 16 },
           alt: "Night CCTV of a truck backed onto a loading bay, with a vertical counting line drawn across the dock entrance and in and out counters displayed beside it",
           width: 1400,
           height: 787,
-          title: "in: 3, out: 0 — a running count of crossings",
+          title: "The count climbing during an unload",
           caption:
-            "Each item carried across the line increments the count in the direction it moved. The number is available at the end of the unload instead of being reconstructed afterwards from memory, so it can be checked against the challan while the lorry is still at the bay.",
+            "Sixteen seconds of an evening unload. Each sack carried across the line is detected, given a tracking number so the same one is not counted twice, and added to the running total — the count goes from four to seven while you watch. The figure is there at the end of the unload instead of being reconstructed from memory, so it can be checked against the challan while the lorry is still at the bay.",
           conditions:
-            "Evening unload, existing dock camera, one counting line. Counting depends on the line being crossed cleanly — two people through the gap shoulder to shoulder, or a load carried back out and in again, are the cases to test on your own bay before relying on the figure.",
+            "Recorded 19 December 2022, 19:43, on an existing dock camera with one counting line. Confidence for each detection is shown on its box — the ones here sit around 0.84 to 0.90. Counting depends on the line being crossed cleanly: two people through the gap shoulder to shoulder, or a load carried back out and in again, are the cases to test on your own bay before relying on the figure.",
           redaction:
-            "The transport company's name and telephone numbers, painted along the side of the lorry, are blurred. They belong to a third party and are not ours to publish.",
+            "The transport company's name and telephone numbers, painted along the side of the lorry, are blurred for the whole clip. They belong to a third party and are not ours to publish. The clip carries no audio track.",
         },
       ],
       limits:
-        "This counts what crosses a line. It is not an inventory system: it does not know what the items are, does not read a label and does not reconcile against a stock ledger. What it gives you is a machine count of movements in and out at that bay, which is a figure to check a document against — not a replacement for counting the stock itself.",
+        "The model is trained on a sack, and it counts sacks crossing a line. It is not an inventory system: it does not read a label, does not know whose consignment it is and does not reconcile against a stock ledger. What it gives you is a machine count of a known item type moving in and out at that bay — a figure to check a document against, not a replacement for counting the stock itself.",
     },
     navLabel: "Warehouses",
     primaryKeyword: "AI CCTV camera for warehouses",
