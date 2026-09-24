@@ -399,6 +399,33 @@ h3 {
   display: block;
   padding-block: 7px;
 }
+.buyer-footer-social-label {
+  margin-top: 22px;
+}
+.buyer-footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+/* Overrides `.buyer-footer a`, which is a full-width block link. */
+.buyer-footer-social a {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding-block: 0;
+  border: 1px solid #d5dee8;
+  border-radius: 999px;
+  color: #4a5866;
+  transition: color 0.2s, border-color 0.2s;
+}
+.buyer-footer-social a:hover {
+  color: #075fc7;
+  border-color: #075fc7;
+}
 .buyer-footer-base {
   display: flex;
   gap: 24px;

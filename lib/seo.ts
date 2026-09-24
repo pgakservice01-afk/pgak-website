@@ -27,7 +27,7 @@ export const BUSINESS = {
   // Organization schema, on /contact and in the privacy policy, and a free
   // mailbox is the single most common reason a B2B buyer doubts a supplier.
   // Must be kept byte-identical to the Google Business Profile.
-  email: "contact@pgak.co.in",
+  email: "info@pgak.co.in",
   address: {
     /** Building and street, as they appear on the Google Business Profile. */
     street: "BK Towers, 2480/2, Gill Rd",
@@ -46,14 +46,85 @@ export const BUSINESS = {
   founded: "2023",
   /** MCA Corporate Identification Number, from the Certificate of Incorporation. */
   cin: "U62013PB2023PTC058631",
-  social: [
-    "https://www.instagram.com/pgakinnovation/",
-    "https://www.facebook.com/profile.php?id=1160757603787801",
-    "https://www.linkedin.com/company/pgakinnovation/",
-    "https://www.youtube.com/channel/UC4IL7dZOKq-PvvwqIK6Ng0w",
-    "https://wa.me/916283993600",
-  ],
 } as const;
+
+/** Platforms we have a brand mark for — see components/SocialIcon.tsx. */
+export type SocialName =
+  | "Instagram"
+  | "Facebook"
+  | "X"
+  | "LinkedIn"
+  | "YouTube"
+  | "WhatsApp";
+
+export type SocialProfile = {
+  name: SocialName;
+  /** Handle as it is shown to a reader, e.g. "@pgak.innovations". */
+  handle: string;
+  /** Full profile URL — or "" while the profile is not live yet. */
+  url: string;
+};
+
+/**
+ * Every PGAK social profile, in the order it renders in the footer.
+ *
+ * This doubles as the schema.org `sameAs` array (see `socialSameAs()` below and
+ * lib/schema.ts) — the signal search engines use to tie this site, the Google
+ * Business Profile and each social account together as one entity. A wrong URL
+ * here therefore costs more than a dead link does, so a profile whose `url` is
+ * empty is skipped everywhere — footer, contact page and `sameAs` alike —
+ * rather than shipping a guessed address.
+ */
+export const SOCIAL: readonly SocialProfile[] = [
+  {
+    name: "Instagram",
+    handle: "@pgak.innovations",
+    url: "https://www.instagram.com/pgak.innovations/",
+  },
+  {
+    name: "Facebook",
+    handle: "PGAK Innovations",
+    url: "https://www.facebook.com/profile.php?id=61593510282587",
+  },
+  {
+    name: "X",
+    handle: "@pgakinnovation",
+    url: "https://x.com/pgakinnovation",
+  },
+  {
+    name: "LinkedIn",
+    handle: "PGAK Innovations",
+    url: "https://www.linkedin.com/company/pgakinnovation/",
+  },
+  {
+    name: "YouTube",
+    handle: "PGAK Innovations",
+    url: "https://www.youtube.com/channel/UC4IL7dZOKq-PvvwqIK6Ng0w",
+  },
+  {
+    name: "WhatsApp",
+    handle: BUSINESS.phone,
+    url: BUSINESS.whatsapp,
+  },
+];
+
+/** The profiles that are actually live — the only ones safe to link or claim. */
+export const SOCIAL_LIVE: readonly SocialProfile[] = SOCIAL.filter(
+  (s) => s.url !== "",
+);
+
+/** Live profile URLs, for schema.org `sameAs`. */
+export const socialSameAs = (): string[] => SOCIAL_LIVE.map((s) => s.url);
+
+/**
+ * The profiles that belong in a "Follow us" row — the ones with a feed to
+ * follow. WhatsApp stays in `SOCIAL` because it is a legitimate `sameAs`
+ * entry, but it is a contact channel rather than a feed, so it keeps its own
+ * CTA link in the footer's contact block instead of appearing twice.
+ */
+export const SOCIAL_FOLLOW: readonly SocialProfile[] = SOCIAL_LIVE.filter(
+  (s) => s.name !== "WhatsApp",
+);
 
 /**
  * Named author for insights posts and case studies (E-E-A-T byline + Person
