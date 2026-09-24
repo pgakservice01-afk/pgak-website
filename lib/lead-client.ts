@@ -19,6 +19,7 @@ import { waHref } from "./whatsapp";
 import { BUSINESS } from "./seo";
 
 export type LeadValues = {
+  context?: string;
   phone: string;
   cameras: string;
   employees?: string;
@@ -33,7 +34,7 @@ export type LeadValues = {
 };
 
 export type SubmitOutcome =
-  | { kind: "done" }
+  | { kind: "done"; receiptToken?: string }
   | { kind: "fieldErrors"; fieldErrors: FieldErrors }
   | { kind: "fallback"; retryable: boolean };
 
@@ -93,6 +94,7 @@ export async function submitLead(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        context: values.context ?? "",
         name: values.name ?? "",
         phone: values.phone,
         location: values.location ?? "",
@@ -114,6 +116,8 @@ export async function submitLead(
 
     const body = (await res.json().catch(() => ({}))) as {
       delivered?: boolean;
+      received?: boolean;
+      receiptToken?: string;
       fieldErrors?: FieldErrors;
       retryable?: boolean;
     };
@@ -122,15 +126,20 @@ export async function submitLead(
       return { kind: "fieldErrors", fieldErrors: body.fieldErrors };
     }
 
-    if (res.ok && body.delivered) {
+    if (res.ok && (body.received === true || body.delivered === true)) {
       if (!converted.has(opts.ref)) {
         converted.add(opts.ref);
         fbTrack("Lead", { content_name: opts.formName, currency: "INR" });
-        trackConversion("form_submit", { form_name: opts.formName, cta: opts.cta });
-        if (opts.formName === "quick_quote_request") trackConversion("pricing_request", { form_name: opts.formName });
-        else if (opts.formName === "demo_request") trackConversion("demo_request", { form_name: opts.formName });
-        else if (opts.formName === "new_installation_request") trackConversion("installation_request", { form_name: opts.formName });
-        else trackConversion("assessment_request", { form_name: opts.formName });
+        trackConversion("form_submit", {
+          form_name: opts.formName,
+          cta: opts.cta,
+        });
+        if (opts.formName === "quick_quote_request")
+          trackConversion("pricing_request", { form_name: opts.formName });
+        else if (opts.formName === "demo_request")
+          trackConversion("demo_request", { form_name: opts.formName });
+        else
+          trackConversion("assessment_request", { form_name: opts.formName });
         trackLead(opts.formName, {
           cta: opts.cta,
           cameras: values.cameras,
@@ -141,7 +150,9 @@ export async function submitLead(
           lead_ref: opts.ref,
         });
       }
-      return { kind: "done" };
+      return body.receiptToken
+        ? { kind: "done", receiptToken: body.receiptToken }
+        : { kind: "done" };
     }
 
     reportFailure(opts, "not_delivered");
@@ -159,36 +170,16 @@ export async function submitLead(
  * within the hour; this keeps the conversation moving in the meantime, and
  * gives the team the details without asking for them again.
  */
-export function waContinueHref(v: LeadValues, ref: string): string {
-  const lines = [
-    "Hi PGAK, I just submitted an enquiry on your website.",
-    v.name ? `Name: ${v.name}` : "",
-    `Phone: ${v.phone}`,
-    v.project ? `Project: ${v.project}` : "",
-    v.cameras ? `Cameras: ${v.cameras}` : "",
-    v.timeline ? `Timeline: ${v.timeline}` : "",
-    v.employees ? `People: ${v.employees}` : "",
-    v.protecting ? `Protecting: ${v.protecting}` : "",
-    v.location ? `City: ${v.location}` : "",
-    `Ref: ${ref.slice(0, 8)}`,
-  ].filter(Boolean);
-  return waHref(lines.join("\n"));
+export function waContinueHref(_v: LeadValues, ref: string): string {
+  return waHref(
+    `Hi PGAK, I submitted a website enquiry. Reference: ${ref.slice(0, 8)}. I would like to discuss the next step.`,
+  );
 }
-
-/** WhatsApp fallback when the automated path did not deliver. */
-export function waFallbackHref(v: LeadValues): string {
-  const lines = [
-    "Hi PGAK, I tried the website form but it didn't go through.",
-    "",
-    v.name ? `Name: ${v.name}` : "",
-    `Phone: ${v.phone}`,
-    v.project ? `Project: ${v.project}` : "",
-    v.cameras ? `Cameras: ${v.cameras}` : "",
-    v.timeline ? `Timeline: ${v.timeline}` : "",
-    v.protecting ? `Protecting: ${v.protecting}` : "",
-    v.location ? `City: ${v.location}` : "",
-  ].filter((line, i) => line !== "" || i === 1);
-  return waHref(lines.join("\n"));
+/** Do not place contact details or camera credentials in a shareable URL. */
+export function waFallbackHref(_v: LeadValues): string {
+  return waHref(
+    "Hi PGAK, I could not confirm my website enquiry. Please help me arrange a technical conversation.",
+  );
 }
 
 export const TEL_HREF = `tel:${BUSINESS.phoneE164}`;

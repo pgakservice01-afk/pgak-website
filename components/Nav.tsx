@@ -1,23 +1,9 @@
 import Logo from "@/components/Logo";
-
-/**
- * Flat on purpose: every item is a real anchor in the server-rendered HTML,
- * so the nav costs no JavaScript and a crawler reads it without executing
- * anything. A dropdown would hide Industries behind a click for both.
- *
- * Industries sits directly after Solutions because it is the same content cut
- * the other way — Solutions by capability, Industries by sector. Someone who
- * thinks "I run a cold store" finds themselves in the second one.
- */
 const links = [
   ["/solutions", "Solutions"],
-  ["/industries", "Industries"],
-  ["/features", "Features"],
+  ["/platform", "Platform"],
   ["/pricing", "Pricing"],
-  ["/calculators", "Calculators"],
-  ["/insights", "Insights"],
-  ["/partners", "Partners"],
-  ["/our-story", "Our story"],
+  ["/resources", "Resources"],
   ["/about", "Company"],
 ];
 export default function Nav() {
@@ -42,12 +28,11 @@ export default function Nav() {
             Sign in
           </a>
           <a
-            href="/book-demo"
+            href="/free-audit"
             className="btn btn-primary"
-            data-cta="nav-demo"
-            data-intent="demo"
+            data-cta="nav-camera-check"
           >
-            Request a demo
+            Check my cameras
           </a>
         </div>
         <details className="mobile-nav">
@@ -60,12 +45,9 @@ export default function Nav() {
                 {label}
               </a>
             ))}
-            {/* Only what the shared list does not already carry. Our story
-                and Partners moved into `links`, so repeating them here would
-                print them twice in the mobile menu. */}
-            <a href="/leadership">Leadership</a>
-            <a href="/free-audit">Free camera audit</a>
-            <a href="/contact">Contact</a>
+            <a href="/free-audit">Check my cameras</a>
+            <a href="/contact">Support & contact</a>
+            <a href="/partners">Partner enquiries</a>
             <a href="/live">Customer sign in</a>
           </nav>
         </details>

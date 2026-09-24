@@ -2,7 +2,12 @@ import BuyerPage from "./Page";
 import QuickLead from "@/components/sections/QuickLead";
 import { BUYER_SOLUTIONS } from "@/lib/b2b/solutions";
 import { PROOF_NOTICE } from "@/lib/b2b/claims";
+import ProofBlock from "@/components/solutions/ProofBlock";
+import { getSolution } from "@/lib/solutions";
 export default function BuyerSolution({ slug }: { slug: string }) {
+  // Proof lives on the original solution record, which this template does not
+  // otherwise read.
+  const proof = getSolution(slug)?.proof;
   const s = BUYER_SOLUTIONS[slug];
   return (
     <BuyerPage
@@ -96,6 +101,12 @@ export default function BuyerSolution({ slug }: { slug: string }) {
         <h2>Privacy and safety boundaries</h2>
         <p>{s.privacy}</p>
       </section>
+      {/* Original footage for this use case, where it exists. This template
+          took over /ai-cctv-for-warehouses from SolutionPage, which is what
+          took the dock counting clip off the site — the data was still in
+          lib/solutions.ts with nothing rendering it. */}
+      {proof && <ProofBlock proof={proof} />}
+
       <section id="dealer">
         <h2>Discuss this use case</h2>
         <p className="mb-6">
@@ -104,6 +115,7 @@ export default function BuyerSolution({ slug }: { slug: string }) {
         </p>
         <QuickLead
           cta={`solution-${slug}`}
+          context={`Requested evaluation: ${s.title}. Compatibility and capability evidence not yet verified.`}
         />
       </section>
       <section>

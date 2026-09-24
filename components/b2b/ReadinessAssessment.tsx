@@ -124,6 +124,7 @@ export default function ReadinessAssessment({
         </p>
         <QuickLead
           cta={id}
+          context={projectBrief(input)}
           initialCameras={cameras}
         />
       </div>

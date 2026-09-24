@@ -30,6 +30,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const core: MetadataRoute.Sitemap = [
     { url: SITE_URL },
+    { url: `${SITE_URL}/platform` },
+    { url: `${SITE_URL}/platform/compatibility` },
+    { url: `${SITE_URL}/platform/deployment` },
+    { url: `${SITE_URL}/platform/capabilities` },
+    { url: `${SITE_URL}/platform/vms-integration` },
+    { url: `${SITE_URL}/resources` },
+    { url: `${SITE_URL}/resources/evidence` },
+    { url: `${SITE_URL}/resources/evaluation-method` },
+    { url: `${SITE_URL}/resources/storage-bandwidth` },
+    { url: `${SITE_URL}/partners` },
+
     { url: `${SITE_URL}/solutions` },
     { url: `${SITE_URL}/industries` },
     { url: `${SITE_URL}/features` },
@@ -55,7 +66,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .map((c) => ({ url: `${SITE_URL}${c.path}` })),
     { url: `${SITE_URL}/insights/case-studies` },
     // The blog index genuinely changes with every published post.
-    { url: `${SITE_URL}/insights`, ...(newestPost ? { lastModified: newestPost } : {}) },
+    {
+      url: `${SITE_URL}/insights`,
+      ...(newestPost ? { lastModified: newestPost } : {}),
+    },
     { url: `${SITE_URL}/areas-we-serve` },
     { url: `${SITE_URL}/partners` },
     { url: `${SITE_URL}/contact` },

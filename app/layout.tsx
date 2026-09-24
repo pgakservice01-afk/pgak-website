@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 import "./premium.css";
-import "./spot.css";
+import "./buyer.css";
 
 /**
  * GA4 measurement IDs, in order. Every one of them receives the same hits.
@@ -23,7 +23,10 @@ const GA_IDS = ["G-6EMP9HSR2F"] as const;
 // GTM-MKZWLS7J contained only the same GA4 config (verified 2026-09-19).
 // Use the direct GA4 loader below once, avoiding a redundant container.
 // Keep preview/local QA out of production acquisition and lead metrics.
-const ANALYTICS_ENABLED = process.env.VERCEL_ENV === "production" || process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
+const ANALYTICS_ENABLED =
+  process.env.VERCEL_ENV === "production" ||
+  process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
+import MobileActions from "@/components/b2b/MobileActions";
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { FB_PIXEL_ID } from "@/lib/fbpixel";
 import ConversionEvents from "@/components/ConversionEvents";
@@ -86,8 +89,12 @@ export default function RootLayout({
     <html lang="en-IN" data-theme="light">
       <head>
         {/* Warm up the third-party origins the page will hit anyway. */}
-        {ANALYTICS_ENABLED && <link rel="preconnect" href="https://www.googletagmanager.com" />}
-        {ANALYTICS_ENABLED && <link rel="dns-prefetch" href="https://www.google-analytics.com" />}
+        {ANALYTICS_ENABLED && (
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
+        )}
+        {ANALYTICS_ENABLED && (
+          <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        )}
         {/* Site-wide structured data: Organization/LocalBusiness + WebSite.
             Per-page WebPage, Service, FAQ and Breadcrumb nodes reference these
             by @id, so the whole site resolves into one graph. */}
@@ -98,24 +105,33 @@ export default function RootLayout({
           <LeadAttribution />
           <ConversionEvents />
           {children}
-          {/* The floating WhatsApp button has been rendered by no route since
-              the 19 Sep redesign removed the mount and left the component
-              behind. WhatsApp and the phone are the two primary conversions
-              and the buyer reads this on a phone, so an always-available CTA
-              matters more here than the bytes it costs. MarketingOverlays
-              keeps it off /live, /wall and /billing, where a customer is
-              signing in or paying rather than being sold to. */}
+          {/* Mobile keeps the b2b action bar, which hides itself when a lead
+              form is already on screen. Desktop keeps the floating WhatsApp
+              button, which the 19 Sep redesign left unmounted.
+
+              Both, not one: `.buyer-mobile-actions` is display:none until the
+              mobile breakpoint and the float is `hidden md:flex`, so they
+              never appear together. Mounting only MobileActions would leave
+              desktop with no persistent way to message.
+
+              MarketingOverlays keeps the float off /live, /wall and /billing,
+              where a customer is signing in or paying rather than being sold
+              to; MobileActions does its own check for the same routes. */}
           <MarketingOverlays>
-            {/* A pair, not one control: the floating button is `hidden md:flex`
-                and the action bar is `md:hidden`. Mounting only the button
-                would have covered desktop and left phones — most of this
-                traffic — with no persistent way to call or message. */}
             <WhatsAppButton />
-            <MobileActionBar />
           </MarketingOverlays>
+          <MobileActions />
         </>
-        {ANALYTICS_ENABLED && <DeferredAnalytics gaIds={GA_IDS} clarityId={CLARITY_ID} />}
-        {ANALYTICS_ENABLED && <noscript dangerouslySetInnerHTML={{ __html: `<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1" />` }} />}
+        {ANALYTICS_ENABLED && (
+          <DeferredAnalytics gaIds={GA_IDS} clarityId={CLARITY_ID} />
+        )}
+        {ANALYTICS_ENABLED && (
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1" />`,
+            }}
+          />
+        )}
       </body>
     </html>
   );

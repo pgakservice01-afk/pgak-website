@@ -1,17 +1,12 @@
-import type { Metadata } from "next";
-import SolutionPage from "@/components/solutions/SolutionPage";
-import { getSolution } from "@/lib/solutions";
+import BuyerSolution from "@/components/b2b/Solution";
+import { BUYER_SOLUTIONS } from "@/lib/b2b/solutions";
 import { pageMeta } from "@/lib/seo";
-
-const solution = getSolution("ai-cctv-for-warehouses")!;
-
-export const metadata: Metadata = pageMeta({
-  title: solution.title,
-  description: solution.description,
-  path: `/${solution.slug}`,
-  keywords: [solution.primaryKeyword, ...solution.relatedKeywords],
+const s = BUYER_SOLUTIONS["ai-cctv-for-warehouses"];
+export const metadata = pageMeta({
+  title: s.title + " | PGAK",
+  description: s.intro,
+  path: "/ai-cctv-for-warehouses",
 });
-
 export default function Page() {
-  return <SolutionPage solution={solution} />;
+  return <BuyerSolution slug="ai-cctv-for-warehouses" />;
 }
