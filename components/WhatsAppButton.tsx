@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { fbTrack } from "@/lib/fbpixel";
 
 const WA_NUMBER = "916283993600";
+// Names the thing the visitor wants done, so the reply can be useful straight
+// away instead of opening with "how can we help?".
 const WA_MESSAGE =
-  "Hi PGAK! I want to make my existing cameras intelligent. Can you tell me more?";
+  "Hi PGAK team, I want to test AI analytics on my existing CCTV setup.";
 
 const WA_HREF = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
