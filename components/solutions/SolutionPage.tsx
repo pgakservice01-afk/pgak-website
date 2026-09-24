@@ -7,6 +7,7 @@ import DealerForm from "@/components/sections/DealerForm";
 import JourneyChooser from "@/components/sections/JourneyChooser";
 import BuyerDecisionPack from "@/components/solutions/BuyerDecisionPack";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
+import WhyPgak from "@/components/sections/WhyPgak";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -157,6 +158,12 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             </ul>
           </div>
         </section>
+
+        {/* Straight after the pain, because "why you" is only worth reading
+            once the reader agrees there is a problem. Solution pages only:
+            LocationPage is deliberately left out until the delivery model per
+            city is settled (CLAIMS_REGISTER C2). */}
+        <WhyPgak />
 
         {/* ------------------------------------------------------- content */}
         <section className="sec">
