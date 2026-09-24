@@ -14,8 +14,13 @@ import { BUSINESS } from "@/lib/seo";
  */
 export default function FoundersStrip() {
   return (
+    // NOTE: no .wrap here. .wrap is `w-full`, and .premium-section has no
+    // definite width in the homepage's layout context, so w-full resolved to
+    // zero and left only the 48px of padding — which squashed the avatars to
+    // 51px wide. Every other premium-section on this page puts its content in
+    // a plain div and lets the section supply the max-width; so does this one.
     <section className="premium-section" aria-labelledby="founders-heading" id="founders">
-      <div className="wrap">
+      <div>
         <div className="mx-auto max-w-[760px] text-center">
           <p className="kicker">THE PEOPLE BEHIND IT</p>
           <h2 id="founders-heading" className="display mt-3 text-[clamp(1.6rem,3.4vw,2.3rem)]">
