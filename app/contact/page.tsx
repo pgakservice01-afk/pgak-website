@@ -60,8 +60,8 @@ const METHODS: {
   {
     ic: "link",
     label: "Email",
-    value: "Pgakinnovation@gmail.com",
-    href: "mailto:Pgakinnovation@gmail.com",
+    value: "contact@pgak.co.in",
+    href: "mailto:contact@pgak.co.in",
   },
   {
     ic: "devices",

@@ -22,8 +22,9 @@ import { BUSINESS } from "@/lib/seo";
  * server-confirmed CRM row (lib/lead-client.ts). Clicks are still counted by
  * the global [data-cta] tracker in app/layout.tsx.
  */
+// Same high-intent opener as the desktop floating button.
 const WA_HREF = waHref(
-  "Hi PGAK! I want to make my existing cameras intelligent. Can you tell me more?",
+  "Hi PGAK team, I want to test AI analytics on my existing CCTV setup.",
 );
 const TEL = BUSINESS.phoneE164;
 
@@ -37,6 +38,12 @@ export default function MobileActionBar() {
   }, [pathname]);
 
   return (
+    <>
+      {/* The bar is fixed and ~75px tall, so without this the last of the page
+          sits under it — at the true bottom of the homepage the footer's
+          privacy, terms and sitemap links were unreachable on a phone. The
+          spacer ships with the bar so the two can never drift apart. */}
+      <div aria-hidden="true" className="h-[4.75rem] md:hidden" />
     <nav
       aria-label="Quick contact"
       className="fixed inset-x-0 bottom-0 z-[95] flex items-stretch gap-2 border-t border-line bg-bg/95 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-md md:hidden"
@@ -72,6 +79,7 @@ export default function MobileActionBar() {
         </span>
       </a>
     </nav>
+    </>
   );
 }
 

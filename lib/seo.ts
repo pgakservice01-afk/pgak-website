@@ -23,7 +23,11 @@ export const BUSINESS = {
   /** E.164 — used in tel: links and schema. */
   phoneE164: "+916283993600",
   whatsapp: "https://wa.me/916283993600",
-  email: "Pgakinnovation@gmail.com",
+  // A company address rather than a personal Gmail: this appears in the
+  // Organization schema, on /contact and in the privacy policy, and a free
+  // mailbox is the single most common reason a B2B buyer doubts a supplier.
+  // Must be kept byte-identical to the Google Business Profile.
+  email: "contact@pgak.co.in",
   address: {
     /** Building and street, as they appear on the Google Business Profile. */
     street: "BK Towers, 2480/2, Gill Rd",

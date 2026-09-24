@@ -27,6 +27,9 @@ const ANALYTICS_ENABLED = process.env.VERCEL_ENV === "production" || process.env
 import DeferredAnalytics from "@/components/DeferredAnalytics";
 import { FB_PIXEL_ID } from "@/lib/fbpixel";
 import ConversionEvents from "@/components/ConversionEvents";
+import MarketingOverlays from "@/components/MarketingOverlays";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import MobileActionBar from "@/components/MobileActionBar";
 import LeadAttribution from "@/components/LeadAttribution";
 import JsonLd from "@/components/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -95,6 +98,21 @@ export default function RootLayout({
           <LeadAttribution />
           <ConversionEvents />
           {children}
+          {/* The floating WhatsApp button has been rendered by no route since
+              the 19 Sep redesign removed the mount and left the component
+              behind. WhatsApp and the phone are the two primary conversions
+              and the buyer reads this on a phone, so an always-available CTA
+              matters more here than the bytes it costs. MarketingOverlays
+              keeps it off /live, /wall and /billing, where a customer is
+              signing in or paying rather than being sold to. */}
+          <MarketingOverlays>
+            {/* A pair, not one control: the floating button is `hidden md:flex`
+                and the action bar is `md:hidden`. Mounting only the button
+                would have covered desktop and left phones — most of this
+                traffic — with no persistent way to call or message. */}
+            <WhatsAppButton />
+            <MobileActionBar />
+          </MarketingOverlays>
         </>
         {ANALYTICS_ENABLED && <DeferredAnalytics gaIds={GA_IDS} clarityId={CLARITY_ID} />}
         {ANALYTICS_ENABLED && <noscript dangerouslySetInnerHTML={{ __html: `<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1" />` }} />}
