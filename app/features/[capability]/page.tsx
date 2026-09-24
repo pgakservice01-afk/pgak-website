@@ -14,6 +14,7 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 import { CAPABILITIES, getCapability } from "@/lib/capabilities";
+import { industriesForCapability } from "@/lib/industries";
 import { SOLUTIONS } from "@/lib/solutions";
 
 /**
@@ -241,6 +242,37 @@ export default async function CapabilityPage({
             </div>
           </div>
         </section>
+
+        {/* Return link to the sector hub, which lists this capability under
+            the sectors below. Naming them keeps the text page-specific. */}
+        {industriesForCapability(c.slug).length > 0 && (
+          <section className="sec pt-0">
+            <div className="wrap">
+              <p className="text-sm text-ink-soft">
+                Sectors that lean on this:{" "}
+                {industriesForCapability(c.slug).map((industry, i) => (
+                  <span key={industry.slug}>
+                    {i > 0 && ", "}
+                    <Link
+                      href={`/industries#${industry.slug}`}
+                      className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                    >
+                      {industry.name}
+                    </Link>
+                  </span>
+                ))}{" "}
+                — see{" "}
+                <Link
+                  href="/industries"
+                  className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                >
+                  every industry PGAK serves
+                </Link>
+                .
+              </p>
+            </div>
+          </section>
+        )}
 
         {c.readMore && c.readMore.length > 0 && (
           <section className="sec pt-0">

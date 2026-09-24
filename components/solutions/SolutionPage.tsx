@@ -19,6 +19,7 @@ import { buyerDecisionFor } from "@/lib/buyerDecision";
 import { calculatorsForPage } from "@/lib/calc/registry";
 import { getAllInsights } from "@/lib/insights";
 import { SOLUTIONS, type Solution } from "@/lib/solutions";
+import { industriesForSolution } from "@/lib/industries";
 
 /**
  * Shared template for every /{solution} landing page. Each page file supplies
@@ -44,6 +45,10 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
   const related = s.related
     .map((slug) => SOLUTIONS.find((x) => x.slug === slug))
     .filter((x): x is Solution => Boolean(x));
+
+  // The sectors whose entry on /industries points at THIS page. Empty for most
+  // solutions, and an empty list renders nothing — see industriesForSolution.
+  const sectors = industriesForSolution(s.slug);
 
   const allPosts = getAllInsights();
   const posts = s.insights
@@ -308,6 +313,33 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                   </Link>
                 </li>
               </ul>
+
+              {/* Return link to the sector hub. Names this page's own sectors,
+                  so the text differs page to page instead of repeating. */}
+              {sectors.length > 0 && (
+                <p className="mt-5 text-sm text-ink-soft">
+                  Read this by sector:{" "}
+                  {sectors.map((industry, i) => (
+                    <span key={industry.slug}>
+                      {i > 0 && ", "}
+                      <Link
+                        href={`/industries#${industry.slug}`}
+                        className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                      >
+                        {industry.name}
+                      </Link>
+                    </span>
+                  ))}{" "}
+                  — or browse{" "}
+                  <Link
+                    href="/industries"
+                    className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                  >
+                    every industry PGAK serves
+                  </Link>
+                  .
+                </p>
+              )}
             </div>
 
             {(posts.length > 0 || (s.caseStudies?.length ?? 0) > 0) && (

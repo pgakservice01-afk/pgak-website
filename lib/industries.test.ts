@@ -1,7 +1,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { INDUSTRIES, industryLinkProblems } from "./industries.ts";
+import {
+  INDUSTRIES,
+  industriesForCapability,
+  industriesForSolution,
+  industryLinkProblems,
+} from "./industries.ts";
 
 /**
  * Run with:  npm run test:industries
@@ -69,4 +74,43 @@ test("every sector gives the reader somewhere to go", () => {
       `${industry.slug} is a dead end — it must link a solution page or an article`
     );
   }
+});
+
+/**
+ * The hub shipped linking out to 42 pages with nothing linking back. These
+ * lookups feed the return link, so if they ever stop being a true inverse of
+ * INDUSTRIES the back-links go quietly missing and the hub is one-way again —
+ * which is exactly the failure that is hard to notice by looking at a page.
+ */
+test("industriesForSolution is the inverse of Industry.solution", () => {
+  for (const industry of INDUSTRIES) {
+    if (!industry.solution) continue;
+    const found = industriesForSolution(industry.solution);
+    assert.ok(
+      found.some((i) => i.slug === industry.slug),
+      `${industry.slug} points at solution "${industry.solution}" but that page would render no link back to it`
+    );
+  }
+});
+
+test("industriesForCapability is the inverse of Industry.capabilities", () => {
+  for (const industry of INDUSTRIES) {
+    for (const capability of industry.capabilities) {
+      const found = industriesForCapability(capability);
+      assert.ok(
+        found.some((i) => i.slug === industry.slug),
+        `${industry.slug} lists capability "${capability}" but that page would render no link back to it`
+      );
+    }
+  }
+});
+
+test("every sector the hub links out to is reachable from the page it links", () => {
+  // A sector with a solution page must be able to point a reader back. This is
+  // the one-way-hub guard: it fails if a sector's solution slug is renamed and
+  // the inverse lookup silently returns nothing.
+  const oneWay = INDUSTRIES.filter(
+    (i) => i.solution && industriesForSolution(i.solution).length === 0
+  ).map((i) => i.slug);
+  assert.deepEqual(oneWay, [], `sectors whose solution page cannot link back: ${oneWay.join(", ")}`);
 });
