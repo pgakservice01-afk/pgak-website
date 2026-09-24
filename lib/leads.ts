@@ -56,32 +56,11 @@ export const PROTECT_OPTIONS = [
 ] as const;
 
 /**
- * Recorded when the visitor made no choice. Deliberately NOT one of the real
- * options, so a blank can never be mistaken for an answer — the old default
- * ("Home / Apartment") was exactly that mistake.
- */
-export const PROTECT_UNSPECIFIED = "Not specified";
-
-/**
- * Buyer planning a new site with no cameras yet. Without this a turnkey
- * enquiry had to pick a false camera band; the sales email shows it verbatim
- * so the lead can be routed to a new-installation proposal.
- */
-export const NEW_SITE_CAMERAS = "None yet — new site";
-
-/** Camera-count bands. Coarse on purpose: nobody counts before they enquire. */
-export const CAMERA_OPTIONS = [
-  "1–4",
-  "5–15",
-  "16–50",
-  "50+",
-  "Not sure",
-  NEW_SITE_CAMERAS,
-] as const;
-
-/**
- * Which journey the enquiry came from. Optional: older forms and quick forms
- * don't ask, and a blank is recorded as blank, never guessed.
+ * Which journey the enquiry came from, and how soon. Optional: quick forms
+ * and the b2b pages don't ask, and a blank is recorded as blank, never
+ * guessed. Kept through the b2b merge because lib/leadRegister.ts, the
+ * register columns and two test suites all read these — dropping the
+ * constants would have meant deleting a working feature, not simplifying one.
  */
 export const PROJECT_EXISTING = "Upgrade existing CCTV";
 export const PROJECT_NEW = "New CCTV installation";
@@ -112,16 +91,32 @@ export function timelineLabel(
   }
 }
 
-/** Visible label for a camera option, in the page's language. */
-export function cameraOptionLabel(
-  o: (typeof CAMERA_OPTIONS)[number],
-  t: (en: string, hi: string) => string
-): string {
-  if (o === "Not sure") return t("Not sure yet", "अभी पक्का नहीं");
-  if (o === NEW_SITE_CAMERAS)
-    return t("None yet — planning a new site", "अभी कोई नहीं — नई साइट की योजना");
-  return `${o} ${t("cameras", "कैमरे")}`;
-}
+/**
+ * Recorded when the visitor made no choice. Deliberately NOT one of the real
+ * options, so a blank can never be mistaken for an answer — the old default
+ * ("Home / Apartment") was exactly that mistake.
+ */
+export const PROTECT_UNSPECIFIED = "Not specified";
+
+/**
+ * Buyer planning a new site with no cameras yet. Without this a turnkey
+ * enquiry had to pick a false camera band; the sales email shows it verbatim
+ * so the lead can be routed to a new-installation proposal.
+ */
+export const NEW_SITE_CAMERAS = "None yet — new site";
+
+/** Camera-count bands. Coarse on purpose: nobody counts before they enquire. */
+export const CAMERA_OPTIONS = [
+  "1–4",
+  "5–15",
+  "16–50",
+  "50+",
+  "Not sure",
+  // A buyer planning a new site has no cameras to count. Without this option
+  // the shortest list still forces them into a band that is not true, and the
+  // band is what the quote is built from.
+  NEW_SITE_CAMERAS,
+] as const;
 
 /** Headcount bands, asked only by the attendance variant of the form. */
 export const EMPLOYEE_OPTIONS = ["1–25", "26–100", "101–300", "300+"] as const;
@@ -140,6 +135,8 @@ export const HONEYPOT_FIELD = "website";
 
 /** Attribution keys the client may send. Anything else is dropped unread. */
 export const ATTRIBUTION_KEYS = [
+  "first_landing",
+  "first_source",
   "page",
   "cta",
   "landing",
@@ -153,9 +150,12 @@ export const ATTRIBUTION_KEYS = [
   "fbclid",
 ] as const;
 
-export type Attribution = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>>;
+export type Attribution = Partial<
+  Record<(typeof ATTRIBUTION_KEYS)[number], string>
+>;
 
 export type LeadInput = {
+  context?: unknown;
   name?: unknown;
   phone?: unknown;
   location?: unknown;
@@ -171,6 +171,7 @@ export type LeadInput = {
 };
 
 export type ValidLead = {
+  context?: string;
   /** Empty string when not given — the call collects it. */
   name: string;
   phone: string;
@@ -237,7 +238,8 @@ export function normalisePhone(raw: unknown): string | null {
   // Strip country code / trunk prefixes, longest and most specific first.
   let local = digits;
   if (local.length === 13 && local.startsWith("091")) local = local.slice(3);
-  else if (local.length === 12 && local.startsWith("91")) local = local.slice(2);
+  else if (local.length === 12 && local.startsWith("91"))
+    local = local.slice(2);
   else if (local.length === 11 && local.startsWith("0")) local = local.slice(1);
 
   if (!/^[1-9]\d{9}$/.test(local)) return null;
@@ -293,7 +295,9 @@ export function validateLead(input: LeadInput): ValidationResult {
   // losing a lead over a chip would be absurd — but so would inventing an
   // answer the customer did not give.
   const rawProtecting = clean(input.protecting, LIMITS.protecting);
-  const protecting = (PROTECT_OPTIONS as readonly string[]).includes(rawProtecting)
+  const protecting = (PROTECT_OPTIONS as readonly string[]).includes(
+    rawProtecting,
+  )
     ? rawProtecting
     : PROTECT_UNSPECIFIED;
 
@@ -303,7 +307,9 @@ export function validateLead(input: LeadInput): ValidationResult {
     ? rawCameras
     : "";
   const rawEmployees = clean(input.employees, LIMITS.employees);
-  const employees = (EMPLOYEE_OPTIONS as readonly string[]).includes(rawEmployees)
+  const employees = (EMPLOYEE_OPTIONS as readonly string[]).includes(
+    rawEmployees,
+  )
     ? rawEmployees
     : "";
 
@@ -319,7 +325,20 @@ export function validateLead(input: LeadInput): ValidationResult {
 
   const lead: ValidLead | null =
     Object.keys(fieldErrors).length === 0 && phone && email !== null
-      ? { name, phone, location, protecting, cameras, employees, project, timeline, email }
+      ? {
+          name,
+          phone,
+          location,
+          protecting,
+          cameras,
+          employees,
+          project,
+          timeline,
+          email,
+          ...(clean(input.context, 1200)
+            ? { context: clean(input.context, 1200) }
+            : {}),
+        }
       : null;
 
   if (clean(input[HONEYPOT_FIELD as "website"], 200) !== "") {
@@ -369,9 +388,16 @@ export function toErpPayload(
   const parts = [
     lead.project ? `Project: ${lead.project}` : "",
     `Protecting: ${lead.protecting}`,
+    lead.context ? `Project brief: ${lead.context}` : "",
     lead.cameras ? `Cameras: ${lead.cameras}` : "",
     lead.employees ? `Employees: ${lead.employees}` : "",
+    // Printed alongside the first-touch lines below rather than instead of
+    // them: one says what the enquiry is, the other says where it came from.
     lead.timeline ? `Timeline: ${lead.timeline}` : "",
+    attribution.first_landing
+      ? `First landing: ${attribution.first_landing}`
+      : "",
+    attribution.first_source ? `First source: ${attribution.first_source}` : "",
     attribution.page ? `Page: ${attribution.page}` : "",
     attribution.cta ? `CTA: ${attribution.cta}` : "",
     attribution.landing ? `Landing: ${attribution.landing}` : "",

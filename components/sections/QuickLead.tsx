@@ -1,17 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import LeadDetails from "@/components/b2b/LeadDetails";
+import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
-import {
-  CAMERA_OPTIONS,
-  HONEYPOT_FIELD,
-  NEW_SITE_CAMERAS,
-  PROJECT_EXISTING,
-  PROJECT_NEW,
-  cameraOptionLabel,
-  normalisePhone,
-} from "@/lib/leads";
-import { AUDIT_TURNAROUND_HOURS, CALLBACK_PROMISE } from "@/lib/audit";
+import { CAMERA_OPTIONS, HONEYPOT_FIELD, normalisePhone } from "@/lib/leads";
+import { CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
   TEL_HREF,
@@ -58,17 +51,20 @@ export default function QuickLead({
   cta = "hero-quick",
   offer = "audit",
   spotlight = false,
+  context = "",
   initialCameras = "",
 }: {
   cta?: string;
   offer?: QuickOffer;
   spotlight?: boolean;
-  /** Pre-selects the camera count when a page already knows it — the
-   *  readiness assessment asks before it hands the visitor to this form. */
+  context?: string;
   initialCameras?: string;
 }) {
   const { t } = useLang();
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
   const [status, setStatus] = useState<Status>("idle");
+  const [receiptToken, setReceiptToken] = useState<string>();
   const [error, setError] = useState("");
   const [retryable, setRetryable] = useState(true);
   const typed = useRef<LeadValues>({ phone: "", cameras: "" });
@@ -76,52 +72,59 @@ export default function QuickLead({
   const refRef = useRef<string | null>(null);
   if (refRef.current === null) refRef.current = mintRef();
 
-  const camerasRequired = offer !== "checklist";
+  const camerasRequired = false;
+  const pending = useRef(false);
 
   const copy = {
     demo: {
       button: t("Request my demo →", "डेमो का अनुरोध करें →"),
-      micro: t("We will contact you to arrange a demo. No obligation.", "डेमो का समय तय करने के लिए हम आपसे संपर्क करेंगे।"),
+      micro: t(
+        "We will contact you to arrange a demo. No obligation.",
+        "डेमो का समय तय करने के लिए हम आपसे संपर्क करेंगे।",
+      ),
       doneTitle: t("Demo request received ✓", "डेमो का अनुरोध प्राप्त हुआ ✓"),
-      doneBody: t("Our team will contact you to agree a suitable time and understand your camera setup.", "हमारी टीम समय और कैमरा सेटअप के लिए आपसे संपर्क करेगी।"),
-      formName: "demo_request", badge: "Demo", head: "See PGAK for your site", sub: "Two fields to get started",
+      doneBody: t(
+        "Our team will contact you to agree a suitable time and understand your camera setup.",
+        "हमारी टीम समय और कैमरा सेटअप के लिए आपसे संपर्क करेगी।",
+      ),
+      formName: "demo_request",
+      badge: "Demo",
+      head: "See PGAK for your site",
+      sub: "Two fields to get started",
     },
     audit: {
-      button: t("Get a free camera audit →", "मुफ़्त कैमरा ऑडिट पाएँ →"),
+      button: t("Request a camera check →", "मुफ़्त कैमरा ऑडिट पाएँ →"),
       micro: t(
-        `Free camera assessment · we call within one working hour · camera compatibility checked`,
+        `Request a camera assessment. Timing and scope agreed on the call.`,
         `मुफ़्त कैमरा आकलन · एक कार्य-घंटे के भीतर कॉल · कैमरा संगतता की जाँच`,
       ),
       doneTitle: t("Got it ✓", "मिल गया ✓"),
       doneBody: t(
-        `${CALLBACK_PROMISE.en} Outside those hours, first thing next morning.`,
-        `${CALLBACK_PROMISE.hi} उसके बाद अगली सुबह सबसे पहले।`,
+        `Your enquiry has been received. Our team will contact you to agree the next step.`,
+        CALLBACK_PROMISE.hi,
       ),
       formName: "quick_audit_request",
       badge: t("Free", "मुफ़्त"),
-      head: t(
-        `Camera readiness assessment`,
-        `कैमरा रेडीनेस आकलन`,
-      ),
+      head: t(`Camera readiness assessment`, `कैमरा रेडीनेस आकलन`),
       sub: t(
-        `Report in ${AUDIT_TURNAROUND_HOURS} hours · 2 fields, 20 seconds`,
-        `${AUDIT_TURNAROUND_HOURS} घंटों में रिपोर्ट · 2 फ़ील्ड, 20 सेकंड`,
+        `Phone required · camera count optional`,
+        `फ़ोन आवश्यक · कैमरा संख्या वैकल्पिक`,
       ),
     },
     quote: {
       button: t("Get my quote →", "मेरा कोटेशन पाएँ →"),
       micro: t(
-        "Per camera per month on the cameras you own · your number on the call within one working hour",
+        "Request a written scope covering software, hardware, setup, support and terms.",
         "आपके अपने कैमरों पर प्रति कैमरा प्रति माह · एक कार्य-घंटे के भीतर कॉल पर आपका आँकड़ा",
       ),
       doneTitle: t("Got it ✓", "मिल गया ✓"),
       doneBody: t(
-        `${CALLBACK_PROMISE.en} You will have your per-camera number on that call. Want it sooner? Message us now.`,
-        `${CALLBACK_PROMISE.hi} उसी कॉल पर आपको प्रति-कैमरा आँकड़ा मिलेगा। जल्दी चाहिए? अभी मैसेज करें।`,
+        `Your quote request has been received. We will confirm requirements before preparing a written scope.`,
+        CALLBACK_PROMISE.hi,
       ),
       formName: "quick_quote_request",
       badge: t("Quote", "कोटेशन"),
-      head: t("Your per-camera number, same day", "आपका प्रति-कैमरा आँकड़ा, उसी दिन"),
+      head: t("Your site-specific quote", "आपका प्रति-कैमरा आँकड़ा, उसी दिन"),
       sub: t("2 fields, 20 seconds", "2 फ़ील्ड, 20 सेकंड"),
     },
     checklist: {
@@ -137,29 +140,26 @@ export default function QuickLead({
       ),
       formName: "checklist_request",
       badge: t("Free", "मुफ़्त"),
-      head: t("Printable CCTV buying checklist", "प्रिंट करने योग्य CCTV ख़रीद चेकलिस्ट"),
+      head: t(
+        "Printable CCTV buying checklist",
+        "प्रिंट करने योग्य CCTV ख़रीद चेकलिस्ट",
+      ),
       sub: t("Delivered on the spot", "तुरंत मिलती है"),
     },
   }[offer];
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (pending.current) return;
     const data = new FormData(e.currentTarget);
     const phone = String(data.get("phone") ?? "").trim();
     const cameras = String(data.get("cameras") ?? "");
     typed.current = {
       phone,
       cameras,
+      context,
       honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
       protecting: offer === "demo" ? "Product demo requested" : undefined,
-      // "None yet — new site" is a new installation whatever the offer; the
-      // audit offer otherwise asks about cameras the visitor already has.
-      project:
-        cameras === NEW_SITE_CAMERAS
-          ? PROJECT_NEW
-          : offer === "audit" && cameras
-            ? PROJECT_EXISTING
-            : undefined,
     };
 
     if (!normalisePhone(phone)) {
@@ -173,12 +173,16 @@ export default function QuickLead({
     }
     if (camerasRequired && !cameras) {
       setError(
-        t("Roughly how many cameras do you have?", "आपके पास लगभग कितने कैमरे हैं?"),
+        t(
+          "Roughly how many cameras do you have?",
+          "आपके पास लगभग कितने कैमरे हैं?",
+        ),
       );
       return;
     }
 
     setError("");
+    pending.current = true;
     setStatus("sending");
     const out = await submitLead(typed.current, {
       ref: refRef.current!,
@@ -186,7 +190,9 @@ export default function QuickLead({
       formName: copy.formName,
     });
 
+    pending.current = false;
     if (out.kind === "done") {
+      setReceiptToken(out.receiptToken);
       setStatus("done");
       return;
     }
@@ -194,7 +200,10 @@ export default function QuickLead({
       setError(
         out.fieldErrors.phone ??
           out.fieldErrors.cameras ??
-          t("Please check the number and try again.", "कृपया नंबर जाँचें और फिर कोशिश करें।"),
+          t(
+            "Please check the number and try again.",
+            "कृपया नंबर जाँचें और फिर कोशिश करें।",
+          ),
       );
       setStatus("idle");
       return;
@@ -223,8 +232,13 @@ export default function QuickLead({
         role="status"
         className="rounded-[12px] border border-accent/30 bg-accent/[0.07] p-5"
       >
-        <div className="font-display text-[1.35rem] text-accent">{copy.doneTitle}</div>
+        <div className="font-display text-[1.35rem] text-accent">
+          {copy.doneTitle}
+        </div>
         <p className="mt-1.5 text-[0.95rem] text-ink-soft">{copy.doneBody}</p>
+        {receiptToken && (
+          <LeadDetails receiptRef={refRef.current!} token={receiptToken} />
+        )}
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
           {offer === "checklist" && (
             <a
@@ -240,7 +254,9 @@ export default function QuickLead({
             target="_blank"
             rel="noopener noreferrer"
             data-cta={`${cta}-whatsapp-continue`}
-            className={offer === "checklist" ? "btn btn-ghost" : "btn btn-primary"}
+            className={
+              offer === "checklist" ? "btn btn-ghost" : "btn btn-primary"
+            }
           >
             {t("Message us on WhatsApp now", "अभी WhatsApp पर मैसेज करें")}
           </a>
@@ -261,60 +277,75 @@ export default function QuickLead({
   }
 
   return wrap(
-    <form data-lead-form={copy.formName}
+    <form
+      method="post"
+      action="/api/leads"
+      data-lead-form={copy.formName}
       onSubmit={onSubmit}
       noValidate
       aria-label={
-        offer === "demo" ? t("Request a demo", "डेमो का अनुरोध करें") : offer === "checklist"
-          ? t("Request the buying checklist", "ख़रीद चेकलिस्ट का अनुरोध")
-          : offer === "quote"
-            ? t("Request a quote", "कोटेशन का अनुरोध")
-            : t("Request a free camera audit", "मुफ़्त कैमरा ऑडिट का अनुरोध")
+        offer === "demo"
+          ? t("Request a demo", "डेमो का अनुरोध करें")
+          : offer === "checklist"
+            ? t("Request the buying checklist", "ख़रीद चेकलिस्ट का अनुरोध")
+            : offer === "quote"
+              ? t("Request a quote", "कोटेशन का अनुरोध")
+              : t("Request a free camera audit", "मुफ़्त कैमरा ऑडिट का अनुरोध")
       }
     >
-      <noscript><p>To arrange this enquiry without JavaScript, <a href="tel:+916283993600">call +91 62839 93600</a> or <a href="https://wa.me/916283993600">contact PGAK on WhatsApp</a>.</p></noscript>
+      <noscript>
+        <p>
+          To arrange this enquiry without JavaScript,{" "}
+          <a href="tel:+916283993600">call +91 62839 93600</a> or{" "}
+          <a href="https://wa.me/916283993600">contact PGAK on WhatsApp</a>.
+        </p>
+      </noscript>
       {/* minmax(0, …) so the inputs can shrink below their placeholder width
           and the button column keeps its full label instead of clipping. */}
-      <div className="grid gap-2.5 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_auto]">
-        <label className="sr-only" htmlFor={`${cta}-phone`}>
+      <div className="quick-fields">
+        <label htmlFor={`${cta}-phone`}>
           {t("Phone / WhatsApp number", "फ़ोन / WhatsApp नंबर")}
+          <input
+            id={`${cta}-phone`}
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            required
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? `${cta}-error` : undefined}
+            placeholder={t("Phone / WhatsApp number", "फ़ोन / WhatsApp नंबर")}
+            className="field-input"
+          />
         </label>
-        <input
-          id={`${cta}-phone`}
-          name="phone"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          required
-          placeholder={t("Phone / WhatsApp number", "फ़ोन / WhatsApp नंबर")}
-          className="field-input"
-        />
-        <label className="sr-only" htmlFor={`${cta}-cameras`}>
+        <label htmlFor={`${cta}-cameras`}>
           {t("How many cameras?", "कितने कैमरे?")}
-        </label>
-        <select
-          id={`${cta}-cameras`}
-          name="cameras"
-          required={camerasRequired}
-          key={initialCameras}
-          defaultValue={initialCameras}
-          className="field-input"
-        >
-          <option value="" disabled={camerasRequired}>
-            {camerasRequired
-              ? t("How many cameras?", "कितने कैमरे?")
-              : t("How many cameras? (optional)", "कितने कैमरे? (वैकल्पिक)")}
-          </option>
-          {CAMERA_OPTIONS.map((o) => (
-            <option key={o} value={o}>
-              {cameraOptionLabel(o, t)}
+          <select
+            id={`${cta}-cameras`}
+            name="cameras"
+            required={camerasRequired}
+            key={initialCameras}
+            defaultValue={initialCameras}
+            className="field-input"
+          >
+            <option value="" disabled={camerasRequired}>
+              {camerasRequired
+                ? t("How many cameras?", "कितने कैमरे?")
+                : t("How many cameras? (optional)", "कितने कैमरे? (वैकल्पिक)")}
             </option>
-          ))}
-        </select>
+            {CAMERA_OPTIONS.map((o) => (
+              <option key={o} value={o}>
+                {o === "Not sure"
+                  ? t("Not sure yet", "अभी पक्का नहीं")
+                  : `${o} ${t("cameras", "कैमरे")}`}
+              </option>
+            ))}
+          </select>
+        </label>
         <button
           type="submit"
           data-cta={`${cta}-submit`}
-          disabled={status === "sending"}
+          disabled={!hydrated || status === "sending"}
           className="btn btn-primary whitespace-nowrap disabled:opacity-60"
         >
           {status === "sending"
@@ -326,15 +357,27 @@ export default function QuickLead({
       </div>
 
       {/* Honeypot — see HONEYPOT_FIELD in lib/leads.ts. */}
-      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+      >
         <label>
           Website
-          <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
+          <input
+            type="text"
+            name={HONEYPOT_FIELD}
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </label>
       </div>
 
       {error && (
-        <p role="alert" className="mt-2 text-[0.84rem] text-danger">
+        <p
+          id={`${cta}-error`}
+          role="alert"
+          className="mt-2 text-[0.84rem] text-danger"
+        >
           {error}
         </p>
       )}
@@ -372,7 +415,14 @@ export default function QuickLead({
           </div>
         </div>
       ) : (
-        <p className="mt-2.5 text-[0.8rem] text-ink-faint">{copy.micro}</p>
+        <p className="mt-2.5 text-[0.8rem] text-ink-faint">
+          {copy.micro} By submitting, you ask PGAK to contact you about this
+          enquiry.{" "}
+          <a href="/privacy" className="underline">
+            Privacy notice
+          </a>
+          .
+        </p>
       )}
     </form>,
   );

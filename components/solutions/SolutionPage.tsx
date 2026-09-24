@@ -4,11 +4,8 @@ import QuickLead from "@/components/sections/QuickLead";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
-import JourneyChooser from "@/components/sections/JourneyChooser";
-import BuyerDecisionPack from "@/components/solutions/BuyerDecisionPack";
-import ProofBlock from "@/components/solutions/ProofBlock";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
-import WhyPgak from "@/components/sections/WhyPgak";
+import ProofBlock from "@/components/solutions/ProofBlock";
 import CoverageWalkthrough from "@/components/solutions/CoverageWalkthrough";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
@@ -18,11 +15,8 @@ import {
   serviceSchema,
   webPageSchema,
 } from "@/lib/schema";
-import { buyerDecisionFor } from "@/lib/buyerDecision";
-import { calculatorsForPage } from "@/lib/calc/registry";
 import { getAllInsights } from "@/lib/insights";
 import { SOLUTIONS, type Solution } from "@/lib/solutions";
-import { industriesForSolution } from "@/lib/industries";
 
 /**
  * Shared template for every /{solution} landing page. Each page file supplies
@@ -34,10 +28,7 @@ import { industriesForSolution } from "@/lib/industries";
  */
 export default function SolutionPage({ solution }: { solution: Solution }) {
   const s = solution;
-  const isNew = s.journey === "new-install";
-  const decision = buyerDecisionFor(s.slug);
   const path = `/${s.slug}`;
-  const calculators = calculatorsForPage(path);
 
   const trail = [
     { name: "Home", path: "/" },
@@ -48,10 +39,6 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
   const related = s.related
     .map((slug) => SOLUTIONS.find((x) => x.slug === slug))
     .filter((x): x is Solution => Boolean(x));
-
-  // The sectors whose entry on /industries points at THIS page. Empty for most
-  // solutions, and an empty list renders nothing — see industriesForSolution.
-  const sectors = industriesForSolution(s.slug);
 
   const allPosts = getAllInsights();
   const posts = s.insights
@@ -93,54 +80,35 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
               {s.intro}
             </p>
 
-            {isNew ? (
-              <>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="#plan" data-cta="solution-plan-new" data-intent="new-installation" className="btn btn-primary btn-wrap">
-                    {s.offer ? s.offer.label : "Plan a new installation"} →
-                  </Link>
-                  <a href={waHref("Hi PGAK, I am planning a new CCTV installation and would like to discuss the site.")} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about a new site</a>
-                </div>
-                {/* What the button actually gets them. A CTA that names the
-                    offer still needs one line saying what lands afterwards. */}
-                {s.offer && (
-                  <p className="mt-5 max-w-[70ch] leading-relaxed text-ink-soft">{s.offer.note}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="#dealer"
+                data-cta="solution-assessment"
+                data-intent="assessment"
+                className="btn btn-primary"
+              >
+                Check my cameras →
+              </Link>
+              <a
+                href={waHref(
+                  `Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`,
                 )}
-                <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
-                  Already have cameras?{" "}
-                  <Link href="/free-audit" data-cta="solution-existing-audit" className="text-accent underline underline-offset-2">
-                    Check what they can do with a free assessment
-                  </Link>
-                  .
-                </p>
-              </>
-            ) : (
-              <>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="#dealer" data-cta="solution-assessment" data-intent="assessment" className="btn btn-primary btn-wrap">
-                    {s.offer ? s.offer.label : "Get Free Camera Audit"} →
-                  </Link>
-                  <a href={waHref(`Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`)} data-cta="solution-whatsapp" className="btn btn-ghost">WhatsApp about this solution</a>
-                </div>
-                {s.offer && (
-                  <p className="mt-5 max-w-[70ch] leading-relaxed text-ink-soft">{s.offer.note}</p>
-                )}
+                data-cta="solution-whatsapp"
+                className="btn btn-ghost"
+              >
+                WhatsApp about this solution
+              </a>
+            </div>
 
-                <div className="mt-7 max-w-[640px]"><QuickLead cta={`solution-${s.slug}`} /></div>
-                <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
-                  Compatibility, detection quality and processing requirements are confirmed on your own camera feeds. Published scenarios are illustrative, not verified customer results.{" "}
-                  {s.group !== "attendance" && (
-                    <>
-                      No cameras yet?{" "}
-                      <Link href="/cctv-installation-company#plan" data-cta="solution-new-install" className="text-accent underline underline-offset-2">
-                        Plan a new installation
-                      </Link>
-                      .
-                    </>
-                  )}
-                </p>
-              </>
-            )}
+            <div className="mt-7 max-w-[640px]">
+              <QuickLead cta={`solution-${s.slug}`} />
+            </div>
+            <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
+              Treat this page as evaluation guidance. Product availability and
+              site suitability require an approved configuration and technical
+              test. Published scenarios are illustrative, not verified customer
+              results.
+            </p>
           </div>
         </section>
 
@@ -166,22 +134,6 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </div>
         </section>
 
-        {/* Straight after the pain, because "why you" is only worth reading
-            once the reader agrees there is a problem. Solution pages only:
-            LocationPage is deliberately left out until the delivery model per
-            city is settled (CLAIMS_REGISTER C2). */}
-        <WhyPgak />
-
-        {/* Directly after the argument, because a claim followed by the
-            photograph behind it reads very differently from the claim alone.
-            Only pages with genuine original material render this. */}
-        {s.proof && <ProofBlock proof={s.proof} />}
-
-        {/* Then the illustrated design argument, which is a drawing and never
-            a customer's site. Proof comes first where a page has both, so a
-            reader meets the evidence before the illustration. */}
-        {s.coverage && <CoverageWalkthrough coverage={s.coverage} />}
-
         {/* ------------------------------------------------------- content */}
         <section className="sec">
           <div className="wrap flex flex-col gap-14">
@@ -196,7 +148,9 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                   <div className="mt-7 grid gap-4 sm:grid-cols-2">
                     {sec.points.map((pt) => (
                       <div key={pt.h3} className="card p-6">
-                        <h3 className="text-[1.02rem] font-semibold">{pt.h3}</h3>
+                        <h3 className="text-[1.02rem] font-semibold">
+                          {pt.h3}
+                        </h3>
                         <p className="mt-2 text-[0.94rem] leading-relaxed text-ink-soft">
                           {pt.text}
                         </p>
@@ -209,64 +163,55 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </div>
         </section>
 
-        {/* The deciding facts, in crawlable HTML. Pages with a buyer-decision
-            entry answer them in full (lib/buyerDecision.ts); the rest keep the
-            shorter pre-deployment checklist. Never both: the same content twice
-            helps nobody and dilutes the page. */}
-        {decision ? (
-          <BuyerDecisionPack
-            decision={decision}
-            heading={`${s.primaryKeyword}: what to know before you buy`}
-            planHref={isNew ? "#plan" : "#dealer"}
-            ctaLabel={isNew ? "Plan a new installation" : "Start with the free camera check"}
-          />
-        ) : (
-        <section className="sec"><div className="wrap max-w-[76ch]">
-          <h2 className="display text-3xl">What to check before deployment</h2>
-          <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-            {(isNew ? [
-              ["Site survey and coverage plan", "Agree the areas that must be covered — gates, boundaries, loading bays, entrances — and what each camera must be able to see or detect, before camera models are chosen."],
-              ["Cabling, power and network", "Confirm cable routes, power points, network and where the recorder and processing unit will sit. These drive cost as much as the cameras do."],
-              ["Recording and storage", "Decide how many days of footage you need to keep and size storage to that, rather than to a default disk."],
-              ["Itemised quotation", "Ask for cameras, cabling, power, recorder, storage, AI setup, commissioning, handover and support as separate lines, with what is included and what is optional."],
-            ] : [
-              ["Camera and recorder streams", "Confirm RTSP access or ONVIF discovery, stream stability and the views that matter. Do not send camera passwords in the enquiry form."],
-              ["On-site processing", "Ask which processing device is needed, how it is sized, what runs locally and what information leaves the site."],
-              [s.group === "attendance" ? "Attendance acceptance" : "Alert acceptance", s.group === "attendance" ? "Test real entrance conditions and enrolled staff with consent. Agree how missed or disputed records will be corrected before payroll use." : "Test agreed zones in daytime and at night. Record useful alerts, nuisance alerts, missed events and end-to-end alert delay."],
-              ["Complete commercial quote", "Confirm enabled cameras, sites, subscription, setup, hardware, taxes and support. Use the assessed scope to compare proposals."],
-            ]).map(([term,description])=><div key={term} className="card p-5"><dt className="font-semibold">{term}</dt><dd className="mt-2 text-ink-soft">{description}</dd></div>)}
-          </dl>
-          <p className="mt-6"><Link href="/pricing" className="text-accent underline">Get a site-specific AI video analytics price</Link> or <Link href="/cctv-buying-checklist" className="text-accent underline">use the CCTV buying checklist</Link>.</p>
-        </div></section>
-        )}
-
-        {calculators.length > 0 && (
-          <section className="sec pt-0" aria-label="Calculators for this page">
-            <div className="wrap">
-              <div className="card p-6 sm:p-7">
-                <h2 className="text-[1.1rem] font-semibold">Work out the numbers yourself</h2>
-                <p className="mt-2 max-w-[64ch] text-[0.94rem] text-ink-soft">
-                  Free, runs in your browser, assumes no PGAK price, and shows a negative answer
-                  as readily as a positive one.
-                </p>
-                <ul className="mt-4 flex flex-col gap-2">
-                  {calculators.map((c) => (
-                    <li key={c.id}>
-                      <Link
-                        href={c.path!}
-                        data-cta={`solution-${s.slug}-calc-${c.id}`}
-                        className="text-accent underline underline-offset-2"
-                      >
-                        {c.title}
-                      </Link>
-                      <span className="text-ink-soft"> — {c.question}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-        )}
+        <section className="sec">
+          <div className="wrap max-w-[76ch]">
+            <h2 className="display text-3xl">
+              What to check before deployment
+            </h2>
+            <dl className="mt-6 grid gap-5 sm:grid-cols-2">
+              {[
+                [
+                  "Camera and recorder streams",
+                  "Confirm RTSP access or ONVIF discovery, stream stability and the views that matter. Do not send camera passwords in the enquiry form.",
+                ],
+                [
+                  "On-site processing",
+                  "Ask which processing device is needed, how it is sized, what runs locally and what information leaves the site.",
+                ],
+                [
+                  s.group === "attendance"
+                    ? "Attendance acceptance"
+                    : "Alert acceptance",
+                  s.group === "attendance"
+                    ? "Test real entrance conditions and enrolled staff with consent. Agree how missed or disputed records will be corrected before payroll use."
+                    : "Test agreed zones in daytime and at night. Record useful alerts, nuisance alerts, missed events and end-to-end alert delay.",
+                ],
+                [
+                  "Complete commercial quote",
+                  "Confirm enabled cameras, sites, subscription, setup, hardware, taxes and support. Use the assessed scope to compare proposals.",
+                ],
+              ].map(([term, description]) => (
+                <div key={term} className="card p-5">
+                  <dt className="font-semibold">{term}</dt>
+                  <dd className="mt-2 text-ink-soft">{description}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-6">
+              <Link href="/pricing" className="text-accent underline">
+                Get a site-specific AI video analytics price
+              </Link>{" "}
+              or{" "}
+              <Link
+                href="/cctv-buying-checklist"
+                className="text-accent underline"
+              >
+                use the CCTV buying checklist
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
 
         {/* ----------------------------------------------------------- FAQ */}
         <section className="sec-band sec">
@@ -332,33 +277,6 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                   </Link>
                 </li>
               </ul>
-
-              {/* Return link to the sector hub. Names this page's own sectors,
-                  so the text differs page to page instead of repeating. */}
-              {sectors.length > 0 && (
-                <p className="mt-5 text-sm text-ink-soft">
-                  Read this by sector:{" "}
-                  {sectors.map((industry, i) => (
-                    <span key={industry.slug}>
-                      {i > 0 && ", "}
-                      <Link
-                        href={`/industries#${industry.slug}`}
-                        className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
-                      >
-                        {industry.name}
-                      </Link>
-                    </span>
-                  ))}{" "}
-                  — or browse{" "}
-                  <Link
-                    href="/industries"
-                    className="text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
-                  >
-                    every industry PGAK serves
-                  </Link>
-                  .
-                </p>
-              )}
             </div>
 
             {(posts.length > 0 || (s.caseStudies?.length ?? 0) > 0) && (
@@ -396,7 +314,6 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
         </section>
 
         {/* ----------------------------------------------------------- CTA */}
-        {s.group === "attendance" ? (
         <section className="sec pt-0">
           <div className="wrap">
             <div className="mx-auto max-w-[720px] rounded-[22px] border border-line bg-panel p-10 text-center">
@@ -408,7 +325,11 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                 working hour and send the report within 48 hours.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="#dealer" data-cta="solution-bottom-assessment" className="btn btn-primary">
+                <Link
+                  href="#dealer"
+                  data-cta="solution-bottom-assessment"
+                  className="btn btn-primary"
+                >
                   Get my free audit →
                 </Link>
                 <Link href="/pricing" className="btn btn-ghost">
@@ -418,27 +339,25 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             </div>
           </div>
         </section>
-        ) : (
-          <section className="sec pt-0">
-            <div className="wrap">
-              <JourneyChooser
-                upgradeHref={isNew ? "/free-audit" : "#dealer"}
-                newHref={isNew ? "#plan" : "/cctv-installation-company#plan"}
-                ctaPrefix={`solution-${s.slug}-journey`}
-              />
-            </div>
-          </section>
-        )}
+
+        {/* The evidence, then the illustration, then the ask.
+
+            Both blocks render only on the pages that define them, and both
+            were dropped by this design's own SolutionPage — the components
+            were still in the tree with nothing calling them, which took the
+            ANPR photographs, the dock counting clip and the house walkthrough
+            off the site. Restored here, in that order, so a reader meets the
+            photograph of the thing working before the drawing of it. */}
+        {s.proof && <ProofBlock proof={s.proof} />}
+        {s.coverage && <CoverageWalkthrough coverage={s.coverage} />}
 
         {/* Convert in place — same pattern as the feature pages. The
             attendance pages ask the attendance question; everyone else gets
             the audit. */}
         <WhoIsPgak />
-        {isNew ? (
-          <DealerForm variant="new-install" id="plan" />
-        ) : (
-          <DealerForm variant={s.group === "attendance" ? "attendance" : "audit"} />
-        )}
+        <DealerForm
+          variant={s.group === "attendance" ? "attendance" : "audit"}
+        />
       </main>
 
       <Footer />

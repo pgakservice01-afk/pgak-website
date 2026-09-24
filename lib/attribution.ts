@@ -27,6 +27,7 @@ import { aiReferrerName } from "./aiReferrers";
 import { trackConversion } from "./analytics";
 
 const KEY = "pgak-touch";
+const FIRST_KEY = "pgak-first-touch";
 
 const TAG_KEYS = [
   "utm_source",
@@ -47,7 +48,8 @@ type Touch = Partial<Record<(typeof TAG_KEYS)[number], string>> & {
 let memory: Touch | null = null;
 
 function cap(value: string | null | undefined, max = 160): string {
-  return (value ?? "").replace(/\s+/g, " ").trim().slice(0, max);
+  const text = (value ?? "").replace(/\s+/g, " ").trim().slice(0, max);
+  return /@|(?:\d[ -]?){10,}|rtsp:|password|token=/i.test(text) ? "" : text;
 }
 
 function read(): Touch | null {
@@ -98,24 +100,26 @@ export function captureTouch(): void {
   const existing = read();
   if (existing && !tagged) return; // first touch stands
 
-  const referrer = referrerHost();
-  write({
+  const nextTouch = {
     ...tags,
     landing: cap(window.location.pathname),
-    referrer,
-  });
+    referrer: referrerHost(),
+  };
+  try {
+    if (!sessionStorage.getItem(FIRST_KEY))
+      sessionStorage.setItem(FIRST_KEY, JSON.stringify(existing ?? nextTouch));
+  } catch {}
+  write(nextTouch);
 
   // A visit sent by an assistant means PGAK was cited in an answer, which is
   // invisible in GA4 otherwise — ChatGPT and Perplexity land in "Referral"
-  // beside every other site. Fired here rather than on every page view so it
-  // counts sessions, not pages, and only on the touch that is actually
-  // recorded. GA4 is best-effort by design; trackConversion is a no-op server
-  // side and queues in dataLayer before the loader is ready.
-  const assistant = aiReferrerName(referrer);
+  // beside every other site. Kept alongside the first-touch capture above:
+  // the two record different things and neither replaces the other.
+  const assistant = aiReferrerName(nextTouch.referrer);
   if (assistant) {
     trackConversion("ai_referral", {
       ai_assistant: assistant,
-      ai_referrer_host: referrer,
+      ai_referrer_host: nextTouch.referrer,
       landing_page: cap(window.location.pathname),
     });
   }
@@ -138,5 +142,10 @@ export function readAttribution(cta: string): Attribution {
   for (const key of TAG_KEYS) {
     if (touch[key]) out[key] = touch[key];
   }
+  try {
+    const first = JSON.parse(sessionStorage.getItem(FIRST_KEY) || "null");
+    if (first?.landing) out.first_landing = cap(first.landing);
+    if (first?.utm_source) out.first_source = cap(first.utm_source);
+  } catch {}
   return out;
 }
