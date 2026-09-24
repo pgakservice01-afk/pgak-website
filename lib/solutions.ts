@@ -23,6 +23,33 @@ export type SolutionSection = {
 /** Nav/listing grouping. Keeps the Solutions menu readable as the set grows. */
 export type SolutionGroup = "security" | "attendance" | "platform";
 
+/**
+ * Original PGAK material for a page — photographs of real installs, real
+ * screenshots of the product. Distinct from everything else on the site, which
+ * is illustrative and says so.
+ *
+ * Each item carries its own `conditions`, because a photograph without the
+ * circumstances it was taken in proves less than it appears to: a plate read
+ * at 1.5 metres in daylight says nothing about a plate at roof height at night.
+ * `redaction` records what was removed before publication.
+ */
+export type SolutionProof = {
+  heading: string;
+  intro: string;
+  items: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    title: string;
+    caption: string;
+    conditions?: string;
+    redaction?: string;
+  }[];
+  /** What this material does not establish. */
+  limits: string;
+};
+
 export const SOLUTION_GROUP_LABELS: Record<SolutionGroup, { en: string; hi: string }> = {
   security: { en: "Security & detection", hi: "सुरक्षा और पहचान" },
   attendance: { en: "Attendance", hi: "उपस्थिति" },
@@ -71,6 +98,8 @@ export type Solution = {
    * generic CTA — an unconsidered offer is worse than the default.
    */
   offer?: { label: string; note: string };
+  /** Original photographs or product screenshots for this page, if any exist. */
+  proof?: SolutionProof;
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -2516,6 +2545,37 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "anpr-number-plate-recognition",
     group: "security",
+    proof: {
+      heading: "The camera, and the screen the guard actually uses",
+      intro:
+        "Two photographs from a PGAK gate installation. They are here because everything else moving on this site is third-party reference footage and says so — this is ours, and it is the part a buyer can check against their own gate.",
+      items: [
+        {
+          src: "/proof/anpr-camera-mount.webp",
+          alt: "A small bullet camera on a bracket fixed to an existing gate pillar, mounted at about 1.5 metres and angled along the lane",
+          width: 1000,
+          height: 1501,
+          title: "Mounted on the pillar that was already there",
+          caption:
+            "A bullet camera on a bracket, fixed to the existing gate pillar. No new pole, no civil work, one cable run. Most gates already have somewhere to put it, which is usually the difference between a quotation you accept and one you do not.",
+          conditions:
+            "About 1.5 metres — plate height, not roof height — tilted roughly 20 degrees and aimed along the lane rather than across it. A camera looking down at a plate loses the characters no matter what it cost.",
+        },
+        {
+          src: "/proof/anpr-gate-console.webp",
+          alt: "The PGAK gate console listing vehicle reads with approve and deny buttons, allow-list labels and per-read diagnostics, with all number plates blurred",
+          width: 1440,
+          height: 1000,
+          title: "Every read is a decision someone makes",
+          caption:
+            "The console a gate operator works from. Each arrival is a card to approve or deny, allow-listed vehicles are marked as staff or contractor, and every read shows its own working — how many frames agreed, the margin, and how many pixels wide the plate was. Nothing is auto-admitted on the software's say-so.",
+          redaction:
+            "Number plates are blurred here. A registration number identifies a person, so it is removed before anything is published — including in a screenshot used to sell the product.",
+        },
+      ],
+      limits:
+        "These show one gate, one camera position and one set of lighting conditions. They are evidence that the system exists and is in daily use, not a measurement of how it would read plates at your site — that depends on your gate, your lighting and your lane, and it is tested on your own footage before anything is quoted.",
+    },
     navLabel: "ANPR system",
     primaryKeyword: "ANPR system",
     relatedKeywords: [

@@ -6,6 +6,7 @@ import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
 import JourneyChooser from "@/components/sections/JourneyChooser";
 import BuyerDecisionPack from "@/components/solutions/BuyerDecisionPack";
+import ProofBlock from "@/components/solutions/ProofBlock";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import WhyPgak from "@/components/sections/WhyPgak";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -164,6 +165,11 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             LocationPage is deliberately left out until the delivery model per
             city is settled (CLAIMS_REGISTER C2). */}
         <WhyPgak />
+
+        {/* Directly after the argument, because a claim followed by the
+            photograph behind it reads very differently from the claim alone.
+            Only pages with genuine original material render this. */}
+        {s.proof && <ProofBlock proof={s.proof} />}
 
         {/* ------------------------------------------------------- content */}
         <section className="sec">
