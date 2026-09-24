@@ -1,4 +1,12 @@
-import { AUTHOR, BUSINESS, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, abs } from "@/lib/seo";
+import {
+  AUTHOR,
+  BUSINESS,
+  DEFAULT_OG_IMAGE,
+  SITE_NAME,
+  SITE_URL,
+  abs,
+  socialSameAs,
+} from "@/lib/seo";
 import { founders } from "@/lib/people";
 
 /**
@@ -54,7 +62,7 @@ export function organizationSchema(): Json {
       areaServed: "IN",
       availableLanguage: ["English", "Hindi", "Punjabi"],
     },
-    sameAs: [...BUSINESS.social],
+    sameAs: socialSameAs(),
     // The people who actually founded the company. This named Aditya Mittal
     // (the CEO) until 2026-09-24; publishing the wrong founder in structured
     // data is the kind of error a reader checks and does not forgive.

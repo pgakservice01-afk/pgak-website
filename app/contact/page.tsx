@@ -7,7 +7,8 @@ import Icon, { type IconName } from "@/components/Icon";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import NapBlock from "@/components/NapBlock";
-import { BUSINESS, pageMeta } from "@/lib/seo";
+import SocialIcon from "@/components/SocialIcon";
+import { BUSINESS, SOCIAL_FOLLOW, pageMeta } from "@/lib/seo";
 import {
   breadcrumbSchema,
   webPageSchema,
@@ -60,15 +61,8 @@ const METHODS: {
   {
     ic: "link",
     label: "Email",
-    value: "contact@pgak.co.in",
-    href: "mailto:contact@pgak.co.in",
-  },
-  {
-    ic: "devices",
-    label: "Instagram",
-    value: "@pgakinnovation",
-    href: "https://www.instagram.com/pgakinnovation/",
-    ext: true,
+    value: BUSINESS.email,
+    href: `mailto:${BUSINESS.email}`,
   },
 ];
 
@@ -102,7 +96,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="mx-auto mt-12 grid max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mx-auto mt-12 grid max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {METHODS.map((m) => (
                 <a
                   key={m.label}
@@ -122,6 +116,39 @@ export default function ContactPage() {
                   </span>
                 </a>
               ))}
+            </div>
+
+            {/* Every live profile, from the same list that feeds the footer and
+                the schema.org `sameAs` array — one place to add or fix a URL. */}
+            <div className="mx-auto mt-12 max-w-[900px]">
+              <p className="text-center text-[0.78rem] uppercase tracking-wide text-ink-faint">
+                Follow PGAK
+              </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
+                {SOCIAL_FOLLOW.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="card group flex items-center gap-3 px-5 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40"
+                  >
+                    <span className="text-ink-faint transition-colors group-hover:text-accent">
+                      <SocialIcon name={s.name} size={20} />
+                    </span>
+                    <span>
+                      <span className="block text-[0.9rem] font-semibold leading-tight text-ink transition-colors group-hover:text-accent">
+                        {s.name}
+                      </span>
+                      {s.handle ? (
+                        <span className="block text-[0.8rem] leading-tight text-ink-faint">
+                          {s.handle}
+                        </span>
+                      ) : null}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>

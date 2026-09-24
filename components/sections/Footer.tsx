@@ -1,5 +1,6 @@
 import Logo from "@/components/Logo";
-import { BUSINESS } from "@/lib/seo";
+import SocialIcon from "@/components/SocialIcon";
+import { BUSINESS, SOCIAL_FOLLOW } from "@/lib/seo";
 const groups = [
   {
     title: "Explore",
@@ -60,6 +61,25 @@ export default function Footer() {
             <a href={BUSINESS.whatsapp} data-cta="footer-whatsapp">
               WhatsApp PGAK
             </a>
+            {/* Driven by the same list as the schema.org `sameAs` array, so a
+                profile can never be linked here while missing from the entity
+                graph (or the other way round). */}
+            <h2 className="buyer-footer-social-label">Follow PGAK</h2>
+            <ul className="buyer-footer-social">
+              {SOCIAL_FOLLOW.map((s) => (
+                <li key={s.name}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={`PGAK on ${s.name}`}
+                    data-cta={`footer-social-${s.name.toLowerCase()}`}
+                  >
+                    <SocialIcon name={s.name} size={18} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           {groups.map((g) => (
             <nav key={g.title} aria-label={g.title}>
