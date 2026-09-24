@@ -550,7 +550,14 @@ main:not(.premium-home) .display {
     font-size: 13px;
   }
 }
-@media (max-width: 760px) {
+/* 900px, not 760px. The desktop nav is a single row of links beside the demo
+   button, and it ran out of room before this breakpoint fired: measured at a
+   768px viewport it needed 792px of content in a 702px container — the demo
+   button was clipped off the right edge. That was already true at six links
+   (718px); adding Industries made it 792px and impossible to miss.
+   Collapsing to the mobile menu below 900px gives the seven links room at
+   every width where they are shown. */
+@media (max-width: 900px) {
   .site-nav {
     height: 68px;
   }
