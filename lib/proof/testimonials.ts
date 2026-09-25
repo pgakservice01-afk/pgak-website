@@ -3,10 +3,17 @@ import { NO_APPROVAL, publishable, sectionReady, type Approval, type ApprovalSta
 /**
  * Customer testimonials, and their approval state.
  *
- * ALL THREE RECORDS BELOW ARE DRAFTS. None of them renders on the live site.
+ * ALL TEN RECORDS BELOW ARE DRAFTS. None of them renders on the live site.
  *
- * The wording was supplied by the owner on 2026-09-24 as text prepared FOR the
- * named clients to review — not as words those clients have said. That is a
+ * The first three were supplied by the owner on 2026-09-24. The remaining seven
+ * were drafted on 2026-09-25 from a customer list the owner provided, who said
+ * the clients "were really happy with our services" but had given no wording of
+ * their own. So these are our sentences about their experience, which is
+ * precisely the thing this file exists to keep off the site until each person
+ * has read theirs and agreed to it.
+ *
+ * In both cases the wording is text prepared FOR the named clients to review —
+ * not as words those clients have said. That is a
  * real and important difference, and it is the whole reason this file is shaped
  * the way it is. A quote drafted on someone's behalf, published under their
  * name and job title, is a fabricated endorsement no matter how fairly it
@@ -70,6 +77,18 @@ export function initialsOf(person: string): string {
   return (words[0][0] + words[words.length - 1][0]).toUpperCase();
 }
 
+/**
+ * NOT IN THIS LIST, AND WHY
+ *
+ * Winda Systems was on the owner's customer list, attributed to Puneet Garg.
+ * Puneet Garg is a PGAK founder (lib/people.ts), so a quote from him presented
+ * beside independent customers is self-endorsement, not a testimonial. The
+ * owner asked for the company and its mark without the personal name, but a
+ * quote still needs someone accountable for having said it. If Winda Systems is
+ * genuinely a customer, it belongs in a customer list that states the
+ * relationship — not in a testimonial attributed to nobody. Its logo is in
+ * /public/proof/clients/ ready for that use.
+ */
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "sangal-constructions",
@@ -77,6 +96,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Founder",
     company: "Sangal Constructions",
     context: "Construction and project execution",
+    logo: "/proof/clients/sangal-logo.svg",
     quote:
       "PGAK's approach was practical from the first discussion. Instead of suggesting a standard package, their team focused on how the site operates, where visibility matters and what can realistically be achieved with the existing CCTV setup. That clarity makes decision-making much easier.",
     // DRAFT — prepared for Sunil Sangal to review. Not yet his words.
@@ -88,6 +108,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Founder & Managing Director",
     company: "Hagerstone International",
     context: "Office design, build and project execution",
+    logo: "/proof/clients/hagerstone-logo.png",
     quote:
       "What stands out about PGAK is the attention to real conditions on site. Their team discusses camera coverage, access points, lighting and the practical workflow behind security monitoring. It is a more responsible way to plan a system than simply selling features.",
     // DRAFT — prepared for Dhruv Agarwal to review. Not yet his words.
@@ -102,6 +123,86 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "For an institution, security planning must be clear, responsible and workable for the people who manage the site every day. PGAK explained the process in a straightforward way — from reviewing camera coverage to deciding how the team should respond to important events.",
     // DRAFT — prepared for Shri Anand Kumar Agrawal to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "dobuild-architects",
+    person: "Harman",
+    designation: "Principal Architect",
+    company: "Dobuild Architects",
+    context: "Architecture and interior projects",
+    quote:
+      "We plan buildings, so we notice when someone plans a camera layout properly. PGAK worked from the drawings and the site rather than a product list, and were clear about which positions would work and which would not.",
+    // DRAFT — prepared for Harman to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "dilkash-traders",
+    person: "Rajiv Mittal",
+    designation: "Proprietor",
+    company: "Dilkash Traders",
+    context: "Retail and trading",
+    quote:
+      "A shop floor is busy and the cameras see everything and tell you nothing. PGAK set ours up so the alerts that reach my phone are the ones worth looking at, which is the part I had given up on.",
+    // DRAFT — prepared for Rajiv Mittal to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "lumani-systems",
+    person: "Mohit Kumar Singh",
+    designation: "Chief Executive Officer",
+    company: "Lumani Systems",
+    context: "Aluminium windows and doors manufacturing",
+    quote:
+      "Our plant runs long shifts and material moves constantly. PGAK spent time understanding that before recommending anything, and worked with the cameras we already had rather than asking us to start again.",
+    logo: "/proof/clients/lumani-logo.png",
+    // DRAFT — prepared for Mohit Kumar Singh to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "uv-techno",
+    person: "Ashutosh Bansal",
+    designation: "Director",
+    company: "U.V. Techno",
+    context: "Industrial manufacturing, Bathinda",
+    quote:
+      "The useful part was being told plainly what the existing cameras could and could not do. We were given the limits before the benefits, which is not how these conversations usually go.",
+    logo: "/proof/clients/uvtechno-logo.png",
+    // DRAFT — prepared for Ashutosh Bansal to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "gebe-luxe",
+    person: "Bhupesh",
+    designation: "Director",
+    company: "Gebe Luxe",
+    context: "Luxury outdoor furniture",
+    quote:
+      "Stock sits in the open on our premises, so coverage and lighting matter more than camera count. PGAK checked both before proposing anything, and explained what we would and would not be able to see at night.",
+    logo: "/proof/clients/gebe-logo.svg",
+    // DRAFT — prepared for Bhupesh to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "krishna-gases",
+    person: "Akshay",
+    designation: "Manager",
+    company: "Krishna Gases",
+    context: "Industrial gases, Focal Point Ludhiana",
+    quote:
+      "Ours is a site where who enters and when actually matters. PGAK were practical about what the cameras could confirm and how quickly, and did not promise more than the setup could deliver.",
+    // DRAFT — prepared for Akshay to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "thangamman",
+    person: "Ponraj",
+    designation: "Head of Human Resources",
+    company: "Thangamman",
+    context: "Workforce and attendance",
+    quote:
+      "Attendance was the reason we spoke to PGAK. They were straightforward about what face recognition handles well and where it needs a fallback, so we planned around the gaps instead of discovering them later.",
+    // DRAFT — prepared for Ponraj to review. Not yet his words.
     approval: { ...NO_APPROVAL },
   },
 ];
