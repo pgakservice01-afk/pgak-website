@@ -119,10 +119,14 @@ test("no homepage project uses third-party or synthetic media", () => {
 });
 
 test("the gate returns a copy, so a caller cannot reach the full list", () => {
+  // Capture the length rather than hardcoding it: the point of this test is
+  // that the source array is unchanged, not how many clients are in it, and a
+  // literal here fails every time a testimonial is added.
+  const before = TESTIMONIALS.length;
   const out = publishable(TESTIMONIALS);
   assert.notEqual(out, TESTIMONIALS as unknown);
   out.push({} as never);
-  assert.equal(TESTIMONIALS.length, 3, "mutating the gated list changed the source");
+  assert.equal(TESTIMONIALS.length, before, "mutating the gated list changed the source");
 });
 
 test("sectionReady counts approvals, not records", () => {
