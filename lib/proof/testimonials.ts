@@ -43,9 +43,22 @@ import { NO_APPROVAL, publishable, sectionReady, type Approval, type ApprovalSta
 export type Testimonial = {
   /** Stable key. Never reused for a different client. */
   id: string;
-  person: string;
-  designation: string;
+  /**
+   * The individual who said it. Optional only because a client may prefer to
+   * be quoted as the company; when it is absent the card is attributed to
+   * `company` and somebody there still has to approve the wording.
+   */
+  person?: string;
+  designation?: string;
   company: string;
+  /**
+   * A connection between this client and PGAK that a reader would want to know
+   * about — a shared director, an investor, a family tie. Rendered with the
+   * quote, never omitted, because an endorsement from a related party reads
+   * differently once you know, and the reader is the one who gets to decide
+   * whether it matters.
+   */
+  relationship?: string;
   /** Sector label shown beside the card. Descriptive, never a claimed result. */
   context: string;
   /**
@@ -78,16 +91,18 @@ export function initialsOf(person: string): string {
 }
 
 /**
- * NOT IN THIS LIST, AND WHY
+ * A NOTE ON WINDA SYSTEMS
  *
- * Winda Systems was on the owner's customer list, attributed to Puneet Garg.
- * Puneet Garg is a PGAK founder (lib/people.ts), so a quote from him presented
- * beside independent customers is self-endorsement, not a testimonial. The
- * owner asked for the company and its mark without the personal name, but a
- * quote still needs someone accountable for having said it. If Winda Systems is
- * genuinely a customer, it belongs in a customer list that states the
- * relationship — not in a testimonial attributed to nobody. Its logo is in
- * /public/proof/clients/ ready for that use.
+ * It is the last record below, added at the owner's instruction. Its contact is
+ * Puneet Garg, who is a PGAK founder (lib/people.ts), so it is not an
+ * arm's-length customer: an endorsement from a company connected to your own
+ * director is a different thing from one by a stranger who paid you.
+ *
+ * The owner asked for the company and its mark without the personal name. That
+ * removes the name but not the connection, so the record carries a
+ * `relationship` line that renders with the quote. Readers can then weigh it
+ * for themselves, which is the only version of this that is honest — and it is
+ * also the version that survives a competitor noticing.
  */
 export const TESTIMONIALS: Testimonial[] = [
   {
@@ -131,6 +146,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Principal Architect",
     company: "Dobuild Architects",
     context: "Architecture and interior projects",
+    logo: "/proof/clients/dobuild-logo.png",
     quote:
       "We plan buildings, so we notice when someone plans a camera layout properly. PGAK worked from the drawings and the site rather than a product list, and were clear about which positions would work and which would not.",
     // DRAFT — prepared for Harman to review. Not yet his words.
@@ -142,6 +158,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Proprietor",
     company: "Dilkash Traders",
     context: "Retail and trading",
+    logo: "/proof/clients/dilkash-logo.png",
     quote:
       "A shop floor is busy and the cameras see everything and tell you nothing. PGAK set ours up so the alerts that reach my phone are the ones worth looking at, which is the part I had given up on.",
     // DRAFT — prepared for Rajiv Mittal to review. Not yet his words.
@@ -189,6 +206,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Manager",
     company: "Krishna Gases",
     context: "Industrial gases, Focal Point Ludhiana",
+    logo: "/proof/clients/krishna-gases-logo.png",
     quote:
       "Ours is a site where who enters and when actually matters. PGAK were practical about what the cameras could confirm and how quickly, and did not promise more than the setup could deliver.",
     // DRAFT — prepared for Akshay to review. Not yet his words.
@@ -198,11 +216,28 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "thangamman",
     person: "Ponraj",
     designation: "Head of Human Resources",
-    company: "Thangamman",
-    context: "Workforce and attendance",
+    company: "Thangamman Fashions",
+    context: "Garment manufacturing — workforce and attendance",
+    logo: "/proof/clients/thangamman-logo.png",
     quote:
       "Attendance was the reason we spoke to PGAK. They were straightforward about what face recognition handles well and where it needs a fallback, so we planned around the gaps instead of discovering them later.",
     // DRAFT — prepared for Ponraj to review. Not yet his words.
+    approval: { ...NO_APPROVAL },
+  },
+  {
+    id: "winda-systems",
+    // Attributed to the company, not a person, at the owner's instruction on
+    // 2026-09-25. See `relationship`: the contact here is a PGAK founder, so
+    // this is a related party and the card says so. Whoever approves it must
+    // still be someone at Winda who is accountable for the wording.
+    company: "Winda Systems",
+    context: "Aluminium window systems manufacturing",
+    relationship:
+      "Winda Systems is associated with a PGAK founder.",
+    quote:
+      "The assessment went camera by camera across the site before anything was proposed, and we were told plainly where the coverage was weak and what it would take to fix. That made the scope straightforward to agree internally.",
+    logo: "/proof/clients/winda-logo.webp",
+    // DRAFT — prepared for Winda Systems to review. Not yet their words.
     approval: { ...NO_APPROVAL },
   },
 ];

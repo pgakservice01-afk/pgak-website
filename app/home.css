@@ -579,3 +579,22 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Client mark on a testimonial card — shown only with logoPermission. */
+.h-quote__logo {
+  display: block;
+  max-width: 132px;
+  max-height: 38px;
+  width: auto;
+  height: auto;
+  margin: 18px 0 0;
+  object-fit: contain;
+}
+/* Related-party disclosure. Quiet, but never hidden. */
+.h-quote__relationship {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #5c6b7a;
+}

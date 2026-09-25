@@ -119,44 +119,76 @@ export function ClientVoices() {
           What business leaders value about our approach.
         </h2>
         <p className="h-lede">
-          Each quote below was confirmed in writing by the person named, who
-          approved this exact wording for publication.
+          Every quote below was confirmed in writing by the client it is
+          attributed to, who approved this exact wording for publication.
         </p>
 
         <div className="h-quotes">
-          {quotes.map((t) => (
-            <figure className="h-quote" key={t.id}>
-              <p>{t.quote}</p>
-              <figcaption className="h-quote__who">
-                <span className="h-avatar" aria-hidden={t.portrait ? undefined : true}>
-                  {/* A face only when the client sent us one and ticked the
-                      portrait permission. Otherwise initials — never a stock
-                      headshot, which reads as this person and is not. */}
-                  {t.portrait && t.approval.portraitPermission ? (
-                    <img
-                      src={t.portrait}
-                      width={96}
-                      height={96}
-                      loading="lazy"
-                      decoding="async"
-                      alt={`${t.person}, ${t.designation}, ${t.company}`}
-                    />
-                  ) : (
-                    initialsOf(t.person)
-                  )}
-                </span>
-                <span>
-                  <strong style={{ display: "block", fontSize: 15 }}>{t.person}</strong>
-                  <span className="h-note" style={{ margin: 0, display: "block" }}>
-                    {t.designation}, {t.company}
+          {quotes.map((t) => {
+            // A client may be quoted as themselves or as the company. Both are
+            // legitimate; what is not is a card that looks like a person said
+            // it when no person agreed to it.
+            const attribution = t.person ?? t.company;
+            const role = t.person
+              ? [t.designation, t.company].filter(Boolean).join(", ")
+              : t.context;
+
+            return (
+              <figure className="h-quote" key={t.id}>
+                <p>{t.quote}</p>
+
+                {/* Only ever the mark the client said we could use. Agreeing to
+                    a quote is not agreeing to hand over a trademark. */}
+                {t.logo && t.approval.logoPermission ? (
+                  <img
+                    className="h-quote__logo"
+                    src={t.logo}
+                    loading="lazy"
+                    decoding="async"
+                    alt={`${t.company} logo`}
+                  />
+                ) : null}
+
+                <figcaption className="h-quote__who">
+                  <span className="h-avatar" aria-hidden={t.portrait ? undefined : true}>
+                    {/* A face only when the client sent us one and ticked the
+                        portrait permission. Otherwise initials — never a stock
+                        headshot, which reads as this person and is not. */}
+                    {t.portrait && t.approval.portraitPermission ? (
+                      <img
+                        src={t.portrait}
+                        width={96}
+                        height={96}
+                        loading="lazy"
+                        decoding="async"
+                        alt={`${attribution}, ${role}`}
+                      />
+                    ) : (
+                      initialsOf(attribution)
+                    )}
                   </span>
-                  <span className="h-note" style={{ margin: 0, display: "block" }}>
-                    {t.context}
+                  <span>
+                    <strong style={{ display: "block", fontSize: 15 }}>
+                      {attribution}
+                    </strong>
+                    <span className="h-note" style={{ margin: 0, display: "block" }}>
+                      {role}
+                    </span>
+                    {t.person ? (
+                      <span className="h-note" style={{ margin: 0, display: "block" }}>
+                        {t.context}
+                      </span>
+                    ) : null}
+                    {/* Disclosed, not buried: a reader weighing this quote is
+                        entitled to know the client is not at arm's length. */}
+                    {t.relationship ? (
+                      <span className="h-quote__relationship">{t.relationship}</span>
+                    ) : null}
                   </span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </div>
     </section>
