@@ -208,17 +208,19 @@ export default function Home() {
             */}
             <figure className="h-figure">
               <img
-                src="/proof/anpr-camera-mount.webp"
-                width={1600}
-                height={1000}
+                src="/proof/ppe-line-hero.webp"
+                width={1200}
+                height={675}
                 fetchPriority="high"
                 decoding="async"
-                alt="A PGAK number-plate camera bolted to a concrete gate pillar at a commercial site entrance, angled down towards the approach road"
+                alt="Overhead CCTV of a vehicle assembly line with six workers marked by the model, each box drawn on a bare hand and labelled NO-Gloves with a confidence score"
               />
               <figcaption>
-                A PGAK camera as fitted to an existing gate pillar. Photographed
-                on site, mounted at roughly 1.5&nbsp;metres in daylight — where
-                a camera ends up sitting is most of whether it reads anything.
+                PGAK running on a customer&rsquo;s assembly line, 16:57 on a
+                working Wednesday. Six detections at once, each box on a hand
+                rather than a person, each carrying the model&rsquo;s own
+                confidence — including the low ones, which is what a supervisor
+                checks rather than what a system should act on alone.
               </figcaption>
             </figure>
           </div>
