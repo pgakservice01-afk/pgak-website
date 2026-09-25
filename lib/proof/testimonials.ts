@@ -3,27 +3,25 @@ import { NO_APPROVAL, publishable, sectionReady, type Approval, type ApprovalSta
 /**
  * Customer testimonials, and their approval state.
  *
- * ALL ELEVEN RECORDS ARE DRAFTS AGAIN. Nothing renders.
+ * TEN RECORDS ARE LIVE. Vedic Group is `rejected` and is not.
  *
- * They were approved on 2026-09-25 on the owner's account of phone calls with
- * each client, and then un-approved the same day: the owner read the published
- * wording and found it wrong — two designations were incorrect, and the quotes
- * described PGAK's manner rather than the capabilities the clients actually
- * use. The text has been rewritten around real features (face recognition,
- * false-alarm filtering, intrusion alerts, attendance automation, dwell time,
- * number-plate recognition).
+ * The wording is PGAK's, rewritten on 2026-09-25 around the capability each
+ * client's business turns on, after an earlier draft described PGAK's manner
+ * and got two job titles wrong. The owner then confirmed each client had agreed
+ * to the final text.
  *
- * Which is exactly why an approval is tied to wording rather than to a client.
- * Whatever those calls confirmed, it was not these sentences — they did not
- * exist yet. So every record went back to `draft` rather than carrying an
- * approval across a rewrite, and the section is dark until they are confirmed
- * again.
+ * Every `source` says what that confirmation actually is: the owner's word,
+ * dated, with nothing in writing behind it. That is deliberately unflattering.
+ * If a client ever says "I never agreed to that", what this file can produce is
+ * an attestation, not a message — and the person answering that question should
+ * discover it here rather than mid-conversation. Collect a WhatsApp reply or an
+ * email from each client when you can and replace the `source` with it; it is a
+ * five-minute job that turns an assertion into evidence.
  *
- * A caveat worth keeping in view: the features named in each quote were matched
- * to the client's line of business, not taken from their installation record.
- * Before sending any of these for confirmation, check that the client actually
- * uses what their quote says they use. A quote that names the wrong product is
- * still wrong after the client waves it through.
+ * Also unverified, and worth more than it sounds: the capability named in each
+ * quote was matched to the client's line of business, not read off their
+ * installation record. If Krishna Gases does not run number-plate recognition,
+ * that quote is false whoever approved it.
  *
  * TO ADD OR CHANGE ONE
  *   1. Send the client the exact `quote` text and ask them to confirm it, or
@@ -117,7 +115,16 @@ export const TESTIMONIALS: Testimonial[] = [
     // PNG or an SVG with the text converted to outlines.
     quote:
       "Sites change every week, so the intrusion alerts mattered more to us than the recording did. PGAK tuned them to the hours when nobody should be on site, and the false-alarm filtering is why my supervisors stopped ignoring their phones.",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Sunil Sangal",
+      source:
+        "Sunil Sangal confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "hagerstone-international",
@@ -128,7 +135,16 @@ export const TESTIMONIALS: Testimonial[] = [
     logo: "/proof/clients/hagerstone-logo.png",
     quote:
       "We hand over finished offices, so clients ask what the cameras will actually do. Face recognition at reception and the attendance reporting are the two things they understand immediately, and both ran on the cameras already specified.",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Dhruv Agarwal",
+      source:
+        "Dhruv Agarwal confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "vedic-group",
@@ -156,7 +172,16 @@ export const TESTIMONIALS: Testimonial[] = [
     logo: "/proof/clients/dobuild-logo.png",
     quote:
       "We plan buildings, so we notice when someone plans a camera layout properly. PGAK worked from the drawings, and the real-time intrusion alerts during construction caught the thing we had actually been worried about.",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Harman",
+      source:
+        "Harman confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "dilkash-traders",
@@ -167,7 +192,16 @@ export const TESTIMONIALS: Testimonial[] = [
     logo: "/proof/clients/dilkash-logo.png",
     quote:
       "A shop floor is busy, and the cameras saw everything and told me nothing. The dwell-time alerts flag someone lingering where stock goes missing, and the false-alarm filtering means the ones that reach my phone are worth opening.",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Rajiv Mittal",
+      source:
+        "Rajiv Mittal confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "lumani-systems",
@@ -178,7 +212,16 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Our plant runs long shifts. The attendance automation took away the register at the gate, and the intrusion alerts cover the yard once the second shift ends — both on cameras we had already installed.",
     logo: "/proof/clients/lumani-logo.png",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Mohit Kumar Singh",
+      source:
+        "Mohit Kumar Singh confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "uv-techno",
@@ -189,7 +232,16 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "The security alerts are the part we rely on. If somebody is in the yard outside working hours we hear about it while it is happening, instead of finding it in the footage the next morning when there is nothing left to do.",
     logo: "/proof/clients/uvtechno-logo.png",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Ashutosh Bansal",
+      source:
+        "Ashutosh Bansal confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "gebe-luxe",
@@ -200,7 +252,16 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Stock sits in the open, so night cover was the whole question. PGAK set the intrusion alerts on the yard and filtered out the strays and headlights, and were honest about what the cameras would show after dark.",
     logo: "/proof/clients/gebe-logo.svg",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Bhupesh",
+      source:
+        "Bhupesh confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "krishna-gases",
@@ -211,7 +272,16 @@ export const TESTIMONIALS: Testimonial[] = [
     logo: "/proof/clients/krishna-gases-logo.png",
     quote:
       "Cylinders move by vehicle, so which truck came in and when is the record that matters to us. The number-plate recognition gives us that automatically, instead of somebody writing it into a register at the gate.",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Akshay",
+      source:
+        "Akshay confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "thangamman",
@@ -222,7 +292,16 @@ export const TESTIMONIALS: Testimonial[] = [
     logo: "/proof/clients/thangamman-logo.png",
     quote:
       "Attendance was the reason we called PGAK. The face recognition attendance has removed the queue at shift change and the manual register with it, and they were straightforward about where it still needs a fallback.",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Ponraj",
+      source:
+        "Ponraj confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
   {
     id: "winda-systems",
@@ -237,7 +316,16 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "The assessment went camera by camera before anything was proposed. What we use daily is the intrusion alerting on the yard with the false triggers filtered out, so what reaches the team is worth acting on.",
     logo: "/proof/clients/winda-logo.webp",
-    approval: { ...NO_APPROVAL, logoPermission: true },
+    approval: {
+      status: "approved_for_publication",
+      approvedOn: "2026-09-25",
+      approverName: "Puneet Garg",
+      source:
+        "Puneet Garg confirmed this wording to Aditya Mittal (PGAK) on 2026-09-25. Owner-attested; nothing in writing on file. Replace this with the message or email if one is ever obtained.",
+      portraitPermission: false,
+      logoPermission: true,
+      sitePhotoPermission: false,
+    },
   },
 ];
 
