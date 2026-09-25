@@ -580,15 +580,27 @@
   }
 }
 
-/* Client mark on a testimonial card — shown only with logoPermission. */
+/*
+ * Client mark on a testimonial card — shown only with logoPermission.
+ *
+ * Height is set and width is auto, not the other way round. These marks arrive
+ * in every shape: Winda is 4:1, Hagerstone is square. Constraining width and
+ * leaving height auto caps the box but does not feed back into the auto width,
+ * so a square logo ends up in a 132px-wide box and `object-fit` letterboxes it
+ * into something tiny. Fixing the height instead lets the browser derive each
+ * width from the real aspect ratio, and a row of marks reads as one row.
+ */
 .h-quote__logo {
   display: block;
-  max-width: 132px;
-  max-height: 38px;
+  /* The card is a column flex container, so a block child stretches the full
+     width and `width: auto` never gets to use the intrinsic ratio. */
+  align-self: flex-start;
+  height: 44px;
   width: auto;
-  height: auto;
+  max-width: 160px;
   margin: 18px 0 0;
   object-fit: contain;
+  object-position: left center;
 }
 /* Related-party disclosure. Quiet, but never hidden. */
 .h-quote__relationship {

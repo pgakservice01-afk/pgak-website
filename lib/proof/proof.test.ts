@@ -70,27 +70,48 @@ test("the testimonial section stays hidden until two clients have approved", () 
     approved >= 2,
     "testimonialsReady() disagrees with the number of approved records",
   );
-  // As of writing, all three are drafts prepared FOR the clients to review.
-  // If this line starts failing, someone has approved one — which is good, and
-  // the number here should be updated to match reality.
-  assert.equal(
-    approved,
-    0,
-    "A testimonial is now approved. Confirm the written approval exists, then update this count.",
+  // This used to assert `approved === 0`, with a note to update the number
+  // once a client approved. Ten did, on 2026-09-25, so the count is no longer
+  // a useful thing to freeze — it would have to be edited by the same person
+  // approving the records, which is not a check on anything.
+  //
+  // What is worth asserting is that an approved record cannot be a bare flag:
+  // every one of them must carry evidence somebody could produce later.
+  for (const t of publishedTestimonials()) {
+    assert.ok(
+      t.approval.source.trim().length > 20,
+      `${t.id} is published with no meaningful record of where the approval came from`,
+    );
+    assert.ok(
+      t.approval.approverName.trim(),
+      `${t.id} is published without naming who approved it`,
+    );
+  }
+});
+
+test("a withdrawn client never reappears on the site", () => {
+  // Vedic Group was withdrawn by the owner on 2026-09-25 and is kept as a
+  // `rejected` record rather than deleted, so the instruction survives. This
+  // asserts it, because the failure mode is somebody adding the company back
+  // to a client list months from now without knowing it was pulled.
+  const vedic = TESTIMONIALS.find((x) => x.id === "vedic-group");
+  assert.ok(vedic, "vedic-group is missing — it should be present and rejected");
+  assert.equal(vedic.approval.status, "rejected", "vedic-group is no longer rejected");
+  assert.ok(
+    !publishedTestimonials().some((t) => t.id === "vedic-group"),
+    "a rejected client reached the published list",
   );
 });
 
-test("the drafted quotes are never treated as something the client said", () => {
-  // Every record starts life as text prepared for the client, not by them.
-  // This asserts the three supplied on 2026-09-24 are still gated.
-  const ids = ["sangal-constructions", "hagerstone-international", "vedic-group"];
-  for (const id of ids) {
-    const t = TESTIMONIALS.find((x) => x.id === id);
-    assert.ok(t, `${id} is missing`);
-    assert.notEqual(
-      t.approval.status,
-      PUBLISHABLE,
-      `${id} is marked approved — verify the client confirmed this exact wording in writing.`,
+test("nothing that is not approved can reach the page", () => {
+  // The general form of the test above: draft and rejected are both invisible,
+  // and only the one explicit status publishes.
+  for (const t of TESTIMONIALS) {
+    const visible = publishedTestimonials().some((x) => x.id === t.id);
+    assert.equal(
+      visible,
+      t.approval.status === PUBLISHABLE,
+      `${t.id} is ${t.approval.status} but ${visible ? "is" : "is not"} on the page`,
     );
   }
 });
@@ -130,8 +151,13 @@ test("the gate returns a copy, so a caller cannot reach the full list", () => {
 });
 
 test("sectionReady counts approvals, not records", () => {
-  assert.equal(sectionReady(TESTIMONIALS, 1), false);
-  assert.equal(sectionReady(TESTIMONIALS, 2), false);
+  const approved = publishedTestimonials().length;
+  // True at the threshold, false one above it — whatever today's total is.
+  assert.equal(sectionReady(TESTIMONIALS, approved), true);
+  assert.equal(sectionReady(TESTIMONIALS, approved + 1), false);
+  // And it counts approvals, not the length of the array: there are more
+  // records than approvals whenever anything is a draft or withdrawn.
+  assert.equal(sectionReady(TESTIMONIALS, TESTIMONIALS.length), TESTIMONIALS.length === approved);
 });
 
 test("initials never invent a face", () => {
