@@ -16,8 +16,15 @@ body {
   color: #17212b;
   font-family: Arial, Helvetica, sans-serif;
 }
+/*
+ * `break-word`, not `anywhere`. Both break a long URL or email that would
+ * otherwise overflow, but `anywhere` also shrinks an element's min-content
+ * width to a single character — which let flexbox squeeze the header links
+ * until every label broke mid-word ("Solution/s", "PGA/K"). `break-word`
+ * keeps the overflow protection without collapsing intrinsic widths.
+ */
 a {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 ::selection {
   background: #dcecff;
@@ -748,5 +755,38 @@ select:focus-visible {
 @media (max-width: 700px) {
   body:has(form:focus-within) .buyer-mobile-actions {
     display: none;
+  }
+}
+
+/*
+ * Header row. A nav label is a name, not prose, so none of these may wrap —
+ * that fixes the row's width to its content and leaves only the question of
+ * whether it fits. ("Sign in" and the skip link are two words each, so they
+ * still broke at the space once mid-word breaking was fixed.)
+ *
+ * The eleven links measure 864px and need the full 1232px .nav-inner, which
+ * at 32px side padding the viewport only affords from 1296px up. Below that
+ * the gap and type tighten so all eleven still sit on one line, down to
+ * 1024px where .desktop-nav gives way to the mobile menu (premium.css) that
+ * already lists every one of them. The 1319px cutoff leaves headroom over
+ * the 1296px floor for scrollbar-width differences between browsers.
+ *
+ * Last in the file on purpose: it has to win over the earlier max-width:1100
+ * block, which sets the wider gap.
+ */
+.desktop-nav a,
+.customer-login,
+.skip-link {
+  white-space: nowrap;
+}
+@media (max-width: 1319px) {
+  .desktop-nav {
+    gap: 10px;
+  }
+  .desktop-nav a {
+    font-size: 13px;
+  }
+  .nav-inner {
+    gap: 12px;
   }
 }
