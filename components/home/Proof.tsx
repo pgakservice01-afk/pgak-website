@@ -1,20 +1,21 @@
 import { publishedProjects, projectsReady } from "@/lib/proof/projects";
 import {
-  publishedTestimonials,
+  homepageTestimonials,
+  clientLogos,
   testimonialsReady,
   initialsOf,
 } from "@/lib/proof/testimonials";
 
 /**
- * The two sections of the homepage that make claims about real people and real
- * sites, and the only two that can hide themselves.
+ * The sections of the homepage that make claims about real people and real
+ * sites, and the only ones that can hide themselves.
  *
- * Both are server components. The records they read never reach the browser
- * bundle, so a draft testimonial cannot be recovered from the page source by a
- * curious visitor — it is filtered before any HTML exists. That matters more
- * than it sounds: the three quotes currently in lib/proof/testimonials.ts are
- * attributed to named, findable businesspeople who have not yet agreed to
- * them, and "it was only in the JavaScript bundle" would be no defence.
+ * All are server components. The records they read never reach the browser
+ * bundle, so a draft or withdrawn testimonial cannot be recovered from the
+ * page source by a curious visitor — it is filtered before any HTML exists.
+ * The quotes in lib/proof/testimonials.ts are attributed to named, findable
+ * businesspeople, and "it was only in the JavaScript bundle" would be no
+ * defence if one of them had not agreed.
  */
 
 /* ------------------------------------------------------------------ work */
@@ -25,25 +26,14 @@ export function RealWork() {
   const projects = publishedProjects();
 
   return (
-    <section className="h-sec" id="real-work" aria-labelledby="work-heading">
+    <section className="h-work" id="real-work" aria-labelledby="work-heading">
       <div className="h-wrap">
-        <p className="h-eyebrow">Real work. Real sites.</p>
-        <h2 id="work-heading">Built on site. Checked on site.</h2>
-        <p className="h-lede">
-          Technology creates value only when it works in the actual
-          environment. Our work begins with the physical site, the cameras
-          already installed and the operational reality of your business.
-        </p>
-        <p className="h-note">
-          Everything below was recorded by our own team on a working site. Each
-          one carries the conditions it was captured under and what it does not
-          prove, because a clip without its circumstances shows more than it
-          should.
-        </p>
+        <p className="h-eyebrow">See it working</p>
+        <h2 id="work-heading">Recorded by our team, on real sites.</h2>
 
-        <div className="h-grid h-grid--3">
+        <div className="h-work__grid">
           {projects.map((p) => (
-            <article className="h-project" key={p.id}>
+            <figure className="h-work__item" key={p.id}>
               {p.media.kind === "video" ? (
                 <video
                   // No autoplay, no sound, and nothing loads until the visitor
@@ -57,7 +47,6 @@ export function RealWork() {
                   width={1600}
                   height={1000}
                   aria-label={p.alt}
-                  style={{ display: "block", width: "100%", height: "auto" }}
                 >
                   <source src={p.media.src} type="video/mp4" />
                   <a href={p.media.src}>Download the clip ({p.title})</a>
@@ -70,29 +59,69 @@ export function RealWork() {
                   loading="lazy"
                   decoding="async"
                   alt={p.alt}
-                  style={{ display: "block", width: "100%", height: "auto" }}
                 />
               )}
 
-              <div className="h-project__meta">
-                <p className="h-project__tag">{p.category}</p>
+              <figcaption>
+                <p className="h-work__tag">{p.category}</p>
                 <h3>{p.title}</h3>
-                <p className="h-body">{p.description}</p>
-                <p className="h-project__caveat">
-                  <b>Conditions.</b> {p.conditions}
-                </p>
-                <p className="h-project__caveat">
-                  <b>What it does not show.</b> {p.limits}
-                </p>
-                <p className="h-body" style={{ marginTop: "auto", paddingTop: 8 }}>
-                  <a href={p.href} className="underline">
-                    More on this →
-                  </a>
-                </p>
-              </div>
-            </article>
+                {/*
+                  A clip without its circumstances shows more than it should, so
+                  every one still carries its conditions and what it does not
+                  prove (lib/proof/projects.ts) — one click away here, instead
+                  of two paragraphs under each video on the homepage.
+                */}
+                <details className="h-work__how">
+                  <summary>How this was recorded</summary>
+                  <p>{p.description}</p>
+                  <p>
+                    <b>Conditions.</b> {p.conditions}
+                  </p>
+                  <p>
+                    <b>What it does not show.</b> {p.limits}
+                  </p>
+                  <p>
+                    <a href={p.href} className="underline">
+                      More on this →
+                    </a>
+                  </p>
+                </details>
+              </figcaption>
+            </figure>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------- logo row */
+
+export function ClientLogos() {
+  /**
+   * "Businesses we've helped" — logos only, straight under the hero.
+   *
+   * Every mark comes from clientLogos(): approved clients who gave logo
+   * permission and have a mark on file, with any related party left out
+   * because a bare logo has no room for the disclosure. Fewer than three and
+   * the row hides — two lonely logos read as a gap, not as proof.
+   */
+  const logos = clientLogos();
+  if (logos.length < 3) return null;
+
+  return (
+    <section className="h-logos" aria-labelledby="logos-heading">
+      <div className="h-wrap">
+        <h2 id="logos-heading" className="h-logos__label">
+          Businesses we&rsquo;ve helped
+        </h2>
+        <ul className="h-logos__row">
+          {logos.map((t) => (
+            <li key={t.id}>
+              <img src={t.logo} alt={t.company} loading="lazy" decoding="async" />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -102,25 +131,29 @@ export function RealWork() {
 
 export function ClientVoices() {
   /**
-   * Renders nothing until two clients have approved in writing.
+   * The owner's three quotes (HOMEPAGE_TESTIMONIAL_IDS), or nothing.
    *
-   * Not a placeholder, not a "testimonials coming soon" strip, not a greyed-out
-   * card. An empty promise of proof is still a promise of proof, and a visitor
-   * who sees three blurred cards concludes the quotes exist. They do not yet.
+   * Hidden until two clients have approved, and hidden again if withdrawals
+   * leave fewer than two of the chosen three. Not a placeholder, not a
+   * "testimonials coming soon" strip, not a greyed-out card: an empty promise
+   * of proof is still a promise of proof.
    */
-  if (!testimonialsReady()) return null;
-  const quotes = publishedTestimonials();
+  const quotes = homepageTestimonials();
+  if (!testimonialsReady() || quotes.length < 2) return null;
 
   return (
-    <section className="h-sec h-sec--tint" id="clients" aria-labelledby="voices-heading">
+    <section className="h-sec" id="clients" aria-labelledby="voices-heading">
       <div className="h-wrap">
         <p className="h-eyebrow">Client voices</p>
         <h2 id="voices-heading">
           What business leaders value about our approach.
         </h2>
+        {/* Approved, not "confirmed in writing": every approval on file is the
+            owner's attestation, with nothing in writing yet (see the `source`
+            of each record). Say "in writing" again only once it is true. */}
         <p className="h-lede">
-          Every quote below was confirmed in writing by the client it is
-          attributed to, who approved this exact wording for publication.
+          Each quote below was approved for publication by the client it is
+          attributed to.
         </p>
 
         <div className="h-quotes">

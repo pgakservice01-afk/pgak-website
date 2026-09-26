@@ -209,6 +209,10 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Chief Executive Officer",
     company: "Lumani Systems",
     context: "Aluminium windows and doors manufacturing",
+    // Recorded 2026-09-27: Lumani is a brand of the Damsun group, which PGAK
+    // founder Puneet Garg leads (damsungroup.com; his LinkedIn). Same footing
+    // as Winda. The owner asked that it not appear on the homepage at all.
+    relationship: "Lumani Systems is associated with a PGAK founder.",
     quote:
       "Our plant runs long shifts. The attendance automation took away the register at the gate, and the intrusion alerts cover the yard once the second shift ends — both on cameras we had already installed.",
     logo: "/proof/clients/lumani-logo.png",
@@ -249,6 +253,10 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Director",
     company: "Gebe Luxe",
     context: "Luxury outdoor furniture",
+    // Recorded 2026-09-27: Gebe is a brand of the Damsun group, which PGAK
+    // founder Puneet Garg leads (damsungroup.com; his LinkedIn). Same footing
+    // as Winda. The owner asked that it not appear on the homepage at all.
+    relationship: "Gebe Luxe is associated with a PGAK founder.",
     quote:
       "Stock sits in the open, so night cover was the whole question. PGAK set the intrusion alerts on the yard and filtered out the strays and headlights, and were honest about what the cameras would show after dark.",
     logo: "/proof/clients/gebe-logo.svg",
@@ -332,6 +340,49 @@ export const TESTIMONIALS: Testimonial[] = [
 /** The only accessor the site may render from. */
 export function publishedTestimonials(): Testimonial[] {
   return publishable(TESTIMONIALS);
+}
+
+/**
+ * The clients quoted on the homepage, in display order — the owner's pick on
+ * 2026-09-27, cut from ten to three. The other approved quotes stay approved;
+ * they are simply not on this page. Lumani was in the first pick and came out
+ * once it was recorded as a related party (see its `relationship`); only
+ * arm's-length clients are quoted here. Before adding one, check the quote
+ * matches what that client really runs (see the capability warning above).
+ */
+export const HOMEPAGE_TESTIMONIAL_IDS = ["uv-techno", "krishna-gases", "thangamman"] as const;
+
+/**
+ * `ids`, in that order, drawn only from publishable records. Anything withdrawn
+ * or unknown is skipped rather than rendered, and nothing back-fills its slot.
+ */
+export function pickTestimonials(
+  records: readonly Testimonial[],
+  ids: readonly string[],
+): Testimonial[] {
+  const approved = publishable(records);
+  return ids
+    .map((id) => approved.find((t) => t.id === id))
+    .filter((t): t is Testimonial => t !== undefined);
+}
+
+export function homepageTestimonials(): Testimonial[] {
+  return pickTestimonials(TESTIMONIALS, HOMEPAGE_TESTIMONIAL_IDS);
+}
+
+/**
+ * The "Businesses we've helped" row: approved clients who gave logo permission
+ * and have a mark on file. A related party is left out, because a bare row of
+ * logos has no room for the disclosure its quote card carries.
+ */
+export function logoWall(records: readonly Testimonial[]): Testimonial[] {
+  return publishable(records).filter(
+    (t) => Boolean(t.logo) && t.approval.logoPermission && !t.relationship,
+  );
+}
+
+export function clientLogos(): Testimonial[] {
+  return logoWall(TESTIMONIALS);
 }
 
 /** Whether the homepage section may appear at all. Two approvals minimum. */

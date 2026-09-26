@@ -272,6 +272,8 @@
 
 .home-2026 .h-vhero__tagline {
   margin: 16px 0 0;
+  /* On a phone the line wraps; balance it instead of stranding one word. */
+  text-wrap: balance;
   font-size: clamp(20px, 2.4vw, 30px);
   line-height: 1.3;
   font-weight: 500;
@@ -318,23 +320,305 @@
   }
 }
 
-/* ------------------------------------------------------------------ hero */
+/* -------------------------------------------------------------- logo row */
 
-.home-2026 .h-hero {
-  display: grid;
-  gap: 48px;
-  padding-block: 80px 88px;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+/*
+ * "Businesses we've helped", straight under the hero. Marks arrive in every
+ * shape (Winda-style 4:1, Hagerstone square), so height is fixed and width
+ * follows the real aspect ratio — see .h-quote__logo for why not the reverse.
+ * Greyscale keeps eight different brand colours from turning the row into
+ * noise; each mark takes its colour back on hover.
+ */
+.home-2026 .h-logos {
+  padding-block: 44px 48px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.home-2026 .h-logos__label {
+  margin: 0 0 26px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.home-2026 .h-logos__row {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  gap: 32px 64px;
+}
+
+.home-2026 .h-logos__row img {
+  display: block;
+  height: 52px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.15);
+  opacity: 0.88;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.home-2026 .h-logos__row li:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .home-2026 .h-logos {
+    padding-block: 32px 36px;
+  }
+  .home-2026 .h-logos__row {
+    gap: 20px 30px;
+  }
+  .home-2026 .h-logos__row img {
+    height: 36px;
+    max-width: 120px;
+  }
+}
+
+/* ------------------------------------------------ 2026-09-27 homepage blocks */
+
+/*
+ * The restructured homepage: every block has one job and a lot of air around
+ * it. Four capability tiles that each hand off to their own page, a dark band
+ * for real footage, and one closing block to start. See app/page.tsx.
+ */
+
+.home-2026 .h-intro {
+  max-width: 720px;
+}
+
+/* What Ai Alerto does — four tiles, each a single link. */
+.home-2026 .h-caps {
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-2026 .h-cap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px 24px 24px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--paper);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.home-2026 .h-cap:hover {
+  border-color: var(--steel);
+  box-shadow: 0 18px 40px -28px rgba(31, 61, 99, 0.45);
+  transform: translateY(-2px);
+}
+
+.home-2026 .h-cap__n {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--steel);
+}
+
+.home-2026 .h-cap h3 {
+  margin-top: 18px;
+  font-size: 20px;
+}
+
+.home-2026 .h-cap p {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.home-2026 .h-cap__more {
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.home-2026 .h-caps__note {
+  margin-top: 32px;
+  max-width: 760px;
+}
+
+@media (max-width: 1024px) {
+  .home-2026 .h-caps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .home-2026 .h-caps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* See it working — real footage on a dark band, the page's one change of light. */
+.home-2026 .h-work {
+  padding-block: 104px;
+  background: #0b1017;
+  color: #ffffff;
+}
+
+.home-2026 .h-work .h-eyebrow {
+  color: #a9c1df;
+}
+
+.home-2026 .h-work h2 {
+  color: #ffffff;
+}
+
+.home-2026 .h-work__grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.home-2026 .h-work__item {
+  margin: 0;
+}
+
+.home-2026 .h-work__item video,
+.home-2026 .h-work__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #151c26;
+}
+
+.home-2026 .h-work__tag {
+  margin: 18px 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8fa6c4;
+}
+
+.home-2026 .h-work h3 {
+  color: #ffffff;
+}
+
+.home-2026 .h-work__how {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.home-2026 .h-work__how summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.home-2026 .h-work__how summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-2026 .h-work__how summary::after {
+  content: "+";
+  font-weight: 600;
+}
+
+.home-2026 .h-work__how[open] summary::after {
+  content: "\2212";
+}
+
+.home-2026 .h-work__how p {
+  margin: 10px 0 0;
+}
+
+.home-2026 .h-work__how a {
+  color: #ffffff;
+}
+
+.home-2026 .h-work a:focus-visible,
+.home-2026 .h-work summary:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .home-2026 .h-work {
+    padding-block: 72px;
+  }
+  .home-2026 .h-work__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Start here — three lines on the left, the form on the right. */
+.home-2026 .h-cta__wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.home-2026 .h-steps {
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 18px;
+}
+
+.home-2026 .h-steps li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.home-2026 .h-steps__n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--steel);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 940px) {
-  .home-2026 .h-hero {
+  .home-2026 .h-cta__wrap {
     grid-template-columns: 1fr;
     gap: 36px;
-    padding-block: 52px 60px;
   }
 }
+
+/* ------------------------------------------------------------- trust line */
 
 .home-2026 .h-trustline {
   margin: 26px 0 0;
@@ -345,100 +629,6 @@
   line-height: 1.6;
   color: var(--ink-soft);
   border-radius: 0 6px 6px 0;
-}
-
-.home-2026 .h-ticks {
-  margin: 24px 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 10px 26px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-
-@media (max-width: 560px) {
-  .home-2026 .h-ticks {
-    grid-template-columns: 1fr;
-  }
-}
-
-.home-2026 .h-ticks li {
-  display: flex;
-  gap: 9px;
-  align-items: flex-start;
-}
-
-.home-2026 .h-tick {
-  flex: none;
-  margin-top: 1px;
-  color: var(--steel);
-  font-weight: 700;
-}
-
-/* ------------------------------------------------------------ media card */
-
-.home-2026 .h-figure {
-  margin: 0;
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--paper-2);
-}
-
-.home-2026 .h-figure img,
-.home-2026 .h-figure video {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: var(--paper-3);
-}
-
-.home-2026 .h-figure figcaption {
-  padding: 14px 16px;
-  border-top: 1px solid var(--rule);
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink-faint);
-  background: var(--paper);
-}
-
-/*
- * The placeholder that stands in for photography PGAK has not supplied yet.
- *
- * It is deliberately plain and deliberately labelled. The alternative that got
- * this site into trouble before was filling the same slot with a generated
- * image, which reads as a real installation to every visitor and to Google.
- * An empty, honest frame is worth more than a convincing false one.
- */
-.home-2026 .h-placeholder {
-  display: grid;
-  place-items: center;
-  gap: 10px;
-  padding: 56px 28px;
-  text-align: center;
-  background:
-    repeating-linear-gradient(
-      135deg,
-      var(--paper-2) 0 12px,
-      var(--paper-3) 12px 24px
-    );
-  border: 1px dashed #c3ccd6;
-  border-radius: 12px;
-  color: var(--ink-faint);
-}
-
-.home-2026 .h-placeholder strong {
-  display: block;
-  font-size: 15px;
-  color: var(--ink-soft);
-}
-
-.home-2026 .h-placeholder span {
-  font-size: 13px;
-  max-width: 44ch;
-  line-height: 1.6;
 }
 
 /* ----------------------------------------------------------------- cards */
@@ -455,21 +645,16 @@
 .home-2026 .h-grid--3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.home-2026 .h-grid--4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 
 @media (max-width: 980px) {
-  .home-2026 .h-grid--3,
-  .home-2026 .h-grid--4 {
+  .home-2026 .h-grid--3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 680px) {
   .home-2026 .h-grid--2,
-  .home-2026 .h-grid--3,
-  .home-2026 .h-grid--4 {
+  .home-2026 .h-grid--3 {
     grid-template-columns: 1fr;
   }
 }

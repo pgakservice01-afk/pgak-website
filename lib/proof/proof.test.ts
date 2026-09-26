@@ -4,9 +4,14 @@ import assert from "node:assert/strict";
 import { approvalProblems, publishable, sectionReady, PUBLISHABLE } from "./consent.ts";
 import {
   TESTIMONIALS,
+  HOMEPAGE_TESTIMONIAL_IDS,
   publishedTestimonials,
   testimonialsReady,
   initialsOf,
+  pickTestimonials,
+  homepageTestimonials,
+  logoWall,
+  clientLogos,
 } from "./testimonials.ts";
 import { PROJECTS, publishedProjects } from "./projects.ts";
 
@@ -166,4 +171,54 @@ test("initials never invent a face", () => {
   // Honorifics are not initials. "Shri Anand Kumar Agrawal" is A.A., not S.A.
   assert.equal(initialsOf("Shri Anand Kumar Agrawal"), "AA");
   assert.equal(initialsOf("Priya"), "PR");
+});
+
+test("the homepage quotes are the owner's three, in order, and only while approved", () => {
+  assert.deepEqual(
+    homepageTestimonials().map((t) => t.id),
+    ["uv-techno", "krishna-gases", "thangamman"],
+  );
+
+  // A client who withdraws drops out on the next build; nothing re-fills the slot.
+  const withdrawn = TESTIMONIALS.map((t) =>
+    t.id === "krishna-gases"
+      ? { ...t, approval: { ...t.approval, status: "rejected" as const } }
+      : t,
+  );
+  assert.deepEqual(
+    pickTestimonials(withdrawn, HOMEPAGE_TESTIMONIAL_IDS).map((t) => t.id),
+    ["uv-techno", "thangamman"],
+  );
+
+  // An id that names no record is skipped, never rendered as an empty card.
+  assert.deepEqual(pickTestimonials(TESTIMONIALS, ["no-such-client"]), []);
+});
+
+test("the logo row shows only approved marks with logo permission, and no related party", () => {
+  const row = clientLogos();
+  assert.ok(row.length > 0, "the logo row is empty");
+  for (const t of row) {
+    assert.equal(t.approval.status, PUBLISHABLE, `${t.id} is in the row unapproved`);
+    assert.ok(t.logo, `${t.id} is in the row with no mark on file`);
+    assert.equal(t.approval.logoPermission, true, `${t.id} is in the row without logo permission`);
+    // A bare logo row has no room for the disclosure a quote card carries.
+    assert.equal(t.relationship, undefined, `${t.id} is a related party`);
+  }
+  const ids = row.map((t) => t.id);
+  for (const related of ["winda-systems", "gebe-luxe", "lumani-systems"]) {
+    assert.ok(!ids.includes(related), `${related} is a related party and reached the logo row`);
+  }
+  assert.ok(!ids.includes("sangal-constructions"), "a client with no mark on file reached the row");
+
+  // Permission is per client and can be taken back.
+  assert.ok(ids.includes("hagerstone-international"), "an arm's-length client with a mark is missing");
+  const revoked = TESTIMONIALS.map((t) =>
+    t.id === "hagerstone-international"
+      ? { ...t, approval: { ...t.approval, logoPermission: false } }
+      : t,
+  );
+  assert.ok(
+    !logoWall(revoked).some((t) => t.id === "hagerstone-international"),
+    "a revoked logo still shows",
+  );
 });

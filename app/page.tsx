@@ -5,14 +5,25 @@ import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
 import AssessmentForm from "@/components/home/AssessmentForm";
 import HeroVideo from "@/components/home/HeroVideo";
-import { ClientVoices, RealWork } from "@/components/home/Proof";
+import { ClientLogos, ClientVoices, RealWork } from "@/components/home/Proof";
 import { BUSINESS, pageMeta } from "@/lib/seo";
-import { organizationSchema, webPageSchema, faqSchema } from "@/lib/schema";
+import { organizationSchema, webPageSchema } from "@/lib/schema";
 
 import "./home.css";
 
 /**
- * The homepage, rebuilt 2026-09-24.
+ * The homepage, rebuilt 2026-09-24; restructured 2026-09-27.
+ *
+ * ── 2026-09-27: a front door, not a brochure ──
+ * The owner's brief: too much on the homepage, and the rest of the site
+ * already holds the detail. So the page is now six blocks, each with one job —
+ * hero, the businesses we have helped, four things Ai Alerto does (each handing
+ * off to its own page), real footage, three client quotes, and one way to
+ * start. The service cards, the "site-first" cards, the long intro, the
+ * mid-page call to action and the four-step process moved off the page; every
+ * one of them still lives on the pages the tiles and the nav link to. The FAQ
+ * markup went too: it described questions this page no longer shows, and
+ * structured data must match what a visitor can see.
  *
  * ── What changed and why ──
  * The previous homepage opened on a nighttime yard scene from Spot AI, a
@@ -66,76 +77,44 @@ export const metadata: Metadata = pageMeta({
   ],
 });
 
-const SERVICES = [
+/**
+ * What Ai Alerto does: four tiles, one line each, each handing off to the page
+ * that explains it properly. Wording follows the language rule above — no
+ * "every", no "instant", no accuracy claim; the PPE line says a supervisor
+ * checks, because that is what a detection is for.
+ */
+const CAPABILITIES = [
   {
-    title: "Existing CCTV assessment",
-    body: "We review your existing cameras, angles, video quality, blind spots, lighting and recording setup. You get a clear picture of what can be improved and what your current system can support.",
-    href: "/free-audit",
+    n: "01",
+    title: "Intrusion alerts",
+    body: "Someone in the yard after hours reaches your phone while it is happening, not in tomorrow's footage.",
+    href: "/smart-perimeter-protection",
   },
   {
-    title: "AI video analytics for CCTV",
-    body: "Where the camera setup is suitable, we help configure intelligent alerts around specific areas and events. This can reduce unnecessary video review and help your team focus on what needs attention.",
-    href: "/video-analytics-software",
+    n: "02",
+    title: "Number plates at the gate",
+    body: "Vehicles in and out, logged by plate, without a hand-written register.",
+    href: "/anpr-number-plate-recognition",
   },
   {
-    title: "New CCTV installation",
-    body: "For new sites, expansions or outdated systems, we plan camera positions, cabling, recording, storage and remote viewing around the way your site actually operates.",
-    href: "/cctv-installation-company",
+    n: "03",
+    title: "Face attendance",
+    body: "Staff are marked present as they walk in. No queue at shift change.",
+    href: "/face-recognition-attendance-system",
   },
   {
-    title: "Pilot before scale",
-    body: "Start with selected cameras and a defined requirement. Review the output in your real environment before deciding on a wider rollout.",
-    href: "/resources/evaluation-method",
-  },
-];
-
-const SITE_FIRST = [
-  {
-    title: "We check the ground reality.",
-    body: "We look at entrances, boundaries, loading areas, corridors, production areas, parking, blind spots and other locations that matter to your operation.",
-  },
-  {
-    title: "We explain what is practical.",
-    body: "We tell you what can be reused, what needs improvement and what should be planned properly from the beginning.",
-  },
-  {
-    title: "We create a clear next step.",
-    body: "You receive a practical scope — not confusing technical jargon or a one-size-fits-all package.",
+    n: "04",
+    title: "Safety and PPE",
+    body: "Missing gloves or helmets flagged on the line, for a supervisor to check.",
+    href: "/features/guides/ppe-detection",
   },
 ];
 
-const PROCESS = [
-  {
-    title: "Understand your site",
-    body: "We discuss the property, current CCTV setup, areas of concern and what your team needs to monitor.",
-  },
-  {
-    title: "Review the camera reality",
-    body: "We assess camera views, image quality, coverage gaps, lighting, network access and recording capability.",
-  },
-  {
-    title: "Recommend the right scope",
-    body: "You receive a practical recommendation that explains what can be reused, what needs improvement and what should be installed.",
-  },
-  {
-    title: "Pilot, deploy and support",
-    body: "Where appropriate, we start with selected cameras, review results in the real environment and then plan the next stage.",
-  },
-];
-
-const FAQS = [
-  {
-    q: "Will PGAK work with my existing CCTV?",
-    a: "Often, but it is checked rather than assumed. We look at whether your cameras and DVR or NVR expose compatible RTSP or ONVIF streams, and at placement, lighting and network quality, before confirming what can be reused. An on-site processing device may be needed.",
-  },
-  {
-    q: "What does the free CCTV assessment cover?",
-    a: "Camera views and image quality, coverage gaps and blind spots, lighting through the day, network access, recording and retention, and the entry and exit points that matter to your operation. You get a written picture of what your current system can and cannot support.",
-  },
-  {
-    q: "Do I have to replace my cameras?",
-    a: "Not necessarily, and we will say so if you do. Some sites can run analytics on the cameras already installed; others have a camera at the wrong height or facing the light, where no software will fix the view. The assessment is what tells the two apart.",
-  },
+/** The whole engagement in three lines — the detail lives on /free-audit. */
+const STEPS = [
+  "We check your cameras, lighting and coverage.",
+  "We switch on the alerts that fit your site.",
+  "Your team gets alerts worth answering.",
 ];
 
 export default function Home() {
@@ -150,7 +129,6 @@ export default function Home() {
               "PGAK assesses existing CCTV, plans new installations and configures practical AI video analytics for factories, warehouses, offices and institutions in India.",
           }),
           organizationSchema(),
-          faqSchema(FAQS),
         ]}
       />
       <Nav overlay />
@@ -179,12 +157,14 @@ export default function Home() {
             <HeroVideo />
           </div>
 
-          {/* On the video: the product name and the company tagline, nothing
-              else (owner's brief, 2026-09-26). The tagline is the one the logo
-              already carries on every page. */}
+          {/* On the video: the product name and one line, nothing else (owner's
+              brief, 2026-09-26). The line, chosen 2026-09-27, is the company's
+              founding observation — the cameras were already there — said as a
+              promise it can keep: no "never miss", no "instant", no accuracy
+              claim. "Intelligent Security" stays in the logo. */}
           <div className="h-wrap h-vhero__content">
             <h1 id="hero-heading">Ai Alerto</h1>
-            <p className="h-vhero__tagline">Intelligent Security</p>
+            <p className="h-vhero__tagline">Your cameras, finally paying attention.</p>
 
             <div className="h-actions">
               <a href="#assessment" className="h-btn h-btn--primary" data-cta="hero-assessment">
@@ -201,183 +181,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* The previous opening, moved out from over the video with its
-            wording unchanged. Its headline keeps the search phrases the hero
-            no longer carries, now as this section's heading. */}
-        <section className="h-wrap" aria-labelledby="intro-heading">
-          <div className="h-hero">
-            <div>
-              <p className="h-eyebrow">Intelligent CCTV for real business sites</p>
-              <h2 id="intro-heading">Make your CCTV more useful.</h2>
+        {/* ═══════════════════════════════ 2. BUSINESSES WE'VE HELPED */}
+        <ClientLogos />
+
+        {/* ══════════════════════════════════════ 3. WHAT AI ALERTO DOES */}
+        <section className="h-sec h-sec--tint" id="what-it-does" aria-labelledby="does-heading">
+          <div className="h-wrap">
+            <div className="h-intro">
+              <p className="h-eyebrow">What Ai Alerto does</p>
+              <h2 id="does-heading">Make your CCTV more useful.</h2>
               <p className="h-lede">
-                Your cameras already capture important activity. PGAK helps you
-                review the right areas, identify gaps and set up practical CCTV
-                intelligence around the events that matter to your business.
+                It runs on the cameras you already have, and tells your team only
+                what needs their attention.
               </p>
-              <p className="h-lede" style={{ marginTop: 14 }}>
-                We begin with your site — not a generic sales pitch.
-              </p>
+            </div>
 
-              <p className="h-trustline">
-                We first check your cameras, lighting, coverage, network and site
-                requirements before recommending any solution.
-              </p>
-
-              <ul className="h-ticks">
-                {[
-                  "Existing CCTV assessment",
-                  "New CCTV installation",
-                  "AI video analytics where suitable",
-                  "Clear scope before deployment",
-                ].map((t) => (
-                  <li key={t}>
-                    <span className="h-tick" aria-hidden="true">
-                      ✓
+            <ul className="h-caps">
+              {CAPABILITIES.map((c) => (
+                <li key={c.href}>
+                  <a className="h-cap" href={c.href}>
+                    <span className="h-cap__n" aria-hidden="true">
+                      {c.n}
                     </span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/*
-              A real frame, not an illustration of one: PGAK's PPE check running
-              on a customer's assembly line, detections and confidence scores as
-              the model drew them. It sat in the hero until the background loop
-              arrived; it stays directly under it because it is the first thing
-              on the page that shows the product actually working.
-            */}
-            <figure className="h-figure">
-              <img
-                src="/proof/ppe-line-hero.webp"
-                width={1200}
-                height={675}
-                loading="lazy"
-                decoding="async"
-                alt="Overhead CCTV of a vehicle assembly line with six workers marked by the model, each box drawn on a bare hand and labelled NO-Gloves with a confidence score"
-              />
-              <figcaption>
-                PGAK running on a customer&rsquo;s assembly line, 16:57 on a
-                working Wednesday. Six detections at once, each box on a hand
-                rather than a person, each carrying the model&rsquo;s own
-                confidence — including the low ones, which is what a supervisor
-                checks rather than what a system should act on alone.
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════ 2. WHAT PGAK DOES */}
-        <section className="h-sec h-sec--tint" id="what-we-do" aria-labelledby="services-heading">
-          <div className="h-wrap">
-            <p className="h-eyebrow">What PGAK does</p>
-            <h2 id="services-heading">Security starts with seeing the real picture.</h2>
-            <p className="h-lede">
-              Every site is different. A warehouse gate, school corridor, factory
-              floor, office reception and loading bay all need different camera
-              coverage and different response workflows.
-            </p>
-            <p className="h-lede" style={{ marginTop: 14 }}>
-              PGAK helps you make informed decisions before you invest.
-            </p>
-
-            <div className="h-grid h-grid--4">
-              {SERVICES.map((s) => (
-                <article className="h-card" key={s.title}>
-                  <h3>{s.title}</h3>
-                  <p className="h-body">{s.body}</p>
-                  <p className="h-body">
-                    <a href={s.href} className="underline">
-                      More on this →
-                    </a>
-                  </p>
-                </article>
-              ))}
-            </div>
-
-            <div className="h-actions">
-              <a href="#assessment" className="h-btn h-btn--primary" data-cta="services-assessment">
-                Get a site-specific recommendation
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══════════════════════════════════ 3. WHY SITE-FIRST */}
-        <section className="h-sec" id="site-first" aria-labelledby="sitefirst-heading">
-          <div className="h-wrap">
-            <p className="h-eyebrow">Why clients prefer a site-first approach</p>
-            <h2 id="sitefirst-heading">No generic package. No assumptions.</h2>
-            <p className="h-lede">
-              A good security setup depends on more than the camera model. It
-              depends on where the camera is placed, what it can see, how the
-              light changes, how people move through the site and who will act
-              when an alert comes in.
-            </p>
-
-            <div className="h-grid h-grid--3">
-              {SITE_FIRST.map((p, i) => (
-                <article className="h-card" key={p.title}>
-                  <span className="h-card__num" aria-hidden="true">
-                    {i + 1}
-                  </span>
-                  <h3>{p.title}</h3>
-                  <p className="h-body">{p.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════ 4. REAL WORK (hides if no media) */}
-        <RealWork />
-
-        {/* ═══════════════ 5. CLIENT VOICES (hides until 2 approvals) */}
-        <ClientVoices />
-
-        <section className="h-sec h-sec--tint" aria-labelledby="talk-heading">
-          <div className="h-wrap" style={{ maxWidth: 760 }}>
-            <h2 id="talk-heading">Want to speak with our team?</h2>
-            <p className="h-lede">
-              Tell us about your site, existing CCTV setup or upcoming project.
-              We will help you understand the practical next step.
-            </p>
-            <div className="h-actions">
-              <a href="#assessment" className="h-btn h-btn--primary" data-cta="mid-assessment">
-                Request a free assessment
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════ 6. HOW THE PROCESS WORKS */}
-        <section className="h-sec" id="process" aria-labelledby="process-heading">
-          <div className="h-wrap">
-            <p className="h-eyebrow">How the process works</p>
-            <h2 id="process-heading">A clear process before you invest.</h2>
-
-            <ol className="h-grid h-grid--4" style={{ listStyle: "none", padding: 0 }}>
-              {PROCESS.map((s, i) => (
-                <li className="h-card" key={s.title}>
-                  <span className="h-card__num" aria-hidden="true">
-                    {i + 1}
-                  </span>
-                  <h3>{s.title}</h3>
-                  <p className="h-body">{s.body}</p>
+                    <h3>{c.title}</h3>
+                    <p>{c.body}</p>
+                    <span className="h-cap__more" aria-hidden="true">
+                      Learn more →
+                    </span>
+                  </a>
                 </li>
               ))}
-            </ol>
+            </ul>
 
             {/*
-              The qualification, given the same weight as the promise.
-              Every analytics claim on this site is conditional on things a
-              brochure never mentions, and burying that in a footnote is how a
-              customer ends up disappointed on a site we told them would work.
+              The qualification keeps its place on the homepage, not only on a
+              deep page (docs/homepage-2026 §4). One line now, not a paragraph.
             */}
-            <p className="h-trustline" style={{ marginTop: 32 }}>
-              The availability and effectiveness of any CCTV analytics feature
-              depend on camera position, image quality, lighting, network
-              conditions, hardware and the agreed site workflow.{" "}
+            <p className="h-trustline h-caps__note">
+              What each alert can do depends on camera position, lighting and the
+              network — which is why we check your cameras first.{" "}
               <a href="/capabilities-explained" className="underline">
                 What analytics can and cannot do →
               </a>
@@ -385,19 +227,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════ 7. FINAL CTA */}
-        <section className="h-sec h-sec--tint" id="assessment" aria-labelledby="assess-heading">
-          <div className="h-wrap" style={{ maxWidth: 900 }}>
-            <p className="h-eyebrow">Book an assessment</p>
-            <h2 id="assess-heading">Start with an honest CCTV assessment.</h2>
-            <p className="h-lede">
-              Whether you have an existing CCTV system, a new facility under
-              construction or a security concern that needs a better process,
-              PGAK can help you evaluate the next practical step.
-            </p>
-            <div style={{ marginTop: 36 }}>
-              <AssessmentForm />
+        {/* ═══════════════════════════════════════════ 4. SEE IT WORKING */}
+        <RealWork />
+
+        {/* ═══════════════════════════════════════════ 5. CLIENT VOICES */}
+        <ClientVoices />
+
+        {/* ════════════════════════════════════════════════ 6. START HERE */}
+        <section className="h-sec h-sec--tint h-cta" id="assessment" aria-labelledby="assess-heading">
+          <div className="h-wrap h-cta__wrap">
+            <div>
+              <p className="h-eyebrow">Free CCTV assessment</p>
+              <h2 id="assess-heading">Start with the cameras you already have.</h2>
+              <ol className="h-steps">
+                {STEPS.map((step, i) => (
+                  <li key={step}>
+                    <span className="h-steps__n" aria-hidden="true">
+                      {i + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
             </div>
+            <AssessmentForm />
           </div>
         </section>
       </main>

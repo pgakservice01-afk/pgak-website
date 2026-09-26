@@ -225,6 +225,9 @@ Four independent guarantees:
 
 ## 5. QA checklist — verified
 
+_This table records the 2026-09-24 build. The page was restructured on
+2026-09-27 — see §7 for what changed and what was re-verified._
+
 | Area | Check | Result |
 |---|---|---|
 | Desktop 1280 | No horizontal overflow | ✅ `scrollWidth 1280 = innerWidth` |
@@ -272,3 +275,45 @@ untouched tree passed, confirming it was not the code.
 Cause: free disk space. Clearing npm's cache took the machine from 1.5 GB to
 2.0 GB free and the build passed immediately. **The machine is at ~87 % full
 and every deploy is a coin flip until that is fixed.**
+
+---
+
+## 7. Restructure — 2026-09-27
+
+The owner's brief: too much content on the homepage, and the rest of the site
+already holds the detail. The page is now six blocks, each with one job:
+
+| # | Block | What it does |
+|---|---|---|
+| 1 | Hero | Stock video montage (§1e), "Ai Alerto" / "Your cameras, finally paying attention.", two buttons. The nav sits on the video. |
+| 2 | Businesses we've helped | Logo row from `clientLogos()` — approved clients with logo permission and a mark on file, related parties excluded. Six marks today. |
+| 3 | What Ai Alerto does | "Make your CCTV more useful." + four tiles (intrusion alerts, number plates, face attendance, safety & PPE), each linking to its own page, + the one-line analytics qualification. |
+| 4 | See it working | The three PGAK-recorded clips on a dark band. Conditions and limits travel with every clip behind "How this was recorded". |
+| 5 | Client voices | `homepageTestimonials()` — U.V. Techno, Krishna Gases, Thangamman (owner's pick). |
+| 6 | Start here | Three steps + the assessment form (`#assessment`, which the hero button targets). |
+
+**Moved off the homepage** — all of it still lives on the pages the tiles and
+the nav link to: the long intro band and its photo, the four service cards
+(/free-audit, /video-analytics-software, /cctv-installation-company,
+/resources/evaluation-method), the "site-first" cards, the mid-page "speak with
+our team" block, and the four-step process.
+
+**Removed:** the FAQ JSON-LD. It described three questions the page no longer
+showed, and structured data must match what a visitor can see.
+
+**Related parties.** Gebe Luxe and Lumani Systems are brands of the Damsun
+group, led by PGAK founder Puneet Garg — the same footing as Winda. All three
+now carry `relationship`, which keeps them out of the logo row, and the owner
+asked that they not appear on the homepage at all. Lumani was replaced in the
+homepage quotes by Thangamman.
+
+**Corrected claim.** The testimonials section said every quote was "confirmed
+in writing". Every approval on file is owner-attested with nothing in writing,
+so it now says each quote "was approved for publication by the client". Say
+"in writing" again only once written confirmations are on file.
+
+**Re-verified 2026-09-27:** `tsc` clean; proof tests 13/13 (two new: the
+homepage quotes, the logo row's consent and related-party rules); localhost at
+1440 px and 375 px with no horizontal overflow; page height at 1440 px down
+from ~9,000 px to ~4,800 px.
+
