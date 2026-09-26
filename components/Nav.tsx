@@ -32,14 +32,6 @@ const groups: { label: string; href: string; items: NavLink[] }[] = [
     ],
   },
   {
-    label: "Pricing",
-    href: "/pricing",
-    items: [
-      ["/pricing", "Pricing"],
-      ["/calculators", "Calculators"],
-    ],
-  },
-  {
     label: "Insights",
     href: "/insights",
     items: [
@@ -53,6 +45,15 @@ const groups: { label: string; href: string; items: NavLink[] }[] = [
     items: [
       ["/our-story", "Our story"],
       ["/about", "Company"],
+    ],
+  },
+  // Last at the owner's request (2026-09-27).
+  {
+    label: "Pricing",
+    href: "/pricing",
+    items: [
+      ["/pricing", "Pricing"],
+      ["/calculators", "Calculators"],
     ],
   },
 ];
