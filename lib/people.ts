@@ -22,12 +22,12 @@
  * one is the exact failure this page exists to prevent.
  *
  * ONE COMPANY'S RECORD IS NOT ANOTHER'S
- * Ankur's verifiable public record is with Secured Engineers Pvt. Ltd., a
- * separate MEPF and Solar EPC company he founded in 2011. Those project counts
- * and savings figures belong to that company and are deliberately NOT restated
- * here as PGAK's, because a customer who checks would find PGAK claiming work
- * it did not do. His credentials are presented as his own, with the other
- * company named, which is both true and still worth a reader's confidence.
+ * The founders' public records belong to their other companies — Ankur's to
+ * Secured Engineers Pvt. Ltd. (MEPF and Solar EPC, founded 2011). On 2026-09-27
+ * the owner asked that the other companies not appear on PGAK's own pages, so
+ * Ankur's bio and credentials were removed rather than kept with that company
+ * named. Whatever goes back must describe the person, still follow the truth
+ * rule above, and never restate another company's work as PGAK's.
  */
 
 export type Person = {
@@ -69,8 +69,20 @@ export const PEOPLE: Person[] = [
     founder: true,
     linkedin: "https://www.linkedin.com/in/puneetgarg-damsun/",
     photo: "/team/puneet-garg.webp",
-    bio: [],
-    credentials: [],
+    // Person-focused at the owner's request (2026-09-27): what he has built,
+    // not the name of the company he built it at. Every figure is from his
+    // public LinkedIn headline (the `source`); the project count is left out
+    // because public copies of it disagree (10,261+ and 10,661+).
+    bio: [
+      "Puneet Garg founded and leads a manufacturing group in doors, windows, façades and outdoor furniture that now works across 28 Indian states and five countries, with four factories and more than 600 people.",
+      "He brings PGAK the view of an owner who runs factories and large project sites every day — the kind of site PGAK's cameras and alerts are built for.",
+    ],
+    credentials: [
+      "Founder & CMD of a manufacturing group",
+      "28 states · 5 countries · 600+ people",
+      "Published author",
+    ],
+    source: "https://www.linkedin.com/in/puneetgarg-damsun/",
   },
   {
     slug: "ankur-kaplesh",
@@ -78,17 +90,10 @@ export const PEOPLE: Person[] = [
     role: "Founder",
     founder: true,
     photo: "/team/ankur-kaplesh.webp",
-    bio: [
-      "An engineer-entrepreneur who founded Secured Engineers Pvt. Ltd. in 2011 and has run it as Founder & CMD since — an ISO 9001:2015-certified MEPF and Solar EPC contractor working in industrial, commercial and infrastructure projects across India.",
-      "That is a different company and a different trade from PGAK's, and the work belongs to it rather than here. What it brings to PGAK is fifteen years of being accountable for what happens on a live industrial site — which is the kind of site PGAK's software has to work on.",
-    ],
-    credentials: [
-      "Founder & CMD, Secured Engineers Pvt. Ltd. (since 2011)",
-      "15+ years in MEPF and Solar EPC",
-      "TEDx speaker",
-      "Published author",
-    ],
-    source: "https://www.securedengineers.com/authors/ankur-kaplesh/",
+    // Secured Engineers bio and credentials removed at the owner's request
+    // (2026-09-27) — see "ONE COMPANY'S RECORD IS NOT ANOTHER'S" above.
+    bio: [],
+    credentials: [],
   },
   {
     slug: "aditya-mittal",

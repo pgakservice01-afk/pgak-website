@@ -132,7 +132,16 @@ export default function LeadershipPage() {
 
               <div className="flex flex-col gap-6">
                 {PEOPLE.map((person) => (
-                  <div key={person.slug} id={person.slug} className="card scroll-mt-24 p-8">
+                  // The `!` utilities undo premium.css's "legacy card" rule
+                  // (main:not(.premium-home) .card), which strips side padding
+                  // and borders so cards read as flat rows on a white page.
+                  // These sit on the grey bg-bg-2 band, where that left three
+                  // white boxes with their content jammed against the edges.
+                  <div
+                    key={person.slug}
+                    id={person.slug}
+                    className="card scroll-mt-24 p-8 !rounded-2xl !border !border-line !px-8 max-sm:!px-6"
+                  >
                     <div className="flex flex-wrap items-center gap-5">
                       {person.photo ? (
                         <Image
@@ -191,7 +200,9 @@ export default function LeadershipPage() {
                           {person.name} on LinkedIn ↗
                         </a>
                       )}
-                      {person.source && (
+                      {/* When the source is the LinkedIn profile already
+                          linked beside it, one link is enough. */}
+                      {person.source && person.source !== person.linkedin && (
                         <a
                           href={person.source}
                           rel="noopener noreferrer"
