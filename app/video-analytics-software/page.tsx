@@ -16,6 +16,20 @@ export default function Page() {
       eyebrow="PLATFORM GUIDE"
     >
       <section>
+        <h2>What video analytics software does</h2>
+        <p>
+          <strong>
+            Straight answer: video analytics software reads a feed from cameras
+            that are already installed and flags one defined event — a person
+            crossing a boundary, a vehicle stopping where it should not, a
+            camera that has gone dark — so a person reviews the exception
+            instead of watching every screen. The decision worth making is
+            which single event it must detect, and what evidence shows it does
+            so on your own cameras.
+          </strong>
+        </p>
+      </section>
+      <section>
         <h2>What the analytics layer does</h2>
         <p>
           A scoped analytics deployment evaluates a defined event rather than

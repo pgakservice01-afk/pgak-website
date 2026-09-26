@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import PlanningCalculator from "@/components/b2b/PlanningCalculator";
@@ -34,6 +35,16 @@ export default function Page() {
         <p>
           Updated 19 September 2026. Confirm the final specification with your
           recorder/storage supplier.
+        </p>
+        <p>
+          Working out how many days of footage you actually keep, rather than
+          how much disk to buy?{" "}
+          <Link
+            href="/insights/cctv-storage-how-many-days"
+            className="text-link"
+          >
+            How many days is CCTV footage stored? →
+          </Link>
         </p>
         <PrintButton />
       </section>
