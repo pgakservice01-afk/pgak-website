@@ -790,3 +790,130 @@ select:focus-visible {
     gap: 12px;
   }
 }
+
+/*
+ * Grouped header, 2026-09-26: four dropdown menus instead of eleven links
+ * (components/Nav.tsx). CSS only — :hover for a mouse, :focus-within for the
+ * keyboard. Four labels fit at every width the desktop row is shown (above
+ * 1024px), so the tightening just above, sized for eleven, is undone here;
+ * that is also why this block has to stay last.
+ */
+.desktop-nav {
+  gap: 30px;
+}
+.nav-inner {
+  gap: 24px;
+}
+.nav-group {
+  position: relative;
+}
+.desktop-nav .nav-group__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding-block: 10px;
+  font-size: 14px;
+}
+.nav-group__caret {
+  font-size: 10px;
+  opacity: 0.65;
+  transition: transform 0.15s ease;
+}
+.nav-group:hover .nav-group__caret,
+.nav-group:focus-within .nav-group__caret {
+  transform: rotate(180deg);
+}
+.nav-group__menu {
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  z-index: 70;
+  display: grid;
+  min-width: 200px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 10px;
+  box-shadow: 0 14px 34px rgba(15, 25, 35, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  /* visibility waits for the fade on the way out, not on the way in */
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+.nav-group:hover .nav-group__menu,
+.nav-group:focus-within .nav-group__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+.desktop-nav .nav-group__menu a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: #17212b;
+  font-size: 14px;
+}
+.desktop-nav .nav-group__menu a:hover {
+  background: #f1f4f8;
+  text-decoration: none;
+}
+.nav-action-link {
+  color: #3c4a59;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-action-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.mobile-nav__group {
+  display: grid;
+  align-content: start;
+}
+.mobile-nav__label {
+  margin: 6px 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7785;
+}
+
+/*
+ * Overlay header: transparent over a page that opens on a full-bleed picture
+ * (the homepage video). Only the bar goes see-through — the dropdowns and the
+ * mobile panel stay white with dark text, so nothing inside them depends on
+ * what the video happens to be showing.
+ */
+.site-nav--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  /* the Logo wordmark and tagline read these */
+  --c-ink: 255 255 255;
+  --c-ink-soft: 203 214 227;
+}
+.site-nav--overlay .desktop-nav .nav-group__top,
+.site-nav--overlay .nav-action-link,
+.site-nav--overlay .mobile-nav summary {
+  color: #fff;
+}
+.site-nav--overlay .nav-group__caret {
+  opacity: 0.85;
+}
+.site-nav--overlay .mobile-nav nav,
+.site-nav--overlay .mobile-nav nav a {
+  color: #17212b;
+}
+.site-nav--overlay .nav-inner > a:focus-visible,
+.site-nav--overlay .nav-group__top:focus-visible,
+.site-nav--overlay .nav-action-link:focus-visible,
+.site-nav--overlay .mobile-nav summary:focus-visible {
+  outline-color: #fff;
+}

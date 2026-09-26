@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
 import AssessmentForm from "@/components/home/AssessmentForm";
+import HeroVideo from "@/components/home/HeroVideo";
 import { ClientVoices, RealWork } from "@/components/home/Proof";
 import { BUSINESS, pageMeta } from "@/lib/seo";
 import { organizationSchema, webPageSchema, faqSchema } from "@/lib/schema";
@@ -21,9 +22,14 @@ import "./home.css";
  * who scrolled the whole page never saw PGAK's own work above the fold.
  *
  * Everything borrowed or generated now lives on /capabilities-explained, each
- * item labelled. This page carries only material PGAK recorded itself, and the
- * sections that would carry customer proof hide themselves until that proof is
- * approved (see lib/proof/consent.ts).
+ * item labelled. Everything on this page that shows work, a site or a result is
+ * material PGAK recorded itself, and the sections that would carry customer
+ * proof hide themselves until that proof is approved (see lib/proof/consent.ts).
+ *
+ * The one exception, added 2026-09-26 at the owner's request, is the hero's
+ * background loop: licensed stock of a city at night, there for mood only. It
+ * shows no PGAK site and no feature, so it is uncaptioned and aria-hidden, and
+ * it must stay that way (see components/home/HeroVideo.tsx).
  *
  * ── Why the palette is scoped, not global ──
  * The brief asks for white ground, graphite text and a steel-blue accent. The
@@ -145,15 +151,62 @@ export default function Home() {
           faqSchema(FAQS),
         ]}
       />
-      <Nav />
+      <Nav overlay />
 
       <main id="main-content" className="home-2026" data-money-page="home">
         {/* ═══════════════════════════════════════════════════ 1. HERO */}
-        <section className="h-wrap" aria-labelledby="hero-heading">
+        {/*
+          Full-bleed background loop behind the opening message only.
+          The poster <img> is the LCP element and the only thing a phone ever
+          loads; HeroVideo adds the loop on wider screens. Both are decorative
+          stock, hence alt="" and aria-hidden — see the note at the top.
+        */}
+        <section className="h-vhero" aria-labelledby="hero-heading">
+          <div className="h-vhero__media" aria-hidden="true">
+            <img
+              className="h-vhero__poster"
+              src="/hero/city-night-1920.webp"
+              srcSet="/hero/city-night-960.webp 960w, /hero/city-night-1920.webp 1920w"
+              sizes="100vw"
+              width={1920}
+              height={1080}
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+            />
+            <HeroVideo />
+          </div>
+
+          {/* On the video: the product name and the company tagline, nothing
+              else (owner's brief, 2026-09-26). The tagline is the one the logo
+              already carries on every page. */}
+          <div className="h-wrap h-vhero__content">
+            <h1 id="hero-heading">Ai Alerto</h1>
+            <p className="h-vhero__tagline">Intelligent Security</p>
+
+            <div className="h-actions">
+              <a href="#assessment" className="h-btn h-btn--primary" data-cta="hero-assessment">
+                Request a free CCTV assessment
+              </a>
+              <a
+                href={`tel:${BUSINESS.phoneE164}`}
+                className="h-btn h-btn--ghost"
+                data-cta="hero-specialist"
+              >
+                Talk to a security specialist
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* The previous opening, moved out from over the video with its
+            wording unchanged. Its headline keeps the search phrases the hero
+            no longer carries, now as this section's heading. */}
+        <section className="h-wrap" aria-labelledby="intro-heading">
           <div className="h-hero">
             <div>
               <p className="h-eyebrow">Intelligent CCTV for real business sites</p>
-              <h1 id="hero-heading">Make your CCTV more useful.</h1>
+              <h2 id="intro-heading">Make your CCTV more useful.</h2>
               <p className="h-lede">
                 Your cameras already capture important activity. PGAK helps you
                 review the right areas, identify gaps and set up practical CCTV
@@ -162,19 +215,6 @@ export default function Home() {
               <p className="h-lede" style={{ marginTop: 14 }}>
                 We begin with your site — not a generic sales pitch.
               </p>
-
-              <div className="h-actions">
-                <a href="#assessment" className="h-btn h-btn--primary" data-cta="hero-assessment">
-                  Request a free CCTV assessment
-                </a>
-                <a
-                  href={`tel:${BUSINESS.phoneE164}`}
-                  className="h-btn h-btn--ghost"
-                  data-cta="hero-specialist"
-                >
-                  Talk to a security specialist
-                </a>
-              </div>
 
               <p className="h-trustline">
                 We first check your cameras, lighting, coverage, network and site
@@ -199,19 +239,18 @@ export default function Home() {
             </div>
 
             {/*
-              A real photograph, not an illustration of one.
-              This is PGAK's own ANPR camera as actually fitted to a gate
-              pillar — one of four original assets the company has. It is here
-              rather than something more dramatic because something more
-              dramatic would have had to be generated, and a generated hero on
-              a page arguing "we check before we promise" defeats the page.
+              A real frame, not an illustration of one: PGAK's PPE check running
+              on a customer's assembly line, detections and confidence scores as
+              the model drew them. It sat in the hero until the background loop
+              arrived; it stays directly under it because it is the first thing
+              on the page that shows the product actually working.
             */}
             <figure className="h-figure">
               <img
                 src="/proof/ppe-line-hero.webp"
                 width={1200}
                 height={675}
-                fetchPriority="high"
+                loading="lazy"
                 decoding="async"
                 alt="Overhead CCTV of a vehicle assembly line with six workers marked by the model, each box drawn on a bare hand and labelled NO-Gloves with a confidence score"
               />

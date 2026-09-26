@@ -63,6 +63,19 @@ a lost original is not.
 The testimonial section **does not render** until two of these reach
 `approved_for_publication`. See §3.
 
+### 1e. Licensed stock on the homepage (added 2026-09-26)
+
+| Asset | Used as | Provenance |
+|---|---|---|
+| `/hero/city-night.mp4` (15 s loop, 1920×1080, 3.6 MB) + `city-night-1920.webp` / `-960.webp` posters | Hero background, behind the headline | Pexels video 39457313, *Aerial Night View of Bengaluru Metro Cityscape*, Pexels License. Chosen by the owner for mood. 4K master and licence note: `~/Documents/Zoom/pgak-website-graphics/hero-video/` |
+
+This is the only thing on the homepage PGAK did not record, and it is allowed
+only because it shows no PGAK site, customer or feature. It is therefore
+**uncaptioned, `alt=""` and `aria-hidden`**. Never caption it as a client site,
+as Ludhiana, or as PGAK footage. Phones, reduced-motion users and Data Saver
+get the poster only; the loop plays muted on screens ≥ 768 px
+(`components/home/HeroVideo.tsx`).
+
 ---
 
 ## 2. CMS schema
@@ -172,7 +185,9 @@ Four independent guarantees:
 
 - [x] Zero Spot AI assets on the homepage (was 4)
 - [x] Zero generated/AI imagery on the homepage
-- [x] Every homepage image and video is PGAK-original
+- [x] Every homepage image and video that shows work, a site or a result is
+      PGAK-original. Sole exception: the decorative hero background loop,
+      licensed stock, uncaptioned (§1e)
 - [x] Every illustrative visual on `/capabilities-explained` carries the exact
       required disclaimer — 3 of 3 verified in the DOM
 - [x] `/capabilities-explained` is `noindex, follow` and deliberately absent
@@ -203,7 +218,7 @@ Four independent guarantees:
 | Forms | Every field has a `<label for>` | ✅ 10 of 10 |
 | Forms | Honeypot present, not named `company` | ✅ |
 | Forms | Fields reach the CRM, none dropped | ✅ company → `company` col; requirement + contact time → `message` |
-| Media | No autoplay | ✅ `autoplay: false` on both |
+| Media | No autoplay on the proof videos | ✅ `autoplay: false` on both. The hero background (§1e) is the exception: muted loop, ≥ 768 px only, never on phones, reduced motion or Data Saver |
 | Media | Controls present | ✅ |
 | Media | Poster before load | ✅ |
 | Media | `preload="none"` (no bytes until play) | ✅ |

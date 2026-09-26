@@ -35,14 +35,10 @@
 
   background: var(--paper);
   color: var(--ink);
-  /* The shared nav is fixed at 76px (68px under 1024px, see premium.css). */
-  padding-top: 76px;
-}
-
-@media (max-width: 1024px) {
-  .home-2026 {
-    padding-top: 68px;
-  }
+  /* No top offset: on this page the nav is <Nav overlay /> and sits on top of
+     the hero video rather than above it. (It used to be fixed at 76px, which
+     is what this padding was for; once the nav stopped being fixed, the
+     padding had been leaving a blank 76px strip.) */
 }
 
 /* ---------------------------------------------------------------- layout */
@@ -195,6 +191,131 @@
   outline: 3px solid var(--steel);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* ------------------------------------------------------------ video hero */
+
+/*
+ * Full-bleed background loop behind the opening message (added 2026-09-26).
+ *
+ * The shade is what makes this work, not the clip: text sits on the left, so
+ * the gradient is darkest there (white text on it is well past 12:1) and opens
+ * up to the right where the lit buildings are. Under 768px there is no video
+ * at all, only the poster, and the shade evens out because the text spans the
+ * whole width.
+ */
+.home-2026 .h-vhero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: min(92svh, 880px);
+  /* the overlay nav is 76px tall (68px under 1024px) and sits inside this */
+  padding-block: calc(76px + 64px) 96px;
+  background: #0b1017;
+  color: #ffffff;
+}
+
+.home-2026 .h-vhero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.home-2026 .h-vhero__poster,
+.home-2026 .h-vhero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%;
+}
+
+.home-2026 .h-vhero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(8, 12, 18, 0.88) 0%, rgba(8, 12, 18, 0.66) 44%, rgba(8, 12, 18, 0.2) 100%),
+    linear-gradient(0deg, rgba(8, 12, 18, 0.55) 0%, rgba(8, 12, 18, 0) 38%);
+}
+
+/* The nav's container, not .h-wrap's, so "Ai Alerto" starts exactly under the
+   logo: .nav-inner is 1232px wide with 32px sides (24px under 700px) in
+   buyer.css, where .h-wrap is 1180px with 24px. */
+.home-2026 .h-vhero__content {
+  position: relative;
+  max-width: 1232px;
+  padding-inline: 32px;
+}
+
+@media (max-width: 700px) {
+  .home-2026 .h-vhero__content {
+    padding-inline: 24px;
+  }
+}
+
+/* By id, not `.h-vhero h1`: premium.css sizes every first-section h1 on the
+   site with `main:not(.premium-home):not(.demo-page) section:first-of-type h1`
+   (above 1024px), which outranks any two-class selector and was capping this
+   title at 68px. */
+.home-2026 #hero-heading {
+  max-width: none;
+  font-size: clamp(52px, 8vw, 112px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.home-2026 .h-vhero__tagline {
+  margin: 16px 0 0;
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* On the dark ground the steel button would sink into the picture, so the
+   pair inverts: solid white first, outlined white second. */
+.home-2026 .h-vhero .h-btn--primary {
+  background: #ffffff;
+  color: var(--steel);
+}
+.home-2026 .h-vhero .h-btn--primary:hover {
+  background: #e3eaf3;
+}
+
+.home-2026 .h-vhero .h-btn--ghost {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+.home-2026 .h-vhero .h-btn--ghost:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.home-2026 .h-vhero a:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .home-2026 .h-vhero {
+    padding-top: calc(68px + 56px);
+  }
+}
+
+@media (max-width: 767px) {
+  .home-2026 .h-vhero {
+    min-height: min(78svh, 640px);
+    padding-block: calc(68px + 48px) 56px;
+  }
+  .home-2026 .h-vhero::after {
+    background: linear-gradient(180deg, rgba(8, 12, 18, 0.62) 0%, rgba(8, 12, 18, 0.84) 100%);
+  }
 }
 
 /* ------------------------------------------------------------------ hero */
