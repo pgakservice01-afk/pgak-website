@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 
 import CalculatorPage from "@/components/calc/CalculatorPage";
@@ -24,6 +25,14 @@ export default function Page() {
       }}
     >
       <StorageCalc />
+      <p>
+        <Link
+          href="/insights/cctv-storage-how-many-days"
+          className="text-link"
+        >
+          How many days is CCTV footage stored? →
+        </Link>
+      </p>
     </CalculatorPage>
   );
 }
