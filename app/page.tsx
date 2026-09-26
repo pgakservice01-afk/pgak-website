@@ -27,9 +27,11 @@ import "./home.css";
  * proof hide themselves until that proof is approved (see lib/proof/consent.ts).
  *
  * The one exception, added 2026-09-26 at the owner's request, is the hero's
- * background loop: licensed stock of a city at night, there for mood only. It
- * shows no PGAK site and no feature, so it is uncaptioned and aria-hidden, and
- * it must stay that way (see components/home/HeroVideo.tsx).
+ * background loop: a montage of licensed stock shots (a city at night,
+ * CCTV-style views of a boundary, a gate and a warehouse, a lighthouse), there
+ * for mood only. It shows no PGAK site, feed or feature, so it is
+ * uncaptioned and aria-hidden, and it must stay that way (see
+ * components/home/HeroVideo.tsx).
  *
  * ── Why the palette is scoped, not global ──
  * The brief asks for white ground, graphite text and a steel-blue accent. The
@@ -165,8 +167,8 @@ export default function Home() {
           <div className="h-vhero__media" aria-hidden="true">
             <img
               className="h-vhero__poster"
-              src="/hero/city-night-1920.webp"
-              srcSet="/hero/city-night-960.webp 960w, /hero/city-night-1920.webp 1920w"
+              src="/hero/security-mix-1920.webp"
+              srcSet="/hero/security-mix-960.webp 960w, /hero/security-mix-1920.webp 1920w"
               sizes="100vw"
               width={1920}
               height={1080}

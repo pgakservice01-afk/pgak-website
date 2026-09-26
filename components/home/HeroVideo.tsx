@@ -9,13 +9,17 @@ import { useEffect, useRef, useState } from "react";
  * in the browser and confirmed a wide screen, no reduced-motion preference and
  * no Data Saver. Until then — and always, on a phone — the poster <img> that the
  * page renders underneath is what shows, so first paint and LCP never wait on
- * 3.6 MB of video. The poster is the loop's own first frame, so the moment the
+ * 2.8 MB of video. The poster is the loop's own first frame, so the moment the
  * video starts is invisible.
  *
- * The clip is licensed stock (Pexels 39457313, a city at night), used for mood.
- * It is aria-hidden and uncaptioned on purpose: it is not a PGAK site and must
- * never be presented as one. Master file and licence note live outside the repo
- * in pgak-website-graphics/hero-video/.
+ * The loop is a montage of five licensed stock shots (Pexels, 2026-09-27): a
+ * city at night, three monochrome CCTV-style views (a boundary wall, an
+ * entrance gate, a warehouse floor) and a lighthouse flashing — night, what the
+ * cameras see, alert. It is aria-hidden and
+ * uncaptioned on purpose: none of it is a PGAK site, and the CCTV-style shots
+ * are stock filmed to look like camera views, not PGAK feeds. Sources,
+ * timecodes and the render recipe live outside the repo in
+ * pgak-website-graphics/hero-video/.
  */
 const WANTS_MOTION = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
 
@@ -51,8 +55,8 @@ export default function HeroVideo() {
     <video
       ref={ref}
       className="h-vhero__video"
-      src="/hero/city-night.mp4"
-      poster="/hero/city-night-1920.webp"
+      src="/hero/security-mix.mp4"
+      poster="/hero/security-mix-1920.webp"
       autoPlay
       muted
       loop

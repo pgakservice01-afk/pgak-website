@@ -63,11 +63,29 @@ a lost original is not.
 The testimonial section **does not render** until two of these reach
 `approved_for_publication`. See §3.
 
-### 1e. Licensed stock on the homepage (added 2026-09-26)
+### 1e. Licensed stock on the homepage (added 2026-09-26, montage 2026-09-27)
 
-| Asset | Used as | Provenance |
+`/hero/security-mix.mp4` (15.3 s seamless loop, 1920×1080, 2.8 MB) +
+`security-mix-1920.webp` / `-960.webp` posters, behind the headline. A montage
+of five Pexels clips (Pexels License), each verified as a true ≥ 3840×2160
+source, graded to one night look — night, what the cameras see, alert. The
+three middle shots are monochrome "camera feed" views cut hard together; the
+rest cross-fade:
+
+| Shot | Pexels video | Source timecode |
 |---|---|---|
-| `/hero/city-night.mp4` (15 s loop, 1920×1080, 3.6 MB) + `city-night-1920.webp` / `-960.webp` posters | Hero background, behind the headline | Pexels video 39457313, *Aerial Night View of Bengaluru Metro Cityscape*, Pexels License. Chosen by the owner for mood. 4K master and licence note: `~/Documents/Zoom/pgak-website-graphics/hero-video/` |
+| City at night | 39457313, *Aerial Night View of Bengaluru Metro Cityscape* | 19–23.5 s |
+| CCTV view: boundary | 3725903, *An Old Iron Gate In Front Of A House* (cropped to the razor-wire wall top) | 3–6 s |
+| CCTV view: gate | 32078487, *Automated Garage Door Closing at Night* | 11–14 s |
+| CCTV view: inside | 4284182, *Men Getting Items from the Shelves in the Warehouse* (overhead) | 3–6 s |
+| Alert | 6256795, *Close-Up Shot of a Flashing Light from the Lighthouse* | 3–7.5 s |
+
+The CCTV-style shots are stock filmed to look like camera views — they are
+not PGAK feeds or customer sites, which is why nothing in the hero is
+captioned. Chosen 2026-09-27 by the owner's brief (boundary, gate, inside the
+factory) after a search of ~340 true-4K Pexels clips plus the other free and
+paid libraries. Render recipe and the Bengaluru 4K master:
+`~/Documents/Zoom/pgak-website-graphics/hero-video/`.
 
 This is the only thing on the homepage PGAK did not record, and it is allowed
 only because it shows no PGAK site, customer or feature. It is therefore
