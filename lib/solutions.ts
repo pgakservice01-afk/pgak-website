@@ -52,6 +52,14 @@ export type SolutionGroup = "security" | "attendance" | "platform";
 export type SolutionProof = {
   heading: string;
   intro: string;
+  /**
+   * Overrides the block's default "From a working install" label. Set it
+   * whenever the material is NOT from a live customer install — demo and test
+   * footage has to say so where the eye lands first, not only in `conditions`.
+   */
+  eyebrow?: string;
+  /** Optional next step, rendered after `limits`. */
+  cta?: { href: string; label: string };
   items: {
     src: string;
     alt: string;
@@ -2336,6 +2344,35 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "industrial-cctv",
     group: "security",
+    proof: {
+      eyebrow: "From our own test setup",
+      heading: "Hot work flagged beside flammable storage",
+      intro:
+        "Eleven seconds of PGAK's own demonstration footage — a test setup, not a customer site. Two things are detected in the same frame: the grinding work, and what it is happening next to.",
+      items: [
+        {
+          src: "/proof/hot-work-poster.webp",
+          video: { src: "/proof/hot-work.mp4", durationSeconds: 11 },
+          alt:
+            "Plant camera view of a worker in a hard hat grinding a pipe and throwing a spray of sparks across the floor, with a red box labelled Hot Work Activity around him and a second red box labelled Flammable Material around three drums on a pallet to the right",
+          width: 1920,
+          height: 1080,
+          title: "Two detections in one frame",
+          caption:
+            "A man in a hard hat runs an angle grinder along a pipe and the sparks carry several metres across the floor. One box marks the hot work. A second marks three drums on a pallet, two of them carrying flammable hazard diamonds. Neither detection is interesting on its own — a plant runs grinders all day, and drums sit on pallets all day. What a safety officer would want to be told is that the two are in the same frame at the same moment, which is the condition a hot work permit exists to control.",
+          conditions:
+            "The clip carries its own burned-in overlay: 18 February 2025, 15:24:40, Camera 01, from a fixed elevated view in daylight. The camera model, its distance from the work and the detection confidence figures are not published here yet — they are being confirmed, and this caption will be updated with them rather than estimated.",
+          redaction:
+            "The vessel identifier T-201A is legible in the background and has been left in, as this is PGAK's own test footage and not a customer's plant. No audio track.",
+        },
+      ],
+      limits:
+        "This detects an activity and a material class appearing together. It does not know whether a hot work permit was issued, does not measure the distance between the sparks and the drums, and is not a fire detection or suppression system. What it produces is a prompt for a person to go and look, which is worth only as much as the response behind it.",
+      cta: {
+        href: "/free-audit",
+        label: "Ask what your own plant cameras could flag",
+      },
+    },
     navLabel: "Industrial CCTV",
     primaryKeyword: "industrial CCTV",
     relatedKeywords: [
@@ -2344,6 +2381,10 @@ export const SOLUTIONS: Solution[] = [
       "warehouse CCTV",
       "industrial security camera system",
       "CCTV for manufacturing plants",
+      "cctv camera for warehouse",
+      "security cameras for warehouse",
+      "warehouse video surveillance",
+      "camera setup for factory",
     ],
     title:
       "Industrial CCTV for Factories & Warehouses | PGAK",

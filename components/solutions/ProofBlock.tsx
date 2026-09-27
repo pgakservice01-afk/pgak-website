@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import ProofVideo from "@/components/ProofVideo";
 
@@ -22,7 +23,7 @@ export default function ProofBlock({ proof }: { proof: SolutionProof }) {
   return (
     <section className="sec" aria-labelledby="proof-heading">
       <div className="wrap">
-        <span className="eyebrow">From a working install</span>
+        <span className="eyebrow">{proof.eyebrow ?? "From a working install"}</span>
         <h2
           id="proof-heading"
           className="display mt-4 max-w-[24ch] text-[clamp(1.6rem,3vw,2.3rem)]"
@@ -86,6 +87,14 @@ export default function ProofBlock({ proof }: { proof: SolutionProof }) {
         <p className="mt-8 max-w-[68ch] text-[0.9rem] leading-relaxed text-ink-faint">
           {proof.limits}
         </p>
+
+        {proof.cta && (
+          <p className="mt-6">
+            <Link href={proof.cta.href} className="text-accent underline">
+              {proof.cta.label}
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );
