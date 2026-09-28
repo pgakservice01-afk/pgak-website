@@ -286,7 +286,7 @@ already holds the detail. The page is now six blocks, each with one job:
 | # | Block | What it does |
 |---|---|---|
 | 1 | Hero | Stock video montage (§1e), "Ai Alerto" / "Your cameras, finally paying attention.", two buttons. The nav sits on the video. |
-| 2 | Businesses we've helped | Logo row from `clientLogos()` — approved clients with logo permission and a mark on file, related parties excluded. Six marks today. |
+| 2 | Businesses we've helped | Logo row from `clientLogos()` — approved clients with logo permission and a mark on file, related parties excluded. Six marks today, 64 px tall (44 px on phones), each with the company name under it (owner's ask, 2026-09-28). U.V. Techno's mark on file is its Gallus Target Training logo. |
 | 3 | What Ai Alerto does | "Make your CCTV more useful." + four tiles (intrusion alerts, number plates, face attendance, safety & PPE), each linking to its own page, + the one-line analytics qualification. |
 | 4 | See it working | The three PGAK-recorded clips on a dark band. Conditions and limits travel with every clip behind "How this was recorded". |
 | 5 | Client voices | `homepageTestimonials()` — U.V. Techno, Krishna Gases, Thangamman (owner's pick). |

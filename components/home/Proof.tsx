@@ -115,10 +115,13 @@ export function ClientLogos() {
         <h2 id="logos-heading" className="h-logos__label">
           Businesses we&rsquo;ve helped
         </h2>
+        {/* The name sits under each mark, so the image is decorative (alt="")
+            and a screen reader hears each company once, not twice. */}
         <ul className="h-logos__row">
           {logos.map((t) => (
             <li key={t.id}>
-              <img src={t.logo} alt={t.company} loading="lazy" decoding="async" />
+              <img src={t.logo} alt="" loading="lazy" decoding="async" />
+              <span className="h-logos__name">{t.company}</span>
             </li>
           ))}
         </ul>

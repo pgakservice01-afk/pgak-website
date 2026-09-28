@@ -345,6 +345,8 @@
   color: var(--ink-faint);
 }
 
+/* Each item is a mark with the company's name under it. Every mark is the
+   same height, so top-aligning the items keeps the names on one line. */
 .home-2026 .h-logos__row {
   margin: 0;
   padding: 0;
@@ -352,19 +354,36 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  gap: 36px 60px;
+}
+
+.home-2026 .h-logos__row li {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 32px 64px;
+  gap: 12px;
 }
 
 .home-2026 .h-logos__row img {
   display: block;
-  height: 52px;
+  height: 64px;
   width: auto;
-  max-width: 170px;
+  max-width: 200px;
   object-fit: contain;
   filter: grayscale(1) contrast(1.15);
   opacity: 0.88;
   transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.home-2026 .h-logos__name {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .home-2026 .h-logos__row li:hover img {
@@ -372,16 +391,30 @@
   opacity: 1;
 }
 
+.home-2026 .h-logos__row li:hover .h-logos__name {
+  color: var(--ink);
+}
+
+/* Phones: three to a row, orphans centred, and long names may wrap. */
 @media (max-width: 760px) {
   .home-2026 .h-logos {
     padding-block: 32px 36px;
   }
   .home-2026 .h-logos__row {
-    gap: 20px 30px;
+    gap: 26px 16px;
+  }
+  .home-2026 .h-logos__row li {
+    width: calc((100% - 32px) / 3);
+    gap: 10px;
   }
   .home-2026 .h-logos__row img {
-    height: 36px;
-    max-width: 120px;
+    height: 44px;
+    max-width: 100%;
+  }
+  .home-2026 .h-logos__name {
+    font-size: 12px;
+    white-space: normal;
+    text-wrap: balance;
   }
 }
 
