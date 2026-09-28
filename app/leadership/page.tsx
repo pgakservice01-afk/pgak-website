@@ -200,9 +200,12 @@ export default function LeadershipPage() {
                           {person.name} on LinkedIn ↗
                         </a>
                       )}
-                      {/* When the source is the LinkedIn profile already
-                          linked beside it, one link is enough. */}
-                      {person.source && person.source !== person.linkedin && (
+                      {/* One link per person, and the person's own profile
+                          first: the source link shows only for someone with
+                          no LinkedIn. The owner asked (2026-09-27) that the
+                          founders' other companies not be linked from here;
+                          `source` stays in lib/people.ts as the evidence. */}
+                      {person.source && !person.linkedin && (
                         <a
                           href={person.source}
                           rel="noopener noreferrer"

@@ -89,11 +89,24 @@ export const PEOPLE: Person[] = [
     name: "Ankur Kaplesh",
     role: "Founder",
     founder: true,
+    linkedin: "https://www.linkedin.com/in/ankurkaplesh/",
     photo: "/team/ankur-kaplesh.webp",
-    // Secured Engineers bio and credentials removed at the owner's request
-    // (2026-09-27) — see "ONE COMPANY'S RECORD IS NOT ANOTHER'S" above.
-    bio: [],
-    credentials: [],
+    // Person-focused at the owner's request (2026-09-28), like Puneet's: what
+    // he has done, not the name of the company he did it at, and none of that
+    // company's project counts (see "ONE COMPANY'S RECORD IS NOT ANOTHER'S").
+    // Every line is on the author page in `source`; the page shows his
+    // LinkedIn instead of linking to the other company.
+    bio: [
+      "Ankur Kaplesh is an engineer-entrepreneur who founded an MEPF and solar engineering firm in 2011 and has led it since, on industrial, commercial and infrastructure sites across India.",
+      "He brings PGAK fifteen years of being accountable for what happens on a live industrial site — the kind of site PGAK's software has to work on.",
+    ],
+    credentials: [
+      "Founder & CMD of an MEPF and solar engineering firm (since 2011)",
+      "15+ years in MEPF and Solar EPC",
+      "TEDx speaker",
+      "Published author",
+    ],
+    source: "https://www.securedengineers.com/authors/ankur-kaplesh/",
   },
   {
     slug: "aditya-mittal",

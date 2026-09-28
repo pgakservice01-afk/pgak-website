@@ -16,19 +16,21 @@ import {
 } from "@/lib/lead-client";
 
 /**
- * The two-field ask: WhatsApp number and camera count, one button.
+ * The three-field ask: WhatsApp number, city and camera count, one button.
  *
  * Why so little: the full form at #dealer asked five things and sat eighteen
- * sections down the homepage. For an Indian SMB buyer on a phone, two fields
- * in the first screen convert several times better — and camera count is the
- * one number the quote needs anyway. Name and city come on the call.
+ * sections down the homepage. For an Indian SMB buyer on a phone, a short form
+ * in the first screen converts several times better. All three fields became
+ * compulsory on 2026-09-28 at the owner's request: the city routes the enquiry
+ * to a dealer and the camera count is the one number the quote needs, so an
+ * enquiry without them costs a call just to ask. Name comes on the call.
  *
  * Three offers share the component so every page asks for the same two
  * things but promises the right one:
  *   - audit     → the free camera audit (hero, /free-audit)
  *   - quote     → a per-camera number on the call (/pricing)
  *   - checklist → the printable buying checklist, delivered on the spot
- *                 (guides). Camera count is optional here: it is a lighter ask.
+ *                 (guides).
  *
  * Same invariants as the full form: inputs are uncontrolled and the form
  * stays mounted through every failure, so nothing typed is ever lost; one
@@ -71,13 +73,14 @@ export default function QuickLead({
   const [status, setStatus] = useState<Status>("idle");
   const [receiptToken, setReceiptToken] = useState<string>();
   const [error, setError] = useState("");
+  // Which field the error is about, so only that one is announced as invalid.
+  const [errorField, setErrorField] = useState<"" | "phone" | "location" | "cameras">("");
   const [retryable, setRetryable] = useState(true);
   const typed = useRef<LeadValues>({ phone: "", cameras: "" });
 
   const refRef = useRef<string | null>(null);
   if (refRef.current === null) refRef.current = mintRef();
 
-  const camerasRequired = false;
   const pending = useRef(false);
 
   const copy = {
@@ -95,7 +98,7 @@ export default function QuickLead({
       formName: "demo_request",
       badge: "Demo",
       head: "See PGAK for your site",
-      sub: "Two fields to get started",
+      sub: "Three quick fields to get started",
     },
     audit: {
       button: t("Request a camera check →", "मुफ़्त कैमरा ऑडिट पाएँ →"),
@@ -112,8 +115,8 @@ export default function QuickLead({
       badge: t("Free", "मुफ़्त"),
       head: t(`Camera readiness assessment`, `कैमरा रेडीनेस आकलन`),
       sub: t(
-        `Phone required · camera count optional`,
-        `फ़ोन आवश्यक · कैमरा संख्या वैकल्पिक`,
+        `Phone, city and camera count`,
+        `फ़ोन, शहर और कैमरा संख्या`,
       ),
     },
     quote: {
@@ -130,7 +133,7 @@ export default function QuickLead({
       formName: "quick_quote_request",
       badge: t("Quote", "कोटेशन"),
       head: t("Your site-specific quote", "आपका प्रति-कैमरा आँकड़ा, उसी दिन"),
-      sub: t("2 fields, 20 seconds", "2 फ़ील्ड, 20 सेकंड"),
+      sub: t("3 fields, 30 seconds", "3 फ़ील्ड, 30 सेकंड"),
     },
     checklist: {
       button: t("Send me the checklist →", "मुझे चेकलिस्ट भेजें →"),
@@ -170,6 +173,7 @@ export default function QuickLead({
     };
 
     if (!normalisePhone(phone)) {
+      setErrorField("phone");
       setError(
         t(
           "Please enter a valid 10-digit Indian phone number.",
@@ -178,7 +182,13 @@ export default function QuickLead({
       );
       return;
     }
-    if (camerasRequired && !cameras) {
+    if (!location) {
+      setErrorField("location");
+      setError(t("Please enter your city.", "कृपया अपना शहर लिखें।"));
+      return;
+    }
+    if (!cameras) {
+      setErrorField("cameras");
       setError(
         t(
           "Roughly how many cameras do you have?",
@@ -189,6 +199,7 @@ export default function QuickLead({
     }
 
     setError("");
+    setErrorField("");
     pending.current = true;
     setStatus("sending");
     const out = await submitLead(typed.current, {
@@ -204,6 +215,7 @@ export default function QuickLead({
       return;
     }
     if (out.kind === "fieldErrors") {
+      setErrorField(out.fieldErrors.phone ? "phone" : out.fieldErrors.cameras ? "cameras" : "phone");
       setError(
         out.fieldErrors.phone ??
           out.fieldErrors.cameras ??
@@ -319,29 +331,30 @@ export default function QuickLead({
             inputMode="tel"
             autoComplete="tel"
             required
-            aria-invalid={Boolean(error)}
-            aria-describedby={error ? `${cta}-error` : undefined}
+            aria-invalid={errorField === "phone"}
+            aria-describedby={errorField === "phone" ? `${cta}-error` : undefined}
             placeholder={t("Phone / WhatsApp number", "फ़ोन / WhatsApp नंबर")}
             className="field-input"
           />
         </label>
-        {/* Optional, and last of the three, because the b2b form's whole
-            argument is that a phone number is enough to start. But the city
-            is what routes the enquiry to a dealer, and asking costs one
-            field: without it routing has to guess from the page, which is
+        {/* Required since 2026-09-28: the city is what routes the enquiry to
+            a dealer. Without it routing has to guess from the page, which is
             wrong for every visitor who is not enquiring about where they
             happen to be reading. */}
         <label htmlFor={`${cta}-location`}>
-          {t("City (optional)", "शहर (वैकल्पिक)")}
+          {t("City", "शहर")}
           <input
             id={`${cta}-location`}
             name="location"
             type="text"
             autoComplete="address-level2"
+            required
+            aria-invalid={errorField === "location"}
+            aria-describedby={errorField === "location" ? `${cta}-error` : undefined}
             placeholder={
               cityHint
                 ? t(`City — e.g. ${cityHint}`, `शहर — जैसे ${cityHint}`)
-                : t("City (optional)", "शहर (वैकल्पिक)")
+                : t("City", "शहर")
             }
             className="field-input"
           />
@@ -351,15 +364,15 @@ export default function QuickLead({
           <select
             id={`${cta}-cameras`}
             name="cameras"
-            required={camerasRequired}
+            required
+            aria-invalid={errorField === "cameras"}
+            aria-describedby={errorField === "cameras" ? `${cta}-error` : undefined}
             key={initialCameras}
             defaultValue={initialCameras}
             className="field-input"
           >
-            <option value="" disabled={camerasRequired}>
-              {camerasRequired
-                ? t("How many cameras?", "कितने कैमरे?")
-                : t("How many cameras? (optional)", "कितने कैमरे? (वैकल्पिक)")}
+            <option value="" disabled>
+              {t("How many cameras?", "कितने कैमरे?")}
             </option>
             {CAMERA_OPTIONS.map((o) => (
               <option key={o} value={o}>

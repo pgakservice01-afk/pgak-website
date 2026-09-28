@@ -11,9 +11,9 @@ export default function DealerForm({
     <section id="dealer" className="buyer-wrap buyer-section">
       <h2 className="text-3xl font-semibold">Discuss your camera setup</h2>
       <p className="my-6 max-w-[65ch] text-ink-soft">
-        Start with your phone number. Camera count is optional. We will clarify
-        the intended use case and agree assessment scope and timing with you. Do
-        not submit camera credentials or footage.
+        Share your phone number, city and camera count. We will clarify the
+        intended use case and agree assessment scope and timing with you. Do not
+        submit camera credentials or footage.
       </p>
       <QuickLead
         cta={`project-${variant}`}
@@ -24,13 +24,8 @@ export default function DealerForm({
             : "Technical camera assessment requested."
         }
       />
-      <p className="text-sm mt-4">
-        By submitting, you ask PGAK to contact you about this enquiry.{" "}
-        <a href="/privacy" className="underline">
-          Privacy notice
-        </a>
-        .
-      </p>
+      {/* The consent line lives inside QuickLead, under its button. A second
+          copy here printed the same sentence twice. */}
     </section>
   );
 }
