@@ -59,7 +59,7 @@ export type SocialName =
 
 export type SocialProfile = {
   name: SocialName;
-  /** Handle as it is shown to a reader, e.g. "@pgak.innovations". */
+  /** Handle as it is shown to a reader, e.g. "@ai.alerto". */
   handle: string;
   /** Full profile URL — or "" while the profile is not live yet. */
   url: string;
@@ -77,9 +77,11 @@ export type SocialProfile = {
  */
 export const SOCIAL: readonly SocialProfile[] = [
   {
+    // @pgak.innovations was suspended in September 2026; the brand's
+    // Instagram now lives on the product account.
     name: "Instagram",
-    handle: "@pgak.innovations",
-    url: "https://www.instagram.com/pgak.innovations/",
+    handle: "@ai.alerto",
+    url: "https://www.instagram.com/ai.alerto/",
   },
   {
     name: "Facebook",
