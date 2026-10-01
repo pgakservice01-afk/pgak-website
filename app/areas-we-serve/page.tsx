@@ -127,6 +127,15 @@ export default function AreasPage() {
                   Become a partner →
                 </Link>
               </div>
+              <p className="mt-6 text-[0.9rem] text-ink-faint">
+                Living abroad and the property is here?{" "}
+                <Link
+                  href="/nri-property-security"
+                  className="text-accent underline underline-offset-4"
+                >
+                  NRI property security in Punjab →
+                </Link>
+              </p>
             </div>
           </div>
         </section>

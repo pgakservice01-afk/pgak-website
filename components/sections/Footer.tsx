@@ -29,6 +29,7 @@ const groups = [
       ["/contact", "Contact & support"],
       ["/partners", "Dealer / integrator enquiries"],
       ["/residential-security", "Residential security"],
+      ["/nri-property-security", "NRI property security"],
       ["/live", "Customer sign in"],
     ],
   },

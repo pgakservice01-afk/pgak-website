@@ -71,6 +71,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...(newestPost ? { lastModified: newestPost } : {}),
     },
     { url: `${SITE_URL}/areas-we-serve` },
+    // Bespoke route, not generated from SOLUTIONS/LOCATIONS, so it is indexed
+    // by nothing unless it is named here.
+    { url: `${SITE_URL}/nri-property-security` },
     { url: `${SITE_URL}/partners` },
     { url: `${SITE_URL}/contact` },
     { url: `${SITE_URL}/about` },

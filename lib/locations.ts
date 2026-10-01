@@ -80,11 +80,22 @@ export type Location = {
    * better answer for the reader.
    */
   solutionSlugs?: string[];
+  /**
+   * True where NRI-owned property is a genuine local pattern — the Doaba belt
+   * and the Majha districts, not every city we serve. Adds a short cross-link
+   * to /nri-property-security.
+   *
+   * Set it from local fact, not from a wish to spread links: an NRI callout on
+   * the Coimbatore or Noida page would be the kind of identical block on every
+   * city page that lib/locations.ts warns about at the top of this file.
+   */
+  nriBelt?: boolean;
 };
 
 export const LOCATIONS: Location[] = [
   {
     slug: "ludhiana",
+    nriBelt: true,
     city: "Ludhiana",
     region: "Punjab",
     hasOffice: true,
@@ -159,6 +170,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "jalandhar",
+    nriBelt: true,
     city: "Jalandhar",
     region: "Punjab",
     hasOffice: false,
@@ -229,6 +241,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "amritsar",
+    nriBelt: true,
     city: "Amritsar",
     region: "Punjab",
     hasOffice: false,
@@ -369,6 +382,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "patiala",
+    nriBelt: true,
     city: "Patiala",
     region: "Punjab",
     hasOffice: false,
@@ -649,6 +663,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "moga",
+    nriBelt: true,
     city: "Moga",
     region: "Punjab",
     hasOffice: false,
@@ -719,6 +734,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "hoshiarpur",
+    nriBelt: true,
     city: "Hoshiarpur",
     region: "Punjab",
     hasOffice: false,
@@ -789,6 +805,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "batala",
+    nriBelt: true,
     city: "Batala",
     region: "Punjab",
     hasOffice: false,

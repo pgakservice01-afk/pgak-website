@@ -241,8 +241,29 @@ export function serviceSchema(opts: {
   name: string;
   description: string;
   path: string;
-  areaServed?: string;
+  /**
+   * One place name, or several. A list is emitted as an array of Place nodes,
+   * which is how a service covering named districts is described — a single
+   * "Jalandhar, Hoshiarpur, Kapurthala…" string is one Place with a nonsense
+   * name, and resolves to nowhere.
+   */
+  areaServed?: string | readonly string[];
+  /** Who the service is for, e.g. "Non-resident Indians (NRIs)". */
+  audience?: string;
+  /** Overrides the default "AI video surveillance". */
+  serviceType?: string;
 }): Json {
+  // ⚠️ No `offers` / `price` node here, on purpose, and it must stay that way:
+  // PGAK publishes no rate on any public surface (owner's standing rule, 31
+  // Aug 2026) and structured data is a public surface. The rate is quoted on a
+  // call or on WhatsApp once the camera count is known. See the same note on
+  // productSchema above.
+  const areas = Array.isArray(opts.areaServed)
+    ? opts.areaServed
+    : opts.areaServed
+      ? [opts.areaServed]
+      : null;
+
   return {
     "@type": "Service",
     "@id": `${abs(opts.path)}#service`,
@@ -250,10 +271,15 @@ export function serviceSchema(opts: {
     description: opts.description,
     url: abs(opts.path),
     provider: { "@id": ORG_ID },
-    serviceType: "AI video surveillance",
-    areaServed: opts.areaServed
-      ? { "@type": "Place", name: opts.areaServed }
+    serviceType: opts.serviceType ?? "AI video surveillance",
+    areaServed: areas
+      ? areas.length === 1
+        ? { "@type": "Place", name: areas[0] }
+        : areas.map((name) => ({ "@type": "Place", name }))
       : { "@type": "Country", name: "India" },
+    ...(opts.audience
+      ? { audience: { "@type": "Audience", audienceType: opts.audience } }
+      : {}),
   };
 }
 

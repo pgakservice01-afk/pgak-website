@@ -108,6 +108,13 @@ export type Solution = {
   /** Case-study links proving this solution (hub → spoke). */
   caseStudies?: { href: string; label: string }[];
   /**
+   * Cross-links to pages that are NOT sibling solutions or case studies —
+   * rendered in the same "Read more on this" list. `related` only takes
+   * solution slugs and `caseStudies` must only ever hold real case studies, so
+   * a bespoke route like /nri-property-security had nowhere honest to go.
+   */
+  alsoSee?: { href: string; label: string }[];
+  /**
    * "new-install" makes this page the home of the "Plan a new CCTV
    * installation" journey: hero and form ask about the project, not about
    * cameras the visitor may not have. Omit for the upgrade journey (default).
@@ -680,6 +687,15 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "residential-security",
+    // The overlap is exact: an owner abroad with an empty house here is the
+    // same product with a different buyer, and they arrive on this page first
+    // because they search "home security", not "nri property".
+    alsoSee: [
+      {
+        href: "/nri-property-security",
+        label: "NRI property security — watching a Punjab home from abroad",
+      },
+    ],
     group: "security",
     coverage: {
       heading: "Where the cameras go on a house like this",

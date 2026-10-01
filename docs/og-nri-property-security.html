@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Palette from app/buyer.css — the "White B2B design contract" that loads
+     last in layout.tsx and therefore wins sitewide. Royal blue #075FC7 on
+     white, ink #17212B. Not the mint in globals.css, which buyer.css overrides. */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{background:#fff;font-family:'Sora',Arial,Helvetica,sans-serif;color:#17212b;position:relative}
+  .wash{position:absolute;inset:0;background:
+    radial-gradient(900px 520px at 108% -14%, rgba(7,95,199,.14) 0%, rgba(7,95,199,0) 62%),
+    radial-gradient(620px 420px at -8% 112%, rgba(7,95,199,.09) 0%, rgba(7,95,199,0) 66%)}
+  .bar{position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(180deg,#075FC7,#04489A)}
+  .frame{position:relative;height:100%;padding:70px 74px 60px 84px;display:flex;flex-direction:column}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+    font-size:18px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:#075FC7}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#075FC7}
+  h1{margin-top:40px;font-size:64px;line-height:1.1;font-weight:600;letter-spacing:-.035em;max-width:920px}
+  h1 .accent{color:#075FC7}
+  .rule{width:104px;height:5px;background:#075FC7;border-radius:3px;margin-top:36px}
+  .sub{margin-top:28px;font-size:26px;line-height:1.45;font-weight:300;color:#4A5866;max-width:820px}
+  .spacer{flex:1}
+  .foot{display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid rgba(23,33,43,.15);padding-top:28px}
+  .brand{display:flex;align-items:center;gap:16px}
+  .mark{width:54px;height:54px;border-radius:14px;background:linear-gradient(145deg,#075FC7,#04489A);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px;color:#fff}
+  .bt1{font-size:24px;font-weight:600;display:block;color:#17212b}
+  .bt2{font-size:17px;font-weight:300;color:#556574;display:block;margin-top:4px}
+  .chips{display:flex;gap:10px}
+  .chip{border:1.5px solid rgba(7,95,199,.30);color:#075FC7;border-radius:100px;
+    padding:10px 20px;font-size:17px;background:rgba(7,95,199,.06)}
+</style>
+<div class="wash"></div><div class="bar"></div>
+<div class="frame">
+  <div class="eyebrow"><span class="dot"></span>NRI Property Security &middot; Punjab</div>
+  <h1>Your home in Punjab,<br><span class="accent">protected while you&rsquo;re abroad.</span></h1>
+  <div class="rule"></div>
+  <p class="sub">Your CCTV records the theft. PGAK tells you while it&rsquo;s happening &mdash; on your phone, with a photo.</p>
+  <div class="spacer"></div>
+  <div class="foot">
+    <div class="brand">
+      <div class="mark">P</div>
+      <div>
+        <span class="bt1">PGAK Innovations Pvt. Ltd.</span>
+        <span class="bt2">Works with the cameras you already have</span>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">Kothi</span>
+      <span class="chip">Farmhouse</span>
+      <span class="chip">Plot</span>
+    </div>
+  </div>
+</div>

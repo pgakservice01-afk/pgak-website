@@ -279,7 +279,9 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
               </ul>
             </div>
 
-            {(posts.length > 0 || (s.caseStudies?.length ?? 0) > 0) && (
+            {(posts.length > 0 ||
+              (s.caseStudies?.length ?? 0) > 0 ||
+              (s.alsoSee?.length ?? 0) > 0) && (
               <div>
                 <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
                   Read more on this
@@ -304,6 +306,17 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                       >
                         <span className="text-accent">→</span>
                         <span>{cs.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                  {s.alsoSee?.map((a) => (
+                    <li key={a.href}>
+                      <Link
+                        href={a.href}
+                        className="flex items-baseline gap-2 text-ink-soft transition-colors hover:text-accent"
+                      >
+                        <span className="text-accent">→</span>
+                        <span>{a.label}</span>
                       </Link>
                     </li>
                   ))}

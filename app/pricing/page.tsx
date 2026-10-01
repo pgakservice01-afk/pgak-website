@@ -85,6 +85,14 @@ export default function Page() {
         <a href="/roi-calculator" className="text-link">
           Use the cost & benefit calculator →
         </a>
+        <p className="mt-6">
+          Quoting a property you own in Punjab while living overseas works the
+          same way, with the camera photos sent on WhatsApp instead of a site
+          visit —{" "}
+          <a href="/nri-property-security" className="text-link">
+            NRI property security →
+          </a>
+        </p>
       </section>
     </BuyerPage>
   );

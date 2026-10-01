@@ -29,6 +29,11 @@ const groups: { label: string; href: string; items: NavLink[] }[] = [
       ["/industries", "Industries"],
       ["/features", "Features"],
       ["/platform", "Platform"],
+      // Its audience searches from Brampton and Southall and will never find
+      // this through /industries. Shown in the menu so the page is reachable
+      // from every page on the site rather than only from the ones that link
+      // to it directly.
+      ["/nri-property-security", "NRI property security"],
     ],
   },
   {

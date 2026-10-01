@@ -379,6 +379,33 @@ export default function LocationPage({ location }: { location: Location }) {
           </div>
         </section>
 
+        {l.nriBelt && (
+          <section className="sec pt-0">
+            <div className="wrap">
+              <div className="max-w-[68ch] rounded-[14px] border border-line bg-panel p-6">
+                <p className="text-[0.82rem] uppercase tracking-[0.14em] text-ink-faint">
+                  Own property here but live abroad?
+                </p>
+                <p className="mt-3 leading-relaxed text-ink-soft">
+                  A locked house in {l.city} is a different problem from a
+                  working one: the cameras are up, the recorder is running, and
+                  nobody is watching either. PGAK sends an alert with a snapshot
+                  to your phone when somebody is at the gate, wherever in the
+                  world you live.
+                </p>
+                <p className="mt-4">
+                  <Link
+                    href="/nri-property-security"
+                    className="text-accent underline underline-offset-4"
+                  >
+                    NRI property security in Punjab →
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="sec">
           <div className="wrap grid gap-12 lg:grid-cols-2">
             <div>
