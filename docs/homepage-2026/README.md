@@ -16,7 +16,7 @@ approval gate, the content audit, and the production/QA checklists.
 | `/media/event-context.mp4` + poster | Spot AI reference film "Understand" | `/capabilities-explained` film 02 |
 | `/media/real-time-response.mp4` | Spot AI reference film "Respond" | `/capabilities-explained` film 03 |
 | `FeatureExplorer` (12 × `/public/features/*.webp`) | Generated feature illustrations | Removed from homepage; still live on `/features` |
-| `FeatureChooser`, `JourneyChooser` | Interactive choosers built around the generated feature art | Removed from homepage; components untouched and still used elsewhere |
+| `FeatureChooser`, `JourneyChooser` | Interactive choosers built around the generated feature art | Removed from homepage. The note here once said they were "still used elsewhere"; that was never re-checked and became false — nothing rendered either one. Both deleted 2026-09-28. |
 
 The homepage previously loaded **four** Spot AI assets. It now loads **zero**.
 
