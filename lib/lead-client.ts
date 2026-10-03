@@ -108,6 +108,14 @@ export async function submitLead(
         project: values.project ?? "",
         timeline: values.timeline ?? "",
         email: values.email ?? "",
+        // The homepage form asks for these three and the server, the ERP
+        // message and the register sheet all carry them — but this body never
+        // did, so every answer typed into "brief requirement", "company" and
+        // "preferred contact time" was discarded on the way out of the browser.
+        // Found by reading the production bundle, 2026-10-03.
+        company: values.company ?? "",
+        requirement: values.requirement ?? "",
+        contactTime: values.contactTime ?? "",
         [HONEYPOT_FIELD]: values.honeypot ?? "",
         ref: opts.ref,
         form: opts.formName,
