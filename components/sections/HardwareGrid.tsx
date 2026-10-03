@@ -37,7 +37,7 @@ const SYSTEMS: { t: string; tHi: string; d: string; dHi: string }[] = [
   {
     t: "Hikvision & HiLook",
     tHi: "हिकविज़न और हाईलुक",
-    d: "Turbo HD DVRs and standard IP cameras are detected on their native Hikvision stream paths. The recorder's own motion triggers are replaced by sub-three-second AI alerts, pushed to your phone with a snapshot.",
+    d: "Turbo HD DVRs and standard IP cameras are detected on their native Hikvision stream paths. The recorder's own motion triggers are replaced by AI alerts pushed to your phone with a snapshot, against a sub-three-second target measured at your pilot.",
     dHi: "Turbo HD DVR और सामान्य आईपी कैमरे उनके अपने हिकविज़न स्ट्रीम पाथ पर पहचान लिए जाते हैं। रिकॉर्डर के मोशन ट्रिगर की जगह तीन सेकंड से कम में एआई अलर्ट — स्नैपशॉट के साथ सीधे आपके फ़ोन पर।",
   },
   {

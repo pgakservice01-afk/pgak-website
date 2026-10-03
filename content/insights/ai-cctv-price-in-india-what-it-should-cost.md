@@ -3,20 +3,20 @@ title: "What should AI CCTV actually cost in India?"
 date: "2026-07-31"
 updated: "2026-08-21"
 category: "Buying Guide"
-excerpt: "Quotes for AI CCTV in India range from ₹500 to ₹8,000 per camera per month, and the difference usually isn't quality. A breakdown of what you're paying for and which line items to challenge."
-metaDescription: "Quotes for AI CCTV in India range from ₹500 to ₹8,000 per camera per month, and the difference usually isn't quality."
+excerpt: "Quotes for AI CCTV in India that we have seen range from ₹500 to ₹8,000 per camera per month, and the difference usually isn't quality. A breakdown of what you're paying for and which line items to challenge."
+metaDescription: "Quotes for AI CCTV in India that we have seen range from ₹500 to ₹8,000 per camera per month, and the difference usually isn't quality."
 readTime: 6
 image: "/insights/covers/ai-cctv-price-in-india-what-it-should-cost.webp"
 faqs:
   - q: "How much does an AI CCTV camera cost in India?"
-    a: "If you already own cameras, you don't need to buy new ones — AI software running on your existing CCTV costs from about ₹500 to ₹8,000 per camera per month in India, depending on what's bundled. PGAK bills per camera per month with no hardware, licence or per-feature charges, and quotes your rate on a call or WhatsApp once the camera count is known."
+    a: "If you already own cameras, you don't need to buy new ones — AI software running on your existing CCTV is quoted at anywhere from about ₹500 to ₹8,000 per camera per month in India in the proposals we have seen, depending on what's bundled. PGAK bills per camera per month with no licence or per-feature charges; any on-site processing hardware is confirmed and quoted before you commit. We quote your rate on a call or WhatsApp once the camera count is known."
   - q: "What does AI CCTV cost for a warehouse in India?"
     a: "Vendors quoting per-feature, or replacing your camera estate, typically land a 60-camera warehouse between ₹30,000 and ₹4,80,000 a month once every line item is added — a spread of sixteen times for broadly the same capability. PGAK reuses the cameras already on site and bills per camera per month; ask us for the number and you'll have it on the call."
   - q: "Why do AI CCTV quotes in India vary so much?"
     a: "The intelligence is rarely the difference. Quotes get inflated by camera replacement you may not need, per-feature add-on pricing, and cloud processing fees — and get suspiciously cheap by quietly dropping tuning and support. Ask every vendor which of your existing cameras they'll reuse and what happens in week two."
 ---
 
-**Straight answer: in India, AI CCTV software on cameras you already own runs from ₹500 to ₹8,000 per camera per month depending on what's bundled. That sixteen-fold spread is rarely about the intelligence — it's about hardware you didn't need, features sold separately and cloud fees. Every line item above the software itself is worth interrogating.**
+**Straight answer: in India, AI CCTV software on cameras you already own is quoted at ₹500 to ₹8,000 per camera per month in the proposals we have seen, depending on what's bundled. That sixteen-fold spread is rarely about the intelligence — it's about hardware you didn't need, features sold separately and cloud fees. Every line item above the software itself is worth interrogating.**
 
 We get shown a lot of competing quotes. The spread is remarkable — for what is broadly the same capability, we've seen ₹500 per camera per month and we've seen ₹8,000. (That range comes from quotes Indian shop, warehouse and factory owners have shared with us during audits through 2026 — real paper, not a survey.)
 

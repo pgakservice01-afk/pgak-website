@@ -2,7 +2,7 @@ import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import QuickLead from "@/components/sections/QuickLead";
 export const metadata = pageMeta({
-  title: "A quote built around your site | PGAK",
+  title: "AI CCTV pricing — a quote built around your site | PGAK",
   description:
     "Understand the cost drivers before you commit. Confirm exact charges, inclusions, support and contract terms in a written proposal.",
   path: "/pricing",
@@ -10,7 +10,7 @@ export const metadata = pageMeta({
 export default function Page() {
   return (
     <BuyerPage
-      title="A quote built around your site"
+      title="AI CCTV pricing — a quote built around your site"
       intro="Understand the cost drivers before you commit. Confirm exact charges, inclusions, support and contract terms in a written proposal."
       path="/pricing"
       eyebrow="PRICING & PROCUREMENT"

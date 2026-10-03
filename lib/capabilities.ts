@@ -184,12 +184,12 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Real-Time CCTV Intrusion Alerts to Your Phone | PGAK",
     description:
-      "Zone and line-crossing alerts in under three seconds with a snapshot, camera name and timestamp — plus optional siren, strobe and escalation.",
+      "Zone and line-crossing alerts with a snapshot, camera name and timestamp, against a sub-three-second target your pilot measures — plus optional siren, strobe and escalation.",
     summary:
-      "Zone and line-crossing alerts with a snapshot, in under three seconds.",
+      "Zone and line-crossing alerts with a snapshot — sub-three-second target, measured at your pilot.",
     h1: "Real-time intrusion alerts — because evidence at 9am is not security",
     intro:
-      "Real-time CCTV intrusion alerts are the whole point of putting intelligence on a camera. PGAK delivers a push notification with a snapshot, the camera name and a timestamp in under three seconds of a person crossing a boundary you defined — early enough that a phone call, a siren or a guard walking over can still change the outcome.",
+      "Real-time CCTV intrusion alerts are the whole point of putting intelligence on a camera. PGAK delivers a push notification with a snapshot, the camera name and a timestamp within seconds of a person crossing a boundary you defined — the target is under three, and your pilot measures the real figure — early enough that a phone call, a siren or a guard walking over can still change the outcome.",
     steps: [
       {
         h3: "Define the boundary",
@@ -221,7 +221,7 @@ export const CAPABILITIES: Capability[] = [
     faqs: [
       {
         q: "How fast is 'real time'?",
-        a: "Detection to notification is typically under three seconds. The variable part is your phone's network, not the detection.",
+        a: "The target is under three seconds from detection to notification, and the pilot measures the real figure on your site. The variable part is your phone's network, not the detection.",
       },
       {
         q: "Can it trigger a siren instead of just my phone?",

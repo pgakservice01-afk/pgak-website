@@ -750,6 +750,17 @@ export async function GET() {
       // action only — never the URL or the secret; see registerConfigDetail().
       registerDetail: registerConfigDetail(),
       env: process.env.VERCEL_ENV ?? "development",
+      // Two fresh Production builds after the register variables were "set"
+      // still answered urlSet:false. Names only — never a value — so a reader
+      // can tell absent from misnamed, and which project actually built this.
+      envNames: Object.keys(process.env)
+        .filter((k) => /^(LEAD_|ERP_)/.test(k))
+        .sort(),
+      builtBy: {
+        repo: process.env.VERCEL_GIT_REPO_SLUG ?? "",
+        productionUrl: process.env.VERCEL_PROJECT_PRODUCTION_URL ?? "",
+        deploymentId: process.env.VERCEL_DEPLOYMENT_ID ?? "",
+      },
     },
     { headers: { "Cache-Control": "no-store" } },
   );

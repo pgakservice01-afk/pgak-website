@@ -32,6 +32,7 @@ export default function Page() {
               <th>Capability</th>
               <th>State</th>
               <th>Scope and evidence needed</th>
+              <th>Evidence on file</th>
             </tr>
           </thead>
           <tbody>
@@ -46,6 +47,13 @@ export default function Page() {
                   <br />
                   <br />
                   {c.requirement}
+                </td>
+                <td>
+                  {c.evidence ? (
+                    <a href={c.evidence.href}>{c.evidence.note}</a>
+                  ) : (
+                    "none yet"
+                  )}
                 </td>
               </tr>
             ))}

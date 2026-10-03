@@ -85,7 +85,7 @@ export default function Overlay({
         <h2 className="display text-[clamp(2rem,4.6vw,3.4rem)] text-ink [text-shadow:0_2px_40px_rgba(0,0,0,0.7)]">
           Threats flagged in
           <br />
-          under <em className="not-italic text-accent">three seconds.</em>
+          under <em className="not-italic text-accent">three seconds</em> — a target your pilot measures.
         </h2>
         <p className="mt-5 max-w-[44ch] text-[1.02rem] text-ink-soft [text-shadow:0_2px_20px_rgba(0,0,0,0.8)]">
           A clear, instant notification on your phone — with context — before a

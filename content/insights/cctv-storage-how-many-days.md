@@ -32,6 +32,8 @@ The arithmetic is simple once you have the two numbers that matter.
 
 Retention in days = total storage ÷ daily storage used.
 
+For continuous recording there is a clean way to get the daily figure: **decimal GB per day ≈ 10.8 × the combined bitrate of all cameras in Mbps**, before any overhead. So ten cameras each writing 2 Mbps give 20 Mbps combined → about 216 GB a day → on a recorder with 4 TB usable, roughly 18 days. Two cautions on that example: the per-camera Mbps is a number you read off your recorder, not a guess from megapixels or codec, because the same camera at the same resolution can write very different amounts depending on the scene; and motion-only recording stretches the result, while variable bitrate moves it either way. If you would rather not do the arithmetic, the [storage and bandwidth guide](/resources/storage-bandwidth) walks through it and the [CCTV storage calculator](/calculators/cctv-storage) takes your recorder's figures directly.
+
 Most recorders show both figures somewhere in their storage or disk management menu, sometimes stated directly as an estimated number of retention days. That estimate is worth checking against reality occasionally, because it is itself calculated from recent activity and shifts as the scene in front of a camera changes.
 
 ## Why does stated retention shrink as cameras are added?
@@ -62,8 +64,8 @@ As a practical benchmark, most small businesses target somewhere between 15 and 
 
 ## What is a quick way to check your real number today?
 
-Open your recorder's storage or disk information screen and read off the estimated retention days it reports right now, not the figure from the installation paperwork. If it is lower than what you assumed, the fix is either adding storage to match your current camera count, or reviewing whether every camera needs its current resolution and frame rate — the cheaper fix, and often the one that gets skipped.
+Open your recorder's storage or disk information screen and read off the estimated retention days it reports right now, not the figure from the installation paperwork. If it is lower than what you assumed, the fix is either adding storage to match your current camera count, or reviewing whether every camera needs its current resolution and frame rate — the cheaper fix, and often the one that gets skipped. Put the recorder's two numbers into the [storage calculator](/calculators/cctv-storage) and it will show you what each option buys you in days.
 
 We help site owners run this check as part of an audit, and we will say plainly that adding storage capacity is sometimes the honest recommendation even though it is not the more interesting one to sell.
 
-[Ask for a free feasibility check](#dealer)
+We will run this check on your actual recorder as part of a free audit — your number and camera count are all it takes to start. [Ask for a free storage and camera audit →](/free-audit)
