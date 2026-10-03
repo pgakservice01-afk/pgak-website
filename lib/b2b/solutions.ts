@@ -17,7 +17,7 @@ export const BUYER_SOLUTIONS: Record<
     kind: "problem",
     title: "AI intrusion detection for existing CCTV",
     intro:
-      "Evaluate whether a configured camera view can identify entry into a restricted area and provide useful context to an authorised reviewer. Detection supplements your existing security process.",
+      "Intrusion alerts from the cameras you already own: a snapshot, camera name and timestamp on your phone when someone crosses a boundary you set. Pilot-tested on your own cameras before anything is quoted.",
     workflow:
       "A security supervisor defines a perimeter zone and schedule. The pilot distinguishes authorised deliveries and staff movement from entry that needs review. The response owner decides what to do; a detector does not establish criminal intent.",
     event:

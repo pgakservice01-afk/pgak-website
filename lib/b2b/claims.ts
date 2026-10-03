@@ -7,9 +7,81 @@ export type CapabilityRecord = {
   scope: string;
   requirement: string;
   href: string;
+  /**
+   * The demonstration this state rests on, when there is one. Points at a
+   * record in lib/proof/projects.ts — the only material on the site that
+   * carries an approval, its conditions and what it does not prove.
+   */
+  evidence?: { projectId: string; note: string; href: string };
 };
 /** Evidence gate: marketing copy alone cannot promote a capability to available. */
 export const CAPABILITY_REGISTER: CapabilityRecord[] = [
+  // ── Demonstrated under stated conditions ─────────────────────────────────
+  // "limited pilot" is the register's own definition for "evidenced only in a
+  // named pilot". A recorded demonstration of one scene is exactly that: it
+  // proves the function ran under the conditions on the clip, and nothing
+  // wider. None of these is "available", whose bar is a defined configuration.
+  {
+    id: "ppe",
+    title: "PPE check — bare hands on a line camera",
+    state: "limited pilot",
+    scope:
+      "One PPE class (gloves) on an existing overhead line camera; confidence shown per detection so a supervisor can judge the low ones.",
+    requirement:
+      "To reach available: the PPE classes for a site agreed at assessment, and an acceptance test on that site's own cameras.",
+    href: "/video-analytics-software",
+    evidence: {
+      projectId: "ppe-assembly-line",
+      note: "14 s recording, 1 April 2025, conditions and limits stated",
+      href: "/video-analytics-software",
+    },
+  },
+  {
+    id: "line-count",
+    title: "Object count across a line at a loading bay",
+    state: "limited pilot",
+    scope:
+      "A known item type counted once each as it crosses one configured line on an existing dock camera. Not an inventory system; does not reconcile against a ledger.",
+    requirement:
+      "To reach available: the item type and line position agreed at assessment, and a count checked against a manual tally at the site.",
+    href: "/ai-cctv-for-warehouses",
+    evidence: {
+      projectId: "dock-count",
+      note: "16 s recording, 19 December 2022, third-party identifiers blurred",
+      href: "/ai-cctv-for-warehouses",
+    },
+  },
+  {
+    id: "anpr",
+    title: "Number-plate camera, fitted and operated",
+    state: "limited pilot",
+    scope:
+      "The camera as fitted to a gate pillar and the console the operator works from. The photographs prove a fitting and a working console, not a read rate.",
+    requirement:
+      "To reach available: plate reads logged against the gate register at a site, with mounting height, approach angle and lighting recorded.",
+    href: "/anpr-number-plate-recognition",
+    evidence: {
+      projectId: "anpr-gate",
+      note: "Two site photographs, mounting ~1.5 m, daylight",
+      href: "/anpr-number-plate-recognition",
+    },
+  },
+  {
+    id: "hot-work",
+    title: "Hot work beside flammable material",
+    state: "limited pilot",
+    scope:
+      "Two classes — a hot-work activity and a flammable-material store — detected in the same frame on one fixed camera, in PGAK's own test setup.",
+    requirement:
+      "To reach available: the same two classes on a customer's own camera, with camera model, distance and confidence recorded.",
+    href: "/industrial-cctv",
+    evidence: {
+      projectId: "hot-work-flammable",
+      note: "11 s recording, PGAK test setup; camera details pending",
+      href: "/industrial-cctv",
+    },
+  },
+  // ── No evidence record yet ───────────────────────────────────────────────
   {
     id: "intrusion",
     title: "Perimeter events",
@@ -70,6 +142,6 @@ export const CAPABILITY_REGISTER: CapabilityRecord[] = [
     href: "/platform/vms-integration",
   },
 ];
-export const EVIDENCE_DATE = "2026-09-19";
+export const EVIDENCE_DATE = "2026-10-03";
 export const PROOF_NOTICE =
   "No approved PGAK customer result or measured accuracy report is attached to this release. Published scenarios are illustrations, not verified deployments.";

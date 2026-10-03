@@ -135,6 +135,33 @@ export const PROJECTS: Project[] = [
     href: "/anpr-number-plate-recognition",
     approval: OWNER_PUBLISHED("/anpr-number-plate-recognition"),
   },
+  {
+    id: "hot-work-flammable",
+    title: "Hot work flagged beside flammable storage",
+    category: "Process plant — PGAK test setup",
+    place: "",
+    scope: "Two detection classes on one fixed elevated camera",
+    description:
+      "A worker runs an angle grinder along a pipe and the sparks carry across the floor. One box marks the hot work; a second marks three drums on a pallet, two carrying flammable hazard diamonds. Neither detection matters alone — what a safety officer wants to know is that both are in the same frame at the same moment.",
+    conditions:
+      "PGAK's own test setup, not a customer site. Burned-in overlay 18 February 2025 15:24:40, Camera 01, fixed elevated view, daylight. Camera model, working distance and detection confidence are not yet recorded and are stated as pending on the page rather than estimated.",
+    limits:
+      "Detects an activity and a material class together. Does not know whether a hot-work permit was issued, does not measure distance, and is not a fire detection or suppression system.",
+    media: {
+      kind: "video",
+      src: "/proof/hot-work.mp4",
+      poster: "/proof/hot-work-poster.webp",
+      durationSeconds: 11,
+    },
+    alt: "Plant camera view of a worker grinding a pipe with sparks flying, a red box labelled Hot Work Activity around him and a second box labelled Flammable Material around drums on a pallet",
+    href: "/industrial-cctv",
+    approval: {
+      ...OWNER_PUBLISHED("/industrial-cctv"),
+      approvedOn: "2026-10-03",
+      source:
+        "PGAK-owned test-setup footage, published by the owner via PR #66 on 2026-09-27 with this conditions text; on 2026-10-03 the owner delegated publication decisions and this record was added under that delegation.",
+    },
+  },
 ];
 
 /** The only accessor the site may render from. */

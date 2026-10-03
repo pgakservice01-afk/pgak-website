@@ -50,7 +50,7 @@ const TOPICS: Topic[] = [
     id: "how",
     q: "⚙️ How does it work?",
     qHi: "⚙️ यह कैसे काम करता है?",
-    a: "Four steps: we connect your existing cameras to PGAK's AI layer, the AI learns your normal routine, detects unknown faces and unusual activity in under 3 seconds, and alerts your phone instantly with a snapshot.",
+    a: "Four steps: we connect your existing cameras to PGAK's AI layer, the AI learns your normal routine, detects unknown faces and unusual activity, and alerts your phone with a snapshot — sub-3-second target, measured in your pilot.",
     aHi: "चार चरण: हम आपके मौजूदा कैमरों को PGAK की एआई लेयर से जोड़ते हैं, एआई आपकी दिनचर्या सीखता है, 3 सेकंड से कम में अनजान चेहरों और असामान्य गतिविधि की पहचान करता है, और स्नैपशॉट के साथ तुरंत आपके फ़ोन पर अलर्ट भेजता है।",
     link: { href: "/#how", label: "See the steps →", labelHi: "चरण देखें →" },
   },

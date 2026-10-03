@@ -197,7 +197,7 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     stats: [
-      { value: "< 3s", label: "From detection to alert on your phone" },
+      { value: "< 3s", label: "From detection to alert on your phone — pilot target, measured on your site" },
       { value: "90%+", label: "Reduction in false alerts after tuning" },
       { value: "24×7", label: "Every camera watched, every night" },
     ],
@@ -324,7 +324,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     stats: [
       { value: "120+", label: "Cameras supported on a single site" },
-      { value: "< 3s", label: "Alert latency on a dock or aisle breach" },
+      { value: "< 3s", label: "Alert latency on a dock or aisle breach — pilot target, measured on your site" },
       { value: "Minutes", label: "To review an incident, instead of days" },
     ],
     faqs: [
@@ -436,7 +436,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     stats: [
       { value: "0", label: "Punch machines or access cards required" },
-      { value: "< 3s", label: "After-hours intrusion alert latency" },
+      { value: "< 3s", label: "After-hours intrusion alert latency — pilot target, measured on your site" },
       { value: "On-site", label: "Video processing — nothing sent to a cloud" },
     ],
     faqs: [
@@ -1130,7 +1130,7 @@ export const SOLUTIONS: Solution[] = [
     stats: [
       { value: "1 min", label: "To draw a new virtual boundary" },
       { value: "0m", label: "Of new cable trenched" },
-      { value: "< 3s", label: "From boundary crossing to alert" },
+      { value: "< 3s", label: "From boundary crossing to alert — pilot target, measured on your site" },
     ],
     faqs: [
       {
@@ -2867,7 +2867,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "Indian plates, and why generic models struggle",
-        body: "Off-the-shelf plate recognition is generally trained on European and American plates and degrades noticeably on Indian ones — different aspect ratios, varied fonts, state-code formats, decorative and non-standard plates, and a meaningful share of vehicles whose plates are damaged, obscured or simply not to spec. PGAK's recognition is tuned for Indian plate formats for exactly this reason. It is still not magic: a plate that a person cannot read in the snapshot is a plate the system will not read either, which is why every logged event keeps its image alongside the text.",
+        body: "Off-the-shelf plate recognition is generally trained on European and American plates and degrades noticeably on Indian ones — different aspect ratios, varied fonts, state-code formats, decorative and non-standard plates, and a meaningful share of vehicles whose plates are damaged, obscured or simply not to spec. The plate recognition PGAK deploys is configured for Indian plate formats for exactly this reason. It is still not magic: a plate that a person cannot read in the snapshot is a plate the system will not read either, which is why every logged event keeps its image alongside the text.",
       },
       {
         h2: "Sizing the hardware, honestly",
