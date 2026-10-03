@@ -57,7 +57,9 @@ for (const [form, event] of [
     await h.submitLead(values, opts);
     assert.deepEqual(
       h.events.map((e) => e.name),
-      ["form_submit", event, "generate_lead"],
+      // form_submit_attempt fires before the response is known — it is an
+      // attempt, not a conversion, and it fires once even across the retry.
+      ["form_submit_attempt", "form_submit", event, "generate_lead"],
     );
     assert.equal(h.requests[0].ref, h.requests[1].ref);
     assert.ok(!JSON.stringify(h.events).includes(values.phone));
@@ -80,7 +82,17 @@ test("unconfirmed and failed delivery never become a successful lead", async () 
       ).kind,
       "fallback",
     );
-    assert.equal(h.events.length, 0);
+    const names = h.events.map((e) => e.name);
+    // No conversion of any kind — this is the asymmetric rule under test.
+    for (const conv of ["form_submit", "generate_lead", "demo_request"])
+      assert.ok(!names.includes(conv), `${conv} must not fire on ${JSON.stringify(response)}`);
+    // The failure IS recorded, exactly once per ref: a silent delivery failure
+    // and a visitor who changed their mind must not look identical in GA4.
+    assert.equal(
+      names.filter((n) => n === "lead_delivery_failed").length,
+      1,
+      "lead_delivery_failed fires once",
+    );
   }
 });
 test("server field errors are returned for correction without conversions", async () => {
@@ -95,7 +107,11 @@ test("server field errors are returned for correction without conversions", asyn
   });
   assert.equal(result.kind, "fieldErrors");
   assert.equal(result.fieldErrors.phone, "Invalid number");
-  assert.equal(h.events.length, 0);
+  assert.equal(
+      h.events.filter((e) => e.name !== "form_submit_attempt").length,
+      0,
+      "an attempt may be logged; a conversion must not",
+    );
 });
 test("durable receipt counts once while CRM delivery is queued", async () => {
   const h = setup({
@@ -117,3 +133,35 @@ test("durable receipt counts once while CRM delivery is queued", async () => {
   assert.equal(h.events.filter((e) => e.name === "generate_lead").length, 1);
   assert.ok(!JSON.stringify(h.events).includes("Synthetic QA"));
 });
+
+test("company, requirement and contactTime reach the POST body", async () => {
+  // Regression: the homepage form collected all three, the server validated
+  // and capped all three, the ERP message led with them — and the client body
+  // omitted them, so they never left the browser.
+  const h = setup({ ok: true, body: { delivered: true } });
+  await h.submitLead(
+    {
+      ...values,
+      company: "Ludhiana Forgings Pvt Ltd",
+      requirement: "16 cameras, want alerts when the yard gate opens after 10pm",
+      contactTime: "Morning 10-12",
+    },
+    { ref: "test-reference-456", cta: "home", formName: "home_assessment" },
+  );
+  const body = h.requests[0];
+  assert.equal(body.company, "Ludhiana Forgings Pvt Ltd");
+  assert.equal(body.requirement, "16 cameras, want alerts when the yard gate opens after 10pm");
+  assert.equal(body.contactTime, "Morning 10-12");
+});
+
+test("the three fields default to empty strings, never undefined", async () => {
+  // A form that does not ask for them (QuickLead) must still send a well-formed
+  // body; `undefined` would be dropped by JSON.stringify and read as absent.
+  const h = setup({ ok: true, body: { delivered: true } });
+  await h.submitLead(values, { ref: "test-reference-789", cta: "x", formName: "demo_request" });
+  const body = h.requests[0];
+  assert.equal(body.company, "");
+  assert.equal(body.requirement, "");
+  assert.equal(body.contactTime, "");
+});
+
