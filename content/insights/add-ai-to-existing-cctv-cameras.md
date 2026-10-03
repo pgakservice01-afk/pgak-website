@@ -27,7 +27,7 @@ That quote is the expensive part. The intelligence is software. Cameras are just
 
 Your cameras already do the hard physical work: they sit in the right places, they have power and cable, and they produce video. That video goes to a DVR or NVR, which almost always can hand it out as a stream — usually over a protocol called RTSP, sometimes discovered through a standard called ONVIF.
 
-Anything that can read that stream can analyse it. The detection models don't run inside your camera; they run on a small computer on your site that subscribes to those streams and watches them continuously.
+Anything that can read that stream can analyse it. The detection models don't run inside your camera; they run on a small computer on your site that subscribes to those streams and watches them continuously. What that computer needs from your cameras and recorder is set out on the [compatibility page](/platform/compatibility), and what it does with the streams once it has them is the [video analytics software](/video-analytics-software) itself.
 
 So the question "is my camera AI-compatible?" is really two much duller questions:
 
@@ -103,4 +103,4 @@ That list is worth more than any spec sheet, and it is the same list we build du
 
 You almost certainly do not need a new camera estate. You need someone to tell you honestly which of your cameras can do which job, and to be specific about the two or three positions that genuinely need attention.
 
-If you want that assessed on your actual site rather than in the abstract, [tell us your camera count and we'll walk through it](/#dealer) — including which cameras we would not use, and why.
+If you want that assessed on your actual site rather than in the abstract, [tell us your camera count and we'll walk through it](/free-audit) — including which cameras we would not use, and why.

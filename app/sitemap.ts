@@ -106,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: postDate(p),
   }));
 
-  return [
+  const all: MetadataRoute.Sitemap = [
     ...core,
     ...solutions,
     ...capabilities,
@@ -115,4 +115,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...caseStudies,
     ...posts,
   ];
+  // The B2B routes (/platform/*, /resources/*, /partners) were listed in `core`
+  // and again by their own section: 206 entries for 196 URLs, ten of them exact
+  // duplicates. First occurrence wins and every URL appears once.
+  const seen = new Set<string>();
+  return all.filter((e) => (seen.has(e.url) ? false : (seen.add(e.url), true)));
 }
