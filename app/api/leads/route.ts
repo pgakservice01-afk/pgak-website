@@ -756,8 +756,12 @@ export async function GET() {
       // Case-insensitive on purpose: the code reads UPPER_CASE names, so a
       // variable saved as lead_register_url would be both present and useless,
       // and a case-sensitive filter would have hidden exactly that.
+      // Three fresh Production builds after the owner saved the register
+      // variables still answered urlSet:false, and a prefix match would not
+      // see REGISTER_URL, NEXT_PUBLIC_LEAD_REGISTER_URL or LEADREGISTER_URL.
+      // Any name containing REGISTER, LEAD or SHEET — still names, never values.
       envNames: Object.keys(process.env)
-        .filter((k) => /^(LEAD_|ERP_)/i.test(k))
+        .filter((k) => /REGISTER|LEAD|SHEET/i.test(k))
         .sort(),
       builtBy: {
         repo: process.env.VERCEL_GIT_REPO_SLUG ?? "",
