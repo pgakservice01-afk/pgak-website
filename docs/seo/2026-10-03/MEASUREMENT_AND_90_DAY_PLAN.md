@@ -25,15 +25,18 @@ Page-level anchors to re-read at each milestone (28 d, 3–30 Sep):
 `/insights/add-ai-to-existing-cctv-cameras` 67 / 1 / 1.49% / 6.00 ·
 `/ai-cctv-noida` 84 / 6 / 7.14% / 8.81 · homepage 671 impressions / 83 clicks (90 d), 70 of them on the query `pgak`.
 
-## 2. Core Web Vitals — measured 2026-10-03, mobile, PageSpeed Insights API
+## 2. Core Web Vitals — NOT MEASURED
 
-Lab is a single Lighthouse run from Google's test location; field is CrUX p75 where the
-origin has enough traffic. Both are reported as returned; neither is a ranking claim.
+Attempted 2026-10-03 through the PageSpeed Insights API, mobile, for `/` and
+`/insights/cctv-storage-how-many-days`. Both calls returned
+`Quota exceeded … 'Queries per day'` — the keyless public quota is shared and was
+already spent. No figure is reported, lab or field. A local Lighthouse run was
+deliberately not substituted: a laptop lab number is not comparable to field p75 and the
+19 September review already holds one (performance 98, LCP 2.1 s, lab).
 
-```
-psi-https___www_pgak_co_in__.json: API error — Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespee
-psi-https___www_pgak_co_in_insights_cctv_storage_how_many_days_.json: API error — Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespee
-```
+To measure: retry after the daily quota resets, or create a free PageSpeed API key in
+the owner's Google Cloud project and pass `&key=`. Field data (CrUX p75) appears only
+if the origin clears the traffic threshold; if it does not, that is the finding.
 
 ## 3. Event definitions (what is actually instrumented today)
 
@@ -97,6 +100,7 @@ Until the register receives rows (see §5, BLOCKED), this cannot be counted.
 | VMS page / deployment-mode pages | **PLANNED — owner facts E, F** | nothing on file describes them |
 | Bing Places wrong phone / address | **BLOCKED — owner** | unverified since 24 Sep |
 | GSC Generative AI report | **PLANNED** | open manually; the link would not navigate in automation |
+| Core Web Vitals (lab and field) | **NOT VERIFIED** | PSI keyless quota exhausted 2026-10-03; retry with a key |
 
 ## 6. Milestones
 
