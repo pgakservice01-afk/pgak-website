@@ -12,7 +12,7 @@ export default function FeatureExplorer() {
   const visible = EXPLORER_FEATURES.filter(f => (category === 'All features' || f.category === category) && `${f.title} ${f.tag} ${f.description} ${f.useCase}`.toLowerCase().includes(query.trim().toLowerCase()));
   return (
     <section className={styles.explorer} id="explore-features" aria-labelledby="explorer-title">
-      <div className={styles.intro}><div><p className={styles.eyebrow}>THE CAPABILITY COLLECTION</p><h2 id="explorer-title">Find the intelligence<br />your site needs.</h2></div><p>Explore 20 capabilities across investigation, protection, operations and camera technology. Availability is confirmed during your site assessment.</p></div>
+      <div className={styles.intro}><div><p className={styles.eyebrow}>THE CAPABILITY COLLECTION</p><h2 id="explorer-title">Find the intelligence<br />your site needs.</h2></div><p>Explore {EXPLORER_FEATURES.length} capabilities across investigation, protection, operations and camera technology. Availability is confirmed during your site assessment.</p></div>
       <div className={styles.controls}>
         <div className={styles.filters} aria-label="Filter features by category">{FEATURE_CATEGORIES.map(c => <button key={c} type="button" aria-pressed={category === c} onClick={() => setCategory(c)}>{c === 'All features' ? 'All features · 20' : c}</button>)}</div>
         <label className={styles.search}><span className="sr-only">Search features</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Try ‘plates’ or ‘factory’" value={query} onChange={e => setQuery(e.target.value)} /></label>
