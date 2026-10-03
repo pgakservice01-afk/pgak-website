@@ -70,7 +70,7 @@ export default function InsightsIndex() {
               <p className="mx-auto mt-4 max-w-[540px] text-[1.05rem] text-ink-soft">
                 Guides from the PGAK team on intelligent CCTV, camera-based
                 attendance and getting real protection from the cameras you
-                already own — plus deployment stories from real sites.
+                already own — plus worked scenarios showing how a site like yours would use it.
               </p>
             </div>
           </div>
@@ -82,18 +82,19 @@ export default function InsightsIndex() {
             <div className="mx-auto max-w-[1080px]">
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
-                  Case studies
+                  Use-case scenarios
                 </h2>
                 <Link
                   href="/insights/case-studies"
                   className="text-[0.92rem] text-accent hover:underline"
                 >
-                  All case studies →
+                  All scenarios →
                 </Link>
               </div>
               <p className="mt-2.5 max-w-[60ch] text-ink-soft">
-                What actually changed on real sites — what was being lost, what
-                we did about it, and how many cameras it took.
+                Worked scenarios — what a site is losing, how PGAK would be set
+                up on its existing cameras, and how many it takes. Illustrative:
+                the figures are modelled, not measured at a named customer.
               </p>
 
               <ul className="mt-7 grid gap-5 md:grid-cols-2">
@@ -113,7 +114,7 @@ export default function InsightsIndex() {
                         {c.summary}
                       </p>
                       <span className="mt-5 text-[0.88rem] text-accent">
-                        Read the deployment →
+                        Read the scenario →
                       </span>
                     </Link>
                   </li>

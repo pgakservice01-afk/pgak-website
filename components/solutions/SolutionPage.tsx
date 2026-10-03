@@ -200,14 +200,23 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             <p className="mt-6">
               <Link href="/pricing" className="text-accent underline">
                 Get a site-specific AI video analytics price
-              </Link>{" "}
-              or{" "}
-              <Link
-                href="/cctv-buying-checklist"
-                className="text-accent underline"
-              >
-                use the CCTV buying checklist
               </Link>
+              {/* The checklist is twelve questions about attendance systems. It
+                  was offered on all seventeen solution pages as a "CCTV buying
+                  checklist"; a factory-security reader who followed it got
+                  biometrics. Attendance pages only, and named for what it is. */}
+              {s.group === "attendance" && (
+                <>
+                  {" "}
+                  or{" "}
+                  <Link
+                    href="/cctv-buying-checklist"
+                    className="text-accent underline"
+                  >
+                    use the attendance system buying checklist
+                  </Link>
+                </>
+              )}
               .
             </p>
           </div>

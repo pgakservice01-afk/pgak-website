@@ -157,14 +157,16 @@ export default function Home() {
             <HeroVideo />
           </div>
 
-          {/* On the video: the product name and one line, nothing else (owner's
-              brief, 2026-09-26). The line, chosen 2026-09-27, is the company's
-              founding observation — the cameras were already there — said as a
-              promise it can keep: no "never miss", no "instant", no accuracy
-              claim. "Intelligent Security" stays in the logo. */}
+          {/* On the video: what the product is, then its name and one line.
+              The 2026-09-26 brief put the name alone in the H1; the 2026-10-03
+              audit found non-brand searchers landing on a page whose heading
+              told them nothing about the category, and the owner's brief of
+              the same day asked for the category to lead with Ai Alerto kept
+              as the product name. The line, chosen 2026-09-27, is unchanged:
+              no "never miss", no "instant", no accuracy claim. */}
           <div className="h-wrap h-vhero__content">
-            <h1 id="hero-heading">Ai Alerto</h1>
-            <p className="h-vhero__tagline">Your cameras, finally paying attention.</p>
+            <h1 id="hero-heading">AI video analytics software for your existing CCTV</h1>
+            <p className="h-vhero__tagline">Ai Alerto — your cameras, finally paying attention.</p>
 
             <div className="h-actions">
               <a href="#assessment" className="h-btn h-btn--primary" data-cta="hero-assessment">

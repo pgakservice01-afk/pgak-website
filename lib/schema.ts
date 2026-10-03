@@ -88,14 +88,8 @@ export function websiteSchema(): Json {
     name: SITE_NAME,
     inLanguage: "en-IN",
     publisher: { "@id": ORG_ID },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/insights?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
+    // No SearchAction: /insights does not read ?q=, so the action it declared
+    // pointed at a search that does not exist. Restore it with a real search.
   };
 }
 
