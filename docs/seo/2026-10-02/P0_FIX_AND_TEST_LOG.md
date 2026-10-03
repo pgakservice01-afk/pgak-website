@@ -134,3 +134,66 @@ and no penalty claim is warranted.
 | Durable intake store | **BLOCKED** — not configured |
 | End-to-end TEST submission | **PLANNED** — run as the acceptance test after the unblock |
 | `fix/lead-register-recovery` | **SUPERSEDED** — delete, do not merge |
+
+---
+
+## Addendum 2026-10-03 — why the register variables never arrived, settled
+
+The owner reported the two variables set in Vercel ("ticked Production") on 2026-10-02
+and again on 2026-10-03. Each time, a fresh production build still answered
+`register: false`. Rather than redeploy a fifth time, the cause was established.
+
+### From the runtime (names only, never values)
+
+`GET /api/leads` now returns `envNames` — every environment-variable name in the
+Production runtime that *contains* REGISTER, LEAD or SHEET, case-insensitive — and
+`builtBy`, which identifies the project that produced the response.
+
+| Deployment | Built after the owner's report? | `register` | Names containing REGISTER |
+|---|---|---|---|
+| `dpl_94At…` | yes (2 Oct) | false | none |
+| `dpl_4dSr…` | yes | false | none |
+| `dpl_2CpH…` | yes (3 Oct) | false | none |
+| `dpl_DVGp…` | yes | false | none |
+| `dpl_5Fc3…` (contains-match) | yes | false | **none** |
+
+`builtBy` on every one: `repo = pgak-website`, `productionUrl = www.pgak.co.in`. The
+mechanism is proven by what it *does* see: `ERP_LEADS_ENDPOINT`,
+`LEAD_ALERT_TELEGRAM_CHAT_ID`, `LEAD_ALERT_TELEGRAM_TOKEN`. So the two variables are
+not in the `pgak-website` project's Production environment in any spelling or case.
+
+### From the Vercel dashboard (read in the owner's Chrome, values masked, nothing changed)
+
+- `vercel.com/pgakservice01-afks-projects/pgak-website` and its settings page →
+  **404 — "You're logged in as director@securedengineers.com."** That login is not a
+  member of the team that owns the production project.
+- That login's dashboard lands on team **"ankur817's projects" (Hobby)**, holding five
+  `sotyn*` projects and **`pgak-redesign-preview`** (created 18 Sep, no Git repository,
+  serves only `pgak-redesign-preview.vercel.app`).
+- `pgak-redesign-preview` → Environment Variables: **"No Environment Variables Added."**
+- Team-level Environment Variables: **"No Project Environment Variables."**
+
+### Conclusion
+
+The variables were not saved anywhere the `director@securedengineers.com` login can
+reach, and that login cannot reach the project that serves the site. Production
+`pgak-website` belongs to the `pgakservice01-afk` account (the GitHub organisation that
+owns the repository; `CLAUDE.local.md` records it).
+
+### Owner action — the only one that works
+
+Log in to Vercel as **`pgakservice01-afk`** (or invite `director@securedengineers.com`
+to team `pgakservice01-afks-projects` with settings access). Open **`pgak-website` →
+Settings → Environment Variables**. Add `LEAD_REGISTER_URL` (the Apps Script
+`https://…/exec` deployment URL) and `LEAD_REGISTER_SECRET`, **Production** ticked, no
+branch attached. **Redeploy**. Confirm `GET /api/leads` → `register: true` and
+`envNames` contains both names.
+
+### Acceptance test — still NOT RUN
+
+Deliberately. Every destination that depends on the register is still dark, so a
+submission now would write a junk record to the live ERP and ping the owner's Telegram
+while proving nothing new. It runs the moment `register: true` is observed, exactly as
+specified in P0.1 above: one clearly-marked TEST record with the owner's own number,
+recording URL, time, lead ref, server outcome, the sheet row, each inbox separately,
+the ERP outcome and the analytics event, plus a duplicate submission for idempotency.
