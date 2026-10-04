@@ -66,6 +66,7 @@ Until the register receives rows (see §5, BLOCKED), this cannot be counted.
 | Money-page impressions / clicks / CTR | GSC page regex (§1) | 634 / 10 / 1.6% (28 d) |
 | Priority-page CTR | GSC, the six pages in §1 | as listed |
 | Defined query-set visibility | GSC, the buyer queries in `KEYWORD_TO_PAGE_MAP` once it exists; until then the 25 fixed AI-visibility questions | run 2 (24 Sep) |
+| **Generative AI features impressions** | GSC → Performance → Generative AI (`/performance/search-analytics/ai`); impressions only, subset of Web | **1,450 (30 Jun–29 Sep), 99 pages** — run 4, 4 Oct |
 | Form acceptance / delivery | GA4: `form_submit` ÷ `form_submit_attempt`; `lead_delivery_failed` count | not yet read |
 | Register delivery | `GET /api/leads` → `register`, `envNames` | **false** |
 | Qualified enquiries, meetings, proposals, pipeline, response time | master sheet + ERP | **owner**; sheet empty |
