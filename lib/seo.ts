@@ -38,9 +38,23 @@ export const BUSINESS = {
     postalCode: "141003",
     country: "IN",
   },
-  /** Approximate Gill Road / Janta Nagar pin — replace with the exact
-   *  coordinates from the Google Business Profile listing when available. */
-  geo: { lat: 30.8846, lng: 75.8342 },
+  /** The Google Business Profile pin for this address, read from Google Maps
+   *  on 2026-10-05 (listing "PGAK Innovations Private limited"). The previous
+   *  value was an estimate ~1.5 km away; schema geo must match the listing. */
+  geo: { lat: 30.8783492, lng: 75.858992 },
+  /**
+   * The Google Business Profile, as found on 2026-10-05. It existed but was
+   * UNCLAIMED, categorised "Software company", carried one review, and showed
+   * phone 077173 03858 — not the number above. Which phone is correct is the
+   * owner's call and is NOT changed here; `url` is the stable CID link used
+   * for schema `hasMap` and the footer. Update `claimed` when the owner has it.
+   */
+  gbp: {
+    url: "https://maps.google.com/?cid=10162479041890995127",
+    listedName: "PGAK Innovations Private limited",
+    readOn: "2026-10-05",
+    claimed: false,
+  },
   openingHours: "Mo-Sa 09:00-19:00",
   // Year of incorporation per the CIN (…PB2023PTC…) — matches the MCA record.
   founded: "2023",

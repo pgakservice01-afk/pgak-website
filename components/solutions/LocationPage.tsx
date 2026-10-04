@@ -132,7 +132,9 @@ export default function LocationPage({ location }: { location: Location }) {
               {l.city} · {l.region}
             </p>
             <h1 className="display mt-4 max-w-[17ch] text-[clamp(2rem,4.6vw,3.2rem)]">
-              AI CCTV and intruder detection in {l.city}
+              {l.hasOffice
+                ? `AI CCTV and CCTV installation in ${l.city} — by our own team`
+                : `AI CCTV and intruder detection in ${l.city}`}
             </h1>
             <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
               {l.intro}

@@ -62,6 +62,16 @@ export default function Footer() {
             <a href={BUSINESS.whatsapp} data-cta="footer-whatsapp">
               WhatsApp PGAK
             </a>
+            {/* Local signals, once, on every page: the home-city page under the
+                words people actually search, and the Maps listing the schema's
+                hasMap points at. Ludhiana only — it is the one city with our
+                own team; every other city page says "verified partner". */}
+            <a href="/ai-cctv-ludhiana" data-cta="footer-ludhiana">
+              CCTV installation in Ludhiana — our own team
+            </a>
+            <a href={BUSINESS.gbp.url} target="_blank" rel="noopener" data-cta="footer-maps">
+              Find us on Google Maps
+            </a>
             {/* Driven by the same list as the schema.org `sameAs` array, so a
                 profile can never be linked here while missing from the entity
                 graph (or the other way round). */}
