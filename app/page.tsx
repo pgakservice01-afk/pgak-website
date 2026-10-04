@@ -128,7 +128,8 @@ export default function Home() {
             description:
               "PGAK assesses existing CCTV, plans new installations and configures practical AI video analytics for factories, warehouses, offices and institutions in India.",
           }),
-          organizationSchema(),
+          // organizationSchema() is emitted once for every page by app/layout.tsx;
+          // listing it here again put the LocalBusiness entity on the homepage twice.
         ]}
       />
       <Nav overlay />
