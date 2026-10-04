@@ -55,4 +55,4 @@ What it doesn't do is replace the written policy. Evidence settles what happened
 
 None of this works retroactively. If you're introducing a grace period or an escalation ladder for the first time, apply it going forward from a stated date, not backward onto a month people didn't know the rules for. A policy applied backward reads as punishment, however fair the numbers look on paper.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)

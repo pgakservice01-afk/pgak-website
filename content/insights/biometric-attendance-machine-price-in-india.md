@@ -62,4 +62,4 @@ If your gates have no cameras and never will: buy a mid-range machine, budget ho
 
 If your gates already have cameras: run the comparison before you buy anything, because the machine may be the one line item you can delete entirely.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)

@@ -47,4 +47,4 @@ That's a one-time adjustment — after which your gate takes attendance by itsel
 
 Still weighing the two approaches? Read [the honest comparison](/insights/face-recognition-attendance-vs-biometric-machine) of face recognition against biometric machines, point by point.
 
-*Curious whether your existing gate cameras can handle attendance? [Ask for a free feasibility check](#dealer) — we'll analyse your feed and tell you straight.*
+*Curious whether your existing gate cameras can handle attendance? The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit) — we'll analyse your feed and tell you straight.*

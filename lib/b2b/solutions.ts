@@ -37,9 +37,9 @@ export const BUYER_SOLUTIONS: Record<
   },
   "face-recognition-attendance-system": {
     kind: "problem",
-    title: "Evaluate face recognition attendance on CCTV",
+    title: "Face recognition attendance system on existing CCTV — how it works, what it needs",
     intro:
-      "Assess whether suitable entrance views can support attendance records that people can review and correct. Camera suitability, authorised enrolment and exception handling come before payroll use.",
+      "A face recognition attendance system that runs on the entrance cameras you already own: enrolled faces recognised at walking pace, every record backed by its own frame, and exceptions a person reviews and corrects. What the camera view must provide, where it fails, and why a pilot on your own gate comes before anything is quoted.",
     workflow:
       "HR and the site operator agree enrolment, shift rules and a correction process. Entrance events are compared with a permitted reference record. Ambiguous and missing records require review before any attendance or pay decision.",
     event:

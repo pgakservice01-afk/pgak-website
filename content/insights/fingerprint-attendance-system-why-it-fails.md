@@ -58,4 +58,4 @@ That second shape is what we build — bias disclosed — and it exists precisel
 
 Count your gates, watch one shift change, and look at your workers' hands. If the answers are "one, calm, and clean" — keep the fingerprint machine. Anything else, and the machine is the bottleneck you're paying to maintain.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)

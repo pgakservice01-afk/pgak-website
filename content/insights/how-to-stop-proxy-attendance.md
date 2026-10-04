@@ -52,4 +52,4 @@ Count manual attendance entries as a percentage of total entries for last month.
 
 Under two percent, your system is broadly working. Above ten, proxy attendance is not your real problem — your attendance system has quietly become a paper process with a machine in front of it.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)
