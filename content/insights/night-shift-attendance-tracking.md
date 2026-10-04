@@ -53,4 +53,4 @@ Compare average recorded shift duration for night shift against day shift, over 
 
 If night is materially shorter, you are either losing hours or failing to record exits. Both are worth knowing before the next payroll run.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)

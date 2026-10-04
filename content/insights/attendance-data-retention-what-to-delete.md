@@ -50,4 +50,4 @@ Two very practical reasons. First, storing biometric templates you no longer nee
 
 We build attendance systems that separate these two data types, so this recommendation isn't disinterested — we think a system that can't tell you which of your data is a register entry and which is a live biometric template is a system that will eventually get someone into trouble. The honest limitation: retention automation only works if enrolment and exit are tracked accurately in the first place. A system with clean deletion rules still fails if HR doesn't mark exits promptly.
 
-[Ask for a free feasibility check](#dealer)
+If your gates already have cameras, the option these constraints leave open is [attendance from the gate camera, with no machine to queue at](/biometric-attendance) — enrolled faces, each record backed by its own frame, and the correction workflow this article describes. [Ask for a free audit of your entrance cameras →](/free-audit)

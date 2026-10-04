@@ -111,7 +111,7 @@ If you are a government department, AEBAS is your answer and it is already provi
 
 If you are a private employer, forget Aadhaar. Ask instead which system gives you a complete, quick, photo-backed record on the gates you actually have — and whether you need to buy hardware to get it.
 
-[Ask for a free feasibility check](#dealer)
+If your gates already have cameras, the option these constraints leave open is [attendance from the gate camera, with no machine to queue at](/biometric-attendance) — enrolled faces, each record backed by its own frame, and the correction workflow this article describes. [Ask for a free audit of your entrance cameras →](/free-audit)
 
 ## Sources
 

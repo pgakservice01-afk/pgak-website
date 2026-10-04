@@ -50,4 +50,4 @@ Take one night-shift worker and one rotating worker. Recompute their last month 
 
 If your hand calculation matches the system, the rules are encoded correctly. If it does not, you have found where every month's corrections come from — and it will be one of the five above.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)

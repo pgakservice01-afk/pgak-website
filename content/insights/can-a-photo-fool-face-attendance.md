@@ -44,4 +44,4 @@ Combined with visual evidence stored against every entry — so a questioned mar
 
 If a vendor tells you their system is unbeatable, that's worth being sceptical of — the honest claim is "hard to spoof with common methods," not "impossible."
 
-[Ask for a free feasibility check](#dealer)
+What a camera-based system does about this is set out on the [face recognition attendance system page](/face-recognition-attendance-system), including what it needs from the entrance camera to work at all. [Ask for a free audit of your entrance cameras →](/free-audit)

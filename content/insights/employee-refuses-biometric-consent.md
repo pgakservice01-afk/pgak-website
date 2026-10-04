@@ -55,4 +55,4 @@ We build face-recognition attendance systems, so weigh the following with that i
 
 The honest limitation: no attendance system, biometric or not, eliminates the need for a human process when someone genuinely can't or won't use the primary method. Budget for that from day one rather than treating it as an edge case discovered mid-rollout.
 
-[Ask for a free feasibility check](#dealer)
+If your gates already have cameras, the option these constraints leave open is [attendance from the gate camera, with no machine to queue at](/biometric-attendance) — enrolled faces, each record backed by its own frame, and the correction workflow this article describes. [Ask for a free audit of your entrance cameras →](/free-audit)

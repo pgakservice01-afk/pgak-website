@@ -49,4 +49,4 @@ It isn't a free pass on the night shift specifically. Recognition accuracy depen
 
 Pull last month's night-shift attendance report and look for two things: shifts that show up as two fragments instead of one, and any worker logged in without a matching exit. Either one, at scale, means your attendance system is built for a single shift and is being asked to run three.
 
-[Ask for a free feasibility check](#dealer)
+The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)
