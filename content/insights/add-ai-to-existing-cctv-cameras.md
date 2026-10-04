@@ -1,9 +1,10 @@
 ---
-title: "Can you add AI to CCTV cameras you already own?"
+title: "Can you add AI to existing CCTV cameras without replacing them?"
 date: "2026-08-31"
+updated: "2026-10-05"
 category: "Buying Guide"
 excerpt: "Usually yes — if your DVR exposes a video stream, software can read it. The camera doesn't need to be 'AI-ready'. What actually decides it is where each camera points and how many pixels land on the thing you care about."
-metaDescription: "Usually yes — if your DVR exposes a video stream, software can read it."
+metaDescription: "Usually yes. Most Indian sites run Hikvision, CP Plus or Dahua recorders that can hand over an RTSP stream. What decides it is model, firmware and where each camera points."
 readTime: 7
 image: "/insights/covers/add-ai-to-existing-cctv-cameras.webp"
 faqs:
@@ -15,9 +16,13 @@ faqs:
     a: "It is mostly a marketing label. Some cameras run detection models on the camera itself, which is useful but limits you to whatever that manufacturer shipped. If analytics run on an edge device or server on your site instead, ordinary IP and HD-over-coax cameras from any mix of brands can feed the same system — which is why mixed, older estates are usually still workable."
   - q: "How do I know if my DVR supports AI analytics?"
     a: "The practical test is whether it can produce an RTSP stream, which most DVRs and NVRs sold in the last decade can, and whether it is reachable on your network. Brand matters far less than stream access. If you can view your cameras on a phone app away from the premises, a stream almost certainly exists."
+  - q: "Does AI video analytics work with Hikvision, CP Plus and Dahua recorders?"
+    a: "Usually, because most recorders from those brands sold in the last decade can provide an RTSP stream, and those three are what most Indian sites run. Brand alone does not establish compatibility: the recorder model, its firmware, its stream settings and whether it is reachable on your network decide it. PGAK checks those on your actual recorder during the audit, before anything is quoted."
 ---
 
 **Straight answer: in most cases, yes. AI video analytics reads the stream your DVR or NVR already produces — so the camera does not need to be "AI-ready", a particular brand, or new. What actually decides whether a camera is usable is where it points, what the light is like, and how many pixels land on the thing you care about. Almost every site we assess can reuse most of its estate; the exceptions are face recognition and number plates, which are fussy about camera position.**
+
+In practice, most sites in India run **Hikvision, CP Plus or Dahua** DVRs and NVRs, and most recorders from those brands sold in the last decade can hand over that stream. Brand alone doesn't settle it, though — the recorder model, its firmware and its stream settings do, which is why it gets checked on your actual recorder rather than promised from a brand list.
 
 This is the single most common question we get, and it is usually asked defensively — because the first quote the person received proposed replacing every camera on the property.
 
@@ -98,6 +103,16 @@ Four questions you can answer yourself today:
 4. **Stand where an intruder would enter.** Is anything pointed at you? At what height?
 
 That list is worth more than any spec sheet, and it is the same list we build during an assessment.
+
+## Will it work with Hikvision, CP Plus or Dahua?
+
+These three are what most Indian sites already have on the wall, so it is the question behind the question. The honest answer has two halves.
+
+**Usually, yes.** Most recorders from these brands sold in the last decade can provide an RTSP stream — the same stream your phone app already uses when you view the cameras away from the premises. Analytics software reads that stream; it does not need the camera or the recorder to be "AI".
+
+**But a brand is not a compatibility guarantee.** Two recorders with the same logo can behave differently depending on the model, the firmware version, whether the sub-stream is enabled, and how the network is set up. So the check is done on your actual recorder, not against a brand list. Our [compatibility page](/platform/compatibility) sets out exactly what gets checked and why "it says ONVIF on the box" is not enough.
+
+If a supplier tells you they work with "40+ brands", that is a reasonable starting point and the right answer to it is the same: ask them to confirm your recorder model and firmware before you pay for anything.
 
 ## The short version
 
