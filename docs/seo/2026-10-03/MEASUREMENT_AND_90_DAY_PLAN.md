@@ -25,6 +25,51 @@ Page-level anchors to re-read at each milestone (28 d, 3–30 Sep):
 `/insights/add-ai-to-existing-cctv-cameras` 67 / 1 / 1.49% / 6.00 ·
 `/ai-cctv-noida` 84 / 6 / 7.14% / 8.81 · homepage 671 impressions / 83 clicks (90 d), 70 of them on the query `pgak`.
 
+## 1b. GA4 funnel baseline — read 2026-10-05
+
+Property **PGAK** (account "Aditya Mittal", property 547344316), web stream
+`https://www.pgak.co.in`, measurement ID **G-6EMP9HSR2F** — confirmed to match the tag in
+`app/layout.tsx` and receiving traffic. The same Google login also opens a Secured Engineers
+property; nothing from it is used here.
+
+**28 days, 7 Sep–4 Oct 2026** (GA4 runs past the Search Console freeze at 29 Sep):
+
+| Step | Events | Users |
+|---|---|---|
+| Sessions | 602 | 464 |
+| `form_view` | 101 | 52 |
+| `form_start` | 44 | 18 |
+| `form_submit` (server confirmed) | 7 | 7 |
+| **`generate_lead`** (key event) | **7** | **7** |
+| — of which `assessment_request` / `demo_request` / `pricing_request` | 4 / 2 / 1 | |
+| `lead_delivery_failed` | **0** | |
+| `click_phone` / `click_whatsapp` (interactions, not leads) | 6 / 7 | 5 / 6 |
+
+**Since 24 Sep** (when `form_submit_attempt` and `lead_delivery_failed` reached production,
+commit `3089a86`): `form_start` 11 (5 users) → `form_submit_attempt` 2 → `form_submit` 3 →
+`generate_lead` 3; `lead_delivery_failed` 0. One submit without an attempt is consistent with a
+visitor on a bundle from before 24 Sep; it is not a delivery fault.
+
+**Key events by channel (28 d):** Organic Search **6 of 7** (2.62% of 229 sessions); AI
+Assistant **1 of 7** (3.23% of 31 sessions — the highest rate of any channel); Direct 0 of 311
+(25% engagement, 18 s average — largely non-buyer traffic).
+**By landing page:** `/` 3, `/pricing` 1 (9.1% of 11 sessions), remaining 3 across the long tail.
+
+### What this settles
+- **The ERP path works on production.** `generate_lead` fires only when the server confirms
+  `received`/`delivered`, and with the register dark the ERP is the only destination — so seven
+  confirmations with zero recorded failures is production evidence of ERP delivery, obtained
+  without a test submission. (Telegram is not evidenced by this.)
+- **All seven exist only in the ERP.** The register has never run in production, so none has a
+  sheet row or an internal email. **Owner reconciliation:** the ERP should hold seven website
+  enquiries since 7 Sep — four assessment, two demo, one pricing — three of them since 24 Sep.
+  Fewer means a loss this instrumentation cannot see.
+- **Search is the lead engine.** Organic and AI-assistant traffic produced every enquiry.
+- **The leak is form view → form start**: 52 users saw a form, 18 began one. Since 24 Sep
+  5 of 52. Too few to act on alone; note that commit `27061a7` (~1–2 Oct) made every field of
+  the camera-setup form compulsory, the opposite of the brief's "keep the first step short".
+  Read this step again at 28 days before changing it.
+
 ## 2. Core Web Vitals — NOT MEASURED
 
 Attempted 2026-10-03 through the PageSpeed Insights API, mobile, for `/` and
@@ -96,7 +141,7 @@ Until the register receives rows (see §5, BLOCKED), this cannot be counted.
 | `DealerFilm.tsx` committed by mistake in #71 | **FIXED** | untracked in #72; local file preserved |
 | Build gate not enforced on #73 (local ENOSPC) | **process error, disclosed** | gate re-proven on `main af876cd`: 214 pages |
 | Keyword-to-page map with volumes | **BLOCKED** | no authorised Trends / Planner / Ahrefs source; nothing invented |
-| GA4 funnel verification | **NOT VERIFIED** | not attempted this session |
+| GA4 funnel verification | **VERIFIED** (read-only, 2026-10-05) | §1b — 7 leads, 0 delivery failures, 6 of 7 from organic search |
 | End-to-end TEST enquiry | **PLANNED** | acceptance test once the register is live |
 | Thin solution pages (`hospital-security` 49% unique, 3 others) | **PLANNED — owner facts** | needs conditions PGAK will stand behind |
 | VMS page / deployment-mode pages | **PLANNED — owner facts E, F** | nothing on file describes them |
