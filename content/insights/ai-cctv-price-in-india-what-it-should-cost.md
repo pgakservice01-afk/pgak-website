@@ -72,6 +72,20 @@ A monthly bill at warehouse scale is a real number and worth being sceptical abo
 
 If that arithmetic doesn't work at your site, it doesn't work, and we'd rather say so during the audit than after the invoice.
 
+## What do suppliers in India actually publish?
+
+We checked what five suppliers state on their own websites on 5 October 2026. Prices are quoted as they publish them, including what is and is not included:
+
+| Supplier | What they publish | What it covers, as stated |
+|---|---|---|
+| Foreman | ₹400 per camera per month, four cameras minimum, plus GST | Software installed on a computer at your unit; 7-day free trial |
+| ArcisAI | Rs.70k–250k typical system; commercial Rs.1.5–5 lakh | Cameras and system — a hardware purchase |
+| indo.ai | Kits from ₹7,08,000 to ₹10,86,000 | Cameras, Edge Box, storage, accessories and AI models |
+| vizo361 | No published list price | Custom-priced; 30-day pilot on 2 cameras |
+| PGAK | No published rate | Per camera per month, quoted after an audit of your cameras |
+
+They are not the same thing priced differently. A software subscription you install yourself, a full camera system and a quoted service with a survey are three different purchases, and comparing their headline numbers directly tells you very little. The [side-by-side comparison](/insights/compare-ai-video-analytics-suppliers-india) sets out pilots, proof and local presence as well.
+
 ## Which questions should you ask every vendor?
 
 *Which of my existing cameras will you use, what will you charge me monthly, and what happens in week two?*

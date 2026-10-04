@@ -21,14 +21,14 @@ export const BUYER_SOLUTIONS: Record<
     workflow:
       "A security supervisor defines a perimeter zone and schedule. The pilot distinguishes authorised deliveries and staff movement from entry that needs review. The response owner decides what to do; a detector does not establish criminal intent.",
     event:
-      "A person enters a defined loading-bay zone during agreed closed hours.",
+      "A person enters a defined restricted zone during agreed hours — a rear loading bay after shift end, an electrical room, a chemical or scrap store, a perimeter line.",
     requirements: [
       "Stable authorised stream and appropriate target detail at the far edge of the zone.",
       "Representative night lighting, camera angle and unobstructed approaches.",
       "Processing capacity, verified alert destination and an accountable response owner.",
     ],
     limits:
-      "Occlusion, headlights, rain, vegetation and small or distant targets can create false alerts or missed events. A working daytime test does not establish nighttime performance.",
+      "The camera detects that a person entered the zone; it does not know whether that person was allowed to. Separating authorised from unauthorised entry needs a schedule, an access-control or permit record, or a person reviewing the alert. Occlusion, headlights, rain, vegetation and small or distant targets can create false alerts or missed events, and a working daytime test does not establish night-time performance.",
     example:
       "Illustration: a warehouse tests a rear loading bay after shift end, alongside authorised cleaning and a scheduled collection. The outcome is a test log, not a claimed reduction in theft.",
     test: "Agree ground truth, zones and eligible events first. Stage permitted crossings and legitimate exceptions. Count true alerts, false alerts, missed events and event-to-recipient delay. Repeat across agreed conditions and test stream loss.",
