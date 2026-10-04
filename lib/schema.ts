@@ -51,7 +51,24 @@ export function organizationSchema(): Json {
       addressCountry: BUSINESS.address.country,
     },
     openingHours: BUSINESS.openingHours,
-    areaServed: { "@type": "Country", name: "India" },
+    // The pin and the listing it belongs to — what ties this entity to the
+    // Google Business Profile for local results. Both read from Maps 2026-10-05.
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: BUSINESS.geo.lat,
+      longitude: BUSINESS.geo.lng,
+    },
+    hasMap: BUSINESS.gbp.url,
+    // Home city first — the only city with our own team on the ground — then
+    // the country the partner network covers. Not a list of every city page.
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Ludhiana",
+        containedInPlace: { "@type": "State", name: "Punjab" },
+      },
+      { "@type": "Country", name: "India" },
+    ],
     // Spells out *how* to reach support and in which languages — the detail
     // assistants quote when someone asks "how do I contact PGAK".
     contactPoint: {
