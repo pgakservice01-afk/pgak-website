@@ -111,6 +111,7 @@ Until the register receives rows (see §5, BLOCKED), this cannot be counted.
 | Money-page impressions / clicks / CTR | GSC page regex (§1) | 634 / 10 / 1.6% (28 d) |
 | Priority-page CTR | GSC, the six pages in §1 | as listed |
 | Defined query-set visibility | GSC, the buyer queries in `KEYWORD_TO_PAGE_MAP` once it exists; until then the 25 fixed AI-visibility questions | run 2 (24 Sep) |
+| **Indexed pages** | GSC → Indexing → Pages | **113** indexed; 50 real pages never crawled; 13 folded as duplicates (2026-10-05, `INDEXING_DIAGNOSIS.md`) |
 | **Supplier comparison facts** | Re-check each supplier's cited page for `/insights/compare-ai-video-analytics-suppliers-india` and the cost guide table; update the date or the cell | checked 2026-10-05 |
 | **Generative AI features impressions** | GSC → Performance → Generative AI (`/performance/search-analytics/ai`); impressions only, subset of Web | **1,450 (30 Jun–29 Sep), 99 pages** — run 4, 4 Oct |
 | Form acceptance / delivery | GA4: `form_submit` ÷ `form_submit_attempt`; `lead_delivery_failed` count | not yet read |
@@ -147,7 +148,7 @@ Until the register receives rows (see §5, BLOCKED), this cannot be counted.
 | VMS page / deployment-mode pages | **PLANNED — owner facts E, F** | nothing on file describes them |
 | Bing Places wrong phone / address | **BLOCKED — owner** | unverified since 24 Sep |
 | GSC Generative AI report | **PLANNED** | open manually; the link would not navigate in automation |
-| Core Web Vitals (lab and field) | **NOT VERIFIED** | PSI keyless quota exhausted 2026-10-03; retry with a key |
+| Core Web Vitals (lab and field) | **VERIFIED — no field data** | Search Console shows "No data" for mobile and desktop (2026-10-05): below Google's threshold |
 
 ## 6. Milestones
 
