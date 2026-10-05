@@ -254,13 +254,35 @@ function clean(value: unknown, max: number): string {
  * the two straight runs (1234567890 / 0123456789). Each is unassignable or a
  * placeholder in practice, so rejecting them cannot cost a real lead.
  */
+/**
+ * Indian-script digits typed on a Hindi, Punjabi or other Indic keyboard —
+ * "९८७६५ ४३२१०" in Devanagari, "੯੮੭੬੫ ੪੩੨੧੦" in Gurmukhi — are real phone
+ * numbers. `\D` strips them as non-digits, so they were rejected outright.
+ * Each run of ten decimal digits is mapped to 0-9 before anything else.
+ */
+const NATIVE_DIGIT_BASES = [
+  0x0660, 0x06f0, // Arabic-Indic, Extended Arabic-Indic (Urdu)
+  0x0966, 0x09e6, 0x0a66, 0x0ae6, 0x0b66, // Devanagari, Bengali, Gurmukhi, Gujarati, Odia
+  0x0be6, 0x0c66, 0x0ce6, 0x0d66, // Tamil, Telugu, Kannada, Malayalam
+  0xff10, // fullwidth
+];
+function toAsciiDigits(raw: string): string {
+  return raw.replace(/\p{Nd}/gu, (ch) => {
+    const cp = ch.codePointAt(0)!;
+    for (const base of NATIVE_DIGIT_BASES)
+      if (cp >= base && cp <= base + 9) return String(cp - base);
+    return ch;
+  });
+}
+
 export function normalisePhone(raw: unknown): string | null {
   if (typeof raw !== "string") return null;
-  const digits = raw.replace(/\D/g, "");
+  const digits = toAsciiDigits(raw).replace(/\D/g, "");
 
   // Strip country code / trunk prefixes, longest and most specific first.
   let local = digits;
-  if (local.length === 13 && local.startsWith("091")) local = local.slice(3);
+  if (local.length === 14 && local.startsWith("0091")) local = local.slice(4);
+  else if (local.length === 13 && local.startsWith("091")) local = local.slice(3);
   else if (local.length === 12 && local.startsWith("91"))
     local = local.slice(2);
   else if (local.length === 11 && local.startsWith("0")) local = local.slice(1);
@@ -269,6 +291,24 @@ export function normalisePhone(raw: unknown): string | null {
   if (/^(\d)\1{9}$/.test(local)) return null; // all ten digits identical
   if (local === "1234567890" || local === "0123456789") return null;
   return `+91${local}`;
+}
+
+/**
+ * A number written with a non-Indian country code ("+1 416…", "0044 7911…").
+ *
+ * The forms only accept Indian numbers — the ERP, the only live lead
+ * destination, receives `+91…` and its contract for anything else is not
+ * known — so this does not make such numbers valid. It lets a form tell an
+ * NRI the truth ("this form takes Indian numbers; WhatsApp works from any
+ * country") instead of a dead-end "enter a 10-digit Indian number".
+ */
+export function isInternationalNumber(raw: unknown): boolean {
+  if (typeof raw !== "string") return false;
+  const s = toAsciiDigits(raw).trim().replace(/^\(?\s*/, "");
+  if (!/^(\+|00)/.test(s)) return false;
+  const digits = s.replace(/\D/g, "").replace(/^00/, "");
+  if (digits.startsWith("91")) return false;
+  return digits.length >= 8 && digits.length <= 15;
 }
 
 /**

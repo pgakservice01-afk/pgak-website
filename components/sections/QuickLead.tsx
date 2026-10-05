@@ -1,9 +1,11 @@
 "use client";
 
 import LeadDetails from "@/components/b2b/LeadDetails";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useLang } from "@/components/LangProvider";
-import { CAMERA_OPTIONS, HONEYPOT_FIELD, normalisePhone } from "@/lib/leads";
+import { CAMERA_OPTIONS, HONEYPOT_FIELD, isInternationalNumber, normalisePhone } from "@/lib/leads";
+import { waHref } from "@/lib/whatsapp";
+import { BUSINESS } from "@/lib/seo";
 import { CALLBACK_PROMISE } from "@/lib/audit";
 import {
   PHONE_DISPLAY,
@@ -72,7 +74,7 @@ export default function QuickLead({
   useEffect(() => setHydrated(true), []);
   const [status, setStatus] = useState<Status>("idle");
   const [receiptToken, setReceiptToken] = useState<string>();
-  const [error, setError] = useState("");
+  const [error, setError] = useState<ReactNode>("");
   // Which field the error is about, so only that one is announced as invalid.
   const [errorField, setErrorField] = useState<"" | "phone" | "location" | "cameras">("");
   const [retryable, setRetryable] = useState(true);
@@ -175,9 +177,21 @@ export default function QuickLead({
     if (!normalisePhone(phone)) {
       setErrorField("phone");
       setError(
-        t(
-          "Please enter a valid 10-digit Indian phone number.",
-          "कृपया सही 10 अंकों का भारतीय फ़ोन नंबर लिखें।",
+        isInternationalNumber(phone) ? (
+          <>
+            {t(
+              "That looks like a number from outside India. This form takes Indian numbers — from abroad, message us on WhatsApp instead, which works from any country.",
+              "यह भारत के बाहर का नंबर लगता है। यह फ़ॉर्म भारतीय नंबर लेता है — विदेश से WhatsApp पर संदेश भेजें, यह किसी भी देश से काम करता है।",
+            )}{" "}
+            <a href={waHref("Hi PGAK, I'm outside India and would like to talk about the CCTV at my property.")} target="_blank" rel="noopener" data-cta="phone-intl-whatsapp" className="underline">
+              WhatsApp {BUSINESS.phone} →
+            </a>
+          </>
+        ) : (
+          t(
+            "Please enter a valid 10-digit Indian phone number.",
+            "कृपया सही 10 अंकों का भारतीय फ़ोन नंबर लिखें।",
+          )
         ),
       );
       return;

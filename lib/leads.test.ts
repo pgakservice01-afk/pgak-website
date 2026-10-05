@@ -14,6 +14,7 @@ import {
   cleanAttribution,
   normaliseEmail,
   normalisePhone,
+  isInternationalNumber,
   toErpPayload,
   validateLead,
   LIMITS,
@@ -435,3 +436,24 @@ test("an existing-camera enquiry without the new fields keeps its old message sh
   assert.doesNotMatch(p.message, /Project:|Timeline:/);
   assert.match(p.message, /^Protecting: /);
 });
+
+test("Indian-script digits are real phone numbers", () => {
+  // Hindi and Punjabi keyboards type Devanagari and Gurmukhi digits; \D used
+  // to strip them as non-digits and reject the number outright.
+  assert.equal(normalisePhone("९८७६५ ४३२१०"), "+919876543210"); // Devanagari
+  assert.equal(normalisePhone("੯੮੭੬੫ ੪੩੨੧੦"), "+919876543210"); // Gurmukhi
+  assert.equal(normalisePhone("+९१ ९८७६५ ४३२१०"), "+919876543210");
+  assert.equal(normalisePhone("0091 98765 43210"), "+919876543210");
+});
+
+test("international numbers are recognised, and still not accepted", () => {
+  // The contract with the ERP is unchanged: only +91 numbers are valid.
+  for (const n of ["+1 416 555 0100", "+44 7911 123456", "0044 7911 123456", "(+61) 412 345 678", "+39 333 123 4567"]) {
+    assert.equal(normalisePhone(n), null, `still rejected: ${n}`);
+    assert.equal(isInternationalNumber(n), true, `recognised: ${n}`);
+  }
+  for (const n of ["+91 98765 43210", "9876543210", "098765 43210", "0091 98765 43210", "+1 23", ""]) {
+    assert.equal(isInternationalNumber(n), false, `not international: ${n}`);
+  }
+});
+
