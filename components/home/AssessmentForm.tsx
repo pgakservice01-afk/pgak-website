@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactNode } from "react";
 
 import { submitLead, mintRef, waFallbackHref, type LeadValues } from "@/lib/lead-client";
 import {
@@ -10,8 +10,10 @@ import {
   PROJECT_NEW,
   PROTECT_OPTIONS,
   normalisePhone,
+  isInternationalNumber,
 } from "@/lib/leads";
 import { BUSINESS } from "@/lib/seo";
+import { waHref } from "@/lib/whatsapp";
 
 /**
  * The homepage assessment request.
@@ -58,7 +60,7 @@ export default function AssessmentForm({
   cta?: string;
 }) {
   const [status, setStatus] = useState<Status>("idle");
-  const [phoneError, setPhoneError] = useState("");
+  const [phoneError, setPhoneError] = useState<ReactNode>("");
   const [values, setValues] = useState<LeadValues | null>(null);
   // Minted once per form instance and reused on retries, so one person trying
   // twice is counted as one person — see the note in lib/lead-client.ts.
@@ -72,7 +74,18 @@ export default function AssessmentForm({
 
     const phone = get("phone");
     if (!normalisePhone(phone)) {
-      setPhoneError("Please enter a valid 10-digit Indian phone number.");
+      setPhoneError(
+        isInternationalNumber(phone) ? (
+          <>
+            {"That looks like a number from outside India. This form takes Indian numbers — from abroad, message us on WhatsApp instead, which works from any country."}{" "}
+            <a href={waHref("Hi PGAK, I'm outside India and would like to talk about the CCTV at my property.")} target="_blank" rel="noopener" data-cta="phone-intl-whatsapp">
+              WhatsApp {BUSINESS.phone} →
+            </a>
+          </>
+        ) : (
+          "Please enter a valid 10-digit Indian phone number."
+        ),
+      );
       form.querySelector<HTMLInputElement>('input[name="phone"]')?.focus();
       return;
     }
@@ -272,7 +285,7 @@ function Field({
   name: string;
   type?: string;
   required?: boolean;
-  error?: string;
+  error?: ReactNode;
   autoComplete?: string;
   inputMode?: "tel" | "text" | "email";
   placeholder?: string;
