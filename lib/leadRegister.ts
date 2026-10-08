@@ -147,6 +147,8 @@ export function buildRegisterPayload(
       lead.contactTime ? `Best time to call: ${lead.contactTime}` : "",
       lead.protecting ? `Protecting: ${lead.protecting}` : "",
       lead.employees ? `People clocking in: ${lead.employees}` : "",
+      attribution.feature_id ? `Feature: ${attribution.feature_id}` : "",
+      attribution.calculator_id ? `Calculator: ${attribution.calculator_id}` : "",
     ]
       .filter(Boolean)
       .join(" · "),

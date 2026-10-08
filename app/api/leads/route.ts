@@ -4,7 +4,9 @@ import {
   receiptToken,
   tokenHash,
 } from "@/lib/lead-intake";
-import { NextResponse, type NextRequest } from "next/server";
+import { after, NextResponse, type NextRequest } from "next/server";
+
+import { outboxEnvFromProcess, runOutbox } from "@/lib/lead-outbox";
 
 import {
   buildRegisterPayload,
@@ -511,6 +513,24 @@ export async function POST(request: NextRequest) {
       });
       if (accepted.received !== true || accepted.ref !== ref)
         throw new Error("NO_RECEIPT");
+      // The receipt is durable now; delivery is a separate step. Attempt it
+      // once straight after the response, so a stored enquiry does not wait
+      // for the scheduled worker (/api/lead-outbox) to reach the ERP and the
+      // owner. Whatever fails here stays queued for that worker to retry.
+      if (accepted.state !== "delivered") {
+        after(async () => {
+          try {
+            const out = await runOutbox(intakeRpc, outboxEnvFromProcess(), fetch);
+            for (const r of out.results)
+              console[r.success ? "log" : "error"](
+                r.success ? "LEAD_OUTBOX_DELIVERED" : "LEAD_OUTBOX_QUEUED",
+                JSON.stringify({ ref: r.ref, kind: r.kind, reason: r.reason }),
+              );
+          } catch {
+            console.error("LEAD_OUTBOX_INLINE_UNAVAILABLE", ref);
+          }
+        });
+      }
       return json({
         status: 202,
         body: {
@@ -740,6 +760,9 @@ export async function GET() {
       erp: config.ok,
       mode: config.ok ? (registerConfig().ok ? "erp+register" : "erp only") : registerConfig().ok ? "sheet-and-email" : "not configured",
       durableIntake: intakeConfigured(),
+      // The scheduled retry worker can authenticate. Without it, a stored lead
+      // whose first delivery attempt failed waits until someone runs it.
+      outboxWorker: Boolean((process.env.LEAD_OUTBOX_SECRET ?? "").trim()),
       notify: Boolean(
         (process.env.LEAD_ALERT_TELEGRAM_TOKEN ?? "").trim() &&
         (process.env.LEAD_ALERT_TELEGRAM_CHAT_ID ?? "").trim(),

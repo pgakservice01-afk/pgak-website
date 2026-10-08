@@ -159,6 +159,10 @@ export const ATTRIBUTION_KEYS = [
   "utm_content",
   "gclid",
   "fbclid",
+  // Which feature page or calculator the enquiry came from (registry ids such
+  // as "anpr" or "C09"). Ids, never values the visitor typed.
+  "feature_id",
+  "calculator_id",
 ] as const;
 
 export type Attribution = Partial<
@@ -481,6 +485,8 @@ export function toErpPayload(
     attribution.first_source ? `First source: ${attribution.first_source}` : "",
     attribution.page ? `Page: ${attribution.page}` : "",
     attribution.cta ? `CTA: ${attribution.cta}` : "",
+    attribution.feature_id ? `Feature: ${attribution.feature_id}` : "",
+    attribution.calculator_id ? `Calculator: ${attribution.calculator_id}` : "",
     attribution.landing ? `Landing: ${attribution.landing}` : "",
     campaign ? `Campaign: ${campaign}` : "",
     attribution.utm_term ? `Term: ${attribution.utm_term}` : "",

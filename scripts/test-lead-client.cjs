@@ -9,7 +9,7 @@ function setup(response) {
     exports = {};
   const modules = {
     "./leads": { HONEYPOT_FIELD: "website" },
-    "./attribution": { readAttribution: (cta) => ({ cta }) },
+    "./attribution": { readAttribution: (cta, ctx = {}) => ({ cta, ...ctx }) },
     "./fbpixel": { fbTrack: () => {} },
     "./analytics": {
       trackConversion: (name, params) => events.push({ name, params }),
@@ -59,7 +59,7 @@ for (const [form, event] of [
       h.events.map((e) => e.name),
       // form_submit_attempt fires before the response is known — it is an
       // attempt, not a conversion, and it fires once even across the retry.
-      ["form_submit_attempt", "form_submit", event, "generate_lead"],
+      ["form_submit_attempt", "lead_accepted", "form_submit", event, "generate_lead"],
     );
     assert.equal(h.requests[0].ref, h.requests[1].ref);
     assert.ok(!JSON.stringify(h.events).includes(values.phone));
@@ -165,3 +165,32 @@ test("the three fields default to empty strings, never undefined", async () => {
   assert.equal(body.contactTime, "");
 });
 
+
+test("lead_accepted separates delivered from queued and carries registry ids only", async () => {
+  const queued = setup({ ok: true, body: { received: true, delivered: false, state: "queued" } });
+  await queued.submitLead(values, {
+    ref: "ctx-reference-1",
+    cta: "calc",
+    formName: "quick_audit_request",
+    featureId: "anpr",
+    calculatorId: "C09",
+  });
+  const acc = queued.events.find((e) => e.name === "lead_accepted");
+  assert.equal(acc.params.delivery_state, "queued");
+  assert.equal(acc.params.feature_id, "anpr");
+  assert.equal(acc.params.calculator_id, "C09");
+  assert.equal(queued.requests[0].attribution.featureId, "anpr");
+  const gl = queued.events.find((e) => e.name === "generate_lead");
+  assert.equal(gl.params.delivery_state, "queued");
+
+  const delivered = setup({ ok: true, body: { delivered: true } });
+  await delivered.submitLead(values, { ref: "ctx-reference-2", cta: "x", formName: "demo_request" });
+  assert.equal(delivered.events.find((e) => e.name === "lead_accepted").params.delivery_state, "delivered");
+});
+
+test("honeypot-style 200 with a failure body never counts as a lead", async () => {
+  const h = setup({ ok: true, body: { ok: false, delivered: false, fallback: true } });
+  const out = await h.submitLead(values, { ref: "hp-reference-1", cta: "x", formName: "demo_request" });
+  assert.equal(out.kind, "fallback");
+  assert.ok(!h.events.some((e) => ["lead_accepted", "generate_lead"].includes(e.name)));
+});

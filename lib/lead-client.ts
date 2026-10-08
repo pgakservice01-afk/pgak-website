@@ -70,7 +70,7 @@ export function mintRef(): string {
  * "not_delivered", never the response body, which could carry what the
  * customer typed.
  */
-function reportFailure(opts: { ref: string; cta: string; formName: string }, reason: string): void {
+function reportFailure(opts: SubmitOpts, reason: string): void {
   if (failureReported.has(opts.ref)) return;
   failureReported.add(opts.ref);
   trackConversion("lead_delivery_failed", {
@@ -80,10 +80,24 @@ function reportFailure(opts: { ref: string; cta: string; formName: string }, rea
   });
 }
 
+export type SubmitOpts = {
+  ref: string;
+  cta: string;
+  formName: string;
+  /** Registry ids for the page or calculator the enquiry came from. */
+  featureId?: string;
+  calculatorId?: string;
+};
+
 export async function submitLead(
   values: LeadValues,
-  opts: { ref: string; cta: string; formName: string },
+  opts: SubmitOpts,
 ): Promise<SubmitOutcome> {
+  // Non-PII context carried on every event below, so GA4 can say which
+  // feature or calculator produced an enquiry without seeing who sent it.
+  const ctx: Record<string, string> = {};
+  if (opts.featureId) ctx.feature_id = opts.featureId;
+  if (opts.calculatorId) ctx.calculator_id = opts.calculatorId;
   // Counted once per form instance, not per retry: `ref` is minted with the
   // form and reused on every attempt, so a customer who retries twice is one
   // person trying to reach us, not three. Without this the funnel jumps
@@ -91,7 +105,7 @@ export async function submitLead(
   // problem looks identical to someone changing their mind.
   if (!attempted.has(opts.ref)) {
     attempted.add(opts.ref);
-    trackConversion("form_submit_attempt", { form_name: opts.formName, cta: opts.cta });
+    trackConversion("form_submit_attempt", { form_name: opts.formName, cta: opts.cta, ...ctx });
   }
   try {
     const res = await fetch("/api/leads", {
@@ -119,7 +133,10 @@ export async function submitLead(
         [HONEYPOT_FIELD]: values.honeypot ?? "",
         ref: opts.ref,
         form: opts.formName,
-        attribution: readAttribution(opts.cta),
+        attribution: readAttribution(opts.cta, {
+          featureId: opts.featureId,
+          calculatorId: opts.calculatorId,
+        }),
       }),
       // Lets the request finish even if the customer navigates away the
       // instant after tapping — a real behaviour on slow mobile connections.
@@ -129,6 +146,7 @@ export async function submitLead(
     const body = (await res.json().catch(() => ({}))) as {
       delivered?: boolean;
       received?: boolean;
+      state?: string;
       receiptToken?: string;
       fieldErrors?: FieldErrors;
       retryable?: boolean;
@@ -141,10 +159,24 @@ export async function submitLead(
     if (res.ok && (body.received === true || body.delivered === true)) {
       if (!converted.has(opts.ref)) {
         converted.add(opts.ref);
+        // The accepted boundary, made explicit. `delivery_state` separates an
+        // enquiry the ERP already holds ("delivered") from one the durable
+        // intake stored for the worker to deliver ("queued"). Neither is a
+        // qualified lead; that is a CRM stage. generate_lead below stays at the
+        // same boundary so existing GA4 key-event reports keep their meaning.
+        const deliveryState = body.delivered === true ? "delivered" : "queued";
+        trackConversion("lead_accepted", {
+          form_name: opts.formName,
+          cta: opts.cta,
+          delivery_state: deliveryState,
+          lead_ref: opts.ref,
+          ...ctx,
+        });
         fbTrack("Lead", { content_name: opts.formName, currency: "INR" });
         trackConversion("form_submit", {
           form_name: opts.formName,
           cta: opts.cta,
+          ...ctx,
         });
         if (opts.formName === "quick_quote_request")
           trackConversion("pricing_request", { form_name: opts.formName });
@@ -160,6 +192,8 @@ export async function submitLead(
           // Random per-form id, not personal data: lets reports count one
           // accepted enquiry once even if an event is ever sent twice.
           lead_ref: opts.ref,
+          delivery_state: deliveryState,
+          ...ctx,
         });
       }
       return body.receiptToken
