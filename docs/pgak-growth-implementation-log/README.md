@@ -81,7 +81,7 @@ Regenerate: `npm run docs:claims` (02, 03) · `node scripts/check-drafts.mjs` (0
   - finance (realisation 0, payback and ROI "not applicable");
   - overlap groups;
   - registry, guide, capability, claim and alias coverage.
-- **Remaining:** the 11 existing standalone calculators still open with example values, not blanks — a candidate follow-up.
+- **Also fixed:** the eight shared standalone calculators (SimpleCalc) now start blank, with "Load worked example" (commit c6701bc). The storage, bandwidth, TCO and ROI tools keep sizing defaults or blanks: they report capacity or cost, not a saving.
 
 ## Phase 5 — 100 article assignments
 
