@@ -2,7 +2,7 @@
 
 Generated 2026-10-08 by `node scripts/check-drafts.mjs`. Drafts live in `content/insights/_drafts/`; production never reads them. **Published: 0.**
 
-Ready for engineer review: **73** · Draft — legal review required: **18** · Covered by merge: **2** · Needs fixes: **0** · Missing: **7**.
+Ready for engineer review: **73** · Draft — legal review required: **25** · Covered by merge: **2** · Needs fixes: **0** · Missing: **0**.
 
 No article is published-ready until a named PGAK engineer (and, where marked, a lawyer) has reviewed it. Demand evidence marked `hypothesis` is unvalidated; refresh fresh GSC queries and Keyword Planner (India + served districts) before release.
 
@@ -91,13 +91,13 @@ No article is published-ready until a named PGAK engineer (and, where marked, a 
 | B081 | P3 | Privacy and governance | refresh | is-ai-cctv-legal-in-india-dpdp-act | 1664 | draft — legal review required | C18 | Dated official-source legal review checklist; counsel sign-off before publication | GSC page 4c/98i/pos6.72 | 3 |  |
 | B082 | P3 | Privacy and governance | refresh | employee-refuses-biometric-consent | 1428 | draft — legal review required | C28 | Alternative attendance workflow, notice and escalation, reviewed by counsel | GSC page 5c/208i/pos5.57 | 3 |  |
 | B083 | P3 | Privacy and governance | refresh | attendance-records-law-india | 1570 | draft — legal review required | C28 | Jurisdiction-and-record-type source table reviewed by counsel; no universal period | GSC page 1c/464i/pos5.31 | 6 |  |
-| B084 | P3 | Privacy and governance | refresh | cctv-signage-requirements-india |  | MISSING | C18 | Plain-language notice template linked to actual data practices | hypothesis |  |  |
-| B085 | P3 | Privacy and governance | refresh | cctv-footage-legal-evidence-india |  | MISSING | C03 | Export and chain-of-custody checklist with current official legal references | hypothesis |  |  |
-| B086 | P3 | Privacy and governance | refresh | aadhaar-based-attendance-and-aebas-explained |  | MISSING | C28 | Official AEBAS sources and explicit separation from private face-attendance offers | GSC query 0c/18i/pos9.22 |  |  |
-| B087 | P3 | Privacy and governance | refresh | cctv-new-rule-2026-india-stqc-er-compliance |  | MISSING | C24 | Dated notification and model-certificate checklist; no unsupported badges | GSC page 3c/106i/pos5.52 |  |  |
-| B088 | P3 | Privacy and governance | new | cctv-role-based-access-policy |  | MISSING | C18 | Role matrix: viewing, export, administration, deletion | hypothesis |  |  |
-| B089 | P3 | Privacy and governance | refresh | attendance-data-retention-what-to-delete |  | MISSING | C28 | Record inventory, retention authority and deletion verification workflow | GSC page 1c/116i/pos5.94 |  |  |
-| B090 | P3 | Privacy and governance | new | face-recognition-human-review-policy |  | MISSING | C25 | Documented review steps and alternatives to automated denial or punishment | hypothesis |  |  |
+| B084 | P3 | Privacy and governance | refresh | cctv-signage-requirements-india | 1268 | draft — legal review required | C18 | Plain-language notice template linked to actual data practices | hypothesis | 3 |  |
+| B085 | P3 | Privacy and governance | refresh | cctv-footage-legal-evidence-india | 1265 | draft — legal review required | C03 | Export and chain-of-custody checklist with current official legal references | hypothesis | 3 |  |
+| B086 | P3 | Privacy and governance | refresh | aadhaar-based-attendance-and-aebas-explained | 1331 | draft — legal review required | C28 | Official AEBAS sources and explicit separation from private face-attendance offers | GSC query 0c/18i/pos9.22 | 3 |  |
+| B087 | P3 | Privacy and governance | refresh | cctv-new-rule-2026-india-stqc-er-compliance | 1509 | draft — legal review required | C24 | Dated notification and model-certificate checklist; no unsupported badges | GSC page 3c/106i/pos5.52 | 5 |  |
+| B088 | P3 | Privacy and governance | new | cctv-role-based-access-policy | 1124 | draft — legal review required | C18 | Role matrix: viewing, export, administration, deletion | hypothesis | 1 |  |
+| B089 | P3 | Privacy and governance | refresh | attendance-data-retention-what-to-delete | 1337 | draft — legal review required | C28 | Record inventory, retention authority and deletion verification workflow | GSC page 1c/116i/pos5.94 | 2 |  |
+| B090 | P3 | Privacy and governance | new | face-recognition-human-review-policy | 1220 | draft — legal review required | C25 | Documented review steps and alternatives to automated denial or punishment | hypothesis | 2 |  |
 | B091 | P1 | Local and procurement | refresh | how-to-choose-a-cctv-installation-company | 1632 | ready for engineer review | C24 | Local site-survey checklist, actual service area, transparent commissioning scope | GSC page 0c/28i/pos10.86 | 0 |  |
 | B092 | P1 | Local and procurement | new | ludhiana-factory-cctv-site-survey | 1469 | ready for engineer review | C07 | Printable survey: gate, production, dispatch, night lighting, support access | hypothesis | 0 |  |
 | B093 | P1 | Local and procurement | new | ai-cctv-proposal-comparison-checklist | 1391 | ready for engineer review | C05 | Line-item procurement template with exclusions, renewals, acceptance criteria | hypothesis | 0 |  |

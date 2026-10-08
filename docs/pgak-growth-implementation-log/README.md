@@ -106,6 +106,13 @@ Regenerate: `npm run docs:claims` (02, 03) · `node scripts/check-drafts.mjs` (0
 
 ## 7. Decisions and access needed (owner)
 
+0. **Urgent: eight live legal and privacy articles contain errors now.** See `agent-reports/B081-B090.md`.
+   - **DPDP:** the articles present DPDP duties as already in force; they commence in May 2027.
+   - **Repealed law:** they name the repealed Factories Act as the current source of registers.
+   - **Evidence law:** they never name the Bharatiya Sakshya Adhiniyam.
+   - **AEBAS:** they describe its authentication methods wrongly.
+
+   Corrected drafts exist (B081–B087, B089). The fastest safe path is a lawyer's review of those drafts, then promotion. If that will take weeks, decide whether to add a dated "under legal review" note. Unpublishing would lose traffic: `attendance-records-law-india` alone had 464 impressions in 28 days. I have not edited the live legal text myself, because rewriting legal statements needs the review it lacks.
 1. **Vercel** (signed in as `pgakservice01-afk`):
    - Set `LEAD_REGISTER_URL` and `LEAD_REGISTER_SECRET`.
    - Check Firewall, bot protection and attack-challenge history for 4–11 Sep.
