@@ -45,28 +45,28 @@ export const CAPABILITIES: Capability[] = [
     title:
       "CCTV Face Recognition — Know Who's There | PGAK",
     description:
-      "Separate the people you know from the people you don't — enrol staff and family once, and let alerts fire only for unknown faces.",
+      "Separate the people you know from the people you don't — enrolled-person matching that is evaluated on your own cameras before anything relies on it.",
     summary:
-      "Enrol the people who belong. Alerts fire only for the faces the system doesn't know.",
+      "Enrol the people who belong; unknown-face alerts can be evaluated at your site.",
     h1: "CCTV face recognition — the difference between 'someone is there' and 'who is there'",
     intro:
-      "CCTV face recognition is what turns a motion alert into a decision. Instead of telling you a person is at the gate, PGAK tells you whether it's your shift supervisor, a delivery driver you've seen forty times, or someone the system has never seen before — and only the last one is worth waking you up for.",
+      "CCTV face recognition is what turns a motion alert into a decision. Instead of only telling you a person is at the gate, a recognition system can indicate whether it's your shift supervisor, a delivery driver you've seen forty times, or someone it has never seen before — and only the last one is worth waking you up for. Whether that works at your gate is evaluated on your own cameras and confirmed in the written scope.",
     steps: [
       {
         h3: "Enrolment",
-        text: "Each person who belongs — staff, family, regular contractors — is enrolled from a handful of frames. It takes seconds per person and can be done from existing footage.",
+        text: "Each person who belongs — staff, family, regular contractors — is enrolled from a handful of frames. Whether existing footage is good enough for enrolment is checked at your site.",
       },
       {
         h3: "Template, not photograph",
-        text: "The face is converted into a mathematical vector and the image is discarded. There is no searchable photo library of your employees sitting on a disk.",
+        text: "Recognition systems convert a face into a mathematical vector for matching. Whether enrolment images are kept or discarded, and for how long, is set out in the written scope and your retention policy.",
       },
       {
         h3: "Matching at the edge",
-        text: "Every face the cameras see is vectorised and compared against the enrolled set, on hardware at your site. Nothing is sent to an external service to do this.",
+        text: "Faces the cameras see are compared against the enrolled set. Processing runs on a unit at your site, and how matching is configured for your site is confirmed in the written scope.",
       },
       {
         h3: "Act on the result",
-        text: "Known face during expected hours: silence. Unknown face at a sensitive door: alert with a snapshot. Known face somewhere they shouldn't be: alert too.",
+        text: "Rules can be configured and tested at your site — for example, silence for a known face during expected hours, an alert with a snapshot for an unknown face at a sensitive door, and an alert for a known face somewhere they shouldn't be.",
       },
     ],
     useCases: [
@@ -77,22 +77,22 @@ export const CAPABILITIES: Capability[] = [
       "Repeat-visitor detection near high-value retail shelves",
     ],
     limits: [
-      "A face that is more than about 60° from the camera, heavily covered, or lit only from behind will be detected as a person but may not be identified.",
+      "A face turned well away from the camera, heavily covered, or lit only from behind will be detected as a person but may not be identified.",
       "Recognition quality depends on camera placement — a camera at gate height facing arrivals will always outperform one mounted high in a corner.",
       "It identifies enrolled people. It cannot tell you the name of someone who has never been enrolled, and no honest system claims otherwise.",
     ],
     faqs: [
       {
         q: "Can face recognition work on my existing CCTV cameras?",
-        a: "Yes, in most cases. What matters is placement and resolution at the point of recognition rather than the camera being marketed as 'AI'. A standard 2MP camera at gate height facing arrivals works well; a 4K camera mounted high on a corner often doesn't.",
+        a: "Sometimes — it is tested on your cameras before anything is promised. What matters is placement and resolution at the point of recognition rather than the camera being marketed as 'AI'. A standard 2MP camera at gate height facing arrivals is usually a better candidate than a 4K camera mounted high on a corner.",
       },
       {
         q: "Are photos of my staff stored somewhere?",
-        a: "No. Faces are stored as mathematical templates that cannot be reversed into a usable photograph, and processing happens on a device at your premises rather than in a cloud.",
+        a: "What is stored, where and for how long is agreed in the written scope and your retention policy before anyone is enrolled. Processing runs on a unit at your premises rather than in a cloud.",
       },
       {
         q: "How accurate is it?",
-        a: "On a well-placed camera with a frontal view, matching an enrolled person is highly reliable. Accuracy drops with extreme angles, heavy backlighting or covered faces — which is why we treat camera placement as part of the deployment rather than an afterthought.",
+        a: "PGAK has published no accuracy figure for face recognition. It is measured at your site — false matches and missed matches on a permissioned test set, with documented human review. Accuracy drops with extreme angles, heavy backlighting or covered faces, which is why camera placement is treated as part of the deployment rather than an afterthought.",
       },
       {
         q: "Does it work with masks or helmets?",
@@ -115,16 +115,16 @@ export const CAPABILITIES: Capability[] = [
     title:
       "CCTV False Alarm Reduction — Cut the Noise | PGAK",
     description:
-      "PGAK filters animals, weather, shadows and headlights before they reach your phone, cutting false alerts by 90%+ so what you get is worth reading.",
+      "Object classification can filter animals, weather, shadows and headlights before an alert is sent — how much it cuts false alerts is tested on your own footage.",
     summary:
-      "Animals, rain, shadows and headlights filtered out before anything reaches your phone.",
+      "Animals, rain, shadows and headlights can be filtered out before an alert is sent — tested on your footage.",
     h1: "False-alarm filtering — the feature that makes every other feature usable",
     intro:
-      "CCTV false alarm reduction sounds like a minor optimisation until you realise it is the reason most security systems end up switched off. A system that sends forty alerts a night trains you to ignore it within a fortnight, and an ignored system protects nothing. PGAK classifies what it sees before it decides to interrupt you.",
+      "CCTV false alarm reduction sounds like a minor optimisation until you realise it is the reason most security systems end up switched off. A system that sends forty alerts a night trains you to ignore it within a fortnight, and an ignored system protects nothing. The approach is to classify what the camera sees before deciding to interrupt you, and how well that works on your cameras is tested at your site.",
     steps: [
       {
         h3: "Classify before alerting",
-        text: "Every moving object is identified as a person, vehicle, animal or environmental noise. Only classes you've asked about can raise an alert.",
+        text: "Moving objects are classified as a person, vehicle, animal or environmental noise. Only classes you've asked about can raise an alert.",
       },
       {
         h3: "Apply zone and schedule",
@@ -132,11 +132,11 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         h3: "Suppress known people",
-        text: "Enrolled faces pass silently. This alone removes most of the daytime noise at any site with staff.",
+        text: "Where face recognition is configured and tested, enrolled people can be exempted, which can reduce daytime alerts at sites with staff.",
       },
       {
-        h3: "Tune over the first fortnight",
-        text: "Every site has its own quirks — a streetlight, a neighbour's dog, a flapping tarpaulin. We tune thresholds against your real footage rather than shipping a generic default.",
+        h3: "Tune against your footage",
+        text: "Every site has its own quirks — a streetlight, a neighbour's dog, a flapping tarpaulin. Thresholds are tuned against your real footage rather than left at a generic default.",
       },
     ],
     useCases: [
@@ -153,7 +153,7 @@ export const CAPABILITIES: Capability[] = [
     faqs: [
       {
         q: "How much can false alerts actually be reduced?",
-        a: "Sites typically see a 90%+ reduction after the first fortnight of tuning. The bigger change is qualitative: alerts go from something you swipe away to something you look at.",
+        a: "PGAK has published no measured reduction figure. It depends on the site — framing, lighting, animals, traffic — and is measured on your own footage by comparing alerts before and after tuning. The aim is qualitative as much as numerical: alerts you look at rather than swipe away.",
       },
       {
         q: "Why does my current system alert for shadows and rain?",
@@ -184,12 +184,12 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Real-Time CCTV Intrusion Alerts to Your Phone | PGAK",
     description:
-      "Zone and line-crossing alerts with a snapshot, camera name and timestamp, against a sub-three-second target your pilot measures — plus optional siren, strobe and escalation.",
+      "Zone and line-crossing alerts with a snapshot, camera name and timestamp — evaluated on your own cameras, with alert timing, sirens and escalation confirmed in the written scope.",
     summary:
-      "Zone and line-crossing alerts with a snapshot — sub-three-second target, measured at your pilot.",
+      "Zone and line-crossing alerts with a snapshot — evaluated and timed at your site.",
     h1: "Real-time intrusion alerts — because evidence at 9am is not security",
     intro:
-      "Real-time CCTV intrusion alerts are the whole point of putting intelligence on a camera. PGAK delivers a push notification with a snapshot, the camera name and a timestamp within seconds of a person crossing a boundary you defined — the target is under three, and your pilot measures the real figure — early enough that a phone call, a siren or a guard walking over can still change the outcome.",
+      "Real-time CCTV intrusion alerts are the whole point of putting intelligence on a camera. The aim is a notification with a snapshot, the camera name and a timestamp soon after a person crosses a boundary you defined — early enough that a phone call, a siren or a guard walking over can still change the outcome. PGAK has no published intrusion demonstration yet, so how quickly alerts arrive is measured at your site and confirmed in the written scope.",
     steps: [
       {
         h3: "Define the boundary",
@@ -200,12 +200,12 @@ export const CAPABILITIES: Capability[] = [
         text: "Which object classes count, which hours are armed, and which enrolled people are exempt.",
       },
       {
-        h3: "Deliver in seconds",
-        text: "Push notification and WhatsApp with the triggering snapshot attached, so the recipient can judge without opening the app.",
+        h3: "Deliver the alert",
+        text: "The alert carries the triggering snapshot so the recipient can judge without opening the app. Which delivery channels are used at your site is confirmed in the written scope.",
       },
       {
         h3: "Escalate if nobody responds",
-        text: "Unacknowledged alerts can escalate to a second contact, trigger an on-site siren or strobe, or switch on a floodlight.",
+        text: "Escalation of an unacknowledged alert — to a second contact, an on-site siren or strobe, or a floodlight — can be configured and tested where the site's hardware allows, and is confirmed in the written scope.",
       },
     ],
     useCases: [
@@ -215,21 +215,21 @@ export const CAPABILITIES: Capability[] = [
       "Restricted rooms — pharmacies, server rooms, high-value stock aisles",
     ],
     limits: [
-      "Alert delivery depends on the recipient's mobile network; the detection is local and instant, the notification is only as fast as the phone receiving it.",
+      "Alert delivery depends on the recipient's mobile network; the detection runs locally, but the notification is only as fast as the network and the phone receiving it.",
       "An alert is not a response. It buys you the minutes to act — the value comes from having decided in advance who acts.",
     ],
     faqs: [
       {
         q: "How fast is 'real time'?",
-        a: "The target is under three seconds from detection to notification, and the pilot measures the real figure on your site. The variable part is your phone's network, not the detection.",
+        a: "PGAK has not published a measured alert time. The time from detection to notification is measured on your own site during testing and written into the scope. Much of the variation comes from the phone's network rather than the on-site detection.",
       },
       {
         q: "Can it trigger a siren instead of just my phone?",
-        a: "Yes. Alerts can drive an on-site siren, strobe, floodlight or public-address announcement alongside the notification. On perimeters, deterrence during the approach is usually worth more than a notification.",
+        a: "It can be configured and tested where your siren, strobe, floodlight or public-address system can accept a trigger — that is checked at the survey and confirmed in the written scope. On perimeters, deterrence during the approach is usually worth more than a notification.",
       },
       {
         q: "What if I'm asleep and miss the alert?",
-        a: "Escalation rules handle that: an unacknowledged alert can move to a second contact after a set interval, and can trigger site-local responses that don't depend on anyone being awake.",
+        a: "Escalation — moving an unacknowledged alert to a second contact after a set interval, or triggering a site-local response that doesn't depend on anyone being awake — can be configured and tested at your site and confirmed in the written scope.",
       },
     ],
     solutions: [
@@ -252,12 +252,12 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Face Recognition Attendance — No Card, No Contact | PGAK",
     description:
-      "Replace the punch machine with the cameras at your gate: automatic face-recognition attendance for factories, offices and schools, ready for payroll.",
+      "Face-recognition attendance from the camera at your gate, for factories, offices and schools — evaluated at your site, with exports and review of missed records confirmed in the written scope.",
     summary:
-      "Automatic attendance from the gate camera. No queue, no card, no fingerprint.",
-    h1: "Face recognition attendance — 200 people logged without a queue",
+      "Attendance from the gate camera — no card or fingerprint, evaluated at your site.",
+    h1: "Face recognition attendance — logging the gate without a queue",
     intro:
-      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. PGAK logs arrival and departure from the camera already watching your gate, so two hundred people walk in at their own pace and payroll gets a clean export at the end of the month. It runs on your existing gate camera, billed per camera per month — no biometric hardware to buy or maintain, and no per-employee charge.",
+      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. The approach logs arrival and departure from a camera watching your gate, so people walk in at their own pace and payroll can receive an export at the end of the month. With PGAK, whether your gate camera is suitable, how missed or ambiguous records are reviewed, and any processing hardware are confirmed at your site and set out in the written scope and quote.",
     steps: [
       {
         h3: "Enrol once",
@@ -265,15 +265,15 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         h3: "Log on the walk-through",
-        text: "The gate camera identifies people as they pass. There is no device to touch and nothing to queue for.",
+        text: "The gate camera is used to identify enrolled people as they pass. There is no device to touch and nothing to queue for.",
       },
       {
         h3: "Separate the unknowns",
-        text: "Contractors and visitors are logged as unknown faces with a snapshot, so headcount on site is always accurate.",
+        text: "Contractors and visitors can be logged as unknown faces with a snapshot, so they appear in the record for a person to review.",
       },
       {
         h3: "Export for payroll",
-        text: "In/out times per person per day, exportable, with the triggering snapshot attached to each event for dispute resolution.",
+        text: "The export — in/out times per person per day, with the triggering snapshot for each event for dispute resolution — is confirmed in the written scope.",
       },
     ],
     useCases: [
@@ -290,23 +290,23 @@ export const CAPABILITIES: Capability[] = [
     faqs: [
       {
         q: "How much does face recognition attendance cost in India?",
-        a: "With PGAK it is billed per camera per month — one gate camera typically covers 150–250 employees, so most factories in India pay less for attendance than they spent maintaining fingerprint machines. There is no enrolment fee, no per-employee charge and no new attendance device at the gate, because it reads faces from the CCTV camera already there — processing hardware is confirmed in the quote. Call or WhatsApp us with your gate count for the exact figure.",
+        a: "PGAK quotes per site rather than publishing a price. How many people one gate camera can handle depends on the gate width, the flow at shift change and the camera position, and is checked at your site. Whether your existing gate camera is suitable or a dedicated camera at face height is needed, and any processing hardware, are confirmed in the quote. Call or WhatsApp us with your gate count for a quotation.",
       },
       {
         q: "Can this replace our biometric fingerprint machine?",
-        a: "For most sites, yes. Face recognition at the gate produces the same record with no contact, no queue and no failure on damaged or dirty fingers. Sites usually run both for two weeks before retiring the machine.",
+        a: "Possibly — that is what the site evaluation is for. Face recognition at the gate can produce the same kind of record with no contact and no queue, and is not affected by damaged or dirty fingers. Running both side by side before retiring the machine is the sensible check, and verify it meets your own audit requirements first.",
       },
       {
         q: "Does it stop buddy punching?",
-        a: "Yes — that's an inherent property of the method. A face cannot be handed to a colleague at the gate the way a card or a PIN can.",
+        a: "It is not a guarantee. A face cannot be handed to a colleague the way a card or a PIN can, so proxy attendance becomes harder to go unnoticed — provided missed and ambiguous records get human review, which is part of what is tested at your site.",
       },
       {
         q: "Can we export attendance to our payroll software?",
-        a: "Yes. Attendance is exportable as structured data with in/out timestamps per person per day, which is the format payroll systems expect.",
+        a: "The export — structured data with in/out timestamps per person per day — and the format your payroll software expects are confirmed in the written scope.",
       },
       {
         q: "What if someone isn't recognised one morning?",
-        a: "They appear as an unknown-face event with a snapshot, so the record still exists and an administrator can attribute it. Repeated misses on one person usually mean their enrolment needs refreshing, which takes seconds.",
+        a: "The design is that they appear as an unknown-face event with a snapshot, so an administrator can review and attribute it — that correction workflow is part of what is tested at your site. Repeated misses on one person usually mean their enrolment needs refreshing.",
       },
     ],
     solutions: ["factory-security", "ai-cctv-for-offices", "school-security"],
@@ -339,12 +339,12 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Loitering Detection CCTV — Spot It Before the Theft | PGAK",
     description:
-      "Dwell-time detection that flags a person lingering where they shouldn't — the most reliable pre-theft signal in warehouses, shops and perimeters.",
+      "Dwell-time detection that flags a person lingering where they shouldn't in warehouses, shops and perimeters — thresholds and exemptions evaluated at your site.",
     summary:
-      "Flags a person lingering where they shouldn't — the strongest pre-theft signal there is.",
+      "Flags a person lingering where they shouldn't — evaluated per zone at your site.",
     h1: "Loitering detection — theft has a shape, and it starts with standing still",
     intro:
-      "Loitering detection on CCTV catches the part of an incident that happens before the incident. A person who stands at a high-value shelf, a fence line or a loading bay for far longer than the task requires is the single most reliable pre-theft signal in any site — and it is exactly the pattern a busy human never notices and software watches continuously.",
+      "Loitering detection on CCTV catches the part of an incident that happens before the incident. A person who stands at a high-value shelf, a fence line or a loading bay for far longer than the task requires is often worth a closer look — and it is a pattern a busy human easily misses. With PGAK, loitering detection is evaluated per zone on your own cameras; there is no published PGAK demonstration of it yet.",
     steps: [
       {
         h3: "Mark the zone",
@@ -356,11 +356,11 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         h3: "Exempt the expected",
-        text: "Enrolled staff working in the zone don't trigger it. A queue at a till doesn't either — thresholds are per-zone for exactly this reason.",
+        text: "Where face recognition is configured, enrolled staff working in the zone can be exempted. A queue at a till is handled by per-zone thresholds — and queue and legitimate-worker scenarios are part of the test at your site.",
       },
       {
         h3: "Alert discreetly",
-        text: "Often the right response is a quiet nudge to a manager's phone rather than a siren. A staff member walking over is the most effective deterrent that exists.",
+        text: "Often the right response is a quiet nudge to a manager's phone rather than a siren. A staff member walking over is often an effective deterrent.",
       },
     ],
     useCases: [
@@ -376,7 +376,7 @@ export const CAPABILITIES: Capability[] = [
     faqs: [
       {
         q: "Won't this flag ordinary customers browsing?",
-        a: "Only if the threshold is set badly. Dwell times are per-zone — thirty seconds at a jewellery counter, three minutes at a fence — and staff are exempt. In practice the tuning takes a week and then the alerts become genuinely rare.",
+        a: "Only if the threshold is set badly. Dwell times are per-zone — thirty seconds at a jewellery counter, three minutes at a fence — and staff are exempt. How rare the alerts become is measured on your own footage during testing, including queue and legitimate-worker scenarios.",
       },
       {
         q: "Is this the same as motion detection?",
@@ -412,7 +412,7 @@ export const CAPABILITIES: Capability[] = [
       "Number plates and vehicle types logged at the gate, replacing the paper register.",
     h1: "Vehicle and number plate recognition — the gate register that writes itself",
     intro:
-      "ANPR number plate recognition on CCTV replaces the most useless artefact in Indian site security: the gate notebook. Every vehicle entering or leaving is logged automatically with its plate, its type, a timestamp and a snapshot — so 'which truck left at 11:40 last Tuesday' becomes a search instead of an argument.",
+      "ANPR number plate recognition on CCTV replaces the most useless artefact in Indian site security: the gate notebook. The aim is that every vehicle entering or leaving is logged with its plate, its type, a timestamp and a snapshot — so 'which truck left at 11:40 last Tuesday' becomes a search instead of an argument. PGAK's published ANPR evidence is photographs of a fitted camera and a working console, not a read rate, so reading is tested at your gate.",
     steps: [
       {
         h3: "Point a camera at plate height",
@@ -420,19 +420,19 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         h3: "Register the vehicles that belong",
-        text: "Resident, staff and fleet vehicles are registered once and recognised silently thereafter.",
+        text: "Resident, staff and fleet vehicles are registered once, and can be recognised without an alert once plate reads at your gate have been tested.",
       },
       {
         h3: "Log everything else",
-        text: "Unregistered vehicles are logged with plate, type, direction and snapshot — a searchable record replacing the register.",
+        text: "Unregistered vehicles can be logged with plate, type, direction and snapshot — a searchable record replacing the register.",
       },
       {
         h3: "Alert on the exceptions",
-        text: "An unregistered vehicle at the dispatch bay after hours, or a blacklisted plate at a society gate, raises an alert.",
+        text: "An unregistered vehicle at the dispatch bay after hours, or a blacklisted plate at a society gate, can be configured to raise an alert.",
       },
     ],
     useCases: [
-      "Housing society gates — resident vehicles in without stopping, visitors logged with a photo",
+      "Housing society gates — resident vehicles recognised, visitors logged with a photo",
       "Warehouse dispatch — every truck movement timestamped against the dispatch schedule",
       "Factory and office-park gates with heavy contractor vehicle traffic",
       "Parking areas where unauthorised vehicles are a recurring dispute",
@@ -449,11 +449,11 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         q: "How well does it read Indian number plates?",
-        a: "Standard-format plates read reliably. Damaged, hand-painted, stylised or partially obscured plates — which are not rare — will sometimes fail. Vehicle type, direction, timestamp and snapshot are still logged in those cases, so the event is never lost entirely.",
+        a: "PGAK has not published a read rate. Standard-format plates are the easiest case, and reads are logged against the gate register at your site to measure it. Damaged, hand-painted, stylised or partially obscured plates — which are not rare — will sometimes fail. Vehicle type, direction, timestamp and snapshot can still be logged in those cases.",
       },
       {
         q: "Can it open the boom barrier automatically?",
-        a: "It can trigger an output on recognition of a registered vehicle. Whether that's wired to your barrier depends on the barrier controller, which we check during the site survey.",
+        a: "Automatic barrier opening is something a site may configure and test, not a default. An output on recognition of a registered vehicle can be wired to a barrier only if the controller supports it, which is checked during the site survey and confirmed in the written scope.",
       },
     ],
     solutions: [

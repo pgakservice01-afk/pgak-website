@@ -44,7 +44,7 @@ Intrusion detection is what sells systems. Camera-health monitoring is what quie
 
 The reason is simple: every other capability depends on the camera working. Boundary alerts, attendance, ANPR — all of it assumes the feed exists. A blind camera silently invalidates every promise the rest of the system made, and it does so without any indication.
 
-Automated health monitoring flips this from an unknown into a notification: this camera, at this location, stopped responding at this time. It runs as part of what we build, and I would argue it is the least glamorous and most useful thing in the product.
+Automated health monitoring flips this from an unknown into a notification: this camera, at this location, stopped responding at this time. With PGAK it is something to evaluate at your site — there is no published PGAK demonstration of it yet — and I would argue it is the least glamorous and most useful thing to ask any vendor for.
 
 ## The thirty-second version
 
