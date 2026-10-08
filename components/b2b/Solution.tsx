@@ -4,6 +4,7 @@ import { BUYER_SOLUTIONS } from "@/lib/b2b/solutions";
 import { PROOF_NOTICE } from "@/lib/b2b/claims";
 import ProofBlock from "@/components/solutions/ProofBlock";
 import { getSolution } from "@/lib/solutions";
+import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
 export default function BuyerSolution({ slug }: { slug: string }) {
   // Proof lives on the original solution record, which this template does not
   // otherwise read.
@@ -115,6 +116,8 @@ export default function BuyerSolution({ slug }: { slug: string }) {
           took the dock counting clip off the site — the data was still in
           lib/solutions.ts with nothing rendering it. */}
       {proof && <ProofBlock proof={proof} />}
+
+      <ScopeAndEvidence path={`/${slug}`} variant="buyer" />
 
       <section id="dealer">
         <h2>Discuss this use case</h2>

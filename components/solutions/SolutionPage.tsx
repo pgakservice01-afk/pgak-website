@@ -11,6 +11,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import FeatureScenario from "@/components/calc/FeatureScenario";
 import { scenariosForPath } from "@/lib/calc/scenarios";
+import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
 import {
   breadcrumbSchema,
   faqSchema,
@@ -379,6 +380,8 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             attendance pages ask the attendance question; everyone else gets
             the audit. */}
         <WhoIsPgak />
+        <ScopeAndEvidence path={path} />
+
         {scenariosForPath(path).map((sc) => (
           <FeatureScenario key={sc.id} id={sc.id} withLeadForm={false} />
         ))}

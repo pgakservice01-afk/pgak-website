@@ -2,6 +2,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
+import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -470,6 +471,7 @@ export default function LocationPage({ location }: { location: Location }) {
 
         {/* Convert in place — the hero CTA targets this on-page form. The
             city field is back, and this page knows which city to suggest. */}
+        {l.slug === "ludhiana" && <ScopeAndEvidence path={path} />}
         <DealerForm cityHint={l.city} />
       </main>
 
