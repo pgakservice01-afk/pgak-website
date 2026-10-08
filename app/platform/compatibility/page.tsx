@@ -1,5 +1,6 @@
 import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
+import CompatibilityCheck from "@/components/tools/CompatibilityCheck";
 
 export const metadata = pageMeta({
   title: "CCTV compatibility: verify the stream and the scene | PGAK",
@@ -15,6 +16,7 @@ export default function Page() {
       path="/platform/compatibility"
       eyebrow="TECHNICAL BUYER GUIDE"
     >
+      <CompatibilityCheck />
       <section>
         <h2>Current compatibility record</h2>
         <p className="buyer-notice">

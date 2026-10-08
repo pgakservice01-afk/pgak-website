@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/resources` },
     { url: `${SITE_URL}/resources/evidence` },
     { url: `${SITE_URL}/resources/evaluation-method` },
+    { url: `${SITE_URL}/resources/scope-worksheet` },
     { url: `${SITE_URL}/resources/storage-bandwidth` },
     { url: `${SITE_URL}/partners` },
 
@@ -60,6 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/resources` },
     { url: `${SITE_URL}/resources/evaluation-method` },
     { url: `${SITE_URL}/resources/evidence` },
+    { url: `${SITE_URL}/resources/scope-worksheet` },
     { url: `${SITE_URL}/resources/storage-bandwidth` },
     ...liveCalculators()
       .filter((c) => c.path !== "/roi-calculator")

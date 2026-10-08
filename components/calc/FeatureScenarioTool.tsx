@@ -5,6 +5,7 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { trackConversion } from "@/lib/analytics";
 import { formatINR, formatNumber } from "@/lib/calc/engine";
 import {
+  SCENARIO_FORMULA_VERSION,
   finance,
   scenarioById,
   validate,
@@ -152,6 +153,45 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
     trackConversion("calculator_share", { calculator_id: id });
   }
 
+  function downloadCsv() {
+    // Only the numbers on this form and the results; no contact details exist
+    // on this page to leak. Generated in the browser — nothing is uploaded.
+    const q = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const lines: unknown[][] = [
+      ["PGAK calculator scenario", `${id} ${s.feature}`],
+      ["Formula", s.formula],
+      ["Formula version", SCENARIO_FORMULA_VERSION],
+      ["Generated", new Date().toISOString().slice(0, 10)],
+      [],
+      ["Input", "Value", "Unit"],
+      ...s.inputs.map((i) => [i.label, vals[i.key] ?? "", UNIT_LABEL[i.unit]]),
+      ...FINANCE_FIELDS.map((f) => [f.label, fin[f.key] ?? "", f.unit]),
+      [],
+      ["Result", "Value"],
+      ...Object.entries(out ?? {}).map(([k, v]) => [k, v]),
+      ...(money
+        ? [
+            ["monthlyCashEquivalent", money.monthlyCashEquivalent],
+            ["monthlyNet", money.monthlyNet],
+            ["firstYearNet", money.firstYearNet],
+            ["paybackMonths", money.paybackMonths ?? "not applicable"],
+            ["firstYearRoi", money.firstYearRoi ?? "not applicable"],
+          ]
+        : []),
+      [],
+      ["Notes", s.guardrails.join(" ")],
+      ["Evidence status", s.proofStatus],
+      ["Tax", "Amounts entered on one basis; no GST added or removed. Nominal rupees, not discounted."],
+    ];
+    const blob = new Blob([lines.map((l) => l.map(q).join(",")).join("\n")], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `pgak-${id.toLowerCase()}-assumptions.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+    trackConversion("calculator_export", { calculator_id: id });
+  }
+
   const hrs = (n: number | null | undefined) =>
     n === null || n === undefined ? "—" : `${formatNumber(n, 2)} hours / month`;
   const inr = (n: number | null | undefined, suffix = " / month") =>
@@ -296,6 +336,9 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
             </button>
             <button type="button" className="btn btn-ghost text-[0.88rem]" onClick={shareLink}>
               Copy a link with these numbers
+            </button>
+            <button type="button" className="btn btn-ghost text-[0.88rem]" onClick={downloadCsv}>
+              Download as CSV
             </button>
           </div>
         )}

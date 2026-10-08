@@ -1,6 +1,7 @@
 import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import PrintButton from "@/components/PrintButton";
+import PilotScorecard from "@/components/tools/PilotScorecard";
 export const metadata = pageMeta({
   title: "A practical AI CCTV pilot worksheet | PGAK",
   description:
@@ -108,6 +109,11 @@ export default function Page() {
         </p>
         <PrintButton />
       </section>
+      <PilotScorecard />
+      <p>
+        Planning the scope before a pilot?{" "}
+        <a href="/resources/scope-worksheet" className="text-link">Use the printable scope worksheet →</a>
+      </p>
       <BuyerCTA label="Scope a pilot discussion" href="/book-demo" />
     </BuyerPage>
   );
