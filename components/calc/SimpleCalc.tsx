@@ -44,19 +44,43 @@ export default function SimpleCalc({
   footnote: string;
   resultsTitle?: string;
 }) {
+  // Start blank: a calculator that opens on example numbers shows a saving
+  // nobody measured. `initial` is now the worked example, loaded on request.
   const [values, setValues] = useState<Record<string, number | null>>(() =>
-    Object.fromEntries(fields.map((f) => [f.key, f.initial]))
+    Object.fromEntries(fields.map((f) => [f.key, null]))
   );
+  const ready = fields.every((f) => f.allowUnknown || values[f.key] !== null);
   const [flags, setFlags] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(toggles.map((t) => [t.key, t.initial]))
   );
 
-  const out = useMemo(() => compute(values, flags), [compute, values, flags]);
+  const out = useMemo(() => (ready ? compute(values, flags) : null), [compute, values, flags, ready]);
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card p-6 sm:p-7">
-        <h2 className="text-[1.1rem] font-semibold">Your numbers</h2>
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 className="text-[1.1rem] font-semibold">Your numbers</h2>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className="btn btn-ghost text-[0.85rem]"
+              onClick={() => setValues(Object.fromEntries(fields.map((f) => [f.key, f.initial])))}
+            >
+              Load worked example
+            </button>
+            <button
+              type="button"
+              className="btn btn-ghost text-[0.85rem]"
+              onClick={() => setValues(Object.fromEntries(fields.map((f) => [f.key, null])))}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+        <p className="mt-2 text-[0.82rem] text-ink-soft">
+          Fields start empty; the worked example uses illustrative numbers, not a measured result.
+        </p>
         <div className="mt-5 flex flex-col gap-4">
           {fields.map((f) => (
             <NumberField
@@ -92,12 +116,20 @@ export default function SimpleCalc({
 
       <div className="card p-6 sm:p-7">
         <h2 className="text-[1.1rem] font-semibold">{resultsTitle}</h2>
-        <div className="mt-4">
-          {out.rows.map((r) => (
-            <Row key={r.label} label={r.label} value={r.value} strong={r.strong} />
-          ))}
-        </div>
-        {out.note && <AssumptionNote>{out.note}</AssumptionNote>}
+        {out ? (
+          <>
+            <div className="mt-4">
+              {out.rows.map((r) => (
+                <Row key={r.label} label={r.label} value={r.value} strong={r.strong} />
+              ))}
+            </div>
+            {out.note && <AssumptionNote>{out.note}</AssumptionNote>}
+          </>
+        ) : (
+          <p className="mt-4 text-[0.92rem] text-ink-soft" aria-live="polite">
+            Enter your own figures, or load the worked example, to see the result.
+          </p>
+        )}
         <p className="mt-4 text-[0.88rem] leading-relaxed text-ink-soft">{footnote}</p>
       </div>
     </div>
