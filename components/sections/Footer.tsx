@@ -23,6 +23,20 @@ const groups = [
     ],
   },
   {
+    // Crawl of 2026-10-08: ANPR had 9 internal links and remote monitoring 1,
+    // while pages in this footer had ~195. Footer links are server-rendered on
+    // every page, so these are the pages buyers ask about most.
+    title: "Capabilities",
+    links: [
+      ["/anpr-number-plate-recognition", "Number-plate recognition (ANPR)"],
+      ["/industrial-cctv", "Industrial CCTV analytics"],
+      ["/face-recognition-attendance-system", "Face-recognition attendance"],
+      ["/remote-cctv-monitoring", "Remote & multi-site viewing"],
+      ["/calculators", "Calculators for every feature"],
+      ["/resources/evidence", "Recorded demonstrations"],
+    ],
+  },
+  {
     title: "Company & support",
     links: [
       ["/about", "About PGAK"],
