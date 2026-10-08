@@ -93,7 +93,12 @@ export default function FeatureScenario({
               typed into the calculator is sent with this form.
             </p>
             <div className="mt-4 max-w-[560px]">
-              <QuickLead cta={`scenario-${id}`} offer="audit" calculatorId={id} />
+              <QuickLead
+                cta={`scenario-${id}`}
+                offer="audit"
+                calculatorId={id}
+                featureId={s.covers[0]}
+              />
             </div>
           </div>
         )}
