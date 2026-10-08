@@ -3,7 +3,7 @@ import Image from "next/image";
 import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import ProofVideo from "@/components/ProofVideo";
 import { pageMeta } from "@/lib/seo";
-import { PROOF_NOTICE, EVIDENCE_DATE } from "@/lib/b2b/claims";
+import { EVIDENCE_DATE } from "@/lib/b2b/claims";
 import { publishedProjects } from "@/lib/proof/projects";
 
 export const metadata = pageMeta({
@@ -39,7 +39,11 @@ export default function Page() {
           show a function running on a stated scene. None is an accuracy
           measurement, and none is presented as a customer&rsquo;s endorsement.
         </p>
-        <p>{PROOF_NOTICE}</p>
+        <p>
+          No customer result or measured accuracy report is published yet, and
+          the deployment scenarios elsewhere on the site are illustrations, not
+          verified deployments.
+        </p>
       </section>
       {projects.map((p) => (
         <section key={p.id} id={`evidence-${p.id}`}>
@@ -55,7 +59,6 @@ export default function Page() {
                 poster={p.media.poster}
                 title={p.title}
                 caption={p.description}
-                conditions={p.conditions}
                 durationSeconds={p.media.durationSeconds}
               />
             ) : (
