@@ -19,6 +19,28 @@ import { marked } from "marked";
  */
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "insights");
+/**
+ * Drafts awaiting review: new articles, and refreshed versions of live ones
+ * under the same slug. Production never reads this folder. Preview
+ * deployments and local dev show drafts (with a banner and noindex) so the
+ * owner can review them in place. Promoting a draft = moving its file up one
+ * level, replacing the live version, and deleting `draft: true`.
+ */
+const DRAFT_DIR = path.join(CONTENT_DIR, "_drafts");
+
+export function showDrafts(): boolean {
+  if (process.env.VERCEL_ENV === "production") return false;
+  return (
+    process.env.PGAK_SHOW_DRAFTS === "1" ||
+    process.env.VERCEL_ENV === "preview" ||
+    process.env.NODE_ENV === "development"
+  );
+}
+
+function draftFiles(): string[] {
+  if (!showDrafts() || !fs.existsSync(DRAFT_DIR)) return [];
+  return fs.readdirSync(DRAFT_DIR).filter(isPostFile);
+}
 
 export type InsightFaq = { q: string; a: string };
 
@@ -47,6 +69,12 @@ export type InsightMeta = {
   image?: string;
   /** Optional FAQ pairs — emitted as FAQPage JSON-LD; keep answers in the body too. */
   faqs?: InsightFaq[];
+  /** Present only on unreviewed drafts, which production never loads. */
+  draft?: boolean;
+  /** Who must review before publication, and what is still unresolved. */
+  reviewStatus?: string;
+  /** A real, named reviewer — set only when the review has happened. */
+  reviewer?: string;
 };
 
 export type Insight = InsightMeta & {
@@ -60,11 +88,17 @@ function isPostFile(f: string) {
 
 export function getAllInsights(): InsightMeta[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
-  return fs
-    .readdirSync(CONTENT_DIR)
-    .filter(isPostFile)
-    .map((file) => readMeta(file))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  const bySlug = new Map<string, InsightMeta>();
+  for (const file of fs.readdirSync(CONTENT_DIR).filter(isPostFile)) {
+    const m = readMeta(file);
+    bySlug.set(m.slug, m);
+  }
+  // A draft replaces the live version of the same slug, on preview only.
+  for (const file of draftFiles()) {
+    const m = readMeta(file, DRAFT_DIR);
+    bySlug.set(m.slug, { ...m, draft: true });
+  }
+  return [...bySlug.values()].sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 /**
@@ -107,16 +141,20 @@ export function getRelatedInsights(slug: string, limit = 4): InsightMeta[] {
 }
 
 export function getInsight(slug: string): Insight | null {
-  const file = path.join(CONTENT_DIR, `${slug}.md`);
+  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  const draft = showDrafts() ? path.join(DRAFT_DIR, `${slug}.md`) : "";
+  const live = path.join(CONTENT_DIR, `${slug}.md`);
+  const file = draft && fs.existsSync(draft) ? draft : live;
   if (!fs.existsSync(file)) return null;
   const raw = fs.readFileSync(file, "utf8");
   const { data, content } = matter(raw);
   const html = marked.parse(content, { async: false }) as string;
-  return { ...toMeta(slug, data, content), html };
+  const meta = toMeta(slug, data, content);
+  return { ...meta, ...(file === draft ? { draft: true } : {}), html };
 }
 
-function readMeta(file: string): InsightMeta {
-  const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf8");
+function readMeta(file: string, dir = CONTENT_DIR): InsightMeta {
+  const raw = fs.readFileSync(path.join(dir, file), "utf8");
   const { data, content } = matter(raw);
   return toMeta(file.replace(/\.md$/, ""), data, content);
 }
@@ -183,6 +221,8 @@ function toMeta(
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
     image: data.image ? String(data.image) : undefined,
     updated: data.updated ? clampToToday(String(data.updated)) : undefined,
+    reviewStatus: data.reviewStatus ? String(data.reviewStatus) : undefined,
+    reviewer: data.reviewer ? String(data.reviewer) : undefined,
     faqs: Array.isArray(data.faqs)
       ? (data.faqs as Record<string, unknown>[]).map((f) => ({
           q: String(f.q ?? ""),

@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     type: "article",
     publishedTime: post.date,
     ...(post.image ? { image: post.image } : {}),
+    // Drafts render on preview deployments only; never let one be indexed.
+    ...(post.draft ? { noIndex: true } : {}),
   });
 }
 
@@ -85,6 +87,15 @@ export default async function InsightPost({ params }: Props) {
           <div className="wrap">
             <div className="mx-auto max-w-[720px]">
               <Breadcrumbs trail={trail} />
+            {post.draft && (
+              <p
+                role="note"
+                className="mt-4 rounded-md border border-amber-400 bg-amber-50 px-4 py-3 text-[0.9rem] text-ink"
+              >
+                <strong>Draft — not published.</strong> {post.reviewStatus ??
+                  "Awaiting review by a PGAK engineer before publication."}
+              </p>
+            )}
               <Link
                 href="/insights"
                 className="mt-4 inline-flex text-[0.85rem] text-ink-faint transition-colors hover:text-accent"
