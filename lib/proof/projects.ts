@@ -88,7 +88,7 @@ export const PROJECTS: Project[] = [
       durationSeconds: 14,
     },
     alt: "Assembly line camera view with detection boxes drawn on workers' hands and a confidence figure beside each label",
-    href: "/video-analytics-software",
+    href: "/features/guides/ppe-detection",
     approval: OWNER_PUBLISHED("/ (homepage) and /video-analytics-software"),
   },
   {

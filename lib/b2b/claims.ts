@@ -29,11 +29,11 @@ export const CAPABILITY_REGISTER: CapabilityRecord[] = [
       "One PPE class (gloves) on an existing overhead line camera; confidence shown per detection so a supervisor can judge the low ones.",
     requirement:
       "To reach available: the PPE classes for a site agreed at assessment, and an acceptance test on that site's own cameras.",
-    href: "/video-analytics-software",
+    href: "/features/guides/ppe-detection",
     evidence: {
       projectId: "ppe-assembly-line",
       note: "14 s recording, 1 April 2025, conditions and limits stated",
-      href: "/video-analytics-software",
+      href: "/features/guides/ppe-detection",
     },
   },
   {
@@ -144,4 +144,4 @@ export const CAPABILITY_REGISTER: CapabilityRecord[] = [
 ];
 export const EVIDENCE_DATE = "2026-10-03";
 export const PROOF_NOTICE =
-  "No approved PGAK customer result or measured accuracy report is attached to this release. Published scenarios are illustrations, not verified deployments.";
+  "PGAK has published recorded demonstrations of its own (listed on the evidence page), each with its conditions and limits. No customer result or measured accuracy report is published yet, and the deployment scenarios are illustrations, not verified deployments.";

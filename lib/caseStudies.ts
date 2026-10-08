@@ -179,7 +179,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     city: "Coimbatore, Tamil Nadu",
     cameras: "40 existing cameras, plus one dedicated gate camera",
     summary:
-      "Attendance was the entry point, not security. Once the gate camera was producing a reliable roll, the same deployment extended to the perimeter without adding hardware.",
+      "Attendance was the entry point, not security. Once the gate camera was producing a reliable roll, the same deployment extended to the perimeter using the cameras already on the boundary.",
     challenge: [
       "Fingerprint readers failed daily on hands working with oil, dust and metal — every failure lengthened the shift-change queue.",
       "Buddy punching was a known and unaddressed problem.",

@@ -9,6 +9,8 @@ import ProofBlock from "@/components/solutions/ProofBlock";
 import CoverageWalkthrough from "@/components/solutions/CoverageWalkthrough";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
+import FeatureScenario from "@/components/calc/FeatureScenario";
+import { scenariosForPath } from "@/lib/calc/scenarios";
 import {
   breadcrumbSchema,
   faqSchema,
@@ -377,6 +379,10 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
             attendance pages ask the attendance question; everyone else gets
             the audit. */}
         <WhoIsPgak />
+        {scenariosForPath(path).map((sc) => (
+          <FeatureScenario key={sc.id} id={sc.id} withLeadForm={false} />
+        ))}
+
         <DealerForm
           variant={s.group === "attendance" ? "attendance" : "audit"}
         />

@@ -105,7 +105,7 @@ export default function InsightsIndex() {
                       className="card group flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
                     >
                       <p className="text-[0.74rem] uppercase tracking-[0.16em] text-ink-faint">
-                        {c.context}
+                        Illustrative scenario · {c.context}
                       </p>
                       <h3 className="font-display mt-3 text-[1.15rem] font-medium leading-snug transition-colors group-hover:text-accent">
                         {c.title}

@@ -25,7 +25,7 @@ export default function FeatureScenario({
       <div className="wrap">
         <p className="eyebrow">Calculator · {id}</p>
         <h2 id={`scenario-${id}-h`} className="display mt-3 text-[clamp(1.5rem,3vw,2.1rem)]">
-          Estimate {s.feature.toLowerCase()} for your site
+          {s.feature}: estimate it for your site
         </h2>
         <p className="mt-3 max-w-[68ch] text-ink-soft">
           Use your own measurements. The result is{" "}

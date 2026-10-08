@@ -165,7 +165,7 @@ export default function LocationPage({ location }: { location: Location }) {
             </p>
             {l.caseStudy && (
               <p className="mt-5 text-ink-soft">
-                Worked example for {l.city}:{" "}
+                Illustrative scenario for {l.city} (modelled, not a customer report):{" "}
                 <Link
                   href={l.caseStudy.href}
                   className="text-accent underline underline-offset-4"

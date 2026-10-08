@@ -18,8 +18,8 @@ export default function Page() {
       <section>
         <h2>Current compatibility record</h2>
         <p className="buyer-notice">
-          Not yet verified. No model/firmware approval matrix is attached to
-          this release. A technical review must confirm the exact combination
+          Not yet verified. PGAK has not published a model-and-firmware
+          approval list. A technical review must confirm the exact combination
           before it is described as compatible.
         </p>
         <div className="buyer-table-wrap">

@@ -77,11 +77,20 @@ export default function BuyerSolution({ slug }: { slug: string }) {
       <section>
         <h2>Available evidence</h2>
         <p>{PROOF_NOTICE}</p>
-        <p>
-          This use case remains unverified as an available PGAK capability until
-          an approved demonstration and configuration record is attached. Ask
-          for evidence of the exact workflow you need.
-        </p>
+        {proof ? (
+          <p>
+            PGAK&rsquo;s own recording for part of this use case is shown
+            further down this page, with its conditions and limits. It is a
+            demonstration of one scene, not a measured result for your site;
+            ask for evidence of the exact workflow you need.
+          </p>
+        ) : (
+          <p>
+            No PGAK recording is published for this use case yet, so it is not
+            listed as an available capability. Ask for evidence of the exact
+            workflow you need.
+          </p>
+        )}
         <a href="/resources/evidence" className="text-link">
           Inspect evidence status →
         </a>

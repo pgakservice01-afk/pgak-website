@@ -165,8 +165,9 @@ export default async function InsightPost({ params }: Props) {
                       Find out what your existing cameras can already do
                     </h2>
                     <p className="mt-2 text-[0.95rem] text-ink-soft">
-                      A free readiness audit of your feeds, report in 48 hours, no
-                      new hardware. Your number and camera count is all we need.
+                      A free readiness audit of your feeds, report in 48 hours. It
+                      says which cameras can be reused and what on-site processing
+                      the site would need. Your number and camera count is all we need.
                     </p>
                     <div className="mt-4">
                       <QuickLead cta="post-quick" offer="audit" />

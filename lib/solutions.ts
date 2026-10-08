@@ -849,7 +849,7 @@ export const SOLUTIONS: Solution[] = [
     faqs: [
       {
         q: "Do I need special AI cameras for my home?",
-        a: "No. If you already have CCTV with a DVR, PGAK almost certainly works with it. The intelligence is software running alongside the cameras you own.",
+        a: "No. If you already have CCTV with a DVR, PGAK almost certainly works with it. The intelligence runs on an on-site processing unit alongside the cameras you own; the assessment confirms suitability before anything is quoted.",
       },
       {
         q: "Will it stop alerting me about my own family?",
@@ -2769,7 +2769,7 @@ export const SOLUTIONS: Solution[] = [
     proof: {
       heading: "The camera, and the screen the guard actually uses",
       intro:
-        "Two photographs from a PGAK gate installation. They are here because everything else moving on this site is third-party reference footage and says so — this is ours, and it is the part a buyer can check against their own gate.",
+        "Two photographs from a PGAK gate installation. They show where the camera actually sits and what the guard actually sees — the part a buyer can check against their own gate. They prove a fitting and a working console, not a read rate.",
       items: [
         {
           src: "/proof/anpr-camera-mount.webp",

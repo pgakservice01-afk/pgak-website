@@ -41,7 +41,7 @@ Same cameras. Completely different outcome.
 
 ## And it runs on the cameras you already own
 
-None of this needs new hardware. PGAK layers its intelligence onto your existing CCTV, IP cameras and DVR/NVR — no rip-and-replace, no downtime, live in a day.
+None of this means replacing your cameras. PGAK layers its intelligence onto your existing CCTV, IP cameras and DVR/NVR through an on-site processing unit — no rip-and-replace — and the assessment confirms which cameras are suitable and what the site needs before anything is quoted.
 
 ## The whole shift, in one line
 
