@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
     media: {
       kind: "video",
       src: "/proof/ppe-gloves.mp4",
-      poster: "/proof/ppe-gloves-poster.webp",
+      poster: "/proof/ppe-gloves-poster-960.webp",
       durationSeconds: 14,
     },
     alt: "Assembly line camera view with detection boxes drawn on workers' hands and a confidence figure beside each label",
@@ -106,7 +106,7 @@ export const PROJECTS: Project[] = [
     media: {
       kind: "video",
       src: "/proof/dock-count.mp4",
-      poster: "/proof/dock-count.webp",
+      poster: "/proof/dock-count-960.webp",
       durationSeconds: 16,
     },
     alt: "Loading bay camera view at night with sacks being detected as they cross a counting line and a running total increasing",
@@ -127,9 +127,9 @@ export const PROJECTS: Project[] = [
       "Mounting height, approach angle and lighting decide plate accuracy far more than the software does. Both are checked at the assessment.",
     media: {
       kind: "image",
-      src: "/proof/anpr-camera-mount.webp",
-      width: 1600,
-      height: 1000,
+      src: "/proof/anpr-camera-mount-800.webp",
+      width: 800,
+      height: 1201,
     },
     alt: "ANPR camera mounted on a gate pillar at a commercial site entrance",
     href: "/anpr-number-plate-recognition",
@@ -150,7 +150,7 @@ export const PROJECTS: Project[] = [
     media: {
       kind: "video",
       src: "/proof/hot-work.mp4",
-      poster: "/proof/hot-work-poster.webp",
+      poster: "/proof/hot-work-poster-960.webp",
       durationSeconds: 11,
     },
     alt: "Plant camera view of a worker grinding a pipe with sparks flying, a red box labelled Hot Work Activity around him and a second box labelled Flammable Material around drums on a pallet",

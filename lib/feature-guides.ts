@@ -75,7 +75,7 @@ advice:'Ask exactly which equipment types the system detects. Test the helmets, 
 question:'Does PPE detection prove that a site is compliant?',answer:'No. It checks supported visible conditions within a camera view. Equipment quality, correct use and wider safety obligations require separate assessment.',
 proofVideo: {
   src: '/proof/ppe-gloves.mp4',
-  poster: '/proof/ppe-gloves-poster.webp',
+  poster: '/proof/ppe-gloves-poster-960.webp',
   durationSeconds: 14,
   title: 'Bare hands flagged on an assembly line',
   caption: 'Fourteen seconds from a vehicle-chassis line. The box is drawn on the hand, not the person, and the number beside each label is the model\u2019s confidence in that detection. Two workers are flagged here at 0.75 and 0.27 \u2014 the low one is left in deliberately, because that is exactly the sort of detection a supervisor should be checking rather than a system acting on by itself.',

@@ -132,7 +132,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Founder & Managing Director",
     company: "Hagerstone International",
     context: "Office design, build and project execution",
-    logo: "/proof/clients/hagerstone-logo.png",
+    logo: "/proof/clients/hagerstone-logo-128h.webp",
     quote:
       "We hand over finished offices, so clients ask what the cameras will actually do. Face recognition at reception and the attendance reporting are the two things they understand immediately, and both ran on the cameras already specified.",
     approval: {
@@ -169,7 +169,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Owner",
     company: "Dobuild Architects",
     context: "Architecture and interior projects",
-    logo: "/proof/clients/dobuild-logo.png",
+    logo: "/proof/clients/dobuild-logo-128h.webp",
     quote:
       "We plan buildings, so we notice when someone plans a camera layout properly. PGAK worked from the drawings, and the real-time intrusion alerts during construction caught the thing we had actually been worried about.",
     approval: {
@@ -189,7 +189,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Proprietor",
     company: "Dilkash Traders",
     context: "Retail and trading",
-    logo: "/proof/clients/dilkash-logo.png",
+    logo: "/proof/clients/dilkash-logo-128h.webp",
     quote:
       "A shop floor is busy, and the cameras saw everything and told me nothing. The dwell-time alerts flag someone lingering where stock goes missing, and the false-alarm filtering means the ones that reach my phone are worth opening.",
     approval: {
@@ -215,7 +215,7 @@ export const TESTIMONIALS: Testimonial[] = [
     relationship: "Lumani Systems is associated with a PGAK founder.",
     quote:
       "Our plant runs long shifts. The attendance automation took away the register at the gate, and the intrusion alerts cover the yard once the second shift ends — both on cameras we had already installed.",
-    logo: "/proof/clients/lumani-logo.png",
+    logo: "/proof/clients/lumani-logo-128h.webp",
     approval: {
       status: "approved_for_publication",
       approvedOn: "2026-09-25",
@@ -235,7 +235,7 @@ export const TESTIMONIALS: Testimonial[] = [
     context: "Industrial manufacturing, Bathinda",
     quote:
       "The security alerts are the part we rely on. If somebody is in the yard outside working hours we hear about it while it is happening, instead of finding it in the footage the next morning when there is nothing left to do.",
-    logo: "/proof/clients/uvtechno-logo.png",
+    logo: "/proof/clients/uvtechno-logo-128h.webp",
     approval: {
       status: "approved_for_publication",
       approvedOn: "2026-09-25",
@@ -277,7 +277,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Owner",
     company: "Krishna Gases",
     context: "Industrial gases, Focal Point Ludhiana",
-    logo: "/proof/clients/krishna-gases-logo.png",
+    logo: "/proof/clients/krishna-gases-logo-128h.webp",
     quote:
       "Cylinders move by vehicle, so which truck came in and when is the record that matters to us. The number-plate recognition gives us that automatically, instead of somebody writing it into a register at the gate.",
     approval: {
@@ -297,7 +297,7 @@ export const TESTIMONIALS: Testimonial[] = [
     designation: "Head of Human Resources",
     company: "Thangamman Fashions",
     context: "Garment manufacturing — workforce and attendance",
-    logo: "/proof/clients/thangamman-logo.png",
+    logo: "/proof/clients/thangamman-logo-128h.webp",
     quote:
       "Attendance was the reason we called PGAK. The face recognition attendance has removed the queue at shift change and the manual register with it, and they were straightforward about where it still needs a fallback.",
     approval: {
@@ -323,7 +323,7 @@ export const TESTIMONIALS: Testimonial[] = [
       "Winda Systems is associated with a PGAK founder.",
     quote:
       "The assessment went camera by camera before anything was proposed. What we use daily is the intrusion alerting on the yard with the false triggers filtered out, so what reaches the team is worth acting on.",
-    logo: "/proof/clients/winda-logo.webp",
+    logo: "/proof/clients/winda-logo-128h.webp",
     approval: {
       status: "approved_for_publication",
       approvedOn: "2026-09-25",

@@ -147,7 +147,7 @@ export default function Home() {
             <img
               className="h-vhero__poster"
               src="/hero/security-mix-1920.webp"
-              srcSet="/hero/security-mix-960.webp 960w, /hero/security-mix-1920.webp 1920w"
+              srcSet="/hero/security-mix-960.webp 960w, /hero/security-mix-1280.webp 1280w, /hero/security-mix-1920.webp 1920w"
               sizes="100vw"
               width={1920}
               height={1080}
