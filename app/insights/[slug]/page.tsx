@@ -14,6 +14,8 @@ import {
   getRelatedInsights,
 } from "@/lib/insights";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import StorageCalc from "@/components/calc/StorageCalc";
+import { calculatorsForPage } from "@/lib/calc/registry";
 import JsonLd from "@/components/JsonLd";
 import { AUTHOR, pageMeta } from "@/lib/seo";
 import { bylineAuthor, personPath } from "@/lib/people";
@@ -25,6 +27,20 @@ import {
 } from "@/lib/schema";
 
 type Props = { params: Promise<{ slug: string }> };
+
+/**
+ * Articles whose question is answered by an existing calculator get that
+ * calculator inline, straight after the text, instead of a link away. Keyed
+ * by slug; the calculator keeps its own page as the canonical tool.
+ */
+const ARTICLE_TOOLS: Record<string, { heading: string; intro: string; href: string; Tool: () => React.JSX.Element }> = {
+  "cctv-storage-how-many-days": {
+    heading: "Work out your own retention",
+    intro: "Enter your camera count, bitrate and recording hours. Decimal TB throughout; the usable share and RAID overhead are yours to set.",
+    href: "/calculators/cctv-storage",
+    Tool: StorageCalc,
+  },
+};
 
 export function generateStaticParams() {
   return getAllInsights().map((p) => ({ slug: p.slug }));
@@ -150,6 +166,43 @@ export default async function InsightPost({ params }: Props) {
                 className="article-body mt-9"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
+
+              {!ARTICLE_TOOLS[post.slug] && calculatorsForPage(`/insights/${post.slug}`).length > 0 && (
+                <aside className="mt-10 rounded-[16px] border border-line p-6" aria-label="Calculator">
+                  <p className="eyebrow mb-2">Work it out for your site</p>
+                  <ul className="flex flex-col gap-2">
+                    {calculatorsForPage(`/insights/${post.slug}`).map((c) => (
+                      <li key={c.id}>
+                        <Link href={c.path!} className="text-link">
+                          {c.title}
+                        </Link>{" "}
+                        <span className="text-ink-soft">— {c.question}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
+
+              {ARTICLE_TOOLS[post.slug] && (
+                <section className="mt-10" aria-labelledby="article-tool-h" id="calculator">
+                  <h2 id="article-tool-h" className="display text-[1.4rem]">
+                    {ARTICLE_TOOLS[post.slug].heading}
+                  </h2>
+                  <p className="mt-2 text-[0.95rem] text-ink-soft">
+                    {ARTICLE_TOOLS[post.slug].intro}{" "}
+                    <Link href={ARTICLE_TOOLS[post.slug].href} className="text-link">
+                      Open it on its own page
+                    </Link>
+                    .
+                  </p>
+                  <div className="mt-5">
+                    {(() => {
+                      const Tool = ARTICLE_TOOLS[post.slug].Tool;
+                      return <Tool />;
+                    })()}
+                  </div>
+                </section>
+              )}
 
               {/* The lighter ask for readers who are researching, not buying
                   today: the printable checklist on attendance guides, the

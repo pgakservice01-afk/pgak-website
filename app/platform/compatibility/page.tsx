@@ -5,14 +5,14 @@ import CompatibilityCheck from "@/components/tools/CompatibilityCheck";
 export const metadata = pageMeta({
   title: "CCTV compatibility: verify the stream and the scene | PGAK",
   description:
-    "A camera brand or ONVIF label does not establish compatibility. Match model and firmware evidence to the intended analytics, then test representative conditions.",
+    "Will your CCTV work with AI analytics? A brand or ONVIF label doesn't settle it: check model, firmware and the scene, then test in real conditions.",
   path: "/platform/compatibility",
 });
 export default function Page() {
   return (
     <BuyerPage
       title="CCTV compatibility: verify the stream and the scene"
-      intro="A camera brand or ONVIF label does not establish compatibility. Match model and firmware evidence to the intended analytics, then test representative conditions."
+      intro="Will your CCTV work with AI analytics? A brand or ONVIF label doesn't settle it: check model, firmware and the scene, then test in real conditions."
       path="/platform/compatibility"
       eyebrow="TECHNICAL BUYER GUIDE"
     >

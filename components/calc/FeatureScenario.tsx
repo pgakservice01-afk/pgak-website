@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import FeatureScenarioTool from "@/components/calc/FeatureScenarioTool";
 import QuickLead from "@/components/sections/QuickLead";
+import WorkflowDiagram from "@/components/visuals/WorkflowDiagram";
+import { DIAGRAMS } from "@/lib/visuals";
 import { SCENARIO_FORMULA_VERSION, scenarioById, type ScenarioId } from "@/lib/calc/scenarios";
 
 /**
@@ -20,6 +22,8 @@ export default function FeatureScenario({
   withLeadForm?: boolean;
 }) {
   const s = scenarioById(id)!;
+  // The workflow this calculator puts numbers on, where one is drawn.
+  const diagram = DIAGRAMS.find((d) => d.calculatorId === id);
   return (
     <section id={`scenario-${id}`} className="sec" aria-labelledby={`scenario-${id}-h`}>
       <div className="wrap">
@@ -38,6 +42,12 @@ export default function FeatureScenario({
                 : "the staff time released, shown separately from any cash"}
           , using the formula below. It runs in your browser and nothing is sent anywhere.
         </p>
+
+        {diagram && (
+          <div className="mt-6 max-w-[860px]">
+            <WorkflowDiagram visual={diagram} showCta={false} />
+          </div>
+        )}
 
         <div className="mt-6">
           <FeatureScenarioTool id={id} />

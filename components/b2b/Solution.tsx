@@ -5,6 +5,7 @@ import { PROOF_NOTICE } from "@/lib/b2b/claims";
 import ProofBlock from "@/components/solutions/ProofBlock";
 import { getSolution } from "@/lib/solutions";
 import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
+import CalculatorLinks from "@/components/calc/CalculatorLinks";
 export default function BuyerSolution({ slug }: { slug: string }) {
   // Proof lives on the original solution record, which this template does not
   // otherwise read.
@@ -130,6 +131,7 @@ export default function BuyerSolution({ slug }: { slug: string }) {
           context={`Requested evaluation: ${s.title}. Compatibility and capability evidence not yet verified.`}
         />
       </section>
+      <CalculatorLinks path={`/${slug}`} />
       <section>
         <h2>Continue your evaluation</h2>
         <div className="action-row">

@@ -52,3 +52,22 @@ test("never asks for credentials or stream addresses", () => {
   assert.match(text, /Do not send passwords/);
   assert.match(text, /not its login screen/);
 });
+
+test("unknown or brand-only models never get a compatible verdict", () => {
+  assert.equal(assess(base).verdict, "Needs verification");
+  assert.equal(assess({ ...base, makeModel: "Hikvision" }).verdict, "Needs verification");
+  assert.equal(assess({ ...base, makeModel: "CP Plus CP-UNC-TA21L3" }).verdict, "Needs verification");
+});
+
+test("any likely blocker makes the verdict 'not suitable as it stands'", () => {
+  assert.equal(assess({ ...base, stream: "no" }).verdict, "Not suitable as it stands");
+});
+
+test("'Known tested' needs an exact make+model+use-case record", () => {
+  const matrix = [
+    { make: "Acme", model: "X100", firmware: "1.2", stream: "RTSP" as const, useCases: ["intrusion"], testedOn: "2026-10-01", testedBy: "test", notes: "" },
+  ];
+  assert.equal(assess({ ...base, makeModel: "Acme X100" }, matrix).verdict, "Known tested");
+  assert.equal(assess({ ...base, makeModel: "Acme X100", useCase: "anpr" }, matrix).verdict, "Needs verification");
+  assert.equal(assess({ ...base, makeModel: "Acme" }, matrix).verdict, "Needs verification");
+});

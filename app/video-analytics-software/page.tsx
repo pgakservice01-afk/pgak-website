@@ -1,5 +1,6 @@
 import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
+import CalculatorLinks from "@/components/calc/CalculatorLinks";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -87,6 +88,7 @@ export default function Page() {
           Use the evaluation method →
         </a>
       </section>
+      <CalculatorLinks path="/video-analytics-software" />
       <ScopeAndEvidence path="/video-analytics-software" variant="buyer" />
       <BuyerCTA />
     </BuyerPage>

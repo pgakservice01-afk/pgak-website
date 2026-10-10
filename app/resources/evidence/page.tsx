@@ -5,11 +5,13 @@ import ProofVideo from "@/components/ProofVideo";
 import { pageMeta } from "@/lib/seo";
 import { EVIDENCE_DATE } from "@/lib/b2b/claims";
 import { publishedProjects } from "@/lib/proof/projects";
+import { DEMO_TASKS, guideFor } from "@/lib/proof/demo-guide";
+import DemoTaskFilter from "@/components/tools/DemoTaskFilter";
 
 export const metadata = pageMeta({
-  title: "Evidence you can inspect | PGAK",
+  title: "PGAK demonstrations you can inspect | PGAK",
   description:
-    "PGAK's own recorded demonstrations, each with its date, conditions and limits — and what a demonstration does not prove compared with a measured customer result.",
+    "PGAK's own recorded demonstrations, each with its date, conditions and limits, and what a demonstration does not prove about results at your site.",
   path: "/resources/evidence",
 });
 
@@ -22,8 +24,8 @@ export default function Page() {
   const projects = publishedProjects();
   return (
     <BuyerPage
-      title="Evidence you can inspect"
-      intro="Evidence should identify the function, conditions, date, method and limitations. A demonstration is not a measured customer result."
+      title="PGAK demonstrations you can inspect"
+      intro="Choose a task and watch what PGAK has recorded working — each with when and where it was captured and what it does not prove. A demonstration is not a measured customer result."
       path="/resources/evidence"
       eyebrow="EVIDENCE"
     >
@@ -44,9 +46,10 @@ export default function Page() {
           the deployment scenarios elsewhere on the site are illustrations, not
           verified deployments.
         </p>
+        <DemoTaskFilter tasks={DEMO_TASKS} />
       </section>
       {projects.map((p) => (
-        <section key={p.id} id={`evidence-${p.id}`}>
+        <section key={p.id} id={`evidence-${p.id}`} data-demo-task={guideFor(p.id)?.task}>
           <div className="evidence-meta">
             <span>{p.category}</span>
             <span>{p.scope}</span>
@@ -75,15 +78,38 @@ export default function Page() {
               </figure>
             )}
           </div>
+          {guideFor(p.id) && (
+            <p className="mt-4">
+              <strong>What to watch:</strong> {guideFor(p.id)!.watch}
+            </p>
+          )}
           <dl className="mt-4">
+            {guideFor(p.id) && (
+              <>
+                <dt className="font-semibold">What it shows</dt>
+                <dd className="mb-3">{guideFor(p.id)!.shows}</dd>
+              </>
+            )}
             <dt className="font-semibold">Conditions</dt>
             <dd className="mb-3">{p.conditions}</dd>
             <dt className="font-semibold">What it does not prove</dt>
             <dd className="mb-3">{p.limits}</dd>
           </dl>
-          <a href={p.href} className="text-link">
-            Where this is discussed in more depth →
-          </a>
+          <div className="action-row">
+            {guideFor(p.id) && (
+              <>
+                <a href={guideFor(p.id)!.next.href} className="btn btn-primary" data-cta={`demo-${p.id}-next`}>
+                  {guideFor(p.id)!.next.label} →
+                </a>
+                <a href={guideFor(p.id)!.calculator.href} className="text-link">
+                  {guideFor(p.id)!.calculator.label}
+                </a>
+              </>
+            )}
+            <a href={p.href} className="text-link">
+              Where this is discussed →
+            </a>
+          </div>
         </section>
       ))}
       <section>

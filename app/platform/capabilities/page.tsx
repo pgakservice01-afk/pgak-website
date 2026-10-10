@@ -6,14 +6,14 @@ import { scenariosForPath } from "@/lib/calc/scenarios";
 export const metadata = pageMeta({
   title: "Capability and evidence register | PGAK",
   description:
-    "A shared reference for product scope. Unverified means a suitable, approved evidence record is missing; it is not a statement that a feature can never be supplied.",
+    "PGAK's capability register: what each function does, the evidence behind it, and which items stay unverified until an approved record exists.",
   path: "/platform/capabilities",
 });
 export default function Page() {
   return (
     <BuyerPage
       title="Capability and evidence register"
-      intro="A shared reference for product scope. Unverified means a suitable, approved evidence record is missing; it is not a statement that a feature can never be supplied."
+      intro="PGAK's capability register: what each function does, the evidence behind it, and which items stay unverified until an approved record exists."
       path="/platform/capabilities"
       eyebrow="TECHNICAL BUYER GUIDE"
     >

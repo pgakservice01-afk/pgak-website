@@ -4,14 +4,14 @@ import QuickLead from "@/components/sections/QuickLead";
 export const metadata = pageMeta({
   title: "Dealer and integrator enquiries | PGAK",
   description:
-    "Discuss a potential integration or delivery relationship separately from an end-customer deployment. No appointment, territory or commercial arrangement is implied.",
+    "Discuss an integration or delivery partnership with PGAK, separately from an end-customer project. No territory or commercial terms are implied.",
   path: "/partners",
 });
 export default function Page() {
   return (
     <BuyerPage
       title="Dealer and integrator enquiries"
-      intro="Discuss a potential integration or delivery relationship separately from an end-customer deployment. No appointment, territory or commercial arrangement is implied."
+      intro="Discuss an integration or delivery partnership with PGAK, separately from an end-customer project. No territory or commercial terms are implied."
       path="/partners"
       eyebrow="PARTNERS"
     >

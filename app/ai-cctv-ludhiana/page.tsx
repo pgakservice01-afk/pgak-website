@@ -6,9 +6,9 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("ludhiana")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Ludhiana — CCTV Installation by Our Own Team, Gill Road",
+  title: "AI CCTV & CCTV Installation in Ludhiana — Gill Road | PGAK",
   description:
-    "AI alerts on the cameras your Ludhiana unit already owns, and CCTV installation by our own Gill Road team — free audit first. Gate attendance, godown cover.",
+    "AI alerts on the cameras your Ludhiana unit already owns, and CCTV installation from our Gill Road office. Free camera check first, for gates and godowns.",
   path: locationPath(location.slug),
   keywords: [
     "AI CCTV Ludhiana",

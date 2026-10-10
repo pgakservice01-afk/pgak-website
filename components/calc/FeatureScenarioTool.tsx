@@ -24,6 +24,20 @@ import {
 
 type Values = Record<string, string>;
 
+/**
+ * Where each number came from. Recorded per input so a printed or exported
+ * result says which figures are guesses and which are evidenced; it never
+ * changes the arithmetic.
+ */
+type Source = "estimate" | "records" | "pilot" | "quote" | "example";
+const SOURCE_LABEL: Record<Source, string> = {
+  estimate: "My estimate",
+  records: "From our records",
+  pilot: "Measured in a pilot",
+  quote: "From a written quote",
+  example: "PGAK worked example",
+};
+
 const PERCENT = (u: InputSpec["unit"]) => u === "fraction";
 
 const UNIT_LABEL: Record<InputSpec["unit"], string> = {
@@ -73,6 +87,8 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
   const [fin, setFin] = useState<Values>({ realisation: "0", evidenced: "0" });
   const [touched, setTouched] = useState(false);
   const [copied, setCopied] = useState("");
+  const [src, setSrc] = useState<Record<string, Source>>({});
+  const srcOf = (k: string): Source => src[k] ?? "estimate";
 
   useEffect(() => {
     const shared = readShared(id);
@@ -126,7 +142,15 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
       : null;
 
   useEffect(() => {
-    if (out && touched) trackConversion("calculator_result", { calculator_id: id });
+    if (out && touched) {
+      trackConversion("calculator_result", { calculator_id: id });
+      // Remember which scenario the visitor worked through, so an enquiry
+      // later in the visit carries it (lib/attribution.ts). An id, never
+      // the numbers or anything personal.
+      try {
+        sessionStorage.setItem("pgak-context", JSON.stringify({ calculatorId: id }));
+      } catch {}
+    }
     // Once per valid set of inputs is plenty; the id is not personal data.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked.ok]);
@@ -138,6 +162,7 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
       v[spec.key] = PERCENT(spec.unit) ? String(Math.round(n * 10000) / 100) : String(n);
     }
     setVals(v);
+    setSrc(Object.fromEntries(s.inputs.map((i) => [i.key, "example" as Source])));
     setTouched(true);
   }
 
@@ -163,9 +188,9 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
       ["Formula version", SCENARIO_FORMULA_VERSION],
       ["Generated", new Date().toISOString().slice(0, 10)],
       [],
-      ["Input", "Value", "Unit"],
-      ...s.inputs.map((i) => [i.label, vals[i.key] ?? "", UNIT_LABEL[i.unit]]),
-      ...FINANCE_FIELDS.map((f) => [f.label, fin[f.key] ?? "", f.unit]),
+      ["Input", "Value", "Unit", "Source"],
+      ...s.inputs.map((i) => [i.label, vals[i.key] ?? "", UNIT_LABEL[i.unit], vals[i.key]?.trim() ? SOURCE_LABEL[srcOf(i.key)] : "not entered"]),
+      ...FINANCE_FIELDS.map((f) => [f.label, fin[f.key] ?? "", f.unit, fin[f.key]?.trim() ? SOURCE_LABEL[srcOf(`f-${f.key}`)] : "not entered"]),
       [],
       ["Result", "Value"],
       ...Object.entries(out ?? {}).map(([k, v]) => [k, v]),
@@ -192,6 +217,15 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
     trackConversion("calculator_export", { calculator_id: id });
   }
 
+  function provenanceNote() {
+    const entered = s.inputs.filter((i) => vals[i.key]?.trim()).map((i) => srcOf(i.key));
+    if (entered.includes("example"))
+      return "Uses PGAK's worked-example figures, which describe no real site. Replace them with your own.";
+    if (entered.length && entered.every((x) => x !== "estimate"))
+      return "Every input is marked as coming from records, a pilot or a written quote. The result is still a scenario until a pilot measures it.";
+    return "Includes your own estimates, so the result is an estimate. Mark an input's source as you replace guesses with records.";
+  }
+
   const hrs = (n: number | null | undefined) =>
     n === null || n === undefined ? "—" : `${formatNumber(n, 2)} hours / month`;
   const inr = (n: number | null | undefined, suffix = " / month") =>
@@ -214,6 +248,7 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
             onClick={() => {
               setVals({});
               setFin({ realisation: "0", evidenced: "0" });
+              setSrc({});
               setCopied("");
             }}
           >
@@ -232,6 +267,8 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
               unit={UNIT_LABEL[spec.unit]}
               help={spec.help}
               value={vals[spec.key] ?? ""}
+              source={srcOf(spec.key)}
+              onSource={(v) => setSrc((o) => ({ ...o, [spec.key]: v }))}
               error={touched && !checked.ok ? checked.errors[spec.key] : undefined}
               onChange={(v) => {
                 setVals((o) => ({ ...o, [spec.key]: v }));
@@ -253,6 +290,8 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
                   unit={f.unit}
                   help={f.help}
                   value={fin[f.key] ?? ""}
+                  source={srcOf(`f-${f.key}`)}
+                  onSource={(v) => setSrc((o) => ({ ...o, [`f-${f.key}`]: v }))}
                   error={finErrors[f.key]}
                   onChange={(v) => setFin((o) => ({ ...o, [f.key]: v }))}
                 />
@@ -329,6 +368,7 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
             {money.firstYearRoi === null && money.roiNote && <li>ROI: {money.roiNote}</li>}
           </ul>
         )}
+        {out && <p className="mt-3 text-[0.85rem] text-ink-soft">{provenanceNote()}</p>}
         {out && (
           <div className="mt-5 flex flex-wrap gap-2 print:hidden">
             <button type="button" className="btn btn-ghost text-[0.88rem]" onClick={() => window.print()}>
@@ -354,6 +394,8 @@ function Field({
   unit,
   help,
   value,
+  source,
+  onSource,
   error,
   onChange,
 }: {
@@ -362,6 +404,8 @@ function Field({
   unit: string;
   help?: string;
   value: string;
+  source: Source;
+  onSource: (v: Source) => void;
   error?: string;
   onChange: (v: string) => void;
 }) {
@@ -381,6 +425,21 @@ function Field({
         aria-describedby={[help ? `${id}-h` : "", error ? `${id}-e` : ""].filter(Boolean).join(" ") || undefined}
         onChange={(e) => onChange(e.target.value)}
       />
+      <label className="flex items-center gap-2 text-[0.78rem] text-ink-soft">
+        Source
+        <select
+          className="field-input py-1 text-[0.8rem]"
+          value={source}
+          onChange={(e) => onSource(e.target.value as Source)}
+          aria-label={`Source of: ${label}`}
+        >
+          {(Object.keys(SOURCE_LABEL) as Source[]).map((k) => (
+            <option key={k} value={k}>
+              {SOURCE_LABEL[k]}
+            </option>
+          ))}
+        </select>
+      </label>
       {help && (
         <p id={`${id}-h`} className="text-[0.8rem] text-ink-soft">
           {help}

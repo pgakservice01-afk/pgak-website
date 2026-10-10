@@ -38,6 +38,12 @@ export type CalculatorRecord = {
   /** The commercial page this belongs to, for internal linking both ways. */
   relatedPath: string;
   relatedLabel: string;
+  /**
+   * Other pages whose reader is asking this calculator's question — buying
+   * pages and articles. They link here; without these links the calculators
+   * had one or two internal links each and sat "discovered, not indexed".
+   */
+  linkedFrom?: string[];
   cta: string;
   status: CalculatorStatus;
   formulaVersion: string;
@@ -61,6 +67,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "verified",
     relatedPath: "/pricing",
     relatedLabel: "How PGAK pricing works",
+    linkedFrom: ["/video-analytics-software", "/commercial-cctv", "/insights/ai-cctv-price-in-india-what-it-should-cost"],
     cta: "Ask for a business-case review",
     status: "live",
     formulaVersion: v,
@@ -80,6 +87,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "assessment-required",
     relatedPath: "/cctv-installation-company",
     relatedLabel: "New installation scope",
+    linkedFrom: ["/video-analytics-software", "/commercial-cctv", "/industrial-cctv", "/insights/add-ai-to-existing-cctv-cameras", "/insights/reuse-existing-cctv-or-replace"],
     cta: "Get both options quoted",
     status: "live",
     formulaVersion: v,
@@ -99,6 +107,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "educational",
     relatedPath: "/video-analytics-software",
     relatedLabel: "What runs on your existing CCTV",
+    linkedFrom: ["/cctv-installation-company", "/commercial-cctv", "/remote-cctv-monitoring"],
     cta: "Have your retention checked",
     status: "live",
     formulaVersion: v,
@@ -118,6 +127,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "assessment-required",
     relatedPath: "/multi-site-cctv-monitoring",
     relatedLabel: "Multi-site monitoring",
+    linkedFrom: ["/remote-cctv-monitoring"],
     cta: "Check your architecture",
     status: "live",
     formulaVersion: v,
@@ -135,6 +145,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "assessment-required",
     relatedPath: "/retail-shop-security",
     relatedLabel: "Retail security",
+    linkedFrom: ["/ai-cctv-for-warehouses", "/insights/showroom-retail-shrinkage"],
     cta: "Discuss a measured pilot",
     status: "live",
     formulaVersion: v,
@@ -151,6 +162,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "verified",
     relatedPath: "/video-analytics-software",
     relatedLabel: "Search and alerts",
+    linkedFrom: ["/factory-security", "/ai-cctv-for-warehouses", "/industrial-cctv", "/ai-cctv-for-offices", "/insights/what-to-do-day-after-a-theft", "/insights/your-dvr-records-the-theft-it-doesnt-stop-it"],
     cta: "Ask for a review",
     status: "live",
     formulaVersion: v,
@@ -167,6 +179,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "verified",
     relatedPath: "/face-recognition-attendance-system",
     relatedLabel: "Attendance from CCTV",
+    linkedFrom: ["/biometric-attendance", "/attendance-system-for-factories", "/attendance-system-for-warehouses", "/attendance-system-for-offices", "/attendance-system-for-schools", "/attendance-system-for-construction-sites", "/insights/biometric-attendance-payroll-integration", "/insights/replace-attendance-register-with-camera"],
     cta: "Check feasibility at your gate",
     status: "live",
     formulaVersion: v,
@@ -183,6 +196,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "verified",
     relatedPath: "/ai-intruder-detection",
     relatedLabel: "Intruder detection",
+    linkedFrom: ["/smart-perimeter-protection", "/factory-security", "/residential-security", "/insights/ai-cctv-false-alarms-how-to-reduce"],
     cta: "Tune alerts on your footage",
     status: "live",
     formulaVersion: v,
@@ -199,6 +213,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "verified",
     relatedPath: "/multi-site-cctv-monitoring",
     relatedLabel: "Multi-site monitoring",
+    linkedFrom: ["/remote-cctv-monitoring"],
     cta: "Review your site list",
     status: "live",
     formulaVersion: v,
@@ -215,6 +230,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "verified",
     relatedPath: "/anpr-number-plate-recognition",
     relatedLabel: "ANPR at gates",
+    linkedFrom: ["/factory-security", "/ai-cctv-for-warehouses", "/insights/anpr-number-plate-recognition-when-it-works"],
     cta: "Size it per lane",
     status: "live",
     formulaVersion: v,
@@ -247,6 +263,7 @@ export const CALCULATORS: CalculatorRecord[] = [
     capability: "educational",
     relatedPath: "/industrial-cctv",
     relatedLabel: "Industrial CCTV",
+    linkedFrom: ["/cctv-installation-company"],
     cta: "Ask what your site would draw",
     status: "live",
     formulaVersion: v,
@@ -257,7 +274,9 @@ export const liveCalculators = () => CALCULATORS.filter((c) => c.status === "liv
 export const plannedCalculators = () => CALCULATORS.filter((c) => c.status === "planned");
 /** Calculators that belong beside a given commercial page. */
 export const calculatorsForPage = (pagePath: string) =>
-  CALCULATORS.filter((c) => c.status === "live" && c.relatedPath === pagePath);
+  CALCULATORS.filter(
+    (c) => c.status === "live" && (c.relatedPath === pagePath || c.linkedFrom?.includes(pagePath)),
+  );
 
 export const calculatorByPath = (path: string) =>
   CALCULATORS.find((c) => c.path === path);

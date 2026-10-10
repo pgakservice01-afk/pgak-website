@@ -16,7 +16,7 @@ const PATH = "/leadership";
 export const metadata: Metadata = pageMeta({
   title: "Leadership — the founders and CEO of PGAK Innovations",
   description:
-    "Who runs PGAK Innovations Pvt. Ltd.: founders Puneet Garg and Ankur Kaplesh, and CEO Aditya Mittal — with the company's registration details so you can check us.",
+    "Who runs PGAK Innovations Pvt. Ltd.: founders Puneet Garg and Ankur Kaplesh and CEO Aditya Mittal, with registration details you can check.",
   path: PATH,
   keywords: [
     "PGAK founders",

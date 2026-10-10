@@ -136,6 +136,14 @@ export function readAttribution(
   // Registry ids only ("anpr", "C09"): anything else is dropped, so a caller
   // cannot route free text into the CRM message through this field.
   const id = (v?: string) => (v && /^[a-z0-9-]{1,40}$/i.test(v) ? v : "");
+  // A calculator worked through earlier in the visit, when the form itself
+  // does not know one (e.g. the homepage estimator, then the homepage form).
+  if (!context.calculatorId && typeof window !== "undefined") {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem("pgak-context") || "null");
+      if (saved && typeof saved.calculatorId === "string") context = { ...context, calculatorId: saved.calculatorId };
+    } catch {}
+  }
   const ids: Attribution = {};
   if (id(context.featureId)) ids.feature_id = id(context.featureId);
   if (id(context.calculatorId)) ids.calculator_id = id(context.calculatorId);

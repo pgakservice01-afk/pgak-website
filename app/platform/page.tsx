@@ -4,14 +4,14 @@ import Architecture from "@/components/b2b/Architecture";
 export const metadata = pageMeta({
   title: "An analytics layer. A clearly scoped deployment. | PGAK",
   description:
-    "Explore the requirements and evidence needed to evaluate PGAK with your existing CCTV system. Camera compatibility and product scope are verified before commitment.",
+    "What you need to evaluate PGAK on your existing CCTV: the requirements, the evidence, and the compatibility and scope checks done before you commit.",
   path: "/platform",
 });
 export default function Page() {
   return (
     <BuyerPage
       title="An analytics layer. A clearly scoped deployment."
-      intro="Explore the requirements and evidence needed to evaluate PGAK with your existing CCTV system. Camera compatibility and product scope are verified before commitment."
+      intro="What you need to evaluate PGAK on your existing CCTV: the requirements, the evidence, and the compatibility and scope checks done before you commit."
       path="/platform"
       eyebrow="PLATFORM"
     >
