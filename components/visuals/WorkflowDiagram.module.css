@@ -1,0 +1,101 @@
+.figure {
+  margin: 0;
+}
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 28px;
+  counter-reset: step;
+}
+.step {
+  position: relative;
+  border: 1px solid #c9d3df;
+  border-radius: 10px;
+  background: #f4f7fb;
+  padding: 16px 16px 16px 52px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #1d2a38;
+  counter-increment: step;
+}
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #1f3d63;
+  color: #fff;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+/* Arrow between steps: decorative only, so it lives in CSS, not the text. */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid #1f3d63;
+  border-right: 2px solid #1f3d63;
+  transform: translateY(-50%) rotate(45deg);
+}
+.caption {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #5a6470;
+}
+.label {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid #c9d3df;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1f3d63;
+}
+.meta {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #3a4552;
+}
+.cta {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f3d63;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .steps {
+    grid-auto-flow: row;
+    gap: 22px;
+  }
+  .step:not(:last-child)::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -18px;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}

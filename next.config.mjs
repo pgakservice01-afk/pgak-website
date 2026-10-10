@@ -59,6 +59,15 @@ const nextConfig = {
         permanent: true,
       },
 
+      // The 10 Oct 2026 audit and brief refer to the evidence page as
+      // /evidence; the real route is /resources/evidence. A short alias costs
+      // nothing and stops a 404 for anyone who types or links the short form.
+      {
+        source: "/evidence",
+        destination: "/resources/evidence",
+        permanent: true,
+      },
+
       // Consolidated 2026-09-23 (owner approved). Search Console listed this
       // page as "Duplicate without user-selected canonical" against the same
       // intent as /video-analytics-software, which IS indexed. Permanent, so

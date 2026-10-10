@@ -25,11 +25,13 @@ export default function StickyDemoCTA() {
   const [href, setHref] = useState("/#dealer");
 
   useEffect(() => {
-    setHref(document.getElementById("dealer") ? "#dealer" : "/#dealer");
+    // The homepage form is #assessment; every other page's form is #dealer.
+    const formId = document.getElementById("dealer") ? "dealer" : document.getElementById("assessment") ? "assessment" : "";
+    setHref(formId ? `#${formId}` : "/#assessment");
 
     const onScroll = () => {
       const past = window.scrollY > window.innerHeight * 0.9;
-      const form = document.getElementById("dealer");
+      const form = document.getElementById("dealer") ?? document.getElementById("assessment");
       const atForm = form
         ? form.getBoundingClientRect().top < window.innerHeight * 0.85 &&
           form.getBoundingClientRect().bottom > 0

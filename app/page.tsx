@@ -4,15 +4,36 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
 import AssessmentForm from "@/components/home/AssessmentForm";
-import HeroVideo from "@/components/home/HeroVideo";
 import { ClientLogos, ClientVoices, RealWork } from "@/components/home/Proof";
+import {
+  EvaluationProcess,
+  HOME_FAQS,
+  HomeFaq,
+  HowItWorks,
+  OperatingDetail,
+  PricingScope,
+  ProblemSelector,
+} from "@/components/home/BuyerPath";
+import ValueEstimator from "@/components/home/ValueEstimator";
 import { BUSINESS, pageMeta } from "@/lib/seo";
-import { organizationSchema, webPageSchema } from "@/lib/schema";
+import { faqSchema, webPageSchema } from "@/lib/schema";
 
 import "./home.css";
 
 /**
- * The homepage, rebuilt 2026-09-24; restructured 2026-09-27.
+ * The homepage, rebuilt 2026-09-24; restructured 2026-09-27 and 2026-10-10.
+ *
+ * ── 2026-10-10: a buyer path in ten steps ──
+ * The owner's lead-growth brief set the order: a hero that names the outcome
+ * and the first step (Check my cameras / See PGAK demonstrations); PGAK's own
+ * recordings straight after it; a problem selector; how it works; a value
+ * estimator that shows results before any contact request; the evaluation
+ * process; what makes up a price; who PGAK is and how data is handled; the
+ * questions buyers ask; and the assessment form. The stock background video
+ * is gone (no large background video), the category phrase moved to the
+ * eyebrow above the H1, and the client-logo row moved from second place into
+ * the trust section — logos are not proof of what a clip shows. FAQ markup is
+ * back because the FAQs are visible again (lib/schema faqSchema).
  *
  * ── 2026-09-27: a front door, not a brochure ──
  * The owner's brief: too much on the homepage, and the rest of the site
@@ -37,12 +58,10 @@ import "./home.css";
  * material PGAK recorded itself, and the sections that would carry customer
  * proof hide themselves until that proof is approved (see lib/proof/consent.ts).
  *
- * The one exception, added 2026-09-26 at the owner's request, is the hero's
- * background loop: a montage of licensed stock shots (a city at night,
- * CCTV-style views of a boundary, a gate and a warehouse, a lighthouse), there
- * for mood only. It shows no PGAK site, feed or feature, so it is
- * uncaptioned and aria-hidden, and it must stay that way (see
- * components/home/HeroVideo.tsx).
+ * The hero poster is the one piece of stock imagery: licensed shots for mood
+ * only, uncaptioned and aria-hidden because they show no PGAK site, feed or
+ * feature. The looping video version that ran on wider screens (2026-09-26)
+ * was removed on 2026-10-10; components/home/HeroVideo.tsx is no longer used.
  *
  * ── Why the palette is scoped, not global ──
  * The brief asks for white ground, graphite text and a steel-blue accent. The
@@ -77,44 +96,12 @@ export const metadata: Metadata = pageMeta({
   ],
 });
 
-/**
- * What Ai Alerto does: four tiles, one line each, each handing off to the page
- * that explains it properly. Wording follows the language rule above — no
- * "every", no "instant", no accuracy claim; the PPE line says a supervisor
- * checks, because that is what a detection is for.
- */
-const CAPABILITIES = [
-  {
-    n: "01",
-    title: "Intrusion alerts",
-    body: "Someone in the yard after hours reaches your phone while it is happening, not in tomorrow's footage.",
-    href: "/smart-perimeter-protection",
-  },
-  {
-    n: "02",
-    title: "Number plates at the gate",
-    body: "Vehicles in and out, logged by plate, without a hand-written register.",
-    href: "/anpr-number-plate-recognition",
-  },
-  {
-    n: "03",
-    title: "Face attendance",
-    body: "Staff are marked present as they walk in. No queue at shift change.",
-    href: "/face-recognition-attendance-system",
-  },
-  {
-    n: "04",
-    title: "Safety and PPE",
-    body: "Missing gloves or helmets flagged on the line, for a supervisor to check.",
-    href: "/features/guides/ppe-detection",
-  },
-];
-
-/** The whole engagement in three lines — the detail lives on /free-audit. */
-const STEPS = [
-  "We check your cameras, lighting and coverage.",
-  "We switch on the alerts that fit your site.",
-  "Your team gets alerts worth answering.",
+/** What the assessment gives back — repeated where the form is. */
+const DELIVERABLES = [
+  "Which of your cameras can be used, camera by camera",
+  "The use case worth testing first, and what it needs",
+  "What PGAK's evidence does and does not show for it",
+  "An itemised scope you can compare with other quotes",
 ];
 
 export default function Home() {
@@ -130,6 +117,8 @@ export default function Home() {
           }),
           // organizationSchema() is emitted once for every page by app/layout.tsx;
           // listing it here again put the LocalBusiness entity on the homepage twice.
+          // Matches the visible FAQ section below, question for question.
+          faqSchema(HOME_FAQS),
         ]}
       />
       <Nav overlay />
@@ -137,10 +126,9 @@ export default function Home() {
       <main id="main-content" className="home-2026" data-money-page="home">
         {/* ═══════════════════════════════════════════════════ 1. HERO */}
         {/*
-          Full-bleed background loop behind the opening message only.
-          The poster <img> is the LCP element and the only thing a phone ever
-          loads; HeroVideo adds the loop on wider screens. Both are decorative
-          stock, hence alt="" and aria-hidden — see the note at the top.
+          The poster is decorative stock (alt="", aria-hidden) and the LCP
+          element. The background video loop was removed on 2026-10-10: the
+          brief asks for no large background video, and it showed no PGAK work.
         */}
         <section className="h-vhero" aria-labelledby="hero-heading">
           <div className="h-vhero__media" aria-hidden="true">
@@ -155,95 +143,81 @@ export default function Home() {
               fetchPriority="high"
               decoding="async"
             />
-            <HeroVideo />
           </div>
 
-          {/* On the video: what the product is, then its name and one line.
-              The 2026-09-26 brief put the name alone in the H1; the 2026-10-03
-              audit found non-brand searchers landing on a page whose heading
-              told them nothing about the category, and the owner's brief of
-              the same day asked for the category to lead with Ai Alerto kept
-              as the product name. The line, chosen 2026-09-27, is unchanged:
-              no "never miss", no "instant", no accuracy claim. */}
           <div className="h-wrap h-vhero__content">
-            <h1 id="hero-heading">AI video analytics software for your existing CCTV</h1>
-            <p className="h-vhero__tagline">Ai Alerto — your cameras, finally paying attention.</p>
+            <p className="h-vhero__kicker">AI video analytics software for existing CCTV</p>
+            <h1 id="hero-heading">Make your existing CCTV more useful to your business</h1>
+            <p className="h-vhero__sub">
+              Check which cameras can support useful analytics, see what PGAK has recorded working,
+              and get a scope for your site.
+            </p>
 
             <div className="h-actions">
-              <a href="#assessment" className="h-btn h-btn--primary" data-cta="hero-assessment">
-                Request a free CCTV assessment
+              <a href="/platform/compatibility#check" className="h-btn h-btn--primary" data-cta="hero-check-cameras">
+                Check my cameras
               </a>
-              <a
-                href={`tel:${BUSINESS.phoneE164}`}
-                className="h-btn h-btn--ghost"
-                data-cta="hero-specialist"
-              >
-                Talk to a security specialist
+              <a href="/resources/evidence" className="h-btn h-btn--ghost" data-cta="hero-demonstrations">
+                See PGAK demonstrations
               </a>
             </div>
-          </div>
-        </section>
-
-        {/* ═══════════════════════════════ 2. BUSINESSES WE'VE HELPED */}
-        <ClientLogos />
-
-        {/* ══════════════════════════════════════ 3. WHAT AI ALERTO DOES */}
-        <section className="h-sec h-sec--tint" id="what-it-does" aria-labelledby="does-heading">
-          <div className="h-wrap">
-            <div className="h-intro">
-              <p className="h-eyebrow">What Ai Alerto does</p>
-              <h2 id="does-heading">Make your CCTV more useful.</h2>
-              <p className="h-lede">
-                It runs on the cameras you already have, and tells your team only
-                what needs their attention.
-              </p>
-            </div>
-
-            <ul className="h-caps">
-              {CAPABILITIES.map((c) => (
-                <li key={c.href}>
-                  <a className="h-cap" href={c.href}>
-                    <span className="h-cap__n" aria-hidden="true">
-                      {c.n}
-                    </span>
-                    <h3>{c.title}</h3>
-                    <p>{c.body}</p>
-                    <span className="h-cap__more" aria-hidden="true">
-                      Learn more →
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            {/*
-              The qualification keeps its place on the homepage, not only on a
-              deep page (docs/homepage-2026 §4). One line now, not a paragraph.
-            */}
-            <p className="h-trustline h-caps__note">
-              What each alert can do depends on camera position, lighting and the
-              network — which is why we check your cameras first.{" "}
-              <a href="/capabilities-explained" className="underline">
-                What analytics can and cannot do →
+            <p className="h-vhero__qual">
+              Compatibility is confirmed per camera model and site before anything is quoted. Or call{" "}
+              <a href={`tel:${BUSINESS.phoneE164}`} data-cta="hero-call">
+                {BUSINESS.phone}
               </a>
+              .
             </p>
           </div>
         </section>
 
-        {/* ═══════════════════════════════════════════ 4. SEE IT WORKING */}
+        {/* ═════════════════════════════════════ 2. WHAT PGAK HAS RECORDED */}
         <RealWork />
 
-        {/* ═══════════════════════════════════════════ 5. CLIENT VOICES */}
+        {/* ═══════════════════════════════════════ 3. PROBLEM SELECTOR */}
+        <ProblemSelector />
+
+        {/* ═══════════════════════════════════════════ 4. HOW IT WORKS */}
+        <HowItWorks />
+
+        {/* ═══════════════════════════════════════ 5. VALUE ESTIMATOR */}
+        <section className="h-sec" id="estimate" aria-labelledby="estimate-heading">
+          <div className="h-wrap">
+            <div className="h-intro">
+              <p className="h-eyebrow">Estimate it yourself</p>
+              <h2 id="estimate-heading">What would it change at your site?</h2>
+              <p className="h-lede">
+                Use your own numbers. Staff time released is shown separately from cash, and nothing
+                counts as cash until you say how it would become cash. No contact details needed.
+              </p>
+            </div>
+            <ValueEstimator />
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════ 6. EVALUATION PROCESS */}
+        <EvaluationProcess />
+
+        {/* ═════════════════════════════════════════════ 7. PRICING SCOPE */}
+        <PricingScope />
+
+        {/* ═══════════════════════════════════ 8. TRUST AND OPERATING DETAIL */}
+        <OperatingDetail />
+        <ClientLogos />
         <ClientVoices />
 
-        {/* ════════════════════════════════════════════════ 6. START HERE */}
+        {/* ════════════════════════════════════════════════════ 9. FAQ */}
+        <HomeFaq />
+
+        {/* ══════════════════════════════════════════ 10. ASSESSMENT */}
         <section className="h-sec h-sec--tint h-cta" id="assessment" aria-labelledby="assess-heading">
           <div className="h-wrap h-cta__wrap">
             <div>
               <p className="h-eyebrow">Free CCTV assessment</p>
               <h2 id="assess-heading">Start with the cameras you already have.</h2>
+              <p className="h-body">What you get back:</p>
               <ol className="h-steps">
-                {STEPS.map((step, i) => (
+                {DELIVERABLES.map((step, i) => (
                   <li key={step}>
                     <span className="h-steps__n" aria-hidden="true">
                       {i + 1}

@@ -126,7 +126,15 @@ export default function FeatureScenarioTool({ id }: { id: ScenarioId }) {
       : null;
 
   useEffect(() => {
-    if (out && touched) trackConversion("calculator_result", { calculator_id: id });
+    if (out && touched) {
+      trackConversion("calculator_result", { calculator_id: id });
+      // Remember which scenario the visitor worked through, so an enquiry
+      // later in the visit carries it (lib/attribution.ts). An id, never
+      // the numbers or anything personal.
+      try {
+        sessionStorage.setItem("pgak-context", JSON.stringify({ calculatorId: id }));
+      } catch {}
+    }
     // Once per valid set of inputs is plenty; the id is not personal data.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked.ok]);

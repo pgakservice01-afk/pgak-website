@@ -29,7 +29,7 @@ export default function CompatibilityCheck() {
   const result = done ? assess(a as Answers) : null;
 
   return (
-    <div className="buyer-notice" style={{ marginTop: "1.5rem" }}>
+    <div id="check" className="buyer-notice" style={{ marginTop: "1.5rem", scrollMarginTop: "90px" }}>
       <h2 style={{ marginTop: 0 }}>Check your own setup in two minutes</h2>
       <p>
         Answer what you know; &ldquo;not sure&rdquo; is a fine answer. Nothing is sent anywhere, and
