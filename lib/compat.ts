@@ -8,6 +8,10 @@
  * for passwords, stream URLs, IP addresses or footage.
  */
 
+import { COMPAT_MATRIX, MATRIX_VERSION, findTested, type MatrixEntry } from "./compat-matrix.ts";
+
+export type Verdict = "Known tested" | "Needs verification" | "Not suitable as it stands";
+
 export type Answers = {
   recorder: "nvr" | "dvr" | "hybrid" | "cloud-only" | "unsure";
   cameras: "ip" | "analogue" | "wifi-app" | "mixed" | "unsure";
@@ -18,6 +22,9 @@ export type Answers = {
   dedicatedView: "yes" | "no" | "unsure";
   nightLight: "yes" | "no" | "na";
   internet: "yes" | "no";
+  /** Optional, free text: make and model from the label. Used only in the
+   *  browser to look up the tested matrix; never sent or stored. */
+  makeModel?: string;
 };
 
 export type Level = "good" | "check" | "blocker";
@@ -44,7 +51,10 @@ const SCENE_NEED: Record<Answers["useCase"], string> = {
   remote: "nothing extra from the scene; it depends on the recorder being reachable through the site's internet connection",
 };
 
-export function assess(a: Answers): { findings: Finding[]; summary: string; bring: string[] } {
+export function assess(
+  a: Answers,
+  matrix: MatrixEntry[] = COMPAT_MATRIX,
+): { findings: Finding[]; summary: string; bring: string[]; verdict: Verdict; verdictNote: string } {
   const f: Finding[] = [];
   const add = (area: string, level: Level, text: string) => f.push({ area, level, text });
 
@@ -111,5 +121,22 @@ export function assess(a: Answers): { findings: Finding[]; summary: string; brin
     `What you want to happen: ${USE_CASE_LABEL[a.useCase].toLowerCase()}, when, and who should be told`,
     "Whether the site has internet, and who manages the network",
   ];
-  return { findings: f, summary, bring };
+  // The verdict. "Known tested" needs an exact make+model+use-case record in
+  // the dated matrix; an unknown model can never get a compatible answer.
+  const tested = a.makeModel ? findTested(a.makeModel, a.useCase, matrix) : null;
+  let verdict: Verdict;
+  let verdictNote: string;
+  if (blockers > 0) {
+    verdict = "Not suitable as it stands";
+    verdictNote = "At least one likely blocker above would need fixing first; the assessment says what that would involve.";
+  } else if (tested) {
+    verdict = "Known tested";
+    verdictNote = `PGAK tested ${tested.make} ${tested.model} (firmware ${tested.firmware}) for this use on ${tested.testedOn}. Your firmware, view and lighting are still checked on site.`;
+  } else {
+    verdict = "Needs verification";
+    verdictNote = a.makeModel
+      ? `That model is not in PGAK's tested list (version ${MATRIX_VERSION}), so it is checked at the assessment — this is not a "no".`
+      : "No model was given, so compatibility is confirmed per camera at the assessment.";
+  }
+  return { findings: f, summary, bring, verdict, verdictNote };
 }

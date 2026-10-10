@@ -25,8 +25,9 @@ const LEVEL = { good: "Good sign", check: "Check needed", blocker: "Likely block
 
 export default function CompatibilityCheck() {
   const [a, setA] = useState<Partial<Answers>>({});
+  const [makeModel, setMakeModel] = useState("");
   const done = Q.every((q) => a[q.key]);
-  const result = done ? assess(a as Answers) : null;
+  const result = done ? assess({ ...(a as Answers), makeModel: makeModel.trim() || undefined }) : null;
 
   return (
     <div id="check" className="buyer-notice" style={{ marginTop: "1.5rem", scrollMarginTop: "90px" }}>
@@ -60,6 +61,20 @@ export default function CompatibilityCheck() {
             </div>
           </fieldset>
         ))}
+        <label className="flex flex-col gap-1">
+          <span className="font-semibold">Camera or recorder make and model (optional)</span>
+          <input
+            className="field-input"
+            value={makeModel}
+            maxLength={80}
+            autoComplete="off"
+            placeholder="From the label, e.g. the recorder's model number"
+            onChange={(e) => setMakeModel(e.target.value)}
+          />
+          <span className="text-[0.85rem] text-ink-soft">
+            Checked against PGAK&rsquo;s tested list in your browser only; it is not sent anywhere.
+          </span>
+        </label>
       </form>
 
       <div aria-live="polite" className="mt-6">
@@ -67,6 +82,12 @@ export default function CompatibilityCheck() {
         {result && (
           <>
             <h3>What your answers suggest</h3>
+            <p>
+              <span className="evidence-meta" style={{ display: "inline-flex" }}>
+                <span>{result.verdict}</span>
+              </span>{" "}
+              {result.verdictNote}
+            </p>
             <p><strong>{result.summary}</strong></p>
             <table className="buyer-table">
               <thead>
