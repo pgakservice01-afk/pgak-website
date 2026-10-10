@@ -14,7 +14,7 @@ faqs:
   - q: "How much internet bandwidth does AI CCTV need?"
     a: "Far less than people expect, if the processing is local. When video is analysed on site, only events and short clips travel out, so a basic broadband line is usually sufficient and idle usage is very small. Cloud-analysed systems are the opposite: they must ship continuous video off site for every camera, which is why they are expensive to run on Indian links and why they fail hardest when the connection is unstable."
   - q: "Will I know if my CCTV goes offline?"
-    a: "You should, and this is worth testing before you buy. A system watching camera health can flag a camera that has stopped producing frames within about three minutes, and can flag a whole site whose on-site device has stopped checking in within about two. Many installations have no such warning at all, which is how sites discover a camera died six weeks ago only when they go looking for footage."
+    a: "You should, and this is worth testing before you buy. A system watching camera health can flag a camera that has stopped producing frames, and a whole site whose on-site device has stopped checking in; how quickly it does so is worth testing by disconnecting a camera. Many installations have no such warning at all, which is how sites discover a camera died six weeks ago only when they go looking for footage."
 ---
 
 **Straight answer: yes, if the analysis runs on a device at your site. Detection keeps going through an internet outage; what pauses is the alert reaching your phone, which catches up when the link returns. If the system ships video to the cloud to be analysed, then no — the intelligence stops when the connection does. This is the most important architectural question in an AI CCTV quote, and it is rarely on the first page.**
@@ -66,7 +66,7 @@ This is the part most installations get wrong, and it is worth testing before yo
 
 A great many Indian sites have a camera that has been dead for weeks. Nobody noticed, because a camera that produces no video looks exactly like a camera showing an empty corridor — until the day you go looking for footage of an incident and find there isn't any.
 
-A system that watches its own health closes that gap. Ours flags a camera that has stopped producing frames after about three minutes, and flags a whole site whose on-site device has stopped checking in after about two — which is, usefully, also what you would see if someone pulled the recorder out of the building.
+A system that watches its own health closes that gap. It should flag a camera that has stopped producing frames, and a whole site whose on-site device has stopped checking in — which is, usefully, also what you would see if someone pulled the recorder out of the building. PGAK has no published camera-health demonstration yet, so this is something to test at your site with a disconnect-and-reconnect check and confirm in the written scope.
 
 That last case is worth sitting with. When a camera is covered, moved, blinded or unplugged, the useful signal is not the footage — there isn't any. It is the fact that the feed stopped, and somebody being told promptly. We wrote about that pattern separately in [your DVR records the theft, it doesn't stop it](/insights/your-dvr-records-the-theft-it-doesnt-stop-it).
 

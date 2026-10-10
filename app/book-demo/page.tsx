@@ -32,11 +32,14 @@ export default function Page() {
           </li>
         </ol>
         <p>
-          Public approved demonstration media is not yet available in this
-          release. The architecture illustration is not a product screenshot.
+          PGAK&rsquo;s recorded demonstrations — glove detection on a line
+          camera, sack counting at a loading bay, hot work flagged in a test
+          setup and a fitted number-plate camera — are published with their
+          conditions and limits. A demonstration for your site uses your own
+          cameras or footage.
         </p>
         <a href="/resources/evidence" className="text-link">
-          Read the evidence requirements →
+          See the recordings and what they do not prove →
         </a>
       </section>
       <section id="dealer">

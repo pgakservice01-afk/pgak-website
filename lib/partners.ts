@@ -210,7 +210,7 @@ export const FAQS = [
   },
   {
     q: "Do I have to buy cameras or hardware from you?",
-    a: "No, and this is the part most dealers do not believe on the first call. PGAK is software that runs on the cameras a customer already owns — including the brands you already sell. You keep buying hardware from whoever you buy it from today, at whatever margin you get today. We are not competing for your hardware business.",
+    a: "No, and this is the part most dealers do not believe on the first call. PGAK is analytics — software on an on-site processing unit — that works with the cameras a customer already owns — including the brands you already sell. You keep buying hardware from whoever you buy it from today, at whatever margin you get today. We are not competing for your hardware business.",
   },
   {
     q: "How much can I actually earn?",

@@ -155,9 +155,9 @@ export const SOLUTIONS: Solution[] = [
     description:
       "A phone alert with a clip when a person crosses a boundary after hours — animals, shadows and headlights filtered. On compatible CCTV; free camera check.",
     eyebrow: "Intrusion detection",
-    h1: "AI intruder detection that alerts you in seconds, not the next morning",
+    h1: "AI intruder detection that alerts you while it is happening, not the next morning",
     intro:
-      "AI intruder detection is the difference between a camera that records a break-in and a system that stops one. PGAK layers real-time person detection onto the CCTV cameras you already own, so the moment someone crosses a boundary they shouldn't, the alert is on your phone — with a clip, a timestamp and the exact camera — while the intruder is still standing there.",
+      "AI intruder detection is the difference between a camera that records a break-in and a system that alerts someone while it is happening. PGAK layers real-time person detection onto the CCTV cameras you already own, so when someone crosses a boundary they shouldn't, an alert can reach your phone with a clip, a timestamp and the exact camera. How quickly it arrives is measured at your site and confirmed in the written scope.",
     painPoints: [
       "You only find out about a break-in when you review footage the next day.",
       "Motion alerts fire all night for cats, moths, rain and passing headlights — so you muted them.",
@@ -171,15 +171,15 @@ export const SOLUTIONS: Solution[] = [
         points: [
           {
             h3: "Draw the boundary once",
-            text: "You mark a virtual line or zone on each camera view — the compound wall, the loading bay, the stock room door. It takes about a minute per camera.",
+            text: "You mark a virtual line or zone on each camera view — the compound wall, the loading bay, the stock room door.",
           },
           {
             h3: "The model classifies every moving object",
             text: "Person, vehicle, animal, or environmental noise. Only the classes you care about, crossing the zones you drew, in the hours you chose, can raise an alert.",
           },
           {
-            h3: "The alert reaches a human in seconds",
-            text: "Push notification, WhatsApp and an optional siren or strobe — each carrying the snapshot that triggered it, so the person receiving it can judge in one glance.",
+            h3: "The alert reaches a human",
+            text: "The alert carries the snapshot that triggered it, so the person receiving it can judge in one glance. Delivery channels, and any siren or strobe, are configured and tested at your site and confirmed in the written scope.",
           },
         ],
       },
@@ -197,8 +197,8 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     stats: [
-      { value: "< 3s", label: "From detection to alert on your phone — pilot target, measured on your site" },
-      { value: "90%+", label: "Reduction in false alerts after tuning" },
+      { value: "Timed on site", label: "Detection-to-alert time is measured at your site, not promised in advance" },
+      { value: "Tuned on site", label: "False-alert filtering tested against your own footage" },
       { value: "24×7", label: "Every camera watched, every night" },
     ],
     faqs: [
@@ -301,7 +301,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Loitering and dwell-time detection",
-            text: "A person standing in one spot for longer than expected near stock is flagged. It is the single most reliable pre-theft signal in a warehouse.",
+            text: "A person standing in one spot for longer than expected near stock can be flagged. Thresholds are evaluated per zone at your site.",
           },
           {
             h3: "Gate vehicle logging",
@@ -346,7 +346,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "How much does AI CCTV for a warehouse cost?",
-        a: "Billing is per camera per month with no hidden fees, so a 60-camera warehouse is a predictable line item. We quote your rate on a call or WhatsApp. Most sites find it costs less than a single month of the shrinkage it prevents — see our pricing page for what moves the number.",
+        a: "Billing is per camera per month with no hidden fees, so a 60-camera warehouse is a predictable line item. We quote your rate on a call or WhatsApp. See our pricing page for what moves the number.",
       },
       {
         q: "Does it help with insurance or audit evidence?",
@@ -512,7 +512,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Contractor and visitor tracking",
-            text: "Unknown faces are logged separately, so you always know how many non-employees are inside the plant right now.",
+            text: "Unknown faces can be logged separately, so non-employees inside the plant appear in the record for review.",
           },
           {
             h3: "No buddy punching",
@@ -605,7 +605,7 @@ export const SOLUTIONS: Solution[] = [
     eyebrow: "Retail & stores",
     h1: "Retail shop security that acts during the theft, not after it",
     intro:
-      "A retail shop security system is only worth its cost if it does something while the theft is happening. PGAK adds real-time intelligence to your existing shop CCTV cameras — flagging unusual dwell time at high-value shelves, movement behind the till, and any entry after closing — so the shopkeeper gets a nudge in the moment rather than a video to mourn over later.",
+      "A retail shop security system is only worth its cost if it does something while the theft is happening. PGAK's analytics can be evaluated on compatible shop CCTV cameras — alerts for unusual dwell time at high-value shelves, movement behind the till, and entry after closing — so the shopkeeper gets a nudge in the moment rather than a video to mourn over later.",
     painPoints: [
       "You watch the footage after stock goes missing and learn nothing you can act on.",
       "The counter is unattended for thirty seconds at a time, all day.",
@@ -619,15 +619,15 @@ export const SOLUTIONS: Solution[] = [
         points: [
           {
             h3: "Dwell-time alerts on high-value shelves",
-            text: "Set a zone around the expensive stock. Anyone lingering past the threshold raises a discreet alert on the owner's phone.",
+            text: "Set a zone around the expensive stock. Anyone lingering past the threshold can raise a discreet alert on the owner's phone; thresholds are tested in your shop.",
           },
           {
             h3: "Till and counter protection",
-            text: "Movement behind the counter by an unrecognised person is flagged immediately, day or night.",
+            text: "Movement behind the counter by an unrecognised person can be flagged, day or night.",
           },
           {
             h3: "After-hours entry",
-            text: "Once the shutter is down, any person detected inside is an instant escalation with a clip and optional siren.",
+            text: "Once the shutter is down, a person detected inside can raise an alert with a clip; any siren is configured and tested at your shop.",
           },
           {
             h3: "Repeat-visitor recognition",
@@ -637,34 +637,34 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "Staff accountability without micromanagement",
-        body: "Face-based attendance logs when staff arrived and left, and till-area recognition distinguishes staff from customers. Most owners use it as a quiet baseline rather than a surveillance tool — the value is that discrepancies become visible without anyone having to accuse anybody.",
+        body: "Face-based attendance can log when staff arrived and left, and till-area recognition can distinguish staff from customers — both evaluated at your shop. It works best as a quiet baseline rather than a surveillance tool — the value is that discrepancies become visible without anyone having to accuse anybody.",
       },
       {
         h2: "Several shops, one phone",
         body: "Every branch reports into one app. You see which store raised what alert, so being physically present in one shop no longer means being blind to the other two.",
       },
       {
-        h2: "It works on the cameras already on your wall",
-        body: "Most shops have four to sixteen cameras on a DVR that was installed years ago. That is enough. PGAK connects over the existing stream — no new cabling, no shutting the shop for an installation day.",
+        h2: "It starts with the cameras already on your wall",
+        body: "Most shops have four to sixteen cameras on a DVR that was installed years ago. Compatible cameras you already own are reused; any on-site processing hardware is confirmed and quoted before you commit. Camera suitability, stream access and network are confirmed at the assessment.",
       },
     ],
     stats: [
-      { value: "4–16", label: "Cameras is a typical shop deployment" },
-      { value: "Per camera", label: "Billed monthly, all-inclusive" },
-      { value: "1 day", label: "Typical time to go live" },
+      { value: "4–16", label: "Cameras on a typical shop DVR" },
+      { value: "Quoted", label: "Per shop, with any hardware itemised" },
+      { value: "Assessed", label: "Timeline confirmed after the camera check" },
     ],
     faqs: [
       {
         q: "Will this work on my shop's existing CCTV?",
-        a: "Almost certainly. If your DVR shows footage on a phone app today, it exposes the stream PGAK needs. We confirm compatibility during the free camera audit before anything is purchased.",
+        a: "Often, but it is confirmed at the assessment rather than assumed. A DVR that shows footage on a phone app is a good sign; camera suitability, stream access and network are checked during the free camera audit, and any on-site processing hardware is quoted before anything is purchased.",
       },
       {
         q: "Can it actually stop shoplifting, or only record it?",
-        a: "It alerts in real time, which is what makes intervention possible — a staff member walking over is the single most effective deterrent there is. It also supports an audible chime or announcement on high-value zone alerts.",
+        a: "It cannot guarantee to stop it. It can alert while something is happening, which is what makes intervention possible — a staff member walking over is often an effective deterrent. An audible chime or announcement on high-value zone alerts can be configured and tested where the shop's hardware allows.",
       },
       {
         q: "Won't it alert constantly in a busy shop?",
-        a: "Not once tuned. Alerts are tied to specific zones, dwell thresholds and times rather than to general movement, so a crowded aisle at 6pm doesn't generate anything.",
+        a: "It shouldn't, if tuned well — and that is tested in your shop. Alerts are tied to specific zones, dwell thresholds and times rather than to general movement, so a crowded aisle at 6pm doesn't generate anything.",
       },
       {
         q: "I have three branches. Do I need three systems?",
@@ -849,7 +849,7 @@ export const SOLUTIONS: Solution[] = [
     faqs: [
       {
         q: "Do I need special AI cameras for my home?",
-        a: "No. If you already have CCTV with a DVR, PGAK almost certainly works with it. The intelligence is software running alongside the cameras you own.",
+        a: "No. If you already have CCTV with a DVR, PGAK almost certainly works with it. The intelligence runs on an on-site processing unit alongside the cameras you own; the assessment confirms suitability before anything is quoted.",
       },
       {
         q: "Will it stop alerting me about my own family?",
@@ -892,11 +892,11 @@ export const SOLUTIONS: Solution[] = [
     title:
       "School Security System — AI CCTV for Campus Gates | PGAK",
     description:
-      "Unknown-visitor alerts at the gate, automatic staff attendance and after-hours grounds monitoring, on your existing campus CCTV.",
+      "Visitor logging at the gate, staff attendance and after-hours grounds alerts, evaluated on your existing campus CCTV — with data kept to the minimum a school needs.",
     eyebrow: "Schools & campuses",
     h1: "School security that knows who belongs on campus",
     intro:
-      "A school security system has one job above all others: knowing, at any moment, whether the people on campus are supposed to be there. PGAK adds that to the campus CCTV a school already has — recognising staff and students at the gate, flagging unknown adults near entrances during school hours, and turning the grounds into a monitored perimeter after the last bell.",
+      "A school security system has one job above all others: knowing, at any moment, whether the people on campus are supposed to be there. PGAK's analytics can be evaluated on the campus CCTV a school already has — logging visitors at the gate, flagging people lingering near entrances during school hours, and alerting on people on the grounds after the last bell. We do not recommend enrolling children's faces.",
     painPoints: [
       "Anyone can walk through the gate during drop-off and nobody would be certain.",
       "Attendance is taken on paper in thirty classrooms and reconciled hours later.",
@@ -906,39 +906,39 @@ export const SOLUTIONS: Solution[] = [
     sections: [
       {
         h2: "At the gate, during school hours",
-        body: "Drop-off and pick-up are the two windows where a campus is most open and least controllable. Recognition at the gate gives the guard a second pair of eyes that never gets distracted by a queue of two hundred parents.",
+        body: "Drop-off and pick-up are the two windows where a campus is most open and least controllable. Alerts at the gate can give the guard a second pair of eyes while a queue of two hundred parents demands attention.",
         points: [
           {
             h3: "Unknown-adult alerts",
-            text: "An unrecognised adult loitering near a gate or entrance during school hours is flagged to the front office with a snapshot.",
+            text: "A person loitering near a gate or entrance during school hours can be flagged to the front office with a snapshot for a human to judge — evaluated at your gate.",
           },
           {
-            h3: "Staff and student recognition",
-            text: "Enrolled faces pass silently. The system's attention is spent entirely on the people it doesn't know.",
+            h3: "Staff recognition, not student recognition",
+            text: "Where the school chooses face recognition, it can be evaluated for adult staff who consent. We do not recommend enrolling children's faces; visitors are handled by a snapshot log at the gate that a person checks.",
           },
           {
             h3: "Vehicle logging",
-            text: "Buses, staff cars and visitor vehicles logged automatically at entry and exit.",
+            text: "Buses, staff cars and visitor vehicles can be logged at entry and exit.",
           },
         ],
       },
       {
-        h2: "Attendance without thirty registers",
-        body: "Face-based attendance at gates or classroom entrances produces a live roll for the whole school. The practical value is not the automation — it's that at 11am you can answer 'is this child on campus?' in seconds rather than by walking to a classroom.",
+        h2: "Attendance: staff at the gate, students on the register",
+        body: "Face-based attendance can be evaluated for staff at the gate. For students, we do not recommend face templates — the class register remains the record, and the gate log shows who came through and when.",
       },
       {
         h2: "After hours: the campus becomes a perimeter",
-        body: "Schools are attractive targets when empty — electronics, equipment, copper. Once the campus closes, any person detected on the grounds raises an alert to the principal and the security contact, with a clip attached.",
+        body: "Schools are attractive targets when empty — electronics, equipment, copper. Once the campus closes, a person detected on the grounds can raise an alert to the principal and the security contact, with a clip attached — evaluated on your cameras.",
       },
       {
         h2: "Safeguarding and privacy",
-        body: "This is a school, so the bar is higher. Processing stays on-premises, cameras go on gates, corridors and grounds rather than in classrooms or any private area, face data is stored as a template rather than as photographs of children, and access is restricted to named staff. Every one of those is a policy question as much as a technical one, and we set it up with you rather than around you.",
+        body: "This is a school, so the bar is higher. Processing stays on-premises, cameras go on gates, corridors and grounds rather than in classrooms or any private area, children's faces are not enrolled, any staff enrolment and its retention are agreed in writing, and access is restricted to named staff. Every one of those is a policy question as much as a technical one, and we set it up with you rather than around you.",
       },
     ],
     stats: [
-      { value: "Seconds", label: "To answer 'is this student on campus?'" },
+      { value: "Gate log", label: "Who came through, and when — without enrolling children" },
       { value: "On-site", label: "All processing — no student video in a cloud" },
-      { value: "24×7", label: "Grounds monitoring outside school hours" },
+      { value: "After hours", label: "Grounds alerts, evaluated on your cameras" },
     ],
     faqs: [
       {
@@ -947,15 +947,15 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "How is students' face data protected?",
-        a: "Processing runs on a device at the school, so video never leaves the campus by default. Faces are stored as mathematical templates rather than image galleries, and only named staff can access the system.",
+        a: "We do not recommend enrolling students' faces at all — the safest face data is data that is never collected. Processing runs on a device at the school, so video stays on campus by default, and only named staff can access the system. If a school chooses staff recognition, what is stored and for how long is agreed in writing.",
       },
       {
         q: "Can it flag an unknown adult near the school gate?",
-        a: "Yes. Anyone not enrolled as staff, a parent or a known contractor who lingers near an entrance during school hours is flagged to the front office with a snapshot for a human to judge.",
+        a: "It can be evaluated at your gate. A person who lingers near an entrance during school hours can be flagged to the front office with a snapshot for a human to judge — without enrolling children.",
       },
       {
         q: "Does it replace our attendance registers?",
-        a: "It can produce a live campus-wide roll from gate and entrance recognition. Most schools run it alongside registers for a term and then decide how much of the paper process to retire.",
+        a: "We do not recommend replacing student registers with face recognition. A gate log can sit alongside the register, and staff attendance at the gate can be evaluated separately.",
       },
     ],
     related: [
@@ -986,43 +986,43 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Hospital Security System — AI CCTV for Wards & Wings | PGAK",
     description:
-      "Restricted-area alerts for pharmacies and ICUs, staff and visitor recognition at entrances, patient-safety monitoring on existing CCTV.",
+      "Restricted-area alerts for pharmacies and stores, and visitor logging at entrances — security analytics evaluated on existing hospital CCTV, not patient monitoring.",
     eyebrow: "Hospitals & healthcare",
     h1: "Hospital security for a building that never closes",
     intro:
-      "A hospital security system has to work in a building with no closing time, no fixed visitor list and several rooms that only a handful of people should ever enter. PGAK adds that discrimination to existing healthcare CCTV — alerting when someone enters a pharmacy, drug store or ICU without authorisation, logging visitors at entrances, and flagging safety situations in corridors and wards.",
+      "A hospital security system has to work in a building with no closing time, no fixed visitor list and several rooms that only a handful of people should ever enter. PGAK's analytics can be evaluated on existing healthcare CCTV for that job — alerts when someone enters a pharmacy, drug store or other restricted area outside agreed rules, and logging visitors at entrances. It is a security tool, not a clinical or patient-monitoring system.",
     painPoints: [
       "Pharmacy and drug-store access is controlled by a key and a hope.",
       "Visitor numbers are uncountable and unrestricted after visiting hours.",
       "Aggression at reception and casualty escalates before anyone responds.",
-      "A patient wanders off the ward and is found twenty minutes later.",
+      "Records rooms and stores are entered and nobody can say who went in.",
     ],
     sections: [
       {
         h2: "Restricted areas that are actually restricted",
-        body: "Pharmacies, drug stores, ICUs, neonatal units, records rooms and biomedical stores each get their own authorised-person list. Entry by anyone outside it raises an alert with a clip — which is a far more reliable control than a key that has been copied twice.",
+        body: "Pharmacies, drug stores, ICUs, neonatal units, records rooms and biomedical stores can each have their own entry rules, evaluated at your site. Entry outside those rules can raise an alert with a clip — a record that a key copied twice never gives you.",
         points: [
           {
             h3: "Pharmacy and controlled-substance stores",
-            text: "Every entry logged with an identified person and timestamp, and unauthorised entry escalated immediately.",
+            text: "Entries can be logged with a snapshot and timestamp, and entry outside the agreed rules raised as an alert.",
           },
           {
             h3: "ICU and neonatal units",
-            text: "Alert on unknown adults entering high-sensitivity wards, at any hour.",
+            text: "Alerts on entry to high-sensitivity areas outside agreed rules can be evaluated — as a security record, not patient monitoring.",
           },
           {
             h3: "Records and biomedical rooms",
-            text: "Access records that satisfy an audit without anyone maintaining a logbook.",
+            text: "An entry log with snapshots; whether it meets your audit requirements is for your own governance to confirm.",
           },
         ],
       },
       {
         h2: "Entrances and visitor flow",
-        body: "Staff are enrolled and pass silently; visitors are logged with a snapshot. Outside visiting hours, unknown people entering ward corridors are flagged. It replaces a visitor register that, in practice, nobody ever reads.",
+        body: "Visitors can be logged with a snapshot, and people entering ward corridors outside visiting hours can be flagged for security to check. Any staff recognition is evaluated at your site with consent. It can supplement a visitor register that, in practice, nobody ever reads.",
       },
       {
-        h2: "Patient and staff safety",
-        body: "Corridor and ward cameras can flag a person on the floor, or a patient leaving a ward area they shouldn't. Reception and casualty areas can be monitored for crowding and aggression so security responds during the incident rather than after it.",
+        h2: "What it is not",
+        body: "It is not a clinical or patient-monitoring system, and it should not be relied on to detect falls, wandering or a patient's condition — those remain clinical responsibilities. At reception and casualty, the security value is alerts on defined areas and times that the security desk can act on, evaluated at your site.",
       },
       {
         h2: "Patient privacy is the constraint, not an afterthought",
@@ -1030,9 +1030,9 @@ export const SOLUTIONS: Solution[] = [
       },
     ],
     stats: [
-      { value: "24×7", label: "Restricted-area monitoring, no closing time" },
+      { value: "Restricted areas", label: "Entry alerts, evaluated at your site" },
       { value: "On-site", label: "Processing — patient video stays in the hospital" },
-      { value: "Per-room", label: "Authorised-person lists for every sensitive area" },
+      { value: "Per-room", label: "Entry rules for each sensitive area, agreed in writing" },
     ],
     faqs: [
       {
@@ -1041,7 +1041,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "Can it control access to the pharmacy?",
-        a: "It monitors and alerts rather than physically locking. Every entry is logged against an identified person, and entry by anyone outside the authorised list raises an immediate alert with a clip — which in practice is what catches misuse.",
+        a: "It monitors and alerts rather than physically locking. Entries can be logged with a snapshot, and entry outside the agreed rules can raise an alert with a clip — evaluated at your site before anything relies on it.",
       },
       {
         q: "Does patient video go to a cloud service?",
@@ -1049,7 +1049,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "Can it help with aggression at reception or casualty?",
-        a: "Yes — crowding and rapid-movement patterns in defined areas can raise an alert to the security desk, so a response starts while the situation is still de-escalatable.",
+        a: "Not as a behavioural judgement — PGAK has no published evidence for detecting aggression. What can be evaluated at your site is an alert on people in a defined area at defined times, for the security desk to judge.",
       },
     ],
     related: [
@@ -1334,7 +1334,7 @@ export const SOLUTIONS: Solution[] = [
         points: [
           {
             h3: "Enrol each person once, from a phone",
-            text: "A short guided face scan builds the reference. No enrolment hardware, no visit to an office — the scan can be done on the employee's own phone in under a minute.",
+            text: "A short guided face scan builds the reference. No enrolment hardware, no visit to an office — the scan can be done on the employee's own phone.",
           },
           {
             h3: "The entrance camera does the identification",
@@ -1538,7 +1538,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "AI Video Analytics Software for Your Existing CCTV | PGAK",
     description:
-      "Person and vehicle alerts, boundary detection, attendance and camera-health checks on compatible CCTV. We check your own feeds first, then quote.",
+      "Person and vehicle alerts, boundary detection, attendance and camera-health checks, evaluated on compatible CCTV. We check your own feeds first, then quote.",
     eyebrow: "Platform",
     h1: "AI video analytics software for existing CCTV cameras",
     intro:
@@ -1568,7 +1568,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Camera health & tamper watch",
-            text: "The least glamorous feature and often the most valuable: you are told within minutes when a camera goes dark, gets covered, or is knocked out of position.",
+            text: "The least glamorous feature and often the most valuable: detecting when a camera goes dark, gets covered, or is knocked out of position. How it is detected and who is notified are tested at your site with disconnect and reconnect checks, and confirmed in the written scope.",
           },
         ],
       },
@@ -2071,7 +2071,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Camera health monitoring",
-            text: "You are told when a campus camera goes dark, rather than discovering it when footage is needed.",
+            text: "Detecting when a campus camera goes dark, rather than discovering it when footage is needed, can be configured and tested at your site.",
           },
         ],
       },
@@ -2307,13 +2307,13 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "Installation, maintenance and the part vendors skip",
-        body: "A commercial install is judged eighteen months later, not on handover day. Cabling that was run loosely will fail in the first serious monsoon, and a camera knocked out of alignment by a delivery trolley will sit unnoticed for months unless something is watching camera health. PGAK's deployment includes tamper and offline detection precisely because the most common cause of 'the CCTV did not catch it' is not a clever thief — it is a camera that had quietly been dead for weeks. An annual maintenance arrangement should name what gets checked and how quickly a dead camera gets attention, in writing.",
+        body: "A commercial install is judged eighteen months later, not on handover day. Cabling that was run loosely will fail in the first serious monsoon, and a camera knocked out of alignment by a delivery trolley will sit unnoticed for months unless something is watching camera health. Tamper and offline detection can be configured and tested at your site and confirmed in the written scope, because a common cause of 'the CCTV did not catch it' is not a clever thief — it is a camera that had quietly been dead for weeks. An annual maintenance arrangement should name what gets checked and how quickly a dead camera gets attention, in writing.",
       },
     ],
     stats: [
       { value: "Existing cameras", label: "no rip-and-replace as a precondition" },
       { value: "After hours", label: "rules that only apply when you are closed" },
-      { value: "Camera health", label: "you are told when one goes dark" },
+      { value: "Camera health", label: "offline checks tested at your site" },
       { value: "Free", label: "feasibility check on your actual premises" },
     ],
     faqs: [
@@ -2423,7 +2423,7 @@ export const SOLUTIONS: Solution[] = [
         points: [
           {
             h3: "The perimeter, after hours",
-            text: "A long compound wall cannot be patrolled continuously and does not need to be. A boundary rule on the cameras already facing the fence turns the whole length into something that reports a crossing in seconds, with a snapshot, during the hours you specify.",
+            text: "A long compound wall cannot be patrolled continuously and does not need to be. A boundary rule on the cameras already facing the fence can turn the whole length into something that reports a crossing with a snapshot during the hours you specify — evaluated and timed on your own cameras.",
           },
           {
             h3: "The gate",
@@ -2531,11 +2531,11 @@ export const SOLUTIONS: Solution[] = [
     ],
     title: "Remote CCTV Monitoring That Contacts You | PGAK",
     description:
-      "Remote CCTV monitoring where the system raises the alert instead of waiting to be watched — live view, phone alerts with snapshots, and camera-health reporting.",
+      "Remote CCTV monitoring where the system raises the alert instead of waiting to be watched — live view and phone alerts with snapshots, with camera-health checks evaluated at your site.",
     eyebrow: "Platform",
     h1: "Remote CCTV monitoring that calls you, not the other way round",
     intro:
-      "Remote CCTV monitoring is usually sold as an app that lets you look at your cameras from anywhere, and that is genuinely useful for about three weeks. Then it stops being opened, because looking at a quiet corridor has no reward and nobody can watch at 3am anyway. PGAK inverts it: the system monitors continuously and contacts a named person the moment a rule is broken, with a snapshot attached — so remote monitoring stops depending on somebody remembering to look.",
+      "Remote CCTV monitoring is usually sold as an app that lets you look at your cameras from anywhere, and that is genuinely useful for about three weeks. Then it stops being opened, because looking at a quiet corridor has no reward and nobody can watch at 3am anyway. PGAK's approach inverts it: the system analyses continuously and contacts a named person when a rule is broken, with a snapshot attached — so remote monitoring stops depending on somebody remembering to look. Which rules, alerts and recipients apply is confirmed in the written scope.",
     painPoints: [
       "The app was installed during the demo and has not been opened since.",
       "Watching live feeds is somebody's job in theory and nobody's job in practice.",
@@ -2582,14 +2582,14 @@ export const SOLUTIONS: Solution[] = [
             text: "Streams are passed through rather than transcoded where the camera's format allows it, which is what keeps live view usable without a server doing expensive work per viewer.",
           },
           {
-            h3: "You are told when it is blind",
-            text: "A camera that has gone dark, or a site that has lost its link, is itself reported. A monitoring system that fails silently is worse than none, because it is trusted.",
+            h3: "Knowing when it is blind",
+            text: "Reporting a camera that has gone dark, or a site that has lost its link, can be configured and tested at your site — PGAK has no published camera-health demonstration yet. A monitoring system that fails silently is worse than none, because it is trusted.",
           },
         ],
       },
       {
         h2: "Who watches, and being honest about it",
-        body: "PGAK provides the detection, the alerting and the tooling — the system watches continuously and tells a named person at your organisation. It is not a manned guarding service with an operator viewing your cameras on your behalf, and it should not be confused with one. For most businesses the automated version is the better fit anyway: it covers every camera at once rather than whichever feed the operator happens to have open, it does not get tired at 4am, and it costs a fraction of paying someone to watch screens overnight.",
+        body: "PGAK provides the detection, the alerting and the tooling — the system watches continuously and tells a named person at your organisation. It is not a manned guarding service with an operator viewing your cameras on your behalf, and it should not be confused with one. For many businesses the automated version is the better fit: it analyses every connected camera at once rather than whichever feed the operator happens to have open, and it does not get tired at 4am. Whether it suits your site, and what it costs against overnight staffing, is worked out per site.",
       },
       {
         h2: "Keeping remote access under control",
@@ -2609,7 +2609,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "Does PGAK monitor my cameras for me with staff?",
-        a: "No — and it is worth being clear about that. PGAK provides detection and alerting so the system monitors continuously and notifies your people. It is not a manned guarding service. For most sites the automated approach covers more cameras more consistently than an operator watching a video wall could.",
+        a: "No — and it is worth being clear about that. PGAK provides detection and alerting so the system monitors continuously and notifies your people. It is not a manned guarding service. The automated approach analyses every connected camera at once, rather than whichever feed an operator watching a video wall has open.",
       },
       {
         q: "Will remote monitoring work if our internet is slow or drops?",
@@ -2769,7 +2769,7 @@ export const SOLUTIONS: Solution[] = [
     proof: {
       heading: "The camera, and the screen the guard actually uses",
       intro:
-        "Two photographs from a PGAK gate installation. They are here because everything else moving on this site is third-party reference footage and says so — this is ours, and it is the part a buyer can check against their own gate.",
+        "Two photographs from a PGAK gate installation. They show where the camera actually sits and what the guard actually sees — the part a buyer can check against their own gate. They prove a fitting and a working console, not a read rate.",
       items: [
         {
           src: "/proof/anpr-camera-mount.webp",
@@ -2789,13 +2789,13 @@ export const SOLUTIONS: Solution[] = [
           height: 1000,
           title: "Every read is a decision someone makes",
           caption:
-            "The console a gate operator works from. Each arrival is a card to approve or deny, allow-listed vehicles are marked as staff or contractor, and every read shows its own working — how many frames agreed, the margin, and how many pixels wide the plate was. Nothing is auto-admitted on the software's say-so.",
+            "The console a gate operator works from. Each arrival is a card to approve or deny, allow-listed vehicles are marked as staff or contractor, and every read shows its own working — how many frames agreed, the margin, and how many pixels wide the plate was. As shown, each read waits for the operator's decision; any automatic admission is something a site may configure and test, not a default.",
           redaction:
             "Number plates are blurred here. A registration number identifies a person, so it is removed before anything is published — including in a screenshot used to sell the product.",
         },
       ],
       limits:
-        "These show one gate, one camera position and one set of lighting conditions. They are evidence that the system exists and is in daily use, not a measurement of how it would read plates at your site — that depends on your gate, your lighting and your lane, and it is tested on your own footage before anything is quoted.",
+        "These show one gate, one camera position and one set of lighting conditions. They are evidence that the system has been fitted and operated, not a measurement of how it would read plates at your site — that depends on your gate, your lighting and your lane, and it is tested on your own footage before anything is quoted.",
     },
     navLabel: "ANPR system",
     primaryKeyword: "ANPR system",
@@ -2831,7 +2831,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Gates with heavy repeat traffic",
-            text: "Housing societies, office parks and campuses where the same few hundred vehicles come and go daily. Registered vehicles pass without stopping; everything unregistered is logged with a photo.",
+            text: "Housing societies, office parks and campuses where the same few hundred vehicles come and go daily. Registered vehicles can be recognised and, where the site configures and tests it, admitted without stopping; everything unregistered can be logged with a photo.",
           },
           {
             h3: "Contractor and fleet oversight",
@@ -2867,16 +2867,16 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "Indian plates, and why generic models struggle",
-        body: "Off-the-shelf plate recognition is generally trained on European and American plates and degrades noticeably on Indian ones — different aspect ratios, varied fonts, state-code formats, decorative and non-standard plates, and a meaningful share of vehicles whose plates are damaged, obscured or simply not to spec. The plate recognition PGAK deploys is configured for Indian plate formats for exactly this reason. It is still not magic: a plate that a person cannot read in the snapshot is a plate the system will not read either, which is why every logged event keeps its image alongside the text.",
+        body: "Off-the-shelf plate recognition is generally trained on European and American plates and degrades noticeably on Indian ones — different aspect ratios, varied fonts, state-code formats, decorative and non-standard plates, and a meaningful share of vehicles whose plates are damaged, obscured or simply not to spec. That is why reading on Indian plates is tested at your own gate rather than assumed. It is not magic: a plate that a person cannot read in the snapshot is a plate the system will not read either, which is why every logged event keeps its image alongside the text.",
       },
       {
         h2: "Sizing the hardware, honestly",
-        body: "Plate recognition is the most computationally demanding thing PGAK runs at the edge, and this is where quotes get optimistic. Measured on real hardware, a low-power edge box handles roughly one lane of ANPR comfortably; the very small form factors that are fine for person and vehicle detection across several cameras do not cope with plate reading on two. A multi-gate site is therefore sized per lane rather than per site, and that arithmetic is done before quoting rather than discovered during commissioning. It is also why an honest ANPR survey takes longer than a general CCTV survey.",
+        body: "Plate recognition is the most computationally demanding thing PGAK runs at the edge, and this is where quotes get optimistic. Plate reading needs more processing than person and vehicle detection, so a small unit that copes with several cameras of general detection may not cope with plate reading on more than one lane. A multi-gate site is therefore sized per lane rather than per site, and that arithmetic is done before quoting rather than discovered during commissioning. It is also why an honest ANPR survey takes longer than a general CCTV survey.",
       },
     ],
     stats: [
       { value: "Per lane", label: "one camera and sized hardware for each" },
-      { value: "Indian plates", label: "tuned for local formats, not imported models" },
+      { value: "Indian plates", label: "tested at your gate, not assumed" },
       { value: "Snapshot kept", label: "every logged plate keeps its image" },
       { value: "Searchable", label: "across gates, instead of per notebook" },
     ],
@@ -2891,7 +2891,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "How accurate is ANPR on Indian number plates?",
-        a: "Good when the camera is placed correctly, and poor when it is not — placement matters far more than the model. Indian plates vary in font, format and condition, so PGAK uses recognition tuned for local plates rather than an imported general model. Non-standard, damaged or obscured plates remain genuinely hard, which is why every event keeps its image so a human can confirm.",
+        a: "Good when the camera is placed correctly, and poor when it is not — placement matters far more than the model. PGAK has not published a read rate; reads are logged against the gate register at your site to measure it. Indian plates vary in font, format and condition. Non-standard, damaged or obscured plates remain genuinely hard, which is why every event keeps its image so a human can confirm.",
       },
       {
         q: "Can ANPR run on our existing gate camera?",
@@ -2903,7 +2903,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "Can ANPR open a boom barrier automatically?",
-        a: "Recognition of registered vehicles can trigger an action at the gate where suitable barrier hardware is in place and can accept a trigger. Barrier supply and its electricals are a separate scope from recognition, so it is worth confirming what your gate already has before assuming automation is included.",
+        a: "Automatic barrier opening is something a site may configure and test, not a PGAK default: recognition of a registered vehicle can trigger an action at the gate only where suitable barrier hardware is in place and can accept a trigger. Barrier supply and its electricals are a separate scope from recognition, so it is worth confirming what your gate already has before assuming automation is included.",
       },
     ],
     related: [

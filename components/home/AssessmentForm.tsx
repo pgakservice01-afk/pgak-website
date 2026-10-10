@@ -31,6 +31,13 @@ import { waHref } from "@/lib/whatsapp";
  * the sales sheet already had sitting empty. Nothing in the Apps Script layout
  * had to change.
  *
+ * ── Phone first, the rest on request (2026-10-08) ──
+ * GA4, 10 Sep–7 Oct: 114 form_view events, 39 form_start, 7 form_submit. The
+ * form showed nine fields at once. It now shows the phone number and one
+ * optional "what do you want to solve" choice; the other fields sit behind a
+ * disclosure that stays in the DOM, so nothing typed is lost on a failed send.
+ * No field became mandatory.
+ *
  * ── Only the phone number is mandatory ──
  * Everything else is optional, and that is deliberate rather than lax. This
  * site's validation rule is that a phone number alone is a complete lead,
@@ -54,10 +61,34 @@ const CONTACT_TIMES = [
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/**
+ * The question that changes the next action: which problem the visitor wants
+ * solved. Optional, and recorded as the visitor's own choice — never guessed.
+ * Each entry names a capability the site documents; availability and evidence
+ * for each are on its own page, not implied by being listed here.
+ */
+const USE_CASES = [
+  "After-hours intrusion alerts",
+  "Vehicle number plates (ANPR) at a gate",
+  "Face-recognition attendance",
+  "PPE / safety monitoring",
+  "Counting (sacks, cartons, people)",
+  "Camera health and recording checks",
+  "Viewing several sites remotely",
+  "Something else",
+] as const;
+
 export default function AssessmentForm({
   cta = "home-assessment",
+  defaultUseCase = "",
+  featureId,
+  calculatorId,
 }: {
   cta?: string;
+  /** Preselects the use case on a feature page; still editable. */
+  defaultUseCase?: (typeof USE_CASES)[number] | "";
+  featureId?: string;
+  calculatorId?: string;
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const [phoneError, setPhoneError] = useState<ReactNode>("");
@@ -103,6 +134,7 @@ export default function AssessmentForm({
       cameras: get("cameras"),
       requirement: get("requirement"),
       contactTime: get("contactTime"),
+      context: get("useCase") ? `Use case: ${get("useCase")}` : "",
       honeypot: get(HONEYPOT_FIELD),
     };
     setValues(payload);
@@ -111,6 +143,8 @@ export default function AssessmentForm({
       ref: ref.current,
       cta,
       formName: "home_assessment",
+      featureId,
+      calculatorId,
     });
 
     if (outcome.kind === "done") {
@@ -134,7 +168,11 @@ export default function AssessmentForm({
   if (status === "sent") {
     return (
       <div className="h-card" role="status" aria-live="polite">
-        <h3>Thank you — we have your request.</h3>
+        <h3>Thank you — your request is received.</h3>
+        <p className="h-body">
+          Reference <strong>{ref.current.slice(0, 8).toUpperCase()}</strong>.
+          Quote it if you call or message us.
+        </p>
         <p className="h-body">
           Our team will review what you have told us about the site and get in
           touch to discuss the practical next step. If it is urgent, call{" "}
@@ -150,9 +188,6 @@ export default function AssessmentForm({
   return (
     <form onSubmit={onSubmit} noValidate aria-labelledby="assess-heading">
       <div className="h-form">
-        <Field label="Name" name="name" autoComplete="name" />
-        <Field label="Company name" name="company" autoComplete="organization" />
-
         <Field
           label="Mobile number"
           name="phone"
@@ -163,52 +198,74 @@ export default function AssessmentForm({
           error={phoneError}
           placeholder="+91"
         />
-        <Field label="Email address" name="email" type="email" autoComplete="email" />
-
-        <Field label="City" name="city" autoComplete="address-level2" />
-
-        <Select label="Site type" name="siteType" placeholder="Choose one">
-          {SITE_TYPES.map((o) => (
-            <option key={o} value={o}>
-              {o}
-            </option>
-          ))}
-        </Select>
 
         <Select
-          label="Existing CCTV or new installation?"
-          name="project"
-          placeholder="Choose one"
+          label="What do you want to solve? (optional)"
+          name="useCase"
+          placeholder="Not sure yet"
+          defaultValue={defaultUseCase}
         >
-          <option value={PROJECT_EXISTING}>{PROJECT_EXISTING}</option>
-          <option value={PROJECT_NEW}>{PROJECT_NEW}</option>
-        </Select>
-
-        <Select label="Roughly how many cameras?" name="cameras" placeholder="Choose one">
-          {CAMERA_OPTIONS.map((o) => (
+          {USE_CASES.map((o) => (
             <option key={o} value={o}>
               {o}
             </option>
           ))}
         </Select>
 
-        <div className="h-field h-field--wide">
-          <label htmlFor="assess-requirement">Brief requirement</label>
-          <textarea
-            id="assess-requirement"
-            name="requirement"
-            rows={4}
-            placeholder="For example: 18 cameras across two gates and a stock room. Night coverage at the rear boundary is poor."
-          />
-        </div>
+        {/* Progressive disclosure. The details stay in the DOM while closed,
+            so anything typed survives a failed send and is still submitted. */}
+        <details className="h-field h-field--wide h-more">
+          <summary>Add site details (optional) — helps us come prepared</summary>
+          <div className="h-form" style={{ marginTop: 16 }}>
+            <Field label="Name" name="name" autoComplete="name" />
+            <Field label="Company name" name="company" autoComplete="organization" />
+            <Field label="Email address" name="email" type="email" autoComplete="email" />
+            <Field label="City" name="city" autoComplete="address-level2" />
 
-        <Select label="Preferred contact time" name="contactTime" placeholder="Any time">
-          {CONTACT_TIMES.map((o) => (
-            <option key={o} value={o}>
-              {o}
-            </option>
-          ))}
-        </Select>
+            <Select label="Site type" name="siteType" placeholder="Choose one">
+              {SITE_TYPES.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </Select>
+
+            <Select
+              label="Existing CCTV or new installation?"
+              name="project"
+              placeholder="Choose one"
+            >
+              <option value={PROJECT_EXISTING}>{PROJECT_EXISTING}</option>
+              <option value={PROJECT_NEW}>{PROJECT_NEW}</option>
+            </Select>
+
+            <Select label="Roughly how many cameras?" name="cameras" placeholder="Choose one">
+              {CAMERA_OPTIONS.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </Select>
+
+            <Select label="Preferred contact time" name="contactTime" placeholder="Any time">
+              {CONTACT_TIMES.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </Select>
+
+            <div className="h-field h-field--wide">
+              <label htmlFor="assess-requirement">Brief requirement</label>
+              <textarea
+                id="assess-requirement"
+                name="requirement"
+                rows={4}
+                placeholder="For example: 18 cameras across two gates and a stock room. Night coverage at the rear boundary is poor."
+              />
+            </div>
+          </div>
+        </details>
 
         {/* Hidden from people, reachable by bots. Not named "company" — that is
             a real field on this form now, and autofill would trip the trap on
@@ -327,18 +384,20 @@ function Select({
   label,
   name,
   placeholder,
+  defaultValue = "",
   children,
 }: {
   label: string;
   name: string;
   placeholder: string;
+  defaultValue?: string;
   children: React.ReactNode;
 }) {
   const id = `assess-${name}`;
   return (
     <div className="h-field">
       <label htmlFor={id}>{label}</label>
-      <select id={id} name={name} defaultValue="">
+      <select id={id} name={name} defaultValue={defaultValue}>
         <option value="">{placeholder}</option>
         {children}
       </select>

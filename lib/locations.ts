@@ -777,7 +777,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         name: "The NRI residential belt",
-        text: "Large houses locked for months, often with cameras already installed by a previous contractor and never once reviewed. Turning those existing cameras into a boundary alert that reaches a phone in Vancouver or Milan is usually a software change with nothing to install.",
+        text: "Large houses locked for months, often with cameras already installed by a previous contractor and never once reviewed. Turning those existing cameras into a boundary alert that reaches a phone in Vancouver or Milan usually needs no new cameras — an on-site processing unit and configuration, confirmed at the survey.",
       },
     ],
     faqs: [
@@ -1147,7 +1147,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         q: "Do we replace the cameras the mall or landlord installed?",
-        a: "Usually not. If the recorder exposes an RTSP stream the software runs on what is there. Because many Mumbai premises are leased, it is worth confirming with the landlord that you may add software to the existing system before the survey — in almost every case there is nothing to install physically at all.",
+        a: "Usually not. If the recorder exposes an RTSP stream the software runs on what is there. Because many Mumbai premises are leased, it is worth confirming with the landlord that you may add software to the existing system before the survey — the cameras usually stay as they are; the analytics need a small on-site processing unit, which is confirmed and quoted at the survey.",
       },
       {
         q: "Who handles Mumbai?",

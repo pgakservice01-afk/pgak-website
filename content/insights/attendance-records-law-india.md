@@ -1,6 +1,7 @@
 ---
 title: "Attendance records under Indian law: what you must keep"
 date: "2026-09-01"
+updated: "2026-10-10"
 category: "Compliance"
 excerpt: "Indian labour law requires employers to maintain attendance and wage registers — and the DPDP Act now governs the biometric data many employers use to produce them. A plain-language guide to both obligations."
 metaDescription: "Indian labour law requires attendance and wage registers; the DPDP Act governs the biometric data used to produce them. A plain guide to both."
@@ -9,12 +10,13 @@ readTime: 6
 image: "/insights/category/compliance.webp"
 faqs:
   - q: "Are employers in India required to maintain attendance records?"
-    a: "Yes. Maintaining registers of attendance and wages is a long-standing requirement under Indian labour legislation, including the Factories Act and shops and establishments legislation in each state, and is carried forward under the labour codes. Exact register formats and retention periods vary by state and by which statute applies to your establishment."
+    a: "Yes. Maintaining registers of attendance and wages is a long-standing requirement under Indian labour legislation: since 21 November 2025 the labour codes (the Occupational Safety, Health and Working Conditions Code replaced the Factories Act, 1948), alongside shops and establishments legislation in each state, with existing rules continuing during the transition. Exact register formats and retention periods vary by state and by which statute applies to your establishment."
   - q: "Is biometric attendance data regulated in India?"
     a: "Yes. Facial images and fingerprint templates are personal data under the Digital Personal Data Protection Act, 2023. Employers must give notice of what is collected and why, limit use to that stated purpose, keep the data no longer than necessary, and apply reasonable security safeguards."
   - q: "How long should attendance records be kept?"
     a: "Statutory registers generally carry multi-year retention requirements that depend on the applicable statute and state rules — check the ones that apply to your establishment. Biometric templates are different: under data-minimisation principles they should be retained only as long as the person is employed and the payroll purpose subsists."
 ---
+> **Update, 10 October 2026.** The four labour codes came into force on 21 November 2025 (Ministry of Labour and Employment). The Occupational Safety, Health and Working Conditions Code replaces the Factories Act, 1948, and existing rules continue during the transition, so check which register rules now apply to your establishment. The Digital Personal Data Protection Act's main duties on businesses — notices, consent, security safeguards, breach reporting and people's rights over their data — apply at the end of an eighteen-month phase-in that began when the DPDP Rules were notified in November 2025, which puts them in May 2027 ([PIB explainer, 17 November 2025](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf)). Where this article describes those duties, read them as what to prepare for, not as already enforceable. A revised version of this article is with a legal reviewer. This is general information, not legal advice.
 
 **Straight answer: Indian employers have long been required to maintain attendance and wage registers under labour legislation, and since 2023 the biometric data many use to generate those registers is separately regulated under the DPDP Act. Two obligations, two different logics — one says keep records, the other says do not keep biometrics longer than you need.**
 
@@ -22,7 +24,7 @@ This is a practical summary, not legal advice, and the details genuinely vary by
 
 ## Obligation one: keep the register
 
-Maintaining attendance and wage registers is standard requirement under Indian labour legislation — the Factories Act for factories, the relevant state shops and establishments legislation for commercial establishments, and equivalents for contract labour and construction. The labour codes consolidate much of this.
+Maintaining attendance and wage registers is standard requirement under Indian labour legislation — for factories, the labour codes in force since 21 November 2025 (the OSH Code replaced the Factories Act, 1948, with existing rules continuing during the transition), the relevant state shops and establishments legislation for commercial establishments, and equivalents for contract labour and construction. The labour codes consolidate much of this.
 
 Three things follow that matter operationally:
 

@@ -60,12 +60,13 @@ export function NumberField({
           min={min}
           max={max}
           step={step}
-          placeholder={unknown ? "Not known yet" : undefined}
+          placeholder={unknown ? (allowUnknown ? "Not known yet" : "Enter a value") : undefined}
           aria-describedby={`${hint ? hintId : ""} ${error ? errId : ""}`.trim() || undefined}
           aria-invalid={error ? true : undefined}
           onChange={(e) => {
             const raw = e.target.value;
-            if (raw === "") return onChange(allowUnknown ? null : 0);
+            // Clearing a field means "not entered", never a silent zero.
+            if (raw === "") return onChange(null);
             const n = Number(raw);
             onChange(Number.isFinite(n) ? n : 0);
           }}

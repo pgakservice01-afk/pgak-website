@@ -906,6 +906,19 @@
   color: #a4341f;
 }
 
+.home-2026 .h-more > summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--steel);
+  padding: 8px 0;
+}
+
+.home-2026 .h-more > summary:focus-visible {
+  outline: 2px solid var(--steel);
+  outline-offset: 2px;
+}
+
 /* ------------------------------------------------------------- reduced motion */
 
 @media (prefers-reduced-motion: reduce) {

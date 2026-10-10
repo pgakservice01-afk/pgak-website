@@ -33,6 +33,16 @@ export default function Page() {
             "/resources/evaluation-method",
           ],
           [
+            "Scope worksheet",
+            "Print it, fill it in, and get quotes you can compare line by line.",
+            "/resources/scope-worksheet",
+          ],
+          [
+            "Camera compatibility self-check",
+            "Two minutes, nothing sent: find likely blockers before a survey.",
+            "/platform/compatibility",
+          ],
+          [
             "Cost & benefit calculator",
             "Separate cash savings from productivity estimates.",
             "/roi-calculator",

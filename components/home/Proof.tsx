@@ -29,7 +29,7 @@ export function RealWork() {
     <section className="h-work" id="real-work" aria-labelledby="work-heading">
       <div className="h-wrap">
         <p className="h-eyebrow">See it working</p>
-        <h2 id="work-heading">Recorded by our team, on real sites.</h2>
+        <h2 id="work-heading">Recorded by our team — on real sites, and one in our own test setup.</h2>
 
         <div className="h-work__grid">
           {projects.map((p) => (

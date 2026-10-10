@@ -1,6 +1,7 @@
 ---
 title: "Is AI CCTV legal in India? Consent and the DPDP Act"
 date: "2026-08-30"
+updated: "2026-10-10"
 category: "Compliance"
 excerpt: "CCTV in a workplace is lawful in India. Face recognition on employees is where it gets specific — and where most vendor answers are wrong in both directions. A practical read of what the DPDP Act asks of you."
 metaDescription: "Workplace CCTV is lawful in India. Face recognition on employees is where it gets specific, and where most vendor answers are wrong both ways."
@@ -16,6 +17,7 @@ faqs:
   - q: "Is audio recording on CCTV legal in India?"
     a: "Audio is treated much more strictly than video, and covert recording of conversations carries risks that ordinary video surveillance does not. Most workplace deployments deliberately leave audio off. If you are considering recording sound, take specific legal advice first rather than treating it as a camera setting."
 ---
+> **Update, 10 October 2026.** The Digital Personal Data Protection Act's main duties on businesses — notices, consent, security safeguards, breach reporting and people's rights over their data — apply at the end of an eighteen-month phase-in that began when the DPDP Rules were notified in November 2025, which puts them in May 2027 ([PIB explainer, 17 November 2025](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf)). Where this article describes those duties, read them as what to prepare for, not as already enforceable. A revised version of this article is with a legal reviewer. This is general information, not legal advice.
 
 **Straight answer: workplace CCTV is lawful in India, and AI analysis of that video does not make it unlawful. What changes with AI is that some of it becomes personal data about identifiable people — which brings the Digital Personal Data Protection Act, 2023 into play. In practice the line that matters is the one between *detecting a person* and *identifying a person*. The first is ordinary security. The second needs notice, a defined purpose and a defensible basis.**
 

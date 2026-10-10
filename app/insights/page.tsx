@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { CASE_STUDIES } from "@/lib/caseStudies";
+import { CLUSTERS, clusterOf } from "@/lib/insight-clusters";
 
 const PATH = "/insights";
 
@@ -53,7 +54,6 @@ export default function InsightsIndex() {
               headline: p.title,
               url: `https://www.pgak.co.in/insights/${p.slug}`,
               datePublished: p.date,
-              description: p.excerpt,
             })),
           },
         ]}
@@ -105,7 +105,7 @@ export default function InsightsIndex() {
                       className="card group flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
                     >
                       <p className="text-[0.74rem] uppercase tracking-[0.16em] text-ink-faint">
-                        {c.context}
+                        Illustrative scenario · {c.context}
                       </p>
                       <h3 className="font-display mt-3 text-[1.15rem] font-medium leading-snug transition-colors group-hover:text-accent">
                         {c.title}
@@ -124,20 +124,25 @@ export default function InsightsIndex() {
           </div>
         </section>
 
+        {/*
+          Six newest as cards, then every article as a plain link under its
+          topic. The hub used to render all posts as image cards (~509 KiB of
+          HTML on 2026-10-08); this keeps every article one server-rendered
+          link away from /insights without the weight, and gives each topic
+          its own anchor.
+        */}
         <section className="sec pb-0 pt-4">
           <div className="wrap">
             <div className="mx-auto max-w-[1080px]">
-              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
-                Guides &amp; explainers
-              </h2>
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">Latest</h2>
             </div>
           </div>
         </section>
 
-        <section className="pb-[110px]">
+        <section className="pb-12 pt-6">
           <div className="wrap">
             <div className="mx-auto grid max-w-[1080px] gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p, i) => (
+              {posts.slice(0, 6).map((p, i) => (
                 <Link
                   key={p.slug}
                   href={`/insights/${p.slug}`}
@@ -151,34 +156,67 @@ export default function InsightsIndex() {
                     className="border-b border-line"
                   />
                   <div className="flex flex-1 flex-col p-7">
-                  <div className="mb-4 flex items-center gap-3 text-[0.74rem] uppercase tracking-[0.14em]">
-                    <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-accent">
-                      {p.category}
-                    </span>
-                    <span className="text-ink-faint">{p.readTime} min read</span>
-                  </div>
-                  <h2 className="font-display text-[1.25rem] font-medium leading-snug text-ink transition-colors group-hover:text-accent">
-                    {p.title}
-                  </h2>
-                  <p className="mt-3 flex-1 text-[0.9rem] leading-relaxed text-ink-soft">
-                    {p.excerpt}
-                  </p>
-                  <div className="mt-5 flex items-center justify-between text-[0.8rem]">
-                    <span className="text-ink-faint">{formatDate(p.date)}</span>
-                    <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
-                      Read →
-                    </span>
-                  </div>
+                    <div className="mb-4 flex items-center gap-3 text-[0.74rem] uppercase tracking-[0.14em]">
+                      <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-accent">
+                        {p.category}
+                      </span>
+                      <span className="text-ink-faint">{p.readTime} min read</span>
+                    </div>
+                    <h3 className="font-display text-[1.25rem] font-medium leading-snug text-ink transition-colors group-hover:text-accent">
+                      {p.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-[0.9rem] leading-relaxed text-ink-soft">
+                      {p.excerpt}
+                    </p>
+                    <div className="mt-5 flex items-center justify-between text-[0.8rem]">
+                      <span className="text-ink-faint">{formatDate(p.date)}</span>
+                      <span className="text-accent">Read →</span>
+                    </div>
                   </div>
                 </Link>
               ))}
             </div>
-
             {posts.length === 0 && (
-              <p className="text-center text-ink-soft">
-                First posts landing soon.
-              </p>
+              <p className="text-center text-ink-soft">First posts landing soon.</p>
             )}
+          </div>
+        </section>
+
+        <section className="pb-[110px]" aria-labelledby="topics-h">
+          <div className="wrap">
+            <div className="mx-auto max-w-[1080px]">
+              <h2 id="topics-h" className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                Every guide, by topic
+              </h2>
+              <nav aria-label="Topics" className="mt-4 flex flex-wrap gap-2 text-[0.88rem]">
+                {CLUSTERS.map((c) => (
+                  <a key={c.id} href={`#topic-${c.id}`} className="rounded-full border border-line px-3 py-1 hover:border-accent">
+                    {c.name}
+                  </a>
+                ))}
+              </nav>
+              {CLUSTERS.map((c) => {
+                const inCluster = posts.filter((p) => clusterOf(p.slug, p.category) === c.id);
+                if (inCluster.length === 0) return null;
+                return (
+                  <section key={c.id} id={`topic-${c.id}`} className="mt-10 scroll-mt-24">
+                    <h3 className="text-[1.15rem] font-semibold">
+                      {c.name} <span className="text-[0.85rem] font-normal text-ink-faint">· {inCluster.length}</span>
+                    </h3>
+                    <ul className="mt-3 grid gap-x-8 gap-y-3 md:grid-cols-2">
+                      {inCluster.map((p) => (
+                        <li key={p.slug}>
+                          <Link href={`/insights/${p.slug}`} className="font-medium text-ink hover:text-accent">
+                            {p.title}
+                          </Link>
+                          <p className="mt-0.5 line-clamp-2 text-[0.86rem] text-ink-soft">{p.excerpt}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                );
+              })}
+            </div>
           </div>
         </section>
       </main>

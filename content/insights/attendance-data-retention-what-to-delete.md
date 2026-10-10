@@ -1,6 +1,7 @@
 ---
 title: "Attendance data: what to keep, what to delete, when"
 date: "2026-09-03"
+updated: "2026-10-10"
 category: "Compliance"
 excerpt: "Attendance retention isn't one number. The statutory register has a legal minimum keep period; the biometric template behind it doesn't, and should usually be deleted on exit. A practical schedule."
 metaDescription: "Attendance retention isn't one number. Keep the statutory register; delete the biometric template on exit. A practical retention schedule."
@@ -16,6 +17,7 @@ faqs:
   - q: "Do CCTV attendance photos need to be deleted too?"
     a: "The enrolment photo or template used for matching should follow the same exit-triggered deletion as any other biometric. Raw security footage from cameras is usually governed by a separate, shorter retention window tied to storage capacity and security policy, not attendance rules."
 ---
+> **Update, 10 October 2026.** The four labour codes came into force on 21 November 2025 (Ministry of Labour and Employment). The Occupational Safety, Health and Working Conditions Code replaces the Factories Act, 1948, and existing rules continue during the transition, so check which register rules now apply to your establishment. The Digital Personal Data Protection Act's main duties on businesses — notices, consent, security safeguards, breach reporting and people's rights over their data — apply at the end of an eighteen-month phase-in that began when the DPDP Rules were notified in November 2025, which puts them in May 2027 ([PIB explainer, 17 November 2025](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf)). Where this article describes those duties, read them as what to prepare for, not as already enforceable. A revised version of this article is with a legal reviewer. This is general information, not legal advice.
 
 **Straight answer: attendance retention is two different clocks, not one. The statutory attendance register — dates, times, present or absent — usually has to be kept for years under labour law. The biometric template that produced it has no such requirement and should generally be deleted once the person leaves, or once their purpose is served.**
 

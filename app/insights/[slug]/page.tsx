@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     type: "article",
     publishedTime: post.date,
     ...(post.image ? { image: post.image } : {}),
+    // Drafts render on preview deployments only; never let one be indexed.
+    ...(post.draft ? { noIndex: true } : {}),
   });
 }
 
@@ -85,6 +87,15 @@ export default async function InsightPost({ params }: Props) {
           <div className="wrap">
             <div className="mx-auto max-w-[720px]">
               <Breadcrumbs trail={trail} />
+            {post.draft && (
+              <p
+                role="note"
+                className="mt-4 rounded-md border border-amber-400 bg-amber-50 px-4 py-3 text-[0.9rem] text-ink"
+              >
+                <strong>Draft — not published.</strong> {post.reviewStatus ??
+                  "Awaiting review by a PGAK engineer before publication."}
+              </p>
+            )}
               <Link
                 href="/insights"
                 className="mt-4 inline-flex text-[0.85rem] text-ink-faint transition-colors hover:text-accent"
@@ -165,8 +176,9 @@ export default async function InsightPost({ params }: Props) {
                       Find out what your existing cameras can already do
                     </h2>
                     <p className="mt-2 text-[0.95rem] text-ink-soft">
-                      A free readiness audit of your feeds, report in 48 hours, no
-                      new hardware. Your number and camera count is all we need.
+                      A free readiness audit of your feeds, report in 48 hours. It
+                      says which cameras can be reused and what on-site processing
+                      the site would need. Your number and camera count is all we need.
                     </p>
                     <div className="mt-4">
                       <QuickLead cta="post-quick" offer="audit" />

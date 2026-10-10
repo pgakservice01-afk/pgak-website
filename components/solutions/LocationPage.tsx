@@ -2,6 +2,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
+import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -165,7 +166,7 @@ export default function LocationPage({ location }: { location: Location }) {
             </p>
             {l.caseStudy && (
               <p className="mt-5 text-ink-soft">
-                Worked example for {l.city}:{" "}
+                Illustrative scenario for {l.city} (modelled, not a customer report):{" "}
                 <Link
                   href={l.caseStudy.href}
                   className="text-accent underline underline-offset-4"
@@ -470,6 +471,7 @@ export default function LocationPage({ location }: { location: Location }) {
 
         {/* Convert in place — the hero CTA targets this on-page form. The
             city field is back, and this page knows which city to suggest. */}
+        {l.slug === "ludhiana" && <ScopeAndEvidence path={path} />}
         <DealerForm cityHint={l.city} />
       </main>
 

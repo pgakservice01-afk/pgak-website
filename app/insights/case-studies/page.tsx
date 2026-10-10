@@ -17,7 +17,7 @@ const PATH = "/insights/case-studies";
 export const metadata: Metadata = pageMeta({
   title: "AI CCTV Use Cases — Warehouse, Factory, Retail | PGAK",
   description:
-    "Four worked scenarios showing how warehouses, factories, shops and societies would use AI CCTV on existing cameras. Illustrative, not case reports.",
+    `${CASE_STUDIES.length} worked scenarios showing how warehouses, factories, shops and societies would use AI CCTV on existing cameras. Illustrative, not case reports.`,
   path: PATH,
   keywords: [
     "AI CCTV case study",
@@ -59,7 +59,7 @@ export default function CaseStudiesPage() {
               What AI CCTV looks like on a site like yours
             </h1>
             <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              Four worked scenarios — a warehouse, a factory gate, a retail
+              {CASE_STUDIES.length} worked scenarios — a warehouse, a factory gate, a retail
               chain and a housing society. Each one walks through the problem
               the site starts with, how PGAK would be configured for it, and
               which of the existing cameras it would use.
@@ -75,7 +75,7 @@ export default function CaseStudiesPage() {
 
         <section className="sec pt-4">
           <div className="wrap">
-            <h2 className="sr-only">All case studies</h2>
+            <h2 className="sr-only">All scenarios</h2>
             <ul className="grid gap-6 md:grid-cols-2">
               {CASE_STUDIES.map((c) => (
                 <li key={c.slug}>
@@ -84,7 +84,7 @@ export default function CaseStudiesPage() {
                     className="card flex h-full flex-col p-8 transition-transform hover:-translate-y-0.5"
                   >
                     <p className="text-[0.74rem] uppercase tracking-[0.16em] text-ink-faint">
-                      {c.context}
+                      Illustrative scenario · {c.context}
                     </p>
                     <h3 className="display mt-3 text-[1.3rem] leading-snug">
                       {c.title}
@@ -93,7 +93,7 @@ export default function CaseStudiesPage() {
                       {c.summary}
                     </p>
                     <span className="mt-6 text-[0.9rem] text-accent">
-                      Read the deployment →
+                      Read the scenario →
                     </span>
                   </Link>
                 </li>

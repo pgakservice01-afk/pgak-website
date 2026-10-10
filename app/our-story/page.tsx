@@ -63,7 +63,7 @@ const TRAIL = [
 const RESTRAINT = [
   {
     h: "No star rating anywhere on this site",
-    p: "A rating a business publishes about itself is worth nothing, and Google treats it as self-serving. So the reviews file sits empty — rating zero, count zero, no AggregateRating in any page's structured data. When there are real Google reviews, they will appear. Until then a blank is more honest than a five.",
+    p: "A rating a business publishes about itself is worth nothing. So there is no score on any page of this site, and no hidden one either. When there are real customer reviews on Google, they will be visible there. Until then a blank is more honest than a five.",
   },
   {
     h: "No per-camera price, even though everyone asks",
@@ -74,16 +74,16 @@ const RESTRAINT = [
     p: "Every scenario on this site carries a visible note that it is illustrative — configured for a representative site, with modelled figures rather than measured ones. Not one reports a completed customer project. They would convert better without that label. The label stays until a real customer signs off on a named story.",
   },
   {
-    h: "The footage on the homepage is somebody else's, and says so",
-    p: "The night-time yard clip is credited in plain text as reference footage from Spot AI, illustrative and not a PGAK deployment. Passing it off as our own would have taken one deleted caption.",
+    h: "Every clip says where and when it was recorded",
+    p: "The recordings on the homepage are PGAK's own, and each carries its date, the camera it ran on and what it does not prove. One was recorded in our own test setup rather than at a customer site, and its caption says so. Where another company's footage appears elsewhere on this site for reference, it is credited to them in plain text.",
   },
   {
     h: "We did not generate a page per sector to win search",
-    p: "The obvious play was fourteen thin landing pages, one per industry. Search Console already reports this site's templates sitting at their similarity ceiling, and thin pages would feed that. The industries hub points at pages that already exist and already earn their place instead.",
+    p: "The obvious play was fourteen thin pages, one per industry, saying the same thing with the noun changed. They would have helped nobody choose. The industries hub points at pages that already exist and already earn their place instead.",
   },
   {
-    h: "There is a written register of what this site claims",
-    p: "Every marketing claim on these pages is listed in one document with what backs it, and rows that lack evidence are marked as needing it rather than quietly left alone. It is not finished. That is rather the point of keeping it.",
+    h: "Every capability has a published status",
+    p: "The capability page lists what has been demonstrated, under what conditions, and what is still unverified — and an unverified row stays marked that way until there is a recording or a configuration record behind it. It is not finished. That is rather the point of publishing it.",
   },
 ];
 

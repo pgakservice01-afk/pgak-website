@@ -1,0 +1,31 @@
+# Retry backstop for the durable lead intake.
+#
+# /api/leads attempts delivery right after it stores a receipt; this job asks
+# /api/lead-outbox to retry whatever is still queued. It does nothing until the
+# repository secret LEAD_OUTBOX_SECRET is set to the same value as the Vercel
+# Production variable of that name (and the intake variables are configured).
+# GitHub runs scheduled jobs on a best-effort basis, so the interval is a
+# ceiling on waiting, not a promise.
+name: lead-outbox
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+permissions: {}
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      SECRET: ${{ secrets.LEAD_OUTBOX_SECRET }}
+    steps:
+      - name: Retry queued deliveries
+        run: |
+          if [ -z "$SECRET" ]; then
+            echo "LEAD_OUTBOX_SECRET is not set; nothing to do."
+            exit 0
+          fi
+          # Counts only come back ({"ok":true,"delivered":n,"queued":n}).
+          curl --fail-with-body -sS -X POST \
+            -H "Authorization: Bearer $SECRET" \
+            https://www.pgak.co.in/api/lead-outbox

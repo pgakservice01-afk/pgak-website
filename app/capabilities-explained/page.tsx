@@ -160,7 +160,7 @@ export default function CapabilitiesExplainedPage() {
               </a>
               , another company in this field; any interface or automated action
               shown is theirs, not a demonstration of PGAK. To see PGAK&rsquo;s own
-              recordings from real installations, with the conditions they were
+              recordings, each with the conditions it was
               captured under, go to{" "}
               <a href="/#real-work" className="underline">
                 our own work on the homepage

@@ -2,24 +2,24 @@
 title: "Does AI work with my Tapo, Imou, Qubo or Prama camera?"
 date: "2026-09-14"
 category: "Camera Setup"
-excerpt: "We have tested Tapo, Prama and Qubo directly. But the honest answer is that the brand is not really the question — what matters is whether the camera will hand over an RTSP stream."
-metaDescription: "We have tested Tapo, Prama and Qubo. Whether AI video analysis works with your camera depends on RTSP, not the badge — here is how to check yours in two minutes."
+excerpt: "The honest answer is that the brand is not really the question — what matters is whether the camera will hand over an RTSP stream."
+metaDescription: "Whether AI video analysis works with your Tapo, Imou, Qubo or Prama camera depends on RTSP, not the badge — here is how to check yours in two minutes."
 readTime: 7
 image: "/insights/category/camera-setup.webp"
 faqs:
   - q: "Does AI CCTV work with Tapo cameras?"
-    a: "Yes — we have tested Tapo directly. It applies to the mains-powered models, which support RTSP and ONVIF Profile S. Two things are needed first: create a Camera Account inside the Tapo app under Device Settings, Advanced Settings, Camera Account — this is a separate username and password from your TP-Link cloud login, and the cloud login will not work. Then use rtsp://username:password@CAMERA-IP:554/stream1 for the high-quality stream or /stream2 for the lower one. Most battery-powered Tapo models do not offer RTSP at all, so those are the exception."
+    a: "Often, for the mains-powered models, which support RTSP and ONVIF Profile S — your model is confirmed at the assessment. Two things are needed first: create a Camera Account inside the Tapo app under Device Settings, Advanced Settings, Camera Account — this is a separate username and password from your TP-Link cloud login, and the cloud login will not work. Then use rtsp://username:password@CAMERA-IP:554/stream1 for the high-quality stream or /stream2 for the lower one. Most battery-powered Tapo models do not offer RTSP at all, so those are the exception."
   - q: "Does AI CCTV work with Qubo cameras?"
-    a: "Yes — we have tested Qubo directly. The one thing to confirm on your particular unit is that it can give an RTSP stream, because Qubo devices are built around their own app and not every model in the range exposes one. Where the model does, it behaves like any other camera. Where a camera of any brand is cloud-only, no third-party software can read it, because there is nothing to read."
+    a: "It can, where the model gives an RTSP stream. The one thing to confirm on your particular unit is that it can give an RTSP stream, because Qubo devices are built around their own app and not every model in the range exposes one. Where the model does, it behaves like any other camera. Where a camera of any brand is cloud-only, no third-party software can read it, because there is nothing to read."
   - q: "Does AI CCTV work with Imou and Prama cameras?"
-    a: "Prama we have tested directly, and it works. Imou we have not tested ourselves, but it is part of Dahua and uses the Dahua stream path, which is one of the paths a scan tries first — so it is expected to work in the same way. Prama is the Hikvision line in India and uses the Hikvision path. Both of those path families are tried early, so these cameras are normally found automatically once the recorder's IP address and login are entered."
+    a: "Both are expected to, and each model is confirmed at the assessment. Imou is part of Dahua and uses the Dahua stream path, which is one of the paths a scan tries first. Prama is the Hikvision line in India and uses the Hikvision path. Both of those path families are tried early, so these cameras are normally found automatically once the recorder's IP address and login are entered."
   - q: "How do I check whether my camera supports RTSP?"
     a: "Look in the camera or recorder's own settings for a section named RTSP, ONVIF, or sometimes Network or Advanced. If there is a way to enable RTSP or set a stream port — 554 is the usual one — the camera can hand over a stream. If the manufacturer's app is the only way to see the video and there is no such setting, the camera is cloud-only and cannot be used by anything else."
   - q: "Do I need to replace my cameras to add AI?"
-    a: "Usually not. Analysis runs on the video stream a camera already produces, so if the camera can hand over an RTSP stream it can be used as it is, whatever its age or brand. The cameras that genuinely cannot be used are the cloud-only ones that never expose a stream, and most battery-powered models, which stay asleep to save power and so have no continuous stream to read."
+    a: "Usually not. Analysis runs on the video stream a camera already produces, so if the camera can hand over an RTSP stream it can usually be used as it is, whatever its age or brand — its view and stream are confirmed at the assessment. The cameras that genuinely cannot be used are the cloud-only ones that never expose a stream, and most battery-powered models, which stay asleep to save power and so have no continuous stream to read."
 ---
 
-**Straight answer: we have tested Tapo, Prama and Qubo ourselves, and they work. But the brand on the camera is the wrong thing to check in general. What matters is whether the camera will hand over an RTSP stream. Most mains-powered cameras will. Most battery cameras will not, whatever the badge says.**
+**Straight answer: the brand on the camera is the wrong thing to check. What matters is whether the camera will hand over an RTSP stream. Most mains-powered cameras will. Most battery cameras will not, whatever the badge says.**
 
 This question comes up constantly, usually in the form "will it work with my cameras?" — asked by someone who has already spent money once and does not want to be told to spend it again. It deserves a straight technical answer rather than a sales one.
 
@@ -39,13 +39,13 @@ That is the whole test. Everything below is just how each brand words it.
 
 ## The brands people ask about
 
-Three of these we have connected and tested ourselves — **Tapo, Prama and Qubo**. The rest is what the stream paths tell us, and we have marked which is which, because "we tested it" and "it should work" are not the same claim.
+PGAK has not published a dated test record for any of these brands, so what follows is what the stream paths and the manufacturers' settings tell us — "it should work", confirmed per model at the assessment. "We tested it" and "it should work" are not the same claim.
 
-**Prama** — tested, works. It is the Hikvision line in India, so it uses the Hikvision stream path (`/Streaming/Channels/101` for the first camera, main stream). This is one of the first paths a scan tries, so these are normally detected automatically — you enter the recorder's IP address and login, and the cameras appear.
+**Prama** — expected to work. It is the Hikvision line in India, so it uses the Hikvision stream path (`/Streaming/Channels/101` for the first camera, main stream). This is one of the first paths a scan tries, so these are normally detected automatically — you enter the recorder's IP address and login, and the cameras appear.
 
-**Imou** — not tested by us, expected to work. It is part of Dahua and uses the Dahua path (`/cam/realmonitor?channel=1&subtype=0`), which is also tried early, so it should be equally automatic. **CP Plus** reuses the same scheme, which is why it behaves the same way.
+**Imou** — expected to work. It is part of Dahua and uses the Dahua path (`/cam/realmonitor?channel=1&subtype=0`), which is also tried early, so it should be equally automatic. **CP Plus** reuses the same scheme, which is why it behaves the same way.
 
-**Tapo** (TP-Link) — tested, works. The mains-powered models support RTSP plus ONVIF Profile S, but there is a step people miss. You must create a **Camera Account** inside the Tapo app first:
+**Tapo** (TP-Link) — expected to work on mains-powered models. The mains-powered models support RTSP plus ONVIF Profile S, but there is a step people miss. You must create a **Camera Account** inside the Tapo app first:
 
 > Live View → Device Settings → Advanced Settings → Camera Account
 
@@ -53,7 +53,7 @@ That username and password are *not* your TP-Link cloud login, and the cloud log
 
 The exception is the battery range. Most battery-powered Tapo models do not offer RTSP at all; only a few support it when hardwired and kept awake. If a camera sleeps between events to save its battery, there is no continuous stream for anything to read — including us.
 
-**Qubo** — tested, works. Worth one check on your particular unit, though: Qubo devices are built around their own app, and not every model in the range exposes a stream. Where the model does, it behaves like any other camera. That caveat is not really about Qubo — it is true of any brand. A camera that only ever talks to its own app is not withholding the video from us in particular; there is simply nothing for any third-party software to read.
+**Qubo** — expected to work where the model exposes a stream. Worth one check on your particular unit, though: Qubo devices are built around their own app, and not every model in the range exposes a stream. Where the model does, it behaves like any other camera. That caveat is not really about Qubo — it is true of any brand. A camera that only ever talks to its own app is not withholding the video from us in particular; there is simply nothing for any third-party software to read.
 
 ## How to check your own camera in two minutes
 

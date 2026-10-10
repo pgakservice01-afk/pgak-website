@@ -2,12 +2,12 @@
 title: "People counting from cameras you already own"
 date: "2026-09-14"
 category: "Security Basics"
-excerpt: "You don't need new hardware to know how many people walked through your gate or store today. What CCTV-based people counting gets right, where it drifts, and what the number is actually useful for."
+excerpt: "You don't need new cameras to know how many people walked through your gate or store today. What CCTV-based people counting gets right, where it drifts, and what the number is actually useful for."
 metaDescription: "CCTV-based people counting works on cameras you already own. Here's how accurate it really is and what the footfall number is good for."
 readTime: 5
 image: "/insights/category/security-basics-2.webp"
 faqs:
-  - q: "Can CCTV cameras count footfall without new hardware?"
+  - q: "Can CCTV cameras count footfall without new cameras?"
     a: "Yes. If a camera has a clear, mostly overhead or angled view of an entrance, video analytics software can count people crossing that line without replacing the camera. The exception is a camera mounted too low or too far back to separate people walking close together — that one may need repositioning first."
   - q: "How accurate is CCTV people counting?"
     a: "For a single, well-placed entrance camera, daily counts are usually close enough to trust for a trend line, but not exact enough for an audit. Groups walking shoulder to shoulder, prams, trolleys and reflective doors all introduce small errors that tend to cancel out over a week but can be visible on any single day."
@@ -17,7 +17,7 @@ faqs:
     a: "Different systems draw the counting line differently, handle groups differently, and some double-count people who linger near the doorway. Two vendors watching the same entrance can report different totals for the same day without either being 'wrong' — they're measuring slightly different things."
 ---
 
-**Straight answer: yes, cameras you already have can count footfall — no new hardware needed if the entrance view is clear. The number is reliable enough to track trends and conversion, but not precise enough to be treated as an exact headcount.**
+**Straight answer: yes, cameras you already have can count footfall if the entrance view is clear — the counting runs on a processing unit added on site, not on new cameras. The number is reliable enough to track trends and conversion, but not precise enough to be treated as an exact headcount.**
 
 Every shop owner and gate manager already has a rough sense of how busy yesterday was. What they don't have is a number they can put in a spreadsheet and trust next to last month's. That's the actual gap people counting fills — not "how many people," but "is footfall going up or down, and what's it worth."
 

@@ -50,7 +50,7 @@ That last part is the whole point. The value of a camera isn't the footage it st
 
 Here's what surprises most owners: the cameras you already have are usually good enough. They see everything. What's missing is the thinking — and thinking is software.
 
-PGAK adds that layer on top of your existing CCTV, IP cameras and DVR/NVR. No rip-and-replace, no new wiring. Your cameras keep recording as before; they just stop being silent about what they see.
+PGAK adds that layer on top of your existing CCTV, IP cameras and DVR/NVR, using an on-site processing unit. Compatible cameras are not replaced; what the site needs is confirmed at the assessment and itemised in the quote. Your cameras keep recording as before; they just stop being silent about what they see.
 
 **Your cameras can already see. The question is whether anything is paying attention.**
 

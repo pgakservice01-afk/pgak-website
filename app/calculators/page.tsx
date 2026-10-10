@@ -7,6 +7,7 @@ import Nav from "@/components/Nav";
 import DealerForm from "@/components/sections/DealerForm";
 import Footer from "@/components/sections/Footer";
 import { liveCalculators, plannedCalculators } from "@/lib/calc/registry";
+import { SCENARIOS } from "@/lib/calc/scenarios";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
 
@@ -83,6 +84,33 @@ export default function CalculatorsHub() {
                 </p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="sec pt-0" aria-labelledby="scenarios-h">
+          <div className="wrap">
+            <h2 id="scenarios-h" className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
+              One estimate for each feature
+            </h2>
+            <p className="mt-3 max-w-[68ch] text-ink-soft">
+              Every feature PGAK documents has a short calculator on its own page — {SCENARIOS.length} in
+              all. Each uses your measurements, reports staff time apart from cash, and says what
+              evidence the feature rests on. Where two features save the same staff time, count it
+              once.
+            </p>
+            <ul className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {SCENARIOS.map((s) => (
+                <li key={s.id}>
+                  <Link
+                    href={`${s.hostPath}#scenario-${s.id}`}
+                    className="flex items-baseline justify-between gap-3 rounded-md border border-line px-3 py-2 text-[0.92rem] hover:border-accent"
+                  >
+                    <span>{s.feature}</span>
+                    <span className="text-[0.78rem] text-ink-soft">{s.id}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

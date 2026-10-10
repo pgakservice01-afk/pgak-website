@@ -47,7 +47,7 @@ Then check three things yourself, today: how many cameras are currently offline,
 
 An AMC catches problems on a visit schedule. Software catches them in minutes. If your system tells you the moment a camera goes dark or gets covered, the AMC stops being a discovery mechanism and becomes purely a repair mechanism — which is what it should be.
 
-That capability runs as part of what we build, so the recommendation is not neutral. But the logic holds independently: a quarterly visit means a camera can be dark for eighty-nine days before anyone knows, and no response-time SLA helps if nobody raised the ticket.
+PGAK sells AI CCTV, so the recommendation is not neutral, and camera-health checks are something to test at your site rather than assume. But the logic holds independently: a quarterly visit means a camera can be dark for eighty-nine days before anyone knows, and no response-time SLA helps if nobody raised the ticket.
 
 ## The renewal test
 

@@ -13,7 +13,7 @@
     "indexnow": "node scripts/indexnow.mjs",
     "test:middleware": "node --experimental-strip-types --test lib/spamUrls.test.ts",
     "test:leads": "node --experimental-strip-types --test lib/leads.test.ts",
-    "test": "npm run test:middleware && npm run test:leads && npm run test:locations && npm run test:register && npm run test:calc && npm run test:ai-referrers && npm run test:geo && npm run test:industries && npm run test:people && npm run test:proof && npm run test:appsscript && npm run test:lead-client",
+    "test": "npm run test:middleware && npm run test:leads && npm run test:locations && npm run test:register && npm run test:calc && npm run test:ai-referrers && npm run test:geo && npm run test:industries && npm run test:people && npm run test:proof && npm run test:appsscript && npm run test:lead-client && npm run test:outbox && npm run test:scenarios && npm run test:pilot && npm run test:compat && npm run test:truth",
     "test:analytics": "node --test scripts/test-analytics.cjs",
     "typecheck": "tsc --noEmit",
     "test:lead-client": "node --test scripts/test-lead-client.cjs",
@@ -29,7 +29,13 @@
     "test:industries": "node --experimental-strip-types --test lib/industries.test.ts",
     "test:people": "node --experimental-strip-types --test lib/people.test.ts",
     "test:proof": "node --experimental-strip-types --test lib/proof/proof.test.ts",
-    "test:appsscript": "node --test scripts/test-appsscript-register.cjs"
+    "test:appsscript": "node --test scripts/test-appsscript-register.cjs",
+    "test:outbox": "node --experimental-strip-types --test lib/lead-outbox.test.ts",
+    "test:scenarios": "node --experimental-strip-types --test lib/calc/scenarios.test.ts",
+    "test:pilot": "node --experimental-strip-types --test lib/calc/pilot.test.ts",
+    "test:compat": "node --experimental-strip-types --test lib/compat.test.ts",
+    "test:truth": "node --experimental-strip-types --test lib/feature-truth.test.ts",
+    "docs:claims": "node --experimental-strip-types scripts/claim-matrix.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

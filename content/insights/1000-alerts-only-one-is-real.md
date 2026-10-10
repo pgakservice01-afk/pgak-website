@@ -43,6 +43,6 @@ The goal isn't more alerts. It's *fewer* — because the ones you get are worth 
 
 ## And it runs on the cameras you already own
 
-No rip-and-replace. PGAK adds this intelligence on top of your existing CCTV, IP cameras and DVR/NVR — live in a day, no new hardware.
+No rip-and-replace. PGAK adds this intelligence on top of your existing CCTV, IP cameras and DVR/NVR through an on-site processing unit; which cameras are suitable, and anything extra the site needs, is confirmed at the assessment and quoted before you commit.
 
 When your alerts finally mean something again, your team starts trusting them again. And that's when the one real threat stops slipping through.

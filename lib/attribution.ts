@@ -129,13 +129,23 @@ export function captureTouch(): void {
  * What a lead form sends: the current page and button, plus whatever the
  * visit's first touch recorded. Safe to call when nothing was recorded.
  */
-export function readAttribution(cta: string): Attribution {
-  if (typeof window === "undefined") return { cta: cap(cta, 60) };
+export function readAttribution(
+  cta: string,
+  context: { featureId?: string; calculatorId?: string } = {},
+): Attribution {
+  // Registry ids only ("anpr", "C09"): anything else is dropped, so a caller
+  // cannot route free text into the CRM message through this field.
+  const id = (v?: string) => (v && /^[a-z0-9-]{1,40}$/i.test(v) ? v : "");
+  const ids: Attribution = {};
+  if (id(context.featureId)) ids.feature_id = id(context.featureId);
+  if (id(context.calculatorId)) ids.calculator_id = id(context.calculatorId);
+  if (typeof window === "undefined") return { cta: cap(cta, 60), ...ids };
 
   const touch = read() ?? {};
   const out: Attribution = {
     page: cap(window.location.pathname),
     cta: cap(cta, 60),
+    ...ids,
   };
   if (touch.landing && touch.landing !== out.page) out.landing = touch.landing;
   if (touch.referrer) out.referrer = touch.referrer;

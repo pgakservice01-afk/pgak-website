@@ -56,6 +56,8 @@ export default function QuickLead({
   offer = "audit",
   spotlight = false,
   context = "",
+  featureId,
+  calculatorId,
   initialCameras = "",
   cityHint = "",
 }: {
@@ -63,6 +65,9 @@ export default function QuickLead({
   offer?: QuickOffer;
   spotlight?: boolean;
   context?: string;
+  /** Registry ids carried to the CRM and GA4 (never personal data). */
+  featureId?: string;
+  calculatorId?: string;
   initialCameras?: string;
   /** Shown as an example in the city placeholder, never as a prefilled value:
    *  a city page tells us where the reader is looking, not where their site
@@ -220,6 +225,8 @@ export default function QuickLead({
       ref: refRef.current!,
       cta,
       formName: copy.formName,
+      featureId,
+      calculatorId,
     });
 
     pending.current = false;

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import DealerForm from "@/components/sections/DealerForm";
+import FeatureScenario from "@/components/calc/FeatureScenario";
+import { scenarioForFeature } from "@/lib/calc/scenarios";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
@@ -299,6 +301,12 @@ export default async function CapabilityPage({
 
         {/* Convert in place: the lead form lives on this page, so the hero
             CTA never has to bounce the visitor through the homepage. */}
+        {(() => {
+          const sc = scenarioForFeature(c.slug);
+          return sc && sc.hostPath === `/features/${c.slug}` ? (
+            <FeatureScenario id={sc.id} withLeadForm={false} />
+          ) : null;
+        })()}
         <DealerForm />
       </main>
 

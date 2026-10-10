@@ -1,6 +1,7 @@
 ---
 title: "When an employee refuses biometric attendance"
 date: "2026-09-03"
+updated: "2026-10-10"
 category: "Compliance"
 excerpt: "An employee can refuse fingerprint or face-based attendance under the DPDP Act, and forcing it is the wrong fight. What a lawful fallback looks like, and why it rarely comes to that."
 metaDescription: "An employee can refuse biometric attendance under the DPDP Act. What a lawful fallback looks like, and why forcing it is the wrong fight."
@@ -16,6 +17,7 @@ faqs:
   - q: "Does DPDP consent apply to face recognition on CCTV as well as fingerprints?"
     a: "It applies wherever the system creates and stores a biometric template tied to an identified person for a purpose like attendance. General CCTV recording for security is treated differently from enrolling someone's face as an attendance credential — the enrolment step is where consent matters most."
 ---
+> **Update, 10 October 2026.** The Digital Personal Data Protection Act's main duties on businesses — notices, consent, security safeguards, breach reporting and people's rights over their data — apply at the end of an eighteen-month phase-in that began when the DPDP Rules were notified in November 2025, which puts them in May 2027 ([PIB explainer, 17 November 2025](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf)). Where this article describes those duties, read them as what to prepare for, not as already enforceable. A revised version of this article is with a legal reviewer. This is general information, not legal advice.
 
 **Straight answer: yes, an employee can refuse biometric attendance in India. Under the DPDP Act, biometric data needs informed consent, so an employer cannot make fingerprint or face enrolment the only way to be marked present. A lawful fallback — a card, a PIN, or a supervised manual entry — has to exist, and refusal should never itself be treated as misconduct.**
 

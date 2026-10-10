@@ -156,7 +156,7 @@ const STEPS = [
   {
     n: "01",
     title: "Connect the cameras already on the wall",
-    body: "PGAK is software. It reads the streams from the DVR or NVR at your property over its internet connection, so the work starts with what is already installed rather than with a purchase.",
+    body: "PGAK is analytics software on a processing unit at the property. It reads the streams from the DVR or NVR at your property over its internet connection, so the work starts with what is already installed rather than with a purchase.",
   },
   {
     n: "02",
