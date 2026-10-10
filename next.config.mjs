@@ -67,6 +67,11 @@ const nextConfig = {
         destination: "/resources/evidence",
         permanent: true,
       },
+      // Unlinked, noindex "coming soon" pages whose metadata described
+      // face-recognition and live-feed clips that do not exist. One proof
+      // narrative: the published demonstrations.
+      { source: "/trust/videos", destination: "/resources/evidence", permanent: true },
+      { source: "/trust/photos", destination: "/resources/evidence", permanent: true },
 
       // Consolidated 2026-09-23 (owner approved). Search Console listed this
       // page as "Duplicate without user-selected canonical" against the same
