@@ -15,6 +15,13 @@
 | `05-performance.md` | Image weight before and after; lab measurement plan and results |
 | `06-indexing-and-urls.md` | Search Console state, the seven old duplicates, the crawl, the URL map, post-release indexing requests |
 | `07-local-and-offer-drafts.md` | Google Business Profile corrections, local information, pilot-offer draft (all for approval) |
+| `08-gap-to-change-ledger.md` | **10 Oct brief:** every deliverable with what changed, tests, state (fact / hypothesis / local / prod / measured) and what remains |
+| `09-route-component-map.md` | Buyer intent → canonical route → tool → proof → next step; component jobs; visuals metadata |
+| `10-benchmark-adaptation.md` | Ten-brand adaptation matrix (W01–W10) with a hypothesis each; India shortlist |
+| `11-lead-reconciliation-and-ga4.md` | Worksheet for the seven `generate_lead` events; the 2-vs-7 attempt gap; "(not set)" landing pages |
+| `12-sales-handoff.md` | Lead stages, owner and response target, qualification and rejection reasons, four draft follow-up templates |
+| `13-acquisition-economics.md` | Allowable cost per qualified lead; paid-search draft (not authorised) |
+| `RELEASE-2026-10-10.md` | Release notes, checks, dependencies and rollback for the 10 Oct branch |
 | `article-briefs.tsv`, `WRITER_GUIDE.md`, `agent-reports/` | The brief, the binding writing rules, each batch's report |
 | `crawl/` | Production crawl, 8 Oct (preview crawl to add) |
 
