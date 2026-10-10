@@ -184,7 +184,7 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Real-Time CCTV Intrusion Alerts to Your Phone | PGAK",
     description:
-      "Zone and line-crossing alerts with a snapshot, camera name and timestamp — evaluated on your own cameras, with alert timing, sirens and escalation confirmed in the written scope.",
+      "Zone and line-crossing alerts with a snapshot, camera name and timestamp, evaluated on your own cameras; timing and escalation confirmed in the scope.",
     summary:
       "Zone and line-crossing alerts with a snapshot — evaluated and timed at your site.",
     h1: "Real-time intrusion alerts — because evidence at 9am is not security",
@@ -252,7 +252,7 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Face Recognition Attendance — No Card, No Contact | PGAK",
     description:
-      "Face-recognition attendance from the camera at your gate, for factories, offices and schools — evaluated at your site, with exports and review of missed records confirmed in the written scope.",
+      "Face-recognition attendance from the camera at your gate, for factories, offices and schools, evaluated at your site with exports confirmed in writing.",
     summary:
       "Attendance from the gate camera — no card or fingerprint, evaluated at your site.",
     h1: "Face recognition attendance — logging the gate without a queue",

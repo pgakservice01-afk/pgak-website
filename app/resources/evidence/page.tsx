@@ -11,7 +11,7 @@ import DemoTaskFilter from "@/components/tools/DemoTaskFilter";
 export const metadata = pageMeta({
   title: "PGAK demonstrations you can inspect | PGAK",
   description:
-    "PGAK's own recorded demonstrations, each with its date, conditions and limits — and what a demonstration does not prove compared with a measured customer result.",
+    "PGAK's own recorded demonstrations, each with its date, conditions and limits, and what a demonstration does not prove about results at your site.",
   path: "/resources/evidence",
 });
 

@@ -4,14 +4,14 @@ import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "AI analytics and your existing VMS | PGAK",
   description:
-    "Analytics evaluates events in video. A VMS manages workflows such as recording, playback, retention and operator permissions. Verify both roles without assuming one replaces the other.",
+    "Video analytics finds events; a VMS handles recording, playback, retention and permissions. How to verify both roles for your site.",
   path: "/platform/vms-integration",
 });
 export default function Page() {
   return (
     <BuyerPage
       title="AI analytics and your existing VMS"
-      intro="Analytics evaluates events in video. A VMS manages workflows such as recording, playback, retention and operator permissions. Verify both roles without assuming one replaces the other."
+      intro="Video analytics finds events; a VMS handles recording, playback, retention and permissions. How to verify both roles for your site."
       path="/platform/vms-integration"
       eyebrow="TECHNICAL BUYER GUIDE"
     >

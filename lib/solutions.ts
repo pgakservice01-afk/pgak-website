@@ -892,7 +892,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "School Security System — AI CCTV for Campus Gates | PGAK",
     description:
-      "Visitor logging at the gate, staff attendance and after-hours grounds alerts, evaluated on your existing campus CCTV — with data kept to the minimum a school needs.",
+      "Gate visitor logs, staff attendance and after-hours alerts on your existing campus CCTV, keeping only the data a school needs.",
     eyebrow: "Schools & campuses",
     h1: "School security that knows who belongs on campus",
     intro:
@@ -986,7 +986,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Hospital Security System — AI CCTV for Wards & Wings | PGAK",
     description:
-      "Restricted-area alerts for pharmacies and stores, and visitor logging at entrances — security analytics evaluated on existing hospital CCTV, not patient monitoring.",
+      "Restricted-area alerts for pharmacies and stores, and visitor logging at entrances, on existing hospital CCTV. Security analytics, not patient monitoring.",
     eyebrow: "Hospitals & healthcare",
     h1: "Hospital security for a building that never closes",
     intro:
@@ -2531,7 +2531,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     title: "Remote CCTV Monitoring That Contacts You | PGAK",
     description:
-      "Remote CCTV monitoring where the system raises the alert instead of waiting to be watched — live view and phone alerts with snapshots, with camera-health checks evaluated at your site.",
+      "Remote CCTV monitoring that raises the alert instead of waiting to be watched: live view and phone alerts with snapshots, camera health checked on site.",
     eyebrow: "Platform",
     h1: "Remote CCTV monitoring that calls you, not the other way round",
     intro:

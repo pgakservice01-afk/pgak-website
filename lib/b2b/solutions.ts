@@ -39,7 +39,7 @@ export const BUYER_SOLUTIONS: Record<
     kind: "problem",
     title: "Face recognition attendance system on existing CCTV — how it works, what it needs",
     intro:
-      "A face recognition attendance system that runs on the entrance cameras you already own: enrolled faces recognised at walking pace, every record backed by its own frame, and exceptions a person reviews and corrects. What the camera view must provide, where it fails, and why a pilot on your own gate comes before anything is quoted.",
+      "Face recognition attendance on the entrance cameras you already own: each record backed by its frame, exceptions reviewed by a person, piloted at your gate.",
     workflow:
       "HR and the site operator agree enrolment, shift rules and a correction process. Entrance events are compared with a permitted reference record. Ambiguous and missing records require review before any attendance or pay decision.",
     event:
@@ -61,7 +61,7 @@ export const BUYER_SOLUTIONS: Record<
     kind: "problem",
     title: "Camera-feed health across multiple sites",
     intro:
-      "Evaluate a repeatable process for noticing unavailable camera feeds, assigning ownership and confirming recovery. Verify central visibility and access controls for the exact proposed deployment.",
+      "CCTV across several sites: notice dead camera feeds, assign who fixes them and confirm recovery, with central access checked for your exact setup.",
     workflow:
       "Each site has a network/camera owner and an escalation contact. Operators distinguish a camera failure from recorder, processing or connectivity failures. A recovery event must be reviewed rather than assumed from a cleared alert.",
     event:
@@ -83,7 +83,7 @@ export const BUYER_SOLUTIONS: Record<
     kind: "industry",
     title: "AI CCTV evaluation for factory operations",
     intro:
-      "Start with a factory workflow: gates, restricted production areas, shift change or after-hours access. Define the event and operating response before selecting analytics.",
+      "Factory security on existing CCTV, starting from one workflow: gates, restricted areas, shift change or after-hours access, with the response defined first.",
     workflow:
       "Security controls the gate while supervisors manage shifts and authorised contractor movement. A production-line view is a different task from a perimeter view; agree separate requirements and owners.",
     event:
@@ -105,7 +105,7 @@ export const BUYER_SOLUTIONS: Record<
     kind: "industry",
     title: "AI CCTV evaluation for warehouses",
     intro:
-      "Assess loading bays, stock areas and after-hours approaches against the way your warehouse actually operates. Delivery activity and legitimate work should be part of the test.",
+      "AI CCTV for warehouses, tested against how yours runs: loading bays, stock areas and after-hours approaches, with deliveries and normal work in the test.",
     workflow:
       "Warehouse supervisors coordinate deliveries, cleaning and stock movement. Security needs the zone, hours and exceptions so an alert is actionable rather than simply another notification.",
     event:
