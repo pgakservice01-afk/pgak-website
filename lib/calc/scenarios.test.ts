@@ -231,3 +231,21 @@ test("safety and people scenarios carry their specific guardrails", () => {
     assert.ok(scenarioById(id)!.guardrails.some((g) => /automated punishment/.test(g)), id);
   assert.ok(scenarioById("C19")!.guardrails.some((g) => /Do not reduce lighting/.test(g)));
 });
+
+test("cash payback worked example from the 10 Oct brief: 120,000 capex, 12,000 avoidable, 4,000 recurring", () => {
+  const f = finance({
+    hoursPerMonth: 0,
+    loadedHourlyCost: null,
+    realisation: 0,
+    modelCashPerMonth: 0,
+    evidencedCashDelta: 12_000,
+    recurringCost: 4_000,
+    setupCapital: 120_000,
+  });
+  assert.equal(f.monthlyNet, 8_000);
+  assert.equal(f.firstYearNet, -24_000);
+  assert.equal(f.paybackMonths, 15);
+  // A 15-month payback means a negative first-year ROI — both are true at once.
+  assert.equal(f.firstYearRoi, -0.2);
+  assert.deepEqual(f.incomplete, []);
+});
