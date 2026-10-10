@@ -2822,6 +2822,27 @@ export const SOLUTIONS: Solution[] = [
     ],
     sections: [
       {
+        // Search demand on 10 Oct 2026 (Google Trends, India): "what is anpr
+        // camera", "anpr cameras near me" and "cp plus" rising beside ANPR,
+        // and the misspelling "apnr". Answered here, on the canonical page.
+        h2: "What an ANPR camera is — and how it differs from your CCTV camera",
+        body: "An ANPR camera (sometimes typed APNR) is a camera set up to read number plates, not to watch an area. The difference is mostly where it points and how it is set, not what it costs. An ordinary CCTV camera is mounted high and wide so it can see the whole gate; an ANPR camera is mounted low, aimed along the lane, and zoomed so the plate fills enough of the picture to read the characters — with a fast shutter so a moving plate is not blurred, and handling for headlight glare at night. The reading itself is done by software, either inside the camera or on a processing unit at the site, which turns each plate into text, time and a snapshot.",
+        points: [
+          {
+            h3: "Can a CP Plus, Hikvision or Dahua camera do it?",
+            text: "The brand decides less than the placement. Where a manufacturer offers a dedicated ANPR or LPR model, it is built for this job; a standard dome or bullet fitted for general coverage usually is not, whatever the brand, because it looks down at the plate from too high and too far. An existing camera can sometimes be repositioned for one lane. Whether yours can is checked on your actual camera and recorder — the compatibility check takes the make and model and says what is still to verify.",
+          },
+          {
+            h3: "What you need at the gate",
+            text: "One camera per lane, at about plate height, where vehicles slow down; enough light on the plate at night without pointing into headlights; a network cable back to the recorder or processing unit; and a decision about who reviews the reads. A boom barrier is a separate scope, only if the gate has one that can accept a trigger.",
+          },
+          {
+            h3: "ANPR near you",
+            text: "PGAK is based in Ludhiana and looks at the gate before quoting, because placement is the project. The areas PGAK covers are listed on the service-area page; outside them, say where your site is and you will get a straight answer on whether it can be supported.",
+          },
+        ],
+      },
+      {
         h2: "Where an ANPR system actually pays for itself",
         body: "The value is concentrated in a few situations. Outside them, plate recognition is an expensive way to produce a log nobody reads.",
         points: [
@@ -2886,6 +2907,14 @@ export const SOLUTIONS: Solution[] = [
         a: "The one specified for your lane rather than a model name: plate height and distance, vehicle speed at the capture point, the angle of approach and night lighting decide what reads reliably. A general-purpose CCTV camera pointed at a wide gate often cannot read plates at all. We size the camera per lane after looking at the gate, and say where ANPR will not be reliable.",
       },
       {
+        q: "What is an ANPR camera?",
+        a: "A camera set up to read vehicle number plates rather than watch an area: mounted at about plate height, aimed along the lane, zoomed so the plate is large enough in the picture to read, with a fast shutter and night glare handling. Software in the camera or on a site processing unit converts each plate to text with a time and snapshot. A normal CCTV camera mounted high for a wide view usually cannot read plates, even if it is the same brand.",
+      },
+      {
+        q: "Can an existing CP Plus camera be used for ANPR?",
+        a: "Sometimes, for one lane, if it can be repositioned to plate height along the direction of travel and gives enough resolution across the plate. A CP Plus, Hikvision or Dahua camera installed high for general coverage usually cannot read plates where it is. The brand matters less than the model, placement and stream, which are checked on your actual camera before anything is quoted.",
+      },
+      {
         q: "What is an ANPR system?",
         a: "Automatic Number Plate Recognition — cameras and software that read vehicle registration plates automatically and log each movement with the plate, vehicle type, direction, time and a snapshot. It replaces the manual gate register with a record you can search.",
       },
@@ -2913,6 +2942,11 @@ export const SOLUTIONS: Solution[] = [
       "smart-perimeter-protection",
       "multi-site-cctv-monitoring",
       "residential-security",
+    ],
+    alsoSee: [
+      { href: "/platform/compatibility#check", label: "Check whether your gate camera can be used" },
+      { href: "/areas-we-serve", label: "Where PGAK installs and supports" },
+      { href: "/calculators/anpr-gate-time", label: "Estimate gate handling time" },
     ],
     insights: [
       "anpr-number-plate-recognition-when-it-works",
