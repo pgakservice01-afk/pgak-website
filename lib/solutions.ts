@@ -2946,7 +2946,6 @@ export const SOLUTIONS: Solution[] = [
     alsoSee: [
       { href: "/platform/compatibility#check", label: "Check whether your gate camera can be used" },
       { href: "/areas-we-serve", label: "Where PGAK installs and supports" },
-      { href: "/calculators/anpr-gate-time", label: "Estimate gate handling time" },
     ],
     insights: [
       "anpr-number-plate-recognition-when-it-works",

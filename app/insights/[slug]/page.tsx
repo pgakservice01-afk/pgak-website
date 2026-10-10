@@ -15,6 +15,7 @@ import {
 } from "@/lib/insights";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StorageCalc from "@/components/calc/StorageCalc";
+import { calculatorsForPage } from "@/lib/calc/registry";
 import JsonLd from "@/components/JsonLd";
 import { AUTHOR, pageMeta } from "@/lib/seo";
 import { bylineAuthor, personPath } from "@/lib/people";
@@ -165,6 +166,22 @@ export default async function InsightPost({ params }: Props) {
                 className="article-body mt-9"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
+
+              {!ARTICLE_TOOLS[post.slug] && calculatorsForPage(`/insights/${post.slug}`).length > 0 && (
+                <aside className="mt-10 rounded-[16px] border border-line p-6" aria-label="Calculator">
+                  <p className="eyebrow mb-2">Work it out for your site</p>
+                  <ul className="flex flex-col gap-2">
+                    {calculatorsForPage(`/insights/${post.slug}`).map((c) => (
+                      <li key={c.id}>
+                        <Link href={c.path!} className="text-link">
+                          {c.title}
+                        </Link>{" "}
+                        <span className="text-ink-soft">— {c.question}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
 
               {ARTICLE_TOOLS[post.slug] && (
                 <section className="mt-10" aria-labelledby="article-tool-h" id="calculator">

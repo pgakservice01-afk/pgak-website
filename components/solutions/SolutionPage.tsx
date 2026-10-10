@@ -11,6 +11,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import FeatureScenario from "@/components/calc/FeatureScenario";
 import { scenariosForPath } from "@/lib/calc/scenarios";
+import { calculatorsForPage } from "@/lib/calc/registry";
 import ScopeAndEvidence from "@/components/sections/ScopeAndEvidence";
 import {
   breadcrumbSchema,
@@ -258,6 +259,28 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
         {/* ------------------------------------------------ internal links */}
         <section className="sec">
           <div className="wrap grid gap-12 lg:grid-cols-2">
+            {calculatorsForPage(`/${s.slug}`).length > 0 && (
+              <div className="lg:col-span-2">
+                <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
+                  Work out the numbers for your site
+                </h2>
+                <ul className="mt-5 grid gap-3 md:grid-cols-2">
+                  {calculatorsForPage(`/${s.slug}`).map((c) => (
+                    <li key={c.id}>
+                      <Link
+                        href={c.path!}
+                        className="flex items-baseline gap-2 text-ink-soft transition-colors hover:text-accent"
+                      >
+                        <span className="text-accent">→</span>
+                        <span>
+                          <span className="text-ink">{c.title}</span> — {c.question}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div>
               <h2 className="display text-[clamp(1.4rem,2.6vw,1.9rem)]">
                 Related solutions

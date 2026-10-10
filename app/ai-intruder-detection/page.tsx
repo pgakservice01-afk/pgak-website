@@ -4,7 +4,10 @@ import { pageMeta } from "@/lib/seo";
 const s = BUYER_SOLUTIONS["ai-intruder-detection"];
 export const metadata = pageMeta({
   title: s.title + " | PGAK",
-  description: s.intro,
+  // Written for the search snippet: s.intro ran to 203 characters and was
+  // cut off, and the page sat at position 11 with a 0.8% CTR (90 days to 2 Oct).
+  description:
+    "Phone alerts with a snapshot when someone crosses a boundary you set, on the CCTV you already own. Tested on your own cameras before anything is quoted.",
   path: "/ai-intruder-detection",
 });
 export default function Page() {
