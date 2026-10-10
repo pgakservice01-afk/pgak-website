@@ -113,6 +113,7 @@ Regenerate: `npm run docs:claims` (02, 03) · `node scripts/check-drafts.mjs` (0
    - **AEBAS:** they describe its authentication methods wrongly.
 
    Corrected drafts exist (B081–B087, B089). The fastest safe path is a lawyer's review of those drafts, then promotion. If that will take weeks, decide whether to add a dated "under legal review" note. Unpublishing would lose traffic: `attendance-records-law-india` alone had 464 impressions in 28 days. I have not edited the live legal text myself, because rewriting legal statements needs the review it lacks.
+1. **Bing Webmaster Tools (new, 10 Oct):** Bing returns no pgak.co.in page, even for a branded or exact-title search. ChatGPT search and Copilot retrieve through Bing. Add the site, check for a spam or blocked notice, and submit the sitemap. See `docs/seo/2026-10-10/AI_VISIBILITY_RUN.md`.
 1. **Vercel** (signed in as `pgakservice01-afk`):
    - Set `LEAD_REGISTER_URL` and `LEAD_REGISTER_SECRET`.
    - Check Firewall, bot protection and attack-challenge history for 4–11 Sep.
