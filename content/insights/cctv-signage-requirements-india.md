@@ -1,6 +1,7 @@
 ---
 title: "Do you need CCTV signage? What the notice should say"
 date: "2026-09-16"
+updated: "2026-10-10"
 category: "Compliance"
 excerpt: "A camera without a notice is a compliance gap and a wasted deterrent. What the law actually expects, sample wording, and where the sign should go."
 readTime: 5
@@ -17,6 +18,7 @@ faqs:
   - q: "What happens if a business skips CCTV signage?"
     a: "Nothing immediate, but it creates a compliance gap if a data-protection complaint or inspection ever asks whether people were notified, it gives up a free deterrent, and it can become a sticking point in HR disputes over footage use. A basic sign at each monitored entrance closes all three gaps."
 ---
+> **Update, 10 October 2026.** The Digital Personal Data Protection Act's main duties on businesses — notices, consent, security safeguards, breach reporting and people's rights over their data — apply at the end of an eighteen-month phase-in that began when the DPDP Rules were notified in November 2025, which puts them in May 2027 ([PIB explainer, 17 November 2025](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf)). Where this article describes those duties, read them as what to prepare for, not as already enforceable. A revised version of this article is with a legal reviewer. This is general information, not legal advice.
 
 **Straight answer: yes, in effect. India's DPDP Act requires you to notify people before collecting their personal data, and a camera capturing faces does exactly that. Some state rules and sector-specific requirements go further. The cheap, low-effort fix is a clear notice at every entrance a camera covers — treat it as a compliance step and a deterrent, not decoration.**
 

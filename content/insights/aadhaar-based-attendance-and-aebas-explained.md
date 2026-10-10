@@ -1,7 +1,7 @@
 ---
 title: "Aadhaar based attendance and AEBAS, explained plainly"
 date: "2026-09-01"
-updated: "2026-09-08"
+updated: "2026-10-10"
 category: "Attendance"
 excerpt: "AEBAS is the government's Aadhaar-linked attendance system, and it is compulsory for some employers and unavailable to others. Here is who it actually applies to, and what private employers can use instead."
 metaTitle: "Aadhaar Based Attendance and AEBAS, Explained"
@@ -22,6 +22,7 @@ faqs:
   - q: "What can a private employer use instead of AEBAS?"
     a: "A self-contained attendance system where the employer enrols staff themselves. That is either a conventional fingerprint or card reader, or face recognition running on the entrance cameras the site already has. In both cases the biometric template belongs to the employer and is governed by the DPDP Act, with no connection to UIDAI."
 ---
+> **Update, 10 October 2026.** The Digital Personal Data Protection Act's main duties on businesses — notices, consent, security safeguards, breach reporting and people's rights over their data — apply at the end of an eighteen-month phase-in that began when the DPDP Rules were notified in November 2025, which puts them in May 2027 ([PIB explainer, 17 November 2025](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf)). Where this article describes those duties, read them as what to prepare for, not as already enforceable. A revised version of this article is with a legal reviewer. This is general information, not legal advice.
 
 **Straight answer: AEBAS is the government's own Aadhaar-linked attendance system, and if you are a private employer you almost certainly cannot use it. The question worth asking is not "how do we get on AEBAS" but "what gives us an attendance record we can actually defend on payroll day".**
 
