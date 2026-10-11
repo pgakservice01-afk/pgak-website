@@ -1,4 +1,5 @@
 # Public content is available to Google, Bing, OAI-SearchBot and PerplexityBot.
+# Readable guides: https://www.pgak.co.in/llms.txt and https://www.pgak.co.in/sitemap.md (Markdown site map; articles also at /insights/<slug>.md).
 User-agent: *
 Allow: /
 Disallow: /api/

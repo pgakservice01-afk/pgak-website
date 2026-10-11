@@ -4,7 +4,7 @@ metaTitle: "How many days is CCTV footage stored?"
 date: "2026-09-10"
 category: "Camera Setup"
 excerpt: "The retention figure quoted at installation almost always shrinks — quietly, as cameras get added and nobody redoes the math. A simple calculation to find your real number today."
-metaDescription: "Your real retention is recorder capacity divided by what every camera writes per day, not the installation quote. How to work out your actual number."
+metaDescription: "Retention is recorder capacity divided by what every camera writes per day, not the installation quote. Work out your own number with the calculator here."
 readTime: 5
 image: "/insights/covers/cctv-storage-how-many-days.webp"
 faqs:

@@ -82,6 +82,10 @@ function buildLlmsTxt(): string {
 
 > PGAK Innovations Pvt. Ltd. builds AI video analytics for existing CCTV cameras. Assess intrusion detection, face recognition, attendance, loitering, camera health and real-time alerts for factories, warehouses, offices, retail and commercial sites in India.
 
+If you are an LLM looking for site information, use the content map to locate the relevant topic and its linked Markdown answer. Use that document's cited sources and canonical page; if the requested information is absent, report that gap.
+
+- [Site map in Markdown](${SITE_URL}/sitemap.md): every page on the site, with Markdown versions of the articles
+
 Compatibility is checked on each site's feeds. RTSP or ONVIF access, camera placement, lighting, connectivity and processing requirements affect suitability. An on-site processing device may be required. Detection quality and alert timing should be measured in a pilot; there is no universal accuracy or latency guarantee.
 
 PGAK quotes each deployment individually. Confirm cameras, sites, analytics, hardware, setup, subscription, support and taxes in the written quote. Published deployment scenarios are illustrative, not verified customer case studies or measured results.

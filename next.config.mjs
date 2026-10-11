@@ -32,15 +32,22 @@ const nextConfig = {
     // directly — set PGAK_DEV_API_PROXY=1 and NEXT_PUBLIC_PGAK_API=/pgak-api in
     // .env.local and the wall works locally against real cameras. Off (the
     // default) this returns no rewrites and prod behaviour is untouched.
+    // Article Markdown mirrors: /insights/<slug>.md is served by the route
+    // handler under /api/md (already Disallowed in robots.txt, so the internal
+    // path is never crawled; the public .md URL is).
+    const markdown = [
+      { source: "/insights/:slug([a-z0-9-]+).md", destination: "/api/md/insights/:slug" },
+    ];
     if (process.env.NODE_ENV === "development" && process.env.PGAK_DEV_API_PROXY) {
       return [
+        ...markdown,
         {
           source: "/pgak-api/:path*",
           destination: "https://cloud.pgak.co.in/api/v1/:path*",
         },
       ];
     }
-    return [];
+    return markdown;
   },
 
   async redirects() {
