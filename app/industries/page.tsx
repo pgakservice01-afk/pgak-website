@@ -29,7 +29,7 @@ import { getAllInsights } from "@/lib/insights";
 const PATH = "/industries";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV by Industry in India — Factories, Mandis, Retail | PGAK",
+  title: "AI CCTV by Industry: Factories, Mandis, Retail | PGAK",
   description:
     "AI CCTV and attendance by sector: factories, warehouses, textile units, rice shellers, cold storage, retail, pharmacies, hotels, schools and more.",
   path: PATH,

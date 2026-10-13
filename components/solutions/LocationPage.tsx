@@ -303,7 +303,7 @@ export default function LocationPage({ location }: { location: Location }) {
                   quotation.
                 </p>
                 <Link
-                  href="/cctv-installation-company#plan"
+                  href="/cctv-installation-company#dealer"
                   data-cta={`city-${l.slug}-delivery-new`}
                   className="mt-4 inline-block text-accent underline underline-offset-2"
                 >

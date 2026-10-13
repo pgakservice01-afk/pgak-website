@@ -77,4 +77,4 @@ Cameras get disabled. That is not a failure of your cameras, it is the normal sh
 
 The camera recorded everything up to that moment. The question worth asking of any system is who gets told, and how quickly.
 
-If you want to know how your current setup would behave — including how long a dead camera would go unnoticed today — [tell us what you have](/#dealer) and we will walk through it. Testing it on your own site takes one unplugged cable and a stopwatch, and you can do that yourself before speaking to anybody.
+If you want to know how your current setup would behave — including how long a dead camera would go unnoticed today — [tell us what you have](/#assessment) and we will walk through it. Testing it on your own site takes one unplugged cable and a stopwatch, and you can do that yourself before speaking to anybody.

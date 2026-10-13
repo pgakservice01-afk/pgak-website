@@ -54,4 +54,4 @@ PGAK adds that layer on top of your existing CCTV, IP cameras and DVR/NVR, using
 
 **Your cameras can already see. The question is whether anything is paying attention.**
 
-*Want to know what your current setup can and can't do? [Get a free AI readiness audit](/#audit) — we analyse your existing feeds and tell you honestly.*
+*Want to know what your current setup can and can't do? [Get a free AI readiness audit](/#assessment) — we analyse your existing feeds and tell you honestly.*

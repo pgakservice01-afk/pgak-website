@@ -95,7 +95,7 @@ None of this is onerous, and most of it is documentation you should have anyway.
 
 AI CCTV is legal in India. Face recognition on your own workforce is legal too, on a defensible basis and with the transparency the DPDP Act is built around. What is not defensible is collecting identity data nobody was told about, for a purpose nobody defined, kept forever, visible to anyone.
 
-If you want to talk through what your site actually needs — including whether you need face recognition at all, which for a lot of perimeter and theft problems you don't — [tell us what you're trying to prevent](/#dealer) and we'll be straight about the lightest thing that solves it.
+If you want to talk through what your site actually needs — including whether you need face recognition at all, which for a lot of perimeter and theft problems you don't — [tell us what you're trying to prevent](/#assessment) and we'll be straight about the lightest thing that solves it.
 
 *Again: practitioner's summary, not legal advice. Your counsel gets the final word.*
 

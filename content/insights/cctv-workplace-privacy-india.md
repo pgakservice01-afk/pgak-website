@@ -1,5 +1,6 @@
 ---
 title: "CCTV in the workplace: what you may and may not record"
+metaTitle: "CCTV at work: what you may and may not record"
 date: "2026-09-15"
 category: "Compliance"
 excerpt: "Workplace CCTV is legal in India, but not everywhere and not without conditions. What you can point a camera at, what's off-limits, and the notice you owe employees before you switch it on."

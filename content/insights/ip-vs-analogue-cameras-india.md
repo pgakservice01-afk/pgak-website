@@ -1,5 +1,6 @@
 ---
 title: "IP or analogue cameras: the honest comparison for India"
+metaTitle: "IP vs analogue cameras: an honest India comparison"
 date: "2026-09-11"
 category: "Buying Guide"
 excerpt: "Every quote pushes IP cameras as the upgrade. For a lot of Indian sites, a modern analogue system with a good DVR does the job for less money and less cabling headache. Here's when each one actually wins."

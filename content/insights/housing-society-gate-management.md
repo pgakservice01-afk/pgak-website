@@ -1,5 +1,6 @@
 ---
 title: "Housing society gates: visitors, vehicles and accountability"
+metaTitle: "Housing society gates: visitors and vehicles"
 date: "2026-09-19"
 category: "Security Basics"
 excerpt: "The visitor register at most housing society gates is a formality nobody checks until something goes wrong. What a gate actually needs to record, and why the argument over who can watch the footage matters as much as the cameras themselves."

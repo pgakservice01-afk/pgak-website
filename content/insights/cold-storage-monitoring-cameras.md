@@ -1,5 +1,6 @@
 ---
 title: "Cold storage: cameras, doors and the cost of a door left open"
+metaTitle: "Cold storage cameras: doors, alerts and costs"
 date: "2026-09-18"
 category: "Security Basics"
 excerpt: "In cold storage, a door left open for ten minutes is a bigger loss than most thefts. What camera-based door monitoring actually catches, and where a plain door sensor still does the job better."

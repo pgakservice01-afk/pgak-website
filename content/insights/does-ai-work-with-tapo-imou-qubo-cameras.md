@@ -1,5 +1,6 @@
 ---
 title: "Does AI work with my Tapo, Imou, Qubo or Prama camera?"
+metaTitle: "Does AI work with Tapo, Imou, Qubo or Prama?"
 date: "2026-09-14"
 category: "Camera Setup"
 excerpt: "The honest answer is that the brand is not really the question — what matters is whether the camera will hand over an RTSP stream."

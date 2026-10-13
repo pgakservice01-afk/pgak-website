@@ -7,6 +7,20 @@ import { EVIDENCE_DATE } from "@/lib/b2b/claims";
 import { publishedProjects } from "@/lib/proof/projects";
 import { DEMO_TASKS, guideFor } from "@/lib/proof/demo-guide";
 import DemoTaskFilter from "@/components/tools/DemoTaskFilter";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/seo";
+
+/**
+ * When each clip was first published on www.pgak.co.in: the date its file was
+ * added to the repository (git log --diff-filter=A on public/proof/*.mp4).
+ * That is an upload date, not a recording date; the recording conditions stay
+ * in each record's `conditions` text.
+ */
+const UPLOADED: Record<string, string> = {
+  "/proof/ppe-gloves.mp4": "2026-09-24",
+  "/proof/dock-count.mp4": "2026-09-24",
+  "/proof/hot-work.mp4": "2026-09-27",
+};
 
 export const metadata = pageMeta({
   title: "PGAK demonstrations you can inspect | PGAK",
@@ -22,6 +36,24 @@ export const metadata = pageMeta({
  */
 export default function Page() {
   const projects = publishedProjects();
+  // VideoObject for each published clip, built from the same records the page
+  // renders, so the markup cannot say more than the visible card does.
+  const videos = projects.flatMap((p) =>
+    p.media.kind === "video" && UPLOADED[p.media.src]
+      ? [
+          {
+            "@type": "VideoObject",
+            "@id": `${SITE_URL}/resources/evidence#video-${p.id}`,
+            name: p.title,
+            description: `${p.description} Limits: ${p.limits}`,
+            thumbnailUrl: `${SITE_URL}${p.media.poster}`,
+            contentUrl: `${SITE_URL}${p.media.src}`,
+            uploadDate: UPLOADED[p.media.src],
+            duration: `PT${p.media.durationSeconds}S`,
+          },
+        ]
+      : [],
+  );
   return (
     <BuyerPage
       title="PGAK demonstrations you can inspect"
@@ -29,6 +61,7 @@ export default function Page() {
       path="/resources/evidence"
       eyebrow="EVIDENCE"
     >
+      {videos.length > 0 && <JsonLd nodes={videos} id="evidence-videos" />}
       <section>
         <div className="evidence-meta">
           <span>Evidence status</span>

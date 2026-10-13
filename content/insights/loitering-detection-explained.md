@@ -1,5 +1,6 @@
 ---
 title: "Loitering detection: what it catches that motion does not"
+metaTitle: "Loitering detection: what motion alerts miss"
 date: "2026-09-13"
 category: "Security Basics"
 excerpt: "Motion detection fires on anything that moves. Loitering detection adds a dimension motion can't see — how long someone stays. Where that difference earns its place, and where it just adds noise."

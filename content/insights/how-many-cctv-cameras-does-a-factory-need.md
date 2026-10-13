@@ -96,4 +96,4 @@ That ordering also protects you from the most expensive mistake available, which
 
 Count entrances, count value, list the events you want to know about, and give every camera one job. The number comes out of that, and you will be able to defend each position — which is more than most quotes can do.
 
-If you want a second opinion on a quote you have been given, or a list of positions for a site you are planning, [tell us the site and what you're trying to prevent](/#dealer). We will tell you which cameras we think are unnecessary, which is usually the more useful half of the answer.
+If you want a second opinion on a quote you have been given, or a list of positions for a site you are planning, [tell us the site and what you're trying to prevent](/#assessment). We will tell you which cameras we think are unnecessary, which is usually the more useful half of the answer.

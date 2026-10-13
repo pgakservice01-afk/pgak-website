@@ -81,7 +81,7 @@ import "./home.css";
 const PATH = "/";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV Video Analytics & Smart Security Assessment in India | PGAK",
+  title: "AI Video Analytics for Existing CCTV in India | PGAK",
   description:
     "AI video analytics for the CCTV you already have: check which cameras can be used, see PGAK's recorded demonstrations, and get a scope for your site.",
   path: PATH,

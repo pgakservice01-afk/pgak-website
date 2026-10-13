@@ -153,6 +153,21 @@ export function getInsight(slug: string): Insight | null {
   return { ...meta, ...(file === draft ? { draft: true } : {}), html };
 }
 
+/**
+ * The reviewed Markdown body behind an article, for its /insights/<slug>.md
+ * mirror. Same file, same draft rule and same slug guard as getInsight, so
+ * the Markdown can never say something the HTML page does not.
+ */
+export function getInsightSource(slug: string): { meta: InsightMeta; markdown: string; draft: boolean } | null {
+  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  const draft = showDrafts() ? path.join(DRAFT_DIR, `${slug}.md`) : "";
+  const live = path.join(CONTENT_DIR, `${slug}.md`);
+  const file = draft && fs.existsSync(draft) ? draft : live;
+  if (!fs.existsSync(file)) return null;
+  const { data, content } = matter(fs.readFileSync(file, "utf8"));
+  return { meta: toMeta(slug, data, content), markdown: content.trim(), draft: file === draft };
+}
+
 function readMeta(file: string, dir = CONTENT_DIR): InsightMeta {
   const raw = fs.readFileSync(path.join(dir, file), "utf8");
   const { data, content } = matter(raw);

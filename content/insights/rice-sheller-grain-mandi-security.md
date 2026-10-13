@@ -1,5 +1,6 @@
 ---
 title: "Rice shellers and grain mandis: seasonal labour and stock"
+metaTitle: "Rice sheller and mandi security: labour and stock"
 date: "2026-09-19"
 category: "Security Basics"
 excerpt: "For a few weeks each procurement season, a mandi or rice sheller triples its headcount and stacks its yard full of bags worth more than the rest of the year's stock combined. Why the security plan that works in the off-season falls apart exactly when it matters most."
