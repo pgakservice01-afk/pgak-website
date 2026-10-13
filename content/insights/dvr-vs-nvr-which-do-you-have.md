@@ -1,5 +1,6 @@
 ---
 title: "DVR or NVR: which do you actually have, and does it matter"
+metaTitle: "DVR or NVR: which do you have, and does it matter"
 date: "2026-09-10"
 category: "Camera Setup"
 excerpt: "Most site owners can't say whether their recorder is a DVR or an NVR, and it matters the day you want to add AI analytics. A two-minute way to check, and what each answer means for you."

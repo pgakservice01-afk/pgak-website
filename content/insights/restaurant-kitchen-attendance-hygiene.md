@@ -1,5 +1,6 @@
 ---
 title: "Restaurants: attendance without a shared-touch device in the kitchen"
+metaTitle: "Restaurant attendance without a shared-touch device"
 date: "2026-09-17"
 category: "Attendance"
 excerpt: "A fingerprint scanner outside a kitchen is touched by every hand that later touches food. Why restaurants are moving staff attendance to a camera at the door, and where that still needs a backup plan."

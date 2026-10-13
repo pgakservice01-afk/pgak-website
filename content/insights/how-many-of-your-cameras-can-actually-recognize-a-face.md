@@ -55,4 +55,4 @@ Any camera that fails two of the three will not reliably identify people — no 
 
 **Recognition isn't bought with megapixels. It's earned with placement.**
 
-*Not sure which of your cameras make the cut? [Get a free per-camera readiness score](/#audit) — we grade each feed for placement, angle and light, and tell you the one change worth making.*
+*Not sure which of your cameras make the cut? [Get a free per-camera readiness score](/#assessment) — we grade each feed for placement, angle and light, and tell you the one change worth making.*

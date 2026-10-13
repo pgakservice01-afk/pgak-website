@@ -14,7 +14,7 @@ import { pageMeta } from "@/lib/seo";
 const PATH = "/calculators";
 
 export const metadata: Metadata = pageMeta({
-  title: "CCTV Business-Case Calculators — Storage, Bandwidth, ROI | PGAK",
+  title: "CCTV Calculators: Storage, Bandwidth, ROI | PGAK",
   description:
     "Free calculators for CCTV buyers: ROI and payback, retrofit versus replacement cost, storage and retention, bandwidth and cloud transfer. Runs in your browser.",
   path: PATH,

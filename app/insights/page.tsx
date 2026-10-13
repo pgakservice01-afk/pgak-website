@@ -189,7 +189,7 @@ export default function InsightsIndex() {
                 Every guide, by topic
               </h2>
               <nav aria-label="Topics" className="mt-4 flex flex-wrap gap-2 text-[0.88rem]">
-                {CLUSTERS.map((c) => (
+                {CLUSTERS.filter((c) => posts.some((p) => clusterOf(p.slug, p.category) === c.id)).map((c) => (
                   <a key={c.id} href={`#topic-${c.id}`} className="rounded-full border border-line px-3 py-1 hover:border-accent">
                     {c.name}
                   </a>

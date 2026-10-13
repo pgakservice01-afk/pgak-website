@@ -1,5 +1,6 @@
 ---
 title: "Hotels: guest safety and staff attendance on one estate"
+metaTitle: "Hotel security and staff attendance on one estate"
 date: "2026-09-16"
 category: "Security Basics"
 excerpt: "Hotel security usually gets judged on guest floors, but the weak point is housekeeping attendance and back-of-house doors. What good coverage and a workable attendance system actually look like."

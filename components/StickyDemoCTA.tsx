@@ -22,7 +22,7 @@ import { usePathname } from "next/navigation";
 export default function StickyDemoCTA() {
   const pathname = usePathname();
   const [show, setShow] = useState(false);
-  const [href, setHref] = useState("/#dealer");
+  const [href, setHref] = useState("/#assessment");
 
   useEffect(() => {
     // The homepage form is #assessment; every other page's form is #dealer.

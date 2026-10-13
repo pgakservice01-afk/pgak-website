@@ -87,4 +87,4 @@ Ask where the thinking happens. On-site processing means the system keeps watchi
 
 And put the whole chain on a UPS. That single decision does more for uptime than any feature on the quote.
 
-If you want to know what your site would actually need — including whether your existing connection is good enough — [tell us your camera count and where you are](/#dealer), and we will be specific about it.
+If you want to know what your site would actually need — including whether your existing connection is good enough — [tell us your camera count and where you are](/#assessment), and we will be specific about it.

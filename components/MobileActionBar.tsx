@@ -31,10 +31,10 @@ const TEL = BUSINESS.phoneE164;
 export default function MobileActionBar() {
   const { t } = useLang();
   const pathname = usePathname();
-  const [auditHref, setAuditHref] = useState("/#dealer");
+  const [auditHref, setAuditHref] = useState("/#assessment");
 
   useEffect(() => {
-    setAuditHref(document.getElementById("dealer") ? "#dealer" : "/#dealer");
+    setAuditHref(document.getElementById("dealer") ? "#dealer" : "/#assessment");
   }, [pathname]);
 
   return (

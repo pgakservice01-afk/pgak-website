@@ -1,5 +1,6 @@
 ---
 title: "Can you add AI to existing CCTV cameras without replacing them?"
+metaTitle: "Add AI to existing CCTV without replacing cameras"
 date: "2026-08-31"
 updated: "2026-10-05"
 category: "Buying Guide"

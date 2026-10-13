@@ -588,6 +588,10 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "retail-shop-security",
+    // Educational feature guides on capabilities related to this page's buyer (explainers, not product claims).
+    alsoSee: [
+      { href: "/features/guides/abandoned-object", label: "How abandoned-object detection works" },
+    ],
     group: "security",
     navLabel: "Retail",
     primaryKeyword: "retail shop security system",
@@ -691,6 +695,7 @@ export const SOLUTIONS: Solution[] = [
     // same product with a different buyer, and they arrive on this page first
     // because they search "home security", not "nri property".
     alsoSee: [
+      { href: "/features/guides/tailgating", label: "Tailgating detection at gates and doors" },
       {
         href: "/nri-property-security",
         label: "NRI property security — watching a Punjab home from abroad",
@@ -879,6 +884,10 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "school-security",
+    // Educational feature guides on capabilities related to this page's buyer (explainers, not product claims).
+    alsoSee: [
+      { href: "/features/guides/privacy-masking", label: "How face privacy masking works on CCTV" },
+    ],
     group: "security",
     navLabel: "Schools",
     primaryKeyword: "school security system",
@@ -973,6 +982,11 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "hospital-security",
+    // Educational feature guides on capabilities related to this page's buyer (explainers, not product claims).
+    alsoSee: [
+      { href: "/features/guides/privacy-masking", label: "How face privacy masking works on CCTV" },
+      { href: "/features/guides/abandoned-object", label: "How abandoned-object detection works" },
+    ],
     group: "security",
     navLabel: "Hospitals",
     primaryKeyword: "hospital security system",
@@ -1067,6 +1081,11 @@ export const SOLUTIONS: Solution[] = [
 
   {
     slug: "smart-perimeter-protection",
+    // Educational feature guides on capabilities related to this page's buyer (explainers, not product claims).
+    alsoSee: [
+      { href: "/features/guides/tailgating", label: "Tailgating detection at gates and doors" },
+      { href: "/features/guides/abandoned-object", label: "How abandoned-object detection works" },
+    ],
     group: "security",
     navLabel: "Perimeter protection",
     primaryKeyword: "smart perimeter protection",
@@ -2233,6 +2252,10 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "commercial-cctv",
+    // Educational feature guides on capabilities related to this page's buyer (explainers, not product claims).
+    alsoSee: [
+      { href: "/features/guides/onvif-integration", label: "ONVIF: what it means for using your existing cameras" },
+    ],
     group: "security",
     navLabel: "Commercial CCTV",
     primaryKeyword: "commercial CCTV",
@@ -2359,6 +2382,11 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     slug: "industrial-cctv",
+    // Educational feature guides on capabilities related to this page's buyer (explainers, not product claims).
+    alsoSee: [
+      { href: "/features/guides/smoke-flame", label: "Video smoke and flame detection: uses and limits" },
+      { href: "/features/guides/onvif-integration", label: "ONVIF: what it means for using your existing cameras" },
+    ],
     group: "security",
     proof: {
       eyebrow: "From our own test setup",

@@ -1,5 +1,6 @@
 ---
 title: "Jewellery retail security: layered, not just more cameras"
+metaTitle: "Jewellery shop security: layered, not more cameras"
 date: "2026-09-18"
 category: "Security Basics"
 excerpt: "Most jewellery shops respond to a scare by adding cameras at the door. The bigger gaps are usually at the counter, the strongroom and the street outside — and inside the staff roster, handled fairly."

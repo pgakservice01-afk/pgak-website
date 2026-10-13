@@ -1,5 +1,6 @@
 ---
 title: "Number plate recognition: when it works and when it does not"
+metaTitle: "ANPR: when number plate recognition works"
 date: "2026-09-13"
 category: "Security Basics"
 excerpt: "ANPR reads number plates reliably in a narrower set of conditions than most brochures admit. What actually makes it work, and where it quietly fails."

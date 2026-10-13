@@ -1,6 +1,6 @@
 ---
 title: "How to compare AI video analytics suppliers in India: what each one actually publishes"
-metaTitle: "Comparing AI video analytics suppliers in India (Oct 2026)"
+metaTitle: "AI video analytics suppliers in India compared"
 date: "2026-10-05"
 category: "Buying Guide"
 excerpt: "Price, pilot, compatibility, proof and local presence — what five suppliers state on their own websites, checked on 5 October 2026, and the questions that separate them."

@@ -95,4 +95,4 @@ The market range in India is wide — we broke down what drives it in [what shou
 
 Normal CCTV gives you the recording. AI CCTV gives you the phone call. If you keep discovering things late, that is the whole product and it is worth the money. If your cameras don't cover the right places or can't see at night, no software fixes that, and anyone telling you otherwise is selling.
 
-Want to know which of your existing cameras could do this without being replaced? [Tell us what you've got](/#dealer) and we'll go through it honestly, camera by camera.
+Want to know which of your existing cameras could do this without being replaced? [Tell us what you've got](/#assessment) and we'll go through it honestly, camera by camera.

@@ -383,7 +383,7 @@ export default function LiveClient() {
           <p className="mt-4 text-center text-[0.82rem] text-ink-faint">
             {t("Not a customer yet?", "अभी ग्राहक नहीं हैं?")}{" "}
             <a
-              href="/#dealer"
+              href="/#assessment"
               data-cta="live-to-audit"
               className="inline-flex min-h-11 items-center px-1 text-accent hover:underline"
             >
