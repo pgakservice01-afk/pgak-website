@@ -18,6 +18,26 @@ export type SolutionSection = {
   h2: string;
   body: string;
   points?: { h3: string; text: string }[];
+  /** A scene-setting stock photograph beside the section. */
+  photo?: StockPhoto;
+};
+
+/**
+ * A licensed stock photograph that shows the kind of place a page is about.
+ *
+ * The third kind of picture on the site, after proof (a photograph of
+ * something PGAK did) and coverage (a drawing of a design argument). Stock is
+ * never a PGAK site, a customer or a result, so it is rendered with a caption
+ * that says so. Files are `/public/stock/{file}-{width}.webp`, cropped 3:2;
+ * where each one came from is recorded in docs/proof/STOCK_PHOTOS.md.
+ */
+export type StockPhoto = {
+  file: string;
+  /** The two widths on disk, small then large. */
+  widths: [number, number];
+  alt: string;
+  credit: string;
+  sourceUrl: string;
 };
 
 /** Nav/listing grouping. Keeps the Solutions menu readable as the set grows. */
@@ -133,6 +153,8 @@ export type Solution = {
   offer?: { label: string; note: string };
   /** Original photographs or product screenshots for this page, if any exist. */
   proof?: SolutionProof;
+  /** A stock photograph beside the hero. Illustrative, and captioned as such. */
+  heroPhoto?: StockPhoto;
   /** An illustrated walkthrough of where cameras go. Never a customer site. */
   coverage?: SolutionCoverage;
 };
@@ -463,6 +485,7 @@ export const SOLUTIONS: Solution[] = [
       "ai-intruder-detection",
       "cctv-installation-company",
       "commercial-cctv",
+      "desk-tracking",
     ],
     insights: [
       "how-many-of-your-cameras-can-actually-recognize-a-face",
@@ -583,6 +606,140 @@ export const SOLUTIONS: Solution[] = [
       "nobody-can-watch-120-camera-feeds",
       "stop-threats-before-they-happen",
       "how-many-cctv-cameras-does-a-factory-need",
+    ],
+  },
+
+  {
+    slug: "ppe-kit-detection",
+    group: "security",
+    navLabel: "PPE detection",
+    primaryKeyword: "PPE kit detection",
+    relatedKeywords: [
+      "PPE compliance monitoring",
+      "safety helmet and vest detection",
+      "construction site PPE monitoring",
+      "factory safety CCTV",
+    ],
+    title: "PPE Kit Detection on Existing CCTV — Tested on Your Cameras | PGAK",
+    description:
+      "PPE kit detection on existing CCTV. PGAK's published recording flags bare hands on a line; helmets, vests and other kit are tested on your own cameras first.",
+    eyebrow: "Factories, plants & construction sites",
+    h1: "PPE kit detection on the cameras your site already has",
+    heroPhoto: {
+      file: "ppe-supervisor-helmet-vest",
+      widths: [800, 1600],
+      alt: "A site supervisor in a yellow safety helmet and high-visibility vest holding a clipboard",
+      credit: "RDNE Stock project",
+      sourceUrl: "https://www.pexels.com/photo/a-man-in-yellow-hard-hat-holding-a-clipboard-8293670/",
+    },
+    intro:
+      "PPE kit detection looks in the views your existing CCTV already has for the safety kit an area requires — a helmet, a high-visibility vest, gloves. PGAK has demonstrated one item so far, bare hands on an overhead assembly-line camera; every other item, and how a missing item reaches a supervisor, is tested on your own cameras before it is quoted. It supports a safety supervisor rather than replacing one.",
+    painPoints: [
+      "Helmet rules are enforced only when a supervisor happens to be standing there.",
+      "The safety officer hears about bare hands on the line after the near miss, not before.",
+      "An audit asks how PPE is checked, and the only record is a signed register.",
+    ],
+    sections: [
+      {
+        h2: "How PPE kit detection works",
+        body: "On your cameras PGAK tests which items can be seen in the areas you choose, and how a missing item would reach a supervisor — with a snapshot, after how long and to whom. Those details go into the written scope once that test has worked. In PGAK's published recording the model boxes bare hands directly, with a confidence figure on each, and every detection is meant for a person to judge.",
+        points: [
+          {
+            h3: "Rules by zone",
+            text: "Only the areas you draw — the line, the gate, the scaffold — are checked.",
+          },
+          {
+            h3: "A snapshot with each alert",
+            text: "So a supervisor can judge an alert before walking over.",
+          },
+          {
+            h3: "Your recorder stays as it is",
+            text: "Recording carries on exactly as it does today.",
+          },
+        ],
+        photo: {
+          file: "ppe-gloved-hands",
+          widths: [600, 1200],
+          alt: "Hands in knitted safety gloves holding a few small screws",
+          credit: "Ron Lach",
+          sourceUrl: "https://www.pexels.com/photo/person-wearing-protective-gloves-holding-silver-screws-8821014/",
+        },
+      },
+      {
+        h2: "Which PPE items can be checked",
+        body: "On a factory floor or for construction site PPE monitoring, helmets and high-visibility vests are the usual starting point; gloves, shoes and masks need a closer view. Which items each camera can check is agreed at the site assessment. PGAK's published recording shows one item — bare hands on an assembly line — and every other item is tested on your cameras before it is quoted.",
+        photo: {
+          file: "ppe-vests-helmets-rack",
+          widths: [600, 1200],
+          alt: "Orange high-visibility vests and blue safety helmets hanging on a rack",
+          credit: "Carsten Ruthemann",
+          sourceUrl: "https://www.pexels.com/photo/orange-safety-vests-and-blue-helmets-hanging-34442873/",
+        },
+      },
+      {
+        h2: "What it is not",
+        body: "It is a PPE compliance monitoring aid, not a replacement for a safety officer, a permit system or training — and a camera only sees what is in front of it. PGAK publishes no accuracy figures for PPE; it is judged by a test on your own cameras. It checks for kit, not identity, so no face recognition is needed.",
+      },
+    ],
+    stats: [
+      { value: "Per zone", label: "PPE rules for the areas you draw, set up and tested at your site" },
+      { value: "Snapshot", label: "With each alert, for a person to judge" },
+      { value: "Your cameras", label: "Tested on the cameras you already have" },
+    ],
+    faqs: [
+      {
+        q: "What is PPE kit detection?",
+        a: "Video analytics that checks whether people in a camera view are wearing the protective equipment an area requires — such as a helmet, vest or gloves — and alerts a supervisor with a snapshot when an item is missing.",
+      },
+      {
+        q: "Can it work with our existing CCTV cameras?",
+        a: "It can, if the camera gives a clear enough view of the item; PGAK's published recording used a camera already fitted above a line. PGAK reviews your camera views at the assessment and tells you which items each one can check before anything is quoted.",
+      },
+      {
+        q: "How accurate is PPE detection?",
+        a: "PGAK does not publish an accuracy figure, because it changes with every camera, angle and light. The acceptance test on your site records useful alerts, false alerts and misses so you can judge it yourself.",
+      },
+      {
+        q: "Does PPE detection need face recognition?",
+        a: "No. It checks for equipment, not identity.",
+      },
+    ],
+    proof: {
+      eyebrow: "Recorded by PGAK on an existing line camera",
+      heading: "Bare hands flagged on an assembly line",
+      intro:
+        "A clip from a camera already fitted above a vehicle chassis line, playing at about twice real speed. No camera was added for this.",
+      items: [
+        {
+          src: "/proof/ppe-gloves-poster.webp",
+          video: { src: "/proof/ppe-gloves.mp4", durationSeconds: 14 },
+          alt: "Assembly line camera view with detection boxes drawn on workers' hands and a confidence figure beside each label",
+          width: 1280,
+          height: 720,
+          title: "Bare hands flagged, with the model's confidence on each box",
+          caption:
+            "Bare hands are flagged on an assembly line. The box is drawn on the hand rather than the person, and the figure beside each label is the model's confidence, which changes from frame to frame. Low figures are left in deliberately: they are the sort of detection a supervisor should be checking, not one a system should act on by itself.",
+          conditions:
+            "Recorded on an existing overhead line camera; the clip's burned-in overlay reads 01-04-2023, 16:57. No camera was added for this.",
+        },
+      ],
+      limits:
+        "Gloves are one PPE class. Which classes apply to a site is confirmed at the assessment before anything is quoted.",
+    },
+    related: [
+      "industrial-cctv",
+      "factory-security",
+      "attendance-system-for-construction-sites",
+      "ai-cctv-for-warehouses",
+      "video-analytics-software",
+    ],
+    insights: [
+      "how-many-cctv-cameras-does-a-factory-need",
+      "masks-helmets-turbans-face-recognition",
+    ],
+    alsoSee: [
+      { href: "/features/guides/ppe-detection", label: "How PPE detection works — the guide" },
+      { href: "/platform/capabilities", label: "Hot-work monitoring and other on-camera checks" },
     ],
   },
 
@@ -2003,6 +2160,7 @@ export const SOLUTIONS: Solution[] = [
       "face-recognition-attendance-system",
       "ai-cctv-for-offices",
       "cctv-installation-company",
+      "desk-tracking",
     ],
     insights: [
       "face-recognition-attendance-vs-biometric-machine",
@@ -2011,6 +2169,117 @@ export const SOLUTIONS: Solution[] = [
       "attendance-leave-management-integration",
     ],
   },
+  {
+    slug: "desk-tracking",
+    group: "attendance",
+    navLabel: "Desk tracking",
+    primaryKeyword: "desk tracking system",
+    relatedKeywords: [
+      "desk occupancy monitoring",
+      "workstation occupancy",
+      "unattended counter",
+      "employee desk time",
+    ],
+    title: "Desk Tracking System — Desk & Post Occupancy on CCTV | PGAK",
+    description:
+      "Desk tracking from overhead CCTV: how long each desk or counter was occupied, and when a staffed post stood empty, hour by hour. No desk sensors needed.",
+    eyebrow: "Offices, front desks & control rooms",
+    h1: "A desk tracking system that runs on your existing CCTV",
+    heroPhoto: {
+      file: "desk-open-office",
+      widths: [800, 1600],
+      alt: "A bright open-plan office with rows of workstations divided by low glass partitions",
+      credit: "Doan Thanh Binh",
+      sourceUrl: "https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/",
+    },
+    intro:
+      "A desk tracking system shows how long each desk, counter or post was actually occupied, and when a post that should be staffed stood empty. PGAK's works from overhead CCTV — a zone around each chair, no badges or desk sensors — and is tested on your own cameras first.",
+    painPoints: [
+      "The reception or billing counter is empty and nobody notices until a customer complains.",
+      "A security post must be staffed all night, and the only check is a phone call.",
+      "Desk sensors were quoted, and nobody wanted another device on every desk.",
+    ],
+    sections: [
+      {
+        h2: "How desk tracking works",
+        body: "An installer draws a small zone around each chair on a ceiling camera's view. A seat counts as occupied once someone has sat there for a short time, so people walking past are ignored and a brief gap does not end the session. Sitting time adds up into hours per desk, per day.",
+        points: [
+          {
+            h3: "One zone per chair",
+            text: "Seat detection sees whether someone is in the seat, not who. An assigned seat's time is recorded against the employee it is assigned to.",
+          },
+          {
+            h3: "No sensors on desks",
+            text: "It uses camera views you already record.",
+          },
+          {
+            h3: "No extra footage kept",
+            text: "It stores sitting times, not more video.",
+          },
+        ],
+        photo: {
+          file: "desk-workstations-overhead",
+          widths: [600, 1200],
+          alt: "Two office workstations seen from directly above, with people typing at keyboards",
+          credit: "Ron Lach",
+          sourceUrl: "https://www.pexels.com/photo/people-at-work-8691827/",
+        },
+      },
+      {
+        h2: "Staffed posts: when was the counter empty?",
+        body: "For a reception, billing counter, gate or security desk, it shows how much of the day the post was occupied, the total time nobody was seen there, how many gaps there were and the longest one, and a summary of which hours are routinely unmanned over recent weeks. A gap can also be time the camera was offline, so check long gaps against the recording; a post that recorded nothing all day is tagged 'no data' so you can check the camera and zone.",
+        photo: {
+          file: "desk-cubicle-rows",
+          widths: [600, 1200],
+          alt: "Rows of empty office cubicles with computer monitors under ceiling lights",
+          credit: "Toàn Văn",
+          sourceUrl: "https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/",
+        },
+      },
+      {
+        h2: "Who sees what, and what it does not tell you",
+        body: "The whole-office report is for admins only; an employee's access is limited to their own desk time. A seat can be assigned to a named employee, so under India's DPDP Act, 2023 these are personal records: tell staff in writing what is measured, why, who sees it and how long it is kept. Time at a desk is not productivity, and PGAK publishes no accuracy figures for desk tracking; it is tested on your own cameras.",
+      },
+    ],
+    stats: [
+      { value: "Per seat", label: "Occupied time for each desk, counter or post" },
+      { value: "Overhead", label: "From ceiling cameras — no desk sensors" },
+      { value: "Admins only", label: "The office report; staff access is limited to their own time" },
+    ],
+    faqs: [
+      {
+        q: "What is a desk tracking system?",
+        a: "A system that records when each desk, counter or post is occupied and for how long. PGAK's does it from overhead CCTV, with a zone drawn around each chair — no sensors or badges.",
+      },
+      {
+        q: "Does desk tracking use face recognition?",
+        a: "Seat detection does not; it only checks whether a seat is occupied, not who is in it. A seat can be assigned to a named employee, and its time is then recorded against that person whoever sat there.",
+      },
+      {
+        q: "Can it alert us when a counter is left unattended?",
+        a: "Not as a live alert today. It reports unattended time per post, the longest gap and which hours are routinely uncovered, for review.",
+      },
+      {
+        q: "Can it show how many desks our office uses?",
+        a: "No. It records hours for each desk you draw, day by day; it does not give a whole-floor utilisation summary.",
+      },
+    ],
+    related: [
+      "attendance-system-for-offices",
+      "ai-cctv-for-offices",
+      "face-recognition-attendance-system",
+      "remote-cctv-monitoring",
+      "video-analytics-software",
+    ],
+    insights: [
+      "night-shift-attendance-tracking",
+      "attendance-records-law-india",
+    ],
+    alsoSee: [
+      { href: "/features/guides/people-counting", label: "People counting and occupancy — how it works" },
+    ],
+  },
+
   {
     slug: "attendance-system-for-schools",
     group: "attendance",
@@ -2222,6 +2491,7 @@ export const SOLUTIONS: Solution[] = [
       "attendance-system-for-factories",
       "smart-perimeter-protection",
       "cctv-installation-company",
+      "ppe-kit-detection",
     ],
     insights: [
       "fingerprint-attendance-system-why-it-fails",
@@ -2505,6 +2775,7 @@ export const SOLUTIONS: Solution[] = [
       "multi-site-cctv-monitoring",
       "commercial-cctv",
       "anpr-number-plate-recognition",
+      "ppe-kit-detection",
     ],
     insights: [
       "nobody-can-watch-120-camera-feeds",

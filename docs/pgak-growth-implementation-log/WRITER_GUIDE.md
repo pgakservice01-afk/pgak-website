@@ -83,9 +83,12 @@ Tables in GitHub markdown. Indian English, rupees as ₹ with Indian digit group
   supplier's own page today and give the date; otherwise do not cite numbers.
 - **Published PGAK recordings** (each “limited pilot” in the capability register,
   `/platform/capabilities`; evidence at `/resources/evidence`):
-  - Glove/PPE check on an existing overhead line camera, recorded 1 April 2025, 14 s.
-    Shows bare hands flagged with model confidence (0.75 and 0.27 on screen). One PPE
-    class only. Not an accuracy measurement. Page: `/features/guides/ppe-detection`.
+  - Glove/PPE check on an existing overhead line camera, burned-in overlay 01-04-2023 16:57 (the camera writes
+    month-day-year and the overlay weekday is "Wed", which makes it 4 January 2023;
+    quote the overlay, never "1 April"), about 26 s of footage played at roughly 2x in 14 s.
+    Shows bare hands flagged with model confidence; the figures change from frame to
+    frame (the poster frame shows 0.57 and 0.77). One PPE class only. Not an accuracy
+    measurement. Pages: `/ppe-kit-detection`, `/features/guides/ppe-detection`.
   - Sacks counted across one line at a loading bay, recorded 19 December 2022, 16 s,
     count rises from four to seven, tracking numbers prevent double counting of the
     same sack. Not an inventory system. Page: `/ai-cctv-for-warehouses`.

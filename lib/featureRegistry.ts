@@ -290,7 +290,7 @@ export const FEATURE_REGISTRY: FeatureEntry[] = [
   {
     id: "F13",
     name: "PPE and safety compliance",
-    route: "/features/guides/ppe-detection",
+    route: "/ppe-kit-detection",
     featured: true,
     task: "Improve operations",
     problem: "Helmet rules are enforced when a supervisor happens to be standing there.",

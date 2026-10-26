@@ -76,9 +76,9 @@ export const PROJECTS: Project[] = [
     place: "",
     scope: "Analytics configured on a camera already fitted above the line",
     description:
-      "Bare hands are flagged on an assembly line. The box is drawn on the hand rather than the person, and the figure beside each label is the model's confidence — two workers are flagged here, at 0.75 and 0.27. The low one is left in deliberately: that is the sort of detection a supervisor should be checking, not one a system should act on by itself.",
+      "Bare hands are flagged on an assembly line. The box is drawn on the hand rather than the person, and the figure beside each label is the model's confidence, which changes from frame to frame. Low figures are left in deliberately: they are the sort of detection a supervisor should be checking, not one a system should act on by itself.",
     conditions:
-      "Recorded 1 April 2025 on an existing overhead line camera. No camera was added for this.",
+      "Recorded on an existing overhead line camera; the clip's burned-in overlay reads 01-04-2023, 16:57. No camera was added for this.",
     limits:
       "Gloves are one PPE class. Which classes apply to a site is confirmed at the assessment before anything is quoted.",
     media: {
@@ -88,8 +88,12 @@ export const PROJECTS: Project[] = [
       durationSeconds: 14,
     },
     alt: "Assembly line camera view with detection boxes drawn on workers' hands and a confidence figure beside each label",
-    href: "/features/guides/ppe-detection",
-    approval: OWNER_PUBLISHED("/ (homepage) and /video-analytics-software"),
+    href: "/ppe-kit-detection",
+    approval: {
+      ...OWNER_PUBLISHED("/ (homepage) and /features/guides/ppe-detection"),
+      source:
+        "PGAK-owned material, approved by the owner on 2026-09-24 for the homepage and /features/guides/ppe-detection. On 2026-10-26, under the owner's 2026-10-03 delegation of publication decisions and the owner's request for a PPE page, the conditions text was corrected to quote the burned-in overlay and the clip was added to /ppe-kit-detection.",
+    },
   },
   {
     id: "dock-count",

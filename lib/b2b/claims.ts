@@ -32,7 +32,7 @@ export const CAPABILITY_REGISTER: CapabilityRecord[] = [
     href: "/features/guides/ppe-detection",
     evidence: {
       projectId: "ppe-assembly-line",
-      note: "14 s recording, 1 April 2025, conditions and limits stated",
+      note: "14 s recording, burned-in overlay 01-04-2023 16:57, conditions and limits stated",
       href: "/features/guides/ppe-detection",
     },
   },

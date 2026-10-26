@@ -7,6 +7,7 @@ import DealerForm from "@/components/sections/DealerForm";
 import WhoIsPgak from "@/components/sections/WhoIsPgak";
 import ProofBlock from "@/components/solutions/ProofBlock";
 import CoverageWalkthrough from "@/components/solutions/CoverageWalkthrough";
+import StockFigure from "@/components/solutions/StockFigure";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import FeatureScenario from "@/components/calc/FeatureScenario";
@@ -20,6 +21,9 @@ import {
 } from "@/lib/schema";
 import { getAllInsights } from "@/lib/insights";
 import { SOLUTIONS, type Solution } from "@/lib/solutions";
+
+/** The hero photo's column is ~45% of the page on desktop, full width below. */
+const HERO_PHOTO_SIZES = "(min-width: 1024px) 45vw, 100vw";
 
 /**
  * Shared template for every /{solution} landing page. Each page file supplies
@@ -75,43 +79,75 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           <div className="wrap">
             <Breadcrumbs trail={trail} />
 
-            <p className="eyebrow mt-6">{s.eyebrow}</p>
-            <h1 className="display mt-4 max-w-[28ch] text-[clamp(2.1rem,4.8vw,3.4rem)]">
-              {s.h1}
-            </h1>
-            <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
-              {s.intro}
-            </p>
+            {/* With a hero photo the hero becomes two columns on desktop. On a
+                phone the photo sits under the intro instead of below the form,
+                so it is rendered twice; both copies share src, srcSet and
+                sizes, so the browser fetches one file. */}
+            <div
+              className={
+                s.heroPhoto
+                  ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-start lg:gap-12"
+                  : undefined
+              }
+            >
+              <div>
+                <p className="eyebrow mt-6">{s.eyebrow}</p>
+                <h1 className="display mt-4 max-w-[28ch] text-[clamp(2.1rem,4.8vw,3.4rem)]">
+                  {s.h1}
+                </h1>
+                <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-relaxed text-ink-soft">
+                  {s.intro}
+                </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="#dealer"
-                data-cta="solution-assessment"
-                data-intent="assessment"
-                className="btn btn-primary"
-              >
-                Check my cameras →
-              </Link>
-              <a
-                href={waHref(
-                  `Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`,
+                {s.heroPhoto && (
+                  <StockFigure
+                    photo={s.heroPhoto}
+                    sizes={HERO_PHOTO_SIZES}
+                    priority
+                    className="mt-7 lg:hidden"
+                  />
                 )}
-                data-cta="solution-whatsapp"
-                className="btn btn-ghost"
-              >
-                WhatsApp about this solution
-              </a>
-            </div>
 
-            <div className="mt-7 max-w-[640px]">
-              <QuickLead cta={`solution-${s.slug}`} />
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="#dealer"
+                    data-cta="solution-assessment"
+                    data-intent="assessment"
+                    className="btn btn-primary"
+                  >
+                    Check my cameras →
+                  </Link>
+                  <a
+                    href={waHref(
+                      `Hi PGAK, I want to evaluate ${s.primaryKeyword} for our business. Please help assess our existing CCTV cameras.`,
+                    )}
+                    data-cta="solution-whatsapp"
+                    className="btn btn-ghost"
+                  >
+                    WhatsApp about this solution
+                  </a>
+                </div>
+
+                <div className="mt-7 max-w-[640px]">
+                  <QuickLead cta={`solution-${s.slug}`} />
+                </div>
+                <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
+                  Treat this page as evaluation guidance. Product availability and
+                  site suitability require an approved configuration and technical
+                  test. Published scenarios are illustrative, not verified customer
+                  results.
+                </p>
+              </div>
+
+              {s.heroPhoto && (
+                <StockFigure
+                  photo={s.heroPhoto}
+                  sizes={HERO_PHOTO_SIZES}
+                  priority
+                  className="mt-10 hidden lg:block"
+                />
+              )}
             </div>
-            <p className="mt-5 max-w-[70ch] text-sm text-ink-soft">
-              Treat this page as evaluation guidance. Product availability and
-              site suitability require an approved configuration and technical
-              test. Published scenarios are illustrative, not verified customer
-              results.
-            </p>
           </div>
         </section>
 
@@ -141,25 +177,42 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
         <section className="sec">
           <div className="wrap flex flex-col gap-14">
             {s.sections.map((sec) => (
-              <article key={sec.h2} className="max-w-[70ch]">
-                <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
-                  {sec.h2}
-                </h2>
-                <p className="mt-4 leading-relaxed text-ink-soft">{sec.body}</p>
+              <article
+                key={sec.h2}
+                className={
+                  sec.photo
+                    ? "grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.75fr)] lg:items-start lg:gap-12"
+                    : "max-w-[70ch]"
+                }
+              >
+                <div className={sec.photo ? "max-w-[70ch]" : undefined}>
+                  <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">
+                    {sec.h2}
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-ink-soft">{sec.body}</p>
 
-                {sec.points && (
-                  <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                    {sec.points.map((pt) => (
-                      <div key={pt.h3} className="card p-6">
-                        <h3 className="text-[1.02rem] font-semibold">
-                          {pt.h3}
-                        </h3>
-                        <p className="mt-2 text-[0.94rem] leading-relaxed text-ink-soft">
-                          {pt.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                  {sec.points && (
+                    <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                      {sec.points.map((pt) => (
+                        <div key={pt.h3} className="card p-6">
+                          <h3 className="text-[1.02rem] font-semibold">
+                            {pt.h3}
+                          </h3>
+                          <p className="mt-2 text-[0.94rem] leading-relaxed text-ink-soft">
+                            {pt.text}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {sec.photo && (
+                  <StockFigure
+                    photo={sec.photo}
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="lg:mt-2"
+                  />
                 )}
               </article>
             ))}

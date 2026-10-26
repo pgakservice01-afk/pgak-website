@@ -43,8 +43,8 @@ export default function HomeProof() {
           poster="/proof/ppe-gloves-poster.webp"
           durationSeconds={14}
           title="Bare hands flagged on an assembly line"
-          caption="A vehicle-chassis line. The box is drawn on the hand, not the person, and the number beside each label is the model's confidence. Two workers are flagged here at 0.75 and 0.27 — the low one is left in, because that is the sort of detection a supervisor should be checking rather than a system acting on by itself."
-          conditions="Recorded 1 April 2025 on an existing overhead line camera. Gloves are one PPE class; which classes apply to a site is confirmed before anything is quoted."
+          caption="A vehicle-chassis line. The box is drawn on the hand, not the person, and the number beside each label is the model's confidence. The figures change from frame to frame, and the low ones are left in, because that is the sort of detection a supervisor should be checking rather than a system acting on by itself."
+          conditions="Recorded on an existing overhead line camera; the clip's burned-in overlay reads 01-04-2023, 16:57. Gloves are one PPE class; which classes apply to a site is confirmed before anything is quoted."
         />
 
         <ProofVideo

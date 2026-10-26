@@ -12,7 +12,7 @@ own.
 
 | `public/proof/dock-count.webp` | Frame from PGAK dock-counting footage — counting line with live in/out counters, evening unload | Owner, 2026-09-24 | `/ai-cctv-for-warehouses` | 1400×787, 120 KB. **Transport company name and phone numbers blurred** |
 
-| `public/proof/ppe-gloves.mp4` | 14s clip — bare hands flagged on a vehicle-chassis line, confidence shown per detection | Owner, 2026-09-24 | `/features/guides/ppe-detection` | 1280×720, 2.8 MB, H.264, faststart, no audio |
+| `public/proof/ppe-gloves.mp4` | 14s clip — bare hands flagged on a vehicle-chassis line, confidence shown per detection | Owner, 2026-09-24 | `/features/guides/ppe-detection`, `/ppe-kit-detection`, homepage | 1280×720, 2.8 MB, H.264, faststart, no audio |
 | `public/proof/dock-count.mp4` | 16s clip — sacks counted across a line at a loading bay, count climbing 4→7 | Owner, 2026-09-24 | `/ai-cctv-for-warehouses` | 1280×720, 3.0 MB, H.264, faststart, no audio. **Lorry lettering blurred throughout** |
 
 ## Both clips were re-encoded before publishing

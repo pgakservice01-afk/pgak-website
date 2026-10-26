@@ -27,7 +27,7 @@ All three verified against commit history as PGAK-original, not generated:
 | Asset | Used as | Provenance |
 |---|---|---|
 | `/proof/anpr-camera-mount.webp` | Hero photograph | Photographed on site; conditions recorded on `/anpr-number-plate-recognition` |
-| `/proof/ppe-gloves.mp4` | Real work card 1 | Recorded 1 Apr 2025, existing overhead line camera |
+| `/proof/ppe-gloves.mp4` | Real work card 1 | Burned-in overlay 01-04-2023 16:57, existing overhead line camera |
 | `/proof/dock-count.mp4` | Real work card 2 | Recorded 19 Dec 2022, existing dock camera; third-party identifiers blurred |
 
 `/team/*.webp` (three founder portraits) are also confirmed real — treated

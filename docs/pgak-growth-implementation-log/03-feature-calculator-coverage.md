@@ -1,6 +1,6 @@
 # Feature → calculator coverage (31 scenarios)
 
-Generated 2026-10-08 from `lib/calc/scenarios.ts`. Every registry feature, guide, capability page, claim-register row and named alias maps to one scenario — enforced by `npm run test:scenarios` (139 tests, including each worked example).
+Generated 2026-10-26 from `lib/calc/scenarios.ts`. Every registry feature, guide, capability page, claim-register row and named alias maps to one scenario — enforced by `npm run test:scenarios` (139 tests, including each worked example).
 
 | ID | Feature | Embedded on | Kind | Overlap group | Formula | Worked example → result | Existing standalone tool | Covers ids |
 |---|---|---|---|---|---|---|---|---|

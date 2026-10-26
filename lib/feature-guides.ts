@@ -1,8 +1,10 @@
 /**
  * `proofVideo` is original PGAK footage for that capability. Only a guide that
  * has one gets one; nothing here is illustrative or borrowed.
+ * `solution` links an educational guide to the page that offers the same
+ * capability to a buyer, so the guide and that page point at each other.
  */
-export const FEATURE_GUIDES: Record<string, { keyword: string; intro: string; advice: string; question: string; answer: string; proofVideo?: { src: string; poster: string; durationSeconds: number; title: string; caption: string; conditions: string } }> = {
+export const FEATURE_GUIDES: Record<string, { keyword: string; intro: string; advice: string; question: string; answer: string; proofVideo?: { src: string; poster: string; durationSeconds: number; title: string; caption: string; conditions: string }; solution?: { href: string; label: string } }> = {
 'natural-language-search': {
 keyword:'Natural language video search',
 intro:'You know what you are looking for, but not when it happened. Natural language video search lets you describe a person, vehicle or object and review matching recordings. A warehouse manager might search for a white van near the gate instead of opening every camera and guessing the time.',
@@ -78,9 +80,10 @@ proofVideo: {
   poster: '/proof/ppe-gloves-poster-960.webp',
   durationSeconds: 14,
   title: 'Bare hands flagged on an assembly line',
-  caption: 'Fourteen seconds from a vehicle-chassis line. The box is drawn on the hand, not the person, and the number beside each label is the model\u2019s confidence in that detection. Two workers are flagged here at 0.75 and 0.27 \u2014 the low one is left in deliberately, because that is exactly the sort of detection a supervisor should be checking rather than a system acting on by itself.',
-  conditions: 'Recorded 1 April 2025, 16:57, on an existing overhead line camera. Gloves are one PPE class; which classes apply to your site is confirmed before anything is quoted. The clip carries no audio track and the camera angle does not show faces.',
+  caption: 'From a vehicle-chassis line, playing at about twice real speed. The box is drawn on the hand, not the person, and the number beside each label is the model\u2019s confidence in that detection. The figures change from frame to frame, and the low ones are left in deliberately, because that is exactly the sort of detection a supervisor should be checking rather than a system acting on by itself.',
+  conditions: 'Recorded on an existing overhead line camera; the clip\u2019s burned-in overlay reads 01-04-2023, 16:57. Gloves are one PPE class; which classes apply to your site is confirmed before anything is quoted. The clip carries no audio track.',
 },
+solution: { href: '/ppe-kit-detection', label: 'PPE kit detection for factories and sites' },
 },
 'onsite-learning': {
 keyword:'Custom object detection CCTV',

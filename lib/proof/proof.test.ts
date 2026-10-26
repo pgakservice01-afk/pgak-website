@@ -131,8 +131,9 @@ test("every published project carries its conditions and its limits", () => {
 
 test("no homepage project uses third-party or synthetic media", () => {
   // /media holds Spot AI reference films; /features and /illustrations hold
-  // generated feature art. None of it may be presented as PGAK's own work.
-  const banned = ["/media/", "/features/", "/illustrations/", "/hero/"];
+  // generated feature art; /stock holds licensed Pexels photographs. None of
+  // it may be presented as PGAK's own work.
+  const banned = ["/media/", "/features/", "/illustrations/", "/hero/", "/stock/"];
   for (const p of PROJECTS) {
     const src = p.media.kind === "video" ? p.media.src : p.media.src;
     for (const dir of banned) {

@@ -105,8 +105,8 @@ const CAPABILITIES = [
   {
     n: "04",
     title: "Safety and PPE",
-    body: "Missing gloves or helmets flagged on the line, for a supervisor to check.",
-    href: "/features/guides/ppe-detection",
+    body: "Bare hands flagged on the line, for a supervisor to check. Helmets and other kit are tested on your cameras first.",
+    href: "/ppe-kit-detection",
   },
 ];
 

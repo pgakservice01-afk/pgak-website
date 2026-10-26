@@ -1,6 +1,6 @@
 # Claim / evidence matrix
 
-Generated 2026-10-08 from `lib/feature-truth.ts` — do not edit by hand.
+Generated 2026-10-26 from `lib/feature-truth.ts` — do not edit by hand.
 
 Counts: 18 offered solutions (registry) · 24 educational guides · 6 capability pages · 31 calculator scenarios · 4 approved PGAK recordings.
 
@@ -19,7 +19,7 @@ Counts: 18 offered solutions (registry) · 24 educational guides · 6 capability
 | C11 | People counting and occupancy | /features/guides/people-counting | pgak-software | educational | none | An industry capability PGAK can supply or integrate subject to a site assessment; the guide explains it, it does not evidence it. | — |
 | C12 | Queue analytics and heat maps | /features/guides/queue-analytics | pgak-software | educational | none | An industry capability PGAK can supply or integrate subject to a site assessment; the guide explains it, it does not evidence it. | — |
 | C13 | Tailgating detection | /features/guides/tailgating | confirmed per site | educational | none | An industry capability PGAK can supply or integrate subject to a site assessment; the guide explains it, it does not evidence it. | — |
-| C14 | PPE detection | /features/guides/ppe-detection | pgak-software | limited pilot | video: /proof/ppe-gloves.mp4 — Gloves are one PPE class. Which classes apply to a site is confirmed at the assessment before anything is quoted. | PGAK has demonstrated this under the stated conditions; link the recording and repeat its conditions and limits. | — |
+| C14 | PPE detection | /features/guides/ppe-detection | pgak-software | limited pilot | video: /proof/ppe-gloves.mp4 — Gloves are one PPE class. Which classes apply to a site is confirmed at the assessment before anything is quoted. | PGAK has demonstrated this under the stated conditions; link the recording and repeat its conditions and limits. | /ppe-kit-detection |
 | C15 | On-site learning and tuning | /features/guides/onsite-learning | confirmed per site | educational | none | An industry capability PGAK can supply or integrate subject to a site assessment; the guide explains it, it does not evidence it. | — |
 | C16 | Scene-change and tamper detection | /features/guides/scene-change | confirmed per site | educational | none | An industry capability PGAK can supply or integrate subject to a site assessment; the guide explains it, it does not evidence it. | — |
 | C17 | Sound classification | /features/guides/sound-classification | confirmed per site | educational | none | An industry capability PGAK can supply or integrate subject to a site assessment; the guide explains it, it does not evidence it. | — |
