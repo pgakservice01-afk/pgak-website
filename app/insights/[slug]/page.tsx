@@ -176,9 +176,9 @@ export default async function InsightPost({ params }: Props) {
                       Find out what your existing cameras can already do
                     </h2>
                     <p className="mt-2 text-[0.95rem] text-ink-soft">
-                      A free readiness audit of your feeds, report in 48 hours. It
-                      says which cameras can be reused and what on-site processing
-                      the site would need. Your number and camera count is all we need.
+                      Start with your camera count and the event you want to detect.
+                      We will agree the assessment scope and timing, then review
+                      stream access, camera views and processing requirements.
                     </p>
                     <div className="mt-4">
                       <QuickLead cta="post-quick" offer="audit" />
@@ -218,8 +218,9 @@ export default async function InsightPost({ params }: Props) {
                   Your cameras can see. We make them think.
                 </h3>
                 <p className="mx-auto mt-2 max-w-[440px] text-[0.95rem] text-ink-soft">
-                  PGAK turns the cameras you already own into intelligent
-                  guardians — on your existing setup, live in a day.
+                  Assess AI analytics on your existing CCTV. Compatibility,
+                  installation requirements and rollout timing are confirmed
+                  for your site before you commit.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
                   <a href="#dealer" className="btn btn-primary">
