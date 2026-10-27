@@ -1,121 +1,59 @@
 ---
-title: "Can you add AI to existing CCTV cameras without replacing them?"
+title: "Can you add AI to existing CCTV? A DVR and NVR compatibility checklist"
+metaTitle: "Add AI to Existing CCTV: DVR/NVR Compatibility"
 date: "2026-08-31"
-updated: "2026-10-05"
 category: "Buying Guide"
-excerpt: "Usually yes — if your DVR exposes a video stream, software can read it. The camera doesn't need to be 'AI-ready'. What actually decides it is where each camera points and how many pixels land on the thing you care about."
-metaDescription: "Usually yes. Most Indian sites run Hikvision, CP Plus or Dahua recorders that can hand over an RTSP stream. What decides it is model, firmware and where each camera points."
-readTime: 7
 image: "/insights/covers/add-ai-to-existing-cctv-cameras.webp"
-faqs:
-  - q: "Can you add AI to existing CCTV cameras?"
-    a: "In most cases yes. AI video analytics reads the video stream your DVR or NVR already produces, usually over RTSP, so the camera itself does not need to be 'AI-ready' or replaced. What decides whether a given camera works is not its brand or age but its angle, its lighting and how many pixels land on the subject — a 2MP camera pointed well is more useful than an 8MP camera pointed at a roof."
-  - q: "Do I need to buy new cameras for AI CCTV?"
-    a: "Usually only a few, and often none. Most sites can reuse the bulk of their estate for intrusion, line crossing, loitering, footfall and tampering detection. New or repositioned cameras are genuinely needed for face recognition, which needs a camera near face height at an entry point, and for number-plate recognition, which needs a camera at plate height and angle. A vendor proposing to replace every camera should be able to justify each one individually."
-  - q: "What is an AI-ready CCTV camera?"
-    a: "It is mostly a marketing label. Some cameras run detection models on the camera itself, which is useful but limits you to whatever that manufacturer shipped. If analytics run on an edge device or server on your site instead, ordinary IP and HD-over-coax cameras from any mix of brands can feed the same system — which is why mixed, older estates are usually still workable."
-  - q: "How do I know if my DVR supports AI analytics?"
-    a: "The practical test is whether it can produce an RTSP stream, which most DVRs and NVRs sold in the last decade can, and whether it is reachable on your network. Brand matters far less than stream access. If you can view your cameras on a phone app away from the premises, a stream almost certainly exists."
-  - q: "Does AI video analytics work with Hikvision, CP Plus and Dahua recorders?"
-    a: "Usually, because most recorders from those brands sold in the last decade can provide an RTSP stream, and those three are what most Indian sites run. Brand alone does not establish compatibility: the recorder model, its firmware, its stream settings and whether it is reachable on your network decide it. PGAK checks those on your actual recorder during the audit, before anything is quoted."
+updated: "2026-10-27"
+excerpt: "Check recorder model, firmware, stream access, image quality and processing before adding AI to existing CCTV. Get a camera-by-camera assessment."
+metaDescription: "Check recorder model, firmware, stream access, image quality and processing before adding AI to existing CCTV. Get a camera-by-camera assessment."
 ---
 
-**Straight answer: in most cases, yes. AI video analytics reads the stream your DVR or NVR already produces — so the camera does not need to be "AI-ready", a particular brand, or new. What actually decides whether a camera is usable is where it points, what the light is like, and how many pixels land on the thing you care about. Almost every site we assess can reuse most of its estate; the exceptions are face recognition and number plates, which are fussy about camera position.**
+**You can add AI analytics to existing CCTV when the system exposes a supported video stream and the camera view is suitable for the task.** Replacing every camera is not automatically necessary, but an RTSP or ONVIF label alone does not prove that a deployment will work.
 
-In practice, most sites in India run **Hikvision, CP Plus or Dahua** DVRs and NVRs, and most recorders from those brands sold in the last decade can hand over that stream. Brand alone doesn't settle it, though — the recorder model, its firmware and its stream settings do, which is why it gets checked on your actual recorder rather than promised from a brand list.
+A useful assessment separates two questions: can the analytics read the video, and can it see enough detail to detect the event you care about?
 
-This is the single most common question we get, and it is usually asked defensively — because the first quote the person received proposed replacing every camera on the property.
+## How does AI connect to a DVR or NVR?
 
-That quote is the expensive part. The intelligence is software. Cameras are just the eyes, and you probably already bought them.
+Analytics software may read an authorised stream from an IP camera, an NVR or a DVR that digitises analogue video. Processing can run on a supported local device or a cloud service, depending on the product and deployment.
 
-## How does AI run on cameras that aren't AI cameras?
+If you are unsure what recorder you have, start with [DVR versus NVR](/insights/dvr-vs-nvr-which-do-you-have) and [IP versus analogue cameras](/insights/ip-vs-analogue-cameras-india). Analogue cameras need a compatible digital path through a recorder or encoder; software cannot read a coaxial cable directly.
 
-Your cameras already do the hard physical work: they sit in the right places, they have power and cable, and they produce video. That video goes to a DVR or NVR, which almost always can hand it out as a stream — usually over a protocol called RTSP, sometimes discovered through a standard called ONVIF.
+## What should you check before buying?
 
-Anything that can read that stream can analyse it. The detection models don't run inside your camera; they run on a small computer on your site that subscribes to those streams and watches them continuously. What that computer needs from your cameras and recorder is set out on the [compatibility page](/platform/compatibility), and what it does with the streams once it has them is the [video analytics software](/video-analytics-software) itself.
+| Check | Evidence to collect |
+|---|---|
+| Recorder and camera | Exact model, firmware version and channel list |
+| Stream access | Supported protocol, authorised account permissions and enabled channels |
+| Decode support | Codec, resolution, frame rate and bitrate of the chosen stream |
+| Scene | Target distance, image detail, lighting, blind spots and occlusion |
+| Capacity | Simultaneous streams, recorder load, network capacity and processing device |
+| Recovery | Behaviour after a camera, recorder or network restart |
 
-So the question "is my camera AI-compatible?" is really two much duller questions:
+Record main-stream and sub-stream settings separately. A low-bandwidth sub-stream may be easy to access yet lack the detail required for faces or plates. Test that analytics does not interrupt existing recording or authorised viewing.
 
-- Can something read a stream from it?
-- Is the picture good enough, at the spot that matters, for the specific thing you want detected?
+## Does a working phone app prove compatibility?
 
-The first is nearly always yes. The second is where the honest work is.
+No. A manufacturer's phone app may use a proprietary relay or cloud path. That does not establish that third-party software can access a local stream. Ask for the supported integration method for the exact recorder, with authorised access and a documented test.
 
-## Which of my cameras will actually work?
+Never expose the recorder publicly or disable authentication just to make a demo connect. Agree a controlled review process; do not post credentials or unrestricted live links in forms, email threads or public documents.
 
-This is where vendors get vague, so here is the blunt version. Different capabilities have wildly different demands on the picture.
+## Does “ONVIF compatible” mean all features will work?
 
-| What you want detected | What the camera actually needs | Typical reuse rate |
-|---|---|---|
-| Someone entering a restricted zone | A view of the zone. Almost any angle works | Nearly all cameras |
-| Someone crossing a boundary line | The line fully in frame, ideally a side-on view | Nearly all cameras |
-| Loitering | Stable wide view of the area | Nearly all cameras |
-| People counting / footfall | A doorway or aisle in frame, not too oblique | Most cameras |
-| A camera being covered, moved or blinded | Nothing special — it watches the feed itself | All cameras |
-| **Face recognition** | Camera near face height, subject reasonably close and lit, roughly frontal | **Often needs one camera moved or added** |
-| **Number plate recognition** | Camera at plate height, tight angle to the lane, fast shutter | **Usually needs a dedicated camera** |
+No. ONVIF conformance concerns specific profiles and product versions; optional functions and implementations still matter. Check the [official conformant-products database](https://www.onvif.org/conformant-products/) and [ONVIF's interoperability FAQ](https://www.onvif.org/about/faq/), then test the actual integration. Streaming support does not itself prove a particular AI model or business workflow works.
 
-Read that table again and notice the shape of it. The capabilities most people buy AI for — knowing someone is in the yard at 2am, knowing a camera just went dark — run fine on the cameras you already own. The two that are fussy are the two that need to read something small and specific: a face, a plate.
+PGAK's [compatibility record](/platform/compatibility) does not currently publish a verified model-and-firmware approval list. Compatibility must be confirmed for your configuration; a camera brand is not a blanket approval.
 
-That is a much cheaper conversation than "replace all sixteen".
+## Which cameras might need moving or replacing?
 
-## The thing that actually decides it: pixels on target
+A person-detection view needs a visible target and usable light. Face matching needs sufficient face detail at the entry point. [ANPR](/insights/anpr-number-plate-recognition-when-it-works) needs a readable moving plate. A camera may pass one task and fail another.
 
-A camera mounted high on a corner, covering a whole yard, is excellent for "is there a person out there" and useless for "who is that person". Same camera, same resolution — different job.
+Ask the assessor to classify every proposed channel as **reuse, reposition, replace or unsuitable**, with a reason. Do not accept an invented estate-wide reuse percentage in place of that list.
 
-What matters is not the megapixels on the box, it is how many of those pixels land on the subject at the distance they will actually be. An 8MP camera looking down at a 30-metre yard puts fewer pixels on a face than a 2MP camera at head height beside a door.
+## What should the pilot record?
 
-We wrote a longer piece on this, because it is the single most misunderstood thing in camera specification: [how many of your 16 cameras can actually recognize a face](/insights/how-many-of-your-cameras-can-actually-recognize-a-face). If you are choosing what to reuse, read that one next — and [where to place cameras so AI detection works](/insights/where-to-place-cctv-cameras-for-ai-detection) after it.
+Test representative day, night and busy conditions. Record the configuration, event definition, observed true/false/missed events and recovery after interruption. Use illustrative tests only when clearly labelled; a sample clip is not a customer performance result.
 
-## What about "AI-ready" cameras — is that a real thing?
+For processing and connectivity questions, read [CCTV without internet](/insights/does-ai-cctv-work-without-internet) and [VMS integration requirements](/platform/vms-integration).
 
-Partly. Some cameras run detection on the camera itself. That is genuinely useful, and it is also a commitment: you get the capabilities that manufacturer shipped, on the cameras you bought from them, and you upgrade by buying hardware again.
-
-When analytics run on a device on your site instead, the camera goes back to being a camera. Mixed brands are fine. Old and new together are fine. HD-over-coax cameras feeding an ageing DVR are usually fine. And when detection improves, the software updates — you don't re-cable a building.
-
-Neither approach is dishonest. But "you need AI cameras" stated as a flat fact, by someone who sells cameras, is worth a follow-up question.
-
-## What genuinely justifies a new camera?
-
-Three situations, in our experience:
-
-**A blind spot that matters.** No software invents footage of an area nothing is pointed at. If the loading bay isn't covered, it isn't covered.
-
-**Face recognition at an entry point.** Consent-based, enrolled-only attendance and known-face matching need a camera positioned for faces — near head height, at a doorway or gate, with light on the face rather than behind it. Frequently this is one repositioned camera, not a new one.
-
-**Number plates.** Plate reading is genuinely demanding — the plate is small, often moving, often lit by headlights. A dedicated camera at the right height and angle is usually the honest answer.
-
-Outside those three, be sceptical. Ask the direct question: *which of my existing cameras will you reuse, and for each one you won't, why not?* A vendor who has actually looked at your site can answer camera by camera. One who hasn't will answer in general terms about quality and future-proofing.
-
-## What does the on-site device do?
-
-It subscribes to your camera streams, runs the detection models, and sends out events — someone crossed the boundary, a face matched an enrolled person, a camera stopped producing frames.
-
-Because that processing happens on your premises, the video does not have to leave the building to be understood. That matters for cost, for privacy, and for what happens when your internet drops — which we go into in [does AI CCTV work without internet](/insights/does-ai-cctv-work-without-internet).
-
-## So how do I check my own site before anyone visits?
-
-Four questions you can answer yourself today:
-
-1. **Can you view your cameras remotely on a phone app?** If yes, your DVR is on the network and producing streams. That is most of the battle.
-2. **Walk the site at the hour that worries you** — usually night. Look at the actual footage then, not in daylight. Lighting decides more than specification.
-3. **For each camera, write down what you would want it to notice.** Not "security" — a specific event. This is the list that determines what you actually need.
-4. **Stand where an intruder would enter.** Is anything pointed at you? At what height?
-
-That list is worth more than any spec sheet, and it is the same list we build during an assessment.
-
-## Will it work with Hikvision, CP Plus or Dahua?
-
-These three are what most Indian sites already have on the wall, so it is the question behind the question. The honest answer has two halves.
-
-**Usually, yes.** Most recorders from these brands sold in the last decade can provide an RTSP stream — the same stream your phone app already uses when you view the cameras away from the premises. Analytics software reads that stream; it does not need the camera or the recorder to be "AI".
-
-**But a brand is not a compatibility guarantee.** Two recorders with the same logo can behave differently depending on the model, the firmware version, whether the sub-stream is enabled, and how the network is set up. So the check is done on your actual recorder, not against a brand list. Our [compatibility page](/platform/compatibility) sets out exactly what gets checked and why "it says ONVIF on the box" is not enough.
-
-If a supplier tells you they work with "40+ brands", that is a reasonable starting point and the right answer to it is the same: ask them to confirm your recorder model and firmware before you pay for anything.
-
-## The short version
-
-You almost certainly do not need a new camera estate. You need someone to tell you honestly which of your cameras can do which job, and to be specific about the two or three positions that genuinely need attention.
-
-If you want that assessed on your actual site rather than in the abstract, [tell us your camera count and we'll walk through it](/free-audit) — including which cameras we would not use, and why.
+**Want a reuse decision before buying new equipment?** [Request a compatibility assessment](/free-audit) with your recorder model, camera count and intended events. PGAK will agree what can be tested and what evidence is needed before a deployment is quoted.

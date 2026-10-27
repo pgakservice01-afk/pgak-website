@@ -1,55 +1,64 @@
 ---
-title: "How to stop proxy attendance (buddy punching) for good"
+title: "How to reduce proxy attendance without creating payroll disputes"
+metaTitle: "Proxy Attendance: Controls, Evidence & Fair Corrections"
 date: "2026-09-01"
 category: "Attendance"
-excerpt: "Proxy attendance survives fingerprint machines, cards and registers because all three record a credential, not a person. The four controls that actually work, ranked by how hard they are to defeat."
-metaDescription: "Proxy attendance, or proxy punching, is one employee marking in for another. Why it survives cards, PINs and fingerprint, and 4 controls to reduce it."
-metaTitle: "Proxy attendance: what it is and 4 ways to stop it"
-readTime: 5
 image: "/insights/category/attendance-3.webp"
-faqs:
-  - q: "What is proxy attendance?"
-    a: "Proxy attendance, also called buddy punching, is when one employee marks attendance on behalf of another who is absent or late. It is possible with any system that records a credential — a card, a PIN, or a shared fingerprint — rather than verifying the person who is physically present."
-  - q: "Can biometric machines stop proxy attendance?"
-    a: "They reduce it but do not end it. Fingerprint readers are defeated by enrolling a second finger under one identity, by silicone moulds, and most commonly by supervisors making manual entries for workers whose scans fail. Because the record stores no image, a disputed punch cannot be checked afterwards."
-  - q: "What is the most reliable way to prevent buddy punching?"
-    a: "A record that stores visual evidence of who actually entered. Face recognition on entrance cameras logs the frame alongside the timestamp, so a questioned entry is settled by looking at the photograph rather than trusting that the right credential was used."
+updated: "2026-10-27"
+excerpt: "Reduce buddy punching with verified enrolment, controlled corrections and attendance reconciliation. Test the workflow before choosing new hardware."
+metaDescription: "Reduce buddy punching with verified enrolment, controlled corrections and attendance reconciliation. Test the workflow before choosing new hardware."
 ---
 
-**Straight answer: proxy attendance survives most systems because they record a credential, not a person. Cards get handed over, PINs get shared, and fingerprint machines get defeated by a second enrolled finger or a supervisor's manual override. The only durable fix is a record that stores visual proof of who walked in.**
+**Proxy attendance, or buddy punching, means one person marking attendance for another. Reducing it takes reliable enrolment, proportionate verification and an auditable correction process.** No card reader, fingerprint device or face-matching system can guarantee that every record is correct.
 
-Every operations manager we meet in Punjab knows the number is not zero. Few know what it is, because the systems in place were never designed to reveal it.
+Start by separating deliberate misuse from failed scans, wrong employee mappings, clock errors and legitimate corrections. Treating every exception as fraud can create avoidable payroll disputes.
 
-## Why the usual defences leak
+## Where should a business look first?
 
-**Registers.** Signed in batches by whoever arrives first. No defence at all — everyone knows this, which is why registers were replaced.
+Review who can enrol workers, issue credentials, change identities and approve manual marks. A device can capture an event accurately while the administration process assigns it to the wrong person. Shared accounts and unexplained edits can matter as much as the capture technology.
 
-**Cards and PINs.** The credential is portable by design. A card in a friend's pocket marks attendance perfectly. The system records exactly what it was built to record: that a valid card was presented.
+Check a representative shift across every authorised entrance. Comparing only the main gate with payroll can create false discrepancies when another gate is legitimately used.
 
-**Fingerprint machines.** Better, and genuinely harder to fake, but three leaks are common. Employees sometimes enrol a second finger that a colleague can use. Silicone and glue-cast moulds circulate on larger sites. And the biggest one is not fraud at all: when scans fail on worn hands, supervisors start making manual entries — and once manual entry is normal, the audit trail is gone.
+## Which controls are practical?
 
-Notice the pattern. Each system faithfully records its credential and stores nothing that lets you verify the human.
+| Control | What to implement |
+|---|---|
+| Verified enrolment | An authorised person checks the worker-to-ID mapping and records changes |
+| Individual credentials | Avoid shared operator accounts; remove access when responsibilities end |
+| Controlled corrections | Require a reason, reviewer and timestamp while preserving the original event |
+| Independent reconciliation | Compare the roster, attendance events and approved exceptions |
+| Employee review | Provide a clear route to report an incorrect or missing mark |
 
-## The four controls that actually work
+Keep a fallback for genuine failures. Removing manual corrections altogether can penalise workers when the system fails. The useful control is traceable approval, not an impossible promise of zero exceptions.
 
-**1. Store visual evidence with every entry.** This is the single highest-value change. If each attendance record keeps the camera frame it came from, a disputed mark takes ten seconds to settle. Nobody argues with a photograph, and crucially, everybody knows the photograph exists — which is where most of the deterrent lives.
+## Do biometric machines prevent buddy punching?
 
-**2. Remove the manual-entry escape hatch.** Audit how many entries last month were manual. If the number is significant, that is your leak, and no upgrade to the scanner fixes it. Manual entries should be an exception that requires a reason and a named approver.
+They can strengthen person verification compared with a transferable card or PIN, but performance depends on enrolment, the device, operating conditions and administrative controls. A procurement decision should include relevant presentation-attack/liveness capabilities, fallback handling and a test with the actual workforce.
 
-**3. Cover every entrance, not just the main gate.** A system watching one door measures the people who use that door. Side gates, loading bays and canteen exits are where mid-shift absence hides.
+Do not assume every fingerprint system is easily defeated or that every face-recognition product provides spoof resistance. Ask for the specific supported controls and test evidence.
 
-**4. Reconcile against a second signal.** Contractor headcount, production output, or vehicle logs. Where two independent records disagree consistently, you have found something.
+## Where can entrance-camera attendance help?
 
-## Where face recognition genuinely helps — and where it doesn't
+A supported camera-based system can attach visual evidence to a proposed attendance match. That can help an authorised reviewer investigate an exception, but a photograph is not infallible proof of identity, payable time or misconduct. Low light, occlusion, image quality and lookalikes can produce uncertainty.
 
-Face recognition on entrance cameras closes the credential gap directly: there is nothing to hand to a colleague, and every record carries its own frame. That combination is what makes it hard to defeat rather than merely inconvenient.
+Use human review for disputed matches and keep access to images restricted to the legitimate purpose. Consider people who cannot reliably use the chosen method and provide an appropriate alternative. See [face-recognition and biometric-machine trade-offs](/insights/face-recognition-attendance-vs-biometric-machine).
 
-We build that, so weigh the recommendation accordingly. But be clear about the limits too. It is not infallible — poor camera placement produces misses, and misses create pressure for exactly the manual overrides described above. Getting placement right at the entrance matters more than any accuracy claim on a brochure.
+## What numbers should you track?
 
-## The one number to pull this week
+Track these separately over a defined period:
 
-Count manual attendance entries as a percentage of total entries for last month.
+- Manual corrections divided by attendance records, with the reason categories.
+- Unresolved exceptions at payroll cut-off.
+- Identity disputes and the proportion upheld after review.
+- Average time to resolve a missing or disputed mark.
+- Duplicate records and successful payroll exports.
 
-Under two percent, your system is broadly working. Above ten, proxy attendance is not your real problem — your attendance system has quietly become a paper process with a machine in front of it.
+A higher manual-correction rate is a prompt to investigate the workflow; it is not proof of fraud. There is no defensible universal rule that “below 2% is good” or “above 10% means misuse” for all workplaces.
 
-The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)
+## How should you run a pilot?
+
+Compare the proposed system with a supervised reference record across normal and busy shifts. Include failed captures and corrections in the results rather than reporting only successful matches. Agree the acceptance criteria, privacy controls and dispute route before the system affects payroll.
+
+For contractor-heavy sites, use the [contract-labour reconciliation checklist](/insights/attendance-system-for-contract-labour). For implementation, review the [factory attendance workflow](/attendance-system-for-factories).
+
+**Want to identify where your current process breaks?** [Request an attendance assessment](/free-audit) with your headcount, shift pattern, capture method and anonymised exception counts. PGAK can assess whether camera-based verification fits your gates and review process before recommending a rollout.

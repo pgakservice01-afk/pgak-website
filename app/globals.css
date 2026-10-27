@@ -399,7 +399,7 @@ body {
 
   /* Tables inside rendered markdown (e.g. the pricing comparison) */
   .article-body table {
-    @apply mt-6 w-full border-collapse overflow-hidden rounded-[12px] border border-line text-[0.92rem];
+    @apply mt-6 block w-full max-w-full overflow-x-auto border-collapse rounded-[12px] border border-line text-[0.92rem];
   }
   .article-body th {
     @apply border-b border-line bg-panel px-4 py-3 text-left font-semibold text-ink;

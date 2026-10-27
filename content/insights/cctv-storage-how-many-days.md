@@ -1,71 +1,60 @@
 ---
-title: "How many days of CCTV footage are you really keeping?"
-metaTitle: "CCTV storage in days: how many days will it record?"
+title: "How many days does CCTV record? Storage tables for 4, 8 and 16 cameras"
+metaTitle: "CCTV Storage Days: 4, 8 & 16 Camera Examples"
 date: "2026-09-10"
 category: "Camera Setup"
-excerpt: "The retention figure quoted at installation almost always shrinks — quietly, as cameras get added and nobody redoes the math. A simple calculation to find your real number today."
-metaDescription: "CCTV storage in days = disk capacity ÷ what all cameras record a day. 10 cameras at 2 Mbps on 4 TB usable ≈ 18 days. Most small firms target 15–30 days."
-readTime: 5
 image: "/insights/covers/cctv-storage-how-many-days.webp"
-faqs:
-  - q: "How do you calculate CCTV storage days?"
-    a: "Divide your recorder's total storage capacity in gigabytes by the total daily storage used across all cameras. Daily use per camera depends on resolution, frame rate, compression and how much motion the scene has, so the only reliable way to know it is to check the recorder's own storage statistics rather than estimate from a spec sheet."
-  - q: "Why does CCTV retention shrink over time?"
-    a: "Storage is fixed at installation, but cameras usually get added afterward — a new gate, a new aisle, a new floor — without anyone adding storage to match. Every additional camera divides the same disk among more feeds, so retention falls silently unless someone recalculates it."
-  - q: "What affects how much storage a camera uses per day?"
-    a: "Four things: resolution (more pixels means more data), frame rate (more frames per second means more data), compression standard (H.265 uses roughly half the storage of H.264 for the same picture), and scene activity, because most recorders only write footage when motion is detected, so a quiet back office uses far less than a busy loading bay."
-  - q: "How many days of CCTV footage should a business keep?"
-    a: "There is no single correct number — it depends on how quickly a business would need to review a past incident, and this varies by state and by the rules that apply to a given premises. Fifteen to thirty days is a common practical target for a small business; verify against your own sector's requirements rather than assuming a default is enough."
+updated: "2026-10-27"
+excerpt: "Calculate CCTV recording days from usable disk space and bitrate. Compare 4, 8 and 16 cameras, check your oldest footage and plan storage."
+metaDescription: "Calculate CCTV recording days from usable disk space and bitrate. Compare 4, 8 and 16 cameras, check your oldest footage and plan storage."
 ---
 
-**Straight answer: your real CCTV storage in days equals your recorder's total storage capacity divided by how much all your cameras record per day combined — not the number quoted when the system was installed. That number falls every time a camera is added unless storage is added alongside it, and most businesses never redo the calculation, so the retention they believe they have and the retention they actually have quietly drift apart.**
+**CCTV has no fixed recording duration. Divide usable storage by the amount all cameras record each day.** At a constant 2 Mbps per camera, eight cameras use about 172.8 GB a day: 2 TB of usable recording space lasts approximately 11.6 days before overhead. A recorder sold with a 2 TB drive can have less than 2 TB available for video.
 
-Ask an owner how many days of footage their CCTV keeps, and the answer is usually the number from the installation quote — 30 days, sometimes 60. Ask when that was calculated, and the honest answer is usually never since. That gap is where trouble hides, because the day you actually need footage is the day you find out the real number.
+The practical question is whether you can retrieve the footage your business needs when a dispute, stock discrepancy or incident is reported. Check the oldest playable recording, not only the number on an installation quote.
 
-## How do you calculate CCTV storage days?
+## How do you calculate CCTV storage in days?
 
-The arithmetic is simple once you have the two numbers that matter.
+For continuous recording, using decimal units:
 
-**Total storage** is the capacity of the hard disks in your recorder, in gigabytes or terabytes. This is fixed unless someone physically adds a disk.
+**Daily storage in GB = total recording bitrate in Mbps × 10.8.**
 
-**Daily storage used** is the sum, across every camera, of what each one writes per day. This is the number that changes — every time a camera is added, a resolution is bumped up, or a camera starts pointing at a busier scene than before.
+**Recording days = usable storage in GB ÷ daily storage in GB.**
 
-Retention in days = total storage ÷ daily storage used.
+The factor 10.8 converts megabits per second into gigabytes over 86,400 seconds. Add the bitrates of the streams actually being recorded. Include audio and other recorded data where applicable. Disk reserves, filesystem overhead and variable bitrate can reduce the result.
 
-For continuous recording there is a clean way to get the daily figure: **decimal GB per day ≈ 10.8 × the combined bitrate of all cameras in Mbps**, before any overhead. So ten cameras each writing 2 Mbps give 20 Mbps combined → about 216 GB a day → on a recorder with 4 TB usable, roughly 18 days. Two cautions on that example: the per-camera Mbps is a number you read off your recorder, not a guess from megapixels or codec, because the same camera at the same resolution can write very different amounts depending on the scene; and motion-only recording stretches the result, while variable bitrate moves it either way. If you would rather not do the arithmetic, the [storage and bandwidth guide](/resources/storage-bandwidth) walks through it and the [CCTV storage calculator](/calculators/cctv-storage) takes your recorder's figures directly.
+Use the [CCTV storage calculator](/calculators/cctv-storage) with your own figures, or see the [storage and bandwidth guide](/resources/storage-bandwidth) for the distinction between recording and remote-viewing bandwidth.
 
-Most recorders show both figures somewhere in their storage or disk management menu, sometimes stated directly as an estimated number of retention days. That estimate is worth checking against reality occasionally, because it is itself calculated from recent activity and shifts as the scene in front of a camera changes.
+## How long will 1 TB, 2 TB or 4 TB last?
 
-## Why does stated retention shrink as cameras are added?
+These are **illustrative calculations**, not camera specifications or a retention guarantee. Every camera records continuously at a constant 2 Mbps; storage is usable decimal capacity; audio and overhead are excluded. Values are rounded to one decimal place.
 
-This is the trap. Storage is bought once, sized for the camera count on day one. Cameras get added over the following year for reasons that have nothing to do with storage planning — a new bay opened, a blind spot got flagged, a manager asked for one more angle at the till.
+| Cameras | Daily video | 1 TB usable | 2 TB usable | 4 TB usable |
+|---|---|---|---|---|
+| 4 | 86.4 GB | 11.6 days | 23.1 days | 46.3 days |
+| 8 | 172.8 GB | 5.8 days | 11.6 days | 23.1 days |
+| 16 | 345.6 GB | 2.9 days | 5.8 days | 11.6 days |
 
-Each new camera takes its slice of the same fixed disk. Ten cameras sharing a 4TB disk each get roughly 400GB. Add five more cameras to the same disk and each one's share drops by a third — and so does your retention, even though nobody touched a setting.
+If actual bitrate doubles, these durations halve. If cameras have different settings, calculate each camera's daily use and add the results. Megapixels alone cannot tell you the recording bitrate.
 
-Nobody notices until the day a claim needs footage from three weeks ago and the recorder has already overwritten it.
+## Why do motion recording and H.265 change the answer?
 
-## What changes how much a single camera uses per day?
+Motion or event recording can reduce consumption when recording is genuinely inactive between events. A busy shop, rain or movement in the background may trigger much more recording than expected. Check the schedule and pre-event/post-event recording buffers before assuming a quiet room uses almost no storage.
 
-Four variables, and they compound.
+Compression also affects bitrate, but a universal “H.265 saves 50%” promise is not a storage plan. Scene detail, frame rate, noise, image-quality settings and the recorder's implementation matter. Compare representative day and night recordings at usable quality. Axis explains these trade-offs in its [surveillance video compression guide](https://www.axis.com/insights/topics/surveillance-video-compression).
 
-**Resolution.** A higher-megapixel camera captures more detail per frame, which means more data per frame. Doubling resolution roughly doubles storage use, other things equal.
+## How can you check the real retention today?
 
-**Frame rate.** Most sites do not need 25 or 30 frames per second for a static gate or aisle view — 10 to 15 fps is often visually indistinguishable for review purposes and uses proportionally less storage.
+1. Open playback and find the oldest **playable** recording on each important channel.
+2. Check for gaps, disk errors, incorrect timestamps and channels with different schedules.
+3. Record the usable disk capacity and the actual recording bitrate or measured daily consumption.
+4. Export a short authorised sample and confirm it plays outside the recorder.
+5. Repeat after adding cameras or changing image settings, and after a representative busy period.
 
-**Compression standard.** H.265 compression typically needs roughly half the storage of the older H.264 standard for a comparable picture. Many recorders still ship set to H.264 by default because it is the older, safer compatibility choice.
+Do not delete footage or reduce evidential image quality simply to make a retention target fit. Preserve relevant recordings when an incident is under review.
 
-**Scene activity.** Most systems record on motion rather than continuously. A loading bay with constant movement fills storage far faster than a store room that is empty for most of the day, even at identical settings.
+## How many days should a business keep?
 
-## How many days should you actually keep?
+Set the target around how quickly losses or disputes are discovered, the time needed to review them, and the requirements that apply to your premises. A 15-day or 30-day target is a planning choice, not a universal Indian legal rule. Confirm applicable requirements with the person responsible for your records policy.
 
-There is no universal right answer, and we would rather say that plainly than invent one. What footage you are required to keep, and for how long, varies by state and by the kind of premises you run — verify your specific obligation with a compliance advisor rather than relying on a blog post, this one included, for anything resembling legal advice.
-
-As a practical benchmark, most small businesses target somewhere between 15 and 30 days, because that covers the typical delay between an incident happening and someone asking to review it — a customer dispute, a reconciliation, a reported loss. Sites with longer internal reporting cycles, or specific regulatory retention duties, need to plan for more.
-
-## What is a quick way to check your real number today?
-
-Open your recorder's storage or disk information screen and read off the estimated retention days it reports right now, not the figure from the installation paperwork. If it is lower than what you assumed, the fix is either adding storage to match your current camera count, or reviewing whether every camera needs its current resolution and frame rate — the cheaper fix, and often the one that gets skipped. Put the recorder's two numbers into the [storage calculator](/calculators/cctv-storage) and it will show you what each option buys you in days.
-
-We help site owners run this check as part of an audit, and we will say plainly that adding storage capacity is sometimes the honest recommendation even though it is not the more interesting one to sell.
-
-We will run this check on your actual recorder as part of a free audit — your number and camera count are all it takes to start. [Ask for a free storage and camera audit →](/free-audit)
+**Need a storage recommendation for your shop, warehouse or factory?** Prepare the camera count, usable capacity, current oldest footage and desired retention. [Request a storage and camera assessment](/free-audit). We can then review whether the constraint is capacity, recording configuration or failed recording, before recommending equipment.

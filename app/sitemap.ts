@@ -7,10 +7,11 @@ import { LOCATIONS, locationPath } from "@/lib/locations";
 import { CASE_STUDIES } from "@/lib/caseStudies";
 import { EXPLORER_FEATURES } from "@/lib/feature-explorer";
 import { SITE_URL } from "@/lib/seo";
+import { contentDate, latestContentDate } from "@/lib/content-dates";
 
 /**
  * Sitemap is generated from the same data files that generate the pages, so a
- * new solution, capability, city or case study is indexed the moment it ships —
+ * new solution, capability, city or case study is listed when it ships —
  * there is no second list to forget to update.
  *
  * lastModified is emitted ONLY where a real date exists (insights posts, case
@@ -20,13 +21,9 @@ import { SITE_URL } from "@/lib/seo";
  * ignores, so they're gone too.
  */
 
-function postDate(p: { date: string; updated?: string }): Date {
-  return new Date(`${p.updated ?? p.date}T00:00:00`);
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const insights = getAllInsights();
-  const newestPost = insights.length ? postDate(insights[0]) : undefined;
+  const newestPost = latestContentDate(insights);
 
   const core: MetadataRoute.Sitemap = [
     { url: SITE_URL },
@@ -105,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const posts: MetadataRoute.Sitemap = insights.map((p) => ({
     url: `${SITE_URL}/insights/${p.slug}`,
-    lastModified: postDate(p),
+    lastModified: contentDate(p),
   }));
 
   const all: MetadataRoute.Sitemap = [

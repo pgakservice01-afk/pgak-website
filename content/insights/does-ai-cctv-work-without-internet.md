@@ -1,90 +1,55 @@
 ---
-title: "Does AI CCTV work without internet?"
+title: "Does CCTV work without internet? Recording, AI detection and phone alerts explained"
+metaTitle: "CCTV Without Internet: Recording, AI & Phone Alerts"
 date: "2026-08-29"
 category: "Security Basics"
-excerpt: "If the detection runs on a device at your site, it keeps working when the link drops — what stops is delivery of the alert to your phone. The distinction matters more in India than most vendors admit."
-metaDescription: "If the detection runs on a device at your site, it keeps working when the link drops — what stops is delivery of the alert to your phone."
-readTime: 6
 image: "/insights/category/security-basics-2.webp"
-faqs:
-  - q: "Does AI CCTV work without internet?"
-    a: "It depends entirely on where the analysis happens. If detection runs on a device installed at your site, the cameras keep recording and the AI keeps detecting through an internet outage — what pauses is delivery of alerts to your phone, which resumes when the link returns. If the system sends video to a cloud service to be analysed, detection itself stops when the connection does. Ask any vendor which of the two they are selling before you compare prices."
-  - q: "What happens to AI CCTV during a power cut?"
-    a: "Power is the real single point of failure, not internet. Cameras, the DVR and the on-site processing device all need power, so an outage stops everything regardless of how clever the software is. This is why sites that care put the cameras, the recorder and the edge device on the same UPS or inverter circuit — a modest UPS covers the whole chain, because these are low-draw devices compared with lighting or machinery."
-  - q: "How much internet bandwidth does AI CCTV need?"
-    a: "Far less than people expect, if the processing is local. When video is analysed on site, only events and short clips travel out, so a basic broadband line is usually sufficient and idle usage is very small. Cloud-analysed systems are the opposite: they must ship continuous video off site for every camera, which is why they are expensive to run on Indian links and why they fail hardest when the connection is unstable."
-  - q: "Will I know if my CCTV goes offline?"
-    a: "You should, and this is worth testing before you buy. A system watching camera health can flag a camera that has stopped producing frames, and a whole site whose on-site device has stopped checking in; how quickly it does so is worth testing by disconnecting a camera. Many installations have no such warning at all, which is how sites discover a camera died six weeks ago only when they go looking for footage."
+updated: "2026-10-27"
+excerpt: "See what CCTV can do without internet: local recording, AI detection, phone viewing and alerts. Use an outage test before choosing a system."
+metaDescription: "See what CCTV can do without internet: local recording, AI detection, phone viewing and alerts. Use an outage test before choosing a system."
 ---
 
-**Straight answer: yes, if the analysis runs on a device at your site. Detection keeps going through an internet outage; what pauses is the alert reaching your phone, which catches up when the link returns. If the system ships video to the cloud to be analysed, then no — the intelligence stops when the connection does. This is the most important architectural question in an AI CCTV quote, and it is rarely on the first page.**
+**CCTV can record without internet when video is stored locally and the camera, recorder and local network stay powered. AI detection and phone alerts are separate functions.** Local analytics may continue during an internet outage; a cloud-dependent function may stop. Remote notifications need a working route to the recipient.
 
-In India this is not a theoretical concern. Links go down. Fibre gets cut by roadwork. Rural and industrial-estate connectivity is genuinely patchy, and a system whose intelligence lives 2,000 kilometres away inherits every one of those problems.
+Before comparing products, ask the supplier to demonstrate these functions separately. “Works offline” is too broad to be an acceptance test.
 
-## Where the thinking happens
+## What continues when the internet connection drops?
 
-There are two ways to build this, and they behave completely differently when things go wrong.
+| Function | What an outage means |
+|---|---|
+| Recording to a DVR, NVR or camera card | Can continue with working local power, connectivity, storage and recording configuration |
+| Local AI analysis | Can continue only if that deployment supports offline operation and does not need a remote dependency |
+| Cloud AI analysis | Functions needing live upload are interrupted; hybrid products may retain local features |
+| Viewing on a local monitor | Can continue if the display and recorder remain connected and powered |
+| Viewing from outside the premises | Needs a working remote path, such as broadband or an authorised mobile-data connection |
+| Phone notifications | Delivery requires connectivity; buffering and later delivery must be tested, not assumed |
 
-**On-site processing (edge).** A small computer sits at your premises, subscribes to the camera streams from your DVR or NVR, and runs the detection models there. Video never has to leave the building to be understood. Alerts and short clips go out over your internet connection; the analysis does not depend on it.
+An internet failure is different from a failed switch or camera cable. Losing the local network can disconnect the very streams that a local processor needs.
 
-**Cloud processing.** Video is streamed out of your building to a remote service, analysed there, and results come back. This is simpler to deploy and it is why some quotes are cheap up front — but you are now paying to move every frame off site, continuously, for every camera, and your detection has a hard dependency on the link staying up.
+## Is Wi-Fi the same as internet?
 
-| | On-site processing | Cloud processing |
-|---|---|---|
-| Internet drops | Detection continues; alerts queue | **Detection stops** |
-| Bandwidth needed | Small — events and clips only | Continuous upload, every camera |
-| Video leaves the site | Only what you ask for | Everything, always |
-| Power cut | Stops (both) | Stops (both) |
+No. Wi-Fi is a local network connection; internet access is a route beyond that network. A camera can connect to a local Wi-Fi router while that router has no internet connection. Whether local recording or local phone viewing works then depends on the device and app.
 
-Neither is a scam. But they are being sold at comparable prices for very different reliability, and the difference only shows up on the worst day.
+Ethernet cameras also need functioning switches and, where used, Power over Ethernet. “Wired” does not mean independent of power or network faults. For your exact model, use the manufacturer's instructions rather than assuming a consumer cloud camera has a local recording mode.
 
-## So what actually happens when my internet drops?
+## Will delayed alerts arrive after reconnection?
 
-With processing on site, the honest sequence is this:
+Only if the product stores events and reliably forwards them after the connection returns. Ask how long events are retained, whether clips are included, and how duplicate or out-of-order notifications are handled. Test an outage longer than a brief cable disconnect.
 
-Cameras keep recording to your DVR, exactly as before. The on-site device keeps reading the streams and keeps detecting — a person crossing the boundary at 3am is still detected at 3am. What it cannot do is reach your phone. Those events wait.
+A notification delivered after an incident is useful for review but cannot provide an immediate response during the outage. If response time matters, assess an approved backup connection and a local response workflow. Sirens, relays and other integrations must be specified and tested; they are not automatic features of every AI system.
 
-When the link comes back, the events are still there. You get them late.
+## What about power cuts?
 
-That is a real limitation and worth being clear-eyed about: **a detection you receive an hour late is not a prevention.** If your reason for buying is "I want to know within seconds", then your internet connection is part of the system and deserves the same attention as the cameras. A cheap secondary link, or a mobile data failover on the edge device, is usually money better spent than another camera.
+Map the full chain: cameras, PoE switch or power supplies, recorder, analytics device and router. A UPS protecting only the recorder does not keep unpowered cameras recording. Size backup power against measured load, required runtime and battery condition. Do not choose it from a generic “small UPS is enough” claim.
 
-But the alternative — a system where nothing was watching at all during the outage — leaves you with no record that anything happened. That gap is the thing worth avoiding.
+## How do you test a proposal safely?
 
-## Power is the harder problem
+Arrange a controlled maintenance window with the responsible person. Record the start time and baseline health, then disconnect the internet uplink while leaving the local network intact. Generate an agreed, safe test event. Check recording, analytics, local viewing and remote notifications independently. Reconnect and verify event timestamps, clips, recovery and any gaps.
 
-Internet gets the attention. Power is what actually takes sites down.
+Repeat power and local-network tests only under an agreed plan that does not compromise a live security response. Document observed results rather than a vendor's expected behaviour.
 
-Cameras need power. The DVR needs power. The on-site processing device needs power. Any of those going dark stops the chain, and no architecture solves it in software.
+## What should PGAK confirm for your site?
 
-The practical fix is unglamorous and cheap: put the cameras, the recorder and the edge device on the same UPS or inverter circuit. These are low-draw devices — the whole chain typically draws less than a couple of ceiling fans — so a modest UPS carries them through the kind of outage most sites see, and a standard inverter setup carries them a great deal longer.
+Use the [deployment guide](/platform/deployment), [compatibility checklist](/platform/compatibility) and [storage calculator](/calculators/cctv-storage) to separate processing, connectivity and retention requirements. There is no universal offline guarantee for every camera and recorder.
 
-If you are in an area with routine cuts, this is the first thing to sort out and it has nothing to do with which vendor you pick.
-
-## How would I even know something went down?
-
-This is the part most installations get wrong, and it is worth testing before you sign anything.
-
-A great many Indian sites have a camera that has been dead for weeks. Nobody noticed, because a camera that produces no video looks exactly like a camera showing an empty corridor — until the day you go looking for footage of an incident and find there isn't any.
-
-A system that watches its own health closes that gap. It should flag a camera that has stopped producing frames, and a whole site whose on-site device has stopped checking in — which is, usefully, also what you would see if someone pulled the recorder out of the building. PGAK has no published camera-health demonstration yet, so this is something to test at your site with a disconnect-and-reconnect check and confirm in the written scope.
-
-That last case is worth sitting with. When a camera is covered, moved, blinded or unplugged, the useful signal is not the footage — there isn't any. It is the fact that the feed stopped, and somebody being told promptly. We wrote about that pattern separately in [your DVR records the theft, it doesn't stop it](/insights/your-dvr-records-the-theft-it-doesnt-stop-it).
-
-## What to ask before you buy
-
-Four questions, and you can ask them on a phone call:
-
-1. **Where does the analysis run — on my premises or on your servers?** Everything else follows from this.
-2. **If my internet goes down for six hours, what exactly do I have afterwards?** Listen for whether detection continued or simply stopped.
-3. **How much data does this push out per camera per month?** Cloud-analysed systems have a real and recurring answer here that often is not in the quote.
-4. **How will I find out that a camera has stopped working, and how fast?** Ask them to demonstrate it by unplugging one.
-
-That last one is the best test in the list, because it is the only one that cannot be answered with a brochure.
-
-## The short version
-
-Ask where the thinking happens. On-site processing means the system keeps watching when the link drops and you get the events late; cloud processing means it stops watching entirely. In a country where connectivity is genuinely uneven, that is not a technical detail — it is most of what you are buying.
-
-And put the whole chain on a UPS. That single decision does more for uptime than any feature on the quote.
-
-If you want to know what your site would actually need — including whether your existing connection is good enough — [tell us your camera count and where you are](/#dealer), and we will be specific about it.
+[Request an outage-readiness assessment](/free-audit) with your camera count, required alerts, connection type and outage concerns. Agree which functions must survive and how they will be demonstrated before purchasing.
