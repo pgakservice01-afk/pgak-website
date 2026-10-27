@@ -1,62 +1,62 @@
 ---
-title: "Attendance for contract labour: the compliance gap nobody plans for"
+title: "Contract labour attendance: reconcile workers, shifts, contractors and payroll"
+metaTitle: "Contract Labour Attendance: A Reconciliation Checklist"
 date: "2026-09-01"
 category: "Compliance"
-excerpt: "Contract workers rotate faster than any enrolment process, yet the principal employer often carries obligations for them. Where the record breaks, and how to close it without a week of admin."
-metaDescription: "Contract workers rotate faster than any enrolment process, yet the principal employer often carries obligations for them."
-metaTitle: "Contract labour attendance: the compliance gap"
-readTime: 5
 image: "/insights/covers/attendance-system-for-contract-labour.webp"
-faqs:
-  - q: "Does a principal employer need attendance records for contract labour?"
-    a: "In many situations yes. Indian contract labour legislation places obligations on the principal employer alongside the contractor, including in relation to registers and wage payment where the contractor defaults. Treating contract workers as invisible to your attendance system is therefore a compliance risk as well as an operational one."
-  - q: "Why is contract labour attendance so hard to track?"
-    a: "Because enrolment cost per worker is high and tenure is short. A gang that arrives Monday and leaves Friday will never be properly enrolled on a system that requires an office visit, card issuance or a supervised fingerprint registration, so the fallback is a paper list maintained by the contractor."
-  - q: "How can you verify contractor-billed headcount?"
-    a: "By keeping an independent, photo-backed record of who physically passed the gate. When each attendance entry stores the frame it came from, the billed headcount can be checked against actual entries rather than accepted on trust."
+updated: "2026-10-27"
+excerpt: "Build a traceable contract-worker attendance record. Reconcile gate events, shifts, corrections and contractor invoices before approving payroll."
+metaDescription: "Build a traceable contract-worker attendance record. Reconcile gate events, shifts, corrections and contractor invoices before approving payroll."
 ---
 
-**Straight answer: contract labour is where attendance records break, because enrolment takes longer than the worker stays. The result is a paper list maintained by the contractor — the party with the least incentive for it to be accurate — while the principal employer may still carry obligations for those workers.**
+**A useful contract-labour attendance system connects each worker to a contractor, site and shift, then routes missing or disputed records for review.** A gate timestamp is evidence of entry or exit; it is not automatically a payable day, approved overtime or proof of productive work.
 
-This is not a hypothetical gap. On most industrial sites we visit, permanent staff are on a biometric system and contract labour is on a register in someone's pocket.
+The goal is a reconciliation both the contractor and the site team can understand. Automating an unexplained spreadsheet total only moves the dispute downstream.
 
-## Why the enrolment economics fail
+## Which fields should the record contain?
 
-Consider what enrolling one worker traditionally costs: a walk to the office, a supervisor's time, three or four fingerprint captures, a record created in a system, sometimes a card printed.
+| Field | Why it matters |
+|---|---|
+| Unique worker ID | Prevents workers with similar names being combined |
+| Contractor and effective dates | Preserves who supplied the worker during the billed period |
+| Site, entry point and shift | Distinguishes location and overnight shift boundaries |
+| Raw entry/exit events | Preserves the source rather than overwriting it with a payroll total |
+| Exception and correction | Explains missing, duplicate or disputed events |
+| Reviewer and approval time | Shows who accepted a change and when |
 
-Call it ten minutes of two people's time. For a permanent employee staying three years, trivially worth it. For a mason on a two-week job, it is never going to happen — so it doesn't, and the register absorbs them.
+Keep worker identity separate from a contractor label so a contractor change does not erase history or create duplicate people. Collect only information justified by the process; detailed payroll information need not be visible to a gate operator.
 
-Multiply by a gang of thirty arriving on a Monday and the reason for the paper list becomes obvious. Nobody is being lazy; the process simply costs more than the tenure justifies.
+## How should a new worker be enrolled?
 
-## What the gap actually costs you
+Agree responsibility before the first shift. The authorised site or contractor representative verifies the person, creates the worker record, assigns the relevant site/contract period and explains the attendance process. Test an entry and the approved fallback before treating enrolment as complete.
 
-**Headcount you cannot verify.** The contractor bills for thirty; you have no independent record of how many walked through the gate. This is the most common commercial leak on Indian sites and it is almost never measured.
+Do not promise that every worker can be enrolled in under a minute. Actual time depends on identification, language, device and quality checks. For camera-based systems, test the entrance lighting, face detail and throughput with representative users. Read the [attendance-system comparison](/insights/face-recognition-attendance-vs-biometric-machine) before choosing the capture method.
 
-**Compliance exposure.** Where obligations attach to the principal employer, "the contractor maintained that record" is a weak position if the contractor's record turns out to be inadequate.
+## What does a daily reconciliation look like?
 
-**No incident reconstruction.** When something goes wrong, you cannot establish who was on site. Not for blame — for basic accountability and, where relevant, for insurance.
+1. Import the expected roster and retain its version.
+2. Match observed events to the correct worker and shift, including shifts crossing midnight.
+3. Put absent marks, missing exits, duplicates and identity uncertainty into an exception queue.
+4. Let the worker or contractor provide relevant information through a defined correction process.
+5. Have an authorised reviewer approve changes with a reason; preserve the original event.
+6. Export only approved attendance for payroll review, then reconcile totals against the contractor's bill.
 
-**Safety blind spot.** In an evacuation, a headcount you cannot verify is a real problem, not a paperwork one.
+Use separate statuses such as **observed**, **exception**, **reviewed** and **approved for export**. This avoids making a camera match look like a payroll authorisation.
 
-## What has to change
+## How can you check a contractor invoice?
 
-The variable is enrolment cost, not record-keeping discipline. Any system requiring per-worker admin time will lose to contract churn indefinitely.
+**Illustrative example:** an invoice lists 30 workers for a shift. The system has 27 matched entry records, two unresolved records and one approved manual correction. That is not evidence of three fraudulent claims. Resolve the two exceptions, inspect legitimate alternate-entry records and apply the agreed shift rules before approving or disputing the bill.
 
-Enrolment has to be fast enough to do at the gate on arrival: a guided face scan from a phone, under a minute per person, no office visit, no card, no supervisor tied up for an hour. At that cost, enrolling a thirty-person gang becomes a normal part of induction rather than a project.
+Keep a correction log and give people a way to challenge an incorrect mark. Recognition failures, clock errors and missed scans are operational possibilities, not proof of wrongdoing.
 
-Two properties then follow that matter specifically here. The record is photo-backed, so contractor-billed headcount can be reconciled against who actually passed the gate. And contract-worker records can be held separately from permanent staff, with retention ending when the contract does — which is also the right posture under the DPDP Act's storage-limitation principle.
+## What should the pilot measure?
 
-We build this, so weigh the framing accordingly. The underlying diagnosis — that enrolment cost, not technology, is what excludes contract labour — holds regardless of vendor.
+Measure enrolment completion time, unmatched events, duplicate records, unresolved exceptions, review time and successful export into the intended payroll process. Compare the proposed workflow with a representative current shift. Agree acceptable thresholds with HR and operations before the pilot; there is no universal error-rate target for all sites.
 
-## The check worth running this month
+An attendance system is also not a complete evacuation roll call. People may enter without a recorded event or leave through another exit; emergency procedures need their own validation.
 
-Take last month's contractor invoice and the gate record for the same period.
+## How long should the records be kept?
 
-If you cannot compare them, that is the finding. If you can and they differ, that is a more expensive one.
+Set a documented retention schedule for attendance, payroll outputs and any supporting images. Do not automatically delete everything when a contract ends: applicable record requirements, disputes and lawful holds may differ. Confirm current requirements with the organisation's HR/legal adviser using the [Ministry of Labour and Employment](https://www.labour.gov.in/) and applicable state sources. This is an operational checklist, not a statutory-register template.
 
-If your gates already have cameras, the option these constraints leave open is [attendance from the gate camera, with no machine to queue at](/biometric-attendance) — enrolled faces, each record backed by its own frame, and the correction workflow this article describes. [Ask for a free audit of your entrance cameras →](/free-audit)
-
-## Sources
-
-- [Ministry of Labour and Employment](https://www.labour.gov.in/) — the Contract Labour (Regulation and Abolition) framework and the registers a principal employer is required to maintain.
-- [The Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf) — the Gazette text behind the storage-limitation principle referenced above.
+**Need to reduce reconciliation work at a factory gate?** [Request a site assessment](/free-audit) with worker counts, contractor counts, shifts and current export format. Use [factory attendance planning](/attendance-system-for-factories) to define the workflow before selecting equipment.
