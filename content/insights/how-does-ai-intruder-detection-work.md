@@ -1,73 +1,62 @@
 ---
-title: "How does AI intruder detection actually work?"
+title: "AI intrusion detection versus motion alerts: how to test false alarms at night"
+metaTitle: "AI Intrusion Detection vs Motion Alerts: Night Tests"
 date: "2026-07-30"
 category: "Security Basics"
-excerpt: "Not magic, and not the same as motion detection. A plain explanation of what happens between a person crossing your boundary and your phone buzzing three seconds later."
-metaDescription: "Not magic, and not motion detection. What actually happens between a person crossing your boundary and your phone buzzing three seconds later."
-readTime: 5
 image: "/insights/category/security-basics.webp"
+updated: "2026-10-27"
+excerpt: "Learn how CCTV intrusion detection uses objects, zones and schedules. Test missed events, false alarms and alert delays on your own perimeter."
+metaDescription: "Learn how CCTV intrusion detection uses objects, zones and schedules. Test missed events, false alarms and alert delays on your own perimeter."
 ---
 
-People ask us this in two very different tones. Some want reassurance that it isn't magic. Others want reassurance that it is.
+**AI intrusion detection combines object detection with rules such as a restricted zone, crossing direction or armed schedule.** Basic motion detection responds to changes in the image. Object-aware rules can reduce irrelevant alerts, but they do not eliminate false alarms or establish a person's intent.
 
-It's neither. Here's what actually happens.
+For a factory yard or warehouse boundary, the useful question is whether the system reliably identifies the events your team can act on under the conditions at that site.
 
-## Motion detection: what you probably have now
+## How is it different from ordinary motion detection?
 
-Conventional CCTV motion detection compares one video frame to the next and measures how many pixels changed. Past a threshold, it fires.
+| Approach | What triggers it | What to test |
+|---|---|---|
+| Basic image-change detection | Enough change within a configured region | Rain, shadows, headlights, foliage and insects |
+| Object-aware intrusion rule | A supported object class meets zone/time rules | Missed people, false object classifications, occlusion and rule boundaries |
+| Line crossing | A tracked object crosses a configured line/direction | Objects moving along the line, two people together and reversals |
 
-That's the whole mechanism. It has no idea what changed — only that something did.
+Product names do not establish the method. Some cameras combine motion and object classification. Ask what is actually enabled, which classes are supported and which settings apply to each channel.
 
-This is why your current system alerts for rain, swaying branches, shadows crossing a wall, headlights sweeping a compound, and insects landing on the lens at night. All of those change pixels. From the DVR's point of view they are indistinguishable from a person climbing your fence.
+## What happens between detection and a phone notification?
 
-## AI intruder detection: classify first, then decide
+The system receives video, detects or tracks objects, checks the configured rule and generates an event. A separate delivery path sends the alert to the configured recipient. Processing load, frame rate, network conditions and the receiving service all affect delay.
 
-An AI system inverts the order of operations. Instead of asking "did something change", it asks "what is in this frame".
+Measure event-to-notification time on your deployment. A universal “three seconds” claim is not a substitute for observed results. Also test whether the recipient sees enough context to decide what to do.
 
-A detection model runs over each frame and returns objects with labels and positions: *person at these coordinates, vehicle at these, dog at these.* It does this many times a second, and it tracks each object across frames, so it knows that the person in frame 40 is the same person from frame 12.
+## How should you choose zones and schedules?
 
-Only after that does any alerting logic run.
+Draw the smallest useful zone around the actual boundary or restricted area, while keeping enough approach visible to detect the target. Exclude irrelevant public roads or moving vegetation where the scene permits. Check authorised activity, shift changes and maintenance periods before setting an alarm schedule.
 
-## The three questions before your phone buzzes
+Do not suppress all alerts merely because a person appears familiar. Identity uncertainty, unusual behaviour and restricted areas still require a defined response policy. Face matching is a separate capability and must not be assumed from person detection.
 
-Once the system knows what it's looking at, an alert has to pass three filters:
+## What should a night-time pilot include?
 
-**Is it a class I care about?** You almost certainly want people. You may want vehicles. You almost certainly do not want animals — stray dogs at a factory perimeter are the single biggest source of night-time false alarms in India.
+Agree safe, authorised test events with the site's responsible person. Include day and night approaches, different directions, partial occlusion and representative distances. Observe normal nuisance activity such as lights and weather when it occurs; do not manufacture a dangerous scenario to stress a security system.
 
-**Is it in a zone I marked?** You draw a line or a region on the camera view — the compound wall, the loading bay, the stock room door. Movement outside that zone is recorded but never interrupts anybody.
+Log the camera, configuration, time, expected outcome and actual outcome. A useful scorecard includes:
 
-**Is it during hours I armed?** The dispatch bay is busy until 8pm and should be silent after. The pharmacy store should be alarmed around the clock. Each zone carries its own schedule.
+- **Detection rate:** detected agreed events divided by all agreed test events.
+- **False-alert rate:** irrelevant alerts per monitored camera-hour or shift.
+- **Missed events:** separately reviewed, not hidden by a high overall “accuracy” figure.
+- **Delivery time:** measured from the event to the recipient, including delayed/missing notifications.
+- **Response:** acknowledgement, escalation and authorised action.
 
-A person in an armed zone during armed hours produces a notification with a snapshot, typically under three seconds from the moment they crossed the line. Everything else is logged and left alone.
+Keep the test definitions and denominator alongside every percentage. A small pilot measures that sample; it does not prove performance in every season or lighting condition.
 
-## Where the identity layer comes in
+## What happens without internet?
 
-If faces are enrolled, there's a fourth filter: *is this someone I know?*
+Local analysis and cloud analysis have different dependencies. Even if local detection continues, remote delivery may fail. Read [CCTV without internet](/insights/does-ai-cctv-work-without-internet) and test the actual outage behaviour. Local siren or relay operation requires a supported, commissioned integration.
 
-Your night supervisor walking through the yard at 2am is a person, in an armed zone, during armed hours — and still not something you want to be woken for. Recognition lets the system stay silent for known people while remaining uncompromising about unknown ones.
+## What should you fix before buying more analytics?
 
-This is also what makes daytime alerting survivable at any site with staff.
+Check whether the camera can actually see the boundary at night. Clean lenses, review focus and lighting, and address blind spots with the responsible installer. Tuning cannot reconstruct an event that is outside the frame or lost in blur.
 
-## Where it runs, and why that matters
+Read PGAK's [intrusion-detection offering](/ai-intruder-detection), [false-alarm filtering](/features/false-alarm-filtering) and [evaluation method](/resources/evaluation-method) for the questions to resolve at an assessment.
 
-All of this runs on a small edge device at your site rather than in a cloud. Two consequences follow, and both matter more than they sound:
-
-Your video stays on your premises. Nothing is uploaded to be analysed, so the privacy question has a straightforward answer.
-
-And detection survives your internet going down. The connection is only needed to deliver notifications; if it drops, detection and any local response — siren, strobe, floodlight — carry on regardless.
-
-## What it doesn't do
-
-It doesn't know intent. It knows a person is somewhere they shouldn't be at a time they shouldn't be there, which is a strong signal and not a verdict. Every alert deserves a human glance before anyone acts on it.
-
-It also doesn't identify strangers. It can tell you this is not anyone enrolled — it cannot tell you their name. Any vendor implying otherwise is selling you something that doesn't exist.
-
-## The honest summary
-
-AI intruder detection is object classification plus zones plus schedules plus, optionally, identity. That's it. There's no intuition and no learning about your habits in the way the marketing sometimes implies.
-
-What makes it worth having is not sophistication. It's that the resulting alerts are rare enough and accurate enough that you leave notifications switched on — which is the only state in which any security system does anything at all.
-
----
-
-**Related reading:** [AI intruder detection](/ai-intruder-detection) · [False-alarm filtering](/features/false-alarm-filtering) · [Smart perimeter protection](/smart-perimeter-protection)
+**Need fewer irrelevant alerts at a factory or warehouse?** [Request a perimeter assessment](/free-audit) with camera count, operating hours, the area of concern and the current alert problem. Agree the event definition and pilot scorecard before rollout.
