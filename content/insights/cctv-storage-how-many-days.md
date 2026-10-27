@@ -1,10 +1,10 @@
 ---
 title: "How many days of CCTV footage are you really keeping?"
-metaTitle: "How many days is CCTV footage stored?"
+metaTitle: "CCTV storage in days: how many days will it record?"
 date: "2026-09-10"
 category: "Camera Setup"
 excerpt: "The retention figure quoted at installation almost always shrinks — quietly, as cameras get added and nobody redoes the math. A simple calculation to find your real number today."
-metaDescription: "Your real retention is recorder capacity divided by what every camera writes per day, not the installation quote. How to work out your actual number."
+metaDescription: "CCTV storage in days = disk capacity ÷ what all cameras record a day. 10 cameras at 2 Mbps on 4 TB usable ≈ 18 days. Most small firms target 15–30 days."
 readTime: 5
 image: "/insights/covers/cctv-storage-how-many-days.webp"
 faqs:

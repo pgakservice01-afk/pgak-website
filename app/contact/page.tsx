@@ -17,9 +17,9 @@ import {
 const PATH = "/contact";
 
 export const metadata: Metadata = pageMeta({
-  title: "Contact PGAK — Talk to Us or Find an AI CCTV Dealer Near You",
+  title: "Contact PGAK: call, WhatsApp or visit us in Ludhiana",
   description:
-    "Call, WhatsApp or email PGAK, or request a verified AI CCTV dealer near you. We'll help make the security cameras you already own intelligent.",
+    "Call or WhatsApp the PGAK team, email info@pgak.co.in, or visit BK Towers, Gill Rd, Ludhiana (Mon–Sat, 9am–7pm). Or ask for an AI CCTV dealer near you.",
   path: PATH,
   keywords: [
     "contact PGAK",

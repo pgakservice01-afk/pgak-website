@@ -3,8 +3,8 @@ import { BUYER_SOLUTIONS } from "@/lib/b2b/solutions";
 import { pageMeta } from "@/lib/seo";
 const s = BUYER_SOLUTIONS["ai-intruder-detection"];
 export const metadata = pageMeta({
-  title: s.title + " | PGAK",
-  description: s.intro,
+  title: "AI Intruder Detection for Your Existing CCTV | PGAK",
+  description: "AI intruder detection on your existing CCTV: snapshot, camera name and time on your phone when someone crosses your boundary. Piloted before any quote.",
   path: "/ai-intruder-detection",
 });
 export default function Page() {

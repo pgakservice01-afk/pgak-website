@@ -14,7 +14,7 @@ import styles from './features.module.css';
 /** Derived, so adding a feature cannot leave a stale number on the page. */
 const FEATURE_COUNT = EXPLORER_FEATURES.length;
 
-export const metadata: Metadata = pageMeta({ title:`${FEATURE_COUNT} AI CCTV Features for Indian Businesses | PGAK`, description:`Explore ${FEATURE_COUNT} AI camera capabilities: smart search, intrusion alerts, ANPR, PPE, occupancy and more. See Indian use cases and camera compatibility requirements.`, path:'/features' });
+export const metadata: Metadata = pageMeta({ title:`AI CCTV Camera Features: All ${FEATURE_COUNT} Explained for India | PGAK`, description:`Explore ${FEATURE_COUNT} AI CCTV camera features: smart search, intrusion alerts, ANPR, PPE, people counting and more, with Indian use cases and what each one needs.`, path:'/features' });
 export default function FeaturesPage() {
   return <><JsonLd nodes={[webPageSchema({path:'/features',name:`${FEATURE_COUNT} AI CCTV capabilities for Indian businesses`,description:'Explore AI video analytics capabilities, Indian use cases and hardware requirements.'}),breadcrumbSchema([{name:'Home',path:'/'},{name:'Features',path:'/features'}])]} /><Nav /><main id="main-content" className={styles.page}>
     <section className={styles.hero}>

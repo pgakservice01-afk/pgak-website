@@ -1,10 +1,11 @@
 ---
 title: "What should AI CCTV actually cost in India?"
+metaTitle: "AI CCTV camera price in India: what it should cost"
 date: "2026-07-31"
 updated: "2026-08-21"
 category: "Buying Guide"
 excerpt: "Quotes for AI CCTV in India that we have seen range from ₹500 to ₹8,000 per camera per month, and the difference usually isn't quality. A breakdown of what you're paying for and which line items to challenge."
-metaDescription: "Quotes for AI CCTV in India that we have seen range from ₹500 to ₹8,000 per camera per month, and the difference usually isn't quality."
+metaDescription: "Quotes we've seen in India run ₹500–₹8,000 per camera a month. What a quote is made of, what five suppliers publish, and which line items to challenge."
 readTime: 6
 image: "/insights/covers/ai-cctv-price-in-india-what-it-should-cost.webp"
 faqs:

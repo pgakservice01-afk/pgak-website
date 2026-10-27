@@ -3,8 +3,8 @@ title: "How to stop proxy attendance (buddy punching) for good"
 date: "2026-09-01"
 category: "Attendance"
 excerpt: "Proxy attendance survives fingerprint machines, cards and registers because all three record a credential, not a person. The four controls that actually work, ranked by how hard they are to defeat."
-metaDescription: "Proxy attendance survives fingerprint machines, cards and registers because all three record a credential, not a person."
-metaTitle: "How to stop proxy attendance for good"
+metaDescription: "Proxy attendance, or proxy punching, is one employee marking in for another. Why it survives cards, PINs and fingerprint, and 4 controls to reduce it."
+metaTitle: "Proxy attendance: what it is and 4 ways to stop it"
 readTime: 5
 image: "/insights/category/attendance-3.webp"
 faqs:

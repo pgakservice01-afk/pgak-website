@@ -2,9 +2,9 @@ import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import QuickLead from "@/components/sections/QuickLead";
 export const metadata = pageMeta({
-  title: "AI CCTV pricing — a quote built around your site | PGAK",
+  title: "AI CCTV pricing in India: what your quote covers | PGAK",
   description:
-    "Understand the cost drivers before you commit. Confirm exact charges, inclusions, support and contract terms in a written proposal.",
+    "What an AI CCTV quote should itemise: software, on-site hardware, setup, support and terms, with example scopes for 8, 32 and 60 cameras. Quoted per site.",
   path: "/pricing",
 });
 export default function Page() {

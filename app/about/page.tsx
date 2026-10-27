@@ -13,9 +13,9 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 const PATH = "/about";
 
 export const metadata: Metadata = pageMeta({
-  title: "About PGAK — Intelligent CCTV Built for India",
+  title: "About PGAK: AI CCTV Company in Ludhiana, Since 2023",
   description:
-    "PGAK turns the cameras India already owns into intelligent guardians — threats caught in seconds, fewer false alarms, video processed on site.",
+    "PGAK Innovations Pvt. Ltd., founded in 2023 in Ludhiana, adds AI to the CCTV, DVR and NVR you already own. See the founders, CEO, CIN and office address.",
   path: PATH,
   keywords: [
     "PGAK",

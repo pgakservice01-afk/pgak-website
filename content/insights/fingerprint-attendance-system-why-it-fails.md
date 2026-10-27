@@ -3,8 +3,8 @@ title: "Fingerprint attendance systems: where they work, where they fail"
 date: "2026-09-02"
 category: "Attendance"
 excerpt: "Fingerprint attendance is cheap and everywhere — and on factory gates it quietly falls apart. The three failure modes vendors don't lead with, who they actually bite, and what to use instead."
-metaDescription: "Fingerprint attendance is cheap and everywhere — and on factory gates it quietly falls apart."
-metaTitle: "Fingerprint attendance: where it works and fails"
+metaDescription: "Fingerprint not scanning for some workers? Worn or wet fingers, shift-change queues, gates a reader never sees, and which sites should keep fingerprint."
+metaTitle: "Why fingerprint attendance systems fail: 3 reasons"
 readTime: 5
 image: "/insights/category/attendance-2.webp"
 faqs:
