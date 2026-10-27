@@ -9,6 +9,7 @@ import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { CASE_STUDIES } from "@/lib/caseStudies";
 import { CLUSTERS, clusterOf } from "@/lib/insight-clusters";
+import { contentDate } from "@/lib/content-dates";
 
 const PATH = "/insights";
 
@@ -32,6 +33,7 @@ const TRAIL = [
 
 export default function InsightsIndex() {
   const posts = getAllInsights();
+  const recentPosts = [...posts].sort((a, b) => contentDate(b).getTime() - contentDate(a).getTime());
 
   return (
     <>
@@ -54,6 +56,7 @@ export default function InsightsIndex() {
               headline: p.title,
               url: `https://www.pgak.co.in/insights/${p.slug}`,
               datePublished: p.date,
+              dateModified: p.updated ?? p.date,
             })),
           },
         ]}
@@ -134,7 +137,7 @@ export default function InsightsIndex() {
         <section className="sec pb-0 pt-4">
           <div className="wrap">
             <div className="mx-auto max-w-[1080px]">
-              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">Latest</h2>
+              <h2 className="display text-[clamp(1.5rem,2.8vw,2.1rem)]">New and updated guides</h2>
             </div>
           </div>
         </section>
@@ -142,7 +145,7 @@ export default function InsightsIndex() {
         <section className="pb-12 pt-6">
           <div className="wrap">
             <div className="mx-auto grid max-w-[1080px] gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.slice(0, 6).map((p, i) => (
+              {recentPosts.slice(0, 6).map((p, i) => (
                 <Link
                   key={p.slug}
                   href={`/insights/${p.slug}`}
@@ -169,7 +172,7 @@ export default function InsightsIndex() {
                       {p.excerpt}
                     </p>
                     <div className="mt-5 flex items-center justify-between text-[0.8rem]">
-                      <span className="text-ink-faint">{formatDate(p.date)}</span>
+                      <span className="text-ink-faint">{p.updated ? "Updated " : ""}{formatDate(p.updated ?? p.date)}</span>
                       <span className="text-accent">Read →</span>
                     </div>
                   </div>
