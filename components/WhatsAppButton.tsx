@@ -1,15 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { fbTrack } from "@/lib/fbpixel";
+import { waHref } from "@/lib/whatsapp";
 
-const WA_NUMBER = "916283993600";
 // Names the thing the visitor wants done, so the reply can be useful straight
 // away instead of opening with "how can we help?".
 const WA_MESSAGE =
   "Hi PGAK team, I want to test AI analytics on my existing CCTV setup.";
 
-const WA_HREF = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
+/**
+ * The opening WhatsApp message, tagged with the page it was sent from — the
+ * same `[via: …]` convention as the NRI page — so whoever answers knows what
+ * the visitor was reading. A WhatsApp chat never creates an ERP row, so this
+ * tag is the only record of where it came from.
+ */
+export function waOpener(path: string): string {
+  return waHref(`${WA_MESSAGE}\n\n[via: ${path}]`);
+}
 
 /**
  * Floating WhatsApp chat button — visible on every page, every scroll depth.
@@ -19,6 +28,7 @@ const WA_HREF = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE
  */
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
+  const path = usePathname();
 
   // Slide in after the visitor has seen the hero, so it doesn't fight the
   // first impression.
@@ -31,7 +41,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href={WA_HREF}
+      href={waOpener(path)}
       data-cta="whatsapp-float"
       target="_blank"
       rel="noopener"
@@ -56,7 +66,7 @@ export default function WhatsAppButton() {
   );
 }
 
-function WhatsAppIcon({ className }: { className?: string }) {
+export function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
       <path d="M12.04 2c-5.5 0-9.96 4.45-9.96 9.94 0 1.75.46 3.46 1.34 4.97L2 22l5.23-1.37a9.98 9.98 0 0 0 4.8 1.22h.01c5.5 0 9.96-4.45 9.96-9.94A9.9 9.9 0 0 0 12.04 2Zm0 18.16h-.01a8.28 8.28 0 0 1-4.22-1.15l-.3-.18-3.1.81.83-3.02-.2-.31a8.22 8.22 0 0 1-1.27-4.37c0-4.56 3.72-8.27 8.28-8.27a8.24 8.24 0 0 1 8.27 8.28c0 4.56-3.72 8.21-8.28 8.21Zm4.54-6.16c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.17.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.05-.38-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.55-1.34-.76-1.84-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z" />

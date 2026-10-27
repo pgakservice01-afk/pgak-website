@@ -698,6 +698,36 @@ select:focus-visible {
     flex: 1;
     font-size: 14px;
   }
+  /* Call and WhatsApp take their own width; "Check my cameras" takes the rest.
+     Sized so all three fit on one line at 375px. */
+  .buyer-mobile-actions {
+    gap: 6px;
+    padding-inline: 12px;
+  }
+  .buyer-mobile-actions .btn {
+    font-size: 13px;
+  }
+  .buyer-mobile-actions .buyer-mobile-contact {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding-inline: 10px;
+  }
+  .buyer-mobile-actions .btn-primary {
+    white-space: nowrap;
+    padding-inline: 10px;
+    min-width: 0;
+  }
+  .buyer-mobile-actions .buyer-mobile-whatsapp {
+    background: #25d366;
+    color: #062b1a;
+    border: 1px solid #1fb457;
+  }
+  .buyer-mobile-actions .buyer-mobile-whatsapp:hover {
+    background: #1fbe5b;
+  }
   .buyer-mobile-actions[hidden] {
     display: none;
   }
@@ -916,4 +946,11 @@ select:focus-visible {
 .site-nav--overlay .nav-action-link:focus-visible,
 .site-nav--overlay .mobile-nav summary:focus-visible {
   outline-color: #fff;
+}
+/* The smallest phones: Call and WhatsApp drop to icons (each keeps its
+   aria-label), so "Check my cameras" stays on one line. */
+@media (max-width: 360px) {
+  .buyer-mobile-actions .buyer-mobile-contact span {
+    display: none;
+  }
 }
