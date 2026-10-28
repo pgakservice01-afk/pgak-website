@@ -4,13 +4,13 @@ const ts = require("typescript");
 const vm = require("node:vm");
 const fs = require("node:fs");
 function setup(response) {
-  const events = [],
+  const events = [], pixelEvents = [],
     requests = [],
     exports = {};
   const modules = {
     "./leads": { HONEYPOT_FIELD: "website" },
     "./attribution": { readAttribution: (cta, ctx = {}) => ({ cta, ...ctx }) },
-    "./fbpixel": { fbTrack: () => {} },
+    "./fbpixel": { fbTrack: (name, params) => pixelEvents.push({ name, params }) },
     "./analytics": {
       trackConversion: (name, params) => events.push({ name, params }),
       trackLead: (name, params) =>
@@ -42,9 +42,23 @@ function setup(response) {
     },
     crypto: require("node:crypto").webcrypto,
   });
-  return { ...exports, events, requests };
+  return { ...exports, events, pixelEvents, requests };
 }
 const values = { phone: "9876501234", cameras: "5–15" };
+test("partner receipt is deduplicated and does not become a customer conversion", async () => {
+  const h = setup({ ok: true, body: { received: true, delivered: false } });
+  const partner = { phone: "9876501234", cameras: "", location: "Punjab", requirement: "CCTV installation" };
+  const opts = { ref: "test-partner-123", cta: "partner-enquiry", formName: "partner_request" };
+  assert.equal((await h.submitLead(partner, opts)).kind, "done");
+  await h.submitLead(partner, opts);
+  assert.deepEqual(h.events.map((e) => e.name), ["form_submit_attempt", "lead_accepted", "form_submit", "partner_request"]);
+  assert.equal(h.pixelEvents.length, 0);
+  assert.equal(h.requests[0].form, "partner_request");
+  assert.equal(h.requests[0].requirement, "CCTV installation");
+  assert.equal(h.requests[0].cameras, "");
+  assert.ok(!JSON.stringify(h.events).includes(partner.phone));
+  assert.ok(!JSON.stringify(h.events).includes(partner.requirement));
+});
 for (const [form, event] of [
   ["demo_request", "demo_request"],
   ["quick_quote_request", "pricing_request"],
