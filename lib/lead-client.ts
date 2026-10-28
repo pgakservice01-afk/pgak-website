@@ -172,19 +172,23 @@ export async function submitLead(
           lead_ref: opts.ref,
           ...ctx,
         });
-        fbTrack("Lead", { content_name: opts.formName, currency: "INR" });
+        const isPartner = opts.formName === "partner_request";
+        if (!isPartner)
+          fbTrack("Lead", { content_name: opts.formName, currency: "INR" });
         trackConversion("form_submit", {
           form_name: opts.formName,
           cta: opts.cta,
           ...ctx,
         });
-        if (opts.formName === "quick_quote_request")
+        if (isPartner)
+          trackConversion("partner_request", { form_name: opts.formName, cta: opts.cta });
+        else if (opts.formName === "quick_quote_request")
           trackConversion("pricing_request", { form_name: opts.formName });
         else if (opts.formName === "demo_request")
           trackConversion("demo_request", { form_name: opts.formName });
         else
           trackConversion("assessment_request", { form_name: opts.formName });
-        trackLead(opts.formName, {
+        if (!isPartner) trackLead(opts.formName, {
           cta: opts.cta,
           cameras: values.cameras,
           protecting: values.protecting ?? "",

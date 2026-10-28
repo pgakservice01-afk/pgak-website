@@ -91,6 +91,25 @@ test("an enquiry with no journey is 'Other', never guessed", () => {
   assert.equal(p.timeline, "");
 });
 
+test("partner requests retain their scope without becoming customer enquiries", () => {
+  const p = buildRegisterPayload(
+    lead({ cameras: "", protecting: "", location: "Punjab", requirement: "CCTV installation and VMS integration" }),
+    "partner-ref-1234",
+    { page: "/partners", cta: "partner-enquiry", utm_source: "linkedin" },
+    { formId: "partner_request", erpStatus: "delivered" },
+  );
+  assert.equal(p.category, "Dealer");
+  assert.equal(p.cameras, "");
+  assert.equal(p.city, "Punjab");
+  assert.ok(p.message.includes("CCTV installation and VMS integration"));
+  assert.equal(p.form_id, "partner_request");
+  assert.equal(p.source, "linkedin");
+  const legacy = buildRegisterPayload(lead(), "legacy-partner-ref", { cta: "partner-enquiry" }, {
+    formId: "quick_audit_request", erpStatus: "delivered",
+  });
+  assert.equal(legacy.category, "Dealer");
+});
+
 test("test refs are flagged so sales can filter them out", () => {
   assert.equal(isTestRef("test-newsite-0001"), true);
   assert.equal(isTestRef("TEST_x"), true);
