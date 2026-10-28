@@ -1,4 +1,4 @@
-import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
+import BuyerPage from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import QuickLead from "@/components/sections/QuickLead";
 export const metadata = pageMeta({
@@ -34,6 +34,7 @@ export default function Page() {
         <h2>Request a partner callback</h2>
         <QuickLead
           cta="partner-enquiry"
+          offer="partner"
           context="Journey: dealer / integrator enquiry. Route to partner owner, not end-customer sales."
         />
       </section>
