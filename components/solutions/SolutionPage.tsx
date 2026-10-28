@@ -399,8 +399,9 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
                 Start with a free audit of your own cameras.
               </h2>
               <p className="mx-auto mt-3 max-w-[520px] text-ink-soft">
-                Your number and camera count is all it takes. We call within one
-                working hour and send the report within 48 hours.
+                Share your phone number, city and camera count. We will discuss
+                your priority use case and agree the assessment scope, timing
+                and next step with you.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
