@@ -1,76 +1,62 @@
 ---
-title: "Does AI work with my Tapo, Imou, Qubo or Prama camera?"
+title: "Can AI Alerto use your Tapo, Imou, Qubo or Prama camera?"
 date: "2026-09-14"
+updated: "2026-10-28"
 category: "Camera Setup"
-excerpt: "The honest answer is that the brand is not really the question — what matters is whether the camera will hand over an RTSP stream."
-metaDescription: "Whether AI video analysis works with your Tapo, Imou, Qubo or Prama camera depends on RTSP, not the badge — here is how to check yours in two minutes."
-readTime: 7
+excerpt: "Check the exact camera model, firmware, stream and scene before buying AI analytics. Brand names and an RTSP label alone do not prove compatibility."
+metaTitle: "Can AI Alerto use your Tapo, Imou, Qubo or Prama camera?"
+metaDescription: "Check the exact camera model, firmware, stream and scene before buying AI analytics. Brand names and an RTSP label alone do not prove compatibility."
+readTime: 4
 image: "/insights/category/camera-setup.webp"
-faqs:
-  - q: "Does AI CCTV work with Tapo cameras?"
-    a: "Often, for the mains-powered models, which support RTSP and ONVIF Profile S — your model is confirmed at the assessment. Two things are needed first: create a Camera Account inside the Tapo app under Device Settings, Advanced Settings, Camera Account — this is a separate username and password from your TP-Link cloud login, and the cloud login will not work. Then use rtsp://username:password@CAMERA-IP:554/stream1 for the high-quality stream or /stream2 for the lower one. Most battery-powered Tapo models do not offer RTSP at all, so those are the exception."
-  - q: "Does AI CCTV work with Qubo cameras?"
-    a: "It can, where the model gives an RTSP stream. The one thing to confirm on your particular unit is that it can give an RTSP stream, because Qubo devices are built around their own app and not every model in the range exposes one. Where the model does, it behaves like any other camera. Where a camera of any brand is cloud-only, no third-party software can read it, because there is nothing to read."
-  - q: "Does AI CCTV work with Imou and Prama cameras?"
-    a: "Both are expected to, and each model is confirmed at the assessment. Imou is part of Dahua and uses the Dahua stream path, which is one of the paths a scan tries first. Prama is the Hikvision line in India and uses the Hikvision path. Both of those path families are tried early, so these cameras are normally found automatically once the recorder's IP address and login are entered."
-  - q: "How do I check whether my camera supports RTSP?"
-    a: "Look in the camera or recorder's own settings for a section named RTSP, ONVIF, or sometimes Network or Advanced. If there is a way to enable RTSP or set a stream port — 554 is the usual one — the camera can hand over a stream. If the manufacturer's app is the only way to see the video and there is no such setting, the camera is cloud-only and cannot be used by anything else."
-  - q: "Do I need to replace my cameras to add AI?"
-    a: "Usually not. Analysis runs on the video stream a camera already produces, so if the camera can hand over an RTSP stream it can usually be used as it is, whatever its age or brand — its view and stream are confirmed at the assessment. The cameras that genuinely cannot be used are the cloud-only ones that never expose a stream, and most battery-powered models, which stay asleep to save power and so have no continuous stream to read."
 ---
 
-**Straight answer: the brand on the camera is the wrong thing to check. What matters is whether the camera will hand over an RTSP stream. Most mains-powered cameras will. Most battery cameras will not, whatever the badge says.**
+A camera that works in its manufacturer's phone app may or may not provide the stream needed by a separate analytics system. The right starting point is the exact model and configuration, not a promise that “all cameras from this brand work”.
 
-This question comes up constantly, usually in the form "will it work with my cameras?" — asked by someone who has already spent money once and does not want to be told to spend it again. It deserves a straight technical answer rather than a sales one.
+For Tapo, Imou, Qubo, Prama or another brand, separate two questions: can the proposed system receive a supported video stream, and can that view support your intended event? Both must be answered before describing the camera as compatible with AI Alerto by PGAK.
 
-## What the software actually needs
+## Prepare a model-specific record
 
-Analysis does not care what the camera looks like or who made it. It needs a video stream it can open and read, continuously.
+Collect the model number, hardware revision where shown, firmware version and whether the stream will come directly from the camera or through a recorder. A photo of the product label can help, but remove passwords, QR access codes and other access details before sharing it.
 
-Nearly every network camera and recorder can provide one, using a protocol called **RTSP**. The address looks like this:
+Then write down the job: after-hours entry at a gate, for example. Include the approximate target distance, operating hours and whether the area is lit. “Add AI” is too broad to test; a defined event gives the technical reviewer something concrete to assess.
 
-```
-rtsp://username:password@192.168.1.64:554/some/path
-```
+PGAK's [current compatibility guidance](/platform/compatibility) does not publish a model-and-firmware approval list. Treat any proposed combination as awaiting verification until there is a dated test record for that configuration.
 
-If your camera can produce a working address of that shape, it can be used. If it cannot, nothing outside the manufacturer's own app can read it — not us, not a NAS, not any other software.
+## What RTSP and ONVIF do, and do not, establish
 
-That is the whole test. Everything below is just how each brand words it.
+RTSP access can provide a route to a video stream. ONVIF profiles describe interoperability features between conformant devices and clients. Neither label alone proves that a particular analytics application supports the stream settings or that the camera sees the event clearly enough.
 
-## The brands people ask about
+Ask the reviewer to confirm the video codec, resolution, frame rate, bitrate and available concurrent streams. Also check whether recording and other viewing clients will remain usable while analytics runs. A short successful connection is only the beginning of the assessment.
 
-PGAK has not published a dated test record for any of these brands, so what follows is what the stream paths and the manufacturers' settings tell us — "it should work", confirmed per model at the assessment. "We tested it" and "it should work" are not the same claim.
+An absent menu item is not conclusive proof that a camera cannot integrate. Check the manufacturer's current instructions for the exact model and firmware. Equally, a general statement on a brand website is insufficient to approve an unlisted model.
 
-**Prama** — expected to work. It is the Hikvision line in India, so it uses the Hikvision stream path (`/Streaming/Channels/101` for the first camera, main stream). This is one of the first paths a scan tries, so these are normally detected automatically — you enter the recorder's IP address and login, and the cameras appear.
+## Tapo: use the current manufacturer instructions
 
-**Imou** — expected to work. It is part of Dahua and uses the Dahua path (`/cam/realmonitor?channel=1&subtype=0`), which is also tried early, so it should be equally automatic. **CP Plus** reuses the same scheme, which is why it behaves the same way.
+TP-Link's [RTSP and ONVIF guide](https://www.tp-link.com/en/support/faq/2680/) describes supported wired-camera configurations and a separate camera account for third-party access. It also describes battery-powered limitations and specific powered-doorbell exceptions. Check its model conditions rather than applying one rule to the entire range.
 
-**Tapo** (TP-Link) — expected to work on mains-powered models. The mains-powered models support RTSP plus ONVIF Profile S, but there is a step people miss. You must create a **Camera Account** inside the Tapo app first:
+Keep any authorised stream test on a trusted local network. Do not paste a credential-bearing stream address into an enquiry form, public message or shared document. Arrange a permissioned technical review if live access is needed.
 
-> Live View → Device Settings → Advanced Settings → Camera Account
+## Imou, Qubo and Prama: verify rather than infer
 
-That username and password are *not* your TP-Link cloud login, and the cloud login will not authenticate. Once the camera account exists, the address is `rtsp://user:pass@CAMERA-IP:554/stream1` for the high-quality stream, or `/stream2` for the lighter one.
+For these brands, request the applicable manual or written model-specific confirmation of third-party streaming. This article does not certify a model or infer support from a related brand, a familiar stream path or a recorder that happens to discover a device.
 
-The exception is the battery range. Most battery-powered Tapo models do not offer RTSP at all; only a few support it when hardwired and kept awake. If a camera sleeps between events to save its battery, there is no continuous stream for anything to read — including us.
+If access comes through a DVR or NVR, identify the recorder channel and its available output. The stream exposed by the recorder can differ from the camera's advertised capability. Record the configuration that was actually tested.
 
-**Qubo** — expected to work where the model exposes a stream. Worth one check on your particular unit, though: Qubo devices are built around their own app, and not every model in the range exposes a stream. Where the model does, it behaves like any other camera. That caveat is not really about Qubo — it is true of any brand. A camera that only ever talks to its own app is not withholding the video from us in particular; there is simply nothing for any third-party software to read.
+## Test the scene as well as the connection
 
-## How to check your own camera in two minutes
+Use representative conditions: normal activity, a relevant planned event, the required night view, an obstructed view where applicable and restoration after a controlled interruption. Coordinate testing with the site owner so that it does not disrupt a working security system.
 
-1. Open the camera or recorder's settings — its web page, or the manufacturer's app.
-2. Look for a section called **RTSP**, **ONVIF**, or sometimes just **Network** or **Advanced**.
-3. If you can enable RTSP, or you can see a stream port (usually **554**), you are fine.
-4. If some brands require a separate stream username and password, create it there.
-5. If there is no such section anywhere, the camera is cloud-only.
+Keep a short result table:
 
-A recorder matters more than the individual cameras, incidentally. If your cameras run into a DVR or NVR, it is the recorder that hands over the streams, and the analogue cameras plugged into it come along for the ride. In that case the brand of the individual camera is irrelevant — only the recorder's brand decides the path.
+| Check | Evidence to keep |
+| --- | --- |
+| Stream access | Model, firmware, authorised access method and tested settings |
+| Useful view | Location, task, distance, lighting and known obstructions |
+| Stability | Observation period, interruptions and recovery result |
+| Event delivery | Expected event, received result and limitations |
 
-## What this means in practice
+A camera can pass the first row and fail the second. The remedy may be a different position, lighting change or selected replacement. Do not buy a whole new camera estate before identifying the actual constraint.
 
-Most sites we look at do not need new cameras. They need the streams they already produce to be watched by something that does not get bored.
-
-Where a replacement is genuinely warranted, it is usually for a reason that has nothing to do with AI — a camera pointed at the wrong thing, a lens that cannot resolve a face at that distance, or a unit that has been dead for months without anyone noticing. Those are worth fixing on their own merits.
-
-If you are buying new and want the option open, the thing to check on the box is not a feature list. It is one line in the manual confirming RTSP or ONVIF support. Cameras that lack it are choosing to be a closed system, and that is a decision you are making for years.
+Use the [pilot worksheet](/resources/evaluation-method) to agree what a successful test means. Send only the model details, site type and intended use in the initial enquiry; credentials and unrestricted footage are unnecessary at that stage.
 
 [Ask for a free feasibility check](#dealer)

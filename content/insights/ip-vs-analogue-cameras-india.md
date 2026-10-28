@@ -1,51 +1,61 @@
 ---
-title: "IP or analogue cameras: the honest comparison for India"
+title: "IP vs analogue CCTV: should your business replace its cameras?"
 date: "2026-09-11"
+updated: "2026-10-28"
 category: "Buying Guide"
-excerpt: "Every quote pushes IP cameras as the upgrade. For a lot of Indian sites, a modern analogue system with a good DVR does the job for less money and less cabling headache. Here's when each one actually wins."
-readTime: 6
+excerpt: "Compare IP and analogue CCTV by usable footage, existing cables, recording and upgrade cost. A practical checklist for an Indian business site."
+metaTitle: "IP vs analogue CCTV: should your business replace its cameras?"
+metaDescription: "Compare IP and analogue CCTV by usable footage, existing cables, recording and upgrade cost. A practical checklist for an Indian business site."
+readTime: 4
 image: "/insights/category/buying-guide-3.webp"
-faqs:
-  - q: "What is the difference between IP and analogue CCTV cameras?"
-    a: "IP cameras digitise video inside the camera and send it over a network cable (usually CAT6 with PoE for power). Analogue cameras send an unprocessed video signal down a coaxial cable to a DVR, which does the digitising centrally. IP typically gives higher resolution and easier scaling; analogue typically costs less and uses simpler, more forgiving cabling."
-  - q: "Is an IP camera better than an analogue camera?"
-    a: "Not automatically. IP is usually the better choice for high resolution, long cable runs, or a site that will keep adding cameras over years. Analogue is often the better choice for a small, fixed site on a budget, or where the existing coaxial cabling is in good condition and rewiring would cost more than the cameras."
-  - q: "Can analogue cameras run AI analytics?"
-    a: "Yes, if the DVR outputs a stream that analytics software can read, or with a small IP encoder added at the DVR. Analytics runs on the video stream, not on the camera type, so a well-maintained analogue system is not locked out of AI detection — it just needs that stream exposed."
-  - q: "Which is cheaper, IP or analogue CCTV, in India?"
-    a: "Camera-for-camera, analogue hardware is usually cheaper, and coaxial cabling is more tolerant of amateur termination than CAT6 with PoE. IP can end up cheaper overall on a new, larger site because one network cable carries both power and data, cutting the cabling run in half. On a small site or a rewiring job, analogue is usually the lower total cost."
-  - q: "Should I upgrade my analogue CCTV system to IP?"
-    a: "Only if you have a specific reason: you need resolution your analogue system cannot deliver, you are adding many more cameras than your current cabling supports, or you are wiring a new site from scratch. Replacing a working analogue system for the sake of a newer label is rarely worth the cabling cost."
 ---
 
-**Straight answer: IP cameras win for high resolution, long cable runs, and sites that will keep growing. Analogue cameras win for a small, fixed site on a budget, or anywhere your existing coaxial cabling is still good and rewiring would cost more than the cameras themselves. Neither is universally "better" — the honest comparison depends on your cabling, your camera count, and how much your site will grow.**
+An installer has recommended replacing your analogue cameras with IP cameras. Before approving the quote, ask which business problem the replacement will solve. An unreadable loading-bay view, unreliable cable and missing recording each need a different decision.
 
-Every quote we've seen in Punjab pushes IP as the upgrade, the way a shop pushes the bigger television. Sometimes that's the right call. Often it's the easier sale, not the better fit.
+IP cameras are also CCTV cameras. The useful comparison is between a network camera system and an analogue or HD-over-coax system, rather than “IP versus CCTV”. Neither label proves that the finished installation will deliver the view you need.
 
-## What's actually different between IP and analogue?
+## What changes in the system?
 
-An IP camera does the video processing inside the camera and sends a digital signal over a network cable, usually CAT6, which also carries the camera's power (Power over Ethernet). An analogue camera sends a raw video signal down a coaxial cable to a DVR sitting in a cabin or office, and the DVR does the processing centrally, with power run separately. That's the whole distinction — everything else people argue about follows from it.
+An IP camera produces a digital video stream and sends it over a network. A compatible PoE arrangement can carry power and data over one network cable. The design still needs a suitable switch, sufficient power budget, correctly installed cabling and a recording destination.
 
-## Which one actually costs less?
+In an analogue or HD-over-coax installation, cameras send their video to a compatible DVR. The recorder makes the channels available for storage and viewing. Camera format, recorder support, cable condition and power must be checked together; a new camera is not automatically compatible with an old DVR.
 
-Camera for camera, analogue hardware is usually cheaper, and coaxial cable is far more forgiving of a rough termination than CAT6 carrying PoE, which matters if your installer isn't especially careful. But on a new site being wired from scratch, IP can come out cheaper overall, because one network cable carries both video and power — on analogue you're running two cables to every camera, which roughly doubles the labour and material for cabling. On a small site, or one where you're reusing existing coaxial runs, analogue usually wins on total cost. On a large new build, IP often does.
+The choice therefore affects more than camera price. It changes where faults can occur, how the system expands and which equipment needs support.
 
-## Does IP always mean better picture quality?
+## Start with the footage you actually need
 
-Generally yes, and this is IP's strongest real advantage. IP cameras commonly run at higher resolution than typical analogue setups, which matters directly for identifying a face or a number plate rather than just noticing that someone was present. If your priority is genuinely being able to zoom into a face after an incident, resolution is the one factor worth paying for — check our note on [camera resolution versus distance](/insights/camera-resolution-vs-distance) before assuming any camera, IP or analogue, covers the distance you need.
+Write one task for each location. “See whether someone enters the locked stockroom” is different from “read a label on a carton” or “identify a person at the gate”. A wide overview can show activity while leaving too little detail for the second task.
 
-## Can an old analogue system still run AI detection?
+Compare sample footage at the intended distance, in working light and at night. Check the recorded export as well as the live screen. Do not accept a demonstration from a different lens, camera position or brightly lit showroom as the final acceptance test.
 
-Yes, more often than people assume. Analytics software reads a video stream — it doesn't care whether that stream started as analogue or IP, only that it can get access to it. If your DVR can output an RTSP stream, or a small IP encoder is added at the DVR, AI detection can run on cameras that were installed years before "AI CCTV" existed. We build software that works this way, so we have a direct interest in this answer — but the technical point holds regardless of who you buy it from: don't assume an analogue estate needs replacing before it can get smarter.
+Ask the installer to record which requirement fails on the existing system. If changing the angle or lighting solves it, a full replacement may be unnecessary. If the required detail is unavailable, identify which cameras genuinely need upgrading.
 
-## When does upgrading from analogue to IP actually make sense?
+## Compare three options on the same scope
 
-Three honest reasons, and not many others. First, you need resolution your current cameras genuinely can't deliver — for face recognition at a gate, for instance. Second, you're adding far more cameras than your existing cabling and DVR channels can support, and you'd be running new cable either way. Third, you're wiring a brand-new site and there's no legacy cabling to preserve. Outside those three, replacing a working analogue system mainly buys you a newer label on the box, not a meaningfully better outcome.
+| Option | What to establish before choosing |
+| --- | --- |
+| Retain and repair | Existing views meet the task; cable, power, DVR and storage can be made reliable. |
+| Upgrade selected positions | Specific views need improvement; the recorder and mixed-system design support the change. |
+| Replace the system | A documented coverage or infrastructure requirement justifies cameras, cabling, recording and commissioning together. |
 
-## What's the honest limitation on each side?
+Price each option with the same retention requirement, installation work, backup-power scope, taxes and support period. Include access equipment and disruption where mounting positions are difficult to reach. Keep optional analytics separate so that you can see its incremental cost.
 
-IP cameras are less forgiving of cabling mistakes — a badly terminated CAT6 run causes intermittent dropouts that are harder to diagnose than a fuzzy analogue picture, and PoE switches need their power budget calculated properly (see our piece on [cabling corners installers cut](/insights/cctv-cabling-corner-cutting)). Analogue caps out on resolution and channel count in ways that eventually become a real ceiling if a site keeps growing. Neither system fixes bad camera placement or a badly maintained DVR — that problem exists on both sides equally.
+Do not choose cable lengths from a general rule in a sales conversation. Ask for the supported distance and installation specification for the equipment and transmission method in the actual design.
 
-The honest answer to "IP or analogue" is: match it to your cabling, your camera count today, and how many more cameras you expect to add in the next few years, not to which one sounds newer.
+## Can an analogue system support AI analytics?
+
+Possibly, through a suitable DVR stream or another supported integration. That needs a model-specific check. An IP system also needs checking: a readable stream alone does not establish that the intended analytics will work reliably.
+
+Record camera and recorder models, firmware, available stream settings and the proposed event. A technical assessment must test stream access, decoding, stability and whether the scene shows enough useful detail. See the [camera compatibility checklist](/platform/compatibility) before accepting a brand-wide promise.
+
+ONVIF describes [Profile T](https://www.onvif.org/profiles/profile-t/) as a profile for advanced video streaming, including H.264 and H.265 support. That description is not an approval of every device, recorder and analytics combination. Confirm the applicable device and client features.
+
+## Put the handover test in the quote
+
+Ask for a channel list, labelled locations, playback and export checks, the agreed retention settings and a clear support contact. Record any failed requirement and its correction before closing the job. Include a controlled restart test and confirm who owns administrator access.
+
+If the purpose is an AI upgrade, use a defined event and the same test conditions for every option. The [pilot evaluation worksheet](/resources/evaluation-method) helps record results without assuming that a newer camera guarantees a better outcome.
+
+Planning a replacement or retrofit? Share your site type, camera count, recorder model if known, and the view that is failing. AI Alerto by PGAK can start with a feasibility discussion; compatibility remains subject to technical verification.
 
 [Ask for a free feasibility check](#dealer)

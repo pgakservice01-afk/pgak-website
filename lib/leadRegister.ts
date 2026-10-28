@@ -66,6 +66,7 @@ export type RegisterResult = {
 };
 
 const CATEGORY_BY_FORM: Record<string, string> = {
+  partner_request: "Dealer",
   checklist_request: "Checklist",
   quick_checklist_request: "Checklist",
 };
@@ -78,14 +79,13 @@ function requirementOf(lead: ValidLead): string {
 }
 
 /**
- * Enquiry category. A checklist download is a researcher, not a buyer, and a
- * dealer application never reaches this endpoint (it goes to WhatsApp), so
- * anything else here is a customer enquiry.
+ * Enquiry category. Checklist and partner discussions must stay separate from
+ * end-customer enquiries, including older partner-page submissions.
  */
 function categoryOf(formId: string, cta: string): string {
   if (CATEGORY_BY_FORM[formId]) return CATEGORY_BY_FORM[formId];
   if (/checklist/i.test(formId) || /checklist/i.test(cta)) return "Checklist";
-  if (/dealer-application/i.test(cta)) return "Dealer";
+  if (/dealer-application|partner-enquiry/i.test(cta)) return "Dealer";
   return "Customer";
 }
 

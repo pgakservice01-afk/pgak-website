@@ -1,53 +1,61 @@
 ---
-title: "Your camera has been offline for weeks. Would you know?"
+title: "How to check CCTV camera health, recording and offline alerts"
 date: "2026-09-01"
+updated: "2026-10-28"
 category: "Camera Setup"
-excerpt: "On nearly every estate we audit, at least one camera is already dark — and nobody knew. Why offline cameras go unnoticed for months, and the three checks that catch them."
-metaDescription: "On nearly every estate we audit, at least one camera is already dark — and nobody knew."
-metaTitle: "Would you know if a camera went offline?"
+excerpt: "A working live view does not prove that CCTV is recording or sending alerts. Use this business-site checklist to find failures and verify recovery."
+metaTitle: "How to check CCTV camera health, recording and offline alerts"
+metaDescription: "A working live view does not prove that CCTV is recording or sending alerts. Use this business-site checklist to find failures and verify recovery."
 readTime: 4
 image: "/insights/covers/cctv-camera-offline-how-to-know.webp"
-faqs:
-  - q: "How do I know if a CCTV camera is offline?"
-    a: "Without automated monitoring, you generally do not until footage is needed. Manual checks are the only alternative: open the live view of every camera on a fixed schedule and compare against your expected camera count. Automated camera-health monitoring reports an offline camera within minutes instead."
-  - q: "Why do CCTV cameras go offline without anyone noticing?"
-    a: "Because nobody watches live feeds continuously, and most recorders do not actively alert on signal loss. A camera can fail through a cut cable, a dead power supply, a network fault or deliberate tampering, and the recorder simply stops receiving that stream while everything else appears normal."
-  - q: "What should happen when a camera goes offline?"
-    a: "Someone should be notified within minutes, with the camera identified by name and location, and the event logged so repeat failures on the same camera become visible. A camera that drops out weekly is telling you about a cable or power problem that a single repair visit will not fix."
 ---
 
-**Straight answer: on almost every existing estate we audit, at least one camera is already dark, and the owner does not know. Not because anyone was careless — because nothing in a standard CCTV setup is designed to tell you.**
+Your CCTV app opens, but that does not prove that every camera is working. One channel may be frozen, another may have a recording gap, and an alert may never reach the person responsible for the site.
 
-The discovery moment is always the same. Something happens, someone goes to pull the footage, and the camera that mattered has been offline since some indeterminate date.
+A useful health check follows the full path from camera to recording and, where installed, analytics and notification. Keep those checks separate so that a reassuring green icon does not become the only evidence of system health.
 
-## Why it goes unnoticed
+## Start with an expected camera list
 
-**Nobody watches live feeds.** The monitor wall exists, but attention does not. A missing tile among sixteen is not visually obvious, and after a week the brain treats it as normal.
+List each camera by a useful location name, such as “rear loading door”, alongside its recorder channel and the person responsible for faults. Include its normal operating schedule. Otherwise a missing channel can be mistaken for an unused one.
 
-**Recorders rarely alert.** Most DVRs and NVRs log a signal loss quietly. Some can email — almost none are configured to, because configuring it requires someone to have thought about it during installation.
+Compare the list with the actual installation after additions, removals or repairs. Record cameras that are intentionally out of service and their restoration date. Do not silently remove a failed camera from the expected count just to make the dashboard look complete.
 
-**Failures are mundane.** A rat through a cable. A power adapter dying in monsoon humidity. A switch port failing. A pole knocked by a reversing truck. None of these announce themselves.
+## Check five different things
 
-**Tampering looks the same.** A camera deliberately covered or turned produces the same silence as one that failed. That is precisely why covering the camera first is a common pattern.
+| Layer | What to verify |
+| --- | --- |
+| Current picture | The expected view is present, moving and correctly timed. |
+| Recording | A recent interval can be played back and exported. |
+| Retention | Older footage is available for the period the site agreed. |
+| Analytics, if installed | The selected channel and event rule are active and receiving usable video. |
+| Notification, if installed | The intended recipient receives an identifiable test event. |
 
-## The three checks worth doing today
+For live view, look for a changing timestamp and expected activity; a still image alone can conceal a stalled feed. Compare time settings across components before interpreting gaps. For playback, test a recent known interval rather than merely checking that a storage drive is listed.
 
-**1. Count your live tiles against your camera count.** Open the recorder, count the views actually showing an image, and compare to the number of cameras you believe you own. This takes two minutes and surprises people regularly.
+Retention needs its own check. A recording schedule, changed bitrate, failed disk or capacity decision can affect what remains available. Use the [CCTV storage guide](/insights/cctv-storage-how-many-days) to understand the inputs rather than assuming that a disk size guarantees a number of days.
 
-**2. Check retention, not just liveness.** Go back thirty days on three different cameras and confirm footage actually exists. A camera can be online and still be recording nothing useful if the disk is full or the schedule is wrong.
+## Investigate the failed layer
 
-**3. Look at the oldest footage you have.** If your system claims thirty days and the oldest clip is from nine days ago, your retention is nine days. This is extremely common as camera counts grow and nobody resizes storage.
+If one channel is missing while others work, record the affected camera and its last known working time. If many channels fail together, note any shared recorder, network switch or power supply. These observations help a technician narrow the investigation; they are not a diagnosis by themselves.
 
-## Why this is the highest-value alert in the entire category
+Check supported status pages and logs before rebooting equipment. A repeated reboot can erase useful clues or interrupt recording on healthy channels. Avoid opening powered equipment or changing network settings without a competent, authorised person.
 
-Intrusion detection is what sells systems. Camera-health monitoring is what quietly saves them.
+If live view works but playback does not, raise a recording fault. If playback works but an expected alert does not arrive, examine the analytics and delivery path. Calling every problem “camera offline” can send the repair in the wrong direction.
 
-The reason is simple: every other capability depends on the camera working. Boundary alerts, attendance, ANPR — all of it assumes the feed exists. A blind camera silently invalidates every promise the rest of the system made, and it does so without any indication.
+## Verify offline notifications safely
 
-Automated health monitoring flips this from an unknown into a notification: this camera, at this location, stopped responding at this time. With PGAK it is something to evaluate at your site — there is no published PGAK demonstration of it yet — and I would argue it is the least glamorous and most useful thing to ask any vendor for.
+Ask your installer which signal-loss, storage or device-health events the exact equipment supports. Confirm where each event appears and whether an external notification is configured. The presence of a feature in a brochure does not prove that someone receives it at your site.
 
-## The thirty-second version
+Where a controlled interruption is appropriate, agree a maintenance window and temporary coverage with the site owner. Record the interruption time, event time, notification receipt and restoration. Confirm that recording and any analytics resume afterwards. Do not disconnect critical coverage casually to test a message.
 
-Open your recorder now and count the tiles. If the number is lower than your camera count, you have found something — and it has probably been true for longer than you would like.
+Set the acceptable detection and response time in the service agreement. This guide does not promise an automatic alert within a particular number of minutes.
+
+## Close the fault with evidence
+
+A useful fault record contains the location, symptom, first observed time, assigned contact, next checkpoint, repair action and proof of recovery. “Technician visited” is an activity; successful playback and a completed test show whether the problem was resolved.
+
+Review repeat failures by location. Repeated cable, power or connectivity problems may need a lasting repair rather than another reset. Put recurring checks and escalation responsibilities into the [maintenance contract](/insights/cctv-amc-what-should-it-include).
+
+If your business has cameras but no clear way to know which ones are usable, start with an inventory and a health-check requirement. For an AI Alerto by PGAK assessment, share the site type, camera count and whether the issue concerns live video, recording or alerts. Technical support scope and compatibility need confirmation.
 
 [Ask for a free feasibility check](#dealer)
