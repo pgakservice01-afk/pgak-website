@@ -1,58 +1,70 @@
 ---
-title: "How many cameras does a warehouse actually need?"
+title: "How many CCTV cameras does a warehouse need? A coverage plan"
 date: "2026-09-01"
+updated: "2026-10-28"
 category: "Camera Setup"
-excerpt: "Camera count is the wrong first question. Work backwards from the eight positions that matter in a warehouse and the number answers itself — usually lower than the quote you were given."
-metaDescription: "Camera count is the wrong first question. Work back from the eight positions that matter and the number answers itself — usually lower than your quote."
-readTime: 5
+excerpt: "Work out warehouse camera count from loading bays, entrances, stock and blind spots. Build a coverage plan before asking for an installation quote."
+metaTitle: "How many CCTV cameras does a warehouse need? A coverage plan"
+metaDescription: "Work out warehouse camera count from loading bays, entrances, stock and blind spots. Build a coverage plan before asking for an installation quote."
+readTime: 4
 image: "/insights/category/camera-setup-2.webp"
-faqs:
-  - q: "How many CCTV cameras does a warehouse need?"
-    a: "Rather than a per-square-foot rule, count the positions that must be covered: each loading bay, each pedestrian entrance, the despatch and receiving desks, high-value stock aisles, the yard gate, and the perimeter corners. A typical single-unit warehouse lands between eight and twenty cameras once positions are counted this way."
-  - q: "Where should cameras be placed in a warehouse?"
-    a: "At decision points rather than for blanket coverage: where goods change hands, where people enter and exit, and where value concentrates. A camera watching an empty aisle records nothing useful; one watching the despatch desk records every transfer of responsibility."
-  - q: "Do more cameras mean better warehouse security?"
-    a: "No. Beyond a point, extra cameras add cost and footage nobody watches without adding coverage of anything that matters. A smaller estate with correct placement and automated alerts outperforms a larger estate recording to a disk nobody reviews."
 ---
 
-**Straight answer: stop asking how many and start asking which positions. A warehouse has roughly eight position types that genuinely need eyes, and once you count yours the number falls out — usually somewhere between eight and twenty for a single unit, and often below the quote you were given.**
+A warehouse camera count cannot be worked out reliably from floor area alone. Racking, stacked pallets, vehicles, doors and the task assigned to each camera change what is visible. Two warehouses of equal size can need different designs.
 
-Installers quote in camera counts because counts are easy to price. But two warehouses of identical floor area can need very different estates depending on how many bays they run and where value sits.
+Start with a coverage plan. The result should explain why each camera exists and what it cannot see. That makes the installation quote easier to assess and exposes gaps that a large camera count can hide.
 
-## The eight positions that earn a camera
+## Define the decisions the footage must support
 
-**1. Each loading bay.** Non-negotiable. This is where goods change hands and where most shrinkage occurs. One camera per bay, angled to see both the vehicle and the person moving stock.
+Walk through how people, vehicles and goods move through the site. Identify places where you need to reconstruct an event, verify a handover or notice entry into a restricted area.
 
-**2. Each pedestrian entrance.** Staff, contractors, visiting drivers. These are also your attendance check-in points if you run camera-based attendance, so placement should suit face height, not just doorway coverage.
+For each location, choose a specific task. Seeing a person in an aisle is different from identifying them. Seeing a truck at a bay is different from reading its number plate. A general overview may be useful without satisfying either identification task.
 
-**3. The despatch desk.** Where responsibility formally transfers. Disputes about what left the building are settled here or not at all.
+Keep these requirements separate in the brief. Do not assume that one camera will provide every level of detail across an entire yard.
 
-**4. Receiving.** The mirror image, and the position most often skipped. Shortages that originate at intake get blamed on despatch for months.
+## Map the views before counting equipment
 
-**5. High-value stock aisles.** Not every aisle — the ones where value concentrates. This is a judgement call about your inventory, not a rule.
+Use a simple floor plan and mark the proposed direction of each view. Include the location of existing cameras so that usable coverage can be retained.
 
-**6. The yard gate.** Vehicle in and out, with a view that captures number plates if you want ANPR later.
+| Area | Question the coverage plan should answer |
+| --- | --- |
+| Vehicle entrance | What needs to be seen when a vehicle approaches or stops? |
+| Pedestrian entrance | Can the required entry activity be reviewed clearly? |
+| Loading and unloading bays | What disappears behind a parked vehicle or raised shutter? |
+| Goods handover points | Is the relevant transfer visible at working height? |
+| Restricted stock areas | Can entry be observed without relying on an obstructed aisle? |
+| Yard and perimeter | Which routes or boundaries need coverage, and when? |
 
-**7. Perimeter corners.** Enough to make boundary alerting work. Corners beat mid-wall positions because one camera covers two runs.
+This is a planning list, not a requirement to place one camera at every row. The camera count follows the actual geometry and tasks.
 
-**8. The office and server area.** Small, cheap, and the position people regret skipping.
+## Test the layout when the warehouse is busy
 
-## Why the count matters less than you think
+An empty building can make a proposed view look better than it will during operations. Check normal pallet heights, parked forklifts, loaded bays and open doors. Note seasonal stock patterns or temporary storage areas that change sightlines.
 
-Two warehouses, same floor plate. One has two bays and one entrance: perhaps ten cameras. One has six bays, three entrances and a separate driver gate: perhaps twenty-two. Neither number tells you anything without the position list behind it.
+Mark each obstruction on the plan. Ask whether a different mounting position resolves it or whether another view is needed. Keep access for maintenance in mind: an inaccessible camera can make a straightforward repair disruptive.
 
-This is why we recommend asking any installer for a **position list, not a count** — and why our own quotes are itemised that way. A count you cannot interrogate is a count you cannot compare.
+Review lighting at the hours that matter. A daytime walkthrough cannot establish what will be usable after the shift ends. Record areas where the lighting changes when a shutter opens or a vehicle approaches.
 
-## The part that changes the arithmetic
+## Separate camera count from analytics coverage
 
-Here is what actually determines whether a warehouse estate is useful: **whether anybody finds out when something happens.**
+A recorder may show many channels while only selected views are suitable for the intended analytics. List which cameras would be assessed, the event for each and the person expected to respond.
 
-Twenty cameras recording to a disk nobody reviews is a documentation system. Ten cameras with boundary alerts, camera-offline warnings and after-hours detection is a security system. If you are choosing between "more cameras" and "the cameras you have, made to alert," the second wins almost every time — and it is usually cheaper.
+For example, a closed loading bay may need an after-hours entry rule. A busy dispatch area may instead need useful recording and a clear handover view. These are illustrative requirements, not claims that the same feature is available or appropriate on every camera.
 
-We build the intelligence layer, so weigh that accordingly. The underlying maths does not need us to be right about anything else: footage reviewed after the fact has a fraction of the value of an alert delivered while something is still happening.
+Use the [compatibility checklist](/platform/compatibility) before adding analytics to existing feeds. If you are choosing new equipment, the [warehouse camera buying guide](/insights/best-ai-cctv-camera-for-warehouses-india) covers the separate model-selection decision.
 
-## Before you accept a quote
+## Accept the coverage with a practical test
 
-Ask for the position list. Check that receiving is on it. Confirm the bay cameras see people and not just vehicles. And ask what happens the day a camera goes dark — because on most warehouse estates we audit, at least one already has.
+Agree a safe, authorised walkthrough of the required routes. Review recorded footage from the intended positions and distances, including the required night conditions. Log the camera, test, result, limitation and corrective action.
+
+For an alerting pilot, record both received alerts and eligible events that were missed. The [evaluation worksheet](/resources/evaluation-method) helps keep that review consistent. Do not treat a single successful demonstration as proof of performance through every shift or season.
+
+The final plan should identify satisfactory views, gaps, optional improvements and any conditions the system cannot cover. Ask the supplier to tie its camera quantities and installation line items to that plan.
+
+## What to prepare for a site assessment
+
+Share the warehouse location, a simple non-sensitive layout, entrances and loading bays, existing camera count and your highest-priority problem. Do not send unrestricted camera access or detailed stock information in the initial form.
+
+AI Alerto by PGAK can assess an analytics requirement against compatible existing CCTV. A coverage discussion should first establish what the site needs to see; the equipment count and technical scope follow from that work.
 
 [Ask for a free feasibility check](#dealer)

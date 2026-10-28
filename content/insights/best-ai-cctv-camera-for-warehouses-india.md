@@ -1,65 +1,63 @@
 ---
-title: "How to choose an AI CCTV camera for a warehouse in India"
+title: "Choosing an AI CCTV camera for a warehouse in India"
 date: "2026-07-29"
+updated: "2026-10-28"
 category: "Warehouse Security"
-excerpt: "Most warehouse camera advice is about resolution. It should be about coverage, angles and what happens after the footage is recorded. Here's what actually matters when you're buying AI CCTV for a warehouse."
-metaDescription: "Most warehouse camera advice is about resolution. It should be about coverage, angles and what happens after the footage is recorded."
-metaTitle: "Choosing an AI CCTV camera for an Indian warehouse"
-readTime: 6
+excerpt: "Compare warehouse CCTV cameras by the actual view, lighting, stream compatibility and pilot results. Request a site-specific assessment before buying."
+metaTitle: "Choosing an AI CCTV camera for a warehouse in India"
+metaDescription: "Compare warehouse CCTV cameras by the actual view, lighting, stream compatibility and pilot results. Request a site-specific assessment before buying."
+readTime: 4
 image: "/insights/category/warehouse-security.webp"
 ---
 
-Every warehouse owner who calls us asks the same first question: which camera should I buy?
+The best camera for a warehouse entrance may be the wrong camera for a long aisle or loading bay. Begin with the view and event you need, then compare equipment that can support that requirement.
 
-It's the wrong question, and answering it honestly usually saves them money. In almost every warehouse we've deployed on, the cameras were already fine. What was missing was anything watching them.
+An “AI camera” label is not a complete specification. Ask which features run on the camera, which need a recorder or processing device, and which require a licence. Then check how a usable result reaches the person responsible for the site.
 
-## Start with what you're actually losing
+## Write a requirement for each important view
 
-Warehouse loss is rarely a midnight break-in. It's the loading bay during a shift change. It's a pallet that leaves on the wrong vehicle. It's small, repeated removals by someone with a legitimate reason to be standing there.
+For a restricted doorway, the requirement might be to review an entry after closing. At a loading bay, it might be a clear record of a goods handover. At the vehicle gate, it might be a separate number-plate assessment. These are different tasks and should have separate acceptance criteria.
 
-None of those are solved by a sharper picture. They're solved by something noticing the behaviour while it happens.
+List the target distance, working hours, camera position and likely obstructions. If those details are still unknown, a site survey is more useful than choosing the highest-resolution model from a catalogue.
 
-So before you look at a single spec sheet, work out where your stock actually goes. In our experience the answer clusters in four places:
+Use the [warehouse coverage guide](/insights/how-many-cameras-does-a-warehouse-need) to settle placement and count. This buying checklist addresses which equipment and configuration should serve those views.
 
-- The loading bay and dock, during shift changes and outside dispatch hours
-- High-value SKU aisles, during and after picking hours
-- The staff gate, where headcount and attendance stop matching reality
-- The vehicle gate, where the register is a notebook nobody reads back
+## Compare the installed image, not only megapixels
 
-## What an AI CCTV camera for warehouses actually needs
+Ask for a sample at the intended distance and framing. Check what is visible when a shutter is open, a truck is parked or stock occupies the foreground. Review the recording or export at the settings you will use.
 
-Once you know the zones, the hardware question gets much smaller.
+A camera specification does not remove scene limits. Axis's [analytics documentation](https://help.axis.com/en-us/axis-object-analytics) identifies lighting, visibility, mounting and object size as considerations for its application. Other products need their own documented limits and tests; do not copy one manufacturer's settings into another system.
 
-**Coverage beats resolution.** A 2MP camera pointed correctly at a dock will do more for you than a 4K camera mounted high in a corner, seeing everything and identifying nothing. Every extra metre of height costs you the angle you need to recognise a face.
+For a night requirement, test the relevant night conditions. Ask how the proposed lens and lighting serve the task rather than assuming that a broad “night vision” label settles it. Record conditions that were not tested.
 
-**Face height at the gate.** If you want attendance or identity, one camera has to be at roughly face height, facing arrivals. This is the single most common thing missing from warehouse camera estates, and it's usually one camera, not forty.
+## Check the complete technical combination
 
-**Usable infrared.** Most intrusions happen at night. A camera whose IR washes out at eight metres is a camera that records a white blur. Check this on your existing cameras before buying anything new.
+| Decision | Evidence to request |
+| --- | --- |
+| Camera and lens | Exact model and the intended view at the required distance |
+| Recording | Supported settings, storage calculation and playback/export result |
+| Analytics | Named event, supported deployment path and licence scope |
+| Integration | Camera or recorder stream, firmware and tested configuration |
+| Operations | Alert recipient, escalation, maintenance and fault handling |
 
-**An RTSP stream.** This is the boring one that decides whether software can help you at all. If your DVR or NVR exposes RTSP — and nearly everything installed in the last decade does — then AI can run on the cameras you already own.
+If you already have cameras, compare reuse with selective replacement. A brand name or stream protocol is insufficient to approve an AI Alerto deployment. PGAK's [compatibility checklist](/platform/compatibility) sets out the information needed for technical review.
 
-## The part the spec sheet doesn't cover
+Include the network and power design in the quote. Confirm responsibility for switches, backup power, cable protection and the processing device where applicable. A camera price that excludes these items is not a complete project cost.
 
-Here's what changes a warehouse: the footage becoming searchable.
+## Ask for a pilot that can reveal a failure
 
-Right now, investigating a discrepancy means scrubbing timelines across dozens of channels. It takes days, which in practice means it doesn't happen — the loss gets absorbed and written off.
+Agree the required events before testing. Include normal authorised activity as well as the event that should trigger attention. Plan conditions such as a partially obstructed route or the required night view where safe and relevant.
 
-With detection running, you filter instead: this camera, this zone, people only, between these hours. A three-day review becomes a three-minute one. That single change is what determines whether your camera estate is a deterrent or an archive.
+Keep a manual event record. Compare expected events with actual alerts, including misses, unwanted alerts and delay. Log outages separately, because an unavailable stream is a different failure from an incorrect classification.
 
-## Dwell time is the signal that matters most
+The [pilot worksheet](/resources/evaluation-method) provides a consistent record. Do not choose a supplier solely from its best demonstration clip. A useful pilot produces a pass, a defined correction or a reason not to proceed.
 
-If we could give a warehouse manager exactly one alert type, it would be loitering.
+## Compare ownership costs and support
 
-A person standing near high-value stock for noticeably longer than picking requires is the most reliable pre-theft indicator there is. It's also completely invisible to motion detection, which reacts to movement — and a person assessing a shelf is, by definition, not moving much.
+Request separate amounts for hardware, installation, licences, storage, integration, commissioning and ongoing support. Ask what changes if channels are added or a camera is replaced. Avoid assuming that a low initial purchase price gives the lowest cost over the period you intend to operate the system.
 
-## What we'd actually recommend
+Clarify who reviews alerts and who handles physical incidents. Analytics can support that workflow; it does not supply an on-site responder by itself. Confirm maintenance access and the process for restoring a failed camera or service.
 
-Audit before you buy. Take your camera layout, and for each of the four zones above ask: can a camera see it, at a usable angle, with usable light? Usually the answer is yes for three of them and no for the gate.
+For an AI Alerto by PGAK assessment, prepare the warehouse city, existing camera and recorder details if known, and one priority event. The result should be a site-specific feasibility discussion, not an unsupported ranking of camera brands.
 
-Then add intelligence to what's there. Adding AI to 60 existing cameras costs less than replacing six of them, and it addresses the actual failure — that nobody is watching — rather than the imagined one.
-
-If your cameras genuinely can't do the job, we'll tell you that too. It's a shorter conversation than most vendors want to have, but it's the one worth having.
-
----
-
-**Related reading:** [AI CCTV for warehouses](/ai-cctv-for-warehouses) · [Loitering detection](/features/loitering-detection) · [Nobody can watch 120 camera feeds](/insights/nobody-can-watch-120-camera-feeds)
+[Ask for a free feasibility check](#dealer)

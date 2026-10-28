@@ -1,56 +1,70 @@
 ---
-title: "CCTV AMC in India: what it should actually include"
+title: "CCTV AMC checklist: scope, response, spares and proof of repair"
 date: "2026-09-01"
+updated: "2026-10-28"
 category: "Buying Guide"
-excerpt: "Most CCTV annual maintenance contracts are priced as a percentage of hardware and defined as 'we will come when you call'. The seven clauses that separate a real AMC from an invoice."
-metaDescription: "Most CCTV annual maintenance contracts are priced as a percentage of hardware and defined as 'we will come when you call'."
-readTime: 5
+excerpt: "Compare CCTV annual maintenance contracts by covered equipment, response terms, spares, recording checks and repair evidence. Avoid vague AMC quotes."
+metaTitle: "CCTV AMC checklist: scope, response, spares and proof of repair"
+metaDescription: "Compare CCTV annual maintenance contracts by covered equipment, response terms, spares, recording checks and repair evidence. Avoid vague AMC quotes."
+readTime: 4
 image: "/insights/category/buying-guide-3.webp"
-faqs:
-  - q: "What should a CCTV AMC include?"
-    a: "A defined response time in hours, scheduled preventive visits, lens and housing cleaning, storage and retention verification, firmware updates, a documented spares policy, and a written report after every visit. Anything vaguer than this is a payment schedule rather than a maintenance contract."
-  - q: "How much does a CCTV AMC cost in India?"
-    a: "AMCs are commonly quoted at roughly 8 to 15 percent of hardware value per year, though the number matters far less than what is inside it. A cheap AMC with no response-time commitment costs more in downtime than a dearer one with a four-hour SLA."
-  - q: "Is a CCTV AMC worth it?"
-    a: "It is worth it when it is specific. Cameras fail, lenses fog, disks die and firmware ages, and a system nobody maintains degrades quietly until the day footage is needed. An AMC that only promises to answer the phone is not worth paying for."
 ---
 
-**Straight answer: most CCTV annual maintenance contracts in India are a percentage of hardware value attached to a sentence saying the vendor will attend when called. That is a payment plan, not maintenance. A real AMC commits to response time in hours, scheduled preventive visits, and a written report you can check.**
+A CCTV annual maintenance contract is useful when it makes responsibilities clear before a fault occurs. A price and the phrase “service included” leave too much unanswered: which equipment is covered, who attends, which parts cost extra and how you know the system works again.
 
-The reason this matters is not theoretical. On almost every existing estate we audit, something is already broken — a dark camera, a full disk overwriting in nine days, a lens fogged for a year — and there was an AMC in force the whole time.
+Compare AMCs against the same equipment inventory and service requirements. There is no dependable universal percentage of hardware cost that tells you whether a contract is good value.
 
-## The seven clauses that make an AMC real
+## Attach the actual equipment inventory
 
-**1. Response time in hours, in writing.** Not "immediately", not "priority support". A number, and what happens if it is missed. Forty-eight hours committed beats same-day promised.
+List camera locations, recorder and storage devices, network equipment, power supplies and any relevant software or processing device. Identify items maintained by another provider, such as the site's network or backup-power system.
 
-**2. Scheduled preventive visits.** Quarterly or half-yearly, on a date, whether or not anything is broken. This is the clause that catches problems before they matter, and the first one vendors drop to hit a price.
+Record pre-existing faults and equipment outside manufacturer support where known. Agree how additions, removals and replacement models change the scope. Otherwise a future dispute may begin with whether the failed item was covered at all.
 
-**3. Physical cleaning.** Lens cleaning, housing seals, cobweb and dust removal. Unglamorous, and the single most common cause of gradual image degradation in Indian conditions.
+If analytics or remote notifications are part of the installation, name them explicitly. A contract for physical cameras does not automatically include software configuration, licences or message delivery.
 
-**4. Storage and retention verification.** Someone confirms you are actually retaining the number of days you think you are. Retention silently shrinks as resolution or camera count grows, and nobody notices until footage is missing.
+## Distinguish maintenance, repairs and replacements
 
-**5. Firmware and password hygiene.** Recorder and camera firmware updated, default credentials checked. Unpatched DVRs are a genuine security exposure, not just a maintenance nicety.
+| Area | What to define |
+| --- | --- |
+| Preventive work | Schedule, inspection checklist and access arrangements |
+| Fault diagnosis | Remote and on-site scope, responsible contact and escalation |
+| Labour | Included work, additional charges and approval process |
+| Spares | Covered components, exclusions, replacement basis and availability |
+| Software | Supported updates, configuration backup and licence responsibility |
+| Evidence | Visit report, unresolved faults and restoration checks |
 
-**6. A spares policy.** What is stocked, what is loaned during repair, what lead time applies to what. "We will order it" can mean three weeks with a camera dark throughout.
+Labels such as comprehensive and non-comprehensive are less useful than the written inclusions and exclusions. Ask what happens to a failed disk, damaged cable, power supply or recorder in the actual proposal.
 
-**7. A written report after every visit.** What was checked, what was found, what was fixed, what needs attention. Without this you cannot tell a real visit from a signature on a register.
+Check travel, access equipment and out-of-hours work separately. Request approval before chargeable work begins, except for any clearly agreed emergency process.
 
-## What to check before renewing
+## Define response terms precisely
 
-Pull the last twelve months of visit reports. If they do not exist, you learned something more useful than any quote comparison.
+Acknowledging a ticket, attending the site and restoring service are different milestones. Ask the supplier to state each commitment it is offering, the service hours, geographic coverage and how the clock is measured.
 
-Then check three things yourself, today: how many cameras are currently offline, how many days of footage you actually hold, and whether you know the recorder's admin password. Those three answers tell you what your current AMC has been worth.
+Also agree what happens while a part is unavailable. Is a temporary arrangement possible, who authorises it, and which coverage remains unavailable? A short response promise does not by itself establish a restoration time.
 
-## The clause almost nobody includes — and should
+This checklist does not promise a particular PGAK service level or confirm an AMC is available at every location. Scope and support terms need a site-specific agreement.
 
-**Automated camera-health monitoring.**
+## Check recording, not just the camera picture
 
-An AMC catches problems on a visit schedule. Software catches them in minutes. If your system tells you the moment a camera goes dark or gets covered, the AMC stops being a discovery mechanism and becomes purely a repair mechanism — which is what it should be.
+A preventive visit should verify the agreed functions. Ask for recent playback and export checks, review of storage status, the oldest usable recording against the retention requirement and correct time settings. Keep results by channel or device where relevant.
 
-PGAK sells AI CCTV, so the recommendation is not neutral, and camera-health checks are something to test at your site rather than assume. But the logic holds independently: a quarterly visit means a camera can be dark for eighty-nine days before anyone knows, and no response-time SLA helps if nobody raised the ticket.
+Lens and housing condition, mounting, connections and signs of environmental damage also deserve attention. Physical work should follow the equipment instructions and the site's access procedures.
 
-## The renewal test
+Where analytics and notifications are covered, include an agreed functional check and verify the intended recipient. Use the [camera-health checklist](/insights/cctv-camera-offline-how-to-know) to separate live view, recording and delivery faults.
 
-Ask your current provider for the seven clauses in writing. Their willingness to commit tells you what you have been buying.
+## Plan changes rather than installing updates blindly
+
+Ask who approves firmware or software changes, checks compatibility and keeps a recovery plan. Record versions and configuration changes. Schedule work that could interrupt recording or analytics with the business owner.
+
+Keep administrator ownership and remote-access arrangements explicit. Credentials should not circulate through open service reports. When a provider changes, the business needs a controlled handover of its equipment records and authorised access.
+
+## Close each ticket with a result
+
+The service report should identify the symptom, affected location, work performed, parts changed, test result and next action. “Visited site” does not show that recording or alerts were restored.
+
+Review repeat faults and overdue corrective work at an agreed interval. Use the [storage guide](/insights/cctv-storage-how-many-days) when retention is the unresolved issue, and the [installer comparison guide](/insights/how-to-choose-a-cctv-installation-company) when replacement work needs a new scope.
+
+If you are assessing AI Alerto by PGAK alongside an existing CCTV system, prepare the inventory and current maintenance responsibilities. Request a feasibility discussion that identifies the integration and support requirements before adding another service layer.
 
 [Ask for a free feasibility check](#dealer)

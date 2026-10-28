@@ -1,57 +1,64 @@
 ---
-title: "Why your CCTV alerts got muted, and how to earn them back"
+title: "How to reduce CCTV false alerts without hiding real events"
 date: "2026-09-01"
+updated: "2026-10-28"
 category: "Security Basics"
-excerpt: "Every site that muted its alerts did so for a good reason. The four causes of alert fatigue, and the tuning sequence that makes notifications worth reading again."
-metaDescription: "Every site that muted its alerts had a good reason. The four causes of alert fatigue, and the tuning sequence that makes notifications readable again."
-metaTitle: "Why your CCTV alerts got muted — and how to fix it"
-readTime: 5
+excerpt: "Diagnose unwanted CCTV alerts, tune one rule at a time and retest for missed events. A practical checklist for factory and warehouse security teams."
+metaTitle: "How to reduce CCTV false alerts without hiding real events"
+metaDescription: "Diagnose unwanted CCTV alerts, tune one rule at a time and retest for missed events. A practical checklist for factory and warehouse security teams."
+readTime: 4
 image: "/insights/category/security-basics-2.webp"
-faqs:
-  - q: "Why do CCTV motion alerts produce so many false alarms?"
-    a: "Because motion detection compares pixels between frames rather than identifying objects. Rain, insects near the lens, swaying vegetation, headlights and shadows all change pixels, so all of them trigger alerts. The system is working exactly as designed — the design is simply not suited to the job."
-  - q: "How do you reduce false alarms on security cameras?"
-    a: "Move from motion detection to object classification so only people or vehicles can trigger an alert, restrict each rule to a drawn zone rather than the whole frame, apply time schedules, and add a minimum dwell time so momentary passes are ignored. Together these typically cut alert volume dramatically without losing real events."
-  - q: "What is a reasonable number of security alerts per night?"
-    a: "Few enough that a human reads every one. For most single sites that means a handful per night, not dozens. If nobody can read them all, the practical alert count is zero regardless of what the system sends."
 ---
 
-**Straight answer: you muted the alerts because they were wrong, repeatedly, at 2am. That was the correct response. The fix is not discipline — it is changing what is allowed to raise an alert in the first place.**
+If staff have muted CCTV notifications, first find out why. The problem might be an incorrect detection, a valid event at the wrong time, repeated messages for one event or an alert that nobody knows how to handle.
 
-Almost every site we visit has notifications switched off. Not because security stopped mattering, but because in week one the system cried wolf enough times that muting became the only sane option.
+Reducing the message count is useful only if the events that matter remain visible. A quieter system can still be a worse system if the settings hide the activity you wanted to notice.
 
-## The four causes, in order of how much noise they create
+## Classify the unwanted alerts
 
-**1. Pixel-based motion detection.** Your recorder's built-in motion sensing reacts to change, not to objects. Rain, moths near the IR lamp, a branch, headlights sweeping a wall — all of it is "motion". This alone accounts for most of the noise on a typical estate.
+Review a representative sample with someone who understands the site's work. Keep event time, camera location, rule, result and reason for the review decision. Avoid including personal information that is unnecessary for troubleshooting.
 
-**2. Whole-frame rules.** An alert configured on the entire camera view fires for the public road, the neighbour's yard and passing traffic. Almost nobody needs the whole frame.
+| Category | Example | First question |
+| --- | --- | --- |
+| False detection | The system reports a person where none is visible. | Is the scene or image causing classification trouble? |
+| Valid but unwanted event | An authorised worker enters during an operating shift. | Does the rule match the area's schedule and purpose? |
+| Duplicate delivery | One event creates repeated messages. | Which component is repeating or routing the event? |
+| Unclear action | The event is real but the recipient has no responsibility for it. | Who should review it and what happens next? |
 
-**3. No time logic.** A person at the loading bay at 11am is business as usual. The same person at 11pm is the event. A rule with no schedule cannot tell those apart and so reports both.
+These categories need different fixes. Replacing a camera will not necessarily correct an escalation rule, and changing a schedule will not repair a shaky view.
 
-**4. No dwell threshold.** Someone walking past the gate on the footpath momentarily crosses the zone. Without a minimum dwell, every passer-by is an alert.
+## Write the event you actually want
 
-## The tuning sequence that works
+Describe the location, object or activity, time conditions and permitted exceptions. “Person inside the closed loading bay after the shift” is more testable than “suspicious activity”. Confirm who owns changes when operating hours vary.
 
-**Step 1 — Classify before you alert.** Only a person or a vehicle should be able to trigger. This one change removes weather, animals and vegetation from your night entirely.
+Keep the scope of each rule understandable. If the required event is a quick boundary crossing, a long waiting-time filter could suppress it. If the requirement concerns extended presence, duration may be relevant. The setting must follow the intended event, not a universal recommendation.
 
-**Step 2 — Draw the zone tight.** Not the frame — the specific area that matters. The wall line, the bay mouth, the stock room door. Exclude the public road explicitly.
+## Fix the physical view before chasing settings
 
-**Step 3 — Add the schedule.** Different rules for working hours and after hours. Most sites need almost nothing during the day and quite a lot at night.
+Inspect the authorised live and recorded view. Note obstruction, camera movement, lighting changes, a dirty cover or insects close to the lens. Arrange physical maintenance through a competent person where needed.
 
-**Step 4 — Set dwell time.** Two or three seconds inside the zone before it counts. Removes the footpath.
+Axis's [object analytics guidance](https://help.axis.com/en-us/axis-object-analytics) warns that some scene conditions can cause false alarms and that filters can also ignore important objects. Its recommendations apply to its application; use the equivalent documentation for your actual system.
 
-**Step 5 — Tune for two weeks against real traffic.** This is the step that decides everything, and it is the one usually skipped. Every alert in the first fortnight either confirms a rule or corrects one.
+If a relevant object is barely visible, software settings may not resolve the underlying problem. Record whether a different position or lighting arrangement needs assessment.
 
-## The honest target
+## Change one thing and keep a rollback record
 
-Not "zero false alarms" — that promise is a warning sign. The target is **few enough that a human reads every one.**
+Depending on what the installed product supports, a reviewer may adjust the monitored area, object selection, schedule or filtering. Record the previous value, new value, reason, time and reviewer. Apply one change at a time so that you can tell what affected the result.
 
-For a typical single site that is a handful of alerts a night. At that volume, people read them, act on them, and the system stays switched on. At thirty a night, nobody reads any, and the sophisticated system performs identically to no system at all.
+Run the original unwanted example again where a safe, permissioned test is possible. Then test the required event. Include a short event, a partially obstructed approach or the relevant night condition when those belong in your requirements.
 
-## Why we include the tuning period in every deployment
+Do not accept “no notifications overnight” as proof of improvement. Perhaps nothing eligible happened; perhaps the stream stopped. Check [camera and recording health](/insights/cctv-camera-offline-how-to-know) as part of the review.
 
-Because a system delivered untuned gets muted in week one, and a muted system is a refund conversation waiting to happen. Two weeks of adjustment against your actual traffic is the difference between software that works and software that technically works.
+## Measure usefulness and misses together
 
-If you already have cameras and muted alerts, that estate is not a lost cause. The rules can be rebuilt on the same hardware.
+Keep separate counts of correct alerts, false alerts, duplicate messages and eligible events that produced no usable alert. Record the observation duration and conditions. Without a log of eligible events, an alert-only dashboard cannot tell you how many events were missed.
+
+The [pilot evaluation worksheet](/resources/evaluation-method) helps keep the comparison consistent. Agree the acceptable workload and detection requirements with the people who respond. There is no universal number of nightly alerts that suits every business.
+
+## Give the alert an owner
+
+A useful message should identify the location and event clearly enough for the recipient to review it. Agree the primary contact, backup, acknowledgement process and the conditions for escalation. Do not assume that a message being sent means somebody acted on it.
+
+For an AI Alerto by PGAK assessment, describe the unwanted-alert problem, affected camera count and event you need to retain. Share examples only through an agreed permissioned process. A feasibility review should establish the technical and operating changes needed, without promising zero false alerts.
 
 [Ask for a free feasibility check](#dealer)
