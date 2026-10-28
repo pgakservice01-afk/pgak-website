@@ -41,7 +41,7 @@ import {
 const BOOKING_URL = (process.env.NEXT_PUBLIC_BOOKING_URL ?? "").trim();
 export const CHECKLIST_PATH = "/cctv-buying-checklist";
 
-export type QuickOffer = "audit" | "quote" | "checklist" | "demo";
+export type QuickOffer = "audit" | "quote" | "checklist" | "demo" | "partner";
 
 type Status = "idle" | "sending" | "done" | "fallback";
 
@@ -81,7 +81,7 @@ export default function QuickLead({
   const [receiptToken, setReceiptToken] = useState<string>();
   const [error, setError] = useState<ReactNode>("");
   // Which field the error is about, so only that one is announced as invalid.
-  const [errorField, setErrorField] = useState<"" | "phone" | "location" | "cameras">("");
+  const [errorField, setErrorField] = useState<"" | "phone" | "location" | "cameras" | "requirement">("");
   const [retryable, setRetryable] = useState(true);
   const typed = useRef<LeadValues>({ phone: "", cameras: "" });
 
@@ -91,6 +91,22 @@ export default function QuickLead({
   const pending = useRef(false);
 
   const copy = {
+    partner: {
+      button: t("Request a partner discussion →", "पार्टनर चर्चा का अनुरोध करें →"),
+      micro: t(
+        "Discuss integration, installation and support responsibilities. No appointment, territory or commercial arrangement is implied.",
+        "इंटीग्रेशन, इंस्टॉलेशन और सपोर्ट की ज़िम्मेदारियों पर चर्चा करें। इससे नियुक्ति, क्षेत्र या व्यावसायिक समझौता तय नहीं होता।",
+      ),
+      doneTitle: t("Partner enquiry received ✓", "पार्टनर पूछताछ प्राप्त हुई ✓"),
+      doneBody: t(
+        "Our team will contact you to discuss your operating region, delivery scope and the next step.",
+        "हमारी टीम आपके कार्यक्षेत्र, सेवाओं और अगले कदम पर चर्चा के लिए संपर्क करेगी।",
+      ),
+      formName: "partner_request",
+      badge: t("Partners", "पार्टनर"),
+      head: t("Discuss working with PGAK", "PGAK के साथ काम करने पर चर्चा करें"),
+      sub: t("Phone, operating region and scope", "फ़ोन, कार्यक्षेत्र और सेवाएँ"),
+    },
     demo: {
       button: t("Request my demo →", "डेमो का अनुरोध करें →"),
       micro: t(
@@ -111,7 +127,7 @@ export default function QuickLead({
       button: t("Request a camera check →", "मुफ़्त कैमरा ऑडिट पाएँ →"),
       micro: t(
         `Request a camera assessment. Timing and scope agreed on the call.`,
-        `मुफ़्त कैमरा आकलन · एक कार्य-घंटे के भीतर कॉल · कैमरा संगतता की जाँच`,
+        `कैमरा आकलन का अनुरोध करें। दायरा और समय कॉल पर तय होंगे।`,
       ),
       doneTitle: t("Got it ✓", "मिल गया ✓"),
       doneBody: t(
@@ -130,7 +146,7 @@ export default function QuickLead({
       button: t("Get my quote →", "मेरा कोटेशन पाएँ →"),
       micro: t(
         "Request a written scope covering software, hardware, setup, support and terms.",
-        "आपके अपने कैमरों पर प्रति कैमरा प्रति माह · एक कार्य-घंटे के भीतर कॉल पर आपका आँकड़ा",
+        "सॉफ़्टवेयर, हार्डवेयर, सेटअप, सपोर्ट और शर्तों का लिखित विवरण माँगें।",
       ),
       doneTitle: t("Got it ✓", "मिल गया ✓"),
       doneBody: t(
@@ -139,7 +155,7 @@ export default function QuickLead({
       ),
       formName: "quick_quote_request",
       badge: t("Quote", "कोटेशन"),
-      head: t("Your site-specific quote", "आपका प्रति-कैमरा आँकड़ा, उसी दिन"),
+      head: t("Your site-specific quote", "आपकी साइट के लिए कोटेशन"),
       sub: t("3 fields, 30 seconds", "3 फ़ील्ड, 30 सेकंड"),
     },
     checklist: {
@@ -168,13 +184,15 @@ export default function QuickLead({
     if (pending.current) return;
     const data = new FormData(e.currentTarget);
     const phone = String(data.get("phone") ?? "").trim();
-    const cameras = String(data.get("cameras") ?? "");
+    const cameras = offer === "partner" ? "" : String(data.get("cameras") ?? "");
     const location = String(data.get("location") ?? "").trim();
+    const requirement = offer === "partner" ? String(data.get("requirement") ?? "").trim() : "";
     typed.current = {
       phone,
       cameras,
       location,
       context,
+      requirement,
       honeypot: String(data.get(HONEYPOT_FIELD) ?? ""),
       protecting: offer === "demo" ? "Product demo requested" : undefined,
     };
@@ -188,7 +206,9 @@ export default function QuickLead({
               "That looks like a number from outside India. This form takes Indian numbers — from abroad, message us on WhatsApp instead, which works from any country.",
               "यह भारत के बाहर का नंबर लगता है। यह फ़ॉर्म भारतीय नंबर लेता है — विदेश से WhatsApp पर संदेश भेजें, यह किसी भी देश से काम करता है।",
             )}{" "}
-            <a href={waHref("Hi PGAK, I'm outside India and would like to talk about the CCTV at my property.")} target="_blank" rel="noopener" data-cta="phone-intl-whatsapp" className="underline">
+            <a href={waHref(offer === "partner"
+              ? "Hi PGAK, I'm outside India and would like to discuss a potential integration or delivery partnership."
+              : "Hi PGAK, I'm outside India and would like to talk about the CCTV at my property.")} target="_blank" rel="noopener" data-cta="phone-intl-whatsapp" className="underline">
               WhatsApp {BUSINESS.phone} →
             </a>
           </>
@@ -203,10 +223,17 @@ export default function QuickLead({
     }
     if (!location) {
       setErrorField("location");
-      setError(t("Please enter your city.", "कृपया अपना शहर लिखें।"));
+      setError(offer === "partner"
+        ? t("Please enter your operating city or region.", "कृपया अपना शहर या कार्यक्षेत्र लिखें।")
+        : t("Please enter your city.", "कृपया अपना शहर लिखें।"));
       return;
     }
-    if (!cameras) {
+    if (offer === "partner" && !requirement) {
+      setErrorField("requirement");
+      setError(t("Please describe your integration or installation scope.", "कृपया अपनी इंटीग्रेशन या इंस्टॉलेशन सेवाएँ बताएँ।"));
+      return;
+    }
+    if (offer !== "partner" && !cameras) {
       setErrorField("cameras");
       setError(
         t(
@@ -276,7 +303,7 @@ export default function QuickLead({
           {copy.doneTitle}
         </div>
         <p className="mt-1.5 text-[0.95rem] text-ink-soft">{copy.doneBody}</p>
-        {receiptToken && (
+        {receiptToken && offer !== "partner" && (
           <LeadDetails receiptRef={refRef.current!} token={receiptToken} />
         )}
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
@@ -300,7 +327,7 @@ export default function QuickLead({
           >
             {t("Message us on WhatsApp now", "अभी WhatsApp पर मैसेज करें")}
           </a>
-          {BOOKING_URL && offer !== "checklist" && (
+          {BOOKING_URL && offer !== "checklist" && offer !== "partner" && (
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -324,7 +351,9 @@ export default function QuickLead({
       onSubmit={onSubmit}
       noValidate
       aria-label={
-        offer === "demo"
+        offer === "partner"
+          ? t("Request a partner discussion", "पार्टनर चर्चा का अनुरोध करें")
+          : offer === "demo"
           ? t("Request a demo", "डेमो का अनुरोध करें")
           : offer === "checklist"
             ? t("Request the buying checklist", "ख़रीद चेकलिस्ट का अनुरोध")
@@ -363,7 +392,7 @@ export default function QuickLead({
             wrong for every visitor who is not enquiring about where they
             happen to be reading. */}
         <label htmlFor={`${cta}-location`}>
-          {t("City", "शहर")}
+          {offer === "partner" ? t("Operating city / region", "शहर / कार्यक्षेत्र") : t("City", "शहर")}
           <input
             id={`${cta}-location`}
             name="location"
@@ -373,13 +402,31 @@ export default function QuickLead({
             aria-invalid={errorField === "location"}
             aria-describedby={errorField === "location" ? `${cta}-error` : undefined}
             placeholder={
-              cityHint
+              offer === "partner"
+                ? t("Operating city / region", "शहर / कार्यक्षेत्र")
+                : cityHint
                 ? t(`City — e.g. ${cityHint}`, `शहर — जैसे ${cityHint}`)
                 : t("City", "शहर")
             }
             className="field-input"
           />
         </label>
+        {offer === "partner" ? (
+          <label htmlFor={`${cta}-requirement`}>
+            {t("Integration / installation scope", "इंटीग्रेशन / इंस्टॉलेशन सेवाएँ")}
+            <input
+              id={`${cta}-requirement`}
+              name="requirement"
+              type="text"
+              required
+              maxLength={600}
+              aria-invalid={errorField === "requirement"}
+              aria-describedby={errorField === "requirement" ? `${cta}-error` : undefined}
+              placeholder={t("Services or systems you support", "आपकी सेवाएँ या समर्थित सिस्टम")}
+              className="field-input"
+            />
+          </label>
+        ) : (
         <label htmlFor={`${cta}-cameras`}>
           {t("How many cameras?", "कितने कैमरे?")}
           <select
@@ -404,6 +451,7 @@ export default function QuickLead({
             ))}
           </select>
         </label>
+        )}
         <button
           type="submit"
           data-cta={`${cta}-submit`}

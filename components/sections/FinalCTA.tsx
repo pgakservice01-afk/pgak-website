@@ -33,8 +33,8 @@ export default function FinalCTA() {
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-[1.1rem] text-ink-soft">
             {t(
-              "Tell us your WhatsApp number and how many cameras you have. We call within one working hour and send your audit report within 48 hours.",
-              "अपना WhatsApp नंबर और कैमरों की संख्या बताएँ। हम एक कार्य-घंटे के भीतर कॉल करते हैं और 48 घंटों में ऑडिट रिपोर्ट भेजते हैं।",
+              "Share your phone number, city and camera count. We will discuss your use case and agree the assessment scope, timing and next step with you.",
+              "अपना फ़ोन नंबर, शहर और कैमरों की संख्या बताएँ। हम आपकी ज़रूरत पर चर्चा करके आकलन का दायरा, समय और अगला कदम तय करेंगे।",
             )}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3.5">
