@@ -1,72 +1,68 @@
 ---
-title: "Where to place CCTV cameras so AI detection actually works"
+title: "CCTV camera placement for AI: test the view before mounting"
 date: "2026-07-25"
+updated: "2026-10-29"
 category: "Camera Setup"
-excerpt: "The most common reason AI detection underperforms isn't the software — it's a camera mounted four metres up in a corner, seeing everything and identifying nothing."
-metaDescription: "The usual reason AI detection underperforms is not the software — it is a camera four metres up in a corner, seeing everything and identifying nothing."
-metaTitle: "Where to place CCTV cameras for AI detection"
-readTime: 5
+excerpt: "Choose camera placement for the intended event, target visibility and real lighting. Validate the view instead of relying on a universal mounting height."
+metaTitle: "CCTV camera placement for AI: test the view before mounting"
+metaDescription: "Choose camera placement for the intended event, target visibility and real lighting. Validate the view instead of relying on a universal mounting height."
+readTime: 4
 image: "/insights/covers/where-to-place-cctv-cameras-for-ai-detection.webp"
 ---
 
-We audit a lot of camera estates. The pattern is consistent enough to be predictable: cameras high, cameras in corners, cameras covering the maximum floor area possible.
+A camera can provide a useful overview without providing the view needed by a particular analytics application. Before moving it or adding another camera, define the event and identify what must remain visible when that event happens.
 
-That layout was rational when the goal was recording. It is close to the worst possible layout when the goal is recognition.
+Placement is one part of the design. Stream settings, image quality, processing and the application's supported conditions also matter. Do not assume that a new angle alone will solve every detection problem.
 
-## The height problem
+## Start with the event and target area
 
-A camera mounted four metres up looking down at a 45° angle sees the tops of heads.
+Write one observable requirement: for example, a person crossing a defined boundary after closing. Mark the intended area, direction of movement and operating hours. List normal activity that should not produce the same response.
 
-For motion detection that's fine — a person is a moving blob whether you're looking at their face or their hair. For anything involving identity, it's fatal. Face recognition needs to see a face, and no increase in resolution recovers an angle that was never there.
+A face-recognition or number-plate application has different capture requirements from general person or vehicle detection. Do not apply one mounting rule to all three. Establish the manufacturer's requirements and the proposed integration before choosing a final position.
 
-The general rule: the further a camera is from eye level, the more it can tell you *that* someone is there and the less it can tell you *who*.
+Where identity is involved, agree the permitted use, enrolment and review process with the responsible team. A detected person is not automatically an identified person.
 
-## Two jobs, two camera types
+## Inspect visibility through the whole event
 
-The fix is not to remount everything. It's to accept that cameras do two different jobs and to stop asking one camera to do both.
+Check the approach, target area and departure rather than a single attractive still frame. Look for doors, columns, parked vehicles, stacks or people that obstruct the relevant view. Include normal operating changes between shifts.
 
-**Overview cameras** go high and wide. They cover area, detect presence, track movement across a space, and answer "was anyone in the yard last night". Your existing estate is probably already good at this.
+Record whether the required features remain visible for long enough for the proposed application. Axis's [object analytics documentation](https://help.axis.com/en-us/axis-object-analytics) describes application-specific considerations including mounting, object visibility and lighting. Those settings are not universal instructions for another product.
 
-**Identity cameras** go at roughly 1.6–2m, facing the direction people approach from, covering a narrow choke point. One per entrance is usually enough. This is the camera most sites are missing, and it's typically the only hardware we recommend adding.
+A plan that works with an empty floor may need revision when the factory or warehouse is operating normally. Keep the untested conditions explicit.
 
-## Choke points beat coverage
+## Check height, angle and detail together
 
-For recognition, you want people funnelled through a predictable path facing a predictable direction. Gates, doorways, turnstiles, corridor ends, the top of a staircase.
+There is no single correct mounting height for every event or camera. The subject, lens, distance and application requirements need to be considered together. Also allow for physical protection, authorised access and maintenance.
 
-A camera covering a wide-open yard will catch people at every angle and identify almost none of them. The same camera at the single gate everyone enters through will identify nearly all of them. Coverage area is the wrong metric here; approach angle is the right one.
+A steeper angle may hide features needed for one task while serving another overview task. A narrower view may improve detail at the target while leaving another route outside the frame. Record the trade-off rather than declaring every high camera unsuitable.
 
-## Lighting, and the mistake everyone makes
+Use the [pixel-density guide](/insights/camera-resolution-vs-distance) to understand available detail. Human DORI planning benchmarks should not be substituted for the analytics supplier's own capture and testing requirements.
 
-The most common lighting error is pointing a camera at a doorway with bright daylight behind it. Every person walking in becomes a silhouette. The camera is working perfectly and the footage is useless.
+## Observe the lighting that matters
 
-Where possible, point identity cameras *away* from windows and open shutters, so faces are lit from the front. Where that isn't possible, an inexpensive light above the door — aimed at faces, not at the lens — fixes it more reliably than a better camera would.
+Review the view during relevant daylight, shutter positions and night conditions. Note backlighting, reflected light, headlights and obscured or dirty covers. Look at the actual recording or processing stream, not only a high-quality configuration preview.
 
-At night, check what your infrared actually reaches. Many installed cameras claim 30m IR and produce a usable image at eight. Walk your own site at 11pm and look at the feeds; it's a fifteen-minute exercise that changes what you buy.
+Do not treat an advertised infrared range as proof of recognition or event performance at that distance. Ask what the range describes, then test the required task. A lighting change should be designed for the site and camera rather than promised as a cheap universal fix.
 
-## Perimeters want a side view
+## Test a proposed position before committing
 
-For boundary detection, mount cameras so they see *along* the fence rather than straight at it.
+Agree a safe temporary evaluation with the installer and site owner. Keep the existing security arrangement operational as required while assessing the alternative.
 
-A camera facing a wall head-on gets a few frames of someone crossing. A camera looking down the line of the fence sees the whole approach — which gives detection more to work with, and gives you a loitering signal before anyone actually crosses.
+| Record | Why it is needed |
+| --- | --- |
+| Camera, lens and settings | Identifies what was actually tested |
+| Position and target distance | Allows the view to be reproduced |
+| Event and negative examples | Defines which results should and should not occur |
+| Day/night conditions | Shows the scope of the evidence |
+| Misses, unwanted alerts and delay | Exposes limitations beyond the best clip |
+| Accepted change or next test | Connects the result to a decision |
 
-## The five-minute audit you can do yourself
+Use the [pilot worksheet](/resources/evaluation-method) for the event record. A passed demonstration at one position does not approve every camera on the site.
 
-For each area you care about, pull up the live feed and ask:
+## Keep the commissioned view under review
 
-1. Can I see a face at the point where people enter? If no, that's an identity gap.
-2. Is there a bright window or shutter directly behind that entry point?
-3. At night, is the image usable at the distance that matters, or just at three metres?
-4. On perimeter cameras, am I looking along the boundary or at it?
-5. Is anything permanently blocking a corner of the frame — a shelf, a banner, a stack of pallets that arrived last year?
+Store the agreed view and configuration with the handover record. Reassess it after racking changes, new signs, moved machinery, seasonal storage or a camera adjustment. A small physical change can alter the scene the test originally covered.
 
-That last one catches more problems than you'd expect. Camera views drift as sites change, and nobody is watching the feeds to notice.
+For an AI Alerto by PGAK assessment, prepare the event, location and existing model details. The [compatibility checklist](/platform/compatibility) helps organise that information without sharing passwords or unrestricted camera access. The objective is a documented, testable view for the intended task.
 
-## What this means before you buy anything
-
-Almost every site we deploy on reuses its existing cameras and adds one. The overview estate is fine; the identity camera at the gate was never there.
-
-That's a cheaper answer than replacing everything, and it's also the more effective one — because the failure was never resolution. It was angle.
-
----
-
-**Related reading:** [Face recognition](/features/face-recognition) · [Smart perimeter protection](/smart-perimeter-protection) · [How many of your cameras can actually recognise a face?](/insights/how-many-of-your-cameras-can-actually-recognize-a-face)
+[Ask for a free feasibility check](#dealer)

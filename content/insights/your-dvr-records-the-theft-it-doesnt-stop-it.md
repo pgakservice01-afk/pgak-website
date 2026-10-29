@@ -1,57 +1,67 @@
 ---
-title: "Your DVR records the theft. It doesn't stop it."
+title: "From CCTV recording to response: build the alert handoff"
 date: "2026-07-21"
+updated: "2026-10-29"
 category: "Security Basics"
-excerpt: "Most CCTV systems in India are evidence machines, not protection. Here's the difference between a camera that watches and a camera that thinks."
+excerpt: "Define who receives, verifies and acts on a CCTV event. Test delivery, acknowledgement, escalation and recovery before relying on an alerting workflow."
+metaTitle: "From CCTV recording to response: build the alert handoff"
+metaDescription: "Define who receives, verifies and acts on a CCTV event. Test delivery, acknowledgement, escalation and recovery before relying on an alerting workflow."
 readTime: 4
 image: "/insights/security-basics.webp"
 ---
 
-Walk into almost any shop, factory or home in India and you'll find the same setup: four to sixteen cameras, a DVR blinking in a corner, and a monitor nobody looks at.
+An event notification arrives, but the person receiving it is off duty. Another employee sees the message later and assumes someone else handled it. The camera may have produced a useful alert while the operating process still failed.
 
-Ask the owner why they installed it and the answer is always the same — *"suraksha ke liye"*. For security.
+An alerting project needs a clear handoff from the system to a responsible person. Define that handoff before expanding the number of cameras or events. Recording remains useful; notifications and response add separate functions that must be tested.
 
-But here's the uncomfortable question: **what does that system actually do when someone climbs your wall at 2 a.m.?**
+## Define an event that can be reviewed
 
-## It records. That's all.
+Start with an observable requirement, such as a person crossing a marked boundary after a closing time. Record the camera, area, hours and permitted exceptions. Avoid asking software to decide whether someone has criminal intent from a general scene.
 
-A traditional CCTV system has one job: write video to a hard disk. It does this whether the frame shows an empty corridor, your own staff, or a stranger walking out with your inventory.
+Confirm which functions the existing recorder already supports and which require another application. Some CCTV equipment has configured event capabilities; it is inaccurate to assume every DVR only records. The [AI-versus-conventional CCTV guide](/insights/ai-cctv-vs-normal-cctv) helps frame the comparison.
 
-It doesn't know the difference. It can't.
+## Assign the decision, not just the phone number
 
-So the "security" you bought works like this:
+For each event, identify a primary reviewer and a backup for the relevant shift. Agree what they should verify, which action they are authorised to take and when to use the site's existing incident procedures.
 
-1. The incident happens.
-2. You discover the loss — hours or days later.
-3. You scrub through footage, hoping the right camera caught it.
-4. You show the clip to the police, your insurer, your family.
+Keep the instruction proportionate to the evidence. An alert may need review of a clip or contact with an authorised on-site person. It should not automatically establish identity, wrongdoing or a reason to confront someone.
 
-Notice what's missing? **Nothing in that chain prevented anything.** The DVR gave you a recording of your loss, not protection from it. That's an evidence machine — useful, but it's not what most people think they paid for.
+Make responsibility explicit during leave, shift changes and connectivity problems. Avoid routing every camera to every employee: a long recipient list can still leave ownership unclear.
 
-## The moment that matters is *before*
+## Specify the handoff record
 
-Almost every incident has a window — the stranger loitering near the gate, the person testing the door, the vehicle idling where it shouldn't be. It's usually seconds to a few minutes long.
+| Stage | What the record should establish |
+| --- | --- |
+| Event | What occurred, where and at what recorded time |
+| Delivery | Which intended recipient received usable information |
+| Acknowledgement | Who accepted responsibility for reviewing it |
+| Decision | What the reviewer concluded and the next action |
+| Closure | Who confirmed completion or retained an unresolved issue |
 
-If someone alerts you inside that window, you can act: turn on lights, sound a hooter, call the guard, call the neighbours, call the police. If nobody does, the window closes and all that's left is evidence.
+These stages need not be new software features. Establish which parts the proposed product supports and which are handled through the organisation's approved process. Do not claim acknowledgement or escalation automation without demonstrating it.
 
-Traditional CCTV sleeps through that window. A human can't watch 16 feeds around the clock — and honestly, neither can a guard. Attention fades after minutes, not hours.
+Restrict access to event information and retain only the detail needed for the agreed purpose. A public marketing form is not the place for unrestricted live feeds or incident footage.
 
-## What "intelligent" actually means
+## Measure separate delays
 
-An intelligent layer on top of your cameras changes the sequence. Instead of *record → discover → regret*, it works like this:
+Record the event time, notification receipt, acknowledgement and subsequent action separately. Synchronised clocks are important if those timestamps come from different components.
 
-- **It watches every feed, every second** — software doesn't get bored at 3 a.m.
-- **It understands what it sees** — a person, not a shadow; a stranger, not your son coming home late; someone crossing your boundary, not a dog on the road.
-- **It tells you immediately** — a notification on your phone with a snapshot, while the window to act is still open.
+A fast detection does not prove fast delivery. Fast delivery does not prove that a human responded. Agree the acceptable behaviour for the specific use case, then measure a representative set of tests rather than advertising the fastest result.
 
-That last part is the whole point. The value of a camera isn't the footage it stores — it's the seconds it can buy you when something is genuinely wrong.
+Keep missed eligible events and unusable messages in the result. The [pilot worksheet](/resources/evaluation-method) provides a way to compare expected events with actual output and record limitations.
 
-## You don't need new cameras for this
+## Test the ordinary failures too
 
-Here's what surprises most owners: the cameras you already have are usually good enough. They see everything. What's missing is the thinking — and thinking is software.
+Include a planned shift handover, an unavailable primary reviewer and the relevant interruption to connectivity or processing. Arrange technical interruption tests through authorised staff and maintain any required temporary coverage.
 
-PGAK adds that layer on top of your existing CCTV, IP cameras and DVR/NVR, using an on-site processing unit. Compatible cameras are not replaced; what the site needs is confirmed at the assessment and itemised in the quote. Your cameras keep recording as before; they just stop being silent about what they see.
+Check what continues locally and what depends on remote delivery. The [offline CCTV guide](/insights/does-ai-cctv-work-without-internet) separates these functions. Keep a supported fallback process for an alert path that is unavailable; do not assume messages will always arrive instantly or be retried automatically.
 
-**Your cameras can already see. The question is whether anything is paying attention.**
+After restoration, verify the camera stream, recording, event rule and delivery route. Use the [camera-health checklist](/insights/cctv-camera-offline-how-to-know) to avoid closing a fault merely because the live picture returned.
 
-*Want to know what your current setup can and can't do? [Get a free AI readiness audit](/#audit) — we analyse your existing feeds and tell you honestly.*
+## Review the workload before adding more rules
+
+Inspect unwanted and duplicate events with the responder. Correct the event definition, scene or routing as appropriate, then retest the events that must remain visible. A muted notification stream is a reason to investigate the workflow, not to promise that more alerts will improve it.
+
+AI Alerto by PGAK can begin with one event and the response process around it. Prepare the site type, relevant camera view, operating hours and responsible role for a feasibility discussion. A useful pilot establishes what is supported and who acts; it does not guarantee prevention of an incident.
+
+[Ask for a free feasibility check](#dealer)

@@ -1849,88 +1849,100 @@ export const SOLUTIONS: Solution[] = [
       "worker attendance system",
     ],
     title:
-      "Factory Attendance System — No Queue at the Gate | PGAK",
+      "Factory Attendance System — Evaluate Your Gate | PGAK",
     description:
-      "Face recognition on your existing gate cameras logs 200 workers walking in — no reader queue, no failed scans on worn hands.",
+      "Assess camera-based factory attendance on your actual gates. Test missed records, shift rules and payroll exports before deciding on rollout.",
     eyebrow: "Attendance · Manufacturing",
-    h1: "An attendance system built for a factory gate at shift change",
+    h1: "Evaluate factory attendance at your gate during shift change",
     intro:
-      "An attendance system for a factory has to survive the one moment office systems never face: two hundred people arriving inside ten minutes, most of them with working hands. PGAK marks factory attendance from the CCTV cameras already watching your gate — people are recognised as they walk through, several at a time, and the log feeds shifts and overtime without anyone queueing or touching a sensor.",
+      "Factory attendance should be judged during real shift changes. PGAK can evaluate camera-based records of enrolled workers on a suitable, tested setup. The assessment checks camera views, traffic, lighting, processing hardware and human correction. Attendance functions and any payroll connection must be demonstrated and agreed in writing before rollout.",
     painPoints: [
-      "Shift change becomes a fifteen-minute queue at one reader — twice a day, every day.",
-      "Oil, dust and worn ridges mean a chunk of your workforce simply cannot scan reliably.",
-      "The reader is on the main gate; the labour entrance and loading bay are invisible to it.",
-      "Contractor labour churns weekly and nobody re-enrols them in time.",
-      "Overtime disputes end in an argument because the register proves nothing.",
+      "Queues or repeated scans delay arrivals at a busy entrance.",
+      "Some workers need repeated attempts or manual attendance corrections.",
+      "Different entrances leave gaps in the attendance record.",
+      "Contractor changes are difficult to reconcile with the active worker list.",
+      "Missing entries or disputed hours need a clear review process before payroll.",
     ],
     sections: [
       {
-        h2: "Why factory gates break attendance hardware",
-        body: "A factory is the worst case for contact biometrics on every axis at once — headcount density, hand condition and multiple entrances. Understanding which of the three bites you hardest decides what to fix first.",
+        h2: "What to measure before choosing factory attendance",
+        body: "Start with the actual arrival pattern, the quality of existing records and the entrances used. Compare options on the same shifts and conditions before deciding which system fits your factory.",
         points: [
           {
-            h3: "Density at shift change",
-            text: "A reader handles roughly one person every three to six seconds when scans succeed. Two hundred workers arriving together is queue arithmetic no second machine really solves.",
+            h3: "Peak arrival flow",
+            text: "Record arrivals, waiting time, retries and missed entries during a representative shift change. No fixed throughput or queue reduction is established for your site until it has been tested.",
           },
           {
-            h3: "Hands that do not read",
-            text: "Machine operators, loaders, dyeing and moulding hands lose ridge detail. The failed scan is not user error — it is the sensor meeting reality.",
+            h3: "Records that need correction",
+            text: "Log failed reads and manual corrections in your present process. Use those cases in the comparison and agree how exceptions will be reviewed without disadvantaging a worker.",
           },
           {
-            h3: "More gates than machines",
-            text: "Labour entrance, contractor gate, loading bay. Hardware covers the doors you bought devices for; cameras cover the doors you already watch.",
+            h3: "Every relevant entrance assessed",
+            text: "List the labour entrance, contractor gate and loading bay. An existing camera is a candidate for assessment, not an approved attendance point; its stream, view and operating conditions must be tested.",
           },
         ],
       },
       {
-        h2: "How camera-based attendance handles a factory",
-        body: "Every entrance camera becomes a check-in point. Workers walk in at normal pace — no stopping, no contact, several people logged at once — and each record stores the frame it came from, which is what settles an overtime dispute in seconds rather than a meeting.",
+        h2: "What a camera-based attendance pilot should establish",
+        body: "Use authorised enrolment and a permissioned test group to evaluate agreed entrances and shifts. Compare the candidate records with a checked reference, record false and missed matches, and have a person resolve ambiguous events. No PGAK attendance performance is established by this guide.",
         points: [
           {
-            h3: "Contractor labour enrolled in a minute",
-            text: "A guided face scan from a phone. No queue at an enrolment desk when a new gang arrives on Monday.",
+            h3: "Enrolment and leavers",
+            text: "Demonstrate how permanent and temporary workers are enrolled, corrected and removed. Agree the authorised workflow and retention rules; do not assume a phone workflow or a fixed enrolment time.",
           },
           {
-            h3: "Shift, OT and late marks derived automatically",
-            text: "Rules run against the camera-written log, so the hours worked and the hours paid come from one source.",
+            h3: "Shifts and payroll checks",
+            text: "Test overnight shifts, missing entries and approved corrections against sample records. Any export or integration must be demonstrated with the named payroll system and agreed in the written scope before payroll use.",
           },
           {
-            h3: "The same cameras still watch the perimeter",
-            text: "You are not running a security estate and an attendance estate — it is one system doing both.",
+            h3: "Camera and recording responsibilities",
+            text: "Confirm whether each existing view is suitable and whether a different camera position or processing device is needed. Check the impact on recording and other analytics as part of the technical scope.",
           },
         ],
       },
       {
-        h2: "Where it needs checking first",
-        body: "Face recognition needs a reasonably lit, roughly face-height view. Gate cameras mounted high for vehicle coverage usually need repositioning before they can identify people, and we tell you that during the free feasibility check rather than after a purchase order. Biometric data also sits under the DPDP Act, so worker notice and consent are part of rollout, not an afterthought.",
+        h2: "Confirm the setup before rollout",
+        body: "Review the exact camera or recorder model, firmware, stream access, lighting, viewing angle and crowding. Include normal workwear and all relevant shifts in the test. Agree authorised enrolment, access, retention and the correction process with your team before a pilot. Keep the existing attendance process until the results and payroll checks meet written acceptance criteria.",
       },
     ],
     stats: [
-      { value: "0", label: "new gate hardware to buy" },
-      { value: "Walk-through", label: "no queue at shift change" },
-      { value: "Every gate", label: "labour, contractor and loading entrances" },
-      { value: "Photo-backed", label: "every punch stores its frame" },
+      {
+        value: "Site test",
+        label: "measure results under your working conditions",
+      },
+      {
+        value: "Gate by gate",
+        label: "check each view and stream before use",
+      },
+      {
+        value: "Human review",
+        label: "agree how missing and disputed records are corrected",
+      },
+      {
+        value: "Written scope",
+        label: "confirm hardware, functions and payroll acceptance",
+      },
     ],
     faqs: [
       {
         q: "What is the best attendance system for a factory?",
-        a: "One that does not create a queue and does not depend on fingerprint quality. On sites with large shift-change surges and manual labour, camera-based face recognition outperforms fingerprint readers because there is no contact, no single chokepoint, and every entrance with a camera can log attendance.",
+        a: "Choose a system using measured results from your entrances and shifts: waiting time, missed or incorrect records, correction effort and the complete cost. Camera-based attendance can be evaluated alongside readers or your current process; this page does not establish that it outperforms them.",
       },
       {
         q: "How do you handle contractor and temporary labour?",
-        a: "Enrolment is a short guided face scan that can be done from a phone, so a new gang can be registered in minutes at the gate rather than queueing at an office. Records for temporary workers can be retained separately and purged when the contract ends.",
+        a: "Include temporary workers in a permissioned pilot and demonstrate enrolment, changes, review and removal before rollout. Agree who maintains the worker list and how records are retained. The enrolment method and time must be confirmed for the proposed setup.",
       },
       {
         q: "Will it work if workers wear helmets, masks or turbans?",
-        a: "Head coverings that leave the face visible are fine — turbans and hard hats are normal on Indian sites and do not block recognition. Anything covering the face itself will reduce reliability, which is why the feasibility check looks at your actual gate conditions before we commit to a result.",
+        a: "Include the helmets, masks, turbans and other workwear actually used at your site in a permissioned test. Evaluate false and missed matches in the relevant light, angles and traffic. Suitability cannot be assumed from the type of head covering alone.",
       },
       {
         q: "Can it replace our fingerprint machine entirely?",
-        a: "On most factory sites yes, and many run both briefly during changeover. The existing machine can stay as a fallback while the camera log is verified against it for a couple of weeks.",
+        a: "Keep your existing attendance process during evaluation. Consider a change only after the proposed setup meets written acceptance criteria for all relevant entrances and shifts, and the team has verified corrections, fallback arrangements and payroll records.",
       },
       {
         q: "Does factory attendance integrate with payroll?",
-        a: "Yes. Shifts, late marks, half days and overtime are computed from the same log and exported for payroll, which removes the retyping step where most attendance errors are actually introduced.",
+        a: "Treat payroll export or integration as a requirement to demonstrate, not an assumed feature. Name the payroll product and version, agree required fields, and test overnight shifts, corrections and duplicate records. Confirm the result and any limitations in the written scope before using it for pay.",
       },
     ],
     related: [

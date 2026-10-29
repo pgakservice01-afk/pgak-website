@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/components/LangProvider";
 import { fbTrack } from "@/lib/fbpixel";
-import { HARDWARE_NOTE, HARDWARE_NOTE_HI } from "@/lib/offer";
 
 /**
  * PGAK assistant — a free, guided chatbot (no AI backend, no API keys).
@@ -38,8 +37,8 @@ const TOPICS: Topic[] = [
     id: "pricing",
     q: "💰 What does it cost?",
     qHi: "💰 कीमत क्या है?",
-    a: "Billing is per camera per month, and we give you the exact rate on a call or WhatsApp once we know your camera count. " + HARDWARE_NOTE + " No hidden fees.",
-    aHi: "बिलिंग प्रति कैमरा प्रति माह होती है, और सही दर हम कॉल या WhatsApp पर बताते हैं — जब हमें आपके कैमरों की संख्या पता हो। " + HARDWARE_NOTE_HI + " कोई छिपी फ़ीस नहीं।",
+    a: "The quote depends on the cameras, analytics, site conditions and deployment scope. Ask for software or subscription, processing hardware, installation, pilot, support and taxes to be itemised, with exclusions stated. Share your use case and camera count to start the assessment.",
+    aHi: "कोटेशन कैमरों, एनालिटिक्स, साइट की परिस्थितियों और काम के दायरे पर निर्भर करता है। सॉफ़्टवेयर या सब्सक्रिप्शन, प्रोसेसिंग हार्डवेयर, इंस्टॉलेशन, पायलट, सपोर्ट और टैक्स का अलग विवरण तथा शामिल न होने वाली चीज़ें लिखित में लें। आकलन शुरू करने के लिए अपनी ज़रूरत और कैमरों की संख्या बताएँ।",
     link: {
       href: "/pricing",
       label: "How pricing works →",
@@ -50,17 +49,25 @@ const TOPICS: Topic[] = [
     id: "how",
     q: "⚙️ How does it work?",
     qHi: "⚙️ यह कैसे काम करता है?",
-    a: "Four steps: we connect your existing cameras to PGAK's AI layer, the AI learns your normal routine, detects unknown faces and unusual activity, and alerts your phone with a snapshot — sub-3-second target, measured in your pilot.",
-    aHi: "चार चरण: हम आपके मौजूदा कैमरों को PGAK की एआई लेयर से जोड़ते हैं, एआई आपकी दिनचर्या सीखता है, 3 सेकंड से कम में अनजान चेहरों और असामान्य गतिविधि की पहचान करता है, और स्नैपशॉट के साथ तुरंत आपके फ़ोन पर अलर्ट भेजता है।",
-    link: { href: "/#how", label: "See the steps →", labelHi: "चरण देखें →" },
+    a: "Start with one event and the person who will review it. PGAK checks camera and stream suitability, agrees the processing setup, and evaluates detection and alert delivery on your site. The pilot records useful alerts, false alerts, missed events and delivery time before rollout.",
+    aHi: "एक घटना और उसकी समीक्षा करने वाले व्यक्ति से शुरुआत करें। PGAK कैमरे और स्ट्रीम की उपयुक्तता जाँचता है, प्रोसेसिंग सेटअप तय करता है और आपकी साइट पर पहचान तथा अलर्ट पहुँचने का परीक्षण करता है। रोलआउट से पहले पायलट में उपयोगी अलर्ट, गलत अलर्ट, छूटी घटनाएँ और अलर्ट पहुँचने का समय दर्ज किया जाता है।",
+    link: {
+      href: "/platform/deployment",
+      label: "Plan the setup →",
+      labelHi: "सेटअप की योजना देखें →",
+    },
   },
   {
     id: "cameras",
     q: "📷 Will my cameras work?",
     qHi: "📷 क्या मेरे कैमरे चलेंगे?",
-    a: "Almost certainly yes. PGAK works with CCTV, IP cameras and most DVR/NVR systems — no rip-and-replace. The free audit tells you exactly what your setup can do.",
-    aHi: "लगभग निश्चित रूप से हाँ। PGAK सीसीटीवी, आईपी कैमरों और ज़्यादातर DVR/NVR सिस्टम के साथ काम करता है — कुछ भी बदलने की ज़रूरत नहीं। मुफ़्त ऑडिट बताता है कि आपका सेटअप क्या कर सकता है।",
-    link: { href: "/free-audit", label: "Get the free audit →", labelHi: "मुफ़्त ऑडिट पाएँ →" },
+    a: "We need to check your exact camera or recorder model, firmware, authorised stream and view. A readable stream alone does not establish suitability for the intended event. The assessment identifies which equipment can be reused and what changes or processing hardware may be needed. Do not send camera passwords here.",
+    aHi: "आपके कैमरे या रिकॉर्डर का सही मॉडल, फ़र्मवेयर, अधिकृत स्ट्रीम और कैमरे का दृश्य जाँचना ज़रूरी है। केवल स्ट्रीम पढ़ पाने से वह आपकी ज़रूरत के लिए उपयुक्त साबित नहीं होती। आकलन में तय होगा कि कौन से उपकरण दोबारा इस्तेमाल हो सकते हैं और किन बदलावों या प्रोसेसिंग हार्डवेयर की ज़रूरत है। यहाँ कैमरे के पासवर्ड न भेजें।",
+    link: {
+      href: "/platform/compatibility",
+      label: "Check compatibility requirements →",
+      labelHi: "अनुकूलता की ज़रूरतें देखें →",
+    },
   },
   {
     id: "audit",
@@ -82,8 +89,13 @@ const TOPICS: Topic[] = [
     id: "privacy",
     q: "🔒 Is my footage private?",
     qHi: "🔒 क्या मेरी फ़ुटेज निजी है?",
-    a: "Yes. Your footage is protected with end-to-end encryption and stays fully under your control. Privacy is part of the design, not an afterthought.",
-    aHi: "हाँ। आपकी फ़ुटेज एंड-टू-एंड एन्क्रिप्शन से सुरक्षित है और पूरी तरह आपके नियंत्रण में रहती है। निजता डिज़ाइन का हिस्सा है, बाद का ख़याल नहीं।",
+    a: "Before any footage is shared, agree who may access it, where it is processed, what leaves the site and how long records are retained. Ask for the security controls for your proposed deployment in writing. Do not send passwords or footage in this chat.",
+    aHi: "फ़ुटेज साझा करने से पहले तय करें कि उसे कौन देख सकता है, उसकी प्रोसेसिंग कहाँ होगी, कौन सी जानकारी साइट से बाहर जाएगी और रिकॉर्ड कितने समय तक रखे जाएँगे। अपने प्रस्तावित सेटअप के सुरक्षा नियंत्रण लिखित में माँगें। इस चैट में पासवर्ड या फ़ुटेज न भेजें।",
+    link: {
+      href: "/platform/deployment",
+      label: "Review deployment responsibilities →",
+      labelHi: "सेटअप की ज़िम्मेदारियाँ देखें →",
+    },
   },
 ];
 
