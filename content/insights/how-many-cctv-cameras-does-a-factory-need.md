@@ -1,99 +1,66 @@
 ---
-title: "How many CCTV cameras does a factory need?"
+title: "How many CCTV cameras does a factory need? Build the scope"
 date: "2026-08-26"
+updated: "2026-10-29"
 category: "Camera Setup"
-excerpt: "Not a number per square foot. Count the ways in, the places value concentrates, and the events you want to be told about — the camera count falls out of that list, and it is usually smaller than the quote you were given."
-metaDescription: "Not a number per square foot. Count the ways in, where value concentrates, and the events you want flagged — the camera count falls out of that."
-readTime: 7
+excerpt: "Plan factory CCTV around gates, production routes, dispatch and required views. Justify each camera before comparing installation quantities and costs."
+metaTitle: "How many CCTV cameras does a factory need? Build the scope"
+metaDescription: "Plan factory CCTV around gates, production routes, dispatch and required views. Justify each camera before comparing installation quantities and costs."
+readTime: 4
 image: "/insights/category/camera-setup-3.webp"
-faqs:
-  - q: "How many CCTV cameras does a warehouse need?"
-    a: "It follows from entry points and value concentration rather than floor area. A typical mid-sized warehouse needs one camera per external door and shutter, one per loading bay, two to four covering the perimeter, one on the despatch and returns desk, one over any high-value or bonded storage, and wide coverage of the main floor. That usually lands between 12 and 30 cameras. Two warehouses of identical size can legitimately differ by double if one has four shutters and the other has one."
-  - q: "How do I decide where to put CCTV cameras in a factory?"
-    a: "Work backwards from events rather than forwards from floor plans. Write down the specific things you want to be told about — someone entering the yard after hours, a shutter opening out of shift, stock leaving through despatch unrecorded — and for each one identify the spot where it becomes visible. That gives you positions with a defined job. Cameras placed to cover area, rather than to catch a defined event, are the ones that turn out to be useless on the day something happens."
-  - q: "Is it better to have more cameras or better cameras?"
-    a: "Better placement beats both. A modest camera at head height beside a gate is more useful than an expensive one on a high mast covering the whole yard, because what matters is how many pixels land on the subject at the distance it actually appears. Once placement is right, resolution matters — but adding cameras to a badly planned layout mostly adds more views of nothing in particular."
-  - q: "How many cameras can one person monitor?"
-    a: "Realistically, very few, and not for long. Attention degrades within minutes on a multi-camera wall, which is why live monitoring is the least reliable part of most installations. This is the reason detection is worth automating: the cameras are not the bottleneck and never were — the watching is."
 ---
 
-**Straight answer: stop counting square feet. Count the ways in and out, the places value concentrates, and the specific events you want to be told about. The camera number falls out of that list. For most Indian factories and warehouses it lands between 12 and 30 — and two buildings of identical size can honestly need double one another, because one has four shutters and the other has one.**
+A factory owner comparing two CCTV quotes needs more than a camera count. The quotes may cover different gates, production areas, dispatch points or operating hours. Ask each supplier to connect its quantities to a documented requirement.
 
-The question usually arrives already distorted, because a vendor has quoted a number and the owner is trying to work out whether it is reasonable. It is a hard thing to sanity-check without a method, so here is the one we use.
+Floor area is a useful survey input, but it does not determine the answer alone. Buildings, equipment, routes, mounting options and the detail required in each view all affect the design. There is no reliable universal camera count for a factory of a given size.
 
-## Why "one camera per X square feet" is a bad rule
+## Separate the purposes of the installation
 
-It is a rule for selling cameras, not for covering a site.
+List the questions the business needs footage to answer. An overview of a yard, review of a goods handover and a clear view at an entrance are different requirements. A production-process question may require a separate technical assessment from a security camera survey.
 
-A 40,000 sq ft warehouse with a single shutter, no yard and stock of uniform low value needs dramatically fewer cameras than a 15,000 sq ft unit with four shutters, an open compound, a despatch desk and a bonded store. Area barely enters into it. What matters is **how many places something can happen, and how many places something valuable sits.**
+Identify which tasks need recording and which need an event to be reviewed promptly. Keep identity-related applications separate from general presence detection. Do not assume that observing someone in an area establishes their identity or authorisation.
 
-Floor-area rules also push you towards wide, high, general-purpose views — which are exactly the views that turn out to be unusable when you need to know who, rather than whether.
+Agree the purpose and access arrangements with the responsible operations team. Avoid adding views of private areas or collecting detail unrelated to the stated task.
 
-## The method: work backwards from events
+## Walk the actual factory routes
 
-Take a sheet of paper and write down the things you actually want to be told about. Be specific. Not "security" — events.
+Start at the vehicle and pedestrian gates, then follow material receipt, production movement, finished goods and dispatch. Include separate contractor entrances, staff exits and the paths used between buildings.
 
-A realistic list from a manufacturing site:
+Use a simple plan to mark the relevant locations, existing views and known blind spots. Record normal conditions and variations: parked vehicles, open shutters, stacked material, moving equipment and different shift activity.
 
-- Someone in the compound after shift ends
-- A shutter opening outside working hours
-- Stock going out through despatch that shouldn't be
-- A vehicle in the yard that nobody logged
-- Somebody in the finished-goods store who has no business there
-- A camera going dark
+| Area | Requirement to settle before assigning a camera |
+| --- | --- |
+| Main and secondary gates | Which entry or exit activity must be visible, and at what detail? |
+| Receiving and dispatch | Which handover needs a usable recording? |
+| Restricted stores | Which approach or entrance needs review? |
+| Production routes | What specific process or movement question is being assessed? |
+| Yard and boundaries | Which route or boundary matters during which hours? |
+| Recording equipment | How will authorised access and equipment faults be managed? |
 
-Now for each one, ask: **where does this become visible?** That location, at the height and angle where the event is legible, is a camera position with a defined job.
+The table is a survey prompt, not a rule of one camera per row. Some requirements share a view; others need different angles or greater detail.
 
-Do that honestly and you will end up with a list of positions, each of which you can justify. That is your count. It is also, in our experience, meaningfully lower than the quoted one — and better distributed, because it is built around the ways things actually go wrong rather than around the shape of the building.
+## Give every proposed view a task
 
-## A sane starting point by zone
+For each camera, record its location, intended subject, target distance, required conditions and acceptance test. Note what the view cannot cover. Tie the supplier's equipment line item to that entry.
 
-Concrete numbers to argue with, rather than a formula:
+This makes disagreements useful. If one bidder proposes an extra camera, ask which unmet requirement it addresses. If another proposes fewer, ask how the same test will still be satisfied. Neither a larger nor a smaller count proves a better design.
 
-| Zone | Cameras | What the camera is for |
-|---|---|---|
-| Main gate | 1–2 | People in and out; a second at plate height if you want vehicle numbers |
-| Each loading bay / shutter | 1 | The bay mouth, angled to see the vehicle *and* what moves between it and the building |
-| Perimeter | 2–6 | Boundary lines, side-on where possible; depends on wall length and blind corners |
-| Despatch / returns desk | 1 | The transaction point — where goods and paperwork meet |
-| High-value or bonded store | 1–2 | The door, and the aisle inside |
-| Production floor | 2–6 | Wide coverage; more for process disputes and safety than for theft |
-| Yard / parking | 1–3 | Vehicle movement and after-hours presence |
-| Office / cash handling | 1–2 | Where money or documents are handled |
-| Server / DVR room | 1 | Because the recorder is a target |
+Use the [resolution and distance guide](/insights/camera-resolution-vs-distance) when the question is usable detail. Use the [analytics placement guide](/insights/where-to-place-cctv-cameras-for-ai-detection) when a defined event needs a suitable view.
 
-A mid-sized warehouse lands around 12–20. A factory with a compound, multiple shifts and a proper despatch operation lands 20–40. Anything far above that deserves a per-camera justification, and anything far below usually has an uncovered way in.
+## Budget for infrastructure and access
 
-## The principle that saves the most money
+Cameras are only part of the installation. Include cable routes, network capacity, power, mounting access, recording and any processing equipment. Identify work that requires a shutdown window or coordination with another contractor.
 
-**One camera, one job.**
+Separate equipment that can be retained from items requiring repair or replacement. For analytics, check the proposed stream and scene rather than approving every existing channel by brand. The [compatibility checklist](/platform/compatibility) provides the information to gather.
 
-The single most common failure we see is a camera asked to do two things and doing neither. Mounted high enough to cover the yard, and expected to identify faces at the gate. Angled to watch the aisle, and expected to read plates in the lane behind it.
+Keep specialist safety requirements with the appropriate responsible team. CCTV or analytics should not be assumed to replace protective equipment or an established safety system.
 
-Those requirements conflict physically — they need different heights, different angles and different fields of view. The result is a camera that produces footage where you can tell a person was present and nothing else.
+## Accept the coverage through evidence
 
-If a position needs to answer *who*, it needs its own camera near head height, close to where people pass. If it needs to answer *whether*, it can be wide and high. Deciding which question each camera answers, before anything is mounted, is the whole discipline — and it is what [where to place CCTV cameras so AI detection actually works](/insights/where-to-place-cctv-cameras-for-ai-detection) goes into properly.
+Agree safe, authorised tests at representative locations and operating times. Review the recorded result, including the required night conditions. Keep the pass, limitation or corrective action for each view.
 
-## Where people under-spend and over-spend
+If an alerting pilot is included, test the complete path to the named reviewer and record missed events as well as received alerts. A working live screen is not the entire acceptance test.
 
-**Over-spent, routinely:** general coverage of open floor. Six cameras looking at a wide space where nothing much happens, because the plan was drawn from a floor map. Also over-spent: high-resolution cameras on high masts, where the extra pixels are spread across a car park.
+For a factory assessment with AI Alerto by PGAK, prepare your city, entrances, main operating areas, existing camera count and highest-priority event. A useful scope should explain each proposed view and its limitations before it becomes an equipment order.
 
-**Under-spent, routinely:** the boring transaction points. The despatch desk. The returns counter. The gate at head height. These are where discrepancies actually originate, and they are unglamorous positions nobody puts on a proposal.
-
-Also under-spent, almost universally: **lighting**. A camera that cannot see at night is a camera you bought for daytime. Lights are cheaper than cameras and improve every camera already installed. If your budget is fixed, moving money from the last two cameras into lighting is usually the better trade.
-
-## What about the watching?
-
-Here is the part that changes the calculation.
-
-Camera count only matters if something is looking at the output. On a wall of twenty-four feeds, human attention degrades within minutes — this is well established and not a criticism of anyone's guards. We wrote about the arithmetic of it in [you have 120 cameras, nobody can watch them all](/insights/nobody-can-watch-120-camera-feeds).
-
-Which means the honest sequence is: get coverage right, get lighting right, then automate the watching. In that order. A site with 14 well-placed cameras and something reliably watching them is in a considerably better position than a site with 40 cameras recording to a box nobody opens.
-
-That ordering also protects you from the most expensive mistake available, which is buying a large camera estate and discovering afterwards that the positions cannot answer the questions you care about.
-
-## The short version
-
-Count entrances, count value, list the events you want to know about, and give every camera one job. The number comes out of that, and you will be able to defend each position — which is more than most quotes can do.
-
-If you want a second opinion on a quote you have been given, or a list of positions for a site you are planning, [tell us the site and what you're trying to prevent](/#dealer). We will tell you which cameras we think are unnecessary, which is usually the more useful half of the answer.
+[Ask for a free feasibility check](#dealer)

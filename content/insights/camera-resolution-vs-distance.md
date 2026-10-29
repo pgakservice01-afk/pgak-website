@@ -1,65 +1,62 @@
 ---
-title: "Camera resolution vs distance: the pixel math"
+title: "CCTV resolution vs distance: calculate and test useful detail"
 date: "2026-09-09"
+updated: "2026-10-29"
 category: "Camera Setup"
-excerpt: "A 4MP camera sounds sharp on the box, but at 40 metres it can leave a face as a 40-pixel smudge. The megapixel number alone tells you almost nothing without distance."
-readTime: 5
+excerpt: "Calculate pixels per metre from image width and field of view. Understand why megapixels and DORI benchmarks do not guarantee AI recognition."
+metaTitle: "CCTV resolution vs distance: calculate and test useful detail"
+metaDescription: "Calculate pixels per metre from image width and field of view. Understand why megapixels and DORI benchmarks do not guarantee AI recognition."
+readTime: 4
 image: "/insights/category/camera-setup-2.webp"
-faqs:
-  - q: "Does more megapixels mean I can identify faces further away?"
-    a: "Not on its own. Megapixels tell you the total detail a sensor captures across its whole field of view. If that field of view is wide, the same pixels get spread thin over a large area, so a high-megapixel camera with a wide lens can still show a face as a handful of blurry pixels at distance. What matters is pixels per metre at the exact spot the face appears, not the megapixel number on the box."
-  - q: "Why does a 4MP camera fail to identify a face at 40 metres?"
-    a: "With a typical wide lens, a 4MP camera's roughly 2,688 horizontal pixels can be spread across a view that is 60-70 metres wide at 40 metres' distance — around 40 pixels per metre. Identifying a stranger reliably generally needs well over 100 pixels per metre. At 40 pixels per metre, a face occupies only a few pixels across, which is not enough detail for a human reviewer or software to identify anyone."
-  - q: "What is pixels per metre and why does it matter more than megapixels?"
-    a: "Pixels per metre is the camera's horizontal pixel count divided by how wide its field of view is at a given distance. It tells you how much detail actually lands on a person standing at that spot, which is the number that determines whether a face, a plate or a badge is readable — not the total megapixel count printed on the camera."
-  - q: "How can I get better identification range without buying a new camera?"
-    a: "Fit a narrower lens (a longer focal length or a varifocal set to zoom in) on the same camera. Narrowing the field of view concentrates the same pixel count onto a smaller area, raising pixel density at distance — at the cost of covering less width, so you may need an extra camera to keep the rest of the area covered."
 ---
 
-**Straight answer: a camera's megapixel rating tells you almost nothing about whether it can identify a face at a given distance. What matters is pixel density — how many pixels actually land on a person standing at that spot — and a 4MP camera with a wide lens can drop to around 40 pixels per metre at 40 metres, far too little to identify anyone.**
+A camera can show the whole yard clearly while leaving too little detail at the gate. Before buying more megapixels, identify the exact point where a person, vehicle or object must be visible and what the recording needs to show.
 
-Every quote lists a megapixel number like it settles the question. It doesn't. Two 4MP cameras with different lenses can identify a face at 30 metres or fail completely at 10, depending on how their pixels are spread.
+Resolution matters, but so do the lens, framing, distance, lighting and recorded stream. A useful calculation estimates the detail available at the target. A site test then checks whether that detail meets the actual requirement.
 
-## Why does resolution alone not tell you the identification distance?
+## Use horizontal pixels and scene width
 
-A sensor's pixels are fixed, but they get spread across whatever the lens shows. A wide lens shows more of the scene, so the same pixel count covers more ground and gets thinner the further out you look. A narrow lens shows less of the scene, so those same pixels are concentrated and stay useful further away.
+Pixel density in pixels per metre is the image's horizontal pixel count divided by the scene width, in metres, at the target position.
 
-This is why the honest question is never "how many megapixels" — it's "how many pixels per metre land on someone standing where I need to recognise them."
+For example, a 1,920-pixel-wide image showing a 12-metre-wide area gives 160 pixels per metre. If the same image covers 24 metres at the target, the density falls to 80 pixels per metre. These are illustrative calculations, not camera performance results.
 
-## What is pixels per metre, and how do you work it out?
+Use the resolution of the stream you will actually record or process. A camera's maximum advertised resolution may differ from the configured stream. Enlarging a low-resolution picture on a screen does not add captured detail.
 
-Take the camera's horizontal pixel count and divide it by how wide its field of view is at the distance you care about. A camera with 2,688 horizontal pixels (a common 4MP sensor) and an 80-degree wide lens shows a view roughly 67 metres wide at 40 metres' distance. That's 2,688 ÷ 67 ≈ 40 pixels per metre — spread that thin, a person's face occupies only a few pixels across.
+## A worked distance example
 
-## Why does 4MP at 40 metres identify nobody?
+For a simplified level scene, an 80-degree horizontal field of view gives a width of approximately twice the distance multiplied by the tangent of 40 degrees. Assume an image width of 2,688 pixels throughout:
 
-Because 40 pixels per metre isn't close to enough. Surveillance engineers commonly reference published benchmarks (from standards such as EN 62676-4) as rough guidance: roughly 25 pixels per metre is enough to detect that a person is there, around 60 to observe general activity, around 125 to recognise someone you already know, and 250 or more to reliably identify a stranger you've never seen before. These are rules of thumb, not guarantees — actual results vary by algorithm and lighting — but they explain the pattern well. At 40 pixels per metre, you're barely past "detect." Nobody gets identified at that density, however sharp the camera's spec sheet claims it is.
+| Distance to target plane | Approximate scene width | Approximate pixel density |
+| --- | --- | --- |
+| 5 metres | 8.4 metres | 320 pixels/metre |
+| 10 metres | 16.8 metres | 160 pixels/metre |
+| 20 metres | 33.6 metres | 80 pixels/metre |
+| 40 metres | 67.1 metres | 40 pixels/metre |
 
-Here's the same lens and sensor at different distances, so you can see how fast density falls off:
+This table describes geometry, not a promise of identifying a face at any listed distance. Camera tilt, perspective and the actual lens specification require a more careful design. Measure the view or use the manufacturer's planning tools before specifying equipment.
 
-| Distance from camera | Approx. field of view width (80° lens) | Pixel density (4MP, 2,688px wide) | What that density supports |
-|---|---|---|---|
-| 5 m | 8 m | ~320 px/m | Identify a stranger |
-| 10 m | 17 m | ~160 px/m | Identify, borderline |
-| 20 m | 34 m | ~80 px/m | Recognise a known face |
-| 40 m | 67 m | ~40 px/m | Detect presence only |
-| 60 m | 101 m | ~27 px/m | Barely detect |
+## Treat DORI as planning guidance
 
-The camera didn't get worse. The distance did the damage.
+Axis's [explanation of the IEC 62676-4:2014 pixel-density model](https://whitepapers.axis.com/en-us/pixel-density-based-on-iec-62676-4-2014) lists approximate planning values of 25 pixels/metre for detection, 63 for observation, 125 for recognition and 250 for identification.
 
-## How do you actually get identification range further out?
+The same document makes an important distinction: those definitions concern images interpreted by human operators. Automated video analytics has its own requirements. Lighting, optics and compression also affect results, so a density threshold is not a guarantee.
 
-Two honest options, and a trade-off either way.
+Do not label an 80-pixels/metre example as meeting the cited 125-pixels/metre recognition benchmark. Nor does 160 meet the cited 250 identification benchmark. Even a higher calculated figure still needs the relevant real-world test.
 
-**Fit a narrower lens.** A longer focal length, or a varifocal lens turned in, shows less width but keeps more pixels on each metre of it. This is usually the cheapest fix if you already own a decent sensor.
+## More megapixels do not translate directly into more range
 
-**Use a higher-resolution sensor.** More total pixels give you more to spread, so an 8MP camera on the same wide lens roughly doubles the pixel density at every distance compared to 4MP. This costs more per camera than swapping a lens.
+Use actual horizontal dimensions when comparing cameras. If total pixel count doubles while the aspect ratio stays the same, horizontal pixels increase by about 1.41 times, not twice. A different aspect ratio changes that relationship.
 
-The trade-off in both cases is coverage. A narrower lens or a longer zoom sees less width, so the area outside that narrower cone is now unwatched — you may need a second camera to cover what the first one gave up.
+A narrower field of view can place more pixels on the target, but reduces the width covered. Check whether the camera supports the proposed lens or optical adjustment; not every fixed-lens camera can simply be fitted with another lens. Digital cropping does not create new captured detail.
 
-## Where does this go wrong in practice?
+Record what an adjustment leaves outside the view. A separate overview or detail view may be appropriate, but the requirement should decide that rather than a blanket two-camera rule.
 
-The most common mistake we see is a single wide camera bought to cover an entire gate or yard, expected to also identify faces or plates at the far end of that same view. One camera usually can't do both jobs well. The honest fix is to split the job: a wide camera for overview and motion, and a second, narrower one aimed at the exact point — a gate, a turnstile, a counter — where identification actually needs to happen.
+## Test the recorded result at the required spot
 
-We install and tune camera positions for exactly this reason, so we're not neutral on recommending it — but the pixel math above holds regardless of who sets the camera up. Work out the pixels-per-metre at your actual identification point before buying on megapixels alone.
+Agree the task, target position and operating conditions. Review the recorded export, including representative movement and required night lighting. Avoid accepting a stationary, close-up daytime sample for a moving target at a distant gate.
+
+For analytics, record the tested model, firmware, stream settings, processing configuration and event definition. Use the [compatibility checklist](/platform/compatibility) and [pilot worksheet](/resources/evaluation-method). A good human-readable view does not by itself approve an automated recognition application.
+
+Preparing a camera upgrade? Bring the intended target distance, approximate scene width and the task you need the image to support. AI Alerto by PGAK can begin with a view-specific feasibility discussion before any equipment recommendation.
 
 [Ask for a free feasibility check](#dealer)

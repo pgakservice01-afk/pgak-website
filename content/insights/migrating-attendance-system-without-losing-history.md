@@ -1,56 +1,70 @@
 ---
-title: "Switching attendance systems without losing history"
+title: "Attendance-system migration: protect history and test payroll"
 date: "2026-09-04"
+updated: "2026-10-29"
 category: "Attendance"
-excerpt: "Old attendance data rarely moves cleanly to a new system. What actually transfers, what export format to insist on, how long to run both systems in parallel, and the one week of the month to never cut over on."
-metaDescription: "What actually transfers when you switch attendance systems, the export format to insist on, and the one week of the month never to cut over on."
-readTime: 5
+excerpt: "Plan attendance migration around exports, employee-ID mapping, reconciliation, retention and rollback. Approve the data before retiring the old system."
+metaTitle: "Attendance-system migration: protect history and test payroll"
+metaDescription: "Plan attendance migration around exports, employee-ID mapping, reconciliation, retention and rollback. Approve the data before retiring the old system."
+readTime: 4
 image: "/insights/covers/migrating-attendance-system-without-losing-history.webp"
-faqs:
-  - q: "How do I migrate to a new attendance system without losing history?"
-    a: "Export your existing records in a plain, dated format before you touch anything — CSV with one row per punch, not a summarised monthly report. Run the old and new systems in parallel for at least one full pay cycle so you can compare them directly. Keep the old system's raw exports permanently, even after cutover, because a new vendor will migrate the summary but rarely the underlying punch-level data."
-  - q: "What attendance history actually transfers to a new system?"
-    a: "Usually the monthly summary — total present days, total absences, total overtime — transfers cleanly because it's just numbers. What rarely transfers is the punch-level detail: individual clock-in and clock-out times, manual-entry flags, and any photo or biometric evidence tied to a specific day. If you might need to dispute or verify an old record later, export that detail yourself before switching."
-  - q: "What export format should I ask my current vendor for?"
-    a: "Ask for raw CSV or Excel with one row per attendance event — employee ID, date, time, device or camera ID, and entry type. Refuse a PDF-only export or a system that only offers pre-summarised monthly reports; both are useless if you ever need to answer a specific question about a specific day six months later."
-  - q: "Why shouldn't I cut over attendance systems at month-end?"
-    a: "Month-end is when payroll is calculated from the attendance data, and a partial data set split across two systems makes every calculation a manual reconciliation. Cut over in the first or second week of a month instead, so the entire pay cycle that matters for the next payroll run sits inside one system, not divided across two."
-  - q: "How long should I run two attendance systems in parallel?"
-    a: "One full pay cycle at minimum — typically a month. Parallel running is the only way to catch a mismatch, like a device miscounting shifts or a rule interpreting weekly-offs differently, before it reaches payroll. Running both costs a bit of double data entry for a few weeks; skipping it costs a disputed payroll run."
 ---
 
-**Straight answer: export your old attendance data in raw, dated CSV form — one row per punch, not a monthly summary — before you switch anything. Run the old and new systems side by side for at least one full pay cycle to catch mismatches, and never cut over during the week payroll is calculated. Most of what people call "lost history" after a migration is data nobody exported before the old system was switched off.**
+A new attendance system can appear ready while the history, employee mapping or payroll export remains incomplete. Before turning off the old service, establish which records will move, which will stay in an approved archive and how you will verify both.
 
-If you've ever tried to answer a question about attendance from eight months ago — a disputed termination, an audit, a court notice — and found the old system already decommissioned, you know how this goes wrong. The new vendor's onboarding call never mentioned it, and by the time anyone asked, the old account was closed and the data was gone with it.
+There is no universal migration capability across vendors. A monthly report, event-level export and biometric template are different data types. Treat each as a separate part of the scope instead of assuming that “import attendance” covers everything.
 
-## What history actually transfers to a new system?
+## Inventory the data before discussing cutover
 
-Less than most people assume. Monthly summaries — total present days, total leave, total overtime — usually move cleanly, because they're just numbers a new vendor can import from a spreadsheet.
+List employee identifiers, device or camera identifiers, raw attendance events, shift assignments, corrections, approved summaries and any associated evidence. Record the source system, owner, date range and permitted access for each.
 
-What doesn't move is the detail underneath those numbers: the actual clock-in and clock-out time for a specific day, whether an entry was manual or automatic, and any photo or biometric evidence attached to a record. If a dispute or audit ever needs to go back to a specific day, that's the layer you need — and it's the layer vendors rarely migrate, because it's bulky and their import tools aren't built for it.
+Also identify known problems: duplicate employee records, missing timestamps, ambiguous entry types or unexplained adjustments. A successful transfer can preserve an existing error. Keep those issues visible rather than treating the new system as automatic validation.
 
-The fix costs almost nothing: before you switch, export the raw punch-level data yourself and keep it, even if the new system never imports it. A folder of CSV files sitting in cold storage is enough. Nobody needs it live in the new system — they need it to exist somewhere.
+Do not assume biometric templates can be reused across products. Ask the suppliers to confirm supported formats and whether fresh enrolment is required through the organisation's approved process.
 
-## What export format should you insist on?
+## Obtain and test usable exports
 
-Ask your current vendor for raw CSV or Excel, one row per attendance event: employee ID, date, time, device or camera identifier, entry type (automatic, manual, corrected). Refuse anything that only offers a PDF summary or a pre-aggregated monthly report — both are unusable if a specific day is ever in question later.
+Request a documented export with employee ID, event timestamp and timezone, location or device, event type and relevant correction fields where the source supports them. Keep a data dictionary explaining what each field means.
 
-Most systems can produce this export; the sticking point is usually that nobody asks for it until the account is already being closed, at which point some vendors charge for it or simply can't produce it anymore.
+Machine-readable formats such as CSV can help with comparison and import, but a filename does not prove completeness. Open a sample, check encoding and date interpretation, and compare selected records with the source display. Retain approved reports as well when they are needed to explain a final result.
 
-## How long should you run both systems together?
+Agree secure storage, authorised access and a retention schedule with the responsible team. “Keep everything forever” is not a migration plan. Preserve what is required for the agreed purpose and any applicable obligations without copying unnecessary personal data into working files.
 
-At least one full pay cycle — a month, in most companies. Parallel running is the only real test. It's tedious: someone has to enter or check attendance in both systems for a few weeks, and it feels like duplicate work while you're doing it. But it's the only way to catch a mismatch — a device rounding differently, a weekly-off rule interpreted differently, a shift boundary set wrong — before it lands in a live payroll run instead of a test comparison.
+## Map employee IDs explicitly
 
-We push clients toward this even when it slows down our own onboarding, because a smooth cutover on our side that produces a wrong first payroll on theirs isn't a win for anyone. We build attendance systems, so factor that into how you read this advice — but the parallel-run rule holds regardless of which vendor you're moving to.
+Create a controlled cross-reference between the old identifier and the new one. Keep contractor, location and employment-status changes distinguishable where they matter. Do not match people solely because their names are similar.
 
-## Why does the timing of the cutover matter?
+Test leading zeros, blank identifiers and reused employee numbers. An event assigned to the wrong person can still appear in a report with a valid-looking total. Include representative exceptions in the test set rather than checking only an easy employee record.
 
-Never cut over in the week payroll is calculated from attendance data. If that week gets split across two systems, every number for that cycle becomes a manual reconciliation between two exports, which is exactly the error-prone, disputed process a new system was supposed to fix.
+Record who approves the mapping and how corrections will be tracked after import.
 
-Cut over in the first or second week of a month instead. That gives you a full pay cycle inside the new system before it has to produce a payroll number anyone relies on, and it gives the parallel-run period above somewhere clean to sit.
+## Reconcile more than a grand total
 
-## What this doesn't solve
+| Layer | Comparison to perform |
+| --- | --- |
+| Inventory | Required date ranges, employees and sites are accounted for |
+| Events | Counts and selected timestamps match the source after documented exclusions |
+| Mapping | Each tested event belongs to the intended employee and location |
+| Rules | Overnight shifts, breaks and exceptions produce the agreed result |
+| Corrections | Original values and approved changes remain explainable |
+| Payroll output | Expected fields and sample results match the receiving process |
 
-A migration plan doesn't fix a bad current system on its way out — if your old records are already unreliable (missing punches, unverifiable manual entries), migrating them cleanly just carries the unreliability forward. If you suspect the old data itself is wrong, that's worth auditing before cutover, not after.
+Use control totals by date and site as well as selected record-level checks. A matching grand total can conceal missing and duplicated rows that cancel each other out.
+
+The [three-shift checklist](/insights/attendance-24x7-three-shift-operation) provides useful midnight and missing-event cases. Include the company's own payroll scenarios rather than assuming a vendor demonstration covers them.
+
+## Choose a controlled transition window
+
+Agree the cutover with HR, IT, payroll and operations. Consider the payroll calendar, roster changes, support availability and the time needed to resolve differences. There is no universally correct week of the month for every organisation.
+
+A parallel comparison across a representative payroll cycle may be appropriate. Define its duration and acceptance criteria for your project; do not create duplicate payable records while testing. Keep one clearly designated authoritative process until the replacement is approved.
+
+Set a rollback decision point, responsibility and method. Verify that the old records remain accessible before retiring a licence, device or account. A backup is useful only if the required information can be retrieved by an authorised person.
+
+## Put migration in the commercial scope
+
+Ask for the fields, periods, exclusions, re-enrolment work, tests and responsibilities in writing. Use the [attendance quote checklist](/insights/biometric-attendance-machine-price-in-india) to distinguish migration work from a device purchase or basic software setup.
+
+For an AI Alerto by PGAK discussion, prepare the current product names, sites, shift patterns and required output format. Start with field definitions or anonymised samples; employee records and biometric data should move only through an agreed technical process.
 
 [Ask for a free feasibility check](#dealer)
