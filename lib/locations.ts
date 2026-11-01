@@ -1236,7 +1236,7 @@ export const LOCATIONS: Location[] = [
     attendanceContext:
       "Jaipur's jewellery and gem workshops run skilled piece-rate artisans, often in small units where the same family has worked for years and attendance is remembered rather than recorded — until a wage dispute makes memory insufficient. Hotels bring the opposite pattern: four departments on four different clocks and constant turnover in housekeeping and kitchens, where enrolling a new joiner quickly matters more than reading speed. Camera-based attendance at the entrance serves both, and in a jewellery unit it adds something a reader cannot, because the same camera that records the arrival is watching the door to the strong room.",
     intro:
-      "Jaipur trades in small things worth a great deal, which is a security profile of its own. Gem and jewellery work concentrates enormous value into rooms with ordinary doors; the tourist economy fills hotels and heritage properties with guests around the clock; and the Sitapura and VKI industrial areas carry the more familiar warehousing and manufacturing risk. Delivered through a verified PGAK partner in the region.",
+      "For a jewellery workshop, hotel or industrial site in Jaipur, begin with the area that needs attention: a restricted room, a back-of-house entrance, a loading bay or an after-hours boundary. AI Alerto by PGAK can assess the intended event and the suitability of the camera view. Survey availability, installation responsibilities and support arrangements are confirmed for your project before quotation.",
     localContext: [
       "Gem and jewellery units where the value in one room exceeds everything else on the premises combined.",
       "Hotels and heritage properties needing back-of-house cover without anything intrusive facing guests.",
@@ -1292,7 +1292,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         q: "Who covers Jaipur?",
-        a: "A verified partner in the region, with our team behind them on the platform. There is no PGAK office in Jaipur. Free camera audit first, then software on the cameras you already own, then a fortnight of tuning against your own footage.",
+        a: "PGAK is headquartered in Ludhiana and has no office in Jaipur. Tell us your location and project requirements so we can confirm assessment, installation and support arrangements before quotation. Existing equipment, any processing hardware and camera changes are assessed first. Pilot duration and acceptance criteria are agreed in the project scope.",
       },
     ],
   },

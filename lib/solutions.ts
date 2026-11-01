@@ -2687,51 +2687,51 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Industrial CCTV for Factories & Warehouses | PGAK",
     description:
-      "Upgrade existing industrial cameras with AI alerts, or plan a new installation for a factory or warehouse. Built for dust, shift patterns and large sites.",
+      "Assess AI alerts for existing industrial cameras or scope a new factory or warehouse installation. Review camera suitability, site conditions and response responsibilities.",
     eyebrow: "Industrial",
-    h1: "Industrial CCTV for sites too big for anyone to watch",
+    h1: "Industrial CCTV for factory and warehouse workflows",
     intro:
-      "Industrial CCTV fails in a specific, predictable way: the site grows, the camera count grows with it, and the number of people watching stays at zero. A hundred and twenty cameras across a factory or a warehouse estate is not a hundred and twenty times the security of one — past roughly sixteen feeds, a human being stops seeing anything at all. PGAK puts detection behind the industrial camera estate you already run, so the boundary, the gate and the dispatch bay report themselves instead of waiting to be reviewed.",
+      "An industrial site can have extensive CCTV coverage and still leave important events unseen until someone reviews the recording. AI Alerto by PGAK starts with a specific event at a boundary, gate or dispatch bay, then checks whether the camera view can support detection. Agree who receives an alert, how they respond and what a site trial must demonstrate before extending the setup. Camera count alone does not establish monitoring effectiveness.",
     painPoints: [
-      "A hundred-plus cameras and one screen nobody is sitting in front of.",
-      "The compound wall is two kilometres long and the guard covers it on foot, twice a night.",
-      "Material leaves on the wrong truck and it surfaces weeks later at reconciliation.",
-      "Dust, heat and monsoon kill cameras quietly and nobody finds out until footage is needed.",
+      "Many camera views, with limited time available for live review.",
+      "Boundary areas with gaps between patrols and camera views.",
+      "Dispatch questions that require both video evidence and operational records.",
+      "Environmental and connection faults that need a defined inspection and maintenance plan.",
     ],
     sections: [
       {
-        h2: "The three zones that matter on an industrial site",
-        body: "Industrial risk is geographic. It concentrates at the boundary, the gate and the point where material changes hands.",
+        h2: "Four industrial areas to assess",
+        body: "Start with the areas relevant to your operation. Define the event, camera view, permitted activity and response for each selected area.",
         points: [
           {
             h3: "The perimeter, after hours",
-            text: "A long compound wall cannot be patrolled continuously and does not need to be. A boundary rule on the cameras already facing the fence can turn the whole length into something that reports a crossing with a snapshot during the hours you specify — evaluated and timed on your own cameras.",
+            text: "Select the boundary sections and hours that need attention. A crossing rule needs a usable view of the event; obstructions, darkness and gaps between cameras can leave uncovered areas. Evaluate detection and the agreed alert route on your own cameras, alongside the existing patrol and response plan.",
           },
           {
             h3: "The gate",
-            text: "Everything of value enters and leaves through it, and in most plants the record of that is a notebook. Vehicle and plate logging turns gate movement into a searchable record, and shift-change attendance stops the queue at the biometric machine.",
+            text: "Decide whether the gate needs vehicle records, readable number plates, employee attendance or separate workflows. Each needs suitable camera placement and a defined review process. Attendance throughput, missed entries and any effect on queues must be measured during representative shift changes; a camera does not establish payroll-ready attendance on its own.",
           },
           {
             h3: "Dispatch and loading",
-            text: "The highest-value, lowest-watched area on most sites. Loading activity outside scheduled hours, or a vehicle at a bay when no dispatch is booked, is a rule worth having.",
+            text: "Start with a defined loading zone and operating schedule. Test whether activity outside those hours is detected and reaches the responsible person. Comparing a vehicle with an actual dispatch booking needs access to the relevant records and an agreed integration; video alone does not establish whether a dispatch is authorised.",
           },
           {
             h3: "The yard in between",
-            text: "Scrap piles, finished-goods staging and parked trailers are where things sit unattended longest. Loitering rules catch the pattern that matters: someone present in a zone far longer than a legitimate task requires.",
+            text: "For scrap storage, finished-goods staging or parked trailers, define a zone and a dwell-time threshold worth reviewing. A prolonged-presence alert does not establish intent. Test ordinary work, obstructions and changing lighting so the response team can judge whether the alerts are useful.",
           },
         ],
       },
       {
         h2: "What industrial conditions do to cameras",
-        body: "The environment is the part that separates an industrial specification from a commercial one, and it is where most cheap installs fall over.",
+        body: "Heat, dust, weather and movement affect equipment and usable views. Specify the actual operating conditions and maintenance responsibilities before choosing hardware.",
         points: [
           {
             h3: "Dust and airborne particulates",
-            text: "A dome in a grinding or textile environment fogs its own bubble within months. Housings and cleaning intervals are a specification decision, not an afterthought — and a fogged camera is invisible to everyone until something is watching image quality.",
+            text: "Dust can obscure a lens or housing and reduce useful detail. Select equipment for the actual environment and agree inspection and cleaning responsibilities. Check whether camera-health monitoring covers image obstruction as well as loss of connection; these are different failures.",
           },
           {
             h3: "Monsoon and cable runs",
-            text: "Water finds the junction box that was left unsealed in March. Most 'the camera stopped working' calls in July trace back to cabling shortcuts taken during installation.",
+            text: "Inspect exposed connectors, junction boxes, cable entries and routes for the site's weather conditions. Follow the equipment manufacturer's installation requirements and include accessible inspection points in the handover. A weather-rated camera does not establish that every connection is protected.",
           },
           {
             h3: "Distance and lighting at the boundary",
@@ -2745,39 +2745,39 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "Running it across shifts, and across plants",
-        body: "Industrial sites run around the clock, so 'after hours' means different things on different days, and a rule that fires during general shift on a Tuesday is noise. Detection schedules follow the shift pattern rather than the clock. Where a company runs more than one plant, the sensible structure is one view across all of them with alerts routed to the person responsible for that site — not four separate recorders and four separate apps that only the IT team can log into.",
+        body: "Define permitted activity and alert schedules for each shift, including overtime, maintenance and late collections. Confirm who updates those schedules; automatic roster synchronisation is a separate integration requirement. For multiple plants, scope supported feeds, network access, user permissions and site-specific alert ownership, then verify the agreed workflow in testing.",
       },
       {
-        h2: "Deployment without stopping production",
-        body: "Nothing about adding analytics requires the line to stop. An edge device at the site consumes the streams the existing recorder already receives, so there is no rewiring and no camera replacement as a precondition. A free feasibility check first establishes which of your existing cameras can carry which capability — because a camera mounted high for general yard coverage may be fine for boundary detection and unusable for plate reading, and you should know that before anyone quotes.",
+        h2: "Plan installation around site operations",
+        body: "Assess the cameras, recorder, stream access, processing, network and power before agreeing an installation plan. Suitable equipment may be reused; camera moves, additional hardware or cabling may be required for a particular event. Agree access, safe working arrangements and any interruption with the site team. A general yard view does not establish readable plates or faces, so document the required changes before quotation.",
       },
     ],
     stats: [
-      { value: "120+ cameras", label: "estate sizes where nobody can watch" },
-      { value: "Shift-aware", label: "rules that follow the roster, not the clock" },
-      { value: "Perimeter", label: "the whole fence line reports itself" },
-      { value: "No downtime", label: "no rewiring, no production stop" },
+      { value: "Site scope", label: "camera views and events assessed" },
+      { value: "Schedules", label: "hours and exceptions agreed" },
+      { value: "Coverage", label: "selected zones and gaps checked" },
+      { value: "Site plan", label: "hardware and access scoped" },
     ],
     faqs: [
       {
         q: "What is industrial CCTV and how is it different?",
-        a: "CCTV specified for factories, warehouses and plants, where the site is large, the environment is harsh and the camera estate is too big for anyone to monitor. The differences that matter are environmental hardening, boundary and gate coverage over long distances, shift-aware rules, and detection — because at industrial camera counts, review-after-the-fact is the only thing a recorder alone can offer.",
+        a: "Industrial CCTV is specified for the operating conditions and workflows of a factory, warehouse or plant. The design may need environmental protection, suitable boundary and gate views, recording retention and configured analytics. Recording, analytics and human response are separate parts of the plan; confirm what each existing device and proposed service supports.",
       },
       {
         q: "How many cameras does a factory or warehouse need?",
-        a: "It follows the site layout, not the floor area. Boundary length, number of gates, dispatch bays and high-value storage drive the count. A survey that walks the perimeter produces a very different answer from one that multiplies square footage, and the difference is usually fewer cameras placed where losses actually occur.",
+        a: "Camera count follows the required views and tasks. Review boundaries, entrances, loading areas, obstructions, lighting and the detail needed for each event. A site survey determines whether existing views are usable and where cameras should be moved or added; there is no fixed number or guaranteed reduction for every site.",
       },
       {
         q: "Will this work with the cameras and DVR we already have?",
-        a: "Usually yes. PGAK consumes the streams your existing cameras and recorder already produce, which is why industrial sites are good candidates — the estate is already extensive and mostly serviceable. Placement is the limiting factor rather than camera age, and the free feasibility check tells you camera by camera.",
+        a: "Compatibility is assessed camera by camera. Share the camera and recorder models, available stream access, representative views and the event you want to detect. Firmware, stream settings, placement, lighting, processing capacity and network conditions can affect suitability. The assessment identifies what can be reused and any changes required before quotation.",
       },
       {
         q: "Does it work if the site has poor or no internet?",
-        a: "Detection runs on an edge device at the site, so alerting continues through an internet outage. What pauses is remote viewing and cloud sync, which catch up when the link returns. For plants on unreliable connections this is the difference between a system that works and one that is offline every time the link drops.",
+        a: "It depends on the agreed deployment. A configured local processing device may continue detection while its cameras, local network and power remain available. Internet-dependent notifications, remote viewing and cloud services can be interrupted. Specify the local response, any backup connection and recovery behaviour, then test an outage before acceptance; do not assume every alert or recording is replayed automatically.",
       },
       {
         q: "Can one team see several plants at once?",
-        a: "Yes. Multiple sites can be presented in a single view with alerts routed per site, which is the usual requirement once a company runs more than one location. See multi-site CCTV monitoring for how that is structured.",
+        a: "Multi-site viewing can be evaluated for a supported deployment. Confirm feed access, bandwidth, permissions, platform capacity and the response owner at each site. Test viewing and alert delivery under the agreed network conditions; see multi-site CCTV monitoring for the planning questions.",
       },
     ],
     related: [
