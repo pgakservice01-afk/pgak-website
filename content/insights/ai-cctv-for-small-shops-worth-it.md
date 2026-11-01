@@ -1,50 +1,74 @@
 ---
-title: "Is AI CCTV worth it for a small shop?"
-date: "2026-07-26"
-category: "Retail"
-excerpt: "Sometimes no. Here's the arithmetic we run with shop owners before selling them anything, including the cases where we tell them to wait."
+title: 'AI CCTV for a small shop: decide with one measurable problem'
+date: '2026-07-26'
+category: Retail
+image: /insights/covers/ai-cctv-for-small-shops-worth-it.webp
+updated: '2026-11-01'
+excerpt: Decide whether AI CCTV fits your shop by testing one problem, camera suitability, alert response and full cost before committing to a wider rollout.
+metaTitle: 'AI CCTV for a small shop: decide with one measurable problem'
+metaDescription: Decide whether AI CCTV fits your shop by testing one problem, camera suitability, alert response and full cost before committing to a wider rollout.
 readTime: 4
-image: "/insights/covers/ai-cctv-for-small-shops-worth-it.webp"
+faqs:
+- q: Is AI CCTV automatically worth buying for a small shop?
+  a: No. Its value depends on a defined need, suitable cameras, supported functions, someone able to respond and an acceptable total cost. A limited evaluation can also justify postponing the purchase.
+- q: Will retail video analytics prove who caused missing stock?
+  a: No. Video can support a review of visible events, but inventory discrepancies need context from stock records and operating processes. An alert is not proof of wrongdoing.
 ---
 
-AI CCTV on a twelve-camera shop is a real monthly cost for a small business, and it deserves a real answer rather than a pitch.
+If a small shop is considering AI CCTV, the first decision is which problem deserves attention. An empty shelf, repeated nuisance alerts and an after-hours entry concern call for different evidence and possibly different solutions.
 
-Here's the arithmetic we actually run.
+Avoid starting with a package for every camera. Write down one requirement that matters to the business, then check whether the proposed system can help with it at a cost and level of effort the shop can sustain.
 
-## The case where it clearly works
+## Choose a problem you can describe clearly
 
-You're losing stock and you don't know how.
+A useful requirement might be reviewing entries into a closed stockroom during specified hours. Another might be assessing whether an entrance view supports a footfall report. These are examples of evaluation scopes, not claims that every product supports them.
 
-If your counts don't reconcile and you've been absorbing the gap, the calculation is simple: what does a month of unexplained loss cost you? For most shops carrying anything of value, one prevented incident covers several months of the subscription. If you've had a theft you can put a number on, you already have your answer.
+“Catch all theft” is not a testable buying brief. Neither is “tell me everything happening in the shop.” Define the area, the event, legitimate exceptions and the person who would use the information.
 
-The second clear case is multiple branches. If you own three shops and can only stand in one, you are structurally blind two-thirds of the time. Everything reporting into one phone changes what you can supervise, and that value doesn't depend on catching anybody.
+If missing stock is the concern, start by reconciling receipts, transfers, returns and stock counts. Camera review may help explain particular events, but it should not replace the business records used to establish the discrepancy.
 
-## The case where it clearly doesn't
+## Check the view before the software
 
-Low-value, high-volume stock — a stationery counter, a general store with thin margins on everything — often doesn't clear the bar. If the maximum a determined thief could carry out is a few hundred rupees, the subscription costs more than the risk.
+List the existing camera and recorder models and identify the view relevant to the chosen requirement. A camera positioned to show a general shop floor may not provide useful detail at a till or doorway.
 
-If your cameras also can't see the till or the high-value shelf at a usable angle, adding intelligence buys you nothing until that's fixed. We'd rather tell you that during the audit.
+Check normal trading conditions: customers queuing, staff moving stock, shutters changing the light and displays obstructing the view. Ask whether the proposed stream can be accessed appropriately and whether the image is useful for the intended analysis.
 
-## The case that's genuinely borderline
+For network equipment, ONVIF profiles define particular features and conformance rather than a promise that every application works with every device. Verify the actual products and intended function. [See ONVIF's profile explanation](https://www.onvif.org/profiles/).
 
-You have no known losses, but you're uneasy.
+## Test the workflow during ordinary trade
 
-This one is honest to sit with for a while. Security spend against an unquantified fear tends to be regretted. Our usual suggestion is to start with the two or three cameras covering what you'd actually mind losing, rather than the whole estate. Because it bills per camera, a four-camera deployment is a third of the monthly cost of a twelve-camera one — and a much easier decision to reverse.
+Agree a limited evaluation with the supplier. Include normal activity as well as authorised examples of the event you want flagged. Keep a separate record of what happened so that missed events are visible in the assessment.
 
-## What changes even without a theft
+Record useful results, unwanted notifications, gaps and the time it takes the intended recipient to review an item. A demonstration clip can explain a feature, but it cannot establish performance in your store.
 
-Two things surprise shop owners more than the theft prevention.
+Set a practical decision before the test: continue, change the view or configuration, or stop. The [evaluation worksheet](/resources/evaluation-method) provides a place to record the scope and results.
 
-**Notifications become usable again.** Most shops we work with had already muted their camera app — months ago, after the false alarms became constant. Getting to a state where a buzz means something is worth more than it sounds, because a muted system was protecting nothing at all.
+## Decide who will use each alert
 
-**You get your evenings back.** After-hours entry alerting means the shutter being down is actually the end of your day. Owners mention this more often than they mention stock.
+An owner who already ignores frequent camera messages needs a manageable review process. Agree which events merit a notification, which belong in a later report and which should not be collected for this purpose.
 
-## What we'd tell you to do first
+Test the recipient's actual working arrangement. During a busy period, who checks the message? If the owner is away, who can review the context? What action is proportionate when the result is uncertain?
 
-Before spending anything: send us your camera layout. The free audit tells you which cameras can see what matters, which are pointed at nothing useful, and whether the whole thing is worth doing at your shop.
+For more than one branch, include the branch name and relevant camera in the result. A shared screen is useful only if the reviewer can identify the location and responsibility without searching through unrelated views.
 
-Roughly a fifth of the shops we audit get told to fix a camera angle and call us back. That's a worse business for us and a better outcome for them, and it's the only version of this conversation worth having.
+## Compare the complete commitment
 
----
+Request a quote covering any equipment changes, installation, software, support and renewal terms. Ask whether pricing changes with channels or features; do not assume a small deployment costs a fixed fraction of a larger one.
 
-**Related reading:** [Retail shop security](/retail-shop-security) · [Loitering detection](/features/loitering-detection) · [What should AI CCTV actually cost in India?](/insights/ai-cctv-price-in-india-what-it-should-cost)
+Keep the possible benefit separate from the bill. One hypothetical prevented incident is not established payback. Where the benefit is faster investigation, measure the current search effort and test the same task under the proposed arrangement.
+
+It can be reasonable to improve basic recording, camera placement or stock procedures first. A clear evaluation should allow that conclusion rather than making purchase the only acceptable outcome.
+
+AI Alerto by PGAK can assess a specific shop requirement and compatible existing CCTV. Bring your camera count, store layout and the event you want to review. For an inventory-related project, the [retail evidence guide](/insights/showroom-retail-shrinkage) helps prepare the business context.
+
+## Common questions
+
+### Is AI CCTV automatically worth buying for a small shop?
+
+No. Its value depends on a defined need, suitable cameras, supported functions, someone able to respond and an acceptable total cost. A limited evaluation can also justify postponing the purchase.
+
+### Will retail video analytics prove who caused missing stock?
+
+No. Video can support a review of visible events, but inventory discrepancies need context from stock records and operating processes. An alert is not proof of wrongdoing.
+
+[Ask for a free feasibility check](#dealer)

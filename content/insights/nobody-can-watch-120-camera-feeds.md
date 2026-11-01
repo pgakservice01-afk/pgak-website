@@ -1,51 +1,72 @@
 ---
-title: "You have 120 cameras. Nobody can watch them all."
-date: "2026-07-27"
-category: "Monitoring"
-excerpt: "A wall of screens looks impressive — but one or two people can only truly watch a handful at a time. Here's why human monitoring quietly fails, and what 'AI never looks away' actually means."
-metaDescription: "A wall of screens looks impressive — but one or two people can only truly watch a handful at a time."
+title: 'Monitoring many CCTV feeds: define alerts and response ownership'
+date: '2026-07-27'
+category: Monitoring
+image: /insights/control-room.webp
+updated: '2026-11-01'
+excerpt: Plan a CCTV monitoring workflow with defined events, tested alerts and a response owner. Assess the workload before expanding analytics.
+metaTitle: 'Monitoring many CCTV feeds: define alerts and response ownership'
+metaDescription: Plan a CCTV monitoring workflow with defined events, tested alerts and a response owner. Assess the workload before expanding analytics.
 readTime: 4
-image: "/insights/control-room.webp"
+faqs:
+- q: How many CCTV feeds can one person monitor?
+  a: There is no useful universal number for every site and task. Assess the actual workload, display arrangement, review duties, event volume and staffing procedure rather than relying on a fixed camera limit.
+- q: Does analytics remove the need for human review?
+  a: No. An alert needs context and an agreed response. Analytics can support defined observations, but it does not establish intent or guarantee that every relevant event is detected.
 ---
 
-Walk into most large control rooms and the setup looks serious: a wall of monitors, dozens — sometimes over a hundred — camera feeds tiled edge to edge, all live.
+A site with many cameras needs more than a larger screen. The operational question is which events deserve attention, who reviews them and what happens when the reviewer is busy or unavailable.
 
-Then look at the desk. One guard. Maybe two on a good day. A phone, a cup of tea, and a night that's mostly quiet until, suddenly, it isn't.
+Camera count alone does not describe that workload. A quiet perimeter, a busy loading area and a recording-review task place different demands on the team. Assess the actual work before deciding whether analytics, staffing, display changes or a revised procedure would help.
 
-The uncomfortable truth is simple: **you can have 120 cameras and still not be watching.**
+## Start with an event register
 
-## The math nobody says out loud
+Choose a small set of important observations. For each, record the area, operating hours, permitted activity and the person responsible for reviewing it. Keep the requirement observable rather than asking software to determine whether someone has bad intentions.
 
-A person can meaningfully watch a few feeds at once — not a hundred. Even a large video wall only shows a fraction of your cameras at a readable size, and the operator's eyes can only rest on one tile at a time.
+An illustrative requirement is a person entering an agreed closed zone after the specified shift. The scope still needs to define legitimate exceptions, the available camera view and the supported event rule.
 
-So at any given moment, the vast majority of your feeds are recording to a disk that **no human is looking at**. On the night shift, with one person covering everything, it's worse.
+Manufacturer product categories distinguish functions such as motion detection and object analytics. They are not interchangeable features of every camera system. [Axis's analytics overview](https://www.axis.com/products/video-analytics) is one example of that distinction; ask your supplier which specific functions are proposed and supported.
 
-## Human attention was never built for this
+## Assign each result to a decision
 
-This isn't about lazy guards. It's about biology. Studies of CCTV control rooms have found that after roughly twenty minutes of staring at monitors, an operator misses the large majority of what actually happens on screen. Attention drifts. Nothing moves for hours, and then the one event that matters unfolds on the one tile nobody was watching.
+For each proposed event, write what the reviewer needs to do. That could be checking the context, contacting the authorised site responder or creating a maintenance task. Avoid an alert that merely adds a message without an owner or decision.
 
-The result is the pattern every site owner knows:
+Include the site, camera, event time and relevant context in the requirement. Establish which information can be viewed by each role and how a reviewer records that an item has been handled.
 
-> "We have it on camera."
+Where several people share responsibility, define the handover. The system should not depend on everyone assuming someone else has checked a notification.
 
-Said *after* the theft, the break-in, or the unauthorised entry. That's evidence — not protection.
+## Measure useful alerts and the work they create
 
-## What "AI never looks away" actually means
+A pilot should assess the result as well as the effort required to use it. Keep an independent event record and compare it with the alerts received. Include eligible events that were missed and ordinary activity that generated an unwanted result.
 
-This is the gap PGAK closes. Instead of asking a tired human to watch 120 feeds, an AI layer watches **all of them at once, every second, without blinking**:
+Ask reviewers to record how long it takes to establish the context and decide the next step. Also record bursts of events and duplicated notifications. A low average volume can hide a short period in which the workflow becomes impractical.
 
-- **It sees every feed simultaneously** — no tile is ever "off-screen."
-- **It only speaks up when something matters** — an unknown person, loitering, someone entering a restricted area or crossing a perimeter after hours.
-- **It pushes a real alert** — a notification with a snapshot, in seconds, to the phone of the person who needs it, so someone can act *while it's happening*.
+Use the [false-alert checklist](/insights/ai-cctv-false-alarms-how-to-reduce) to separate configuration issues, camera conditions and response-process problems. Increasing a threshold to reduce messages can change what is detected, so review both effects.
 
-It turns 120 passive recordings into 120 active sensors. The guard stops hunting through a video wall and starts responding only to events that are genuinely worth their attention.
+## Include interruptions and shift changes
 
-## And it runs on the cameras you already have
+Document what happens when a stream stops, processing is unavailable or the notification path fails. The person responsible for a camera-health fault may differ from the person reviewing an intrusion event.
 
-You don't rip out the wall of screens or buy 120 new cameras. PGAK layers onto your existing CCTV, IP cameras and DVR/NVR — the intelligence is added on top, so there's no downtime and no fresh hardware spend.
+Test the handover between shifts. Confirm the relevant contact list and escalation route rather than assuming the person who received the demonstration will always be on duty. Review planned maintenance so expected interruptions do not become unexplained alerts.
 
-## Where to start
+Keep a separate record of recording availability. An analytics event and a usable recording are related parts of the workflow, but one does not prove the other.
 
-You don't have to switch on smart monitoring for every camera on day one. Most sites begin with the feeds that carry the most risk — **restricted zones, perimeters and after-hours entrances** — and expand from there.
+## Expand against a stated acceptance decision
 
-If your team is guarding more cameras than any person could realistically watch, that's exactly the problem intelligent monitoring is built for.
+Agree what the initial evaluation must show before adding more cameras or sites. Record accepted conditions, unresolved issues and the person authorised to approve expansion. Retain the option to adjust or stop if the operational workload outweighs the benefit.
+
+The [video analytics buying guide](/insights/what-is-video-analytics-software) helps describe processing, licensing and compatibility questions. Ask for a quote that separates the tested scope from later options, including training and ongoing configuration ownership.
+
+AI Alerto by PGAK can help scope a discussion around compatible existing CCTV and a defined observation. Bring a short event register and your current monitoring arrangement. That provides a stronger basis for a pilot than a promise that software can watch every camera perfectly.
+
+## Common questions
+
+### How many CCTV feeds can one person monitor?
+
+There is no useful universal number for every site and task. Assess the actual workload, display arrangement, review duties, event volume and staffing procedure rather than relying on a fixed camera limit.
+
+### Does analytics remove the need for human review?
+
+No. An alert needs context and an agreed response. Analytics can support defined observations, but it does not establish intent or guarantee that every relevant event is detected.
+
+[Ask for a free feasibility check](#dealer)

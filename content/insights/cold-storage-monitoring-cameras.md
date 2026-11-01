@@ -1,54 +1,72 @@
 ---
-title: "Cold storage: cameras, doors and the cost of a door left open"
-date: "2026-09-18"
-category: "Security Basics"
-excerpt: "In cold storage, a door left open for ten minutes is a bigger loss than most thefts. What camera-based door monitoring actually catches, and where a plain door sensor still does the job better."
-metaDescription: "In cold storage, a door left open for ten minutes is a bigger loss than most thefts. What camera-based door monitoring actually catches."
-readTime: 6
-image: "/insights/covers/cold-storage-monitoring-cameras.webp"
+title: 'Cold-storage CCTV: check camera conditions and door visibility'
+date: '2026-09-18'
+category: Security Basics
+image: /insights/covers/cold-storage-monitoring-cameras.webp
+updated: '2026-11-01'
+excerpt: Assess cold-storage CCTV against temperature, moisture, door activity and the required view. Keep video review separate from refrigeration monitoring.
+metaTitle: 'Cold-storage CCTV: check camera conditions and door visibility'
+metaDescription: Assess cold-storage CCTV against temperature, moisture, door activity and the required view. Keep video review separate from refrigeration monitoring.
+readTime: 4
 faqs:
-  - q: "Can CCTV cameras help prevent spoilage in cold storage?"
-    a: "Yes, indirectly. A camera watching a cold room door can be paired with an analytics rule that flags the door being open beyond a set number of minutes, so someone is alerted before the temperature swing damages stock — the camera doesn't stop spoilage itself, it stops the delay in noticing."
-  - q: "What is a door-open dwell alert?"
-    a: "It's a rule that measures how long a door stays open rather than just whether it opened. A forklift passing through for twenty seconds is normal; a door propped open for fifteen minutes during loading is a temperature event. Dwell time separates the two."
-  - q: "Do CCTV cameras work reliably inside cold storage rooms?"
-    a: "Standard cameras struggle. Lens condensation and fogging are common when a camera moves between a warm anteroom and a sub-zero chamber, and connectors can become brittle in continuous cold. Cameras rated for the temperature range, mounted at the doorway rather than deep inside the chamber, hold up far better."
-  - q: "Is a door sensor better than a camera for tracking cold storage doors?"
-    a: "For a simple open-or-shut signal, a magnetic door sensor is cheaper and more reliable than a camera, and it works in the dark. A camera earns its place when you also need to see who opened the door, whether product was carried out, or what was left leaning against it — evidence a sensor can't give you."
-  - q: "Should cold storage prioritise spoilage or theft when planning cameras?"
-    a: "Spoilage first, in most cold stores. A single long door-open event can damage more stock value in an afternoon than a slow year of pilferage, and it happens far more often. Theft-focused placement still matters, but the door-dwell problem is usually the one nobody is currently measuring at all."
+- q: Can any outdoor camera be installed inside a cold store?
+  a: No. Check the exact operating limits, power requirements, mounting instructions and environmental conditions for the proposed model and accessories. An outdoor label alone does not establish suitability.
+- q: Can CCTV replace temperature or refrigeration monitoring?
+  a: Do not assume it can. Visible video supports review of what the camera can see. Temperature measurement, refrigeration alarms and required operational controls need their own suitable systems.
 ---
 
-**Straight answer: the biggest loss in most cold storage isn't theft — it's a door left open too long. A camera at the cold room entrance, paired with a rule that measures how long the door stays open rather than just whether it opened, catches this before the temperature swing turns into wasted stock. A basic magnetic door sensor does the open/shut part on its own; the camera is worth adding when you also need to see who left it that way.**
+A cold-store doorway can look clear during installation and become difficult to observe during loading. Open doors, moving pallets, changing light and moisture make the operating conditions part of the camera specification.
 
-Ask a cold storage manager what they lost last month and you'll usually get a theft answer, because theft is the loss people go looking for. Ask what the temperature log showed on the days output was down, and you often get a longer pause. Nobody was watching the door.
+Before choosing equipment or analytics, decide what you need the video to show. Reviewing loading activity is different from measuring temperature or proving that a door remained closed. Each requirement needs an appropriate method and an agreed test.
 
-## Why is a door left open a bigger problem than a break-in?
+## Describe the conditions at the actual position
 
-Because it happens constantly and quietly, not occasionally and loudly. A loading dock door propped open during a slow unload, a chamber door left ajar because someone went to fetch a trolley, a night-shift worker who didn't latch it properly on the way out — none of these look like an incident. They look like Tuesday. Multiply a small temperature spike by however many times a week it happens, and it adds up to more damaged stock than most thefts ever cause, without a single alarm going off.
+Give the installer the operating temperature range at the proposed camera position, expected moisture conditions and cleaning practices. Include transitions between areas rather than providing only the cold-room set point.
 
-## How does a camera actually catch this?
+Check the camera, lens or housing, connectors, cable and power equipment against their own documentation. A suitable camera body does not approve every accessory connected to it. Ask who confirms the complete installation and how maintenance access will work.
 
-Not by recognising a "door open" event the way a person would glance at it. The mechanism is dwell time. A camera pointed at the doorway feeds a simple motion or state-change model that tracks how long the door has been in the open position, not just that it moved. A forklift passing through for twenty seconds doesn't trigger anything — that's normal traffic. A door still open at the twelve-minute mark during a supposed five-minute unload does, and someone gets a WhatsApp alert while it's still fixable, not the next morning when the batch is already warm.
+Axis notes that humidity and condensation can damage components or impair the image through a dome. Its testing guidance illustrates why environmental performance needs evidence; it does not establish suitability for a different model or site. [Read the environmental-testing discussion](https://whitepapers.axis.com/en-us/tested-without-compromise).
 
-## Do cameras even survive inside a cold room?
+## Choose the view for the question
 
-This is the honest constraint most vendors skip. A standard indoor camera moved between a warm anteroom and a sub-zero chamber fogs up from condensation the same way your glasses do, and cheap connectors and cabling become brittle in continuous cold. The fix isn't a smarter model, it's the right hardware: housings rated for the temperature range, and mounting the camera at the doorway looking outward rather than deep inside the freezer, where both the fogging and the cold are worse. Get this placement wrong and the analytics layer is watching a smeared lens.
+For a loading review, the important view may include the threshold, movement direction and the relevant staging area. A broad room view can miss the detail needed to understand a particular handover.
 
-## Is a camera even the right tool, or is a door sensor enough?
+Review how forklifts, curtains, pallets and open doors affect the picture. Check whether the target remains visible during the operation that matters, not just when the doorway is empty. A camera outside the chamber may suit one requirement and fail another; location needs a design decision rather than a universal rule.
 
-For pure open-or-shut detection, a magnetic door sensor is genuinely the better tool — it's cheaper, it works in total darkness, and it doesn't care about condensation. If all you need is "tell me when the door has been open too long," start there.
+The [camera-positioning guide](/insights/where-to-place-cctv-cameras-for-ai-detection) helps separate a readable stream from a useful scene.
 
-A camera earns its place on top of that when the question becomes *who* left it open, or what was happening at the door when it did — a pallet blocking it shut, someone propping it deliberately, product being moved out while it sat open. That's evidence a sensor can't give you, and it's usually the follow-up question once the first dwell alert fires and you want to know why it kept happening.
+## Separate a door-state requirement from video review
 
-## Where does theft still matter in a cold store?
+If the requirement is to know whether a door is open, ask the project team to compare a suitable door-state sensor with the proposed video method. Include installation, environment, maintenance and integration in that comparison.
 
-It does, but usually at different points — the loading bay where cartons change hands, the racking aisles for internal pilferage, and the exit route stock actually leaves by. Those deserve their own coverage. The mistake is treating a cold store like a warehouse with a lower thermostat and pointing every camera at theft, when the door-dwell problem is quietly costing more and nobody is currently measuring it at all.
+If a supplier proposes a duration alert, document exactly what starts and stops the timer. Establish how partial opening, normal unloading and an obstructed view are handled. Do not assume a general person-tracking feature measures door position.
 
-## What should you check first?
+Video may provide useful context around a door event. Whether that context is worth integrating depends on the operational decision it supports and the functions actually demonstrated by the proposed system.
 
-Pull your compressor's temperature log for the last month and look for spikes that line up with shift changes, loading windows, or maintenance visits. If you can already explain every spike, your door discipline is fine. If you can't, that gap is where a dwell alert pays for itself before it pays for anything else.
+## Keep refrigeration controls separate
 
-We build camera-based analytics for this, including door-dwell alerts — so weigh that recommendation knowing where our interest sits. It won't fit every site: a chamber with no reliable network link, or one where a sensor already does the job well, doesn't need a camera bolted on for the sake of it.
+A picture does not itself establish product temperature or the condition of refrigeration equipment. Keep the site's temperature monitoring, operational alarms and required procedures under the responsible team's control.
+
+Define how a video observation is escalated without presenting it as a substitute for those systems. If the video is unavailable, the established refrigeration and safety procedures should not depend on guessing what an unseen scene contains.
+
+Avoid attaching a fixed loss estimate to a door-open event. Any financial assessment would need the actual product, exposure, operating conditions and relevant records. It cannot be derived from a camera demonstration.
+
+## Test a representative operating period
+
+Agree an authorised observation plan with the site team. Include normal loading, quiet periods, changes in lighting and the environmental conditions the installation is expected to handle. Do not create unsafe operating conditions for a test.
+
+Record image usability, obstruction, recording availability and any proposed event result. For notifications, record the intended recipient and actual receipt. Note untested conditions and assign a review rather than presenting a short trial as proof of year-round performance.
+
+Use the [CCTV maintenance checklist](/insights/cctv-amc-what-should-it-include) to document cleaning, inspection and fault ownership. AI Alerto by PGAK can review the intended video use and the suitability of your existing setup. Share the site type, equipment models and operating requirement so the assessment can identify what needs verification before quotation.
+
+## Common questions
+
+### Can any outdoor camera be installed inside a cold store?
+
+No. Check the exact operating limits, power requirements, mounting instructions and environmental conditions for the proposed model and accessories. An outdoor label alone does not establish suitability.
+
+### Can CCTV replace temperature or refrigeration monitoring?
+
+Do not assume it can. Visible video supports review of what the camera can see. Temperature measurement, refrigeration alarms and required operational controls need their own suitable systems.
 
 [Ask for a free feasibility check](#dealer)

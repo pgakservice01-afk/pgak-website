@@ -1,47 +1,72 @@
 ---
-title: "Loitering detection: what it catches that motion does not"
-date: "2026-09-13"
-category: "Security Basics"
-excerpt: "Motion detection fires on anything that moves. Loitering detection adds a dimension motion can't see — how long someone stays. Where that difference earns its place, and where it just adds noise."
-readTime: 5
-image: "/insights/category/security-basics-2.webp"
+title: 'CCTV loitering detection: define the zone, duration and response'
+date: '2026-09-13'
+category: Security Basics
+image: /insights/category/security-basics-2.webp
+updated: '2026-11-01'
+excerpt: Evaluate loitering alerts with a clear area, time condition and normal-activity exceptions. Test the supported feature before using it in operations.
+metaTitle: 'CCTV loitering detection: define the zone, duration and response'
+metaDescription: Evaluate loitering alerts with a clear area, time condition and normal-activity exceptions. Test the supported feature before using it in operations.
+readTime: 4
 faqs:
-  - q: "What is loitering detection in CCTV?"
-    a: "Loitering detection is a video analytics feature that measures how long a person or vehicle stays in a defined zone, and raises an alert once that dwell time crosses a threshold you set — for example, someone standing near a cash counter or a parked vehicle for more than two minutes. It is built on top of the same person-tracking that motion detection uses, with a timer added."
-  - q: "How is loitering detection different from motion detection?"
-    a: "Motion detection alerts on any movement in frame — a person walking past counts the same as a person walking past ten times. Loitering detection tracks an individual across frames and only alerts once they've remained in a zone longer than the threshold, which filters out normal passing traffic and flags dwelling instead."
-  - q: "Where does loitering detection work best?"
-    a: "Places where normal behaviour is brief and lingering is the anomaly: an ATM after hours, a back-gate blind spot, a parked-vehicle zone, or a counter area outside business hours. The clearer the line between 'passing through' and 'staying', the better the feature performs."
-  - q: "Can loitering detection cause false alarms?"
-    a: "Yes, in any zone where lingering is normal — a bus stop, a smoking area, a queue, a reception bench. In those spots almost everyone crosses the dwell threshold, so the alert stops meaning anything and gets ignored, which defeats the purpose of having it."
-  - q: "Do all cameras need loitering detection turned on?"
-    a: "No. It's a zone-specific tool, not a blanket setting. Turning it on everywhere floods the same person who reviews alerts with noise from spots where dwelling is normal, and a flooded reviewer stops checking any of it."
+- q: Does a loitering alert mean someone is acting suspiciously?
+  a: No. It means a configured condition was detected, subject to the system limitations. A person may have a legitimate reason to remain in an area, so the context needs review.
+- q: Is there one correct duration for every loitering rule?
+  a: No. Choose a duration based on legitimate use of the area and the decision the alert should support. Validate it under representative conditions and document the agreed configuration.
 ---
 
-**Straight answer: loitering detection tracks how long a person stays in a zone and alerts once that crosses a threshold you set — something plain motion detection cannot do, because motion detection treats every movement the same regardless of duration. It earns its place in zones where lingering is genuinely unusual, and becomes noise in zones where lingering is normal.**
+A person waiting near a loading area may be doing exactly what the job requires. The same duration in a closed restricted zone may deserve a check. A useful loitering rule begins with that operational difference, not with the assumption that lingering proves a threat.
 
-Most CCTV alerts on movement. A leaf blowing past the lens and a person casing your gate for ten minutes generate the same kind of trigger: something moved. Loitering detection adds the one dimension motion detection is blind to — time.
+If you are evaluating this feature, write down the area, the time condition and the response you expect. Then confirm that the proposed product supports the requirement and test it against ordinary activity as well as the event of interest.
 
-## What does loitering detection actually measure?
+## Understand what the rule measures
 
-It follows an individual person or vehicle across frames inside a zone you've drawn on the camera view, and starts a clock the moment they enter. Cross a dwell-time threshold — thirty seconds, two minutes, whatever you set for that zone — and it raises an alert. Leave the zone before the threshold, no alert. The tracking underneath is the same technology motion and person-detection use; loitering detection is that tracking with a stopwatch attached.
+Products can implement duration-based rules differently. Some track an object within an area; other features may measure a different condition. Ask what starts the timer, what resets it and how interruptions in visibility are handled.
 
-## How is this different from ordinary motion detection?
+For example, Axis documents a “time in area” scenario for supported object analytics. That is a specific product capability with configuration and installation requirements, not a universal definition of all CCTV motion detection. [Read the manufacturer's documentation](https://help.axis.com/en-us/axis-object-analytics).
 
-Motion detection answers one question: did something move in this frame? It has no memory of what happened a minute ago, so it can't distinguish a person walking straight through from a person standing still, and it certainly can't distinguish someone here for five seconds from someone here for five minutes. Loitering detection needs that memory — it has to keep tracking the same person across time — which is exactly why it can measure dwell and motion detection can't.
+Ask the supplier to demonstrate the exact function proposed for your camera and software combination. A feature name on a brochure does not establish how it behaves in the selected view.
 
-## Where does it genuinely earn its place?
+## Choose a zone with a clear operational purpose
 
-Anywhere the normal case is brief and the exception is a person staying. An ATM lobby after closing time — nobody should be standing there for two minutes. A back gate or a gap in the perimeter fence — nobody has a reason to linger. A cash counter or safe area outside business hours. A parked vehicle left unattended near a loading bay longer than a delivery should take. In all of these, "someone stayed" is close to a direct signal of "something is being checked out or planned," and the alert is worth acting on.
+Begin with the question the responder should answer. Is an area expected to be empty during specified hours? Is someone waiting for assistance? Is an operational queue becoming longer than the team wants?
 
-## Where does it just add noise?
+Those requirements may call for different features and actions. Do not label every duration event as a security incident. Record the legitimate reasons people may remain and the periods when those reasons apply.
 
-Anywhere dwelling is the normal behaviour. A reception area, a bus stop, a smoking corner, a queue at a counter during business hours — put a loitering zone there and nearly everyone crossing the frame will trip the threshold, because staying put is exactly what they're supposed to do. Once that happens, whoever reviews alerts starts ignoring the loitering feed altogether, and you've spent effort building an alert nobody trusts. This is the honest limitation of the feature: it only works where the site's own behaviour pattern gives it a clean line between normal and abnormal.
+Draw the proposed zone on the actual view and check its relationship to nearby routes. An area that includes normal waiting space can create a workload that no threshold adjustment fully resolves.
 
-## Should you turn it on everywhere?
+## Test the duration and exceptions
 
-No — treat it as a per-zone decision, not a site-wide setting. Walk your own site and ask, for each camera, "is there a normal reason to stand here for two minutes?" If the answer is no, that's a good loitering zone. If the answer is yes, loitering detection there will only generate alerts your team learns to swipe away, which is worse than not having it at all, because it trains people to ignore the same alert type at a camera where it might have mattered.
+Use authorised, safe examples to test the agreed rule. Include a person passing through, remaining within the area, leaving and returning, and becoming temporarily obscured where relevant. Record the actual observation and the result rather than assuming the timer's behaviour.
 
-We build this into our AI CCTV systems as one of several detection layers, so factor that in when weighing the recommendation. The honest caveat stands regardless of who supplies it: loitering detection is only as good as the zones you define and the thresholds you set for them — it is not a feature you switch on once and forget.
+Test ordinary work as well: deliveries, staff conversations, cleaning and expected waiting. These are not automatically unwanted events. Decide with the site owner whether the rule, schedule, zone or response procedure needs to change.
+
+The [false-alert review](/insights/ai-cctv-false-alarms-how-to-reduce) can help structure this work. Keep a record of missed eligible events as well as notifications that arrived unnecessarily.
+
+## Define what happens after notification
+
+A useful message should identify the site, zone and event time so the reviewer can find the context. Agree who receives it, who covers an absence and how the result is recorded.
+
+The response should fit the reason for the rule. A request to check whether a visitor needs assistance is different from reviewing access to a restricted area. Neither requires the software to make an unsupported judgement about a person's motives.
+
+Measure actual delivery and review during the pilot. A correctly detected event that never reaches an available reviewer does not complete the intended workflow. Record connectivity interruptions and untested notification conditions explicitly.
+
+## Keep the acceptance decision narrow
+
+Evaluate the feature for the agreed area and operating conditions. A successful test at one entrance does not approve every camera on the site. Document the configuration, sample period, limitations and owner of later changes.
+
+If normal work produces too many irrelevant results, consider whether the proposed rule is the right tool. Changing the process, choosing another view or leaving the feature disabled may be more useful than increasing notifications.
+
+AI Alerto by PGAK can begin with your intended observation and existing CCTV details. The [monitoring workflow guide](/insights/nobody-can-watch-120-camera-feeds) helps connect events to ownership across several cameras. Share the area and operational question, and request a site-specific assessment of compatibility, supported rules and pilot acceptance before committing to rollout.
+
+## Common questions
+
+### Does a loitering alert mean someone is acting suspiciously?
+
+No. It means a configured condition was detected, subject to the system limitations. A person may have a legitimate reason to remain in an area, so the context needs review.
+
+### Is there one correct duration for every loitering rule?
+
+No. Choose a duration based on legitimate use of the area and the decision the alert should support. Validate it under representative conditions and document the agreed configuration.
 
 [Ask for a free feasibility check](#dealer)
