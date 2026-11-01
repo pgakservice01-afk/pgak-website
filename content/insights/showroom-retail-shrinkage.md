@@ -1,57 +1,79 @@
 ---
-title: "Showroom shrinkage: the evidence index approach"
-date: "2026-09-20"
-category: "Security Basics"
-excerpt: "Retail shop theft CCTV rarely stops anything in the moment. Its real value is turning 'we lost stock somewhere this month' into a searchable index you can actually audit against."
-readTime: 6
-image: "/insights/covers/showroom-retail-shrinkage.webp"
+title: 'Retail CCTV: build an evidence trail for stock discrepancies'
+date: '2026-09-20'
+category: Security Basics
+image: /insights/covers/showroom-retail-shrinkage.webp
+updated: '2026-11-01'
+excerpt: Connect CCTV review with stock records, time windows and camera coverage. Investigate retail discrepancies without treating alerts as proof of theft.
+metaTitle: 'Retail CCTV: build an evidence trail for stock discrepancies'
+metaDescription: Connect CCTV review with stock records, time windows and camera coverage. Investigate retail discrepancies without treating alerts as proof of theft.
+readTime: 4
 faqs:
-  - q: "Does retail shop theft CCTV actually stop theft in real time?"
-    a: "Rarely, on its own. Cameras deter some casual theft just by being visible, but a determined shoplifter or a dishonest employee who knows where the blind spots are will not be stopped by a camera watching. The real value of CCTV in most showrooms is as evidence after the fact, not prevention in the moment."
-  - q: "What is a searchable evidence index for retail CCTV?"
-    a: "It is footage tagged automatically by time, camera zone and sometimes person, so instead of scrubbing through hours of recording you search 'counter camera, 3pm to 5pm, Tuesday' and get the relevant clips directly. It turns a stock discrepancy into a ten-minute review instead of a lost afternoon."
-  - q: "Where does shrinkage usually happen in a showroom?"
-    a: "The billing counter, fitting room exits, the exchange and return desk, and the stockroom or backroom where inventory moves without a customer present. These four spots account for most of the gap between what the register shows and what the shelf shows."
-  - q: "Can CCTV alerts catch theft as it happens?"
-    a: "Sometimes, but real-time alerts on a busy showroom floor tend to fire constantly on ordinary browsing and handling, and staff learn to ignore them within a week. An evidence index that you search when a discrepancy shows up is more reliable than an alert feed nobody is still watching by month three."
+- q: Can a CCTV alert prove that missing stock was stolen?
+  a: No. A stock discrepancy needs reconciliation and context. Review the relevant business records and authorised footage before drawing conclusions about what happened.
+- q: What should be recorded before searching CCTV footage?
+  a: Record the item or stock category, affected location, known time window and relevant receipt, sale, return or transfer references. Confirm camera times and recording availability before narrowing the review.
 ---
 
-**Straight answer: retail shop theft CCTV mostly does not stop theft as it happens. What it does well, if it's set up for it, is turn a vague monthly stock discrepancy into footage you can actually search by time and location — an evidence index rather than a real-time alarm. That's a smaller promise than most vendors make, but it's the one that holds up.**
+A stock discrepancy is a starting point for investigation, not an explanation. Goods may have been sold, returned, transferred, damaged or counted incorrectly. Footage can help review visible events, but it cannot repair missing inventory records by itself.
 
-Every showroom owner has had the same month-end moment: the stock count is short, nobody saw anything happen, and the footage exists somewhere but reviewing three cameras across a full month is not a task anyone has time for.
+Before buying retail video analytics, identify the part of that investigation you need to improve. A clear process may reveal a camera gap, a record-keeping issue or a specific requirement worth testing with a supplier.
 
-## Can CCTV actually stop shop theft?
+## Establish the discrepancy first
 
-Cameras deter some casual theft simply by being visible — a shoplifter looking for an easy target will often pick a store that looks unwatched. But a determined thief, and especially a dishonest employee who already knows where the cameras point and where they don't, is not stopped by a lens. The camera records the event; it does not intervene.
+Record the stock category, location and relevant count period. Compare receipts, sales, returns, transfers and authorised adjustments. Keep the references used in the reconciliation so another reviewer can follow the reasoning.
 
-Real-time alerting sounds like the fix, but in practice, a busy showroom floor generates alerts constantly — customers picking things up, staff restocking, ordinary browsing. Within a few weeks, staff stop reacting to the alert feed altogether, because almost every alert was nothing. An alert nobody responds to isn't protection.
+Narrow the time window using evidence rather than choosing a person to watch. If the last confirmed count was several days ago, say so. A broad unknown window should not be presented as a precise incident time.
 
-## What is an evidence index, and why is it different?
+Assign a responsible reviewer and keep access to sensitive records and footage limited to the people authorised to handle the investigation.
 
-Instead of treating footage as a wall of recordings you scrub through manually, an evidence index tags what happened, where, and roughly when — so a stock discrepancy on a specific SKU turns into a specific search: which camera, which zone, which window of time. You go from "review a month of tape" to "review twelve minutes across three clips."
+## Check what the camera can actually show
 
-This is the honest reframe: it doesn't stop the loss. It shortens the distance between noticing a loss and finding out how it happened, which is what actually lets you close the gap the next time.
+Map the relevant receiving, storage, display and handover points to camera identifiers. Confirm that the view can show the action of interest under normal conditions. A general shop-floor image may not show an item changing hands clearly enough for the question being asked.
 
-## Where does shrinkage actually happen in a showroom?
+Check obstruction from customers, shelving, packaging and staff activity. Review recorded footage at its saved settings. Confirm the time shown against the business records and document any known offset before combining them.
 
-It clusters in four places, consistently:
+Use the [blind-spot review](/insights/cctv-blind-spots-where-thieves-look) to record limitations. A gap in the picture should remain an explicit limitation, not a reason to infer what must have happened outside the view.
 
-**The billing counter.** Under-ringing, voided transactions that don't match a returned item, and cash handling irregularities.
+## Build a small review index
 
-**Fitting room exits.** Items go in, fewer come out. A camera angle that covers the exit corridor, not the changing area itself, closes this without raising privacy concerns.
+An index can be a controlled worksheet maintained by the authorised reviewer. It does not require a claim that the CCTV automatically understands the stock transaction.
 
-**The exchange and returns desk.** A common route for fraudulent returns using items that were never actually purchased there.
+| Field | Purpose |
+| --- | --- |
+| Case reference | Connect the review to the stock discrepancy |
+| Business record and time window | Explain why this period is relevant |
+| Site and camera | Identify the source of the observation |
+| Recording segment | Locate the material reviewed |
+| Observation and limitation | Separate what is visible from what remains unknown |
+| Next action and owner | Record the operational follow-up |
 
-**The stockroom or backroom.** Inventory moves here with no customer present and often less oversight than the sales floor, which is exactly why it deserves more, not less.
+Keep factual observations separate from interpretations. If the camera shows movement of a package but cannot identify its contents, record that limit plainly.
 
-## How do you actually use footage to find the leak?
+## Evaluate analytics against one task
 
-Start from the number, not the footage. Pull the stock discrepancy — which SKU, which date range, which shift — and only then search the index for that specific window at the relevant camera. Working the other way, starting from hours of raw footage hoping something jumps out, is how this task gets abandoned after twenty minutes.
+A supported event or search feature may help narrow a review, but its purpose must be specific. Ask the supplier to demonstrate the proposed function using authorised, representative material and disclose the conditions it cannot handle.
 
-Reconciling against a second signal — the billing log, the staff roster for that shift — narrows the search further before you look at a single frame.
+Retail analytics can also mean operational counting rather than security investigation. For example, [Axis People Counter documentation](https://help.axis.com/en-us/axis-people-counter) describes entrance counting and validation. That does not establish item tracking, transaction reconciliation or theft detection. Do not treat these different functions as one package by assumption.
 
-## Where this doesn't fit, and where the commercial interest sits
+If a supplier proposes integration with sales records, confirm the actual systems, fields and matching method. Have the team test the result before relying on it in a live review.
 
-We build indexed, searchable footage as part of our AI CCTV offering, so weigh this recommendation with that in mind. It is genuinely not a fit for every showroom: a very small shop with two cameras and low stock value may get more value from simply reviewing footage manually when something goes missing, since the volume never gets large enough to need indexing. And no indexing system replaces basic controls — a second person present during cash reconciliation, and a returns policy that requires a receipt, still do more for shrinkage than any camera on its own.
+## Measure investigation usefulness honestly
+
+Choose a repeatable review task and record the time and steps needed with the existing process. During an evaluation, compare equivalent tasks and record unresolved cases as well as successful ones.
+
+Do not translate a faster search into a guaranteed reduction in stock loss. That outcome needs a separate baseline and evidence over an appropriate period. Likewise, a detected event does not establish wrongdoing or justify an automatic accusation.
+
+AI Alerto by PGAK can start with your store layout, camera count and one investigation requirement. The [small-shop buying guide](/insights/ai-cctv-for-small-shops-worth-it) helps decide whether a limited evaluation is worthwhile. Bring a non-sensitive description of the problem; agree an authorised process before sharing footage or customer and staff records.
+
+## Common questions
+
+### Can a CCTV alert prove that missing stock was stolen?
+
+No. A stock discrepancy needs reconciliation and context. Review the relevant business records and authorised footage before drawing conclusions about what happened.
+
+### What should be recorded before searching CCTV footage?
+
+Record the item or stock category, affected location, known time window and relevant receipt, sale, return or transfer references. Confirm camera times and recording availability before narrowing the review.
 
 [Ask for a free feasibility check](#dealer)

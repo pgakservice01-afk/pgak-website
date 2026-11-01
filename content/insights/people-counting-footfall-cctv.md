@@ -1,56 +1,72 @@
 ---
-title: "People counting from cameras you already own"
-date: "2026-09-14"
-category: "Security Basics"
-excerpt: "You don't need new cameras to know how many people walked through your gate or store today. What CCTV-based people counting gets right, where it drifts, and what the number is actually useful for."
-metaDescription: "CCTV-based people counting works on cameras you already own. Here's how accurate it really is and what the footfall number is good for."
-readTime: 5
-image: "/insights/category/security-basics-2.webp"
+title: 'CCTV people counting: validate footfall before using the numbers'
+date: '2026-09-14'
+category: Security Basics
+image: /insights/category/security-basics-2.webp
+updated: '2026-11-01'
+excerpt: Define what footfall means, check entrance coverage and compare automated counts with an independent sample before using CCTV numbers in reports.
+metaTitle: 'CCTV people counting: validate footfall before using the numbers'
+metaDescription: Define what footfall means, check entrance coverage and compare automated counts with an independent sample before using CCTV numbers in reports.
+readTime: 4
 faqs:
-  - q: "Can CCTV cameras count footfall without new cameras?"
-    a: "Yes. If a camera has a clear, mostly overhead or angled view of an entrance, video analytics software can count people crossing that line without replacing the camera. The exception is a camera mounted too low or too far back to separate people walking close together — that one may need repositioning first."
-  - q: "How accurate is CCTV people counting?"
-    a: "For a single, well-placed entrance camera, daily counts are usually close enough to trust for a trend line, but not exact enough for an audit. Groups walking shoulder to shoulder, prams, trolleys and reflective doors all introduce small errors that tend to cancel out over a week but can be visible on any single day."
-  - q: "What should footfall counting be used for?"
-    a: "Trends and ratios, not headcounts. Comparing this week to last week, weekday to weekend, or footfall to actual sales (conversion rate) is where the number earns its place. Treating a single day's count as an exact figure is asking more of it than the technology delivers."
-  - q: "Why do people-counting numbers vary between vendors?"
-    a: "Different systems draw the counting line differently, handle groups differently, and some double-count people who linger near the doorway. Two vendors watching the same entrance can report different totals for the same day without either being 'wrong' — they're measuring slightly different things."
+- q: Is a footfall count the same as unique visitors?
+  a: Not necessarily. Define whether the system measures passages, direction, occupancy or unique people. Repeat entries and several entrances can change the interpretation.
+- q: Can counting errors be assumed to cancel out over a week?
+  a: No. Errors can be systematic. Validate representative periods and review changes in the scene or configuration before treating a longer reporting window as reliable.
 ---
 
-**Straight answer: yes, cameras you already have can count footfall if the entrance view is clear — the counting runs on a processing unit added on site, not on new cameras. The number is reliable enough to track trends and conversion, but not precise enough to be treated as an exact headcount.**
+A footfall number is useful only when everyone understands what it counts. Entrance passages, people currently inside and unique visitors are different measures. Calling all three “customers” can make a report look precise while answering the wrong question.
 
-Every shop owner and gate manager already has a rough sense of how busy yesterday was. What they don't have is a number they can put in a spreadsheet and trust next to last month's. That's the actual gap people counting fills — not "how many people," but "is footfall going up or down, and what's it worth."
+Before evaluating CCTV people counting, define the business decision the number will support. Staffing a busy entrance, comparing trading periods and reviewing occupancy need different scope and validation.
 
-## Can your existing cameras do this?
+## Write the counting definition
 
-Usually, yes. People-counting software runs as analytics on top of a normal CCTV feed — it doesn't need a special sensor. What it needs is a camera angled so that people crossing the doorway don't overlap each other in the frame. A camera mounted straight down over the door, or angled across it from the side, works well. A camera bolted high on a far wall, looking down a long aisle toward the entrance, usually doesn't — by the time people are countable, they're already bunched together.
+Record the entrance or boundary, directions, operating hours and reporting interval. Decide how staff movements, repeat entries and deliveries should be handled. Ask the supplier which of those distinctions the proposed system can actually make.
 
-So the real question at most sites isn't "do we need new cameras," it's "is the entrance camera positioned to count, or just to record." Those are different jobs, and a camera installed for the second one often needs a small repositioning, not a replacement, to do the first.
+For a multi-entrance building, identify every relevant entry and exit. Establish whether the proposed report combines those streams and what happens when one is unavailable. A total from one door should not be labelled whole-site footfall unless the scope supports that description.
 
-## How accurate is the number, really?
+Do not assume that a counting system identifies individual people. Where unique visitor analysis is proposed, ask what method and data it requires and assess that separately from simple passage counts.
 
-Good enough for a trend line, not good enough for an audit. The software draws a virtual line across the doorway and counts crossings in each direction. Single people walking through, one at a time, at normal pace, get counted reliably. Where it drifts:
+## Check the entrance against product requirements
 
-- **Groups walking side by side** can be undercounted if they're close enough to overlap in the frame.
-- **Trolleys, prams and large bags** occasionally get counted as an extra person, or cause a real person to be missed.
-- **Backlit or glass entrances** confuse the software the same way they'd confuse a human glancing at grainy footage — silhouettes are harder to separate than well-lit faces and shoulders.
+A camera installed for general recording may not provide the view needed for counting. Ask the supplier to assess mounting position, coverage, lighting, obstructions and the behaviour of people at that entrance.
 
-None of these errors are large individually, and over a week they tend to average out. But if someone asks "exactly how many people came in on Tuesday," the honest answer is "approximately X," not a number you'd defend to the digit.
+Axis's counting guidance emphasises suitable installation conditions and comparison with manual observations. It also distinguishes different counting solutions rather than treating one method as appropriate everywhere. [Read the manufacturer's counting guidance](https://whitepapers.axis.com/en-us/axis-counting-solutions).
 
-## What is the number actually good for?
+Use the requirements for the actual product under evaluation. Do not copy another manufacturer's mounting recommendation into a specification for an untested system.
 
-**Trend, not total.** Is this month busier than last month? Is Saturday footfall recovering after the monsoon dip? These comparisons are robust even if the absolute daily number wobbles a little, because the same small errors happen every day.
+## Compare against an independent sample
 
-**Conversion rate.** Footfall against actual bills or transactions is one of the few retail metrics that tells you something a sales report alone can't — whether a quiet day was low traffic or low conversion. That distinction changes what you'd actually fix.
+Agree the sample plan before examining the automated results. Have an authorised observer count the same defined passages independently during the selected periods. Match the start and end times and record the relevant direction.
 
-**Staffing and hours.** Knowing which hours genuinely draw traffic, versus which hours you're staffed out of habit, is a real operational decision the count supports well.
+Include periods that represent the business: quiet entries, busy groups, staff activity and any conditions that make the doorway difficult to see. Record what was excluded, such as a temporary closure or an unavailable camera.
 
-What it's not good for is a legal or contractual headcount — a mall's common-area footfall dispute, for instance, needs a level of certified accuracy this kind of analytics doesn't promise.
+Compare the counts by period and condition. A single overall total can hide overcounting at one time and undercounting at another. Keep the sample size visible and avoid describing a short successful test as permanent accuracy.
 
-## Where does it fall apart?
+## Decide what the report may be used for
 
-Two places, honestly. First, multiple entrances that aren't all covered — a count from one door while people also use a side gate or loading entrance is a partial number dressed up as a complete one. Second, a system nobody looks at. A count feeding a dashboard nobody opens is a wasted analytics licence, whichever vendor is running it.
+Set acceptance criteria appropriate to the intended business decision. A trend report and a process requiring an exact reconciled headcount have different needs. Do not quietly change the claimed purpose after seeing the result.
 
-We build this kind of video analytics on existing cameras, so weigh that recommendation with our commercial interest in mind. Our honest advice either way: get the entrance camera positioned correctly before paying for the analytics on top of it — the software can't fix a doorway it can't see cleanly.
+If you compare footfall with sales, align the store, dates and trading hours. Explain the numerator and denominator: a transaction count is not automatically a count of different purchasing people, and an entrance passage is not automatically a unique shopper.
+
+Keep unavailable periods and material configuration changes visible. A decline caused by a missing camera interval should not be reported as a real decline in customer activity.
+
+## Maintain the definition as the shop changes
+
+Recheck the installation after displays, door arrangements, lighting or routes change. Record software and configuration updates that could affect the count. A comparison between branches is useful only when their definitions and limitations are understood.
+
+Assign a person to review exceptions and keep the report's scope attached to exports. This prevents a carefully qualified pilot number from becoming an unsupported claim when it is copied into a management presentation.
+
+AI Alerto by PGAK can review your entrance layout and the measure you need. Prepare the number of entrances, existing camera details and the intended reporting use. The [video analytics guide](/insights/what-is-video-analytics-software) explains the broader buying questions, while the [retail evaluation guide](/insights/ai-cctv-for-small-shops-worth-it) helps define a manageable first project. Compatibility and the final counting method must be verified for the proposed setup.
+
+## Common questions
+
+### Is a footfall count the same as unique visitors?
+
+Not necessarily. Define whether the system measures passages, direction, occupancy or unique people. Repeat entries and several entrances can change the interpretation.
+
+### Can counting errors be assumed to cancel out over a week?
+
+No. Errors can be systematic. Validate representative periods and review changes in the scene or configuration before treating a longer reporting window as reliable.
 
 [Ask for a free feasibility check](#dealer)

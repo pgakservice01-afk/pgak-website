@@ -1,59 +1,73 @@
 ---
-title: "The five-year cost of a CCTV system, itemised"
-date: "2026-09-21"
-category: "Buying Guide"
-excerpt: "The quote you get is the smallest number you'll pay for your CCTV system over five years. Cabling, storage growth, AMC, replacement and electricity are the line items nobody puts on the invoice."
-readTime: 6
-image: "/insights/category/buying-guide.webp"
+title: 'Five-year CCTV cost: compare the full ownership worksheet'
+date: '2026-09-21'
+category: Buying Guide
+image: /insights/category/buying-guide.webp
+updated: '2026-11-01'
+excerpt: Build a five-year CCTV budget from quoted installation, software, storage, maintenance and energy costs. Compare assumptions without invented savings.
+metaTitle: 'Five-year CCTV cost: compare the full ownership worksheet'
+metaDescription: Build a five-year CCTV budget from quoted installation, software, storage, maintenance and energy costs. Compare assumptions without invented savings.
+readTime: 4
 faqs:
-  - q: "What is the real cost of a CCTV system over five years, not just the quote?"
-    a: "The upfront quote for cameras, DVR/NVR and installation is usually the smallest slice of five-year cost. On top of it sit cabling and conduit already baked into the quote, then ongoing costs the quote doesn't show: storage that needs expanding as retention requirements grow, an annual maintenance contract, electricity for cameras and recorder running continuously, and at least one round of hardware replacement — cameras and recorders both have a working life, not an indefinite one."
-  - q: "How much should I budget for CCTV maintenance every year?"
-    a: "There's no single honest percentage to quote, because it depends heavily on site conditions — outdoor exposure, dust, power quality and camera count all move it. What's predictable is that a system with zero maintenance budget will fail quietly: a camera goes dark, nobody notices for months, and you only find out during the one week you actually needed that footage."
-  - q: "Why does CCTV storage cost increase after installation?"
-    a: "Storage cost creeps up for three reasons that aren't visible on day one: retention requirements you didn't anticipate (a legal notice, an insurance claim) push you to keep footage longer than planned; adding cameras later, which almost every site does, divides the same storage across more feeds; and higher-resolution replacement cameras record larger files than the ones they replaced. All three shrink your effective retention silently unless someone recalculates it."
-  - q: "How long do CCTV cameras and recorders actually last before replacement?"
-    a: "Outdoor cameras in Indian conditions — heat, dust, monsoon humidity — typically need attention or replacement well before the ten-year figure sometimes quoted, and recorders (DVRs/NVRs) tend to fail or become unsupported on a similar or shorter horizon. Budgeting for zero replacement across five years is the single most common gap in a CCTV cost estimate."
+- q: Must every CCTV system be replaced within five years?
+  a: No. Use the actual equipment condition, warranty, support information and operational requirements. Keep possible replacement as a clearly labelled scenario rather than an automatic purchase.
+- q: Can a cheaper camera quote have a higher ownership cost?
+  a: Yes, depending on the rest of the scope and operating costs. Compare equivalent requirements and documented assumptions before deciding which proposal is cheaper overall.
 ---
 
-**A CCTV quote covers cameras, a recorder and installation — the smallest of the five-year costs, even though it's the only number most buyers ever see. Cabling is usually already in that quote. What isn't: storage that needs expanding as retention grows, an annual maintenance contract, ongoing electricity, and at least one round of hardware replacement before year five. Add those up and the real number is typically well above the invoice you signed.**
+The lowest installation quote may leave important operating costs unanswered. It may also be a sensible choice. A five-year comparison helps you distinguish the two by showing what each proposal includes and which assumptions still need evidence.
 
-Every CCTV buyer we talk to has a number in their head — the quote they got, or the one they're about to accept. Almost none of them have thought about what the system costs across the five years they'll actually own it.
+Use five years as a planning horizon, not a claim about the life of every camera. The worksheet should describe your site's requirements and supplier quotations. It should not assume that every system expands, every device fails or a fixed percentage of cost appears after installation.
 
-This isn't a sales pitch for a bigger budget. It's the opposite: knowing the real number upfront means fewer unpleasant surprises at month eighteen, and a fairer comparison between vendors who structure their quotes differently.
+## Compare the same requirement first
 
-## What's actually in a CCTV quote?
+Write one common brief for all bidders: required views, recording settings, retention target, analytics events, user access, support responsibilities and any expansion already planned. A lower total for fewer functions is not an equivalent quote.
 
-Hardware — cameras, DVR or NVR, cabling, connectors — plus labour to install and configure it. This is the number on the invoice, and it's real. It's just not the whole story.
+Separate mandatory items from optional ones. If remote monitoring is optional, show its cost separately rather than quietly including it in one proposal and leaving it out of another. The [AI CCTV price guide](/insights/ai-cctv-price-in-india-what-it-should-cost) helps organise the initial quotation.
 
-## What does a CCTV quote usually leave out?
+## Use a worksheet with evidence beside each number
 
-**Storage growth.** Your quote sizes storage for the retention period you asked for, on the camera count you have today. Three things push that number up later: a legal notice or insurance claim that makes you want to keep footage longer than planned, adding cameras (which almost every site does within two years), and replacing old cameras with higher-resolution ones that record bigger files. Each of these quietly shrinks your effective retention unless someone recalculates storage against the new numbers.
+| Cost group | What to record | Evidence to request |
+| --- | --- | --- |
+| Initial installation | Equipment, cabling, labour and commissioning | Itemised quotation |
+| Software | Channels, features, term and renewals | Licence and support scope |
+| Recording | Storage and any hosted retention charges | Settings and capacity estimate |
+| Operations | Energy, connectivity and review effort | Measured loads or stated assumptions |
+| Maintenance | Included visits, labour and exclusions | Service agreement |
+| Changes and exit | Planned additions, migration and disposal | Separately priced options |
 
-**Annual maintenance (AMC).** Cameras get knocked out of alignment, connectors corrode, a cable gets nicked during unrelated electrical work. None of this is a manufacturing defect, so warranty doesn't cover it — it's ongoing site maintenance, and it needs its own budget line.
+Axis describes ownership cost across installation, operation, maintenance and decommissioning. That is a useful framework; its customer averages should not be imported into a PGAK budget as if they were your own results. [Read the lifecycle-cost overview](https://www.axis.com/about-axis/quality/total-cost-of-ownership).
 
-**Electricity.** Cameras and a recorder run 24x7, every day, for the life of the system. It's a small load per camera but it's continuous, and across a multi-camera site over five years it adds up to a real number that never appears on the original quote.
+Give every line a quantity, unit cost, applicable year and source date. Mark missing information “not quoted” rather than zero. Keep tax treatment consistent across bids and have your accounts team confirm the treatment appropriate to the purchase.
 
-**Hardware replacement.** Nothing in a CCTV system is built to last forever. See below.
+## Keep renewals and exclusions visible
 
-## How long do CCTV cameras and recorders actually last before replacement?
+Ask what happens at the end of each subscription or support term. Establish which functions remain, which stop and what access you retain to recordings, exports and configuration. Record the quoted renewal basis rather than assuming today's price lasts indefinitely.
 
-Outdoor cameras in Indian conditions — summer heat, dust, monsoon humidity — commonly need attention or full replacement well before any ten-year figure you might see quoted. Recorders fail on a similar or shorter horizon, and even when the hardware survives, older DVRs and NVRs eventually stop getting firmware support, which becomes its own problem if you ever need vendor help. Budgeting for zero replacement across a five-year horizon is the single biggest gap we see in cost estimates, and it's usually the line that turns a "we were under budget" year into an unplanned capital request.
+Read maintenance exclusions carefully. Hardware warranty, on-site labour, access equipment and emergency attendance may be separate items. A service agreement should explain the scope and response commitment; the word “AMC” alone does not define either. Use the [maintenance scope checklist](/insights/cctv-amc-what-should-it-include).
 
-## How much should I budget for CCTV maintenance every year?
+## Separate a base case from possible changes
 
-There's no single honest percentage that applies everywhere — outdoor exposure, dust levels, power quality and total camera count all move the number, and anyone quoting you a flat figure without asking about your site is guessing. What is predictable is the failure mode of skipping this budget entirely: a camera goes dark and nobody notices, because nobody's watching a feed that's supposed to just work. The gap surfaces during the one week a year you actually needed that footage — which is the worst possible time to discover a camera's been out for three months.
+The base case should reflect the system you actually intend to operate. Add separate scenarios for a planned new entrance, longer retention or replacement of unsupported equipment. State what would trigger each scenario and avoid counting the same hardware twice.
 
-## Why does CCTV storage cost increase after installation?
+For electricity, use measured or documented equipment consumption and the applicable tariff. For storage, use the proposed camera settings and recording schedule. If those inputs change, recalculate the affected lines; a higher camera resolution alone does not provide a complete storage estimate.
 
-Because retention isn't a one-time setting, it's a moving target. You size storage for the retention window you have today. Then you add cameras, which is nearly universal within two years of any installation, and the same disk space now covers more feeds for less time each. Or you upgrade a camera for a sharper picture and the new files are bigger than the old ones, with no matching increase in the disk behind it. None of this shows up as a failure — the system keeps running — it just quietly retains less footage than you think it does, until someone asks for a date that's already been overwritten.
+## Keep benefit claims outside the cost total
 
-## How to build an honest five-year estimate
+A proposed benefit needs its own evidence. Time saved searching footage, fewer interruptions or reduced loss may be reasons to evaluate a system, but none should be entered as guaranteed savings because a supplier showed a demonstration.
 
-Take the hardware and installation quote as your year-zero number. Add a maintenance line — even a conservative one is better than none. Add a storage-expansion line pegged to your actual camera-growth plan, not your current count. Add a single hardware-refresh line somewhere in years three to five, sized to at least your most exposed outdoor cameras and your recorder. That total, not the invoice, is what the system costs you.
+Record a baseline, the measurement period and who will verify the change. If the effect cannot yet be measured, leave it as an evaluation question. This keeps the purchasing decision useful even when the honest conclusion is that the expected benefit remains uncertain.
 
-We quote our own service per camera per month rather than as a hardware sale, partly because it forces this same honesty on us — the monthly number has to already account for support and updates, not just the install. We're saying that as a vendor with a stake in the comparison, so weigh it accordingly, and ask any vendor the same question: what happens to this number in year three?
+AI Alerto by PGAK can review the intended analytics scope alongside your existing CCTV. Share the equipment count, intended events and current quote. Ask for an itemised proposal and a clear acceptance plan so the budget reflects a defined project rather than an assumed return.
 
-The one place this doesn't apply cleanly is a very small site — three or four cameras in a single shop — where the maintenance and replacement lines are small enough in absolute terms that a simple annual top-up budget covers them without needing a formal five-year model.
+## Common questions
+
+### Must every CCTV system be replaced within five years?
+
+No. Use the actual equipment condition, warranty, support information and operational requirements. Keep possible replacement as a clearly labelled scenario rather than an automatic purchase.
+
+### Can a cheaper camera quote have a higher ownership cost?
+
+Yes, depending on the rest of the scope and operating costs. Compare equivalent requirements and documented assumptions before deciding which proposal is cheaper overall.
 
 [Ask for a free feasibility check](#dealer)

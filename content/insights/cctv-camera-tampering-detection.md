@@ -1,80 +1,75 @@
 ---
-title: "They cover the camera first. Would you know?"
-date: "2026-08-27"
-category: "Security Basics"
-excerpt: "The most common thing that happens to a camera during a break-in is that it stops working. There is no footage of that — the only useful signal is that the feed went dead, and whether anyone was told."
-metaDescription: "The most common thing that happens to a camera during a break-in is that it stops working."
-readTime: 6
-image: "/insights/covers/cctv-camera-tampering-detection.webp"
+title: 'CCTV tampering detection: test covered, moved and offline cameras'
+date: '2026-08-27'
+category: Security Basics
+image: /insights/covers/cctv-camera-tampering-detection.webp
+updated: '2026-11-01'
+excerpt: Separate camera tampering, lost video and recording faults. Specify supported events, delivery tests and a response owner before buying monitoring.
+metaTitle: 'CCTV tampering detection: test covered, moved and offline cameras'
+metaDescription: Separate camera tampering, lost video and recording faults. Specify supported events, delivery tests and a response owner before buying monitoring.
+readTime: 4
 faqs:
-  - q: "What is CCTV tampering detection?"
-    a: "It is the system watching its own cameras for signs of interference rather than watching for people. A lens being covered or sprayed, a camera being twisted away from what it was pointed at, or the view going suddenly dark are all detectable from the video itself, because each produces a distinctive change across the whole frame. Separately, a camera that stops sending frames altogether — unplugged, cable cut, or the recorder removed — can be detected by its absence."
-  - q: "How quickly can you tell if a CCTV camera has been disabled?"
-    a: "A camera that has stopped producing frames can be flagged in about three minutes, and a whole site whose on-site device has stopped reporting in about two. Without that kind of monitoring, most sites find out days or weeks later, at the moment they go looking for footage of an incident and discover the camera had been dead the whole time."
-  - q: "What happens if thieves take the DVR?"
-    a: "If the recording is only on that box, it leaves with the box, which is why recorders are targeted. The protection is that events and clips are copied off site as they happen, so what has already been sent is beyond reach of anyone in the building. A recorder being removed also stops all its cameras at once, which is itself a strong and immediate signal that something is wrong."
-  - q: "Can CCTV detect if a camera is moved or covered?"
-    a: "Yes. Covering a lens, spraying it, or turning a camera towards a wall or the ceiling each change the entire frame in a way that is straightforward to recognise, and can raise an alert at the time. This matters because these actions almost always happen before the thing you actually wanted the camera to record."
+- q: Is camera tampering the same as a camera going offline?
+  a: No. Tampering detection can analyse changes in an available image. Offline monitoring checks whether an expected camera, stream or device is still available. Confirm and test both separately.
+- q: Does a tampering alert prove someone interfered with the camera?
+  a: No. Treat it as a condition requiring review. Lighting changes, maintenance and other scene changes can affect an alert, depending on the product and configuration.
 ---
 
-**Straight answer: the most common thing to happen to a camera during a break-in is that it stops working — covered, turned, unplugged, or taken along with the recorder. There is, by definition, no footage of what follows. The only useful signal is that the feed died, and whether anyone found out at the time or the next morning. That gap is the whole problem, and it is a monitoring problem rather than a camera problem.**
+A camera can still appear online while its view is no longer useful. It can also lose video without anyone touching it. If you are buying camera-health monitoring, those are different requirements and should appear as separate tests in the proposal.
 
-Read enough local reporting of break-ins in India and a pattern repeats itself with dull consistency. The cameras were there. The cameras were working. And somewhere in the sequence the cameras stopped — turned to the wall, sprayed, unplugged, or the recorder simply carried out along with everything else. The owner finds out in the morning.
+Start with the failure you need to notice. “Tell us when CCTV is not working” is too broad to establish what the supplier will monitor, which component sends the message or who investigates it.
 
-The uncomfortable part is that the equipment did its job. It recorded right up to the moment it was interfered with. What failed was that nobody was told while it was happening.
+## Separate four conditions
 
-## Why cameras get disabled rather than avoided
+Use a simple event list when discussing the scope:
 
-Because it is easier. Avoiding cameras requires knowing where they are, what they cover and where the blind spots run. Disabling them requires a cloth, a can of spray, or a hand on the housing.
+| Condition | Question for the supplier |
+| --- | --- |
+| Covered or badly changed view | Which image changes are supported by the detector? |
+| Camera or stream unavailable | Which component checks availability, and what timeout applies? |
+| Recorder not saving usable footage | Is recording health monitored separately from live video? |
+| Site cannot communicate externally | How is the missing site detected outside that connection? |
 
-And it usually happens early — before the part you actually wanted recorded. That is what makes it worth detecting in its own right: the interference is the earliest reliable signal available, and it arrives while there is still time for the event to mean something.
+A product that addresses one row does not necessarily address the other three. Ask for the supported model, software version and configuration, then test the proposed combination.
 
-## What can actually be detected
+## Define tampering without assuming intent
 
-Two different mechanisms, worth separating because they catch different things.
+For example, the Axis F9114 manual describes configured tampering notifications for covered, sprayed or blurred images, including a trigger delay and an event recipient. This is a documented feature of that product, not proof that every camera or analytics package behaves the same way. [See the manufacturer's instructions](https://help.axis.com/en-US/axis-f9114-main-unit).
 
-**The picture changes in a tell-tale way.** Covering a lens, spraying it, or swinging a camera towards a wall or ceiling all change the entire frame at once, in ways that look nothing like ordinary activity. A scene going abruptly and uniformly dark, or the whole view shifting and settling somewhere new, is recognisable as interference rather than as something happening in the scene.
+Your acceptance record should state the relevant conditions and expected message. Use controlled, authorised tests with the installer; do not damage equipment or interrupt a critical live view simply to make a demonstration.
 
-**The frames stop arriving.** A camera that has been unplugged, had its cable cut, or lost its recorder does not produce a suspicious picture — it produces nothing. That absence is detectable too, and it is detected by something that expects frames and notices when they stop coming.
+Keep ordinary events in the test as well. Cleaning, a planned camera adjustment and a lighting transition may need a maintenance procedure or a different configuration. An alert identifies something to review; it does not establish sabotage or misconduct.
 
-The second one covers the case people most often ask about, which is the recorder being taken. When a DVR leaves the building, every camera on it goes silent simultaneously. That is an unusually loud signal, if anything is listening for it.
+## Trace the complete notification path
 
-## The honest limits
+Ask the supplier to draw the route from camera to monitoring component, notification service and recipient. Identify which parts depend on local power, the network and an external connection.
 
-This is worth stating plainly, because it is where this kind of feature gets oversold.
+If the device detecting a fault shares the failed connection, it may be unable to send a message through that path. A separate availability check may address that situation, but it must be part of the documented design. The [offline-operation guide](/insights/does-ai-cctv-work-without-internet) separates local recording from remote functions.
 
-**It does not prevent anything.** A camera being covered is detected, not stopped. What you gain is the minutes between the interference and everything after it — which is only worth something if somebody receives the alert and does something.
+Do not accept the fastest demonstration as the promised response time. Record when the test condition started, when it was detected and when the intended recipient received the notification. Include failures and delayed messages in the result.
 
-**There is no footage of what follows.** Once the lens is covered, it is covered. What you have is a timestamped record that interference occurred, plus whatever was captured up to that instant, plus whatever other cameras still see.
+## Give the recipient a useful next step
 
-**Cameras also fail on their own.** Power supplies die, cables corrode, monsoon water gets into a junction. A good proportion of "camera offline" alerts are maintenance, not crime — and that is genuinely useful in itself, because the alternative is a camera that has been quietly dead for six weeks.
+The notification should identify the site, camera, observed condition and time without requiring the recipient to guess which channel failed. Agree how the responder confirms the situation, records an outcome and escalates an unresolved fault.
 
-That last point is worth dwelling on. When we assess an existing site, dead cameras are close to universal. The owner believes they have sixteen cameras; fourteen produce video. Nobody noticed, because a dead camera and a camera watching an empty corridor look identical from the app — until the day the footage matters.
+Define planned-maintenance handling and shift cover. A phone number is not a complete response plan if the person is unavailable, leaves the business or no longer manages that site. Record an owner for the contact list and periodic checks.
 
-## How fast is fast enough?
+## Check recording and recovery
 
-Fast enough that the alert lands while the situation is still live.
+After restoring the test condition, confirm that live video, recording and monitoring have recovered. Record whether recovery was automatic or required intervention. Review the actual footage gap rather than assuming that the return of a live image repairs the missing history.
 
-For reference, our own thresholds: a camera that stops producing frames is flagged after about three minutes, and a site whose on-site device stops checking in is flagged after about two. Three minutes is not instant, and that is deliberate — a shorter window turns every brief network hiccup and power flicker into an alert, and an alert stream people stop trusting is worse than none, which is the trap we described in [1,000 alerts, only one is real](/insights/1000-alerts-only-one-is-real).
+If retaining evidence outside the recorder is a requirement, specify exactly what is copied, when, where and under which access arrangements. Do not assume that a health alert also includes an off-site video backup.
 
-Compare that with the realistic alternative. Most sites find out at opening time.
+The [camera-offline checklist](/insights/cctv-camera-offline-how-to-know) helps organise the initial equipment review. For AI Alerto by PGAK, describe the faults you want to notice and the person responsible for acting. The proposal should confirm supported events and the test scope before you rely on the monitoring workflow.
 
-## What to actually do about it
+## Common questions
 
-Five things, roughly in order of how much they matter relative to what they cost:
+### Is camera tampering the same as a camera going offline?
 
-1. **Get events and clips off site as they happen.** If the only copy is on a box inside the building, it is exactly as secure as the building. Anything already sent elsewhere is beyond reach of whoever is in the room.
-2. **Make sure something is watching camera health**, and find out what the threshold is. Ask the vendor to demonstrate it by unplugging a camera while you watch your phone. This is the single best test in any demo.
-3. **Put the recorder somewhere less obvious.** A DVR sitting on an open shelf beside the entrance is an invitation. A locked cabinet in a back room changes the effort meaningfully.
-4. **Put the chain on a UPS.** Cameras, recorder and edge device. Otherwise cutting power achieves the same result as cutting cables, more easily.
-5. **Decide who receives the alert at 3am** — and check that they will actually see it. This is the step that gets skipped, and it is the one everything else depends on.
+No. Tampering detection can analyse changes in an available image. Offline monitoring checks whether an expected camera, stream or device is still available. Confirm and test both separately.
 
-Number one and number five cost almost nothing and do most of the work.
+### Does a tampering alert prove someone interfered with the camera?
 
-## The short version
+No. Treat it as a condition requiring review. Lighting changes, maintenance and other scene changes can affect an alert, depending on the product and configuration.
 
-Cameras get disabled. That is not a failure of your cameras, it is the normal shape of the event. What decides whether it matters is whether the system noticed the feed die, and whether a person found out in time to do anything.
-
-The camera recorded everything up to that moment. The question worth asking of any system is who gets told, and how quickly.
-
-If you want to know how your current setup would behave — including how long a dead camera would go unnoticed today — [tell us what you have](/#dealer) and we will walk through it. Testing it on your own site takes one unplugged cable and a stopwatch, and you can do that yourself before speaking to anybody.
+[Ask for a free feasibility check](#dealer)
