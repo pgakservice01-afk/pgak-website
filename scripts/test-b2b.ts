@@ -80,6 +80,16 @@ test("optional details reject credential URLs and allow limited text only", () =
     company: "Synthetic QA",
   });
 });
+
+test("vehicle assessment distinguishes plate evidence from access and keeps the buyer's problem in the brief", () => {
+  const input = { site: "Factory", cameras: "5–15", problem: "Vehicle entry / ANPR" };
+  const checks = readinessChecklist(input).join(" ");
+  assert.match(checks, /day and night/);
+  assert.match(checks, /unreadable plates/);
+  assert.match(checks, /barrier integration and safety/i);
+  assert.match(projectBrief(input), /Problem: Vehicle entry \/ ANPR/);
+  assert.match(projectBrief(input), /Compatibility: Not yet verified/);
+});
 test("outbox auth fails closed and receipt tokens bind ref to contact", () => {
   delete process.env.LEAD_OUTBOX_SECRET;
   assert.equal(authorisedWorker(null), false);
