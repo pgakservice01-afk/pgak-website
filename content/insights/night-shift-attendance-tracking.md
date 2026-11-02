@@ -1,56 +1,72 @@
 ---
-title: "Night shift attendance: proving who was actually there"
-date: "2026-09-01"
-category: "Attendance"
-excerpt: "Night shift is where attendance systems are least supervised and most gamed. Four controls that give you a defensible record of the shift nobody watches."
-metaTitle: "Night shift attendance: proving who was there"
-readTime: 5
-image: "/insights/covers/night-shift-attendance-tracking.webp"
+title: 'Night-shift attendance: reconcile midnight and missed exits'
+date: '2026-09-01'
+category: Attendance
+excerpt: Review overnight attendance using complete timestamps, assigned shifts, missed-exit handling and approved corrections before records reach payroll.
+metaTitle: 'Night-shift attendance: reconcile midnight and missed exits'
+readTime: 4
+image: /insights/covers/night-shift-attendance-tracking.webp
 faqs:
-  - q: "How do you track night shift attendance reliably?"
-    a: "With a record that does not depend on supervision: an automated log at every entrance that stores visual evidence, plus alerts for gate movement during shift hours. Night shift is precisely when a supervisor-dependent process is weakest, so the control has to work with nobody watching."
-  - q: "Why is night shift attendance harder to control?"
-    a: "There is usually no manager on site, fewer people to notice absence, and mid-shift departures are easy through side gates. Systems that rely on someone checking the register or the machine simply have nobody performing that check between 10pm and 6am."
-  - q: "Can attendance systems detect if someone leaves mid-shift?"
-    a: "Only if every exit is instrumented. A single check-in at the main gate cannot distinguish an eight-hour shift from a twenty-minute appearance. Covering all exits, and pairing entry with exit events, is what makes mid-shift departure visible."
+- q: Which date should an overnight attendance record use?
+  a: Use the date convention agreed for the assigned shift and receiving payroll process. Preserve the actual dated entry and exit events, including their timezone, so a shift crossing midnight can be reconstructed without guessing.
+- q: Does a missing exit mean an employee left early?
+  a: No. It is an unresolved record that may have several causes. Follow the approved exception process, review available evidence and obtain the responsible approval before changing the attendance outcome.
+updated: '2026-11-02'
+metaDescription: Review overnight attendance using complete timestamps, assigned shifts, missed-exit handling and approved corrections before records reach payroll.
 ---
 
-**Straight answer: night shift attendance fails not because the technology is different after dark, but because the supervision is gone. Any control that depends on a person noticing something has no one to do the noticing between 10pm and 6am — so the control has to be automatic, and it has to cover exits as well as entries.**
+An employee enters before midnight and leaves the following morning. If the report groups events only by calendar date, that ordinary shift can appear as an unmatched arrival on one day and an unexplained exit on the next.
 
-Every site we work with has a night shift story. Usually it surfaces the same way: production output does not match the headcount that was supposedly on the floor.
+Night-shift attendance needs a clear record convention and an exception review. The aim is to reconstruct the assigned shift from evidence, not to assume that every missing event represents absence or that every paired event proves a full period of work.
 
-## The four things that go wrong after dark
+## Define the shift before interpreting its events
 
-**Nobody is checking the check-in.** During the day, a supervisor at the gate is an informal audit. At night that audit does not exist, so whatever the system records goes unchallenged.
+Record the scheduled start, end, permitted capture window and date convention used by payroll. Include the actual dates and timezone in the source records. Do not remove that information just to make an export look simpler.
 
-**Mid-shift departure is invisible.** A single entry event at 10pm proves someone arrived. It proves nothing about 1am. If exits are not recorded, an eight-hour shift and a twenty-minute appearance produce identical records.
+Frappe HR's Shift Type documentation, for example, treats an end time earlier than the start time as a shift crossing into the next calendar date. This is one implementation, not a universal convention or a PGAK integration claim. [Read the documented shift behavior](https://docs.frappe.io/hr/shift-type).
 
-**Side gates are unwatched.** The gate with a guard during the day is often the only instrumented one. At night the alternatives are both unsupervised and unrecorded.
+Ask your supplier to demonstrate the chosen rule using the same sample in both attendance and payroll. The test should make it clear which shift owns each event and what remains unresolved.
 
-**Manual entries spike.** Failed scans at night get resolved by the supervisor the next morning, from someone else's account of what happened. This is the largest single source of night-shift attendance error we see.
+## Keep a complete timeline for an exception
 
-## The four controls that fix it
+For an overnight problem, gather the assigned roster, original capture events, relevant device or camera identifier and any approved change. Put them in time order before deciding what caused the discrepancy.
 
-**1. Instrument every exit, not just the main entry.** This is the highest-value change and the one most often skipped. Pairing entry and exit events is what turns "was present" into "was present for eight hours."
+Include legitimate breaks, a second entry, a temporary site assignment and an authorized early departure in the test set. These are useful evaluation cases, not assumptions about what your employees do. Agree the expected treatment with the responsible HR and payroll owners.
 
-**2. Make the record self-evidencing.** An attendance entry that stores the camera frame it came from cannot be quietly reconstructed the next morning. It removes the ambiguity that night shift otherwise runs on.
+If the system receives events late after a network interruption, distinguish event time from receipt time. Ask how the late record changes an open exception and how the reviewer sees that a previously prepared export may need attention.
 
-**3. Alert on gate movement during shift hours.** Not just intrusion after hours — movement at the gate *during* the shift, when nobody should be leaving. That is the signal supervision used to provide.
+## Handle a missing exit as a question
 
-**4. Review the night-shift manual-entry rate separately.** Aggregate numbers hide it. If manual entries are 2% by day and 20% by night, you have found your problem and it is not a technology problem.
+A missing exit might reflect a capture failure, an alternate authorized route, an incomplete sync or a process exception. Preserve the uncertainty until the evidence is reviewed. Do not silently create an exit from the scheduled end time and present it as an observed event.
 
-## Why cameras suit night shift specifically
+Give the supervisor a structured correction route: the employee and shift, the missing information, supporting evidence, requested correction and approving person. Retain the original record alongside the decision so a later reviewer can understand the change.
 
-Two reasons beyond the obvious.
+Set a practical review checkpoint before payroll closes. The exact timing should fit your operation, but the owner and escalation path should be agreed rather than left to whoever discovers the problem at month end.
 
-They work without a human present, which is the entire point. And because coverage is a software question rather than a per-door hardware purchase, instrumenting the four exits a site actually has stops being a budget conversation. That is the practical blocker on most sites: exits go uncovered because each one meant buying another reader.
+## Separate camera issues from rule issues
 
-Low light is the fair objection. Most entrances already have adequate lighting for recognition because they were lit for safety; those that are not usually need a lamp rather than a new camera. The feasibility check answers that per gate rather than in the abstract — and we would rather tell you a gate needs a light than sell you a system that quietly misses people at 2am.
+If camera-based attendance is proposed, inspect the actual night capture conditions. A clear daytime sample does not validate the night scene. The [low-light gate guide](/insights/face-recognition-low-light-gate) explains how to assess the camera, illumination and matching conditions without assuming a universal fix.
 
-## The number to pull
+However, an accurate identity observation can still be assigned to the wrong shift or exported incorrectly. Test the record handling after capture as carefully as the image. Keep an approved fallback for equipment outages or unsuitable capture conditions.
 
-Compare average recorded shift duration for night shift against day shift, over one month.
+## Reconcile before sending the payroll file
 
-If night is materially shorter, you are either losing hours or failing to record exits. Both are worth knowing before the next payroll run.
+Create a review list of complete shifts, approved exceptions and unresolved cases. Check that a correction is represented once and that rerunning an export does not create another payable record for the same shift.
 
-The gate this article describes is the one [a factory attendance system built for shift change](/attendance-system-for-factories) is designed around: no reader to queue at, a photo behind every record, and exceptions a supervisor can actually review. [Ask for a free audit of your gate cameras →](/free-audit)
+Ask payroll to review a small controlled sample containing an ordinary overnight shift, a missed exit, an approved correction and a late-arriving event. The [payroll-integration checklist](/insights/biometric-attendance-payroll-integration) covers identifiers and reconciliation responsibilities.
+
+Keep this exception review distinct from the broader [three-shift rollout plan](/insights/attendance-24x7-three-shift-operation). One establishes how the site runs; the other explains how a specific overnight record is resolved.
+
+For an AI Alerto by PGAK assessment, bring the current shift convention and an anonymized example of the discrepancy. A useful next step is a written test of that record path, with a named reviewer and a clear outcome, before any wider replacement is agreed.
+
+## Questions before the assessment
+
+### Which date should an overnight attendance record use?
+
+Use the date convention agreed for the assigned shift and receiving payroll process. Preserve the actual dated entry and exit events, including their timezone, so a shift crossing midnight can be reconstructed without guessing.
+
+### Does a missing exit mean an employee left early?
+
+No. It is an unresolved record that may have several causes. Follow the approved exception process, review available evidence and obtain the responsible approval before changing the attendance outcome.
+
+[Ask for a free feasibility check](#dealer)

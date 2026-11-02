@@ -1,60 +1,74 @@
 ---
-title: "Twelve questions to ask before buying any attendance system"
-date: "2026-09-01"
-category: "Buying Guide"
-excerpt: "A vendor-neutral checklist. Print it, ask every supplier the same twelve questions, and compare the answers rather than the brochures — including ours."
-metaTitle: "12 questions before buying an attendance system"
-readTime: 6
-image: "/insights/category/buying-guide-3.webp"
+title: 'Attendance-system checklist: test exceptions before buying'
+date: '2026-09-01'
+category: Buying Guide
+excerpt: Compare attendance suppliers with a practical checklist covering capture, shift exceptions, correction approval, payroll exports, ownership and costs.
+metaTitle: 'Attendance-system checklist: test exceptions before buying'
+readTime: 4
+image: /insights/category/buying-guide-3.webp
 faqs:
-  - q: "What should I check before buying an attendance system?"
-    a: "Focus on what happens after the punch: how shift, grace, half-day and overtime rules are encoded, what the payroll export actually contains, how missed punches are handled, what coverage exists beyond the main entrance, and what the total cost is across all doors including software and maintenance over several years."
-  - q: "What is the biggest hidden cost in an attendance system?"
-    a: "Per-door multiplication and the ongoing software subscription. Quotes are usually presented per device while sites have multiple entrances, and the attendance software behind the device is frequently a separate recurring line that is not mentioned in the hardware price."
-  - q: "How do I compare attendance vendors fairly?"
-    a: "Ask every vendor the same written questions and compare answers side by side, ignoring the demo. Insist on seeing an actual payroll export file rather than a dashboard, and ask each one to name the conditions under which their system performs worst."
+- q: What should I test before buying an attendance system?
+  a: Test an ordinary shift and realistic exceptions, then trace the results into the export your payroll team expects. Include duplicate events, a missed exit, approved corrections, employee changes and an unavailable device.
+- q: Does an API guarantee payroll integration?
+  a: No. Confirm the actual systems, versions, fields, identifiers, permissions and error handling. The receiving payroll team must reconcile a sample import and approve the result before the integration is accepted.
+updated: '2026-11-02'
+metaDescription: Compare attendance suppliers with a practical checklist covering capture, shift exceptions, correction approval, payroll exports, ownership and costs.
 ---
 
-**Straight answer: attendance demos all look identical and none of them show you the part that matters. Everything expensive happens after the punch — in the rules layer, the exception path and the payroll export. Ask every vendor the same twelve questions, including us, and compare the answers instead of the presentations.**
+Two attendance suppliers can demonstrate the same successful check-in and leave you with very different work at month end. The purchase decision should therefore include the records, rules and responsibilities after capture, not just the device on the wall.
 
-Print this. Use it on every supplier you talk to.
+Give every supplier the same short evaluation brief. State the current problem, the doors and shifts in scope, the receiving payroll process and the people who will approve the result. Ask for written answers and a demonstration using that brief.
 
-## Coverage and hardware
+## Start with the capture and exception questions
 
-**1. How many entrances does this cover, and what does each additional one cost?** Quotes are per device; sites have several doors. Get the whole-site number.
+Which employees and entrances are included? What counts as an event, and how is it linked to the correct employee? Ask the supplier to demonstrate the actual proposed method rather than showing a different device or camera configuration.
 
-**2. What happens on the doors you are not quoting for?** If the loading bay and side gate stay uncovered, the record has a hole in it and you should know the size of the hole now.
+Then ask what happens when the attempt is rejected or the identity is uncertain. A useful system needs a documented fallback and an accountable correction process. Do not treat a successful face or fingerprint match as proof that the person worked every hour between two events.
 
-**3. What percentage of our workforce will this fail on, and why?** Any honest vendor can answer this. For fingerprint on manual-labour sites, the answer is not small. A vendor who says "none" is either inexperienced or not being straight with you.
+Include the real constraints: lighting, permitted protective equipment, accessibility needs, temporary assignments and the available network. Record what must change at the site and who will pay for and maintain it.
 
-## The rules layer
+## Make the rule demonstration difficult enough
 
-**4. How are rotating shifts handled, and how is a night shift crossing midnight attributed?** If it lands on two calendar dates, walk away or budget for monthly manual corrections.
+Prepare a small set of fictional or authorized sample cases. Include a normal shift, an overnight shift, a missed exit, an approved absence and a person arriving twice. Agree the expected outcome with the payroll owner before asking the supplier to run them.
 
-**5. Show me where grace period, half-day threshold and overtime bands are configured.** In the product, not in a slide.
+Ask which rules are configurable, which need customization and which remain a human decision. Do not accept an unexplained total labelled “working hours.” Request the underlying events and the rule version used to produce it.
 
-**6. How does a shift swap get recorded?** Real workforces swap constantly. If there is no workflow, a supervisor fixes it by hand every month.
+Frappe HR's documentation shows how one implementation separates check-in records, shift assignment and attendance processing. [Read its auto-attendance explanation](https://docs.frappe.io/hr/auto-attendance). This is an example of the questions to ask, not a claim that PGAK supplies that integration or behaves identically.
 
-## Exceptions and evidence
+## Inspect the correction trail
 
-**7. What is the exact path for a missed punch?** Who raises it, who approves it, what reason is captured. "The admin edits it" is the answer that produces next year's disputes.
+Demonstrate a correction from request to approval. Ask whether the original event remains available, who can approve the change and whether the export reflects its status. Test an unauthorized user as well as the administrator.
 
-**8. If an employee disputes a mark three weeks later, what can you show them?** A timestamp is an assertion. A stored image is evidence. This single question separates systems that end arguments from systems that host them.
+Include a late correction after payroll has already received a file. The supplier should explain how the change is flagged and how the receiving team avoids paying or deducting the same adjustment twice. A silent overwrite is not a complete operating process.
 
-**9. What percentage of entries are manual on your typical customer's site?** Ask for a real number. It is the honest measure of how well the system works in the field.
+## Ask payroll to accept the actual output
 
-## Payroll and data
+Request a sample file or interface result in the format the receiving system uses. Check employee identifiers, dates, shift references, approved status and any required hour categories. Avoid sending real payroll or biometric information to an unapproved demonstration environment.
 
-**10. Show me an actual payroll export file.** Not the dashboard. The file, with hours already split into regular and overtime. If it is a list of raw punch times, you are buying a sensor and keeping the spreadsheet.
+Have the payroll owner reconcile the sample totals and exceptions. Document rejected rows, unknown employee IDs and how a failed import is retried. The [payroll-integration guide](/insights/biometric-attendance-payroll-integration) gives a more detailed acceptance sequence.
 
-**11. Where is biometric data stored, and what happens to it when someone leaves?** Under the DPDP Act, templates should not outlive the purpose. A vendor without a clear deletion answer has not thought about compliance.
+## Price the complete scope and exit route
 
-**12. What is the total five-year cost — all doors, hardware, software, AMC and replacement?** Not the device price. The number you will actually spend.
+Compare hardware, camera or reader changes, processing, software, implementation, integration, training and support. Record the charging unit, contract term, exclusions and later change costs. Do not assume that every supplier uses the same subscription model.
 
-## Two closing notes
+Ask how your organization obtains its records if the arrangement ends. Agree a usable export, access removal and the handling of retained copies with the appropriate data owners. Keep these requirements in the proposal rather than discovering them during a migration.
 
-Ask every vendor to name the conditions where their system performs **worst**. The willingness to answer tells you more than any feature list; anyone claiming no weak conditions is describing a product that does not exist.
+## Decide who owns a fault
 
-And apply all twelve to us. We would rather lose to a well-informed comparison than win a deal that unravels in month three — our answers are on the [biometric attendance](/biometric-attendance) and [face recognition attendance](/face-recognition-attendance-system) pages, and we will put them in writing on a call.
+Before acceptance, name the first contact for a device problem, a missing record, a rule dispute and an integration failure. These may be different people. Write a practical escalation path that the local supervisor can follow without guessing who owns the software.
+
+The final scorecard should distinguish demonstrated, pending and unsupported requirements. A supplier can be a good fit with a clearly scoped limitation; an untested promise should not receive the same score as a verified workflow.
+
+For an AI Alerto by PGAK discussion, bring this brief and your existing equipment details. Review the [factory attendance approach](/attendance-system-for-factories), then ask for the proposed scope and acceptance evidence in writing.
+
+## Questions before the assessment
+
+### What should I test before buying an attendance system?
+
+Test an ordinary shift and realistic exceptions, then trace the results into the export your payroll team expects. Include duplicate events, a missed exit, approved corrections, employee changes and an unavailable device.
+
+### Does an API guarantee payroll integration?
+
+No. Confirm the actual systems, versions, fields, identifiers, permissions and error handling. The receiving payroll team must reconcile a sample import and approve the result before the integration is accepted.
 
 [Ask for a free feasibility check](#dealer)

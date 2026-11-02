@@ -1,57 +1,72 @@
 ---
-title: "Textile units: dust, shifts and worn fingerprints"
-date: "2026-09-20"
-category: "Attendance"
-excerpt: "Fingerprint scanners fail hardest on a textile floor — yarn and fabric wear down the ridges the machine needs to read. What actually holds up in a mill, and where the real security gaps sit."
-readTime: 6
-image: "/insights/covers/textile-unit-security-attendance.webp"
+title: 'Textile-unit CCTV and attendance: scope each workflow'
+date: '2026-09-20'
+category: Attendance
+excerpt: Assess textile-unit dispatch CCTV and attendance separately, with real camera conditions, traceable records, safe equipment checks and clear ownership.
+readTime: 4
+image: /insights/covers/textile-unit-security-attendance.webp
 faqs:
-  - q: "Why do fingerprint attendance machines fail so often in textile factories?"
-    a: "Constant contact with yarn and fabric wears down the ridge pattern on fingertips, and dust and lint coat the sensor glass through the shift. Both push rejection rates up, which is when supervisors start making manual entries and the attendance record stops meaning anything."
-  - q: "Is face recognition attendance a good fit for a textile mill?"
-    a: "Often, because there is nothing to touch and nothing that wears out. It still needs decent lighting at the gate and a camera angle that isn't fighting glare from open shed doors — and workers wearing a mask or a covering pulled fully across the face at the exact moment of entry will still need a manual fallback. We build this, so weigh the recommendation accordingly."
-  - q: "What are the biggest security blind spots in a textile unit?"
-    a: "The raw material and yarn godown, the dyeing and chemical store, and the loading bay where finished goods leave. These are usually covered less thoroughly than the shop floor, even though they're where the highest-value movement happens."
-  - q: "How should shift changes be handled for attendance accuracy in a round-the-clock mill?"
-    a: "Define the handover window explicitly — who is logged as present during the fifteen or twenty minutes both shifts are on the floor — and log exits, not just entries. Without an exit event, a worker who leaves early after the next shift arrives shows as present for hours they weren't there."
-  - q: "Do textile units in Punjab need consent for camera-based attendance?"
-    a: "Yes. Workers should be told what is recorded and why, and biometric templates should be deleted when someone leaves. Rules vary by state and by whether workers are on your rolls or a contractor's, so verify the specifics with a compliance advisor rather than relying on a general answer."
+- q: Should a textile mill replace fingerprint attendance with cameras?
+  a: Assess the actual cause of failed records before choosing a replacement. Compare supported capture methods under real gate conditions, including exceptions and payroll review. Camera reuse and identity matching require their own feasibility checks.
+- q: Can CCTV establish the quantity of goods dispatched?
+  a: Not by itself. Video may support a review of observable handling and movement, but quantities and commercial records need their appropriate checks. Any proposed counting feature requires a separately scoped and validated test.
+updated: '2026-11-02'
+metaTitle: 'Textile-unit CCTV and attendance: scope each workflow'
+metaDescription: Assess textile-unit dispatch CCTV and attendance separately, with real camera conditions, traceable records, safe equipment checks and clear ownership.
 ---
 
-**Straight answer: fingerprint scanners fail hardest in exactly the industry that relies on them most. Constant contact with yarn and fabric wears down the ridges the sensor needs, and dust and lint coat the glass through the shift — so rejection rates climb and supervisors start entering attendance by hand. The fix is a method that doesn't need contact at all, paired with real coverage of the godown, dyeing section and loading bay, which usually see less camera attention than the shop floor.**
+A textile unit can have two separate problems at the same gate: the dispatch team cannot reconstruct a loading sequence, while HR cannot resolve an attendance exception. Treating both as a single camera upgrade makes it difficult to define success.
 
-Anyone running a hosiery or weaving unit in Ludhiana already knows the daily fight: the scanner at the gate rejects the same three or four workers every morning, a supervisor waves them through and types the entry manually, and by month end nobody can say with confidence who was actually on the floor when.
+Prepare two short briefs. One describes the observable dispatch or access event you need to review. The other describes the attendance record that needs a more reliable capture and approval path. They can share a site survey without sharing an unsupported promise.
 
-## Why do fingerprint scanners fail so often on a textile floor?
+## Start with one movement of goods
 
-Two things wear a fingerprint down, and a textile mill has both. Friction from handling yarn and fabric all day flattens the ridge pattern that the scanner reads — it's the same reason masons and dhobis have famously unreliable prints. And lint, dust and humidity from dyeing or washing sections coat the sensor glass, which degrades every read, not just the difficult ones.
+Choose a bounded task, such as reviewing a vehicle's arrival at a loading bay and the subsequent handling sequence. Mark where the vehicle stops, where goods obscure the view and which records the dispatch team already keeps.
 
-None of this is a hardware defect. It's the material the workforce handles, working against the one part of the machine that needs a clean, distinct surface to function.
+Specify the evidence needed from the proposed camera. An overview, a vehicle plate and a close view of handling are different tasks. Ask for recorded examples from the actual proposed positions rather than assuming a high camera count produces usable detail everywhere.
 
-## What actually holds up in a mill?
+Relate the observation to the appropriate dispatch reference and time. Video alone should not be described as a quantity ledger, proof of ownership or evidence of a person's intent. Keep uncertain observations available for review instead of turning them into a definite accusation.
 
-Anything that doesn't require contact. Face recognition on an entrance camera reads a face the same way whether the worker's hands are covered in lint or not — there's no surface to wear down.
+## Assess the actual environment
 
-It isn't a clean win, though. Shed lighting is often poor or backlit by open doors, and that matters more to accuracy than any spec sheet claim. A worker with a mask, or a dupatta pulled fully across the face at the exact second they pass the camera, still needs a manual fallback with a named approver — not a silent override, which is how the audit trail disappeared with the fingerprint system in the first place. We build face recognition attendance, so weigh this recommendation with that in mind, and ask any vendor to be equally honest about where their system needs a human backstop.
+During the survey, record lighting, vibration, likely obstructions and the maintenance access needed for each device. Ask the installer to document the selected equipment's relevant operating and environmental limits. Do not infer suitability from the word “industrial” in a product description.
 
-## Where do the real security gaps sit?
+Where the site identifies a potentially hazardous area, the responsible specialists should assess the equipment and installation method. Axis describes purpose-built cameras certified for specified gas or dust environments. [Read its explosion-protected equipment guidance](https://www.axis.com/products/explosion-protected-cameras). This is not a classification of your mill or a claim that ordinary cameras meet those requirements.
 
-Most textile units put their camera budget on the shop floor, because that's where the workforce is and where owners spend their own time. The gaps tend to sit elsewhere:
+Keep camera maintenance and process safety responsibilities separate. A useful recording or analytics event is not a replacement for the site's established safety controls.
 
-**The yarn and raw material godown.** High value, low foot traffic, and often covered by a single wide camera that can't resolve who's actually inside.
+## Investigate attendance failures before choosing a method
 
-**The dyeing and chemical store.** Usually under-monitored because it's treated as a process area rather than a security one, even though stock here is expensive and flammable.
+Collect a small set of representative failed records without assuming their cause. Check the capture result, employee mapping, shift assignment and any later correction. A device rejection, a missing sync and an incorrect rule need different remedies.
 
-**The loading bay.** Where finished goods physically leave the building. This is the single point every theft eventually has to pass through, and it deserves a camera that reads plate and person, not just a wide establishing shot.
+If face attendance is considered, evaluate the actual gate view, illumination, enrolment and permitted protective equipment. If a reader remains under consideration, follow its manufacturer's requirements and test normal use conditions. Do not require unsafe changes to working practice to produce a successful demonstration.
 
-## How does shift work complicate the attendance picture?
+The [face-versus-fingerprint guide](/insights/face-recognition-attendance-vs-biometric-machine) explains a fair comparison. Retain an approved fallback and a reviewer for people or situations the proposed method cannot handle adequately.
 
-A 24-hour mill has a handover window — fifteen to twenty minutes where both shifts are legitimately on the floor together. If the system doesn't account for that overlap explicitly, it either double-counts hours or flags a false absence right at shift change, which is exactly when disputes happen.
+## Keep the exception evidence usable
 
-The other common gap is that systems log entries but not exits. A worker who leaves early, once the next shift has already clocked in, shows as present for hours they weren't there. Logging the exit event closes that gap without adding a second scanner.
+Write down who receives an attendance correction request, what evidence they need and who approves the outcome. Preserve the original event and the reason for a change. A shared supervisor account does not provide a clear approval trail.
 
-## Where this doesn't fit
+Frappe HR's Employee Checkin documentation is one example of recording an employee, timestamp and event type before later attendance processing. [See the documented event record](https://docs.frappe.io/hr/employee-checkin). The example illustrates useful questions; it does not establish PGAK support for that product.
 
-If a unit runs with a largely stable, long-tenure workforce and low churn, the fingerprint problem described here may simply not be acute enough to justify a change — worn prints matter most where turnover is high and enrolment is constant. And any camera-based system is only as good as its lighting and angle; a badly placed camera in a dim shed will underperform a well-placed fingerprint scanner on a clean, well-lit floor.
+For an overnight operation, test the assigned shift date, missed exits and late-arriving records using the [night-shift review guide](/insights/night-shift-attendance-tracking). Have payroll accept the sample outcome before treating the attendance project as complete.
+
+## Give each brief its own acceptance test
+
+For dispatch, retrieve an authorized sample incident and check whether the required sequence is visible, time-aligned and linked to the relevant operational record. For attendance, follow a sample shift through a failed capture, approved correction and reconciled export.
+
+Document missed observations, unresolved exceptions and the person responsible for each next action. A trial should expose limits as well as useful results. Do not merge a good dispatch recording with a successful attendance check and describe every requested feature as verified.
+
+An AI Alerto by PGAK assessment should identify what existing equipment can support, what changes are needed and which capabilities require a separate pilot. Bring the two briefs, a simple layout and device models. This gives the discussion a concrete scope without inventing savings or a customer outcome.
+
+## Questions before the assessment
+
+### Should a textile mill replace fingerprint attendance with cameras?
+
+Assess the actual cause of failed records before choosing a replacement. Compare supported capture methods under real gate conditions, including exceptions and payroll review. Camera reuse and identity matching require their own feasibility checks.
+
+### Can CCTV establish the quantity of goods dispatched?
+
+Not by itself. Video may support a review of observable handling and movement, but quantities and commercial records need their appropriate checks. Any proposed counting feature requires a separately scoped and validated test.
 
 [Ask for a free feasibility check](#dealer)
