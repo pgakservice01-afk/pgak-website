@@ -148,6 +148,7 @@ export const HONEYPOT_FIELD = "website";
 export const ATTRIBUTION_KEYS = [
   "first_landing",
   "first_source",
+  "first_referrer",
   "page",
   "cta",
   "landing",
@@ -483,6 +484,7 @@ export function toErpPayload(
       ? `First landing: ${attribution.first_landing}`
       : "",
     attribution.first_source ? `First source: ${attribution.first_source}` : "",
+    attribution.first_referrer ? `First referrer: ${attribution.first_referrer}` : "",
     attribution.page ? `Page: ${attribution.page}` : "",
     attribution.cta ? `CTA: ${attribution.cta}` : "",
     attribution.feature_id ? `Feature: ${attribution.feature_id}` : "",

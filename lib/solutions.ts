@@ -3092,29 +3092,29 @@ export const SOLUTIONS: Solution[] = [
     title:
       "ANPR System for Factory & Warehouse Gates | PGAK",
     description:
-      "Log every vehicle at the gate — plate, type, direction, time and snapshot — searchable later. Sized per lane, with honest limits on where ANPR works.",
+      "Assess ANPR for searchable gate records: plate reads, vehicle details, time and snapshots. Camera coverage and read performance are tested at your site.",
     eyebrow: "Vehicles",
     h1: "An ANPR system that turns the gate register into something you can search",
     intro:
-      "An ANPR system earns its place at exactly one moment: when somebody asks which vehicle left with the material, and the only record is a security guard's notebook in handwriting nobody can read. Automatic number plate recognition logs every vehicle at the gate with its plate, type, direction, timestamp and a snapshot — so the question becomes a search rather than an argument. This page covers deploying one across real gates; for how plate recognition works on a camera feed, see vehicle and number plate recognition.",
+      "An ANPR system can help a gate team find recorded vehicle movements by plate or time. AI Alerto by PGAK assesses the capture view, vehicle approach and operating conditions before defining a searchable log and its review workflow. Plates can be missed or misread, so the pilot compares captured records with observed traffic and keeps an agreed fallback. This page covers project scope across real gates; the vehicle and number plate recognition page explains the capability.",
     painPoints: [
       "The gate register is a paper notebook, filled in inconsistently, and unreadable after a month.",
       "Material left on a truck and reconciling which one took three weeks and never fully resolved.",
       "Resident and staff vehicles stop at the gate every single day for a check nobody actually performs.",
-      "A previous ANPR quote assumed one camera could cover a two-lane gate and it never worked.",
+      "You need to confirm plate readability across all intended lanes before accepting an ANPR proposal.",
     ],
     sections: [
       {
-        h2: "Where an ANPR system actually pays for itself",
+        h2: "Where searchable vehicle records can help",
         body: "The value is concentrated in a few situations. Outside them, plate recognition is an expensive way to produce a log nobody reads.",
         points: [
           {
             h3: "Dispatch and material movement",
-            text: "Factories and warehouses where goods leave on vehicles. Every movement timestamped against the dispatch schedule turns 'which truck' from an investigation into a query, and an unbooked vehicle at a bay after hours becomes an alert.",
+            text: "Factories and warehouses can compare captured vehicle records with dispatch records when investigating a movement. Confirm the fields and timestamps available, measure missed or incorrect reads, and agree any after-hours alert separately.",
           },
           {
             h3: "Gates with heavy repeat traffic",
-            text: "Housing societies, office parks and campuses where the same few hundred vehicles come and go daily. Registered vehicles can be recognised and, where the site configures and tests it, admitted without stopping; everything unregistered can be logged with a photo.",
+            text: "Housing societies, office parks and campuses can assess registered-vehicle lists and visitor records. Any barrier action requires compatible hardware, agreed operating rules, a tested safety workflow and a manual fallback; a plate read alone is not permission to admit a vehicle.",
           },
           {
             h3: "Contractor and fleet oversight",
@@ -3128,37 +3128,37 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "The camera is the project",
-        body: "ANPR is the least forgiving capability PGAK deploys, and almost every failed installation traces back to the same few placement decisions rather than to the software.",
+        body: "A usable plate image depends on the approach, field of view, exposure, lighting and vehicle speed. The survey checks these conditions and the intended software and processing setup together, then the pilot measures performance on actual traffic.",
         points: [
           {
             h3: "Plate height, not general coverage",
-            text: "A camera mounted high for a wide view of the gate area will see vehicles perfectly and read no plates at all. ANPR needs a camera aimed at plate height, along the direction of travel.",
+            text: "A wide overview image may show a vehicle without enough detail to read its plate. Assess mounting position, capture distance, angle and the plate size in the image; a dedicated capture view may be needed.",
           },
           {
             h3: "Enough pixels across the plate",
             text: "The plate must occupy enough of the frame to resolve characters. This is a lens, distance and angle calculation done at survey — not something a better model rescues later.",
           },
           {
-            h3: "One camera per lane",
-            text: "A two-lane gate needs two cameras. A single camera asked to cover both lanes reads plates well in one and poorly in the other, which is the most common reason a previous ANPR install disappointed.",
+            h3: "Test coverage across every intended lane",
+            text: "Camera count depends on lane geometry, plate size in the image, approach angle, occlusion, speed and lighting. Some gates need a dedicated camera for each lane; confirm the layout and test all intended lanes before specifying hardware.",
           },
           {
             h3: "Headlights, rain and night",
-            text: "Night is where cheap ANPR falls apart, because headlight glare washes out the plate. Placement and exposure handling are settled during the survey, in the conditions the gate actually experiences.",
+            text: "Headlight glare, rain, shadows and changing light can affect plate capture. Include representative daytime and night traffic in the pilot, and record where exposure or illumination changes are needed.",
           },
         ],
       },
       {
-        h2: "Indian plates, and why generic models struggle",
-        body: "Off-the-shelf plate recognition is generally trained on European and American plates and degrades noticeably on Indian ones — different aspect ratios, varied fonts, state-code formats, decorative and non-standard plates, and a meaningful share of vehicles whose plates are damaged, obscured or simply not to spec. That is why reading on Indian plates is tested at your own gate rather than assumed. It is not magic: a plate that a person cannot read in the snapshot is a plate the system will not read either, which is why every logged event keeps its image alongside the text.",
+        h2: "Test the plates and traffic your gate receives",
+        body: "Test the plate formats and conditions your gate actually receives, including motorcycles, trucks, damaged plates and partial obstruction where present. Measure correct reads, incorrect reads and missed vehicles against an independent traffic record. Retain the agreed snapshot and manual review workflow; a difficult image is a reason to record uncertainty, not invent a plate number.",
       },
       {
         h2: "Sizing the hardware, honestly",
-        body: "Plate recognition is the most computationally demanding thing PGAK runs at the edge, and this is where quotes get optimistic. Plate reading needs more processing than person and vehicle detection, so a small unit that copes with several cameras of general detection may not cope with plate reading on more than one lane. A multi-gate site is therefore sized per lane rather than per site, and that arithmetic is done before quoting rather than discovered during commissioning. It is also why an honest ANPR survey takes longer than a general CCTV survey.",
+        body: "Processing requirements depend on the selected cameras, resolution, frame rate, number of streams and enabled analytics. Size the intended deployment and test it under the expected traffic load before quotation. Confirm whether processing hardware, camera changes, installation and barrier integration are included as separate items.",
       },
     ],
     stats: [
-      { value: "Per lane", label: "one camera and sized hardware for each" },
+      { value: "Per lane", label: "coverage and processing assessed for each" },
       { value: "Indian plates", label: "tested at your gate, not assumed" },
       { value: "Snapshot kept", label: "every logged plate keeps its image" },
       { value: "Searchable", label: "across gates, instead of per notebook" },
@@ -3166,23 +3166,23 @@ export const SOLUTIONS: Solution[] = [
     faqs: [
       {
         q: "Which ANPR camera is best for a factory gate?",
-        a: "The one specified for your lane rather than a model name: plate height and distance, vehicle speed at the capture point, the angle of approach and night lighting decide what reads reliably. A general-purpose CCTV camera pointed at a wide gate often cannot read plates at all. We size the camera per lane after looking at the gate, and say where ANPR will not be reliable.",
+        a: "Choose the camera after checking capture distance, mounting angle, plate detail, approach speed and day/night lighting. A general overview camera may not provide a suitable plate image. Assess existing equipment and confirm any camera changes, coverage limits and test criteria before quotation.",
       },
       {
         q: "What is an ANPR system?",
-        a: "Automatic Number Plate Recognition — cameras and software that read vehicle registration plates automatically and log each movement with the plate, vehicle type, direction, time and a snapshot. It replaces the manual gate register with a record you can search.",
+        a: "Automatic Number Plate Recognition uses cameras and software to read visible registration plates and create searchable records. Confirm which vehicle details, direction, timestamps and snapshots the proposed workflow captures. It can support a gate register, but missed or incorrect reads still need a review process.",
       },
       {
         q: "How accurate is ANPR on Indian number plates?",
-        a: "Good when the camera is placed correctly, and poor when it is not — placement matters far more than the model. PGAK has not published a read rate; reads are logged against the gate register at your site to measure it. Indian plates vary in font, format and condition. Non-standard, damaged or obscured plates remain genuinely hard, which is why every event keeps its image so a human can confirm.",
+        a: "PGAK has not published a read rate. Measure correct reads, incorrect reads and missed vehicles at your gate against observed traffic, including representative daylight and night conditions. Camera setup, plate condition, approach and the recognition workflow all matter. Agree the acceptance criteria and fallback before rollout.",
       },
       {
         q: "Can ANPR run on our existing gate camera?",
-        a: "Only if that camera is aimed at plate height along the direction of travel with enough resolution across the plate. Many existing gate cameras are mounted for general coverage and will need repositioning or a dedicated lane camera. The feasibility check gives a straight yes or no per camera before anything is quoted.",
+        a: "Possibly, if the camera provides a suitable stream and a readable plate image under the intended operating conditions. The survey checks mounting, distance, angle, resolution, speed and lighting. Repositioning or a dedicated capture camera may be required; the assessment records any limitations before quotation.",
       },
       {
         q: "Do we need one camera for each lane?",
-        a: "Yes, for reliable reading. A single camera covering two lanes reads one well and the other badly. Budgeting per lane from the start avoids the most common disappointment with ANPR installations.",
+        a: "Not as a universal rule. Assess every intended lane for plate detail, angle, occlusion, speed and lighting. Some layouts require dedicated cameras per lane; other layouts need a different arrangement. Confirm camera count through the site survey and a representative gate test.",
       },
       {
         q: "Can ANPR open a boom barrier automatically?",

@@ -405,14 +405,14 @@ export const CAPABILITIES: Capability[] = [
       "society gate automation",
     ],
     title:
-      "ANPR & Vehicle Recognition — Every Gate Logged | PGAK",
+      "ANPR & Vehicle Recognition for Gate Records | PGAK",
     description:
       "Number plate and vehicle detection that turn a paper gate register into a searchable log — for societies, warehouses, factories and office parks.",
     summary:
-      "Number plates and vehicle types logged at the gate, replacing the paper register.",
-    h1: "Vehicle and number plate recognition — the gate register that writes itself",
+      "Assess plate and vehicle records at your gate, with a review process for missed or uncertain reads.",
+    h1: "Vehicle and number plate recognition for searchable gate records",
     intro:
-      "ANPR number plate recognition on CCTV replaces the most useless artefact in Indian site security: the gate notebook. The aim is that every vehicle entering or leaving is logged with its plate, its type, a timestamp and a snapshot — so 'which truck left at 11:40 last Tuesday' becomes a search instead of an argument. PGAK's published ANPR evidence is photographs of a fitted camera and a working console, not a read rate, so reading is tested at your gate.",
+      "AI Alerto by PGAK can assess ANPR for searchable vehicle records at a suitable gate camera view. Confirm the fields captured, test plate reads against actual traffic and keep a process for missed or uncertain records. PGAK publishes photographs of a fitted camera and a working console; those images show a setup, not a measured read rate.",
     steps: [
       {
         h3: "Point a camera at plate height",
@@ -423,7 +423,7 @@ export const CAPABILITIES: Capability[] = [
         text: "Resident, staff and fleet vehicles are registered once, and can be recognised without an alert once plate reads at your gate have been tested.",
       },
       {
-        h3: "Log everything else",
+        h3: "Review unregistered vehicle records",
         text: "Unregistered vehicles can be logged with plate, type, direction and snapshot — a searchable record replacing the register.",
       },
       {
@@ -433,12 +433,12 @@ export const CAPABILITIES: Capability[] = [
     ],
     useCases: [
       "Housing society gates — resident vehicles recognised, visitors logged with a photo",
-      "Warehouse dispatch — every truck movement timestamped against the dispatch schedule",
+      "Warehouse dispatch — captured vehicle records reviewed alongside dispatch records",
       "Factory and office-park gates with heavy contractor vehicle traffic",
       "Parking areas where unauthorised vehicles are a recurring dispute",
     ],
     limits: [
-      "Plate reading needs a dedicated, well-angled camera at an appropriate height and a controlled approach speed. A general overview camera will not do it reliably, and we will tell you so during the audit rather than after the invoice.",
+      "Plate reading needs a suitable capture view, adequate plate detail and tested exposure at the intended approach speed. Existing cameras may be suitable; some gates need repositioning or dedicated cameras. Confirm coverage and hardware at the assessment.",
       "Damaged, obscured, non-standard or heavily stylised plates — common enough in India — will fail to read. Vehicle type and snapshot logging still work.",
       "Night reading depends on IR illumination and plate retro-reflectivity.",
     ],

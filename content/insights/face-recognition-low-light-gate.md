@@ -1,58 +1,72 @@
 ---
-title: "Face recognition at a badly lit gate"
-date: "2026-09-09"
-category: "Camera Setup"
-excerpt: "A gate camera that works fine all day suddenly stops recognising the same employees after dark. The fix is usually a ₹200 lamp, not a new camera."
+title: 'Low-light face attendance: test the actual gate conditions'
+date: '2026-09-09'
+category: Camera Setup
+excerpt: Evaluate night-time face attendance with actual camera views, lighting, motion, enrolment and review tests. Avoid universal infrared or accuracy claims.
 readTime: 4
-image: "/insights/category/camera-setup-3.webp"
+image: /insights/category/camera-setup-3.webp
 faqs:
-  - q: "Does face recognition work in low light?"
-    a: "Poorly, and it is worth separating two different jobs. Detecting that a person is present works fine in low light because infrared sensors are built for exactly that. Identifying which specific person it is needs far more detail — skin tone, contrast and fine facial features — which infrared footage does not preserve well. That is why a gate camera can 'see' someone perfectly at night and still fail to recognise them."
-  - q: "Can infrared cameras be used for face recognition?"
-    a: "Infrared is excellent for detecting movement and presence in the dark, but it flattens the contrast a face-matching algorithm depends on. Faces come out as pale, similar-looking ovals with washed-out detail, which is why IR-only footage is reliable for motion and person detection but weak for identification."
-  - q: "What is the cheapest fix for face recognition at a dark gate?"
-    a: "In most cases, one warm-white light aimed correctly at the point where people's faces pass, not a new camera. A camera upgrade to a low-light-optimised sensor can cost many times more than a single fixture, and often solves less of the problem if the light hitting the face is still wrong."
-  - q: "Where should gate lighting be placed for face recognition to work?"
-    a: "In front of or beside the walking path, angled onto the face, and away from the lens. Light placed behind the person creates a silhouette the camera cannot read. Light aimed straight into the lens causes glare and washes out the very detail you need."
-  - q: "Will better lighting guarantee face recognition works at night?"
-    a: "No. Lighting fixes the most common night-time failure, but a camera mounted too high, a subject looking away, or fast walking through the frame will still cause misses. Lighting removes one large obstacle, not every obstacle."
+- q: Can face recognition work with infrared images?
+  a: It depends on the camera, illumination, recognition model, enrolment images and operating conditions. Some systems are designed for particular infrared capture methods. Verify the proposed combination instead of assuming all infrared footage works or none does.
+- q: Will adding a light guarantee accurate attendance?
+  a: No. A lighting change may improve the captured image, but pose, motion, occlusion, enrolment and event handling still matter. Test the full attendance workflow in representative night conditions and retain an agreed fallback.
+updated: '2026-11-02'
+metaTitle: 'Low-light face attendance: test the actual gate conditions'
+metaDescription: Evaluate night-time face attendance with actual camera views, lighting, motion, enrolment and review tests. Avoid universal infrared or accuracy claims.
 ---
 
-**Straight answer: face recognition struggles at badly lit gates because infrared light — the thing that lets a camera "see" at night — is good at showing that someone is there but bad at capturing the facial detail needed to say who. The fix in most cases is not a better camera. It's putting the right kind of light on the right spot.**
+A gate recording can look clear enough to show a person arriving while still being unsuitable for the proposed identity-matching task. If attendance works in daylight and becomes unreliable after dark, start by comparing the captured evidence and the complete workflow.
 
-If your gate camera flags every person walking through at 9 PM but can't match a single one of them to an employee record, this is almost always what's happening.
+Do not assume that the answer is always a new camera, always a lamp or always a software setting. The correct change depends on the actual camera, illumination, recognition method and conditions at the capture point.
 
-## Why does face recognition fail at night when the camera clearly sees the person?
+## Separate visibility from identity matching
 
-Two different jobs get confused. **Detection** — noticing that a human-shaped object is in frame — works fine in the dark because infrared sensors are built for low light. **Identification** — matching that face against a known person — needs much finer detail: skin tone variation, the contrast between eyebrows and skin, the shadow under the nose. Infrared footage compresses all of that into flat grey tones.
+Write down the task being evaluated. Detecting movement, detecting a person and matching an enrolled identity are different tasks. A successful demonstration of one does not establish the performance of the others.
 
-So the camera isn't broken. It's doing detection well and identification badly, because those two tasks need different kinds of light.
+NIST's face-image quality work examines factors including illumination, pose, resolution, focus and noise because they can affect recognition. It does not provide a single acceptable lighting recipe for every gate. [Read the primary image-quality research](https://pages.nist.gov/frvt/html/frvt_quality.html).
 
-## Can infrared cameras be used for face recognition?
+Ask the proposed supplier which image conditions and camera settings its system supports. Record the model and software version being tested so a later equipment or configuration change does not silently invalidate the result.
 
-Only partway. IR floods the scene evenly and reflects off skin in a way that removes the natural contrast a face-matching algorithm relies on. Faces on IR footage tend to look like pale, similar ovals — enough for a human reviewer to confirm "yes, a person walked through," not enough for software to tell two similarly built people apart. This is a real limitation of the physics, not a flaw in any one vendor's algorithm.
+## Capture comparable day and night examples
 
-## What actually fixes this — a new camera or a light?
+Use the same authorized test route and reference record at representative operating times. Include a quiet arrival and normal shift traffic. Keep the tests safe and do not ask staff to remove required protective equipment in an unsuitable area.
 
-Usually a light. A single warm-white fixture placed to illuminate faces at the point people pass — not the whole yard — restores the contrast infrared throws away, and it typically costs a small fraction of a low-light camera upgrade. We've seen sites spend on a "starlight" or ultra-low-light camera before trying a ₹150 fixture that solved the same problem in an evening.
+Review the actual recorded frames used for matching, not only a polished live-view screen. Note whether the face is obscured, very small, blurred, strongly backlit or partly outside the view. Record uncertain cases so they remain part of the acceptance decision.
 
-That doesn't mean cameras never need upgrading — a genuinely underpowered sensor in a very dark tunnel entrance may need one. But check the cheaper fix first.
+Compare enrolled reference images as well. If a result changes, investigate whether the capture changed, the reference changed or a threshold or rule changed. Adjusting several variables together can make it difficult to identify what improved the outcome.
 
-## Where should the light actually go?
+## Assess illumination with the camera configuration
 
-Placement matters more than brightness.
+Check where light falls on the relevant path and what happens when vehicle headlights, open doors or nearby fixtures change the scene. Ask the installer to explain how the intended exposure, day/night mode and illumination work together.
 
-- **In front of the face, not behind it.** A light behind the walking person creates a silhouette — the classic problem of a bright doorway making everyone entering it a black shape.
-- **Angled down onto the path, not into the lens.** A light aimed at the camera itself causes glare and blooms out the detail you're trying to capture.
-- **At head height, roughly matching the camera's mounting height.** A light aimed at the ground lights shoes, not faces.
-- **Warm white, not raw IR floodlight.** IR floodlights help detection but do nothing extra for identification, since the camera is already using infrared at night.
+Infrared is not a universal success or failure category. A system may be designed for a particular infrared method, while another expects a different type of image. Confirm the proposed combination and evaluate it directly; a generic claim about all night footage is not an acceptance test.
 
-A five-minute test after installing: walk through at the time of day you're fixing for and check whether your own face is recognisable in the review footage, not just present in it.
+Any lighting or mounting change should follow a suitable site design. Consider glare, electrical work and safe access for maintenance. Do not promise that a cheap fixture will fix a specific installation before inspecting it.
 
-## What won't lighting fix?
+## Count the right outcomes
 
-Be honest about the limits. Good lighting removes the single biggest cause of night-time misses, but it doesn't fix a camera mounted too high and shooting down at the top of people's heads, someone walking past at an angle rather than facing the camera, or fast-moving crowds during a shift change. Those need camera positioning and enrolment quality fixes, which is a separate problem from lighting.
+Keep separate records for a missing capture, a rejected match, a wrong identity, a duplicate and a correct identity assigned to the wrong shift. The action required for each is different. An overall success figure without these categories is difficult to use.
 
-We build face-recognition attendance software that depends on gates being lit and positioned correctly, so we have a stake in recommending this — but the physics here doesn't change depending on who's selling you a camera. Fix the light first. It's the cheapest test you can run before spending on hardware.
+Also record the time needed to resolve an exception and whether the responsible supervisor can access the relevant evidence. A technically improved image is useful only if the attendance record is handled correctly afterward.
+
+The [face and fingerprint comparison](/insights/face-recognition-attendance-vs-biometric-machine) provides a wider workflow test. Use the [night-shift guide](/insights/night-shift-attendance-tracking) for midnight boundaries and missing exits; those record problems should not all be attributed to camera lighting.
+
+## Agree a bounded acceptance decision
+
+Define the operating conditions that must be covered before the pilot begins. Write down the reference evidence, reviewer, unresolved cases and the point at which another capture method or location should be considered.
+
+Keep a fallback for an unavailable or unsuitable capture route. Do not convert an uncertain identity result directly into a payroll penalty. The approved attendance process should decide what additional evidence and review are needed.
+
+An AI Alerto by PGAK feasibility review should document the tested camera and scene, required changes and remaining limitations. Bring model details and a description of the failure. Share any necessary footage only through a separately agreed, authorized process; do not place passwords or unrestricted live links in an enquiry form.
+
+## Questions before the assessment
+
+### Can face recognition work with infrared images?
+
+It depends on the camera, illumination, recognition model, enrolment images and operating conditions. Some systems are designed for particular infrared capture methods. Verify the proposed combination instead of assuming all infrared footage works or none does.
+
+### Will adding a light guarantee accurate attendance?
+
+No. A lighting change may improve the captured image, but pose, motion, occlusion, enrolment and event handling still matter. Test the full attendance workflow in representative night conditions and retain an agreed fallback.
 
 [Ask for a free feasibility check](#dealer)

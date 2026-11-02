@@ -1234,7 +1234,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 26.912, lng: 75.787 },
     focus: "Jewellery and gem trade, retail, hospitality and the Sitapura industrial belt",
     attendanceContext:
-      "Jaipur's jewellery and gem workshops run skilled piece-rate artisans, often in small units where the same family has worked for years and attendance is remembered rather than recorded — until a wage dispute makes memory insufficient. Hotels bring the opposite pattern: four departments on four different clocks and constant turnover in housekeeping and kitchens, where enrolling a new joiner quickly matters more than reading speed. Camera-based attendance at the entrance serves both, and in a jewellery unit it adds something a reader cannot, because the same camera that records the arrival is watching the door to the strong room.",
+      "For a Jaipur workshop or hotel, start with the attendance record your team needs: arrivals, departures, overnight shifts or contractor review. A suitable entrance view may support camera-based attendance, subject to enrolment, lighting and a checked fallback for missed or disputed records. Attendance at one entrance does not establish who entered a separate strong room; restricted-area monitoring needs its own assessed camera view and response plan.",
     intro:
       "For a jewellery workshop, hotel or industrial site in Jaipur, begin with the area that needs attention: a restricted room, a back-of-house entrance, a loading bay or an after-hours boundary. AI Alerto by PGAK can assess the intended event and the suitability of the camera view. Survey availability, installation responsibilities and support arrangements are confirmed for your project before quotation.",
     localContext: [
@@ -1258,7 +1258,7 @@ export const LOCATIONS: Location[] = [
     areas: [
       {
         name: "The jewellery and gem trade",
-        text: "Workshops and trading rooms where a single restricted room holds most of the value. Restricted-zone rules with the hours that room should be empty, plus recognition on the door to it, is worth more than any number of cameras on the general floor.",
+        text: "For a workshop or trading room, identify the restricted area and the hours it should be empty. Assess a suitable camera view and an out-of-hours alert rule. If identity is required, confirm a separate enrolment and recognition workflow rather than treating a zone event as proof of who entered.",
       },
       {
         name: "The walled-city bazaars",
@@ -1266,29 +1266,29 @@ export const LOCATIONS: Location[] = [
       },
       {
         name: "Hotels and heritage properties",
-        text: "Guests at every hour and a staff door that stays propped open. The valuable coverage is back-of-house — stores, linen, roof access — with guest areas left deliberately non-identifying, and alerts reaching a manager's phone rather than a lobby.",
+        text: "For a hotel, assess staff entrances, stores and other back-of-house areas separately from guest areas. Define who may view recordings, which events need an alert and who will respond. Confirm identity-related features and data handling in the project scope.",
       },
       {
         name: "The Sitapura and VKI industrial areas",
-        text: "Manufacturing and warehousing with shift gates and long boundaries. Gate attendance, number-plate logging and after-hours boundary lines, in that order of usefulness.",
+        text: "For manufacturing and warehousing sites, compare the need for shift attendance, vehicle records and after-hours boundary alerts. Choose the first workflow from the site risk and available camera views, then confirm the capture conditions and a review process.",
       },
     ],
     faqs: [
       {
         q: "Our strong room is the whole risk. What can this actually do?",
-        a: "Treat that room as a restricted zone with the hours it should be empty, and anyone entering outside those hours generates an alert on your phone with the clip attached. Add recognition on the door itself and you also have a record of who opened it and when, rather than footage somebody has to go and find afterwards.",
+        a: "A suitable camera view can be assessed for activity in a restricted zone outside agreed hours. Test the event, alert delivery and response workflow on site. An intrusion alert does not by itself identify the person or prove that a door was opened; identity or access records require a separately confirmed integration or recognition workflow.",
       },
       {
         q: "Will guests in our hotel be identified?",
-        a: "Not if it is configured properly, and it should not be. Recognition belongs on staff entrances and back-of-house doors; guest corridors are either left on ordinary recording or covered by rules that flag a door opening at an odd hour without identifying anyone. That line is drawn during the audit and written into the configuration.",
+        a: "The assessment should distinguish guest areas from staff attendance and restricted-area monitoring. Agree where identity-related processing is needed, what is recorded, who can access it and how long it is retained. Do not assume that disabling a recognition feature makes all recorded footage non-identifying.",
       },
       {
         q: "Our artisans are paid by the piece. Is attendance even relevant?",
-        a: "It becomes relevant the moment there is a disagreement about days worked, which in a small unit is exactly when nobody has a record. Entry and exit times with a face image attached settle that in minutes, and nobody has to stand at a machine to produce them.",
+        a: "Attendance may help review time on site, but it does not measure pieces produced or automatically resolve a wage dispute. Confirm entry and exit capture, shift rules and a supervisor process for missed or disputed records. Review the result alongside the agreed work and payroll records.",
       },
       {
         q: "The season swings hard here. Does that affect anything?",
-        a: "Only staffing, which is where fast enrolment helps: seasonal hotel and workshop staff are added in about a minute each from a phone and removed just as quickly. The alerting configuration does not change with the season, though hotels often widen their back-of-house hours during peak.",
+        a: "Seasonal staffing can change enrolment, shift rules, access permissions and the people who respond to alerts. Test adding and removing a worker in the intended workflow and agree who maintains those records. Recheck busy-period camera views and operating hours; no fixed enrolment time is promised.",
       },
       {
         q: "Who covers Jaipur?",

@@ -10,6 +10,7 @@ export const PROBLEMS = [
   "Not sure",
   "Perimeter events",
   "Attendance exceptions",
+  "Vehicle entry / ANPR",
   "Camera-feed health",
 ] as const;
 export type ReadinessInput = { site: string; cameras: string; problem: string };
@@ -27,6 +28,11 @@ export function readinessChecklist(input: ReadinessInput) {
     "Attendance exceptions": [
       "Confirm authorised enrolment, staff notice, limited retention and a correction process.",
       "Test queues, helmets, changing light, missing events and false matches; retain human review.",
+    ],
+    "Vehicle entry / ANPR": [
+      "Define whether you need a vehicle record, a plate read or an access decision; these are separate requirements.",
+      "Test each proposed lane view with day and night traffic, plate angles, headlights, stopping positions and unreadable plates.",
+      "Agree manual review, authorised access lists and retention; barrier integration and safety need their own approval and acceptance test.",
     ],
     "Camera-feed health": [
       "Test a controlled disconnect and reconnect, including recorder and network failures.",

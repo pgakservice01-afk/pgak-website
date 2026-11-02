@@ -118,9 +118,9 @@ export default function ReadinessAssessment({
       <div id={`${id}-callback`} className="assessment-callback">
         <h3>Request a technical callback</h3>
         <p className="mb-6">
-          Only your phone number is required. Your selected site, camera band
-          and problem accompany the request. We will agree the next step with
-          you.
+          Enter your phone number and city, and choose a camera band. Choose
+          Not sure if needed. Your assessment choices accompany the request;
+          we will agree the next step with you.
         </p>
         <QuickLead
           cta={id}

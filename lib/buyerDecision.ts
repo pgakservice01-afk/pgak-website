@@ -324,7 +324,7 @@ export const BUYER_DECISIONS: Record<string, BuyerDecision> = {
 
   "anpr-number-plate-recognition": {
     answer:
-      "ANPR turns the gate register into a searchable log: plate, vehicle type, direction, timestamp and a snapshot for every vehicle. It is the one capability where the camera is not negotiable — plate height, distance, approach angle, vehicle speed and night lighting decide whether plates read reliably, so a camera is specified per lane after looking at the gate. Where a plate cannot be read dependably, we say so rather than quoting for it.",
+      "ANPR can create searchable gate records from readable plates, with the vehicle details and snapshots supported by the configured workflow. Camera coverage, approach speed and lighting affect capture, so the survey checks every intended lane and confirms any camera changes. Measure correct reads, incorrect reads and missed vehicles during the pilot and keep an agreed review process.",
     supported: [
       "Plate and vehicle-type logging per lane, searchable by plate or time.",
       "Direction of travel (in or out) and a snapshot attached to each record.",
@@ -338,7 +338,7 @@ export const BUYER_DECISIONS: Record<string, BuyerDecision> = {
       "A published accuracy figure: it is measured at your gate, in your lighting.",
     ],
     requirements: [
-      "A camera positioned for plates on each lane — height, angle and distance matter more than megapixels.",
+      "Suitable plate detail across every intended lane; camera count and position follow the survey and capture test.",
       "Enough light at the capture point at night, or an IR-suited camera.",
       "A controlled approach speed at the capture point.",
       "Stream access over RTSP or ONVIF, and an on-site processing unit.",

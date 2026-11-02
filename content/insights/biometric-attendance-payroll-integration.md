@@ -1,61 +1,76 @@
 ---
-title: "Connecting biometric attendance to payroll without retyping"
-date: "2026-09-01"
-category: "Attendance"
-excerpt: "Most attendance errors are not scanning errors — they are introduced between the machine and the payslip, by a person with a spreadsheet. What a real payroll integration has to handle."
-metaDescription: "Most attendance errors are not scanning errors — they are introduced between the machine and the payslip, by a person with a spreadsheet."
-metaTitle: "Connecting biometric attendance to payroll"
-readTime: 6
-image: "/insights/category/attendance-2.webp"
+title: 'Attendance-to-payroll integration: reconcile before exporting'
+date: '2026-09-01'
+category: Attendance
+excerpt: Connect attendance to payroll with stable employee IDs, clear event and approval fields, controlled retries and a sample reconciliation before acceptance.
+metaDescription: Connect attendance to payroll with stable employee IDs, clear event and approval fields, controlled retries and a sample reconciliation before acceptance.
+metaTitle: 'Attendance-to-payroll integration: reconcile before exporting'
+readTime: 4
+image: /insights/category/attendance-2.webp
 faqs:
-  - q: "How does biometric attendance integrate with payroll?"
-    a: "A proper integration converts raw punches into payable hours automatically — applying shift rules, grace periods, half-day thresholds, overtime multipliers and leave — then exports a payroll-ready file. Weak integrations only export raw punch times, leaving the actual calculation to a person and a spreadsheet."
-  - q: "Why do attendance and payroll totals disagree?"
-    a: "Almost always because the two systems apply different rules or because a human retyped the data between them. Missed punches corrected from memory, grace periods interpreted differently, and overtime rounded by hand are the three most common sources."
-  - q: "What should a payroll export contain?"
-    a: "Per employee: days present, days absent, late marks, half days, approved leave, regular hours and overtime hours split by applicable rate — with a drill-down to the underlying attendance events so any disputed figure can be traced back to its source record."
+- q: What should an attendance-to-payroll interface contain?
+  a: Agree the fields with the receiving payroll owner. Common review needs include a stable employee ID, the relevant date or shift, approved attendance status and references to corrections. Raw events and calculated payable treatment should remain distinguishable.
+- q: Should a failed payroll import simply be sent again?
+  a: Only after checking how duplicates and partial imports are handled. Preserve the original batch or receipt reference, identify accepted and rejected records, and reconcile the result before retrying.
+updated: '2026-11-02'
 ---
 
-**Straight answer: the expensive errors in attendance are almost never scanning errors. They are introduced after the punch, when someone exports raw times into a spreadsheet and reconstructs hours by hand. The integration is the product; the biometric is just the sensor.**
+The attendance dashboard can be correct while the payroll import is wrong. A changed employee code, an unclear shift date or a correction sent twice can create a discrepancy even when the original check-in was captured successfully.
 
-Ask any HR manager where the month-end pain lives, and nobody says "the machine misread a finger." They say the export, the spreadsheet, the missed punches, the arguments.
+Treat the connection as a documented handoff between two processes. The attendance system supplies evidence and reviewed outcomes within its agreed scope. The receiving payroll process applies the approved payable treatment. Decide where each calculation belongs before building the interface.
 
-## What the machine actually gives you
+## Separate events from approved outcomes
 
-A biometric device produces punches — employee ID, timestamp, direction if you are lucky. That is raw material, not attendance.
+A device event records an observation at a time. A shift summary groups relevant records according to a rule. An approved attendance outcome may incorporate leave or a reviewed exception. These should not become interchangeable just because they appear in one export.
 
-Between that and a payslip sit a dozen decisions: Which shift was this person on? Does a 9:12 arrival breach the grace period? Is a 4-hour day a half day or absence? Does overtime start after 8 hours or after the shift ends? Which of the three punches that morning is the real one?
+Ask the supplier to identify which layer it sends. If raw events are transferred, name the system and owner that interpret them. If a reviewed summary is sent, ask how the underlying evidence and later corrections remain traceable.
 
-Every one of those is a rule. If your system does not encode them, a person applies them from memory, differently each month.
+Frappe HR's integration documentation illustrates one approach: device logs populate Employee Checkin records, then attendance processing uses the employee's shift setup. [Read the primary integration example](https://docs.frappe.io/hr/integrating-frappe-hr-with-biometric-attendance-devices). That example does not establish compatibility with PGAK or your payroll product.
 
-## The five rules any real integration must encode
+## Agree a field map with payroll
 
-**Shift assignment.** Which roster the person was on that day, including rotation. Without this, "late" is undefined.
+Use a sample file to settle the actual fields, formats and permitted values. At minimum, ask the receiving owner to review:
 
-**Grace and rounding.** A stated grace period and a stated rounding convention, applied identically to everyone. This is the most common source of "why was I marked late" disputes.
+- The stable employee identifier and how it relates to device identifiers.
+- The actual event timestamp, timezone and assigned shift where relevant.
+- The distinction between observed events, approved attendance and unresolved cases.
+- The reference for a correction and the person who approved it.
+- The export batch or record key used to detect repeats.
 
-**Half-day and absence thresholds.** Hours-present bands that decide the day's classification, set once and applied consistently.
+Do not use a name alone as the matching rule. Check how transfers, rejoining employees and changed device IDs are handled. An unknown employee should become a visible exception, not a guessed match to a similar name.
 
-**Overtime bands.** When overtime begins and at what multiplier, including any different treatment for weekly offs and holidays. Getting this wrong is the costliest error on the list, in both directions.
+## Choose a transfer method you can operate
 
-**Missed-punch handling.** A defined path: flag, notify, require a reason and an approver. Not a blank cell someone fills in on payroll day.
+A controlled file import can be appropriate when ownership, timing and reconciliation are clear. An API can reduce manual transfer steps, but it still needs a supported interface, permissions, monitoring and error handling.
 
-## Why photo-backed records change the month-end conversation
+Ask for the exact product versions and supported fields. Confirm which team maintains the connection when a vendor changes its format. A statement that both products have APIs does not demonstrate that the proposed integration has been built or tested.
 
-When an employee disputes a late mark three weeks later, the usual outcome is a negotiation, because nobody can prove anything. If every attendance record stores the camera frame it came from, the conversation takes ten seconds and ends in fact rather than seniority.
+Keep credentials out of shared spreadsheets and enquiry forms. Technical access should be arranged through the authorized implementation process with only the permissions needed for the agreed task.
 
-This is the practical argument for camera-based attendance beyond the queue: the evidence is attached to the record, so payroll stops being an argument about memory. We build this, so treat that as a disclosed interest — the underlying point stands regardless of vendor.
+## Make retries and corrections observable
 
-## Two questions to ask before buying anything
+Demonstrate a partially rejected file or a temporary receiving-system failure. Ask which records were accepted, which failed and how the operator knows. Repeating the whole batch without a duplicate check can create another problem while appearing to fix the first.
 
-**"Show me the payroll export."** Not the dashboard. The actual file that goes to payroll, with hours already split into regular and overtime. If the answer is a CSV of punch times, you are buying a sensor and keeping the spreadsheet.
+Then change one approved attendance record after an initial export. The receiving process should distinguish that amendment from a new shift or a second payment instruction. Retain the original evidence and a reference to the approved change.
 
-**"How does a disputed entry get resolved?"** If the answer involves someone remembering, you have found where next year's errors will come from.
+## Reconcile a controlled sample before rollout
 
-## The test
+Select fictional or appropriately authorized examples covering an ordinary shift, a missing exit, an overnight shift, approved leave and a corrected employee mapping. Agree the expected results before running the test.
 
-Take last month. Compare total payable hours as the attendance system computed them against what payroll actually paid.
+Compare record counts, employee identifiers, unresolved cases and the totals relevant to payroll. Do not accept a matching grand total if individual records are wrong. Record the discrepancy, responsible owner and resolution evidence for each exception.
 
-If those two numbers differ, the gap is not the machine. It is the manual step in between — and that is the part worth fixing first.
+The [night-shift guide](/insights/night-shift-attendance-tracking) covers midnight and missing exits. For a wider purchase, use the [attendance buying checklist](/insights/what-to-check-before-buying-attendance-system) to keep integration and support responsibilities in the proposal.
+
+An AI Alerto by PGAK review should start with the current export structure, the receiving system and one anonymized discrepancy. Confirm the proposed integration scope in writing. Successful capture is valuable, but acceptance should follow the record through to a reconciled receiving result.
+
+## Questions before the assessment
+
+### What should an attendance-to-payroll interface contain?
+
+Agree the fields with the receiving payroll owner. Common review needs include a stable employee ID, the relevant date or shift, approved attendance status and references to corrections. Raw events and calculated payable treatment should remain distinguishable.
+
+### Should a failed payroll import simply be sent again?
+
+Only after checking how duplicates and partial imports are handled. Preserve the original batch or receipt reference, identify accepted and rejected records, and reconcile the result before retrying.
 
 [Ask for a free feasibility check](#dealer)
