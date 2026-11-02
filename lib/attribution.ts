@@ -10,7 +10,7 @@
  * ── What is stored ──
  * The landing path, the referrer's HOSTNAME (never the full URL), the campaign
  * tags Google Ads and Meta append (`utm_*`, `gclid`, `fbclid`) and nothing
- * else. None of it identifies the visitor. `gclid` is kept whole because it is
+ * else. Click IDs can link an ad interaction to a conversion. `gclid` is kept whole because it is
  * the key Google Ads needs to import an offline conversion later.
  *
  * ── Rules ──
@@ -46,6 +46,27 @@ type Touch = Partial<Record<(typeof TAG_KEYS)[number], string>> & {
 
 /** In-memory copy, used when storage is unavailable or throws. */
 let memory: Touch | null = null;
+let firstMemory: Touch | null = null;
+
+/** First touch in this browser-tab session, independent of later campaign tags. */
+function readFirst(): Touch | null {
+  if (firstMemory) return firstMemory;
+  try {
+    const raw = sessionStorage.getItem(FIRST_KEY);
+    if (raw) firstMemory = JSON.parse(raw) as Touch;
+  } catch {
+    // Storage may be blocked; the in-memory first touch survives client navigation.
+  }
+  return firstMemory;
+}
+
+function rememberFirst(touch: Touch): void {
+  if (readFirst()) return;
+  firstMemory = touch;
+  try {
+    sessionStorage.setItem(FIRST_KEY, JSON.stringify(touch));
+  } catch {}
+}
 
 function cap(value: string | null | undefined, max = 160): string {
   const text = (value ?? "").replace(/\s+/g, " ").trim().slice(0, max);
@@ -98,17 +119,17 @@ export function captureTouch(): void {
   const tagged = Object.keys(tags).length > 0;
 
   const existing = read();
-  if (existing && !tagged) return; // first touch stands
+  if (existing && !tagged) {
+    rememberFirst(existing);
+    return;
+  }
 
   const nextTouch = {
     ...tags,
     landing: cap(window.location.pathname),
     referrer: referrerHost(),
   };
-  try {
-    if (!sessionStorage.getItem(FIRST_KEY))
-      sessionStorage.setItem(FIRST_KEY, JSON.stringify(existing ?? nextTouch));
-  } catch {}
+  rememberFirst(existing ?? nextTouch);
   write(nextTouch);
 
   // A visit sent by an assistant means PGAK was cited in an answer, which is
@@ -127,7 +148,8 @@ export function captureTouch(): void {
 
 /**
  * What a lead form sends: the current page and button, plus whatever the
- * visit's first touch recorded. Safe to call when nothing was recorded.
+ * current campaign touch and the separate first touch in this tab session.
+ * Safe to call when nothing was recorded; this is not cross-session identity.
  */
 export function readAttribution(
   cta: string,
@@ -152,10 +174,9 @@ export function readAttribution(
   for (const key of TAG_KEYS) {
     if (touch[key]) out[key] = touch[key];
   }
-  try {
-    const first = JSON.parse(sessionStorage.getItem(FIRST_KEY) || "null");
-    if (first?.landing) out.first_landing = cap(first.landing);
-    if (first?.utm_source) out.first_source = cap(first.utm_source);
-  } catch {}
+  const first = readFirst();
+  if (first?.landing && typeof first.landing === "string") out.first_landing = cap(first.landing);
+  if (first?.utm_source && typeof first.utm_source === "string") out.first_source = cap(first.utm_source);
+  if (first?.referrer && typeof first.referrer === "string") out.first_referrer = cap(first.referrer, 80);
   return out;
 }
