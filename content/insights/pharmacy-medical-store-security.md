@@ -1,65 +1,72 @@
 ---
-title: "Pharmacy security: schedule drugs, cash and staff"
-date: "2026-09-21"
-category: "Security Basics"
-excerpt: "A medical store has three risks stacked in one small room — controlled-substance theft, till shortages and after-hours break-ins. One camera at the door catches none of them properly."
-readTime: 5
-image: "/insights/covers/pharmacy-medical-store-security.webp"
+title: 'Pharmacy CCTV: assess stock review and after-hours alerts'
+date: '2026-09-21'
+category: Security Basics
+excerpt: Assess pharmacy CCTV for stock discrepancies, counter review and after-hours response while limiting unnecessary exposure of patient information.
+readTime: 4
+image: /insights/covers/pharmacy-medical-store-security.webp
 faqs:
-  - q: "What CCTV does a medical store or pharmacy actually need?"
-    a: "A pharmacy needs at least three camera positions, not one: the controlled-substance cabinet with a close, well-lit view of hands at the shelf, the counter and till from an angle that also captures the customer's face, and the entrance covering after-hours break-ins. A single door camera misses all three risks a pharmacy actually carries."
-  - q: "Is a camera on the schedule drug cabinet required by law?"
-    a: "Requirements for storing and monitoring scheduled drugs vary by state and by licence category, so check with your drug licensing authority or a compliance advisor rather than relying on general advice. What's consistent everywhere is that a locked cabinet without a camera on it gives you no record of who opened it and when, which becomes a problem the day stock doesn't reconcile."
-  - q: "How do I stop staff and customer disputes at the pharmacy counter?"
-    a: "Keep a camera angled to capture both the biller's hands at the till and the customer's face during the transaction, and keep the footage long enough to cover your billing reconciliation cycle. Most billing disputes are settled by looking at ten seconds of footage rather than by argument, but only if the camera was actually pointed at the right spot."
-  - q: "Does face recognition attendance work well for pharmacy staff?"
-    a: "Yes, and it solves a specific pharmacy problem — most medical stores run with two or three staff on rotating shifts and no HR person on site, so a fingerprint machine that needs cleaning and troubleshooting often gets abandoned within a few months. Face recognition on an entrance camera needs no shared surface and keeps a photo record of who was actually on shift when a controlled substance moved."
+- q: Is CCTV a substitute for a pharmacy stock or dispensing record?
+  a: No. Video may help review an observable sequence, but it does not replace the applicable stock, dispensing or billing records. The responsible pharmacy team must establish its own required records and compliance procedures.
+- q: Should pharmacy attendance be assessed with the security cameras?
+  a: It can be considered as a separate requirement, but a security view does not automatically support attendance. Check the proposed capture method, enrolment, employee mapping and exception review, including the protective equipment staff normally wear.
+updated: '2026-11-03'
+metaTitle: 'Pharmacy CCTV: assess stock review and after-hours alerts'
+metaDescription: Assess pharmacy CCTV for stock discrepancies, counter review and after-hours response while limiting unnecessary exposure of patient information.
 ---
 
-**A medical store's security problem is not one risk, it's three sitting in the same small room: scheduled drugs that need a controlled record, cash at the counter, and a shop that's often unattended late at night. A single camera over the door, which is what most pharmacies install first, covers none of these well. You need at least three specific positions covering the cabinet, the counter and the entrance.**
+A stock discrepancy at a medical store can leave the owner searching several hours of footage without a useful starting point. Adding more cameras will not fix that if the team cannot link the review to a location, time interval and relevant stock or billing record.
 
-Walk into most neighbourhood medical stores and you'll find one camera, usually pointed at the door, installed years ago when the shop opened. It was probably the cheapest item on the electrician's list. Nobody has looked at the footage since.
+Start with the question you need answered. Keep stock review, counter incidents and after-hours alerts as separate tasks. This makes it easier to assess the existing equipment without promising that one doorway view can resolve every issue.
 
-That single camera answers one question — did someone walk in — and misses the three questions a pharmacy owner actually needs answered.
+## Link a review to an operational reference
 
-## What are the three risks in a pharmacy, really?
+Choose an authorized sample involving an ordinary item rather than exposing patient records during a sales demonstration. Note the shelf or storage location, approximate time and the internal reference the manager would use to investigate a discrepancy.
 
-**Controlled substances.** Schedule H, H1 and X drugs sit in a cabinet that's supposed to be locked and logged. In practice, the log is a paper register that gets filled in from memory at closing time, not at the moment the drug left the shelf.
+Ask whether the recording shows the relevant movement clearly enough to be useful. A view of a cabinet door may show an opening without revealing which item moved. A general counter view may show activity without establishing a quantity or the contents of a package.
 
-**Cash and billing.** A pharmacy counter handles more small transactions per hour than most retail formats. Short-changing, unbilled sales, and "I paid, you didn't record it" disputes are common precisely because volume is high and each transaction is small enough that nobody double-checks it.
+Record those limits. Video should support the review of the appropriate stock, dispensing or billing record; it should not silently become a substitute for it.
 
-**After-hours entry.** Medical stores keep valuable, resellable stock in a shop that's often a single room with one shutter. Break-ins target exactly this combination.
+## Choose coverage without collecting everything
 
-One door camera answers "who came in" and leaves all three of the above uncovered.
+Walk the shop with the responsible pharmacist or manager and identify the actual task at each proposed view. Include an entrance or stockroom only where it answers a defined question. There is no useful universal minimum camera count for every pharmacy layout.
 
-## What CCTV does a medical store or pharmacy actually need?
+Consider whether the proposed angle unnecessarily exposes prescriptions, computer screens, payment information or private conversations. Limit the scene to the stated purpose where practical, and have the appropriate owner approve the arrangement and access policy.
 
-Three positions, minimum:
+This assessment does not establish the legal requirements of a particular licence or drug category. Keep those requirements with the responsible pharmacy team and its qualified advisers, using the actual applicable rules rather than a camera supplier's generic checklist.
 
-**1. The controlled-substance cabinet.** A close view, well lit, angled to catch hands at the shelf rather than just the cabinet door from across the room. The goal isn't deterrence theatre — it's a record you can actually check against your register if the counted stock and the logged stock don't match.
+## Test the recorded result and its retrieval
 
-**2. The counter and till.** Angled so it captures both the biller's hands and the customer's face during the transaction. This is the camera that settles billing disputes, and it only works if it was actually pointed at the transaction, not at the general shop floor.
+Use a normal authorized activity to test the relevant view. Include the people, shelving and queue positions that may obscure it. A staged empty-counter image is not enough to accept a view used during business hours.
 
-**3. The entrance, for after-hours coverage.** This is the camera most pharmacies already have. Keep it, but don't let it be the only one.
+Then retrieve the sample using the account a manager will actually have. Check that the camera name and time interval are understandable and that the saved file can be opened by the intended reviewer. Ask which export formats and permissions apply to the installed product.
 
-If your shop has a back door or a stockroom with a separate entrance, that's a fourth position worth considering, especially where staff come and go outside billing hours.
+The [AXIS Camera Station manual](https://help.axis.com/en-us/axis-camera-station-5) illustrates product-specific export permissions and playback requirements. Your system needs its own demonstration; this example does not establish an integration with PGAK.
 
-## Is a camera on the schedule drug cabinet required by law?
+## Make closing-time response practical
 
-Rules on storing and monitoring scheduled drugs vary by state and by your specific drug licence category — this isn't something to take as general advice, so verify the exact requirement with your drug licensing authority or a compliance advisor for your state. What is true everywhere, licence requirement or not, is practical: a locked cabinet with no camera on it gives you nothing to check against when a stock count doesn't add up at month-end. The camera isn't there to satisfy an inspector. It's there so the first time something goes missing, you have a record instead of a guess.
+For a proposed after-hours event, specify the area, operating schedule and legitimate exceptions, such as an authorized delivery or maintenance visit. Name the role responsible for reviewing it and the escalation path if that person does not acknowledge it.
 
-## How do I stop staff and customer disputes at the pharmacy counter?
+Test the event and receipt with the team. Keep a record of what happened, what notification was received and what action the procedure requires. A phone notification alone does not establish that someone will respond appropriately.
 
-Keep a camera angled to capture both the biller's hands at the till and the customer's face during the transaction, and retain the footage for at least as long as your billing reconciliation cycle runs. Most counter disputes — a customer claiming they paid, a shortfall at day's end, a challenged discount — get settled in under a minute once someone actually looks at the right ten seconds of footage. The failure mode isn't a lack of cameras; it's a camera that was never pointed at the transaction in the first place, or footage that's already been overwritten by the time someone asks for it.
+Keep physical security and emergency arrangements in the site's own operating plan. A camera does not make an unsafe intervention appropriate, and an analytics event does not establish criminal intent.
 
-## Does face recognition attendance work well for pharmacy staff?
+## Keep attendance and stock accountability separate
 
-It fits this format better than most others. A typical medical store runs on two or three staff across rotating shifts, with no HR person on site to manage a fingerprint machine that needs regular cleaning and the odd re-enrolment. Fingerprint readers also share a touch surface, which matters in a shop that's meant to be hygienic. Face recognition on an entrance camera avoids the shared surface and, as a side effect, keeps a photo-backed record of exactly who was on shift when a controlled substance moved off the cabinet shelf — tying your staff attendance record directly to your stock-movement question. We build systems like this, so weigh that when reading the recommendation.
+If staff attendance is another requirement, assess it separately. Someone being recorded as present does not prove they handled a particular item. A failed attendance capture also needs its own review before any employment decision.
 
-It isn't the right fit everywhere. A pharmacy inside a large hospital pharmacy counter with heavy footfall and poor lighting at the till will need a proper low-light camera before face recognition performs reliably, and no software substitutes for someone actually reconciling the drug register weekly rather than at financial year-end.
+Use the [face-versus-fingerprint comparison](/insights/face-recognition-attendance-vs-biometric-machine) to define the relevant trial, including normal masks or other required equipment. Retain an approved exception process for unresolved records.
 
-## Where to start
+For an AI Alerto by PGAK assessment, bring camera models, a simple layout and the review task that currently fails. Keep customer and patient details out of the enquiry. Ask for a bounded test of usable coverage, record retrieval and alert ownership, with remaining limitations written down.
 
-If you're setting up a new medical store or auditing an existing one, start with the cabinet camera — it's the position most shops skip and the one that matters most the day a count doesn't match. Add the counter angle next. The entrance camera you probably already have.
+## Questions before the assessment
+
+### Is CCTV a substitute for a pharmacy stock or dispensing record?
+
+No. Video may help review an observable sequence, but it does not replace the applicable stock, dispensing or billing records. The responsible pharmacy team must establish its own required records and compliance procedures.
+
+### Should pharmacy attendance be assessed with the security cameras?
+
+It can be considered as a separate requirement, but a security view does not automatically support attendance. Check the proposed capture method, enrolment, employee mapping and exception review, including the protective equipment staff normally wear.
 
 [Ask for a free feasibility check](#dealer)

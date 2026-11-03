@@ -3061,9 +3061,9 @@ export const SOLUTIONS: Solution[] = [
           height: 1501,
           title: "Mounted on the pillar that was already there",
           caption:
-            "A bullet camera on a bracket, fixed to the existing gate pillar. No new pole, no civil work, one cable run. Most gates already have somewhere to put it, which is usually the difference between a quotation you accept and one you do not.",
+            "This installation uses a bullet camera on a bracket fixed to the existing gate pillar, with no new pole or civil work and one cable run. The available mounting point, cabling and capture view need checking separately at your gate.",
           conditions:
-            "About 1.5 metres — plate height, not roof height — tilted roughly 20 degrees and aimed along the lane rather than across it. A camera looking down at a plate loses the characters no matter what it cost.",
+            "This photograph shows one installation, mounted at about 1.5 metres and aimed along the lane in daylight. The height and angle annotations describe this setup; the image wording about roof height is not a universal mounting rule. Your camera, capture distance, approach angle, lighting and software need to be assessed together and tested on representative vehicle passages.",
         },
         {
           src: "/proof/anpr-gate-console.webp",

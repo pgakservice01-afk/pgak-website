@@ -18,7 +18,7 @@ export function readinessChecklist(input: ReadinessInput) {
   const common = [
     "Record the camera and recorder model plus firmware version; do not share passwords.",
     "Check authorised stream access, network capacity and available processing hardware.",
-    "Agree who reviews an event, who responds and how evidence is retained.",
+    "Name the agreed event reviewer, responder and backup; define retention, then test notification receipt and acknowledgement.",
   ];
   const checks: Record<string, string[]> = {
     "Perimeter events": [
@@ -27,7 +27,7 @@ export function readinessChecklist(input: ReadinessInput) {
     ],
     "Attendance exceptions": [
       "Confirm authorised enrolment, staff notice, limited retention and a correction process.",
-      "Test queues, helmets, changing light, missing events and false matches; retain human review.",
+      "Test actual workwear, queues, lighting, missed events and false matches. Keep required PPE on; agree an authorised fallback and correction owner.",
     ],
     "Vehicle entry / ANPR": [
       "Define whether you need a vehicle record, a plate read or an access decision; these are separate requirements.",

@@ -1,58 +1,72 @@
 ---
-title: "How many of your 16 cameras can actually recognize a face?"
-date: "2026-07-23"
-category: "Camera Setup"
-excerpt: "Probably fewer than you think — and it has nothing to do with megapixels. The three things that decide whether a camera can identify a person, and the one cheap fix."
-metaDescription: "Probably fewer than you think — and it has nothing to do with megapixels."
-metaTitle: "How many of your cameras can recognise a face?"
-readTime: 5
-image: "/insights/camera-setup.webp"
+title: Can your CCTV support face recognition? Check each view
+date: '2026-07-23'
+category: Camera Setup
+excerpt: Assess CCTV face-readiness with authorized samples, real walking paths and recorded image checks before promising identity matching or attendance.
+metaDescription: Assess CCTV face-readiness with authorized samples, real walking paths and recorded image checks before promising identity matching or attendance.
+metaTitle: Can your CCTV support face recognition? Check each view
+readTime: 4
+image: /insights/camera-setup.webp
+updated: '2026-11-03'
+faqs:
+- q: Can I judge face-recognition readiness from the camera megapixels?
+  a: No. Review the actual recorded view, subject position, image detail and operating conditions, then test the proposed recognition system with appropriate authorized samples. The resolution label alone does not establish the result.
+- q: Does every camera on a site need to recognize faces?
+  a: Only assess recognition where there is a justified identity-related task and an appropriate process. Other cameras may remain useful for scene context or movement review. Do not replace their purpose with an unnecessary recognition requirement.
 ---
 
-Here's a small experiment. Open your CCTV app, pick the camera at your main entrance, and pause on a person walking in. Now zoom into their face.
+Your entrance camera shows people arriving, but that does not establish whether it can support an approved face-recognition attendance task. Before buying new equipment or software, check what the relevant view actually captures and how the proposed system uses it.
 
-Can you confidently say who it is? Not "a man in a blue shirt" — the actual person, by name?
+This is a per-view assessment. A wide camera can be useful for scene context while needing a different position or companion view for another task. The aim is to define the limitation, not to declare the entire CCTV installation unsuitable.
 
-For most installations, the honest answer is no. And if *you* can't identify the face, no AI can either. The information simply isn't in the image.
+## Define the identity-related purpose first
 
-## Megapixels aren't the problem
+State the approved use, the people involved and the record needed. For employee attendance, identify the entrance, usual movement path and process for handling an unresolved record. Set the necessary notice, permission and data-handling arrangements before collecting test samples.
 
-Owners often assume recognition failed because the camera is cheap. Usually the camera is fine — it's the *placement* that throws the face away. Three things decide it:
+Separate that purpose from general surveillance. A camera seeing a face is not the same as a system correctly matching an enrolled identity, and a match is not yet a complete attendance decision. Each step needs its own evidence.
 
-### 1. The face is too small in the frame
+The [face-recognition accuracy guide](/insights/face-recognition-accuracy-what-affects-it) explains how to evaluate matching results after the capture has been assessed.
 
-A camera covering a whole compound squeezes a face into a tiny cluster of pixels. From that distance, a face is a smudge — enough to say "someone is there", nowhere near enough to say *who*. Recognition needs the face to fill a meaningful part of the frame, which means the camera must see people **close**, not just wide.
+## Review normal movement, not a posed photograph
 
-### 2. The camera looks down at heads, not at faces
+Use authorized sample passages through the proposed area during normal operation. Include the actual approach direction, walking movement and positions people can reasonably use. Do not require an unsafe pause or a route that obstructs traffic just to obtain a successful example.
 
-CCTV is traditionally mounted high — under the roofline, out of reach. Great for theft-proofing the camera; terrible for identity. From a steep angle the camera sees hair, foreheads and caps. A face is recognized when it's seen roughly **level, from the front** — the way a person at the gate would see it.
+Check whether the relevant face is visible at a usable point in the recorded sequence. Note obstructions from queues, carried items or the camera angle. A person standing close and looking directly into the lens may be a useful diagnostic sample, but it does not represent every ordinary arrival.
 
-### 3. The light is behind the person
+Keep required PPE and normal permitted headwear in place. If the intended method cannot handle the real process adequately, assess another approved method rather than changing safety requirements.
 
-Point a camera at a bright gate from a dark interior and every person entering becomes a black cutout against the glare. The camera exposes for the sunlight, not the face. Backlight is one of the most common reasons an otherwise good camera produces unusable faces all afternoon.
+## Inspect recorded detail at relevant times
 
-## The good news: you don't need 16 recognition cameras
+Review the saved video from the feed that the proposed system will receive. Note whether faces appear blurred, too small for the documented requirements, obscured or poorly exposed. Compare the normal daylight and night or shift-change conditions relevant to the task.
 
-Here's the shift in thinking that saves money: **you don't need every camera to recognize faces.** You need *one or two cameras at the places everyone must pass* — the main gate, the entry door, the corridor to the floor. Security people call these choke points.
+Axis's [image-quality guide](https://help.axis.com/en-us/troubleshooting-image-quality) explains factors including focus, shutter speed, gain, backlight and infrared reflections. These factors interact, so a brighter or sharper-looking still is not by itself a complete recognition test.
 
-At a choke point:
+Ask the supplier for its actual capture requirements and how they were checked. Avoid a universal mounting height or pixel threshold presented as valid for every camera, lens, system and entrance.
 
-- people walk **toward** the camera, face first;
-- they pass **close**, so the face is large in the frame;
-- one well-aimed camera covers **everyone**, because there's no way around it.
+## Document the stream used in the test
 
-Your remaining wide-angle cameras keep doing what they're good at — watching areas, catching movement, recording context. The choke-point camera answers the question the others can't: *who is this?*
+Record the camera and recorder models, selected channel, stream settings and approved connection. Confirm whether the saved sample and the analytics input use the same relevant configuration. An attractive live view elsewhere in the system does not establish the input received by the proposed service.
 
-## A 10-minute self-check
+Have the responsible technician investigate missing detail or an unreliable feed. If a change is proposed, keep comparable before-and-after samples and note the changed setting or position. Do not call it a successful recognition improvement until the matching trial confirms the result.
 
-For each camera you care about, ask:
+Use the [reuse decision guide](/insights/reuse-existing-cctv-or-replace) to compare retaining, adjusting, adding or replacing a view with a reason for each action.
 
-1. **Distance** — when a person passes, does their face look sharp and large, or like a distant dot?
-2. **Angle** — is the camera roughly at face height looking forward, or high up looking at scalps?
-3. **Light** — is the person's face lit, or is the bright light behind them?
+## Finish with a testable readiness result
 
-Any camera that fails two of the three will not reliably identify people — no matter what software you put behind it. The fix is rarely a new system; it's usually repositioning one camera, or adding a single camera at the right doorway.
+For each candidate view, record the purpose, observed conditions, usable and failed samples, proposed change and remaining uncertainty. A useful result might be ready for a bounded trial, change required before trial, or unsuitable for this task in its current arrangement.
 
-**Recognition isn't bought with megapixels. It's earned with placement.**
+Name the owner of the next step and preserve an approved attendance fallback. Do not turn a capture-quality checklist into a claim that everyone will be recognized or that a pay-related decision can run without review.
 
-*Not sure which of your cameras make the cut? [Get a free per-camera readiness score](/#audit) — we grade each feed for placement, angle and light, and tell you the one change worth making.*
+For an AI Alerto by PGAK assessment, bring the relevant camera list and a description of the entrance process. Agree a controlled, authorized sample review before sharing any identifiable footage. The next proposal should specify what is being tested and what evidence would support proceeding.
+
+## Questions before the assessment
+
+### Can I judge face-recognition readiness from the camera megapixels?
+
+No. Review the actual recorded view, subject position, image detail and operating conditions, then test the proposed recognition system with appropriate authorized samples. The resolution label alone does not establish the result.
+
+### Does every camera on a site need to recognize faces?
+
+Only assess recognition where there is a justified identity-related task and an appropriate process. Other cameras may remain useful for scene context or movement review. Do not replace their purpose with an unnecessary recognition requirement.
+
+[Ask for a free feasibility check](#dealer)

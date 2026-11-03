@@ -1,53 +1,72 @@
 ---
-title: "Reuse your existing CCTV or replace it? A decision guide"
-date: "2026-09-01"
-category: "Buying Guide"
-excerpt: "Every vendor with cameras to sell will tell you your estate is obsolete. The four tests that decide honestly — and why age is almost never the deciding factor."
-metaDescription: "Every vendor with cameras to sell will tell you your estate is obsolete."
-metaTitle: "Reuse your existing CCTV or replace it?"
-readTime: 5
-image: "/insights/category/buying-guide-2.webp"
+title: Reuse or replace CCTV? Make the decision camera by camera
+date: '2026-09-01'
+category: Buying Guide
+excerpt: Assess existing CCTV by task, image quality, supported connections and maintainability. Ask for a reason and acceptance test for each proposed change.
+metaDescription: Assess existing CCTV by task, image quality, supported connections and maintainability. Ask for a reason and acceptance test for each proposed change.
+metaTitle: Reuse or replace CCTV? Make the decision camera by camera
+readTime: 4
+image: /insights/category/buying-guide-2.webp
 faqs:
-  - q: "Can AI software work with old CCTV cameras?"
-    a: "Usually yes. What matters is whether the camera produces a standard RTSP stream and has a usable view of the area you care about. A five-year-old camera correctly positioned outperforms a brand-new one mounted in the wrong place, because placement determines what is in frame and no amount of resolution recovers a subject the camera cannot see."
-  - q: "When should CCTV cameras actually be replaced?"
-    a: "When the physical hardware is failing, when resolution is genuinely too low for the distance involved, when a camera cannot be repositioned to see what matters, or when it is analogue with no usable digital output path. Age alone is not a reason."
-  - q: "Do I need IP cameras for AI video analytics?"
-    a: "Not necessarily. Analogue cameras connected to a modern DVR that outputs RTSP can often be analysed without replacing the cameras themselves. The DVR becomes the bridge, which is frequently far cheaper than recabling a whole site."
+- q: Does an RTSP stream mean a camera is ready for AI analytics?
+  a: No. Stream access is one part of feasibility. The proposed software must support the actual feed and receive usable images for the intended task under normal operating conditions. Test the complete workflow.
+- q: Is camera age enough reason to replace a CCTV system?
+  a: Age alone does not settle the decision. Review condition, support and security maintenance, available functions, image suitability and the cost of keeping the installation reliable. A documented limitation is more useful than a blanket age rule.
+updated: '2026-11-03'
 ---
 
-**Straight answer: age is almost never the reason to replace a camera. Placement, output format and physical condition are. A well-positioned five-year-old camera beats a new one pointed at the wrong thing, and any vendor leading with "your cameras are too old" is selling hardware before diagnosing anything.**
+A quote to replace every camera is difficult to judge if it does not explain what each replacement will improve. A promise to reuse everything can be just as incomplete. The decision should start with the work each view needs to support.
 
-We audit a lot of existing estates. The proportion needing wholesale replacement is far smaller than the industry implies.
+Ask for a camera-by-camera schedule. It should show the current purpose, the observed limitation, the proposed action and the test that will establish whether the action helped. This makes competing proposals easier to compare.
 
-## The four tests that actually decide
+## Separate the jobs on your site
 
-**Test 1 — Does it produce a usable stream?** Most IP cameras output RTSP, and most modern DVRs and NVRs can output RTSP for the analogue cameras attached to them. If a stream can be pulled, software can analyse it. This is where the "you need all new IP cameras" claim usually collapses.
+A wide yard view may be useful for understanding a vehicle's route while being unsuitable for reading a plate. A doorway view may help review arrivals without being ready for an attendance workflow. Neither camera should be labelled useless merely because it cannot do a different job.
 
-**Test 2 — Can it see what matters?** This is the real test and it has nothing to do with the camera. A camera mounted eight feet up over a doorway, angled down, sees the tops of heads — no model recognises a face from a scalp. The question is whether it can be *repositioned*, not whether it should be replaced. A ladder is cheaper than a camera.
+List the business questions you need to answer. For each, identify the relevant location and the person who will use the result. Keep existing recording coverage visible in this list so that a new project does not remove a view another team relies on.
 
-**Test 3 — Is the resolution adequate for the distance?** A face needs enough pixels between the eyes to be identifiable. A 2MP camera is fine for a doorway at three metres and useless for identifying someone at forty. Match the camera to its job rather than to a spec-sheet ideal.
+For an identity-related project, use the [camera face-readiness assessment](/insights/how-many-of-your-cameras-can-actually-recognize-a-face) before treating an overview camera as a recognition camera.
 
-**Test 4 — Is the hardware physically sound?** Fogged housings, water ingress, dead IR arrays, sun-bleached sensors. This is the one category where replacement is genuinely the answer, and it is visible in ten seconds on a live view.
+## Verify the connection, not just the feature label
 
-## What a typical audit actually concludes
+Record camera and recorder models, firmware, channel settings and the approved access route. If ONVIF support is part of the proposal, check the exact product and version against the [ONVIF conformant-product register](https://www.onvif.org/conformant-products/). ONVIF ties conformance to the listed firmware or software version.
 
-The common outcome on a sixteen-camera site is not "replace everything." It is closer to: most cameras kept as-is, two or three repositioned, one or two replaced for genuine hardware failure, and perhaps one added where coverage is actually missing.
+Then check the functions needed by the proposed client. [ONVIF Profile T](https://www.onvif.org/profiles/profile-t/) covers specified video features, including mandatory and conditional functions. A profile label is not evidence that every analytics feature or integration works.
 
-That is a very different quote from a full replacement — which is precisely why some vendors skip the audit.
+Ask for a demonstration with the intended feed. Document unsupported modes, access-permission requirements and connection limits before using the word compatible in the quotation.
 
-## The conflict of interest to be aware of
+## Inspect the result under relevant conditions
 
-We sell software, not cameras. That makes us biased toward telling you to keep your estate, and you should factor that in exactly as you would factor in a hardware vendor's bias in the other direction.
+Review recorded examples at the times that matter to the task. Include the normal movement path, busy periods, the relevant lighting changes and ordinary obstructions. Do not accept a staged close-up as the only evidence for a distant operating view.
 
-The defence against both biases is the same: ask for the assessment **camera by camera, with a reason per camera.** "Your system is outdated" is not a reason. "Camera 7 is mounted at 3.2 metres angled 40 degrees down and cannot capture faces; repositioning to 2.4 metres solves it" is.
+Put observed problems into plain categories: the subject is outside the view, important detail is unclear, the feed is unavailable, or the downstream function has not been demonstrated. These categories suggest different investigations without pretending that one adjustment solves every case.
 
-Any vendor unwilling to give you that list is asking you to trust a conclusion they will not show their working for.
+Any mounting, lighting or electrical change should be planned by the responsible installer with safe access and operating constraints considered. Test the changed view before accepting it as an improvement.
 
-## Before you accept any replacement quote
+## Include maintainability in the decision
 
-Ask which specific cameras are being replaced and why, in one sentence each. Ask whether repositioning was considered as an alternative. Ask whether your existing DVR can output RTSP.
+Ask who supports the exact equipment, which approved updates are available and how faults are detected. Note damaged housings, recurring outages, inaccessible maintenance positions and any unsupported component the site cannot manage acceptably.
 
-Three questions, and most replacement quotes shrink considerably.
+Compare the cost of an assessed repair or reconfiguration with replacement, including labour, downtime and ongoing support. Do not assume either option is cheaper until those items are included. A camera that produces a picture today may still have an unresolved maintenance problem.
+
+The [recorder identification checklist](/insights/dvr-vs-nvr-which-do-you-have) helps establish whether the limitation belongs to the camera, recorder or proposed connection.
+
+## Ask for four clear outcomes
+
+For each view, the supplier can propose keeping it for its current purpose, changing its setup, replacing a documented limitation, or adding coverage where the required view is missing. Include an unresolved category when further evidence is needed.
+
+For every change, specify the acceptance example and who reviews it. For an alert workflow, this includes receipt and ownership of the alert, not just a successful detection on a screen. For recording, include retrieval of a useful sample.
+
+An AI Alerto by PGAK feasibility review should use this evidence to define a bounded pilot and the conditions for reuse. Bring your camera list, recent faults and the specific operational question. A good proposal makes its limits visible and gives you a way to check the result before extending it.
+
+## Questions before the assessment
+
+### Does an RTSP stream mean a camera is ready for AI analytics?
+
+No. Stream access is one part of feasibility. The proposed software must support the actual feed and receive usable images for the intended task under normal operating conditions. Test the complete workflow.
+
+### Is camera age enough reason to replace a CCTV system?
+
+Age alone does not settle the decision. Review condition, support and security maintenance, available functions, image suitability and the cost of keeping the installation reliable. A documented limitation is more useful than a blanket age rule.
 
 [Ask for a free feasibility check](#dealer)

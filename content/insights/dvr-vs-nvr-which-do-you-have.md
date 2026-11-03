@@ -1,62 +1,72 @@
 ---
-title: "DVR or NVR: which do you actually have, and does it matter"
-date: "2026-09-10"
-category: "Camera Setup"
-excerpt: "Most site owners can't say whether their recorder is a DVR or an NVR, and it matters the day you want to add AI analytics. A two-minute way to check, and what each answer means for you."
-metaDescription: "A practical guide to telling your DVR from your NVR, and what the difference actually means when you want to add analytics later."
-readTime: 5
-image: "/insights/category/camera-setup.webp"
+title: DVR or NVR? Identify your recorder before an upgrade
+date: '2026-09-10'
+category: Camera Setup
+excerpt: Identify your CCTV recorder by model and configuration, then check supported streams, permissions and recording before planning an upgrade.
+metaDescription: Identify your CCTV recorder by model and configuration, then check supported streams, permissions and recording before planning an upgrade.
+readTime: 4
+image: /insights/category/camera-setup.webp
 faqs:
-  - q: "What is the difference between a DVR and an NVR?"
-    a: "A DVR (Digital Video Recorder) takes an analogue video signal over a coaxial cable and digitises it inside the box. An NVR (Network Video Recorder) takes an already-digital stream over an Ethernet cable from an IP camera and just stores it. The camera type you have decides which recorder you need — you cannot mix them without a converter."
-  - q: "How do I know if I have a DVR or an NVR?"
-    a: "Look at the cable running from your camera to the box. A single round coaxial cable (often with a separate thin power cable) means DVR and an analogue camera. A single square network cable, the same kind your office computers use, means NVR and an IP camera. If in doubt, check the ports on the back of the recorder itself."
-  - q: "Can AI video analytics work with a DVR?"
-    a: "Sometimes. It depends on whether the DVR can output an RTSP stream — a standard way of sharing live video over a network — which most DVRs from the last five to six years can, usually via the manufacturer's software or a small settings change. If it cannot, the practical fix is adding one IP camera at the position that needs analytics rather than replacing the whole system."
-  - q: "Should I replace my DVR with an NVR?"
-    a: "Not automatically. If your analogue cameras still produce a usable, sharp image at the distance you need, a wholesale swap is often an unnecessary expense. Replacement earns its cost when you specifically need higher resolution at long range, face-level detail at a gate, or you are wiring a new site from scratch anyway."
+- q: Can a DVR also accept IP cameras?
+  a: Some models can. Check the exact recorder manual, supported channel modes and configured limits. The DVR label or the presence of a network socket does not establish which camera inputs and features are available.
+- q: Does remote viewing prove my recorder will work with AI analytics?
+  a: No. A working viewing app does not establish access to a supported stream or the image quality needed for a particular task. Test the proposed connection and the actual analytics workflow before committing to an upgrade.
+updated: '2026-11-03'
+metaTitle: DVR or NVR? Identify your recorder before an upgrade
 ---
 
-**Straight answer: a DVR records analogue cameras connected by coaxial cable; an NVR records IP cameras connected by network cable. You can tell which one you have by looking at the cable running to your cameras — round coax means DVR, square network cable means NVR. The difference matters mainly when you want to add AI analytics, because that needs a live network stream out of the box, and not every DVR gives you one.**
+You want to add a camera, improve an alert or assess attendance, but the first supplier question is one you cannot answer: do you have a DVR or an NVR? Guessing from the cable colour can send the discussion in the wrong direction.
 
-Ask most shop or factory owners which recorder sits in their office, and you get a shrug. Nobody remembers what the installer fitted five years ago, and honestly, there was no reason to. The two boxes look almost identical, do the same basic job, and sit quietly until something breaks — or until someone wants to add intelligence to the system.
+Start with the recorder's exact identity and a simple channel list. That gives an installer something concrete to assess and helps separate a recording problem from a proposed software integration.
 
-## How can you tell which one you have?
+## Read the model before judging the sockets
 
-Skip the spec sheet and look at the cable.
+Photograph the recorder's label and the model shown in its system-information screen. Record the firmware version with an authorized administrator. Keep account passwords, QR codes and serial-number photographs out of public posts or open enquiry forms.
 
-**Coaxial cable** (round, with a screw-on or push-fit connector, usually alongside a separate thin power cable) means an analogue camera feeding a **DVR**.
+DVR generally describes a digital recorder used with analogue camera inputs; NVR describes a network video recorder. Those names are useful starting points, but a particular recorder may support a mixture of inputs. A network socket can serve viewing and administration as well as camera connections.
 
-**A single network (Ethernet) cable** running to each camera — the same type used for office internet — means an **IP camera** feeding an **NVR**. Many IP cameras take power over that same cable (PoE), so there is often no second wire at all.
+For a concrete example, Hikvision's [DS-7208HGHI-M1 specification](https://www.hikvision.com/content/dam/hikvision/products/S000000001/S000000132/S000000133/S000000138/OFR009576/M000058568/Data_Sheet/Datasheet-of-DS-7208HGHI-M1_20240415.pdf) lists both analogue and IP inputs. That is evidence about one model, not a promise about every DVR or PGAK compatibility.
 
-If the cabling is buried in conduit and you cannot see it, check the back of the recorder. A row of yellow or white RCA-style sockets is a DVR. A block of RJ45 network ports (or a single network port plus an internal switch) is an NVR.
+## Make a channel list without disturbing recording
 
-## What is actually different between the two?
+Give each camera a practical name, such as north gate or dispatch counter. Beside it, record the camera model where known, recorder channel, usual purpose and whether the live and recorded views are working. Mark unknown details instead of filling them with assumptions.
 
-A DVR receives an analogue video signal and does the work of converting it into a digital file inside the box. An NVR receives a signal that is already digital — the camera itself does the encoding — and the recorder mainly stores and serves it.
+Ask the installer to identify the connection method from the equipment and documentation. Cable appearance alone can be misleading where adapters or existing infrastructure are involved. Do not unplug cameras, reset the recorder or change channel modes simply to identify the installation.
 
-In practice this shows up as three things: IP cameras and NVRs generally support higher resolutions, IP camera cabling is standard network cable that any IT contractor can run, and IP systems are usually easier to expand because adding a camera is closer to adding a network device than rewiring a coaxial run.
+Note who currently maintains the system and whether that person can provide its configuration record. An accessible inventory is more useful than a confident label with no model evidence.
 
-None of this means analogue is obsolete. Modern coax standards push respectable resolution over the same old cabling, and for many small shops the existing analogue system is genuinely fine for its job — deterrence and basic evidence.
+## State what the upgrade must do
 
-## Does it matter for adding AI analytics later?
+Adding a camera, exporting an incident and providing video to an analytics service are separate requirements. Write down the one you are assessing first. Include the camera involved, the relevant operating hours and the output the responsible person needs.
 
-This is where the distinction stops being trivia and starts costing or saving you money.
+For analytics, ask which video connection, encoding and permissions the proposed implementation supports. A successful demonstration should use the intended channel and stream, not an unrelated sample camera. The [existing-camera reuse guide](/insights/reuse-existing-cctv-or-replace) explains how to evaluate the wider decision.
 
-AI analytics — face recognition, intrusion detection, loitering alerts — needs a live video stream it can process, typically over the same network protocol regardless of whether the camera behind it is analogue or IP. The question is whether your recorder can hand out that stream.
+Keep recording continuity in the acceptance criteria. The new connection should be assessed alongside the site's normal viewing and recording workload, with any resource limits or required changes documented.
 
-Most NVRs can, because streaming is what they were built to do. Many DVRs from the last five or six years can too, through a setting called RTSP output, though it is sometimes buried in a menu the original installer never touched. Older DVRs, or ones locked down by the manufacturer's app, sometimes cannot — and no software update fixes that.
+## Test access through the approved network route
 
-We build analytics software that runs on this kind of stream regardless of whether it originated as analogue or IP, so we say this next part with that interest disclosed: the honest first step is not to assume you need new hardware. Check what your existing box can output before pricing a replacement.
+Have the authorized technician demonstrate the connection using the access method approved for the site. Record which equipment supplies the video and which account is needed. Ask how access will be removed if the service ends.
 
-## What if your DVR cannot output a stream?
+A mobile app displaying a picture is not the same as proving that another system can receive a supported feed. Conversely, an initially failed connection is not enough evidence to replace every camera: permissions, configuration or an unsupported mode may need investigation.
 
-You have two realistic paths. Replace the whole recorder and camera estate — expensive, and often more than the problem calls for. Or add a small number of IP cameras and a separate NVR just at the positions where analytics genuinely matters — the main gate, the cash counter, the loading bay — while leaving the rest of the analogue system doing what it already does well.
+Do not expose a recorder to the internet or share an administrator password just to complete a sales demonstration. Ask the supplier and site network owner to agree the connection arrangement first.
 
-The second path is cheaper and faster in almost every case we have looked at. It is not free of trade-offs: you now have two recorders to manage, which is one more thing to keep track of, and it only works if the positions that matter can be served by a handful of new cameras rather than the whole perimeter.
+## Turn the result into a bounded decision
 
-## The two-minute check to do today
+The assessment should finish with a short result for each required channel: connection verified, image suitable for a defined test, change required, or unresolved. State the reason and the next action beside every unresolved item.
 
-Walk to your recorder, look at the cable type, and open the network or RTSP settings menu to see if a stream URL is listed. That single check tells you more about your upgrade options than any brochure will.
+If replacement is proposed, request the specific limitation it solves and how the new arrangement will be tested. Keep an export or playback check in the handover so the original recording purpose is not forgotten.
+
+For an AI Alerto by PGAK assessment, bring the recorder model, camera list and the task you want to improve. The useful answer is a supported connection and test plan for your installation, not an assumption based on its age or a promise that any DVR will work.
+
+## Questions before the assessment
+
+### Can a DVR also accept IP cameras?
+
+Some models can. Check the exact recorder manual, supported channel modes and configured limits. The DVR label or the presence of a network socket does not establish which camera inputs and features are available.
+
+### Does remote viewing prove my recorder will work with AI analytics?
+
+No. A working viewing app does not establish access to a supported stream or the image quality needed for a particular task. Test the proposed connection and the actual analytics workflow before committing to an upgrade.
 
 [Ask for a free feasibility check](#dealer)

@@ -1,54 +1,74 @@
 ---
-title: "How many photos does face enrolment actually need"
-date: "2026-09-08"
-category: "Attendance"
-excerpt: "One photo is why half your 'face recognition failures' aren't accuracy problems at all. What a proper enrolment set looks like and how to fix a bad one."
-readTime: 5
-image: "/insights/category/attendance.webp"
+title: 'Face enrolment: choose the right process, not a photo count'
+date: '2026-09-08'
+category: Attendance
+excerpt: Plan face-attendance enrolment with system-specific capture requirements, correct employee mapping, authorized images and a practical validation test.
+readTime: 4
+image: /insights/category/attendance.webp
 faqs:
-  - q: "How many photos are needed to enrol someone in face recognition attendance?"
-    a: "A reliable enrolment needs several photos of the same person, not one — typically covering a straight-on view, a slight left and right turn, and the everyday look of their face at the gate, including any headgear or glasses they normally wear. One photo teaches the system a single angle and lighting condition, and it will struggle the moment the real gate looks different."
-  - q: "Why does face recognition fail for some employees but not others?"
-    a: "Usually because their enrolment was thinner than everyone else's — one photo, taken in different light than the gate, without the turban, cap or glasses they wear daily. The fix is almost never retuning the software; it's re-enrolling that one person properly."
-  - q: "Can a bad face enrolment be fixed without starting over?"
-    a: "Yes. Most systems let you add photos to an existing enrolment rather than deleting and re-registering. Add two or three shots taken at the actual gate, in the person's normal work appearance, and recheck their match rate over the next few days."
+- q: How many photos are needed for face-attendance enrolment?
+  a: Use the requirements of the specific system and version being installed. Some workflows accept different numbers or types of samples. There is no universal four-to-six-photo rule, and additional images are useful only where the supported process calls for them.
+- q: Should I add more photos whenever an employee is not recognized?
+  a: 'First investigate the failed stage: capture quality, identity mapping, enrolment, matching or later attendance processing. Follow the supported correction procedure and test it. Extra photographs do not automatically fix every kind of failure.'
+updated: '2026-11-03'
+metaTitle: 'Face enrolment: choose the right process, not a photo count'
+metaDescription: Plan face-attendance enrolment with system-specific capture requirements, correct employee mapping, authorized images and a practical validation test.
 ---
 
-**Straight answer: face enrolment needs several photos per person, not one — a straight-on shot, a couple of angled shots, and at least one taken the way the person actually looks at the gate, headgear and all. A single photo is the single biggest reason one employee's attendance keeps failing while everyone else's works fine.**
+An employee has been enrolled, but the attendance system still fails to produce the expected record. The first response is often to ask for more photographs. Before doing that, establish what the selected system requires and which part of the process actually failed.
 
-If you've ever had one person who "just doesn't work" with face attendance while forty others are fine, the first thing to check isn't the camera. It's how many photos that one person was enrolled with.
+Enrolment is more than uploading a face image. It connects a person, an authorized capture process and an employee identity that later records depend on. A useful setup should make that connection understandable and testable.
 
-## Why does one photo fail?
+## Start with the supported procedure
 
-A single photograph captures one face, from one angle, in one light. The recognition system builds its idea of "this person" from whatever it was shown. Show it only a passport-style front shot taken indoors under a tube light, and it has no idea what that same face looks like turned slightly toward a gate camera at 7 AM with the sun behind them.
+Ask the supplier for the requirements of the exact product and version. Confirm how samples are captured, which quality checks apply and whether the system supports one or multiple enrolment images. Record any required interaction during capture.
 
-People aren't static. Faces change angle as someone walks, light changes through the day, and most people wear something at the gate they weren't wearing in an HR office photo — a helmet, a turban, glasses, a mask pulled down. One photo teaches the system none of that variation, so it has to guess, and guessing under real conditions is where misses happen.
+Do not apply a universal photo count, angle recipe or image format from an unrelated product. More files can add work without adding useful information if the implementation does not use them as expected. Any recommendation to add or replace samples needs a supported reason.
 
-## What does a good enrolment set actually look like?
+Microsoft's [Face enrolment guidance](https://learn.microsoft.com/en-us/azure/ai-services/face/enrollment-overview) illustrates how a particular service connects face data with a person record and a responsible enrolment experience. It is an example for that service, not proof of PGAK integration or a procedure for every attendance system.
 
-Enough variation to represent how the person really appears at the point where they'll be recognised. In practice that means:
+## Confirm the employee identity before capture
 
-- **A straight-on shot.** The baseline reference.
-- **A left-turn and right-turn shot.** People rarely walk through a gate looking dead ahead.
-- **The gate look.** However they normally show up — turban, helmet, glasses, winter cap. If it's on their face nine days out of ten, it belongs in the enrolment.
-- **Gate lighting, if possible.** A photo taken at the actual entrance beats a studio shot, because it matches the light the camera will see every day.
+Check the employee reference against the organization's authoritative record. Resolve duplicate names, transfers and rejoining cases before creating a second identity merely because a new enrolment attempt is needed.
 
-Four to six photos covering this is usually enough. It isn't about volume for its own sake — twenty near-identical photos of the same angle add little over four that cover real variation.
+Record who approves the association between the person and the employee reference. After setup, verify that a sample event reaches the intended employee record. A technically successful face match linked to the wrong personnel record is still an unsuccessful attendance setup.
 
-## Does more photos always mean better accuracy?
+Avoid including unnecessary personal details in installer worksheets or open support messages. Share only what the authorized process needs through the agreed channel.
 
-No, and this is where enrolment drives can go wrong. Piling on dozens of photos taken in identical conditions doesn't teach the system anything new; it just takes longer to enrol and gives false confidence that "we did a thorough job." What matters is variety — different angles, different light, the accessories the person actually wears — not sheer count.
+## Explain what is being collected and why
 
-## How do you fix an employee who keeps failing to match?
+Before enrolment, establish the applicable notice and permission process with the responsible organizational owner. Explain the purpose, what data the implementation stores, who can access it and how questions or corrections are handled. Do not promise deletion behaviour that has not been checked in the actual system.
 
-Look at their enrolment before you touch anything else. Most attendance failures that get blamed on "the AI not working" trace back to one thin enrolment record — often set up in a rush on someone's first day, before anyone knew what they'd typically wear or which gate they'd use.
+Microsoft's guidance distinguishes enrolment photographs from derived face data and emphasizes understandable choices and data-handling commitments. Use those as questions for your supplier; the organization's applicable requirements still need their own assessment.
 
-The fix is usually straightforward: add two or three new photos taken at the actual gate, in the person's normal daily appearance, rather than deleting and starting over. Most systems support adding to an existing record. Then watch their match rate over the next few days before concluding anything deeper is wrong.
+Do not collect enrolment images from social profiles, unrelated footage or informal personal-message archives as a shortcut. Use the approved capture and verification process for the intended attendance purpose.
 
-## Where does this still fall short?
+## Validate under ordinary operating conditions
 
-Even a well-built enrolment set won't fix a badly placed camera, a face turned fully away from the lens, or someone who changes their look dramatically week to week — a beard grown or shaved, glasses swapped for contacts, a scarf worn only in winter. Enrolment quality solves the "the system never learned this face properly" problem. It doesn't solve a genuinely difficult capture angle or lighting condition — that's a camera placement problem, and no amount of re-enrolling fixes it.
+Once enrolment is accepted, run an authorized test at the intended capture point using the normal route and relevant shift conditions. Include permitted headwear and required PPE as they are actually worn. Required protection must not be removed to improve the demonstration.
 
-We build face recognition attendance systems, so take the recommendation with that in mind — but the diagnostic above works regardless of which vendor's system you're running. Before assuming your software is inaccurate, check the enrolment first. It's the cheaper fix, and it's right more often than not.
+Follow the result from capture through identity matching into the attendance record. Note whether a failed case involved an unusable view, no match, a wrong mapping or a later processing issue. The [face-accuracy guide](/insights/face-recognition-accuracy-what-affects-it) helps keep these stages distinct.
+
+Keep the number of reviewed cases and untested conditions visible. A single successful check is a useful setup step, not proof that future records will be error-free.
+
+## Make corrections traceable
+
+If re-enrolment or another sample is proposed, record the diagnosed problem, approved action and validation result. Follow the product's procedure rather than deleting a person record and hoping their attendance history remains connected.
+
+Check how changes affect active identities, historical records and access to old samples. Ask the appropriate owners to agree the retention and removal process, including when an employee leaves or a service changes. Keep a record of unresolved vendor behaviour rather than making an unsupported assurance.
+
+Maintain an approved attendance exception path while a problem is being investigated. The [attendance-to-payroll guide](/insights/biometric-attendance-payroll-integration) helps define the later review and correction responsibilities.
+
+For an AI Alerto by PGAK assessment, bring the product details, employee-reference approach and an anonymized description of the failure. The useful deliverable is a supported enrolment and validation process with clear ownership, not a fixed number of photographs offered as a universal cure.
+
+## Questions before the assessment
+
+### How many photos are needed for face-attendance enrolment?
+
+Use the requirements of the specific system and version being installed. Some workflows accept different numbers or types of samples. There is no universal four-to-six-photo rule, and additional images are useful only where the supported process calls for them.
+
+### Should I add more photos whenever an employee is not recognized?
+
+First investigate the failed stage: capture quality, identity mapping, enrolment, matching or later attendance processing. Follow the supported correction procedure and test it. Extra photographs do not automatically fix every kind of failure.
 
 [Ask for a free feasibility check](#dealer)

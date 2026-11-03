@@ -1,60 +1,72 @@
 ---
-title: "The day after a theft: a practical checklist"
-date: "2026-09-15"
-category: "Security Basics"
-excerpt: "Footage overwrites on a schedule, and most people notice a theft after that schedule has already run. What to do in the first hours, in order, before the recording you need is gone."
-metaDescription: "CCTV footage overwrites on a schedule. The exact steps to take in the first hours after a theft — export, timestamps, FIR, insurance — before the recording is gone."
-readTime: 6
-image: "/insights/category/security-basics.webp"
+title: 'After a theft: preserve CCTV without delaying help'
+date: '2026-09-15'
+category: Security Basics
+excerpt: Put safety and reporting first, then preserve CCTV, document time differences and verify exports with an authorized reviewer and clear handover record.
+metaDescription: Put safety and reporting first, then preserve CCTV, document time differences and verify exports with an authorized reviewer and clear handover record.
+readTime: 4
+image: /insights/category/security-basics.webp
 faqs:
-  - q: "What should I do first after discovering a theft caught on CCTV?"
-    a: "Export the relevant footage immediately, before doing anything else, onto a separate device — not just a phone video of the screen. Rolling storage overwrites on a fixed cycle, often just days, and a theft is frequently noticed after that cycle has already erased the recording you need."
-  - q: "How quickly does CCTV footage get overwritten?"
-    a: "It depends entirely on your storage capacity and camera count, but many small sites cycle through their full storage in under two weeks, and some in a matter of days. If you don't know your own retention window, treat every theft as urgent and export immediately rather than checking later."
-  - q: "Do I need to file an FIR to use CCTV footage for an insurance claim?"
-    a: "Most insurance policies require a First Information Report for a theft claim, so filing one is usually a necessary step, not an optional one. File it as soon as practical after preserving the footage, since insurers typically want the FIR number as part of the claim documentation."
-  - q: "Can I just record my CCTV screen with my phone as evidence?"
-    a: "It works as a last resort but it's the weakest form of evidence you can produce. A phone recording of a screen loses resolution, strips the recorder's original timestamp metadata, and is easy for the other side to challenge as unreliable. Always use the recorder's own export function when the recorder is still accessible."
-  - q: "Who should have access to the exported theft footage?"
-    a: "As few people as necessary, and each access should be logged — who copied it, when, and why. A copy that passed through several personal phones or a WhatsApp group before reaching the police or insurer has a custody trail that's hard to defend if the footage is ever disputed."
+- q: Should CCTV export come before reporting an urgent incident?
+  a: No. Immediate safety and getting appropriate help come first. Report promptly and tell the responding authority that CCTV may be available. An authorized person can work on preservation without delaying those actions.
+- q: Does a successful export prove footage will be accepted as evidence?
+  a: No. Check that the files contain the required material and can be played, and document their source and handover. The relevant authority, insurer or qualified adviser must confirm the requirements for the particular matter.
+updated: '2026-11-03'
+metaTitle: 'After a theft: preserve CCTV without delaying help'
 ---
 
-**Straight answer: the first thing to do after a theft is export the CCTV footage immediately, onto a separate device, using the recorder's own export function — before doing anything else. Rolling storage overwrites on a schedule, often within days, and most thefts are noticed after that window has already closed. Everything else — FIR, insurance, internal review — can wait an hour. Preserving the footage cannot.**
+You discover that something has been stolen and do not know whether the CCTV still contains the relevant recording. The next steps need to protect people, report the incident and preserve useful information without turning a stressful situation into an improvised technical experiment.
 
-A shop owner in Ludhiana called us three days after cash went missing from the till. By the time anyone thought to check the camera, the footage from that night was gone — written over by four days of ordinary business. Nobody did anything wrong exactly; nobody realised the clock was already running the moment the theft happened, not the moment it was discovered.
+If there is continuing danger or anyone needs urgent help, deal with that first and contact the appropriate emergency services. Do not delay reporting while trying to finish an export. Tell the responding authority that CCTV may be available and follow its directions.
 
-That gap — between when something happens and when someone checks — is the single biggest reason theft footage goes unrecovered. Here's the order that avoids it.
+## Assign preservation to an authorized person
 
-## Step one: export the footage, right now
+Once it is safe, identify who can access the recording system and who will coordinate with the investigating authority. Avoid having several people change settings or copy files independently. Write down what is known about the incident and distinguish it from assumptions.
 
-Before calling anyone, before filing anything, get the footage off the recorder. Rolling storage on most DVRs and NVRs overwrites automatically once it fills up, and depending on your camera count and storage size, that can happen in days, not weeks. If you're not certain how many days of footage you actually have, assume it's fewer than you think and move now.
+Do not tidy or disturb a possible scene just to reach a device without appropriate guidance. As a general preservation example, [Police.uk advises keeping digital devices on, avoiding setting changes and retaining the original recording](https://www.police.uk/advice/advice-and-information/victim-support/what-happens-after-you-report-crime/forensic-evidence/). That is UK guidance, not a statement of Indian evidentiary rules; local directions govern the incident.
 
-Use the recorder's own export function, onto a USB drive or a separate hard disk — not a phone recording of the screen. A screen recording loses resolution and strips out the timestamp metadata embedded in the original file, which weakens it as evidence later. If the recorder is inaccessible for some reason and a phone video is genuinely the only option, it's better than nothing, but treat it as a last resort, not a shortcut.
+If authorized access is unavailable, record the problem and seek assistance promptly rather than resetting the recorder or experimenting with its disks.
 
-Export footage from every camera that might have caught something — the entry point, the till or storage area, and any camera covering an escape route — not just the one angle that seems most relevant. A second angle often resolves ambiguity the first one leaves open.
+## Identify the relevant interval and cameras
 
-## Step two: check your timestamps
+Start with the last confirmed normal event and the first confirmed discovery. Record both times and their sources. The interval may be wider than the moment that appears suspicious in a first review.
 
-Before you rely on the exported clip, confirm the time shown on it matches real time. Recorder clocks drift, especially after a power cut, and a footage timestamp that's an hour off can create confusion later about exactly when the incident happened — which matters if you're cross-referencing against a punch-clock record, a delivery log, or a witness account.
+List the views that might explain the sequence, such as an entrance, the relevant area and a connecting route. Note missing footage or an unavailable channel honestly. Do not describe the absence of a recorded event as proof that nothing happened there.
 
-## Step three: file the FIR
+Keep a simple incident index: camera name, selected interval, reviewer and why that interval was chosen. This reduces the chance of losing context as several clips are reviewed.
 
-Most insurance policies require a First Information Report to process a theft claim, so this isn't optional if you intend to claim. File it as soon as practically possible after you've preserved the footage — not before, since you want to be able to hand over a clean export rather than promise one. Note the FIR number; you'll need it for the insurance claim.
+## Record clock differences before changing anything
 
-## Step four: log who touches the footage from here
+Note the date and time displayed by the recorder and compare them with a reliable reference. Document the difference and the time of the comparison. Do not silently correct a clock and then assume earlier recordings used the corrected time.
 
-Every time the exported footage is copied, viewed, or handed to someone — police, insurer, a lawyer, your own team — note who, when, and why. This sounds bureaucratic for a small shop, but it's cheap insurance. A copy that travelled through three personal phones and a WhatsApp group before reaching the police has a custody trail nobody can reconstruct, and that gap is exactly what gets a claim or a case disputed later.
+When comparing video with billing, attendance or delivery records, preserve the original timestamps and explain any adjustment used in the review. Ask the investigator or appropriate specialist how they want uncertainties presented.
 
-## Step five: contact your insurer with the paperwork ready
+The [recorder identification guide](/insights/dvr-vs-nvr-which-do-you-have) can help locate the relevant model information without guessing from the sockets.
 
-Once you have the exported footage, the FIR number, and a rough estimate of what was taken, contact your insurer. Having the documentation assembled before the call, rather than promising to send it later, moves the claim faster and avoids the insurer asking for footage that's already been overwritten by the time you get back to it.
+## Verify the export instead of trusting a progress bar
 
-## Step six: only now, review what let it happen
+Follow the installed product's documented export process with the required permissions. Preserve the relevant original material and keep any edited review copy separate and clearly labelled. Include associated files or a supported player where the product requires them.
 
-Once the urgent steps are done, look at what the footage actually shows about how the theft happened — a blind spot, a door left unlocked, a shift-change gap nobody was covering. This is useful, important work, but it isn't time-critical, and doing it before steps one through four risk means the footage itself might not survive long enough for the review to matter. We build systems that make step one automatic — footage flagged and preserved the moment an alert fires, rather than relying on someone remembering in time — and we say that knowing it's also our product, so weigh it accordingly.
+For example, the [AXIS Camera Station manual](https://help.axis.com/en-us/axis-camera-station-5) documents export formats, optional notes and playback tools. It also describes verification features available in that product. These are reasons to check your own system's instructions, not to assume that every recorder offers identical options.
 
-## Where this doesn't help
+Open the saved files from the intended storage location. Check the selected cameras, start and end times, continuity and any required audio where recording and use are authorized. Note failures and missing parts. A file existing on a drive does not establish that it is complete or useful.
 
-None of this recovers footage that's already been overwritten. If your storage window is genuinely short — a handful of days on a busy site — the honest fix is more storage or an alerting system that flags and preserves an incident automatically, not a faster checklist after the fact. And none of this is legal advice on your specific claim or case; insurance and evidence requirements vary, so confirm the details with your insurer and, if it goes to a dispute, a legal advisor.
+## Keep the handover understandable
+
+Record who exported the files, when, from which equipment and where the preserved copy is held. Log subsequent copies and handovers with their purpose and recipient. Limit access to those handling the incident rather than circulating identifiable footage in public or informal groups.
+
+Notify the insurer promptly where relevant and ask for its actual reporting and documentation requirements. Do not wait for a perfect evidence pack or assume a universal deadline or document list. A recorder supplier cannot guarantee a claim outcome or legal admissibility.
+
+After urgent preservation and reporting, review the operational gap: unavailable coverage, unclear time records, failed retrieval or an unowned alert. An AI Alerto by PGAK assessment can scope a future test of recording access and alert handling. Any promised automatic preservation needs its own supported demonstration; it should never be assumed from the presence of an alert.
+
+## Questions before the assessment
+
+### Should CCTV export come before reporting an urgent incident?
+
+No. Immediate safety and getting appropriate help come first. Report promptly and tell the responding authority that CCTV may be available. An authorized person can work on preservation without delaying those actions.
+
+### Does a successful export prove footage will be accepted as evidence?
+
+No. Check that the files contain the required material and can be played, and document their source and handover. The relevant authority, insurer or qualified adviser must confirm the requirements for the particular matter.
 
 [Ask for a free feasibility check](#dealer)
