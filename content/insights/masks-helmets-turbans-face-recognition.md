@@ -12,7 +12,7 @@ faqs:
   a: No. Required protective equipment must stay in place wherever the safety procedure requires it. Assess the attendance method under those conditions or provide an approved alternative. A successful demonstration does not justify weakening a safety control.
 - q: Will turbans or helmets always work with face recognition?
   a: There is no universal result for every system and setting. Test the actual permitted headwear, camera view, lighting and movement with authorized participants. Document limitations without treating a group or a garment as inherently unsuitable.
-updated: '2026-11-03'
+updated: "2026-11-04"
 ---
 
 Your team wears masks, helmets, turbans or other headwear during normal work. A face-attendance proposal is only useful if it is evaluated with the real process in mind. A demonstration that depends on removing required protection does not establish suitability for the workplace.

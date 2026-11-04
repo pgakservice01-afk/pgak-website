@@ -11,7 +11,7 @@ faqs:
   a: CCTV can support a review of an observable vehicle and weighing sequence, but it does not certify the scale or replace its authoritative transaction record. Check how the video, vehicle reference and weighbridge record are linked.
 - q: Should a rice sheller use face recognition for seasonal workers?
   a: The decision depends on the actual attendance requirement, approved enrolment process, workforce changes and support effort. Compare a bounded pilot with the existing process. Do not assume either automatic suitability or universal unsuitability for seasonal work.
-updated: '2026-11-03'
+updated: "2026-11-04"
 metaTitle: 'Rice-sheller CCTV: connect gate and weighbridge review'
 ---
 

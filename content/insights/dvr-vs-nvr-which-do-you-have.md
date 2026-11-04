@@ -11,7 +11,7 @@ faqs:
   a: Some models can. Check the exact recorder manual, supported channel modes and configured limits. The DVR label or the presence of a network socket does not establish which camera inputs and features are available.
 - q: Does remote viewing prove my recorder will work with AI analytics?
   a: No. A working viewing app does not establish access to a supported stream or the image quality needed for a particular task. Test the proposed connection and the actual analytics workflow before committing to an upgrade.
-updated: '2026-11-03'
+updated: "2026-11-04"
 metaTitle: DVR or NVR? Identify your recorder before an upgrade
 ---
 

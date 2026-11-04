@@ -11,7 +11,7 @@ faqs:
   a: No. Immediate safety and getting appropriate help come first. Report promptly and tell the responding authority that CCTV may be available. An authorized person can work on preservation without delaying those actions.
 - q: Does a successful export prove footage will be accepted as evidence?
   a: No. Check that the files contain the required material and can be played, and document their source and handover. The relevant authority, insurer or qualified adviser must confirm the requirements for the particular matter.
-updated: '2026-11-03'
+updated: "2026-11-04"
 metaTitle: 'After a theft: preserve CCTV without delaying help'
 ---
 

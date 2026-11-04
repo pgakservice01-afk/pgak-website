@@ -12,7 +12,7 @@ faqs:
   a: No. Stream access is one part of feasibility. The proposed software must support the actual feed and receive usable images for the intended task under normal operating conditions. Test the complete workflow.
 - q: Is camera age enough reason to replace a CCTV system?
   a: Age alone does not settle the decision. Review condition, support and security maintenance, available functions, image suitability and the cost of keeping the installation reliable. A documented limitation is more useful than a blanket age rule.
-updated: '2026-11-03'
+updated: "2026-11-04"
 ---
 
 A quote to replace every camera is difficult to judge if it does not explain what each replacement will improve. A promise to reuse everything can be just as incomplete. The decision should start with the work each view needs to support.

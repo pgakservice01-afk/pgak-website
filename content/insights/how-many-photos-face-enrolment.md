@@ -10,7 +10,7 @@ faqs:
   a: Use the requirements of the specific system and version being installed. Some workflows accept different numbers or types of samples. There is no universal four-to-six-photo rule, and additional images are useful only where the supported process calls for them.
 - q: Should I add more photos whenever an employee is not recognized?
   a: 'First investigate the failed stage: capture quality, identity mapping, enrolment, matching or later attendance processing. Follow the supported correction procedure and test it. Extra photographs do not automatically fix every kind of failure.'
-updated: '2026-11-03'
+updated: "2026-11-04"
 metaTitle: 'Face enrolment: choose the right process, not a photo count'
 metaDescription: Plan face-attendance enrolment with system-specific capture requirements, correct employee mapping, authorized images and a practical validation test.
 ---

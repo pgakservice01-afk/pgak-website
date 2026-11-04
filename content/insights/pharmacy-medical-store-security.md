@@ -10,7 +10,7 @@ faqs:
   a: No. Video may help review an observable sequence, but it does not replace the applicable stock, dispensing or billing records. The responsible pharmacy team must establish its own required records and compliance procedures.
 - q: Should pharmacy attendance be assessed with the security cameras?
   a: It can be considered as a separate requirement, but a security view does not automatically support attendance. Check the proposed capture method, enrolment, employee mapping and exception review, including the protective equipment staff normally wear.
-updated: '2026-11-03'
+updated: "2026-11-04"
 metaTitle: 'Pharmacy CCTV: assess stock review and after-hours alerts'
 metaDescription: Assess pharmacy CCTV for stock discrepancies, counter review and after-hours response while limiting unnecessary exposure of patient information.
 ---

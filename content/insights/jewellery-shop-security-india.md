@@ -11,7 +11,7 @@ faqs:
   a: There is no reliable universal count. Define the counter, entrance, restricted-access and other review tasks for the actual layout. Test what each proposed view can show before deciding whether another camera is needed.
 - q: Can jewellery-shop analytics prove that a customer or employee stole something?
   a: An alert or ambiguous video does not establish intent or guilt. Authorized reviewers should examine the relevant footage and operational records. Keep any investigation separate from an automated event label.
-updated: '2026-11-03'
+updated: "2026-11-04"
 metaTitle: 'Jewellery-shop CCTV: assess the counter, access and response'
 ---
 

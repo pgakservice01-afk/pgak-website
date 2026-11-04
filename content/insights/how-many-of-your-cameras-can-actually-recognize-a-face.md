@@ -7,7 +7,7 @@ metaDescription: Assess CCTV face-readiness with authorized samples, real walkin
 metaTitle: Can your CCTV support face recognition? Check each view
 readTime: 4
 image: /insights/camera-setup.webp
-updated: '2026-11-03'
+updated: "2026-11-04"
 faqs:
 - q: Can I judge face-recognition readiness from the camera megapixels?
   a: No. Review the actual recorded view, subject position, image detail and operating conditions, then test the proposed recognition system with appropriate authorized samples. The resolution label alone does not establish the result.
