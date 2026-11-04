@@ -1,58 +1,72 @@
 ---
-title: "Rice shellers and grain mandis: seasonal labour and stock"
-date: "2026-09-19"
-category: "Security Basics"
-excerpt: "For a few weeks each procurement season, a mandi or rice sheller triples its headcount and stacks its yard full of bags worth more than the rest of the year's stock combined. Why the security plan that works in the off-season falls apart exactly when it matters most."
-metaDescription: "How to secure a rice sheller or grain mandi during procurement season, when seasonal labour and open-yard stock create the highest risk."
-readTime: 5
-image: "/insights/covers/rice-sheller-grain-mandi-security.webp"
+title: 'Rice-sheller CCTV: connect gate and weighbridge review'
+date: '2026-09-19'
+category: Security Basics
+excerpt: Assess rice-sheller and mandi CCTV around vehicle movement, weighbridge references and changing yard views, with safe installation and clear review roles.
+metaDescription: Assess rice-sheller and mandi CCTV around vehicle movement, weighbridge references and changing yard views, with safe installation and clear review roles.
+readTime: 4
+image: /insights/covers/rice-sheller-grain-mandi-security.webp
 faqs:
-  - q: "What cameras does a grain mandi or rice sheller need?"
-    a: "Coverage at the weighbridge, the gate, and the open yard where bags are stacked, prioritised in that order. The weighbridge and gate are where disputes and theft concentrate during procurement season; the yard needs enough coverage to see the rows, not necessarily every bag."
-  - q: "How do you monitor a weighbridge with CCTV?"
-    a: "A camera angled to capture both the weight display and the vehicle or bags being weighed in the same frame, timestamped and stored for at least as long as your typical payment dispute window. This lets a disputed weight be checked against the recorded reading instead of relying on memory."
-  - q: "Can CCTV handle the seasonal labour churn at a mandi?"
-    a: "Not through face enrolment — with workers turning over week to week during peak arrivals, enrolling each one for recognition costs more admin time than it saves. General yard and gate coverage, plus a simple daily headcount at the weighbridge, does more good for less effort during a short season."
-  - q: "How do you secure an open grain yard that has no walls?"
-    a: "Perimeter cameras at the corners covering the approach roads, since an open yard usually can't be fully walled during peak season. Lighting matters as much as camera count — most yard theft during procurement season happens after dark, when the yard is at its fullest and least supervised."
+- q: Can CCTV verify the weight recorded by a weighbridge?
+  a: CCTV can support a review of an observable vehicle and weighing sequence, but it does not certify the scale or replace its authoritative transaction record. Check how the video, vehicle reference and weighbridge record are linked.
+- q: Should a rice sheller use face recognition for seasonal workers?
+  a: The decision depends on the actual attendance requirement, approved enrolment process, workforce changes and support effort. Compare a bounded pilot with the existing process. Do not assume either automatic suitability or universal unsuitability for seasonal work.
+updated: "2026-11-04"
+metaTitle: 'Rice-sheller CCTV: connect gate and weighbridge review'
 ---
 
-**Straight answer: during procurement season, a mandi or rice sheller should prioritise camera coverage at the weighbridge and gate over the open yard, because that's where disputes and theft concentrate — and skip face-recognition enrolment for casual seasonal labour, since the workforce turns over too fast for enrolment effort to pay back.**
+A disputed vehicle movement at a rice sheller or grain mandi may involve a gate register, a weighbridge slip and several camera views. If those records cannot be linked, the presence of CCTV does not guarantee a useful explanation.
 
-Ludhiana's mandis and rice shellers run two different years. For most months, it's a manageable site — a fixed crew, predictable stock levels, a security setup that was probably adequate when it was installed. Then paddy or wheat arrives, and for a few weeks the yard fills with more grain than the rest of the year combined, the labour headcount triples with people nobody has worked with before, and the weighbridge becomes the busiest and most disputed point on the property.
+Start with one vehicle journey through the site. Define the records needed at entry, weighing, loading or unloading, and exit. This gives the camera assessment a concrete purpose without assuming every site has the same seasonal pattern or security problem.
 
-Security plans built for the quiet months don't hold up here, because the risk doesn't scale evenly — it concentrates hard at three points.
+## Trace one journey before adding coverage
 
-## Where does the real risk sit during procurement season?
+Ask the dispatch or yard team to describe a normal authorized movement. Mark where a vehicle stops, where its reference is recorded and where the next responsible person accepts the handoff. Include any separate route used by tractors, trucks or other vehicle types.
 
-**The weighbridge.** This is where arhtiyas, farmers and buyers all have a stake in the same number, and where a disputed weight can mean a disputed payment. It's also usually the least monitored point on site, because it was never treated as a security location — just a scale.
+For each handoff, state what the camera should help a reviewer observe. An overview may explain the queue; another view may be needed for a visible plate or a loading sequence. Treat these as different tasks and record any view that cannot support the requested detail.
 
-**The gate.** Every vehicle in and out, every bag movement authorised or not, passes through here. During peak arrivals this becomes a bottleneck of trucks, tractors and loose bags, which is exactly the cover under which unauthorised movement is hardest to notice.
+Test with ordinary operating positions. A vehicle parked just for a demonstration may not reveal the obstruction created by the next vehicle in a busy queue.
 
-**The open yard.** Bags stacked in rows, often with no wall on at least one side because a wall would slow down the loading and unloading the season depends on. Stock sitting here for even a few days at peak season is worth far more than the same yard holds the rest of the year.
+## Keep the weighbridge record authoritative
 
-Cameras spread evenly across the site under-cover all three. The order above is the order that matters.
+Identify the transaction reference and how it connects to the vehicle and time. If a display is meant to be visible in the recording, demonstrate that it can actually be read under the relevant conditions. Do not require one wide image to show everything if it cannot provide usable detail.
 
-## How should a weighbridge actually be monitored?
+Review the clock relationship between the recorder and the weighbridge system. Record any difference before comparing an incident. A visual match should not be described as a certified measurement or a replacement for the weighbridge's own records and checks.
 
-Point the camera so it captures the weight reading and the load being weighed in the same frame, with a timestamp. When a farmer or buyer disputes a weight later — and during a busy procurement week, someone will — you want to be able to pull the exact reading rather than relying on the operator's memory or a handwritten slip that can be redone.
+If software integration is proposed, ask for the exact fields, supported interface and treatment of missing or corrected records. Keep that integration separate from a basic CCTV feasibility claim.
 
-This is a small, specific fix and it's the one most mandis skip, because the weighbridge was set up as a scale, not as a point that needed evidence.
+## Assess vehicle recognition in its own lane
 
-## Why doesn't face recognition work well for seasonal labour here?
+Where a plate-reading requirement exists, define the lane, travel direction, stopping point and ordinary vehicle conditions. Request recorded examples from the proposed position. Keep unreadable or uncertain results visible rather than forcing every movement into a confident identity.
 
-This is worth being honest about, because it's the opposite of how we'd usually pitch face recognition. Enrolling a worker takes a few minutes and needs a reasonably clean photo set. When your labour force is genuinely temporary — arriving for a few weeks of procurement and gone once the season ends — the enrolment overhead outweighs what it buys you. You'd spend more staff time managing enrolment than the system saves you in attendance accuracy.
+The [ANPR assessment guide](/insights/anpr-number-plate-recognition-when-it-works) explains the difference between a vehicle overview and a proposed plate-recognition workflow. Confirm the actual supported connection before assuming the existing gate camera can provide it.
 
-What actually helps in that window is simpler: general camera coverage of the yard and gate so movement is recorded even without individual identification, and a basic daily headcount at the weighbridge or gate rather than an automated per-person log. Save face-recognition attendance for your permanent crew, where the enrolment cost is paid back many times over across the year.
+Even a correct plate read does not authorize dispatch or establish the quantity carried. The responsible operator still needs the appropriate business record and decision process.
 
-## How do you secure a yard that has no real perimeter?
+## Recheck the yard as operations change
 
-Most mandi yards can't be fully walled during peak season — trucks need wide access, and a wall that slows down unloading costs more in delayed procurement than it saves in security. The practical fix is corner cameras covering the approach roads and stack rows, not full perimeter fencing.
+Walk the relevant views when stacks, parked vehicles or loading positions change. Mark which required observations become blocked and who is responsible for reviewing the layout. Keep safe access for maintenance in the installation plan.
 
-Lighting matters more here than camera count. A yard that's brightly lit deters far more than an extra camera pointed into darkness — most yard theft during a busy procurement week happens after dark, precisely when the yard is fullest and the crew is most stretched between the weighbridge queue and loading.
+Ask the site's responsible specialists to assess environmental and equipment requirements, including any area where dust or another hazard is identified. Axis's [explosion-protected camera guidance](https://www.axis.com/en-us/products/explosion-protected-cameras) describes equipment certified for specified hazardous environments. That does not classify your site or establish that ordinary CCTV is suitable there.
 
-## What should you check before the next arrival season starts?
+Cameras and analytics remain separate from the site's safety controls. Do not move equipment or change work practices solely to improve a demonstration without the appropriate review.
 
-Walk your weighbridge and check whether the camera actually captures the display, not just the vehicle. Then check whether your gate camera can handle the truck queue at peak hour without blind spots created by parked vehicles. We build camera-based systems for sites like this, so weigh that against your own read of the site — but the weighbridge fix alone is worth doing regardless of who does it.
+## Give seasonal attendance a separate decision
+
+For temporary or permanent workers, first define the attendance record the operation needs. Check who maintains identities, approves corrections and removes access after an assignment ends. The effort and benefit depend on the actual process, not just the word seasonal.
+
+Use the [contract-labour attendance guide](/insights/attendance-system-for-contract-labour) to define those responsibilities. Any recognition trial must include normal protective equipment and an approved fallback for unresolved records.
+
+An AI Alerto by PGAK assessment should finish with a bounded vehicle or yard pilot, its review owner and a list of unresolved connections. Bring the layout, camera models and anonymized examples of the operational records. The useful result is a traceable review workflow, not a claim that video alone establishes stock, weight or permission.
+
+## Questions before the assessment
+
+### Can CCTV verify the weight recorded by a weighbridge?
+
+CCTV can support a review of an observable vehicle and weighing sequence, but it does not certify the scale or replace its authoritative transaction record. Check how the video, vehicle reference and weighbridge record are linked.
+
+### Should a rice sheller use face recognition for seasonal workers?
+
+The decision depends on the actual attendance requirement, approved enrolment process, workforce changes and support effort. Compare a bounded pilot with the existing process. Do not assume either automatic suitability or universal unsuitability for seasonal work.
 
 [Ask for a free feasibility check](#dealer)

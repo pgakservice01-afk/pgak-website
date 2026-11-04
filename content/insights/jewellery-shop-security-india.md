@@ -1,56 +1,72 @@
 ---
-title: "Jewellery retail security: layered, not just more cameras"
-date: "2026-09-18"
-category: "Security Basics"
-excerpt: "Most jewellery shops respond to a scare by adding cameras at the door. The bigger gaps are usually at the counter, the strongroom and the street outside — and inside the staff roster, handled fairly."
-metaDescription: "Most jewellery shops respond to a scare by adding cameras at the door. The bigger gaps are usually at the counter, the strongroom and outside."
-readTime: 6
-image: "/insights/covers/jewellery-shop-security-india.webp"
+title: 'Jewellery-shop CCTV: assess the counter, access and response'
+date: '2026-09-18'
+category: Security Basics
+excerpt: Plan jewellery-shop CCTV around counter review, stock reconciliation, restricted access and alert ownership, with useful tests before adding cameras.
+metaDescription: Plan jewellery-shop CCTV around counter review, stock reconciliation, restricted access and alert ownership, with useful tests before adding cameras.
+readTime: 4
+image: /insights/covers/jewellery-shop-security-india.webp
 faqs:
-  - q: "How many cameras does a jewellery shop need for good security?"
-    a: "There's no fixed number — the count matters less than covering four specific positions: the counter (close enough to see hands and the display case), the strongroom or vault entry, the shop entrance, and the street outside. A shop with eight well-placed cameras at those points is better covered than one with twenty scattered ones."
-  - q: "What is distraction theft in a jewellery shop and how do cameras help?"
-    a: "Distraction theft is when one person asks to see several items to occupy the staff member's attention while an accomplice pockets a piece or swaps it. A camera angled down onto the counter, close enough to see hands and tray contents rather than just faces, is what actually catches the swap — a wide entrance camera usually isn't close enough to help."
-  - q: "Can CCTV stop an armed robbery in a jewellery shop?"
-    a: "No. Cameras document an incident for identification and insurance; they don't physically stop someone who is already inside and armed. Preventing that relies on time-delay locks, a strongroom that isn't openable under duress alone, and a panic alarm that reaches help fast — cameras are the record, not the barrier."
-  - q: "How should a jewellery shop monitor staff without treating them as suspects?"
-    a: "Through routine, applied-to-everyone reconciliation rather than watching any one person: stock counts against transaction records, and access logs on the strongroom that show who opened it and when. Framed as a standard control that protects honest staff by ruling them out quickly, not as surveillance aimed at anyone in particular, it settles disputes instead of creating them."
-  - q: "Does street-facing CCTV actually prevent jewellery shop robberies?"
-    a: "It helps with the planning stage more than the act itself. Robberies are often preceded by someone loitering outside or walking past repeatedly over several days to study staff movements and locking routines. A camera covering the street and entrance can catch that pattern before the day of the robbery — but once someone is inside and committed, the camera's job shifts to identification, not prevention."
+- q: How many cameras does a jewellery shop need?
+  a: There is no reliable universal count. Define the counter, entrance, restricted-access and other review tasks for the actual layout. Test what each proposed view can show before deciding whether another camera is needed.
+- q: Can jewellery-shop analytics prove that a customer or employee stole something?
+  a: An alert or ambiguous video does not establish intent or guilt. Authorized reviewers should examine the relevant footage and operational records. Keep any investigation separate from an automated event label.
+updated: "2026-11-04"
+metaTitle: 'Jewellery-shop CCTV: assess the counter, access and response'
 ---
 
-**Straight answer: a jewellery shop needs four specific camera positions covering the counter, the strongroom entry, the shop entrance and the street outside — not simply more cameras. The counter camera, angled to see hands and the display tray, is what catches distraction theft. Cameras document a robbery in progress; they don't stop one. And staff-side risk is best handled through routine reconciliation applied to everyone, not through watching individuals.**
+When a tray count does not reconcile, a clear entrance picture may not answer the question at the counter. Before adding another camera, decide which part of the handling sequence you need to understand and whether the existing recording can show it.
 
-After a scare — a snatch attempt, a near-miss, a robbery down the road — the usual reaction is to call the CCTV vendor and ask for more cameras at the door. That's understandable, and it's also the wrong first question. The door is rarely where jewellery retail loses money or gets hurt.
+A jewellery-shop assessment should connect video with the way stock, access and incidents are already managed. The aim is usable evidence and an accountable response, with clear limits on what a camera can establish.
 
-## Where does jewellery theft actually happen inside the shop?
+## Write one counter question precisely
 
-Mostly at the counter, through distraction rather than force. A customer asks to see several pieces at once — a common, genuinely innocent request most of the time — and while the salesperson's attention is split between trays, an accomplice swaps or pockets a piece. This works because the salesperson's eyes are on the customer's face, not on their hands or the tray. A wide camera at the entrance, thirty feet away, never sees this clearly enough to matter.
+Choose a normal transaction for an authorized demonstration using suitable sample items. Ask whether the view shows the tray arriving, items being presented and the tray leaving. Include the positions of both the customer and staff member, because either may block the relevant detail without doing anything wrong.
 
-## What should the counter camera actually show?
+Review the saved recording, not only the live monitor. Confirm that a manager can retrieve the relevant interval and understand the sequence. If an item is too small or a hand blocks the view, record that limitation instead of claiming the camera settles every discrepancy.
 
-Hands and tray, not faces. A camera mounted to look down and across the counter — close enough to resolve individual pieces moving — is what actually settles a disputed count afterwards. If your current camera gives you a good headshot of every customer but a blurry wide shot of the display case, it's set up for the wrong problem.
+Do not infer the value, identity or exact count of jewellery from a view that has not demonstrated those details. Keep the stock and transaction records as separate evidence.
 
-## What about the strongroom or vault?
+## Check reflections and ordinary movement
 
-This is where access control matters more than the camera itself. A camera at the strongroom door records who went in and when; it doesn't decide who's allowed to. Pair it with a log — even a simple register cross-checked against the footage — so that "who opened the safe on Tuesday at 2pm" has one answer, not three conflicting ones from memory.
+Glass cabinets, reflective surfaces and changing entrance light deserve attention during the survey. Ask the installer to test the actual counter arrangement at relevant times, including normal display lighting. Compare before-and-after recordings if settings or placement change.
 
-## Can cameras stop an armed robbery?
+Axis's [image-quality troubleshooting guidance](https://help.axis.com/en-us/troubleshooting-image-quality) describes why exposure, focus and lighting conditions matter. It supports checking the image; it does not prove that a particular analytics product can recognize a theft or count jewellery.
 
-No, and any pitch that implies otherwise is overselling. Once someone is inside, armed, and past the door, a camera's job is to record for identification and insurance — it has no physical way to intervene. What actually slows a robbery down is a time-delay lock on the strongroom, a display case that can't be opened by one person alone under pressure, and a panic alarm that reaches the police or a response team quickly. Cameras belong alongside these controls, not instead of them.
+The [reuse-or-replace guide](/insights/reuse-existing-cctv-or-replace) helps turn each failed observation into a specific proposed change rather than a blanket camera upgrade.
 
-## Does the street outside matter?
+## Keep restricted-access records distinct
 
-Often more than people expect. Robberies are rarely spontaneous — someone frequently loiters near the shop or walks past repeatedly over several days, checking staff timing, the lock-up routine, and which side the alarm panel faces. A camera covering the street and the approach to the entrance, reviewed for that kind of repeat pattern, can flag the casing stage while there's still time to act — change a routine, alert the local police beat, or simply be more alert that week. Once the robbery itself starts, the same camera's role shifts from prevention to record-keeping.
+For a stockroom or other restricted area, decide what needs recording: a door opening, an authorized access event, or the movement of a tray through a defined point. Write down which existing register or system is authoritative for permission.
 
-## How do you handle staff-side risk without accusing anyone?
+A camera view of someone near a doorway does not establish that they entered, opened a safe or removed stock. Where access logs and video are reviewed together, check their timestamps and document any mismatch. Avoid making an accusation from a single event label.
 
-Carefully, and as a routine applied to everyone rather than a hunt aimed at one person. Reconcile stock counts against transaction records on a fixed schedule. Keep the strongroom access log genuinely reviewed, not just recorded. Frame it, and mean it, as a control that clears honest staff fast when something doesn't add up — because in a small team, an unresolved discrepancy is corrosive to trust in both directions. Singling someone out based on a hunch does more damage to morale than the loss you're trying to prevent.
+Ask the responsible security specialist to review physical controls and emergency arrangements separately. CCTV and analytics do not replace an established procedure for protecting staff and customers during an incident.
 
-## What's the honest limitation here?
+## Give after-hours alerts an owner
 
-Camera footage and access logs settle disputes about what happened. They don't replace the physical delays — locks, time-release safes, alarm response — that actually slow an armed intruder down, and they can't fully substitute for a staff member's judgement about who they're serving. A shop that adds analytics on top of good physical security gets real value; a shop that adds analytics instead of physical security is just recording its own loss in better resolution.
+Pick a bounded example, such as activity inside a specified area after closing. Define the schedule, legitimate exceptions and the person expected to review a notification. Include an escalation route when the first recipient is unavailable.
 
-We build camera-based analytics for retail security including counter and entrance coverage, so factor that interest in when weighing this against other advice. It's not the right fit for a shop that hasn't yet fixed the basics — lighting, lock quality, a working panic button — since no amount of footage review compensates for those being absent.
+Run a controlled test when it is safe to do so. Record the observed event, notification receipt, acknowledgement and agreed next action. Also test an authorized out-of-hours visit so the team can distinguish the operating rule from a claim that all late movement is criminal.
+
+If the proposed system cannot demonstrate delivery and ownership, record that gap. A detection on a supplier's screen is not a completed response workflow.
+
+## Make review fair and retrievable
+
+Limit access to the people who need it and define how a stock discrepancy is reviewed. Use the same reconciliation process consistently. Keep observations, assumptions and confirmed findings separate in the incident record.
+
+Agree how relevant recordings are preserved and how routine retention is managed. Test retrieval with an authorized sample rather than discovering export problems during a dispute. The [incident-footage checklist](/insights/what-to-do-day-after-a-theft) covers the preservation workflow without promising a particular legal outcome.
+
+Bring a simple shop layout, existing camera models and one unresolved review task to an AI Alerto by PGAK assessment. A useful pilot should show what can be observed, who acts on it and what remains outside its scope. It should not sell a fixed camera count or guaranteed theft prevention.
+
+## Questions before the assessment
+
+### How many cameras does a jewellery shop need?
+
+There is no reliable universal count. Define the counter, entrance, restricted-access and other review tasks for the actual layout. Test what each proposed view can show before deciding whether another camera is needed.
+
+### Can jewellery-shop analytics prove that a customer or employee stole something?
+
+An alert or ambiguous video does not establish intent or guilt. Authorized reviewers should examine the relevant footage and operational records. Keep any investigation separate from an automated event label.
 
 [Ask for a free feasibility check](#dealer)

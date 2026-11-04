@@ -124,11 +124,11 @@ export const PROJECTS: Project[] = [
     place: "",
     scope: "Camera mounted on the existing pillar; operator console at the gate",
     description:
-      "The camera as actually fitted to a gate pillar, and the console the gate operator works from. Two photographs rather than a rendering, because where a plate camera ends up sitting is most of whether it reads anything.",
+      "Two photographs show the camera fitted to an existing gate pillar and the gate operator console. They document this installation and its interface; they do not measure plate-reading performance.",
     conditions:
-      "Photographed on site. Mounted at roughly 1.5 metres in daylight — a plate read at that height and that light says nothing about a plate at roof height at night.",
+      "Photographed on site in daylight, with the camera mounted at roughly 1.5 metres. The image annotation refers to this installation and is not a universal height specification. Night performance and other camera positions are not demonstrated by this photograph.",
     limits:
-      "Mounting height, approach angle and lighting decide plate accuracy far more than the software does. Both are checked at the assessment.",
+      "Plate-reading accuracy, missed reads and performance in other lighting or traffic conditions are not established by these photographs. Assess the camera view and software together, then measure representative vehicle passages at your site.",
     media: {
       kind: "image",
       src: "/proof/anpr-camera-mount-800.webp",

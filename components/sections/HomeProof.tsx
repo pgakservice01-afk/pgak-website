@@ -63,7 +63,7 @@ export default function HomeProof() {
             {
               src: "/proof/anpr-camera-mount.webp",
               alt: "A PGAK number plate recognition camera mounted on a pillar at a site entrance",
-              cap: "The camera on its pillar, at the height plate reading actually needs.",
+              cap: "The camera on its existing pillar at this installation. Its height annotation is site specific, not a universal mounting rule.",
             },
             {
               src: "/proof/anpr-gate-console.webp",

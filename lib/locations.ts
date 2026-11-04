@@ -102,7 +102,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 30.901, lng: 75.857 },
     focus: "Hosiery, cycle parts, machine tools and distribution warehousing",
     attendanceContext:
-      "Ludhiana's attendance problem is a shift-change problem. A hosiery unit off Chandigarh Road or a cycle-parts works in the Focal Point puts several hundred people through one gate inside ten minutes, and the hands on those lines are exactly the ones fingerprint readers reject: dye, oil and ridges worn flat by years of press work. Add contractor gangs that turn over weekly and migrant labour that arrives with the season, and the register in the supervisor's drawer quietly becomes the real record of who worked. Reading faces off the gate camera removes the queue and the failed scan together, and because it is the camera doing the work, the same gate that logs attendance is still watching the gate.",
+      "Ludhiana's hosiery and cycle-parts businesses can have busy shift gates and changing contractor rosters. Assess attendance against the actual arrival flow, lighting and required workwear at each entrance. Camera-based identity matching depends on usable views and approved enrolment; it does not remove every queue or failed match. Agree an authorised fallback, exception-review owner and correction process before relying on records for payroll.",
     intro:
       "This is home. PGAK is built in Ludhiana, our office is on Gill Road, and the first sites we ever ran are still running here. That means something practical for a Ludhiana buyer: the survey, the installation and the fortnight of tuning afterwards are done by our own team, not passed to a partner. The city gives us two problems more than any other — attendance at gates too busy for a machine, and stock walking out of warehouses nobody can watch.",
     localContext: [
@@ -134,7 +134,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         name: "Gill Road and the cycle-parts belt",
-        text: "Our own doorstep. Dense workshops, mixed-age camera estates, and owners who want one thing to work before they will consider a second. The usual starting point here is the gate — attendance and a record of who entered — because it pays for itself in payroll accuracy before anyone argues about security.",
+        text: "Gill Road is close to PGAK's Ludhiana base. For workshops with mixed camera systems, begin with one defined gate or attendance problem. Check compatibility, record the current manual review workload and compare a scoped trial against agreed criteria before estimating any payroll or security benefit.",
       },
       {
         name: "The Chandigarh Road hosiery belt",
@@ -152,11 +152,11 @@ export const LOCATIONS: Location[] = [
       },
       {
         q: "Our gate has three hundred workers arriving in ten minutes. Will it keep up?",
-        a: "That is the case it is built for, because there is no queue at all — nobody stops, nobody touches anything, people simply walk in and the camera reads faces as they pass. The limit is not throughput, it is camera placement: one camera at head height covering the walking line, rather than one mounted high on a pole looking at the tops of heads. The audit tells you which of yours qualify.",
+        a: "Test the actual peak arrival period before deciding. Walking speed, crowding, lighting, camera position and visible facial detail can affect usable captures and matches. Record missed and false matches, retain required PPE, and agree a fallback for people who cannot be matched reliably. The assessment should establish suitable camera views and processing capacity rather than promise a queue-free gate.",
       },
       {
         q: "We already have forty cameras in the godown. Do we replace them?",
-        a: "No. If the DVR or NVR gives an RTSP stream, which nearly every recorder installed in the last decade does, the software runs on what is already there. In a forty-camera godown the honest answer is usually that six to eight of those cameras are worth making intelligent — the bays, the restricted aisles, the gate — and the rest stay as ordinary recording.",
+        a: "Start by checking the exact camera and recorder models, firmware, authorised stream access, image quality and processing requirements. An RTSP stream alone does not confirm suitability for every analytic. Prioritise the gate, bays or restricted areas against your use case, then agree which cameras can be retained and which changes are needed. Do not send camera credentials through the enquiry form.",
       },
       {
         q: "Can it separate our own trucks from everyone else's?",
@@ -164,7 +164,7 @@ export const LOCATIONS: Location[] = [
       },
       {
         q: "Winter doubles our headcount. Is enrolment going to eat our supervisor's week?",
-        a: "It should take a minute a person, done at the gate from a phone, which is why the hosiery units here care about it. There is no enrolment machine to queue at and no fingerprint to re-take when it fails. When the season ends you remove them just as quickly, and the payroll record for the period stays intact.",
+        a: "Measure enrolment time using your approved workflow and actual workwear before a seasonal intake. Agree who creates, checks and removes identities, how uncertain matches are corrected, and how attendance records are retained. Required PPE stays in place; use an authorised alternative where the face view is unsuitable. The assessment should establish the workload rather than assume a fixed time per person.",
       },
     ],
   },

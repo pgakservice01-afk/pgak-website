@@ -1,56 +1,72 @@
 ---
-title: "What actually affects face recognition accuracy"
-date: "2026-09-07"
-category: "Attendance"
-excerpt: "A vendor's 99% accuracy number tells you almost nothing about your gate. Pixel count, camera angle, lighting and motion are what actually decide whether a face is recognised."
-metaDescription: "A vendor's 99% accuracy claim says little about your gate. Pixels between the eyes, camera angle, lighting and motion blur decide the real result."
-readTime: 5
-image: "/insights/category/attendance-2.webp"
+title: 'Face-recognition accuracy: test the whole attendance process'
+date: '2026-09-07'
+category: Attendance
+excerpt: Evaluate face attendance with missed and incorrect matches, real capture conditions, documented settings and an approved process for exceptions.
+metaDescription: Evaluate face attendance with missed and incorrect matches, real capture conditions, documented settings and an approved process for exceptions.
+readTime: 4
+image: /insights/category/attendance-2.webp
 faqs:
-  - q: "What affects face recognition accuracy the most?"
-    a: "Four things in practice: how many pixels sit between the eyes in the camera frame, the angle of the face to the lens, the lighting at the point of capture, and how much motion blur is in the frame. A face recognition system that is strong on paper still misses people if any one of these is wrong at your actual gate."
-  - q: "How many pixels between the eyes does face recognition need?"
-    a: "Most face recognition engines want at least 40 to 60 pixels between the eyes to identify a person reliably, and quality drops sharply below that. This is a function of camera resolution, lens choice and distance from the gate, not of the software's advertised accuracy."
-  - q: "Does camera angle affect face recognition accuracy?"
-    a: "Yes, significantly. A camera looking down at a steep angle, or mounted to the side of where people actually walk, captures a distorted or partial view of the face. Accuracy claims are almost always measured on a face looking near-straight at the lens, which a badly aimed gate camera rarely produces."
-  - q: "Can face recognition work in low light or with motion blur?"
-    a: "Low light and motion blur are two of the most common reasons recognition fails on site. Poor lighting starves the camera of the detail it needs, and a fast walking pace under a slow shutter speed smears the face across several pixels. Both are usually fixable with a lamp or a shutter-speed setting, not a different algorithm."
-  - q: "Is a vendor's stated accuracy percentage reliable?"
-    a: "Treat it as a lab number, not a promise for your gate. It was almost certainly measured on well-lit, front-facing, high-resolution images — conditions your actual entrance may not match. What matters is accuracy at your specific camera, angle and lighting, which no brochure number can tell you."
+- q: Is a published face-recognition accuracy percentage enough to buy a system?
+  a: No. Ask how the result was measured and whether it represents your use, equipment and operating conditions. Evaluate the proposed implementation with authorized representative samples and keep different error types visible.
+- q: Will a lighting change fix every failed attendance record?
+  a: No. A failure can involve capture quality, enrolment, matching settings, employee mapping, timing or later attendance processing. Investigate the relevant stage and test the change before treating the issue as resolved.
+updated: "2026-11-04"
+metaTitle: 'Face-recognition accuracy: test the whole attendance process'
 ---
 
-**Straight answer: face recognition accuracy depends far more on pixels between the eyes, camera angle, lighting and motion blur than on which software you buy. A system with a strong accuracy claim on paper will still miss people at a badly placed, badly lit, or too-distant camera — and a modest system will perform well when those four things are right.**
+A supplier says its face-recognition accuracy is excellent, but your concern is more concrete: will the correct employee receive the correct attendance record at your gate? That question needs a test of the proposed installation, not just a headline percentage.
 
-Every AI CCTV brochure quotes an accuracy number — 98%, 99.5%, sometimes higher. Then the gate camera gets installed, and it recognises some people every time and misses others every time, no matter what the box said. This is not a software bug. It is what happens when the four things that actually determine accuracy were never checked at installation.
+Start by defining a successful record and the exceptions the team must handle. Include who reviews an uncertain result and how an employee can correct an error. This gives accuracy a practical meaning in your operation.
 
-## How many pixels between the eyes does face recognition need?
+## Keep different outcomes separate
 
-This is the single biggest factor, and the one most installers skip. Face recognition works by measuring distances between facial landmarks — eyes, nose, jawline — and it needs enough resolution to do that measurement precisely. Most engines want at least 40 to 60 pixels between the eyes to identify a person reliably, and quality drops sharply below that.
+An enrolled person receiving no match is different from a person being matched to the wrong identity. A camera failing to capture a usable image is another issue. Mixing them into one success rate can hide a problem that matters to the buyer.
 
-That number comes from three things multiplied together: the camera's resolution, the lens's field of view, and the distance from camera to face. A 4-megapixel camera with a wide lens covering a 15-metre gate can easily fall short of 40 pixels between the eyes at the far end of that gate — while the same sensor with a narrower lens, or moved closer, clears it easily. This is arithmetic, not a software setting, which is why swapping the recognition engine rarely fixes a resolution problem.
+Microsoft's [Face accuracy guidance](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/face/characteristics-and-limitations) distinguishes incorrect matches from incorrect rejections and explains why benchmark results do not provide a universal deployed-system accuracy. That guidance concerns its service; it is not a PGAK performance measurement.
 
-## Does camera angle affect face recognition accuracy?
+For your trial, record the expected result, actual result and evidence needed for review. Include unresolved cases rather than removing them from the result sheet.
 
-Yes, and it is the second most common failure we see on site visits. A camera mounted high and angled steeply downward — a common choice because it deters vandalism — captures the top of the head and very little of the face. A camera aimed across a doorway rather than along the direction people walk catches faces side-on more often than front-on.
+## Build a representative, authorized trial
 
-Accuracy claims are almost always measured on a face looking near-straight at the lens, which a badly aimed gate camera rarely produces. Moving the camera to face the direction of foot traffic, even by a few degrees, often does more for real-world accuracy than any setting inside the software.
+Agree the people, times and operating conditions to be evaluated before seeing the result. Include normal arrival paths, relevant shifts, permitted headwear and required PPE. Use appropriate notice, permission and data safeguards for the sample collection.
 
-## How does lighting affect face recognition accuracy?
+Test intended ordinary use as well as known difficult conditions. A few cooperative front-facing demonstrations can establish that a system runs, but they cannot establish performance for the whole workforce or every future condition.
 
-Poor lighting starves the camera of the detail it needs, and this is often the cheapest problem to fix. A dim entrance, strong backlight from a doorway, or a security light that only switches on for motion all degrade the image before the recognition engine ever sees it. We have walked into sites where a single ₹500 lamp fixed a "software" problem that had been open for months.
+Document the number and type of observations actually reviewed. Treat a small pilot as a bounded result with uncertainty, not a basis for a precise universal promise or unsupported claims about demographic groups.
 
-## Can motion blur break face recognition?
+## Check the image and enrolment together
 
-Yes. A fast walking pace under a slow shutter speed smears the face across several pixels, and blur destroys the fine detail the engine measures. This shows up most at busy gates during shift-change rush, exactly when accurate attendance matters most. A faster shutter speed setting on the camera — sometimes at the cost of slightly darker footage, which lighting can compensate for — is usually the fix, not a recognition upgrade.
+Review whether the intended feed contains usable detail at the relevant moment. Identify blurred, obscured or otherwise unsuitable samples before assuming every failure is a matching problem. Use the [per-camera readiness guide](/insights/how-many-of-your-cameras-can-actually-recognize-a-face) to structure that check.
 
-## Why do vendor accuracy percentages mean less than they sound?
+Next confirm that the correct person is enrolled under the correct employee identity and that the enrolment meets the selected system's documented requirements. A wrong mapping and a poor capture need different remedies.
 
-Treat a stated accuracy percentage as a lab number, not a promise for your gate. It was almost certainly measured on well-lit, front-facing, high-resolution images in a controlled test set — conditions your actual entrance may not match at 7am with low winter sun through the gate. What matters is accuracy at your specific camera, angle and lighting, which no brochure number can tell you. Ask any vendor to test on your own camera feed before you sign, not on their demo reel.
+There is no single camera height, eye-pixel count or number of enrolment photos that establishes suitability for every implementation. Ask which requirements apply to the exact system being proposed and how the installer verified them.
 
-## Where this genuinely has limits
+## Record software settings and changes
 
-Even with all four factors right, face recognition struggles with crowds moving fast through a narrow gate, with faces mostly turned away from the camera, and with very long distances where no lens change makes up the gap. If your site has a wide-open entrance with people streaming through at an angle, expect some manual fallback rather than 100% automated capture — that is a physical constraint, not a vendor shortfall.
+Keep the relevant software version, matching configuration and capture settings with the trial record. If a threshold or another setting changes, identify which observations were collected before and after the change. Do not combine unlike tests into one reassuring result.
 
-PGAK builds face recognition attendance systems, so weigh this recommendation with that in mind — but the fix in most cases is genuinely a camera or lighting change we'd point out for free during a site check, not a system we'd need to sell you.
+Microsoft's guidance describes the trade-off between incorrect matches and incorrect rejections when matching thresholds change. Ask the supplier to explain that trade-off for the proposed implementation rather than tuning only to reduce visible missed matches.
+
+Retest a change against the agreed cases, including cases it could make worse. If the trial cannot show that the chosen configuration meets the site's acceptance criteria, retain the limitation and revise the plan.
+
+## Follow the result into attendance
+
+Even a correctly matched event can be assigned to an unexpected shift, duplicated during transfer or handled incorrectly in a later export. Trace representative events through the actual employee mapping and attendance rules to the reviewed output.
+
+Use the [attendance-to-payroll guide](/insights/biometric-attendance-payroll-integration) when that handoff is in scope. Keep an approval process for missing or disputed records before any pay-related decision; recognition results should not silently settle an employee dispute.
+
+An AI Alerto by PGAK assessment should end with documented trial conditions, separate observed errors, unresolved cases and the owner of each corrective action. Bring the actual attendance problem and system details. The useful next step is an agreed acceptance test, followed by review after any meaningful configuration or operating change.
+
+## Questions before the assessment
+
+### Is a published face-recognition accuracy percentage enough to buy a system?
+
+No. Ask how the result was measured and whether it represents your use, equipment and operating conditions. Evaluate the proposed implementation with authorized representative samples and keep different error types visible.
+
+### Will a lighting change fix every failed attendance record?
+
+No. A failure can involve capture quality, enrolment, matching settings, employee mapping, timing or later attendance processing. Investigate the relevant stage and test the change before treating the issue as resolved.
 
 [Ask for a free feasibility check](#dealer)
