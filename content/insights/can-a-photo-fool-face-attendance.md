@@ -1,47 +1,66 @@
 ---
-title: "Can someone fool face attendance with a photo?"
-date: "2026-09-08"
-category: "Attendance"
-excerpt: "A printed photo, a phone screen held up to the camera — does it actually work? What liveness detection checks for, and where it still has gaps."
-readTime: 5
-image: "/insights/category/attendance-3.webp"
+title: Can a photo fool face attendance? Verify the exact system
+date: '2026-09-08'
+category: Attendance
+excerpt: Ask how the proposed face-attendance system handles photo and replay attacks. Check liveness scope, test conditions, false rejects and review records.
+readTime: 4
+image: /insights/category/attendance-3.webp
 faqs:
-  - q: "Can you fool face recognition attendance with a photo?"
-    a: "Not if the system has liveness detection, which is now standard in most face attendance products. Liveness checks look for signs of a live, three-dimensional person — subtle movement, depth, sometimes a prompted blink or head turn — and reject a flat printed photo or a phone screen held up to the camera because those don't move or reflect light the way a real face does."
-  - q: "What is liveness detection in face recognition?"
-    a: "Liveness detection is a check that runs alongside face matching to confirm the camera is looking at an actual live person, not a photo, video replay, or mask. It works by analysing depth, texture, and small natural movements that a flat image or screen cannot reproduce."
-  - q: "What can still defeat face recognition liveness detection?"
-    a: "High-quality liveness detection is genuinely hard to spoof with a printed photo or phone screen, but no system is unbeatable in principle — a very high-resolution video replay, a 3D-printed mask, or a determined attacker with specialist equipment can, in theory, challenge weaker implementations. Reputable systems combine several signals precisely to make this expensive and impractical rather than claim it's impossible."
+- q: Does every face-attendance system reject a printed photo?
+  a: No universal guarantee applies. Ask whether the exact proposed configuration includes supported presentation-attack detection and review its documented scope and acceptance-test evidence.
+- q: Does a successful liveness check decide attendance or payroll?
+  a: No. It addresses the presentation within its supported scope. Identity matching, attendance interpretation, exceptions and any payroll decision remain separate parts of the workflow.
+updated: '2026-11-05'
+metaTitle: Can a photo fool face attendance? Verify the exact system
+metaDescription: Ask how the proposed face-attendance system handles photo and replay attacks. Check liveness scope, test conditions, false rejects and review records.
 ---
 
-**Straight answer: with modern liveness detection, no — a printed photo or a phone screen held up to a camera is rejected because it doesn't move, reflect light, or show depth the way a live face does. Liveness checking is now a standard part of most face attendance systems, not an optional extra.**
+A face-attendance demonstration recognizes an enrolled person. That does not answer a second question: what happens if someone presents an image instead? Face matching and checking for a live presentation are different functions. A buyer should ask what the exact proposed system supports and what evidence demonstrates it.
 
-This is the question every security-minded manager asks before trusting face recognition with attendance: what stops someone from just holding up a photo of their absent colleague? It's a fair question, and the honest answer requires explaining what the system is actually checking.
+There is no universal promise that adding a camera or enabling a feature named liveness makes photo and video attacks impossible. The hardware, software, capture method and configuration matter. A claim about another vendor's test is not evidence for the installation being offered to your site.
 
-## What is liveness detection, in plain terms?
+## Separate the checks in the proposal
 
-Face matching alone answers one question: does this face look like a face on file? Liveness detection asks a second, separate question: is this a real, physically present person right now, or a picture of one? The two checks run together. A photo can pass the first and fail the second.
+Face matching compares an observed face with the enrolled identity information. Presentation-attack detection, often described as liveness checking, assesses whether the input is a genuine presentation rather than a spoof. Attendance processing then decides how an accepted observation appears in a record.
 
-Liveness works by looking for things a flat image can't produce — subtle depth in the face, natural micro-movements, how light falls across a three-dimensional surface versus a printed or screen-lit one. Some systems add an active prompt, asking for a blink or a small head turn, though most modern systems do this passively without the person noticing.
+Ask the supplier to identify which of these stages is implemented. Obtain the relevant product and software version, required camera or terminal and capture conditions. A passive CCTV feed and an interactive phone check are different workflows; support for one does not establish support for the other.
 
-## Does a printed photo actually get rejected?
+[Microsoft's Face liveness documentation](https://learn.microsoft.com/en-us/azure/ai-services/face/concept-face-liveness-detection) describes a separate liveness workflow with client and server components. This is a specific technical example, not a statement that AI Alerto uses that service or inherits its test results.
 
-Yes, in any system with liveness detection switched on. A printed photo is flat. It has no depth for the camera to read, and it doesn't move the way skin, eyes and light do on a real face. This is precisely the gap liveness detection is built to close, and it's a solved problem for the common case — the two-dimensional photo or screen held up to a lens.
+## Request evidence for the proposed configuration
 
-## What about a video played on a phone screen?
+Ask for the supplier's documented scope, known limitations and any independent test report it relies on. Check the tested version, attack categories, equipment and operating conditions. A certificate or headline result should be read with its scope; it is not a guarantee about all future attacks or a different configuration.
 
-Basic video replay attacks are also generally caught, for similar reasons — a screen is still flat, and it introduces its own tells: screen glare, refresh patterns, unnatural framing. Weaker or older liveness implementations can be more vulnerable here than to a simple photo, which is one reason it's worth asking a vendor directly what their liveness detection actually screens for, rather than accepting "we have liveness detection" as a complete answer.
+Avoid treating depth, blinking or movement as universal requirements or universal solutions. Different implementations use different signals, and an ordinary camera should not be described as measuring depth simply because it can recognize faces. Require the supplier to explain the implemented method at the level needed to assess the purchase.
 
-## Is any liveness detection completely unbeatable?
+Also ask whether the feature is included, optional, licensed separately or unsupported in the proposed capture path. Put that answer in the agreed scope before comparing prices.
 
-No, and we won't claim otherwise. Security is never a permanent state — it's a cost you impose on an attacker. A sufficiently sophisticated video replay, a well-made 3D mask, or specialist equipment could, in principle, challenge a weak implementation. What a well-built system does is make spoofing expensive and impractical rather than claim it's impossible. That's a meaningfully different promise, and it's the honest one.
+## Arrange an authorized acceptance demonstration
 
-The practical risk in most Indian workplaces isn't a determined attacker with a 3D mask. It's the low-effort version — a colleague holding up a phone photo hoping nobody's watching closely. Liveness detection handles that case comfortably, which covers the overwhelming majority of real proxy-attendance attempts.
+Agree a bounded test with the system owner and supplier, using authorized participants and approved test material. Keep it separate from real attendance and access decisions. The purpose is to verify the purchase claim, not to experiment against another person's operational system.
 
-## So how much does liveness detection actually reduce proxy attendance?
+Record the configuration, conditions, expected behavior and actual result for each agreed case. Include normal legitimate users as well as the supplier-approved presentation checks. A system that rejects everything has not demonstrated a usable attendance workflow.
 
-Combined with visual evidence stored against every entry — so a questioned mark can be checked by looking at the frame — liveness detection removes the easiest and most common way someone tries to defeat face attendance. We build systems with liveness detection built in, so weigh that recommendation with the commercial interest in mind. But this is standard practice across serious vendors now, not a PGAK-specific claim, and any vendor should be able to explain what their liveness check does and doesn't catch.
+Check how failed, uncertain and successful results appear to an authorized reviewer. Confirm whether any supporting record is retained, who can access it and how long it is kept under the approved process. Do not assume every event includes an image or an explanation unless that behavior is demonstrated.
 
-If a vendor tells you their system is unbeatable, that's worth being sceptical of — the honest claim is "hard to spoof with common methods," not "impossible."
+## Review errors and operational limits
 
-What a camera-based system does about this is set out on the [face recognition attendance system page](/face-recognition-attendance-system), including what it needs from the entrance camera to work at all. [Ask for a free audit of your entrance cameras →](/free-audit)
+Distinguish an incorrect acceptance from an incorrect rejection of a legitimate person. Ask what happens when the system is uncertain and whether a supervised alternative is available. Required PPE should remain in place under the site's rules; the test must not encourage unsafe removal to improve a demonstration result.
+
+The [accuracy assessment guide](/insights/face-recognition-accuracy-what-affects-it) helps separate error types and operating conditions. The [PPE guide](/insights/masks-helmets-turbans-face-recognition) covers practical trial boundaries. Neither substitutes for product-specific presentation-attack evidence.
+
+Do not conclude that liveness alone resolves every form of proxy attendance. Identity enrolment, administrative changes, reviewer access and the meaning of the attendance event still need controls. An accepted capture is not proof that a whole shift was worked.
+
+## Common questions
+
+### Does every face-attendance system reject a printed photo?
+
+No universal guarantee applies. Ask whether the exact proposed configuration includes supported presentation-attack detection and review its documented scope and acceptance-test evidence.
+
+### Does a successful liveness check decide attendance or payroll?
+
+No. It addresses the presentation within its supported scope. Identity matching, attendance interpretation, exceptions and any payroll decision remain separate parts of the workflow.
+
+For AI Alerto by PGAK, confirm the actual proposed camera and software capabilities during the assessment. Bring the risk you need to address and request a documented demonstration rather than relying on an unqualified anti-spoof claim.
+
+[Ask for a free feasibility check](#dealer)

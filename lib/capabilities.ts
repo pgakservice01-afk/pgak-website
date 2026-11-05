@@ -50,11 +50,11 @@ export const CAPABILITIES: Capability[] = [
       "Enrol the people who belong; unknown-face alerts can be evaluated at your site.",
     h1: "CCTV face recognition — the difference between 'someone is there' and 'who is there'",
     intro:
-      "CCTV face recognition is what turns a motion alert into a decision. Instead of only telling you a person is at the gate, a recognition system can indicate whether it's your shift supervisor, a delivery driver you've seen forty times, or someone it has never seen before — and only the last one is worth waking you up for. Whether that works at your gate is evaluated on your own cameras and confirmed in the written scope.",
+      "CCTV face recognition compares a captured face with an authorized enrolled set. A possible match can support review, but it does not establish permission to enter or whether a situation is safe. Someone familiar may still enter a restricted area; someone unmatched may be an enrolled person whose capture was unsuitable. Assess the camera view, matching conditions and alert rules at your site, and confirm the supported workflow in the written scope.",
     steps: [
       {
         h3: "Enrolment",
-        text: "Each person who belongs — staff, family, regular contractors — is enrolled from a handful of frames. Whether existing footage is good enough for enrolment is checked at your site.",
+        text: "Use the selected system's supported enrolment procedure for authorized participants. Confirm sample requirements, identity mapping, permission and retention before capture; do not assume existing footage is an approved enrolment source.",
       },
       {
         h3: "Template, not photograph",
@@ -70,21 +70,21 @@ export const CAPABILITIES: Capability[] = [
       },
     ],
     useCases: [
-      "Gate attendance at factories, replacing fingerprint machines that fail on dusty hands",
+      "Assessing factory gate attendance where finger-based capture is difficult, with a supported fallback and review of missed records",
       "Silent entry for family in a home system, so notifications stay worth reading",
-      "Unknown-adult alerts near school gates during school hours",
+      "Reviewing unmatched-person events at school gates within an authorized, documented safeguarding workflow",
       "Restricted-room access logs in hospitals and offices",
-      "Repeat-visitor detection near high-value retail shelves",
+      "Reviewing relevant observations of authorized enrolled participants in retail areas, within the agreed scope",
     ],
     limits: [
-      "A face turned well away from the camera, heavily covered, or lit only from behind will be detected as a person but may not be identified.",
-      "Recognition quality depends on camera placement — a camera at gate height facing arrivals will always outperform one mounted high in a corner.",
+      "A turned or covered face, backlighting and occlusion can affect capture or matching. A person-detection event is not guaranteed when identity matching is unavailable; test the actual conditions and define the review or fallback.",
+      "Recognition quality depends on the actual capture view, lighting, movement, enrolment and matching settings. Assess the proposed camera and system together; a mounting height alone does not establish accuracy.",
       "It identifies enrolled people. It cannot tell you the name of someone who has never been enrolled, and no honest system claims otherwise.",
     ],
     faqs: [
       {
         q: "Can face recognition work on my existing CCTV cameras?",
-        a: "Sometimes — it is tested on your cameras before anything is promised. What matters is placement and resolution at the point of recognition rather than the camera being marketed as 'AI'. A standard 2MP camera at gate height facing arrivals is usually a better candidate than a 4K camera mounted high on a corner.",
+        a: "Sometimes. Assess usable face detail, capture angle, lighting, movement, stream compatibility and the selected software together. Neither the megapixel label nor a fixed mounting height establishes suitability. Test representative passages on the proposed camera view and confirm any additional equipment or supported fallback in the scope.",
       },
       {
         q: "Are photos of my staff stored somewhere?",
@@ -92,11 +92,11 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         q: "How accurate is it?",
-        a: "PGAK has published no accuracy figure for face recognition. It is measured at your site — false matches and missed matches on a permissioned test set, with documented human review. Accuracy drops with extreme angles, heavy backlighting or covered faces, which is why camera placement is treated as part of the deployment rather than an afterthought.",
+        a: "PGAK has published no accuracy figure for face recognition. Agree an authorized trial that records correct matches, incorrect matches, missed matches and capture failures under representative conditions. Angle, lighting, movement, face coverings, enrolment and configuration can affect results; measure the proposed system rather than assuming one factor determines accuracy. Document human review and the supported fallback for unresolved cases.",
       },
       {
         q: "Does it work with masks or helmets?",
-        a: "Partially. A mask covering the lower face reduces confidence significantly and a full helmet usually prevents identification. In those environments we lean on person detection, zones and schedules rather than on identity.",
+        a: "Results depend on the selected system and actual conditions. Test permitted headwear and required PPE as worn; required protection stays in place. If identity matching is unsuitable, agree a supported alternative and human review rather than treating a missed match as an absence.",
       },
     ],
     solutions: ["factory-security", "ai-cctv-for-offices", "school-security"],
@@ -250,26 +250,26 @@ export const CAPABILITIES: Capability[] = [
       "contactless attendance",
     ],
     title:
-      "Face Recognition Attendance — No Card, No Contact | PGAK",
+      "Face Recognition Attendance Assessment | PGAK",
     description:
       "Face-recognition attendance from the camera at your gate, for factories, offices and schools — evaluated at your site, with exports and review of missed records confirmed in the written scope.",
     summary:
-      "Attendance from the gate camera — no card or fingerprint, evaluated at your site.",
-    h1: "Face recognition attendance — logging the gate without a queue",
+      "Assess camera-based attendance, employee mapping and review of missed records at your site.",
+    h1: "Face recognition attendance — assess capture and review",
     intro:
-      "A face recognition attendance system removes the single most disliked ritual of a shift change: the queue at the punch machine. The approach logs arrival and departure from a camera watching your gate, so people walk in at their own pace and payroll can receive an export at the end of the month. With PGAK, whether your gate camera is suitable, how missed or ambiguous records are reviewed, and any processing hardware are confirmed at your site and set out in the written scope and quote.",
+      "AI Alerto by PGAK assesses whether a suitable gate-camera view can support attendance observations for enrolled employees. Test the intended arrival and departure process, including any pause, interaction or fallback, under representative shift-change conditions. Confirm employee mapping, review of missed or ambiguous records, the required export and any integration or additional hardware in the written scope. A captured event is an input to attendance review, not an automatic payroll decision.",
     steps: [
       {
-        h3: "Enrol once",
-        text: "Each employee is enrolled from a few frames. No fingerprints, no cards, nothing to lose or forget.",
+        h3: "Enrol using the supported process",
+        text: "Each employee is enrolled using the selected system's supported procedure. Confirm the employee identity, authorized sample requirements and an approved process for exceptions.",
       },
       {
-        h3: "Log on the walk-through",
-        text: "The gate camera is used to identify enrolled people as they pass. There is no device to touch and nothing to queue for.",
+        h3: "Test the intended entry flow",
+        text: "Assess whether the gate camera can identify enrolled people during the intended arrival process. Document any required pause or interaction, test shift-change flow and retain an approved fallback for missed or ambiguous records.",
       },
       {
         h3: "Separate the unknowns",
-        text: "Contractors and visitors can be logged as unknown faces with a snapshot, so they appear in the record for a person to review.",
+        text: "Confirm how the selected setup handles people who are not enrolled, including whether an event or snapshot is produced and who may review it. Do not assume an unknown-face log is a complete visitor or contractor headcount.",
       },
       {
         h3: "Export for payroll",
@@ -279,26 +279,26 @@ export const CAPABILITIES: Capability[] = [
     useCases: [
       "Factory gates where fingerprint readers fail on dusty or damaged hands",
       "Offices retiring an access-card system nobody wants to carry",
-      "Schools needing a live campus roll rather than thirty paper registers",
+      "Schools assessing gate attendance against the required records and authorized review process",
       "Sites with heavy contractor traffic and no reliable headcount",
     ],
     limits: [
       "It is an attendance record, not a legal timekeeping certification — verify it meets your own audit requirements before retiring an existing system.",
       "Employees must be informed and enrolled with consent. That is a policy step we will not skip on your behalf.",
-      "Very high-throughput gates benefit from a dedicated camera at face height; a general overview camera will miss people.",
+      "High-throughput gates need a representative shift-change trial. Check whether the existing view is suitable or an additional camera is needed, and record capture failures, missed matches and correction responsibilities.",
     ],
     faqs: [
       {
         q: "How much does face recognition attendance cost in India?",
-        a: "PGAK quotes per site rather than publishing a price. How many people one gate camera can handle depends on the gate width, the flow at shift change and the camera position, and is checked at your site. Whether your existing gate camera is suitable or a dedicated camera at face height is needed, and any processing hardware, are confirmed in the quote. Call or WhatsApp us with your gate count for a quotation.",
+        a: "PGAK quotes for the assessed site and agreed scope. Review the busiest arrival pattern, capture view, lighting, selected software and processing requirements together. Confirm whether existing cameras are suitable or whether another view or additional equipment is needed; a fixed mounting height alone does not settle that decision. Bring the gate count, shift pattern and required attendance output for a scoped quotation.",
       },
       {
         q: "Can this replace our biometric fingerprint machine?",
-        a: "Possibly — that is what the site evaluation is for. Face recognition at the gate can produce the same kind of record with no contact and no queue, and is not affected by damaged or dirty fingers. Running both side by side before retiring the machine is the sensible check, and verify it meets your own audit requirements first.",
+        a: "Possibly. Compare the proposed capture method, record format, shift-change flow and exception process with your current arrangement. Any pause, interaction, required PPE and supported fallback should be included in the trial. Run an agreed parallel comparison and confirm the required records and approvals before retiring the existing machine; do not assume identical records or a queue-free result.",
       },
       {
         q: "Does it stop buddy punching?",
-        a: "It is not a guarantee. A face cannot be handed to a colleague the way a card or a PIN can, so proxy attendance becomes harder to go unnoticed — provided missed and ambiguous records get human review, which is part of what is tested at your site.",
+        a: "Do not assume that face matching alone prevents proxy attendance. Check identity enrolment, administrator access, the exact configuration's supported presentation-attack safeguards and review of uncertain records. Request evidence for any anti-spoof claim and test the agreed workflow; liveness is not implied merely by using a camera.",
       },
       {
         q: "Can we export attendance to our payroll software?",
@@ -306,7 +306,7 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         q: "What if someone isn't recognised one morning?",
-        a: "The design is that they appear as an unknown-face event with a snapshot, so an administrator can review and attribute it — that correction workflow is part of what is tested at your site. Repeated misses on one person usually mean their enrolment needs refreshing.",
+        a: "Keep a missed or ambiguous record visible through the approved exception process; do not automatically mark an absence. Confirm whether the selected setup produces an event or supporting image, and who can review and correct it. Investigate capture conditions, identity mapping, enrolment and configuration before deciding the remedy. Required PPE stays in place, with an agreed supported fallback where needed.",
       },
     ],
     solutions: ["factory-security", "ai-cctv-for-offices", "school-security"],
@@ -407,7 +407,7 @@ export const CAPABILITIES: Capability[] = [
     title:
       "ANPR & Vehicle Recognition for Gate Records | PGAK",
     description:
-      "Number plate and vehicle detection that turn a paper gate register into a searchable log — for societies, warehouses, factories and office parks.",
+      "Assess searchable plate and vehicle records for your gate. Confirm capture fields, review exceptions and test the proposed setup before changing the register.",
     summary:
       "Assess plate and vehicle records at your gate, with a review process for missed or uncertain reads.",
     h1: "Vehicle and number plate recognition for searchable gate records",
@@ -415,16 +415,16 @@ export const CAPABILITIES: Capability[] = [
       "AI Alerto by PGAK can assess ANPR for searchable vehicle records at a suitable gate camera view. Confirm the fields captured, test plate reads against actual traffic and keep a process for missed or uncertain records. PGAK publishes photographs of a fitted camera and a working console; those images show a setup, not a measured read rate.",
     steps: [
       {
-        h3: "Point a camera at plate height",
+        h3: "Establish a readable plate view",
         text: "ANPR is the one capability where camera placement is non-negotiable — the plate needs to be readable in the frame.",
       },
       {
         h3: "Register the vehicles that belong",
-        text: "Resident, staff and fleet vehicles are registered once, and can be recognised without an alert once plate reads at your gate have been tested.",
+        text: "Maintain the authorized vehicle list and its update process. Test how the selected setup matches readable plates and applies the agreed alert rules. A list match alone does not establish current entry permission or a safe barrier movement.",
       },
       {
         h3: "Review unregistered vehicle records",
-        text: "Unregistered vehicles can be logged with plate, type, direction and snapshot — a searchable record replacing the register.",
+        text: "Confirm which plate, vehicle, direction, timestamp and image fields the selected setup can capture. Review incomplete or uncertain records against the agreed gate process before deciding whether any register workflow can change.",
       },
       {
         h3: "Alert on the exceptions",
@@ -432,28 +432,28 @@ export const CAPABILITIES: Capability[] = [
       },
     ],
     useCases: [
-      "Housing society gates — resident vehicles recognised, visitors logged with a photo",
+      "Housing society gates assessing vehicle records, visitor review and access responsibilities",
       "Warehouse dispatch — captured vehicle records reviewed alongside dispatch records",
       "Factory and office-park gates with heavy contractor vehicle traffic",
       "Parking areas where unauthorised vehicles are a recurring dispute",
     ],
     limits: [
       "Plate reading needs a suitable capture view, adequate plate detail and tested exposure at the intended approach speed. Existing cameras may be suitable; some gates need repositioning or dedicated cameras. Confirm coverage and hardware at the assessment.",
-      "Damaged, obscured, non-standard or heavily stylised plates — common enough in India — will fail to read. Vehicle type and snapshot logging still work.",
+      "Damaged, obscured, non-standard or heavily stylised plates may be missed or read incorrectly. Whether a vehicle event, type, direction or snapshot is still recorded depends on the selected setup and capture conditions. Test those cases and keep a review process for missing or uncertain records.",
       "Night reading depends on IR illumination and plate retro-reflectivity.",
     ],
     faqs: [
       {
         q: "Do I need a special ANPR camera?",
-        a: "You need a camera positioned for it — plate height, controlled approach, good IR at night. That's often a new dedicated camera at the gate even when the rest of the site reuses existing cameras. It's the one place we regularly recommend hardware.",
+        a: "Assess plate detail, capture angle, approach speed, lighting and the selected system together. Existing cameras may be suitable; repositioning or dedicated hardware may be needed. Confirm the recommendation through representative day and night passages at your gate.",
       },
       {
         q: "How well does it read Indian number plates?",
-        a: "PGAK has not published a read rate. Standard-format plates are the easiest case, and reads are logged against the gate register at your site to measure it. Damaged, hand-painted, stylised or partially obscured plates — which are not rare — will sometimes fail. Vehicle type, direction, timestamp and snapshot can still be logged in those cases.",
+        a: "PGAK has not published a read rate. Compare captured records with an agreed reference count across representative vehicle passages at your gate. Include difficult plate and lighting conditions, and distinguish correct reads, incorrect reads, missed vehicles and unreadable plates. Confirm which supporting fields or images the selected setup records when a plate is not read; do not assume fallback logging works in every case.",
       },
       {
         q: "Can it open the boom barrier automatically?",
-        a: "Automatic barrier opening is something a site may configure and test, not a default. An output on recognition of a registered vehicle can be wired to a barrier only if the controller supports it, which is checked during the site survey and confirmed in the written scope.",
+        a: "Barrier integration requires a separate site assessment and written scope. Confirm controller compatibility, entry authorization, obstacle protection, emergency behavior and manual override with the responsible qualified installer. A plate match is an input to that process, not proof of permission or a safe movement; do not bypass the barrier's safety controls.",
       },
     ],
     solutions: [
