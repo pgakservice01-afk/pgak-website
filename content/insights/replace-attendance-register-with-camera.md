@@ -1,63 +1,66 @@
 ---
-title: "Replacing the paper attendance register: a practical path"
-date: "2026-09-01"
-category: "Attendance"
-excerpt: "Most Indian sites still run a register alongside whatever machine they bought. Here is why the paper survives, and the four-week sequence that actually retires it."
-metaDescription: "Most Indian sites still run a register alongside whatever machine they bought."
-metaTitle: "Replacing the paper attendance register"
-readTime: 5
-image: "/insights/category/attendance-3.webp"
+title: 'Moving from paper attendance: prove the handoff first'
+date: '2026-09-01'
+category: Attendance
+excerpt: Move from a paper register with a controlled pilot, daily reconciliation, documented exceptions and export checks before approving the digital handoff.
+metaDescription: Move from a paper register with a controlled pilot, daily reconciliation, documented exceptions and export checks before approving the digital handoff.
+metaTitle: 'Moving from paper attendance: prove the handoff first'
+readTime: 4
+image: /insights/category/attendance-3.webp
 faqs:
-  - q: "Why do businesses still keep a paper attendance register?"
-    a: "Usually because the electronic system fails often enough that a fallback is needed — failed fingerprint scans, missed punches, or entrances the machine does not cover. The register survives as the exception handler, and once it exists as a fallback it tends to become the real record."
-  - q: "Is a digital attendance record legally acceptable in India?"
-    a: "Electronic maintenance of statutory registers is broadly accepted provided the records can be produced in the required form on demand. The practical requirement is a clean, per-employee, per-month export rather than a specific storage medium — confirm the rules applying to your establishment and state."
-  - q: "How do you move from a paper register to an automated system?"
-    a: "Run both in parallel for two to four weeks, compare them daily, fix the causes of every mismatch, and only retire the paper when the electronic record is complete on its own. Cutting over on day one without a parallel period is the most common reason a register comes back."
+- q: Is a camera attendance log automatically a complete digital register?
+  a: No. It records observations within its supported scope. Required attendance, payroll or statutory records may need additional fields, approvals and formats, which the responsible advisers should confirm.
+- q: Must every business stop the paper register after four weeks?
+  a: No. Cutover should follow agreed acceptance criteria and applicable record requirements. Keep the approved fallback and required historical records until the responsible owners authorize the change.
+updated: '2026-11-05'
 ---
 
-**Straight answer: the paper register survives because it is the exception handler for a machine that fails. Retire the failures and the register retires itself. Cut it on day one without doing that, and it will be back inside a month.**
+A paper register and an electronic attendance report can disagree without either being automatically correct. One may contain a missed entry; the other may contain a mistaken name or an unreviewed correction. Replacing the register should start with understanding those disagreements, not declaring the newer system the truth.
 
-We see this on almost every site. There is a biometric machine at the gate, and there is also a register in the supervisor's drawer. Everyone treats the drawer as the truth.
+The useful goal is a record that authorized people can review, explain and export. Camera capture may supply observations, but it does not by itself create a complete payroll or statutory record. The handoff needs identity mapping, exception handling and an approved operating process.
 
-## Why the paper survives
+## Define what the register currently does
 
-**The machine rejects some people.** Worn fingerprints on manual workers. Each rejection needs a manual entry, and manual entries need somewhere to live.
+List who writes it, which events it records and where it is used. It may combine attendance, visitor notes, leave approvals or supervisor comments. Separate those purposes before choosing which should move into the proposed system.
 
-**The machine does not cover every door.** Anyone using the side gate needs recording by hand.
+Ask HR and the responsible advisers to confirm the records, format, access and retention requirements that apply to the establishment. Do not discard an existing register or assume a particular digital export is sufficient merely because it has employee names and monthly totals. The required output and approval route should be settled before cutover.
 
-**Exceptions have nowhere else to go.** Half-day approvals, site visits, someone who forgot to punch out. If the system has no path for these, paper absorbs them.
+Keep a stable employee identifier across old and new records. Resolve duplicates and returning-worker profiles before interpreting mismatches as capture failure. Otherwise the same person may appear absent in one report and present under another identifier.
 
-**Trust, once broken, is sticky.** After one payroll dispute the machine got wrong, supervisors keep the register as insurance. That is a rational response, not obstruction.
+## Run a bounded parallel pilot
 
-Notice that only the first reason is about biometrics. The rest are process gaps that would defeat any technology.
+Choose a site, shift group and review period that represent the intended use. The duration should be agreed from the cases that need testing, not a universal four-week promise. Include ordinary work, a schedule change, a missing event and any relevant split or overnight shift.
 
-## The four-week sequence that works
+Compare the records regularly while the context is available. For each difference, record the date, employee ID, discrepancy, evidence and reviewer. Decide whether the cause is capture, identity mapping, roster configuration, manual entry or an unresolved disagreement.
 
-**Week 1 — Parallel, no changes.** Run the new system alongside the register. Change nothing else. Each morning, compare the two records for the previous day and log every mismatch with its cause.
+Do not quietly correct only one side to make the comparison pass. Preserve what each source originally showed and record how the reviewed outcome was reached. A controlled manual entry can remain a legitimate fallback; its origin should be clear.
 
-**Week 2 — Fix causes, not symptoms.** Mismatches will cluster. Poor camera angle at one gate. An entrance nobody instrumented. A shift rule encoded wrong. Fix the top three causes. Do not fix the individual entries — fix why they happened.
+## Make the exception path usable
 
-**Week 3 — Exceptions move into the system.** Every remaining category of manual entry gets a defined digital path: who raises it, who approves it, what reason is recorded. This is the step most rollouts skip, and it is the one that decides whether the paper dies.
+Define who can request a correction, who can approve it and who covers absence of the primary reviewer. Show employees how to report a missing or incorrect record. The process should work during the actual shift, not only when a particular administrator happens to be available.
 
-**Week 4 — Register becomes read-only.** Keep writing it, but payroll is now computed from the electronic record. Compare at month end. If the two agree, the register has no job left.
+For camera attendance, check the relevant view and event quality through the [camera-suitability guide](/insights/how-many-of-your-cameras-can-actually-recognize-a-face). A camera being installed does not establish coverage, supported recognition or a usable observation for every passage.
 
-Retire it in week five, having proved rather than assumed.
+Microsoft's [Face accuracy guidance](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/face/characteristics-and-limitations) cautions that deployed performance depends on the system and conditions. Treat that as a reason for an actual trial, not a quoted accuracy guarantee for AI Alerto.
 
-## What makes the electronic record trustworthy enough to stand alone
+## Prove the report and recovery process
 
-Two things, in our experience.
+Have the receiving team inspect a sample export. Confirm employee IDs, dates, reviewed statuses and correction references. Test whether an unresolved case can be distinguished from an approved result. Use the [attendance-payroll integration checklist](/insights/biometric-attendance-payroll-integration) for the downstream mapping.
 
-**Complete coverage.** Every entrance people actually use is instrumented. One uncovered gate keeps the paper alive indefinitely.
+Also demonstrate authorized retrieval after a device or network interruption, according to the proposed system's supported behavior. Identify where backups or retained records live and who can restore access. Do not wait for a disputed period to discover that only one administrator can export it.
 
-**Evidence attached to each record.** When a mark is disputed, being able to look at the frame the recognition came from ends the conversation. That single property is what converts supervisors from register-keepers into system-users — they stop needing insurance.
+Agree the acceptance criteria before ending parallel operation. They might include coverage of representative cases, no unexplained identity mismatches, an operated exception process and approval of the required output. Review those criteria with HR and operations; do not treat a perfect-looking monthly total as the only test.
 
-Camera-based attendance gives you both properties naturally, since every camera is a potential check-in point and every record stores its frame. That is what we build; the sequence above works regardless of which system you choose.
+## Common questions
 
-## The one question that predicts success
+### Is a camera attendance log automatically a complete digital register?
 
-Ask your supervisors: *"If the machine and the register disagree tomorrow, which one will you believe?"*
+No. It records observations within its supported scope. Required attendance, payroll or statutory records may need additional fields, approvals and formats, which the responsible advisers should confirm.
 
-Until the answer is "the machine," you are running a paper process with expensive hardware in front of it.
+### Must every business stop the paper register after four weeks?
+
+No. Cutover should follow agreed acceptance criteria and applicable record requirements. Keep the approved fallback and required historical records until the responsible owners authorize the change.
+
+Bring a blank sample register, the required output and typical exception patterns to an AI Alerto by PGAK assessment. That enables a practical pilot plan with a clear decision about what can change and what still needs human review.
 
 [Ask for a free feasibility check](#dealer)

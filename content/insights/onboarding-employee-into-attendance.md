@@ -1,54 +1,64 @@
 ---
-title: "Getting a new joiner onto attendance in five minutes"
-date: "2026-09-05"
-category: "Attendance"
-excerpt: "Every day a new joiner isn't enrolled is a day of manual entries, disputes and HR chasing paperwork. Employee onboarding attendance shouldn't take longer than the induction talk."
-metaDescription: "Enrolling a new joiner should take minutes, not a week. Where employee onboarding attendance stalls, and why enrolment time costs more than misses."
-readTime: 5
-image: "/insights/category/attendance.webp"
+title: 'New-joiner attendance: validate the record before handover'
+date: '2026-09-05'
+category: Attendance
+excerpt: Prepare identity, shift assignment, approved capture and a first-record check for new joiners. Measure onboarding time and keep a documented fallback.
+metaDescription: Prepare identity, shift assignment, approved capture and a first-record check for new joiners. Measure onboarding time and keep a documented fallback.
+readTime: 4
+image: /insights/category/attendance.webp
 faqs:
-  - q: "What does employee onboarding attendance actually involve?"
-    a: "Capturing whatever the attendance system needs to recognise that person going forward — a fingerprint template, a card assignment, or a small set of face photos — and linking it to their employee record before their first shift starts. The step people underestimate is the last part: a credential captured but not linked to payroll and shift data is enrolment in name only."
-  - q: "Why does enrolment cost matter more than daily accuracy?"
-    a: "A system that's 99% accurate every day but takes twenty minutes and a second visit to enrol someone is expensive at high-churn sites, because you pay that twenty-minute cost every time someone joins, transfers, or has to be re-enrolled after a failed attempt. At a site with frequent turnover, enrolment time adds up to more lost hours than daily recognition misses ever do."
-  - q: "What slows down attendance onboarding for a new employee?"
-    a: "Usually one of three things: the enrolment device is at a different location than where hiring happens, the process needs a second visit because the first attempt failed silently, or the credential gets captured but never gets linked to the employee's shift and payroll record. Any of these turns a five-minute task into a days-long gap covered by manual entries."
-  - q: "Can face recognition attendance be set up faster than a fingerprint machine for new joiners?"
-    a: "It can, mainly because there's nothing physical to issue or replace — no card to print, no PIN to set, and a face doesn't wear down the way a manual labourer's fingerprint does. The trade-off is that photo quality at enrolment matters a lot: a rushed, badly lit photo taken in ten seconds will cause more recognition misses later than the time saved was worth."
+- q: Is a successful face capture enough to complete onboarding?
+  a: No. Confirm the correct employee mapping, active assignment and a usable record in the intended attendance report. Capture success alone does not verify the downstream workflow.
+- q: Should a missing first-day record be recreated as an automatic entry?
+  a: No. Use the approved exception process and label the record's origin and reviewer. Preserve the distinction between an original observation and a later correction.
+updated: '2026-11-05'
+metaTitle: 'New-joiner attendance: validate the record before handover'
 ---
 
-**Employee onboarding attendance should take about as long as handing someone their ID card — a few minutes to capture a credential and link it to their record, done at the same desk as the rest of induction. When it takes longer, the gap gets filled with manual entries, and manual entries are where every other attendance problem — proxy marking, disputed hours, missing records — starts.**
+A new joiner can be photographed successfully and still be missing from the attendance report. The image may be attached to the wrong identifier, the profile may be inactive or the shift may not be assigned. Calling the capture step complete does not mean the person is ready for the first working day.
 
-Ask any HR manager how long it takes to get a new joiner fully onto the attendance system, and the honest answer is rarely "same day." It's often "by the end of the week, if the machine isn't busy." In between, someone is manually noting that person present, and manual entries have no audit trail worth trusting.
+Treat onboarding as a handoff between HR, the attendance administrator and the supervisor. The objective is a correctly identified person, an understood recording process and a verified route into the report. Measure the time required at your site instead of promising every enrolment takes five minutes.
 
-## Why does enrolment cost matter more than daily accuracy?
+## Prepare the identity and assignment first
 
-Vendors compete on recognition accuracy — 98% versus 99.5%, fractions of a percent that matter far less in practice than they sound. The number that actually costs money at most Indian sites is enrolment time, and it's rarely discussed.
+Confirm the employee ID against the approved joining record. Check for a previous profile if the person has worked at the site before. Matching a familiar name is not enough to reactivate an account, and creating a second record can split later attendance between two identities.
 
-If enrolling one person takes fifteen minutes and needs the HR desk, a factory hiring five contract workers a day loses over an hour of HR time daily just on enrolment — before anyone has actually started work. At a site with high turnover — seasonal labour, textile units, F&B staff — that cost repeats constantly, because you're not enrolling people once, you're re-enrolling a rotating set of them every week. A system with near-perfect daily accuracy but a clumsy enrolment flow is, in practice, the more expensive one.
+Record the effective start date, site and responsible supervisor. Add the intended roster or identify who will assign it. Keep payroll identifiers separate where the receiving system uses a different key, then document the mapping. Do not collect unrelated personal information just because a registration screen has optional fields.
 
-## What does a fast onboarding flow actually look like?
+Tell the employee which attendance method is proposed, what information is collected, who can review it and how to raise a correction. Follow the organization's approved privacy and employment process, including any required notices, permissions or alternative arrangement. A hurried signature should not substitute for a clear explanation.
 
-Three things need to happen, and they should happen at one desk in one sitting: capture the credential, link it to the employee's shift and payroll record, and confirm the link worked before the person leaves the desk.
+## Use the selected system's capture process
 
-That last step is the one most flows skip. A fingerprint or a face gets captured, HR moves on to the next document, and nobody checks that the credential is actually tied to an active employee record until the new joiner fails to show up on the first day's attendance report — by which point they're a day into manual entries. A five-minute flow includes a verification punch on the spot, right there at enrolment, so any linking failure is caught immediately instead of discovered the next morning.
+For face attendance, obtain the supplier's supported enrolment instructions. Some products use a guided capture and others use approved images or a specific terminal. There is no universal number of photographs that makes every system reliable. Check that the capture completed and that any quality warning was addressed.
 
-## How many photos or attempts does good enrolment need?
+Microsoft's [Face enrolment guidance](https://learn.microsoft.com/en-us/azure/ai-services/face/enrollment-overview) treats enrolment as a deliberate user experience with understandable information and context-specific responsibilities. It does not establish the capture requirements or available features of a PGAK installation.
 
-For face-based systems specifically, one photo taken quickly is usually not enough — angle, lighting and expression all vary between the enrolment shot and a real gate encounter, and a single photo doesn't give the system anything to generalise from. A short capture of a few frames as the person turns their head slightly covers far more of that variation, and it still fits inside the same few minutes.
+The [face-enrolment guide](/insights/how-many-photos-face-enrolment) covers image and process questions. This onboarding checklist concentrates on the identity and operational handoff around that capture. Keep required safety or hygiene equipment in place wherever the site's rules require it.
 
-For fingerprint systems, the equivalent problem is enrolling only one finger. If that finger is injured or worn on a manual labour site, there's no fallback, and the enrolment has to be redone from scratch.
+## Verify the first record end to end
 
-## What breaks onboarding at high-churn sites specifically?
+Arrange an authorized test using the intended attendance point. Confirm that the result is linked to the correct employee, location and timestamp. Check the reviewed report as well as the device screen; success on the device does not prove the record reached the central system.
 
-Distance and timing. If the enrolment device sits in an HR office across the compound from where hiring actually happens — the factory gate, the site office — every new joiner needs a second trip, and a second trip is where onboarding stalls. The fix is proximity: enrol at the same point where the person will actually attend, ideally the entrance camera or gate device itself, not a separate machine in another building.
+If the test generates a training or demonstration event, label it according to the approved process so it is not mistaken for real working time. Do not alter an original event simply to make a report look clean. Keep a clear distinction between a test, an observed entry and an approved correction.
 
-## Where this approach has a real limit
+Also check the path for a missing exit or a recognition failure. The employee should know whom to contact, and the supervisor should know how to record the issue without inventing an automatic observation. A timestamped, reviewed manual correction can be useful evidence when its origin is clear.
 
-A fast enrolment flow reduces the *time* cost of onboarding. It doesn't remove the need for a good first photo or a clean first fingerprint capture — a rushed, badly lit enrolment attempt, done quickly, will still cause recognition misses for months afterward. Speed and quality both need to be designed for; optimising only for speed just moves the cost from onboarding day to every day after it. We build face-recognition attendance systems ourselves, so weigh that recommendation accordingly — but the same principle holds whichever system you're running.
+## Hand over ownership, not just credentials
 
-## What to check this week
+Before closing the task, record who confirmed the identity mapping, who validated the first report and who handles future exceptions. Give the supervisor a way to spot new joiners still awaiting setup. A short outstanding-work list is more actionable than an assumption that every captured profile is ready.
 
-Time how long it actually takes, door to done, to get one new joiner fully enrolled and appearing correctly on tomorrow's attendance report. If the honest answer is measured in days rather than minutes, that gap is where your manual-entry problem is coming from.
+Track elapsed time from request to usable attendance, the reasons for retries and the number of handoffs. Faster capture is not a sufficient success measure if errors appear later. For temporary or high-volume hiring, connect this process to the [seasonal workforce plan](/insights/attendance-seasonal-peak-workforce).
+
+## Common questions
+
+### Is a successful face capture enough to complete onboarding?
+
+No. Confirm the correct employee mapping, active assignment and a usable record in the intended attendance report. Capture success alone does not verify the downstream workflow.
+
+### Should a missing first-day record be recreated as an automatic entry?
+
+No. Use the approved exception process and label the record's origin and reviewer. Preserve the distinction between an original observation and a later correction.
+
+For an AI Alerto by PGAK assessment, bring the joining checklist, required report format and one representative onboarding scenario. The proposed workflow can then be evaluated against the handoff your team actually needs.
 
 [Ask for a free feasibility check](#dealer)

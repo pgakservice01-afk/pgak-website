@@ -1,55 +1,66 @@
 ---
-title: "Field staff attendance: geofencing without micromanaging"
-date: "2026-09-02"
-category: "Attendance"
-excerpt: "Geofencing can prove a service engineer reached the client site, or it can turn into tracking someone's lunch break. The difference is what you measure and what you tell them."
-metaDescription: "Geofencing can prove a service engineer reached the client site, or it can turn into tracking someone's lunch break."
-metaTitle: "Field staff attendance without micromanaging"
-readTime: 5
-image: "/insights/category/attendance-3.webp"
+title: 'Geofencing attendance: what a location event can prove'
+date: '2026-09-02'
+category: Attendance
+excerpt: Assess field attendance with realistic location accuracy, delayed events, permissions and exceptions. Distinguish phone location from verified work.
+metaDescription: Assess field attendance with realistic location accuracy, delayed events, permissions and exceptions. Distinguish phone location from verified work.
+metaTitle: 'Geofencing attendance: what a location event can prove'
+readTime: 4
+image: /insights/category/attendance-3.webp
 faqs:
-  - q: "What is geofencing attendance for field staff?"
-    a: "Geofencing attendance marks a field employee present when their phone's GPS location enters a defined radius around a client site, warehouse, or branch — usually by prompting a check-in on the phone rather than tracking silently. It answers 'were you at the site' for staff who don't work at a fixed gate a camera or biometric machine can watch."
-  - q: "Does geofencing attendance track an employee all day?"
-    a: "It depends entirely on how it's configured. A well-built system only records location at defined check-in and check-out events at named sites. A poorly built one runs continuous background tracking and logs every movement in between — which is where geofencing stops being attendance and becomes surveillance."
-  - q: "Is geofencing attendance legal without employee consent in India?"
-    a: "Location tracking on a personal or company phone requires informed consent under India's DPDP Act — the employee needs to know what is tracked, when, and why, and agree to it before it's switched on. Rules and enforcement details vary by state and by employment contract, so verify your specific setup with a compliance advisor rather than treating this as legal advice."
-  - q: "Where does geofencing attendance not work well?"
-    a: "It struggles indoors and in dense urban areas where GPS accuracy can be off by tens of metres, on phones with location services disabled or spoofed by a fake-GPS app, and for staff who don't carry a company-managed device. It also doesn't work at all for fixed-site staff, who are better served by a gate-based system."
+- q: Does a geofenced check-in prove an employee completed the visit?
+  a: No. It is a location-related record from a device or app. Identity, site access and completed work may require separate evidence and the appropriate human review.
+- q: Should a delayed geofence event automatically become a late mark?
+  a: No. Check the event time, upload time, location uncertainty and known device conditions through the approved exception process before deciding the attendance outcome.
+updated: '2026-11-05'
 ---
 
-**Geofencing attendance marks someone present when their phone enters a set radius around a work site, and it genuinely solves a real problem — proving a field employee reached the client — for roles that don't work at a fixed gate. It turns into surveillance the moment it tracks location continuously instead of only at defined check-in points, and consent has to be explicit either way.**
+A phone records a check-in near a customer site. That is useful context, but it does not by itself prove who carried the phone, whether the employee entered the building or whether the assigned job was completed. A geofencing attendance assessment should begin with that limit.
 
-A sales rep says they visited a client on Tuesday. Was it a fifteen-minute drop-in or did they never leave the car park down the road? A service engineer logs a repair at a factory two hours from the office — did they actually go? For staff who don't clock in at a gate, this used to be unanswerable without asking a client to confirm.
+For field teams, location-based records may help organize visits when there is no fixed attendance point. Decide which operational question needs answering before choosing the app. A route map, a site check-in and a completed service job are different records, not interchangeable evidence.
 
-## What is geofencing, in plain terms?
+## Understand the event being collected
 
-A geofence is a virtual boundary drawn around a location — a client site, a branch, a warehouse gate — usually a radius of 50 to 200 metres. When an employee's phone enters that radius, the app can prompt a check-in; when it leaves, a check-out. The record that gets stored is "this person's phone was within this boundary at this time," nothing more, if the system is built correctly.
+A geofence is a software-defined geographic area. Depending on the application, a device entering, leaving or remaining within that area can trigger an event, or the app may check location when the user taps a button. Ask which approach is actually implemented and which timestamp is stored.
 
-## Where does geofencing genuinely help?
+Distinguish the observed location time from the time the server received the record. An offline upload may arrive later. Also ask how the app presents location accuracy or uncertainty; a pin drawn neatly on a map does not mean the measurement is exact.
 
-It fits roles that are, by definition, not at a fixed location: sales representatives doing client visits, service engineers doing site repairs, delivery staff, auditors doing multi-site rounds. For these roles, "were you at the site" is the actual question that needs answering, and a geofenced check-in answers it directly — no camera or biometric machine can, since there's no fixed gate to install one at.
+[Android's geofencing documentation](https://developer.android.com/develop/sensors-and-location/location/geofencing) describes practical dependence on location availability, network conditions and device settings, and warns that events can be delayed. These platform limits are reasons to test the actual app and phones, not a universal accuracy or response-time promise.
 
-It also removes a specific kind of dispute: an employee claiming a visit happened that a client later disputes. A time-stamped, location-stamped check-in settles that faster than a phone call.
+## Match the boundary to the real task
 
-## Where does it turn into surveillance theatre?
+Do not select a tiny radius just because it looks precise. Walk the intended site with representative devices and test the entrance, parking area and nearby road. Check whether a brief pass creates an unwanted record and whether an intended visit is missed. Record the conditions under which each result occurred.
 
-Two failure modes show up repeatedly. First, continuous tracking instead of event-based check-ins — the app pings location every few minutes all day, so management can see a dot moving on a map, including during lunch, a toilet break, or after hours if the employee forgot to log out. That data almost never gets used for anything except making people feel watched.
+For a service visit, combine any location event with the appropriate job reference and review process. The service owner can define what confirms completion. Attendance software should not turn proximity into a claim that repair work, inspection or delivery was performed.
 
-Second, geofencing gets bolted onto roles it was never meant for — someone tracking an office-based employee's phone "just in case," when that employee already has a fixed desk and a normal attendance record. If the role has a fixed workplace, geofencing is the wrong tool; it adds tracking without adding any information a simpler system doesn't already give you.
+At a fixed workplace, compare the available methods rather than declaring geofencing automatically suitable or unsuitable. Camera, card, supervised or mobile workflows have different requirements. The [attendance buying checklist](/insights/face-recognition-attendance-vs-biometric-machine) helps frame the capture-method decision.
 
-The test is simple: does the system log a location only at a defined check-in event at a named site, or does it log a continuous trail? The first is attendance. The second is something else, and calling it attendance doesn't make it one.
+## Explain collection and permissions accurately
 
-## What does consent actually require?
+Ask the supplier what is collected while the app is active, in the background and outside the intended working window. A system that displays only check-in points may still request background access to detect boundaries. The explanation to employees should match the actual behavior, not just the dashboard.
 
-Real consent, not a line buried in an onboarding form nobody reads. The employee should know, before it's switched on: what is tracked (check-in points, not a live trail, if it's built right), when (working hours, not 24/7), and why (verifying site visits, not general monitoring). If an employee would be surprised to learn how the system actually behaves, consent wasn't real.
+Define access, retention and the correction route with the organization's responsible HR, IT and privacy advisers. Have them determine the applicable requirements and approved deployment process. This guide does not make a blanket legal claim about consent, personal phones or every Indian establishment.
 
-This is a compliance area, and the specifics vary by state and by the terms of the employment contract — this isn't legal advice, and a compliance advisor should confirm what applies to your business before you roll geofencing out.
+Provide a usable exception path for unavailable devices, denied or changed permissions, poor connectivity and uncertain location. A technical failure should remain distinguishable from a finding about an employee's conduct.
 
-## What should a fair field-attendance policy look like?
+## Test before relying on the report
 
-Three lines, stated plainly to every field employee before day one: what gets recorded, when it gets recorded, and who can see it. Pair that with event-based check-ins rather than continuous tracking, and most of the "big brother" objection disappears — because the system genuinely isn't watching them all day, and they know it.
+Use representative phone models and normal work conditions. Check delayed uploads, battery-saving settings, app restart, a missed transition and a correction. Ask the provider to demonstrate its supported safeguards and their limits; a claim of fake-location detection needs evidence for the exact app and configuration.
 
-One honest limitation: we build fixed-site, camera-based attendance for gates and entrances, not phone-based field tracking, so this isn't our product — but the same principle we apply to our own systems holds here too: record only what answers the actual question, nothing more.
+Measure unresolved events and reviewer workload as well as successful check-ins. Agree what remains manual. Do not switch to location-derived payroll decisions because the map appears convincing or because another company's demo worked.
+
+AI Alerto by PGAK's camera-attendance assessment concerns fixed-site capture. Phone-based field tracking is a separate product scope and should not be inferred from a camera proposal. Confirm any integration or additional mobile capability explicitly before purchase.
+
+## Common questions
+
+### Does a geofenced check-in prove an employee completed the visit?
+
+No. It is a location-related record from a device or app. Identity, site access and completed work may require separate evidence and the appropriate human review.
+
+### Should a delayed geofence event automatically become a late mark?
+
+No. Check the event time, upload time, location uncertainty and known device conditions through the approved exception process before deciding the attendance outcome.
+
+If you need both fixed-site and field attendance, bring the two workflows separately to a feasibility discussion. That makes it possible to identify what a camera assessment can address and what requires a supported mobile solution.
 
 [Ask for a free feasibility check](#dealer)
