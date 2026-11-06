@@ -118,21 +118,21 @@ export const CAPABILITIES: Capability[] = [
       "Object classification can filter animals, weather, shadows and headlights before an alert is sent — how much it cuts false alerts is tested on your own footage.",
     summary:
       "Animals, rain, shadows and headlights can be filtered out before an alert is sent — tested on your footage.",
-    h1: "False-alarm filtering — the feature that makes every other feature usable",
+    h1: "False-alert filtering: test notification quality and missed events",
     intro:
-      "CCTV false alarm reduction sounds like a minor optimisation until you realise it is the reason most security systems end up switched off. A system that sends forty alerts a night trains you to ignore it within a fortnight, and an ignored system protects nothing. The approach is to classify what the camera sees before deciding to interrupt you, and how well that works on your cameras is tested at your site.",
+      "Repeated or irrelevant CCTV notifications can make review harder. AI Alerto by PGAK evaluates object classification, zones and schedules on the proposed camera views. Compare useful alerts, false alerts and missed eligible events before and after tuning; a quieter phone alone does not demonstrate better security.",
     steps: [
       {
         h3: "Classify before alerting",
-        text: "Moving objects are classified as a person, vehicle, animal or environmental noise. Only classes you've asked about can raise an alert.",
+        text: "Confirm the supported object classes and event rules for the proposed configuration. Test both relevant movement and common distractions; classification can be wrong or unavailable in a difficult scene.",
       },
       {
         h3: "Apply zone and schedule",
-        text: "A person in the yard at 2am matters. The same person in the same yard at 2pm during dispatch does not. Time and place are part of the decision, not an afterthought.",
+        text: "Define the restricted zone, operating hours and permitted exceptions with the site owner. A late delivery or maintenance visit may be authorised, so time and place require operational context.",
       },
       {
-        h3: "Suppress known people",
-        text: "Where face recognition is configured and tested, enrolled people can be exempted, which can reduce daytime alerts at sites with staff.",
+        h3: "Review identity-based exceptions separately",
+        text: "Do not assume a familiar person can safely be excluded from security alerts. Any identity-based exception needs a separately supported and tested configuration, permissioned enrolment, error handling and explicit approval in the site scope.",
       },
       {
         h3: "Tune against your footage",
@@ -146,9 +146,9 @@ export const CAPABILITIES: Capability[] = [
       "Any site where a guard has learned to ignore the buzzer",
     ],
     limits: [
-      "Filtering trades a small amount of recall for a large amount of precision. Tuned aggressively, it will occasionally suppress a genuine but ambiguous event — we set that balance with you rather than for you.",
-      "Cameras pointed at a public road will always see more legitimate movement; the fix is framing, not filtering.",
-      "Insects on the lens at night are the hardest single case, and are handled better by an IR housing than by software.",
+      "Filtering can suppress a genuine event as well as an unwanted alert. Measure false alerts and missed eligible events together; the size and direction of any change depend on the scene and configuration.",
+      "Public-road traffic can add irrelevant movement. Review camera framing, permitted coverage and event zones before deciding whether rule changes are suitable.",
+      "Insects, reflections and night lighting can affect the image. Inspect the actual view and follow the camera manufacturer's maintenance and lighting guidance; no single hardware or software change is guaranteed to resolve them.",
     ],
     faqs: [
       {
@@ -161,7 +161,7 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         q: "Could filtering cause me to miss a real intrusion?",
-        a: "It's a real trade-off and we won't pretend otherwise. Filtering set too aggressively can suppress an ambiguous event. We start conservative, review the first weeks of events with you, and tighten only where the footage justifies it.",
+        a: "Filtering set too aggressively can suppress an eligible event. Before changing settings, agree who reviews the event log, the observation period and the acceptance criteria. Any ongoing review service and its responsibilities must be confirmed in the site scope.",
       },
     ],
     solutions: [
@@ -187,7 +187,7 @@ export const CAPABILITIES: Capability[] = [
       "Zone and line-crossing alerts with a snapshot, camera name and timestamp — evaluated on your own cameras, with alert timing, sirens and escalation confirmed in the written scope.",
     summary:
       "Zone and line-crossing alerts with a snapshot — evaluated and timed at your site.",
-    h1: "Real-time intrusion alerts — because evidence at 9am is not security",
+    h1: "Intrusion alerts: connect a defined event to an agreed response",
     intro:
       "Real-time CCTV intrusion alerts are the whole point of putting intelligence on a camera. The aim is a notification with a snapshot, the camera name and a timestamp soon after a person crosses a boundary you defined — early enough that a phone call, a siren or a guard walking over can still change the outcome. PGAK has no published intrusion demonstration yet, so how quickly alerts arrive is measured at your site and confirmed in the written scope.",
     steps: [
@@ -197,7 +197,7 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         h3: "Set who and when",
-        text: "Which object classes count, which hours are armed, and which enrolled people are exempt.",
+        text: "Confirm supported event classes, the armed hours and permitted operational exceptions. Identity-based exemptions require separate support, testing and approval; do not assume enrolment establishes permission to enter.",
       },
       {
         h3: "Deliver the alert",
@@ -215,13 +215,13 @@ export const CAPABILITIES: Capability[] = [
       "Restricted rooms — pharmacies, server rooms, high-value stock aisles",
     ],
     limits: [
-      "Alert delivery depends on the recipient's mobile network; the detection runs locally, but the notification is only as fast as the network and the phone receiving it.",
-      "An alert is not a response. It buys you the minutes to act — the value comes from having decided in advance who acts.",
+      "Confirm which processing and delivery functions run on site or depend on external services in the proposed configuration. Test camera-feed, processing, service, network and recipient-device interruptions rather than assuming detection or notification will continue.",
+      "An alert does not guarantee time to prevent an incident. Agree who acknowledges, investigates and closes the event, including a backup when the primary contact is unavailable.",
     ],
     faqs: [
       {
         q: "How fast is 'real time'?",
-        a: "PGAK has not published a measured alert time. The time from detection to notification is measured on your own site during testing and written into the scope. Much of the variation comes from the phone's network rather than the on-site detection.",
+        a: "PGAK has not published a measured alert time. During a scoped test, record event time, detection, delivery and acknowledgement separately, including delayed or missed messages. Camera feeds, processing, delivery services, networks and recipient devices can all affect the result.",
       },
       {
         q: "Can it trigger a siren instead of just my phone?",

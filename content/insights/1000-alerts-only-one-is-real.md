@@ -1,48 +1,75 @@
 ---
-title: "1,000 alerts. Only one is real."
+title: "CCTV alert fatigue: a practical review and response checklist"
+metaTitle: "CCTV Alert Fatigue: Review and Response Checklist"
 date: "2026-07-27"
+updated: "2026-11-06"
 category: "Alerts"
-excerpt: "When almost every notification is a false alarm, people stop trusting them — and the one that actually matters gets swiped away with the rest. Here's how AI cuts the noise so real threats stand out."
-metaDescription: "When almost every notification is a false alarm, people stop trusting them — and the one that actually matters gets swiped away with the rest."
+excerpt: "When staff ignore CCTV notifications, examine the alert workload, event quality and response ownership. Use a practical review log before changing settings."
+metaDescription: "Review CCTV alert fatigue with an event log, clear ownership and acknowledgement checks. Reduce wasted attention while checking for missed events."
 readTime: 4
 image: "/insights/false-alarms.webp"
+faqs:
+  - q: "Does a delivered CCTV alert mean someone acted on it?"
+    a: "No. Delivery, human acknowledgement, response and closure are separate steps. Record the responsible reviewer and the actual outcome."
+  - q: "Is a lower CCTV alert count always better?"
+    a: "No. Check required events, stream health and missed events as well as message volume. Silence can reflect missing coverage or an unavailable recipient."
 ---
 
-Your phone buzzes. A branch moved in the wind. It buzzes again — a shadow shifted. Again — a stray dog, a delivery, your own staff walking in. By the afternoon you've had dozens of alerts, and every single one was nothing.
+**A CCTV notification is useful when someone can understand it, decide what to do and record the outcome.** If a team has started ignoring messages, adding another alert channel may increase the workload without improving coverage.
 
-So the next time it buzzes, you don't even look.
+Start by reviewing what reaches the team and what happens afterwards. There is no universal acceptable alert count, and AI does not guarantee that every notification represents a threat.
 
-That's the quiet failure inside most "smart" CCTV: it cries wolf so often that it trains you to ignore the one alert that finally matters.
+## Separate detection quality from response workload
 
-## Why traditional alerts drown you
+A valid detection can still produce an unnecessary interruption. A worker may enter a permitted area during an approved shift, or one event may generate several messages. An unfamiliar person may be a legitimate visitor. These cases require context rather than automatic conclusions about identity or intent.
 
-Basic motion detection can't tell a person from a plastic bag. Anything that moves in frame trips it — wind, rain, headlights, insects near the lens, a cat on the wall. Every one of those becomes a notification, indistinguishable from a real intruder.
+The first review should answer three questions: did the configured event occur, did the message reach the intended person, and did that person know what action was expected? Keep these answers separate. A successful delivery does not prove a useful detection or a completed response.
 
-On a busy site with dozens of cameras, that's not a few alerts a day. It's a constant stream of noise.
+Use the [false-alert troubleshooting guide](/insights/ai-cctv-false-alarms-how-to-reduce) for scene and rule tuning. This checklist focuses on the work that follows the message.
 
-## The real cost of false alarms
+## Build a small, representative review log
 
-The danger isn't the annoyance — it's what the annoyance does to people. When almost every alert is false, your team mutes the app, ignores the buzz, or swipes notifications away without reading them.
+Choose an observation period that includes the operating conditions you need to understand. Include a relevant night period, shift change or busy delivery period where applicable. Do not choose only the quietest hours.
 
-And the one real intrusion gets swiped away with the rest.
+| Record | Why it matters |
+| --- | --- |
+| Event reference, location and time | Keeps repeated messages tied to the same event. |
+| Rule and operating condition | Shows what the system was supposed to identify. |
+| Review result | Distinguishes an eligible event, a false detection and a permitted activity. |
+| Message receipt and acknowledgement | Separates delivery from human acceptance of responsibility. |
+| Action and closure | Shows whether someone investigated, deferred or resolved the event. |
+| Missing or duplicate records | Exposes gaps and repeated work instead of hiding them. |
 
-![A wall of "false alarm" screens with the single real intrusion highlighted](/insights/false-alarms.webp)
+Record only the personal information needed for the review and restrict access appropriately. Do not place identifiable footage or employee details in a public enquiry form. Agree a suitable permissioned process if examples need technical assessment.
 
-A thousand false alarms don't just waste time. They hide the threat that counts.
+## Give each notification a decision path
 
-## How AI decides what's worth your attention
+Define a primary reviewer, a backup and the hours each covers. Agree how responsibility passes between shifts and what happens when a phone is unavailable. A group with many recipients can still have no accepted owner.
 
-This is exactly what PGAK's intelligence layer is built to fix. Instead of reacting to *any* movement, the AI learns what "normal" looks like on your site and only speaks up when something genuinely doesn't fit:
+The reviewer needs a clear site location and event reference, plus enough context to follow the site's response procedure. If the event is unclear, record that uncertainty. A model score should not be treated as proof that someone committed an offence or that a person was identified correctly.
 
-- **It tells a person from noise** — wind, shadows, animals and routine activity are filtered out.
-- **It knows your regulars** — known faces and everyday movement don't trigger anything.
-- **It flags what matters** — an unknown person, loitering, someone entering a restricted zone or crossing a perimeter after hours.
-- **It sends a real alert** — high-priority, with a snapshot and a confidence score, so you know instantly whether to act.
+Keep escalation instructions practical. State who can authorise an on-site check and who closes the record. This is a proposed operating checklist, not a promise that a particular PGAK product automatically assigns, escalates or closes alerts.
 
-The goal isn't more alerts. It's *fewer* — because the ones you get are worth reading.
+## Make workload visible without rewarding silence
 
-## And it runs on the cameras you already own
+Count distinct events separately from delivered messages. Review how many events required investigation, how many were permitted activity and how many remained unresolved. If measuring review time, state what was included and the observation period.
 
-No rip-and-replace. PGAK adds this intelligence on top of your existing CCTV, IP cameras and DVR/NVR through an on-site processing unit; which cameras are suitable, and anything extra the site needs, is confirmed at the assessment and quoted before you commit.
+A lower message count alone is not success. A muted phone, stopped stream or overly restrictive rule can also produce silence. Check [camera, recording and notification health](/insights/cctv-camera-offline-how-to-know), and keep a separate record of eligible events that did not produce a usable alert.
 
-When your alerts finally mean something again, your team starts trusting them again. And that's when the one real threat stops slipping through.
+Use the same observation method before and after a change. Keep the old setting, reason for the change and the person who reviewed it. If a setting suppresses necessary events, it needs reconsideration even when the dashboard looks quieter.
+
+## What should an AI Alerto assessment establish?
+
+AI Alerto by PGAK is an analytics evaluation for compatible existing CCTV. Camera and recorder suitability, event scope, operating conditions and the recipient workflow need assessment. Existing equipment is not automatically suitable simply because it can show a live picture.
+
+Check the [capability and evidence register](/platform/capabilities) and agree a [pilot evaluation method](/resources/evaluation-method). Do not assume the system learns every regular visitor, eliminates false alerts or establishes a universal response time.
+
+## Does a delivered CCTV alert mean someone acted on it?
+
+No. Delivery, human acknowledgement, response and closure are separate steps. Record the responsible reviewer and the actual outcome.
+
+## Is a lower CCTV alert count always better?
+
+No. Check required events, stream health and missed events as well as message volume. Silence can reflect missing coverage or an unavailable recipient.
+
+For a useful first conversation, prepare the site type, camera count, one event you need to notice and the current notification problem. **[Request an AI Alerto assessment](/free-audit)** to discuss a scoped test and the people who will review its results. Dealer and integration enquiries have a separate [partner route](/partners).
