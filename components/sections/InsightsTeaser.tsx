@@ -39,6 +39,7 @@ export default function InsightsTeaser() {
               >
                 <PostCover
                   image={p.image}
+                  imageFit={p.imageFit}
                   category={p.category}
                   title={p.title}
                   className="border-b border-line"

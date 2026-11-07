@@ -14,6 +14,7 @@ const CATEGORY_ICON: Record<string, IconName> = {
 
 export default function PostCover({
   image,
+  imageFit,
   category,
   title,
   className,
@@ -21,6 +22,7 @@ export default function PostCover({
   priority = false,
 }: {
   image?: string;
+  imageFit?: "contain";
   category: string;
   title?: string;
   className?: string;
@@ -39,7 +41,7 @@ export default function PostCover({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
           priority={priority}
           loading={priority ? undefined : "lazy"}
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className={imageFit === "contain" ? "object-contain" : "object-cover transition-transform duration-500 group-hover:scale-105"}
         />
       </div>
     );
