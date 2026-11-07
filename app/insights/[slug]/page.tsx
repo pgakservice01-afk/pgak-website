@@ -132,18 +132,25 @@ export default async function InsightPost({ params }: Props) {
               </p>
 
               {post.image && (
-                <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-line">
-                  <Image
-                    src={post.image}
-                    alt={`${post.title} — article cover image`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 720px"
-                    // Above the fold on an article page: this is the LCP
-                    // element, so it must not be lazy-loaded.
-                    priority
-                    className="object-cover"
-                  />
-                </div>
+                <figure className="mt-8">
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-line bg-panel">
+                    <Image
+                      src={post.image}
+                      alt={`${post.title} — article cover image`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 720px"
+                      // Above the fold on an article page: this is the LCP
+                      // element, so it must not be lazy-loaded.
+                      priority
+                      className={post.imageFit === "contain" ? "object-contain" : "object-cover"}
+                    />
+                  </div>
+                  {post.imageCaption && (
+                    <figcaption className="mt-2 text-sm text-ink-soft">
+                      {post.imageCaption}
+                    </figcaption>
+                  )}
+                </figure>
               )}
 
               <div

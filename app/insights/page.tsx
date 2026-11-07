@@ -153,6 +153,7 @@ export default function InsightsIndex() {
                 >
                   <PostCover
                     image={p.image}
+                    imageFit={p.imageFit}
                     category={p.category}
                     title={p.title}
                     priority={i < 3}

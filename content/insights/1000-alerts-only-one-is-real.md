@@ -7,7 +7,9 @@ category: "Alerts"
 excerpt: "When staff ignore CCTV notifications, examine the alert workload, event quality and response ownership. Use a practical review log before changing settings."
 metaDescription: "Review CCTV alert fatigue with an event log, clear ownership and acknowledgement checks. Reduce wasted attention while checking for missed events."
 readTime: 4
-image: "/insights/false-alarms.webp"
+image: "/insights/alert-review-illustration.png"
+imageFit: contain
+imageCaption: Editorial illustration of an alert-review workflow, not a product interface or a measured result.
 faqs:
   - q: "Does a delivered CCTV alert mean someone acted on it?"
     a: "No. Delivery, human acknowledgement, response and closure are separate steps. Record the responsible reviewer and the actual outcome."

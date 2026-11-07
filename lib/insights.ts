@@ -67,6 +67,9 @@ export type InsightMeta = {
   readTime: number; // minutes
   /** Optional cover image, e.g. "/insights/my-post.jpg" in /public. */
   image?: string;
+  /** Keep labelled illustrations fully visible rather than cropping the cover. */
+  imageFit?: "contain";
+  imageCaption?: string;
   /** Optional FAQ pairs — emitted as FAQPage JSON-LD; keep answers in the body too. */
   faqs?: InsightFaq[];
   /** Present only on unreviewed drafts, which production never loads. */
@@ -220,6 +223,8 @@ function toMeta(
     ),
     readTime: Number(data.readTime) || Math.max(1, Math.round(words / 220)),
     image: data.image ? String(data.image) : undefined,
+    imageFit: data.imageFit === "contain" ? "contain" : undefined,
+    imageCaption: data.imageCaption ? String(data.imageCaption) : undefined,
     updated: data.updated ? clampToToday(String(data.updated)) : undefined,
     reviewStatus: data.reviewStatus ? String(data.reviewStatus) : undefined,
     reviewer: data.reviewer ? String(data.reviewer) : undefined,
