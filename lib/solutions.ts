@@ -2930,6 +2930,9 @@ export const SOLUTIONS: Solution[] = [
       "video-analytics-software",
       "ai-intruder-detection",
       "commercial-cctv",
+      "ai-cctv-software-uae",
+      "ai-cctv-software-saudi-arabia",
+      "ai-cctv-software-qatar",
     ],
     insights: [
       "does-ai-cctv-work-without-internet",
@@ -3054,6 +3057,8 @@ export const SOLUTIONS: Solution[] = [
       "industrial-cctv",
       "video-analytics-software",
       "commercial-cctv",
+      "ai-cctv-software-mexico",
+      "ai-cctv-software-colombia",
     ],
     insights: [
       "nobody-can-watch-120-camera-feeds",
