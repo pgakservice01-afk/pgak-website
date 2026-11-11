@@ -18,9 +18,9 @@ is about, and the photographer credit is read from the photo's own Pexels page.
 
 | File | Page | Pexels photo | Photographer |
 |---|---|---|---|
-| ppe-supervisor-helmet-vest (800, 1600) | /ppe-kit-detection — hero | [8293670](https://www.pexels.com/photo/a-man-in-yellow-hard-hat-holding-a-clipboard-8293670/) | RDNE Stock project |
-| ppe-gloved-hands (600, 1200) | /ppe-kit-detection — how it works | [8821014](https://www.pexels.com/photo/person-wearing-protective-gloves-holding-silver-screws-8821014/) | Ron Lach |
+| ppe-supervisor-helmet-vest (800, 1600) | /ppe-kit-detection — hero; /ai-cctv-software-saudi-arabia — construction | [8293670](https://www.pexels.com/photo/a-man-in-yellow-hard-hat-holding-a-clipboard-8293670/) | RDNE Stock project |
+| ppe-gloved-hands (600, 1200) | /ppe-kit-detection — how it works; /ai-cctv-software-mexico — shifts and the gate | [8821014](https://www.pexels.com/photo/person-wearing-protective-gloves-holding-silver-screws-8821014/) | Ron Lach |
 | ppe-vests-helmets-rack (600, 1200) | /ppe-kit-detection — which items | [34442873](https://www.pexels.com/photo/orange-safety-vests-and-blue-helmets-hanging-34442873/) | Carsten Ruthemann |
-| desk-open-office (800, 1600) | /desk-tracking — hero | [36631700](https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/) | Doan Thanh Binh |
-| desk-workstations-overhead (600, 1200) | /desk-tracking — how it works | [8691827](https://www.pexels.com/photo/people-at-work-8691827/) | Ron Lach |
-| desk-cubicle-rows (600, 1200) | /desk-tracking — staffed posts | [20988575](https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/) | Toàn Văn |
+| desk-open-office (800, 1600) | /desk-tracking — hero; /ai-cctv-software-uae — three buildings | [36631700](https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/) | Doan Thanh Binh |
+| desk-workstations-overhead (600, 1200) | /desk-tracking — how it works; /ai-cctv-software-colombia — city mix | [8691827](https://www.pexels.com/photo/people-at-work-8691827/) | Ron Lach |
+| desk-cubicle-rows (600, 1200) | /desk-tracking — staffed posts; /ai-cctv-software-qatar — venues and facilities | [20988575](https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/) | Toàn Văn |
