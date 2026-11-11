@@ -1396,7 +1396,25 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "What it does not do",
-        body: "Face attendance is not magic, and being straight about the limits is how you avoid a failed rollout. Recognition needs a reasonably lit, reasonably front-on view of the face — a camera mounted high above a doorway looking at the tops of heads will not work without being repositioned. Very large enrolments need good quality reference photos to stay accurate. And any biometric processing in India sits under the DPDP Act, so employees must be told what is collected and why.",
+        body: "Four limits that matter on a plant floor, stated before anyone commits.",
+        points: [
+          {
+            h3: "It is not a camera supplier",
+            text: "Nothing here sells, replaces or repositions hardware. A camera aimed at the wrong part of the yard goes on watching the wrong part of the yard.",
+          },
+          {
+            h3: "It does not prevent shrinkage",
+            text: "It shortens the distance between an event and somebody knowing about it, from the next stocktake to the same shift. That is the whole claim.",
+          },
+          {
+            h3: "It needs the site connected",
+            text: "Power and a working link at the plant are what carry an alert out. Without them the recorder keeps recording and nobody is told.",
+          },
+          {
+            h3: "Spanish is not covered yet",
+            text: "The interface is English. For a floor team working entirely in Spanish that is a real gap to weigh, not a detail.",
+          },
+        ],
       },
       {
         h2: "Attendance that feeds payroll instead of fighting it",
@@ -3204,6 +3222,676 @@ export const SOLUTIONS: Solution[] = [
       "cctv-footage-legal-evidence-india",
       "how-many-cctv-cameras-does-a-factory-need",
       "what-to-do-day-after-a-theft",
+    ],
+  },
+  {
+    slug: "ai-cctv-software-uae",
+    group: "security",
+    proof: {
+      eyebrow: "From a working PGAK gate install in India",
+      heading: "What the gate operator actually works from",
+      intro:
+        "A screenshot from a working PGAK gate installation. It is from a site in India rather than the Emirates — PGAK has no UAE install to photograph yet, and this page is not going to imply one. What it shows is the software a gate operator uses, which is the same software a UAE site would get.",
+      items: [
+        {
+          src: "/proof/anpr-gate-console.webp",
+          alt: "The PGAK gate console listing vehicle reads with approve and deny buttons, allow-list labels and per-read diagnostics, with all number plates blurred",
+          width: 1440,
+          height: 1000,
+          title: "Every read is a decision someone makes",
+          caption:
+            "The console a gate operator works from. Each arrival is a card to approve or deny, allow-listed vehicles are marked as staff or contractor, and every read shows its own working — how many frames agreed, the margin, and how many pixels wide the plate was. As shown, each read waits for the operator's decision; any automatic admission is something a site may configure and test, not a default.",
+          redaction:
+            "Number plates are blurred here. A registration number identifies a person, so it is removed before anything is published — including in a screenshot used to sell the product.",
+        },
+      ],
+      limits:
+        "This is one gate, one camera position and one set of lighting conditions, at a site in India. It is evidence the system has been fitted and operated, not a measurement of how it would read plates at a gate in Dubai or Sharjah — that is tested on your own footage before anything is quoted.",
+    },
+    navLabel: "UAE",
+    primaryKeyword: "AI CCTV software UAE",
+    relatedKeywords: [
+      "video analytics UAE",
+      "CCTV software Dubai",
+      "existing camera AI retrofit UAE",
+      "multi-site camera monitoring Emirates",
+    ],
+    title: "AI CCTV Software in the UAE | PGAK",
+    description:
+      "Software that adds detection and attendance to the cameras a UAE site already runs. Delivered remotely, no new hardware.",
+    eyebrow: "United Arab Emirates",
+    h1: "AI on the cameras a UAE site already has",
+    intro:
+      "Cameras are not the gap in the Emirates. Walk any warehouse in Jebel Ali, any tower in Business Bay, any shop in a Sharjah industrial area and the cameras are already up, usually Hikvision or Dahua, usually recent. What is missing is anything that watches them. PGAK is software that runs on that existing estate and turns it into something that raises an alert, logs who came through the gate, and answers a question later without anyone scrubbing footage.",
+    painPoints: [
+      "The cameras are good and nobody has looked at the recorder since it was commissioned.",
+      "Contracted facilities, security and cleaning staff are billed against hours nobody can verify.",
+      "Four sites across three emirates, four separate apps, no single view.",
+      "An incident means somebody sitting with a recorder for an afternoon.",
+    ],
+    sections: [
+      {
+        h2: "The installed base is the opportunity",
+        body: "Search behaviour in the UAE says this plainly: the terms with volume are camera brands and camera prices, not analytics. The market has spent years buying hardware. That is the condition PGAK is built for, because the software is a layer on what is already mounted rather than a reason to re-cable a building. If a site has IP cameras and a recorder, the question is not what to buy — it is whether the existing feeds can carry detection, which is what the free audit answers before anything is quoted.",
+      },
+      {
+        h2: "Contracted workforces and the hours nobody can check",
+        body: "A large share of the labour on a UAE site arrives through an agency, and the invoice is a number of hours the client has no independent record of. Face recognition at the entrance produces that record as a by-product of people coming to work: arrival and departure, by person, in their own group, separate from the headline staff list. It is the same mechanism whether the entrance is a warehouse personnel gate, a tower service lobby or a site hut.",
+      },
+      {
+        h2: "Several sites, one view",
+        body: "Operators here are rarely single-site. A retail group runs across malls in two emirates; a logistics operator runs yards in Jebel Ali and Dubai South; a facilities contractor covers buildings it does not own. Where each site has its own recorder and its own app, nobody sees the estate. Alerts and entry records from every site can land in one place instead, which is usually the first thing that changes when a multi-site operator stops relying on per-site apps.",
+      },
+      {
+        h2: "How PGAK delivers in the UAE",
+        body: "PGAK serves UAE sites remotely, and for software that is the faster arrangement rather than a lesser one. The audit runs on your own feeds within days instead of waiting on a site visit, configuration is done for your cameras, and the fortnight of tuning afterwards is carried out against your real footage in your own working hours. Business here runs in English, so nothing is lost in translation. You give access to the recorder; physical camera work — repositioning a camera, a new cable run — stays with your existing installer, as it would with any software vendor.",
+      },
+      {
+        h2: "Three very different buildings, one estate",
+        photo: {
+          file: "desk-open-office",
+          widths: [800, 1600],
+          alt: "A modern open-plan office floor with cubicles, of the kind that fills a Business Bay or DIFC tower",
+          credit: "Doan Thanh Binh",
+          sourceUrl: "https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/",
+        },
+        body: "An operator here rarely runs one kind of property, and the detections that matter change completely between them. Setting the same rules across all three is the usual reason a system ends up muted.",
+        points: [
+          {
+            h3: "The Jebel Ali or Dubai South warehouse",
+            text: "A yard, a dock and a personnel gate. The questions are which vehicle came in, whether anything moved in the yard outside operating hours, and which of the contracted crew were actually on shift. Plate logging at the vehicle gate and a line across the yard answer the first two; the personnel gate answers the third.",
+          },
+          {
+            h3: "The Business Bay or DIFC tower floor",
+            text: "No yard and no perimeter — the whole problem is the door and the lift lobby. Here the useful record is who entered outside office hours and whether the cleaning and maintenance contractors attended when the invoice says they did.",
+          },
+          {
+            h3: "The Sharjah or Ajman industrial unit",
+            text: "Older stock, more mixed lighting, and a gate that doubles as the loading point. Detection is more constrained by what the existing cameras captured, which is exactly what the audit measures before anything is promised.",
+          },
+          {
+            h3: "Why one rule set fails all three",
+            text: "A dwell threshold that is sensible on a tower floor produces constant alerts in a working yard. Thresholds are set per position and per site, and the fortnight after go-live is spent settling them against each building's own traffic.",
+          },
+        ],
+      },
+      {
+        h2: "What it will not do",
+        body: "Boundaries worth setting before a trial. Detection is bounded by what the sensor captured, so a camera facing a glare source at noon stays a camera facing a glare source. Retention is the recorder's job and does not change. Access control stays whatever hardware already governs the door. And an alert is information, not intervention — it buys the minutes between something happening and somebody knowing, which is the only thing it promises.",
+      },
+    ],
+    stats: [
+      { value: "0", label: "New cameras needed on most sites" },
+      { value: "7", label: "Emirates served from one dashboard" },
+      { value: "2", label: "Weeks of tuning on your own footage" },
+    ],
+    faqs: [
+      {
+        q: "Do we have to replace our Hikvision or Dahua cameras?",
+        a: "No, and that is the point. The software runs alongside the cameras and recorder already installed. Whether your specific feeds can carry a given detection is what the free audit establishes, before any commitment.",
+      },
+      {
+        q: "How do you support a UAE site from outside the country?",
+        a: "Remotely, and in practice that is quicker. The audit, configuration and the tuning period all run against your own feeds, so there is no waiting for an engineer to be scheduled or flown in. Physical camera work stays with your installer. PGAK does not keep an office in the Emirates and does not claim one.",
+      },
+      {
+        q: "Can one dashboard cover sites in different emirates?",
+        a: "Yes. Alerts and entry records from several sites come into one place regardless of which emirate each one sits in. That is usually the main reason a multi-site operator moves off per-site recorder apps.",
+      },
+      {
+        q: "Does it work for the contracted staff, not just our own employees?",
+        a: "Yes, and that is normally where it earns its place. Agency and contracted workers can be enrolled in their own group, so their hours are recorded independently of the invoice you receive.",
+      },
+    ],
+    related: [
+      "remote-cctv-monitoring",
+      "multi-site-cctv-monitoring",
+      "ai-cctv-software-saudi-arabia",
+      "ai-cctv-software-qatar",
+      "commercial-cctv",
+    ],
+    insights: [
+      "add-ai-to-existing-cctv-cameras",
+      "your-dvr-records-the-theft-it-doesnt-stop-it",
+    ],
+  },
+  {
+    slug: "ai-cctv-software-saudi-arabia",
+    group: "security",
+    proof: {
+      eyebrow: "From PGAK's own test setup in India",
+      heading: "Hot work flagged beside flammable storage",
+      intro:
+        "Eleven seconds of PGAK's own demonstration footage — a test setup in India, not a customer site and not a Saudi one. It is here because it shows the thing a continuous-process plant actually needs: two detections judged together rather than separately.",
+      items: [
+        {
+          src: "/proof/hot-work-poster.webp",
+          video: { src: "/proof/hot-work.mp4", durationSeconds: 11 },
+          alt:
+            "Plant camera view of a worker in a hard hat grinding a pipe and throwing a spray of sparks across the floor, with a red box labelled Hot Work Activity around him and a second red box labelled Flammable Material around three drums on a pallet to the right",
+          width: 1920,
+          height: 1080,
+          title: "Two detections in one frame",
+          caption:
+            "A man in a hard hat runs an angle grinder along a pipe and the sparks carry several metres across the floor. One box marks the hot work. A second marks three drums on a pallet, two of them carrying flammable hazard diamonds. Neither detection is interesting on its own — a plant runs grinders all day, and drums sit on pallets all day. What a safety officer would want to be told is that the two are in the same frame at the same moment, which is the condition a hot work permit exists to control.",
+          conditions:
+            "The clip carries its own burned-in overlay: 18 February 2025, 15:24:40, Camera 01, from a fixed elevated view in daylight. The camera model, its distance from the work and the detection confidence figures are not published here yet — they are being confirmed, and this caption will be updated with them rather than estimated.",
+          redaction:
+            "The vessel identifier T-201A is legible in the background and has been left in, as this is PGAK's own test footage and not a customer's plant. No audio track.",
+        },
+      ],
+      limits:
+        "Demonstration footage from a test setup proves the detection runs, not that it will run at your rates on your plant. Jubail and Yanbu lighting, camera positions and permit rules are their own problem, settled on your own feeds during the audit.",
+    },
+    navLabel: "Saudi Arabia",
+    primaryKeyword: "AI CCTV software Saudi Arabia",
+    relatedKeywords: [
+      "video analytics Saudi Arabia",
+      "CCTV software Riyadh",
+      "construction site camera monitoring KSA",
+      "contractor attendance Saudi Arabia",
+    ],
+    title: "AI CCTV Software in Saudi Arabia | PGAK",
+    description:
+      "Detection and workforce records on cameras a Saudi site already runs. Configured and tuned remotely, on existing hardware.",
+    eyebrow: "Saudi Arabia",
+    h1: "AI CCTV software for sites across Saudi Arabia",
+    intro:
+      "Saudi sites tend to be large, far apart, and staffed by a workforce that rotates. Those three facts shape the security problem more than anything about cameras: the distance makes every site visit expensive, the scale makes manual watching impossible, and the rotation makes any record that depends on recognising faces by memory worthless. PGAK adds detection and a workforce record to cameras a site already runs, without a visit.",
+    painPoints: [
+      "Sites hours apart, and any change means someone drives there.",
+      "A contracted workforce that turns over faster than anyone can learn it.",
+      "Material and plant walking off a site that is still under construction.",
+      "Recorders that hold the evidence and tell nobody at the time.",
+    ],
+    sections: [
+      {
+        h2: "Distance is the cost nobody prices in",
+        body: "A site in Jubail, a second in Riyadh and a third on a highway between them is a normal shape here, and the ordinary way of tuning a detection system — an engineer on site adjusting thresholds until the alerts settle — does not survive that geography. Doing the audit and the tuning against the feeds instead of in person is not a compromise in this market; it is the only version that scales past the second site.",
+      },
+      {
+        h2: "Construction sites and the workforce question",
+        photo: {
+          file: "ppe-supervisor-helmet-vest",
+          widths: [800, 1600],
+          alt: "A supervisor in a hard hat and high-visibility vest holding a clipboard on a work site",
+          credit: "RDNE Stock project",
+          sourceUrl: "https://www.pexels.com/photo/a-man-in-yellow-hard-hat-holding-a-clipboard-8293670/",
+        },
+        body: "A site that is still being built has two problems at once: plant and material leaving it, and a labour force whose hours reach the client as a figure on a subcontractor's invoice. The same cameras answer both. A line across the material yard raises an alert outside working hours; the personnel gate produces an arrival and departure record per person. Neither needs a device at a desk, which matters on a site where the office is a cabin that moves.",
+      },
+      {
+        h2: "Industrial estates and the gate that never closes",
+        body: "Jubail and Yanbu run processes that do not stop, which makes the personnel gate and the vehicle gate the two points where a day is actually measured. Plate logging at the vehicle gate turns a dispatch question into a search; face recognition at the personnel gate turns a shift into a record. Neither asks anyone to stop at a desk, which is what makes it survive a site running around the clock.",
+      },
+      {
+        h2: "How PGAK delivers in Saudi Arabia",
+        body: "PGAK serves Saudi sites remotely from India, and across this geography that is the advantage rather than the compromise: a site in Jubail and a site outside Riyadh are configured and tuned in the same week, with no travel between them and no waiting for an engineer to be routed. The software goes onto the cameras and recorder already installed; the audit that decides what those cameras can carry runs on your feeds before anything is committed. Camera work on the ground stays with whoever installed the system.",
+      },
+      {
+        h2: "Who owns the cameras on a project site",
+        body: "On a giga-project or a large contract, the camera estate often belongs to someone other than the organisation that needs the record — and that question decides more about a deployment here than any technical detail.",
+        points: [
+          {
+            h3: "Client-owned estate, contractor workforce",
+            text: "The cameras belong to the principal, the people arriving each morning work for a chain of subcontractors. The record that matters is hours by group, and it has to be produced without handing the subcontractor control of the system that measures them.",
+          },
+          {
+            h3: "Contractor-owned, temporary estate",
+            text: "Cameras put up for the duration of the build and removed afterwards. Here the value is almost entirely in the material yard and the plant compound, and the configuration should assume the estate moves as the site progresses.",
+          },
+          {
+            h3: "Shared sites with several contractors at once",
+            text: "Where multiple firms work the same site, a single gate record that separates them by group is usually more valuable than any detection, because it ends the monthly argument about attendance without anyone keeping a manual roster.",
+          },
+          {
+            h3: "Handover",
+            text: "A site that becomes an operating asset keeps the same cameras and needs different rules: the build-phase yard alerts stop making sense the day the building opens. Reconfiguring for that is a change of thresholds, not a new system.",
+          },
+        ],
+      },
+      {
+        h2: "Limits worth knowing first",
+        body: "Three things to settle before a Kingdom-wide rollout rather than after the first site.",
+        points: [
+          {
+            h3: "Connectivity decides everything",
+            text: "A remote site on an unreliable link will have gaps in what reaches you. The recorder keeps recording locally, but nothing is sent until the connection is back. On desert and industrial sites this is the first item on the audit, not an afterthought.",
+          },
+          {
+            h3: "Lighting sets the ceiling",
+            text: "Night detection depends on what the camera sensor recorded. No processing afterwards recovers detail that was never captured, and gate lighting is often the cheapest fix available.",
+          },
+          {
+            h3: "Arabic is not covered",
+            text: "The interface is English. For a project team working in Arabic that is a genuine constraint, and better weighed now than after a pilot.",
+          },
+        ],
+      },
+    ],
+    stats: [
+      { value: "0", label: "Site visits required to deploy" },
+      { value: "24×7", label: "Gate cover for continuous-process sites" },
+      { value: "2", label: "Weeks of tuning on your own footage" },
+    ],
+    faqs: [
+      {
+        q: "Our sites are hundreds of kilometres apart. Does that change the deployment?",
+        a: "It changes it in your favour, because none of the configuration or tuning requires a visit. The audit runs on your feeds, and the fortnight of tuning afterwards is done against your own footage rather than by someone standing on site.",
+      },
+      {
+        q: "Can it record hours for subcontracted labour?",
+        a: "Yes. Workers can be enrolled in their own group so that arrivals and departures are recorded independently of the hours a subcontractor invoices for.",
+      },
+      {
+        q: "Is there an Arabic version of the product or this page?",
+        a: "Not at present. This page and the product interface are in English, and we would rather say so than imply otherwise. For a project that needs Arabic, that is a genuine limitation to weigh.",
+      },
+      {
+        q: "What if a remote site loses its connection?",
+        a: "Alerts stop until it returns, while the recorder keeps recording locally if it has power. On remote sites a reliable link matters more than any detection setting, and it is the first thing the audit looks at.",
+      },
+    ],
+    related: [
+      "ai-cctv-software-uae",
+      "industrial-cctv",
+      "remote-cctv-monitoring",
+      "multi-site-cctv-monitoring",
+      "ai-cctv-software-qatar",
+    ],
+    insights: [
+      "add-ai-to-existing-cctv-cameras",
+      "1000-alerts-only-one-is-real",
+    ],
+  },
+  {
+    slug: "ai-cctv-software-qatar",
+    group: "security",
+    proof: {
+      eyebrow: "Recorded by PGAK on an existing line camera in India",
+      heading: "Bare hands flagged on a line, no camera added",
+      intro:
+        "Fourteen seconds from a camera that was already fitted above a vehicle chassis line, playing at about twice real speed. The reason it is on a Qatar page: it was recorded on existing hardware, which is the whole deployment model here.",
+      items: [
+        {
+          src: "/proof/ppe-gloves-poster.webp",
+          video: { src: "/proof/ppe-gloves.mp4", durationSeconds: 14 },
+          alt: "Assembly line camera view with detection boxes drawn on workers' hands and a confidence figure beside each label",
+          width: 1280,
+          height: 720,
+          title: "Bare hands flagged, with the model's confidence on each box",
+          caption:
+            "Bare hands are flagged on an assembly line. The box is drawn on the hand rather than the person, and the figure beside each label is the model's confidence, which changes from frame to frame. Low figures are left in deliberately: they are the sort of detection a supervisor should be checking, not one a system should act on by itself.",
+          conditions:
+            "Recorded on an existing overhead line camera at a site in India; the clip's burned-in overlay reads 01-04-2023, 16:57. No camera was added for this.",
+        },
+      ],
+      limits:
+        "One line, one camera, one lighting condition, in another country. It shows the detection working on hardware that was already there — not a measurement of what a venue or facilities estate in Doha would get, which is what the audit establishes.",
+    },
+    navLabel: "Qatar",
+    primaryKeyword: "AI CCTV software Qatar",
+    relatedKeywords: [
+      "video analytics Qatar",
+      "CCTV software Doha",
+      "venue security analytics Qatar",
+      "facilities workforce attendance Doha",
+    ],
+    title: "AI CCTV Software in Qatar | PGAK",
+    description:
+      "Alerts and entry records on the cameras a Doha site already runs, set up and tuned remotely on existing hardware.",
+    eyebrow: "Qatar",
+    h1: "AI CCTV software for sites in Qatar",
+    intro:
+      "Qatar is unusual among the markets on this site: almost the whole country is within an hour of Doha, and the building stock is newer and better specified than most. That changes what is worth saying. The multi-site argument that matters in Saudi Arabia barely applies here, and the camera-quality problem that limits older estates mostly does not. What is left is the plain one — a well-built camera system that records everything and tells nobody anything.",
+    painPoints: [
+      "A recent, well-specified camera estate that nobody watches in real time.",
+      "Venues and facilities with large contracted workforces on rotating shifts.",
+      "Reviewing an incident still means someone and a recorder and an afternoon.",
+      "Access and entry logs kept on paper beside a very modern building.",
+    ],
+    sections: [
+      {
+        h2: "Good cameras, no attention",
+        body: "Where an estate is new, the usual blockers are absent: resolution is adequate, placement is deliberate, lighting was designed rather than inherited. That makes Qatar one of the easier markets for a software layer to work well in, because the detections a camera can carry are mostly limited by what the camera saw, and here it saw enough. The audit is correspondingly short.",
+      },
+      {
+        h2: "Venues, facilities and the shift workforce",
+        photo: {
+          file: "desk-cubicle-rows",
+          widths: [600, 1200],
+          alt: "Rows of monitors on desks in an office, of the kind a facilities team staffs on shifts",
+          credit: "Toàn Văn",
+          sourceUrl: "https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/",
+        },
+        body: "A large part of the operating estate here is venues and the facilities organisations that run them, staffed on rotating shifts by contracted teams. The recurring question is not who broke in; it is who was actually on site during a shift, and whether the hours invoiced match. Reading faces at the staff entrance answers that without a device at a desk and without anyone maintaining a roster by hand.",
+      },
+      {
+        h2: "One country, one metro",
+        body: "Because the populated part of Qatar is effectively a single metropolitan area, an operator with several locations is usually dealing with a short drive rather than a regional estate. That makes the centralised-view argument weaker than elsewhere and the real-time alerting argument stronger: the value is in knowing now, not in collapsing distance.",
+      },
+      {
+        h2: "How PGAK delivers in Qatar",
+        body: "PGAK serves Qatari sites remotely, which on a modern estate is close to frictionless: the audit reads your feeds, configuration follows, and the tuning period runs against your own footage. Business here is conducted in English, and because the cameras are generally well specified the setup is shorter than on an older estate. Physical camera work remains with your existing installer.",
+      },
+      {
+        h2: "Who holds the record when an FM contractor runs the building",
+        body: "Much of the operating estate here is run day to day by facilities management companies on behalf of an owner, which makes one question worth settling before deployment: whose record is it.",
+        points: [
+          {
+            h3: "The owner wants assurance",
+            text: "An owner is buying evidence that the building is staffed and attended as contracted. That is an entry and attendance record, reviewed periodically rather than watched live.",
+          },
+          {
+            h3: "The FM contractor wants operations",
+            text: "The contractor needs the live alerts — a door held open, someone in a plant room out of hours — because they are the party who responds. Same cameras, different output, and both can run at once.",
+          },
+          {
+            h3: "Venues change shape by the week",
+            text: "An estate built around events runs a skeleton crew most of the time and a large temporary workforce on event days. Enrolling that temporary population by group, for a defined period, is the normal pattern rather than the exception.",
+          },
+        ],
+      },
+      {
+        h2: "What it does not claim",
+        body: "A new estate removes most of the usual caveats, which makes the remaining ones worth stating clearly. Nothing here intervenes in an incident; it raises an alert with a clip so a person can. Nothing here replaces the access-control hardware on a door or the guard at a desk. And a short audit is still an audit — a building being new is a good reason to expect the cameras will carry detection, not a reason to assume it.",
+      },
+    ],
+    stats: [
+      { value: "0", label: "New hardware on a modern estate" },
+      { value: "1", label: "Hour: most of the country from Doha" },
+      { value: "2", label: "Weeks of tuning on your own footage" },
+    ],
+    faqs: [
+      {
+        q: "Our building is new and the cameras are good. Is there anything to gain?",
+        a: "Usually more than on an older estate, because the cameras can already carry the detections. A good camera system that nobody watches has the same blind spot as a poor one; the difference is that here the software has decent material to work with from day one.",
+      },
+      {
+        q: "We only have sites in and around Doha. Does the multi-site capability matter?",
+        a: "Honestly, less than it would elsewhere. In Qatar the stronger argument is real-time alerting rather than collapsing distance between sites, and it is worth buying for the reason that actually applies to you.",
+      },
+      {
+        q: "Can it track hours for a contracted facilities team?",
+        a: "Yes. Staff are enrolled in their own group and arrivals and departures are recorded at the entrance, which gives an independent record against what is invoiced.",
+      },
+      {
+        q: "Who installs it?",
+        a: "Nobody needs to travel. Configuration and the tuning period are done remotely against your feeds. Anything physical stays with the installer who put the cameras in.",
+      },
+    ],
+    related: [
+      "ai-cctv-software-uae",
+      "ai-cctv-software-saudi-arabia",
+      "commercial-cctv",
+      "remote-cctv-monitoring",
+    ],
+    insights: [
+      "add-ai-to-existing-cctv-cameras",
+      "ai-cctv-false-alarms-how-to-reduce",
+    ],
+  },
+  {
+    slug: "ai-cctv-software-mexico",
+    group: "security",
+    proof: {
+      eyebrow: "From a working PGAK install in India",
+      heading: "Counting what crosses the line at the dock",
+      intro:
+        "Sixteen seconds from a PGAK camera at a loading bay during an evening unload. It is a site in India, not Mexico — but the dock is the dock, and this is the mechanism a dispatch dispute turns on.",
+      items: [
+        {
+          src: "/proof/dock-count-poster.webp",
+          video: { src: "/proof/dock-count.mp4", durationSeconds: 16 },
+          alt: "Night CCTV of a truck backed onto a loading bay, with a vertical counting line drawn across the dock entrance and in and out counters displayed beside it",
+          width: 1400,
+          height: 787,
+          title: "The count climbing during an unload",
+          caption:
+            "Each sack carried across the line is detected, given a tracking number so the same one is not counted twice, and added to the running total — the count goes from four to seven while you watch. The figure is there at the end of the unload instead of being reconstructed from memory, so it can be checked against the paperwork while the lorry is still at the bay.",
+          conditions:
+            "Recorded 19 December 2022, 19:43, on an existing dock camera with one counting line. Confidence for each detection is shown on its box — the ones here sit around 0.84 to 0.90. Counting depends on the line being crossed cleanly: two people through the gap shoulder to shoulder, or a load carried back out and in again, are the cases to test on your own bay before relying on the figure.",
+          redaction:
+            "The transport company's name and telephone numbers, painted along the side of the lorry, are blurred for the whole clip. They belong to a third party and are not ours to publish. The clip carries no audio track.",
+        },
+      ],
+      limits:
+        "The model is trained on a sack, and it counts sacks crossing a line. It is not an inventory system and it does not reconcile against a stock ledger. On a maquiladora dock the item type and the bay geometry are different again, and both are tested on your own footage before anything is quoted.",
+    },
+    navLabel: "Mexico",
+    primaryKeyword: "AI CCTV software Mexico",
+    relatedKeywords: [
+      "video analytics Mexico",
+      "camera software for maquiladora",
+      "shift attendance manufacturing Mexico",
+      "AI retrofit existing CCTV Mexico",
+    ],
+    title: "AI CCTV Software in Mexico | PGAK",
+    description:
+      "Detection and shift records on cameras a Mexican plant already runs \u2014 no new hardware, no local AI team needed.",
+    eyebrow: "Mexico",
+    h1: "AI CCTV software for plants and sites in Mexico",
+    intro:
+      "Mexico buys cameras at a scale few markets match. Search demand for security cameras here runs into the hundreds of thousands of queries a month, and the result is an enormous installed base sitting in plants, yards and shops across the country, recording continuously and watched by nobody. The constraint is not hardware and has not been for years. It is that making those cameras useful has, until now, meant hiring people who are genuinely scarce here.",
+    painPoints: [
+      "An installed camera estate nobody has the staff to watch.",
+      "Shift and contracted labour whose hours reach payroll as a number nobody verified.",
+      "Material shrinkage found at stocktake rather than when it happened.",
+      "Analytics projects that stalled because the specialists to run them were not available.",
+    ],
+    sections: [
+      {
+        h2: "The skills gap is the actual barrier",
+        body: "Industry analyses of the Mexican surveillance market keep landing on the same obstacle: a shortage of AI, computer-vision and cybersecurity specialists makes implementation hard. That is worth naming because it is precisely the thing this product is shaped around. Nobody at your end has to build, train or maintain a model. The detections are configured against your feeds and tuned for your site, and the expertise required to keep them running stays with us rather than being a role you have to fill in a tight labour market.",
+      },
+      {
+        h2: "Manufacturing shifts and the gate",
+        photo: {
+          file: "ppe-gloved-hands",
+          widths: [600, 1200],
+          alt: "Gloved hands holding metal fasteners on a production line",
+          credit: "Ron Lach",
+          sourceUrl: "https://www.pexels.com/photo/person-wearing-protective-gloves-holding-silver-screws-8821014/",
+        },
+        body: "The border manufacturing belt and the Bajío run on shift patterns and a substantial contracted workforce. Attendance in that environment fails in a specific way: the record exists, but it is produced by a device somebody can present a colleague's credential to, and the hours reach payroll unverifiable. Reading faces at the personnel gate produces the record as a by-product of arriving, and contracted crews can be counted in their own group separately from direct staff.",
+      },
+      {
+        h2: "Yards, docks and the hours when nothing should move",
+        body: "A plant's losses usually happen at the boundary and the dock rather than inside, and usually at hours when the site is supposed to be still. A line drawn across a yard with a schedule attached distinguishes the forklift at two in the afternoon from the same movement at two in the morning. Vehicles at the gate can be logged by plate so that a dispatch question later is a search rather than an argument.",
+      },
+      {
+        h2: "Serving Mexican operations from day one",
+        body: "A Mexican plant does not have to wait for anyone to open an office locally. PGAK takes the site on remotely: the audit reads your existing feeds, the detections are configured for your gates, yards and docks, and the tuning runs against your own footage over the following fortnight. The product interface is in English, which suits plant managers and multinational operators working in English; for a team working wholly in Spanish that is worth raising early, and it is answered plainly in the questions below.",
+      },
+      {
+        h2: "The dock, the dispatch dispute and the plate",
+        body: "In an IMMEX or maquiladora operation the expensive disagreements are rarely about intruders. They are about what left the dock, on whose truck, and when — and they surface days later when paperwork and stock stop agreeing.",
+        points: [
+          {
+            h3: "Which truck, at what time",
+            text: "Plate logging at the vehicle gate turns a dispatch question into a search. Instead of someone scrubbing an afternoon of footage, the record says which plate entered, when it left, and attaches the clip.",
+          },
+          {
+            h3: "Cross-border shift patterns",
+            text: "Border plants run shifts timed around crossing times, which means gates are busiest in concentrated bursts. Attendance that depends on people queuing at a device fails precisely in those bursts; reading faces as people walk the gate does not.",
+          },
+          {
+            h3: "Contracted crews counted separately",
+            text: "Where a portion of the floor arrives through an agency, the hours reaching payroll are the agency's figure. Enrolling those crews as their own group produces an independent count without changing how anyone clocks in.",
+          },
+          {
+            h3: "Night and weekend movement",
+            text: "A yard line with a schedule separates the forklift at two in the afternoon from the same movement at two on a Sunday morning. That single distinction is usually what turns a camera estate from a recording device into something anyone bothers to act on.",
+          },
+        ],
+      },
+      {
+        h2: "What it does not do",
+        body: "It does not sell or replace cameras, and it does not rescue a camera that was mounted facing the wrong way. It does not stop theft; it shortens how long it takes to know. It needs power and a connection at the site to send anything. And what your particular cameras can carry is settled by looking at your feeds, not by a specification sheet.",
+      },
+    ],
+    stats: [
+      { value: "0", label: "AI specialists you have to hire" },
+      { value: "0", label: "New cameras needed in most plants" },
+      { value: "2", label: "Weeks of tuning on your own footage" },
+    ],
+    faqs: [
+      {
+        q: "Do we need an AI or data team to run this?",
+        a: "No, and that is deliberate. The shortage of computer-vision specialists is one of the documented obstacles to analytics adoption in Mexico, so nothing here asks you to hire for it. Configuration and tuning are done against your feeds by us.",
+      },
+      {
+        q: "Will it work with the cameras the plant already has?",
+        a: "That is the normal case. The software runs on an existing camera and recorder estate. Which detections your specific feeds can support is what the free audit establishes before anything is quoted.",
+      },
+      {
+        q: "Is the product available in Spanish?",
+        a: "Not at present \u2014 the interface and this page are in English. For a site whose team works entirely in Spanish, that is a genuine limitation and worth raising early rather than discovering later.",
+      },
+      {
+        q: "Can it separate contracted crews from our own employees?",
+        a: "Yes. Contracted workers are enrolled in their own group, so their hours are recorded independently and can be checked against what the agency invoices.",
+      },
+    ],
+    related: [
+      "ai-cctv-software-colombia",
+      "industrial-cctv",
+      "commercial-cctv",
+      "remote-cctv-monitoring",
+    ],
+    insights: [
+      "add-ai-to-existing-cctv-cameras",
+      "your-dvr-records-the-theft-it-doesnt-stop-it",
+    ],
+  },
+  {
+    slug: "ai-cctv-software-colombia",
+    group: "security",
+    proof: {
+      eyebrow: "From a working PGAK gate install in India",
+      heading: "How the camera actually gets fitted",
+      intro:
+        "A photograph from a working PGAK gate installation, at a site in India rather than Colombia. It is here because the most common question from a new market is a practical one: what physically has to happen at the gate.",
+      items: [
+        {
+          src: "/proof/anpr-camera-mount.webp",
+          alt: "A small bullet camera on a bracket fixed to an existing gate pillar, mounted at about 1.5 metres and angled along the lane",
+          width: 1000,
+          height: 1501,
+          title: "Mounted on the pillar that was already there",
+          caption:
+            "A bullet camera on a bracket fixed to the existing gate pillar — no new pole, no civil work, one cable run. That is the normal shape of a fitting, and it is why a site in Bogotá or Medellín can usually be brought up without rebuilding anything.",
+          conditions:
+            "This photograph shows one installation, mounted at about 1.5 metres and aimed along the lane in daylight. The height and angle describe this setup rather than a universal mounting rule. Your camera, capture distance, approach angle, lighting and software need to be assessed together and tested on representative vehicle passages.",
+        },
+      ],
+      limits:
+        "One gate, one pillar, one lane, photographed in another country. It shows what a fitting looks like, not what your gate needs — the available mounting point, the cable route and the capture view are checked at your own site first.",
+    },
+    navLabel: "Colombia",
+    primaryKeyword: "AI CCTV software Colombia",
+    relatedKeywords: [
+      "video analytics Colombia",
+      "CCTV software Bogot\u00e1",
+      "camera analytics Medell\u00edn",
+      "warehouse camera monitoring Colombia",
+    ],
+    title: "AI CCTV Software in Colombia | PGAK",
+    description:
+      "Alerts and entry records on cameras a Colombian site already runs, configured remotely with no new hardware.",
+    eyebrow: "Colombia",
+    h1: "AI CCTV software for sites in Colombia",
+    intro:
+      "Colombia concentrates its commercial activity into a handful of very distinct cities rather than spreading it evenly, and each of them produces a different version of the same problem. Bogot\u00e1 is corporate and logistics-heavy; Medell\u00edn has built a genuine technology and manufacturing identity; Cali and Barranquilla sit on different trade routes again. What they share is an installed camera base that records faithfully and raises nothing.",
+    painPoints: [
+      "Cameras in every unit and no one watching any of them live.",
+      "Entry records kept in a notebook at a gate nobody audits.",
+      "Several premises in different cities, each with its own recorder.",
+      "Incidents reconstructed days later from footage, if it is still there.",
+    ],
+    sections: [
+      {
+        h2: "A few cities, each with its own problem",
+        body: "Because activity concentrates rather than spreads, an operator here is usually in two or three cities at most, and those cities are genuinely unalike. A Bogot\u00e1 distribution centre is a dock and a vehicle gate problem. A Medell\u00edn plant is a shift and boundary problem. Treating them as one estate with one set of alert rules is the usual mistake; the detections are set per site, against each site's own footage and its own working hours.",
+      },
+      {
+        h2: "The gate record nobody can audit",
+        body: "Where entry is written down, the record exists only in the sense that paper exists. It cannot be searched, it is filled in by the person least able to refuse someone, and it is uncheckable afterwards. Face and plate recognition at the entrance replaces it with something timestamped and searchable, which usually changes the conversation about contracted staff and deliveries more than any alert does.",
+      },
+      {
+        h2: "Running it from outside Colombia",
+        body: "PGAK is based in India with no presence in Colombia, and this page will not imply otherwise. The reason that is workable is that the deployment does not need local hands: the audit reads your feeds, configuration is remote, and tuning runs against your own footage over the following fortnight. What does need someone local is physical camera work, and that stays with your installer.",
+      },
+      {
+        h2: "Serving Colombian sites remotely",
+        body: "Distance is not the obstacle it looks like. The audit, the per-site configuration and the fortnight of tuning all run against your own footage, so a Bogotá distribution centre and a Medellín plant can be brought up in the same week without anyone travelling between them. The interface is in English, which fits corporate and multinational teams; a site operating wholly in Spanish should weigh that, and the questions below say so directly.",
+      },
+      {
+        h2: "Bogotá, Medellín and the coast want different things",
+        photo: {
+          file: "desk-workstations-overhead",
+          widths: [600, 1200],
+          alt: "An overhead view of people working at rows of desks",
+          credit: "Ron Lach",
+          sourceUrl: "https://www.pexels.com/photo/people-at-work-8691827/",
+        },
+        body: "Colombia concentrates commercial activity into a few cities that are genuinely unalike, and the detections worth running differ enough that treating them as one estate is the common mistake.",
+        points: [
+          {
+            h3: "Bogotá: docks, vehicles and volume",
+            text: "The capital's distribution estate is a vehicle-gate and dock problem above all. Plate logging and a yard schedule carry most of the value; perimeter alerting matters less inside an industrial park than it does on an isolated site.",
+          },
+          {
+            h3: "Medellín: shifts and the boundary",
+            text: "A manufacturing and technology base with a more settled workforce, where the recurring questions are shift attendance at the personnel gate and movement at the boundary outside working hours.",
+          },
+          {
+            h3: "Cali and Barranquilla: trade routes",
+            text: "Sites oriented around moving goods rather than making them, where who entered and which vehicle carried what is the record that gets asked for, often weeks afterwards.",
+          },
+          {
+            h3: "Why rules are set per site",
+            text: "Detections are configured against each site's own footage and its own working hours. A rule tuned for a Bogotá dock produces noise on a Medellín boundary, and a system producing noise gets ignored within a month.",
+          },
+        ],
+      },
+      {
+        h2: "Limits",
+        body: "Said once, plainly. What a camera recorded is the ceiling on what can be detected from it, so placement and light are decided before software is. An alert needs the premises online to leave the building. Footage retention stays a property of the recorder you already own. And none of this intervenes — it tells somebody, with a clip, earlier than they would otherwise have found out.",
+      },
+    ],
+    stats: [
+      { value: "0", label: "Travel between cities to deploy" },
+      { value: "3", label: "Main commercial cities covered" },
+      { value: "2", label: "Weeks of tuning on your own footage" },
+    ],
+    faqs: [
+      {
+        q: "We have sites in Bogot\u00e1 and Medell\u00edn. Can the rules differ per site?",
+        a: "They should. Those two cities produce quite different patterns, and detections are configured per site against that site's own footage and working hours rather than applied as one estate-wide rule.",
+      },
+      {
+        q: "Can we keep our existing cameras and recorder?",
+        a: "Yes, that is the normal deployment. The audit establishes which detections your current feeds can carry before anything is quoted or changed.",
+      },
+      {
+        q: "Is anything available in Spanish?",
+        a: "Not currently. The interface and this page are English-only, which suits English-speaking corporate teams and does not suit a site working entirely in Spanish. Worth settling before a trial rather than after.",
+      },
+      {
+        q: "Who comes to the site?",
+        a: "Nobody from our side. The audit, configuration and tuning are remote. Physical work on the cameras stays with whoever installed them.",
+      },
+    ],
+    related: [
+      "ai-cctv-software-mexico",
+      "commercial-cctv",
+      "industrial-cctv",
+      "multi-site-cctv-monitoring",
+    ],
+    insights: [
+      "add-ai-to-existing-cctv-cameras",
+      "1000-alerts-only-one-is-real",
     ],
   },
 ];
