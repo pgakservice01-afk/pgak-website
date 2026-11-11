@@ -91,8 +91,8 @@ export default function ContactPage() {
                 Let&rsquo;s make your cameras intelligent.
               </h1>
               <p className="mx-auto mt-4 max-w-[540px] text-[1.05rem] text-ink-soft">
-                Reach us directly, or drop your details below and a verified PGAK
-                dealer near you will get in touch.
+                Contact PGAK or share your project details. We will confirm who
+                can handle the assessment and agree the next step for your location.
               </p>
             </div>
 
@@ -161,8 +161,9 @@ export default function ContactPage() {
                 Where to find us
               </h2>
               <p className="mt-4 max-w-[46ch] text-ink-soft">
-                We&rsquo;re headquartered in Ludhiana and deploy across India
-                through a verified dealer network.
+                PGAK is headquartered in Ludhiana. For projects elsewhere,
+                assessment, installation and support arrangements are confirmed
+                for your location before quotation.
               </p>
               <div className="mt-7">
                 <NapBlock />

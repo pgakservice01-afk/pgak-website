@@ -54,7 +54,7 @@ export type Person = {
    * Headshot under /public/team. All three were treated the same way —
    * greyscale, edges falling to black — so three photographs taken in three
    * different rooms read as one set. The treatment is a crop and a vignette
-   * done locally with sharp: no face was regenerated or retouched by a model,
+   * done locally (sharp, ffmpeg): no face was regenerated or retouched by a model,
    * because an AI-altered photograph of a real person is not that person, and
    * this is the page that asks a stranger to trust us.
    */

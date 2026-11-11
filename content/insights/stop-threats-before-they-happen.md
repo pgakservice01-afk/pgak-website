@@ -1,48 +1,77 @@
 ---
-title: "Stop threats before they happen."
+title: "From CCTV detection to response: plan an after-hours security workflow"
+metaTitle: "CCTV Detection to Response: After-Hours Workflow"
 date: "2026-07-27"
+updated: "2026-11-06"
 category: "Proactive Security"
-excerpt: "Traditional CCTV saves the footage after the damage is done. Proactive, AI-driven security detects, alerts and acts while there's still time to change the outcome."
-metaDescription: "Traditional CCTV saves the footage after the damage is done. AI-driven security detects and alerts while there is still time to change the outcome."
-readTime: 5
+excerpt: "Define an after-hours event, verify notification receipt and agree who responds. A practical CCTV workflow for factories and warehouses, without prevention guarantees."
+metaDescription: "Plan an after-hours CCTV workflow: event definition, camera readiness, alert receipt, backup ownership and a measured pilot before rollout."
+readTime: 4
 image: "/insights/reactive-vs-proactive.webp"
+faqs:
+  - q: "Can AI CCTV guarantee that a break-in is prevented?"
+    a: "No. Detection, delivery and human response depend on the configuration, conditions and operating process. Evaluate observed results without promising prevention."
+  - q: "What should an after-hours CCTV pilot test?"
+    a: "Test the agreed event, usable camera view, detection, notification receipt, human acknowledgement and recovery. Record missed events and unresolved limitations."
 ---
 
-There's a screen every reactive security setup eventually shows you: **"Recording saved."**
+**CCTV detection can create an opportunity to respond earlier, but it cannot guarantee that an incident will be prevented.** A useful security workflow connects a defined event, a usable camera view, a delivered notification and a person authorised to act.
 
-The break-in already happened. The fire already spread. The intruder is already gone — and somewhere on a hard drive, there's a clip of all of it. That clip won't get your stock back or undo the damage. It's a receipt for a loss you couldn't stop.
+Recording remains valuable for understanding what happened. Analytics and notifications add another possible layer; they do not remove the need for recording, physical controls, site procedures or human judgement.
 
-Proactive security is built to make sure you never reach that screen.
+## Start with one observable event
 
-## "Recording saved" means it's already too late
+Write the event in terms someone can test. For example: “a person enters the closed rear loading bay during the agreed non-operating hours.” This is an illustrative requirement, not a statement about an actual PGAK installation.
 
-Traditional CCTV is an evidence machine. It watches, it records, and it waits for a human to notice — usually the next morning. By the time anyone reviews the footage, the only question left is *how bad was it*, not *can we stop it*.
+Identify the boundary, schedule and permitted exceptions. A late delivery, cleaner or maintenance team may legitimately enter an area. Decide who approves schedule changes so that a holiday or overtime shift does not silently invalidate the rule.
 
-For a home that might be a stolen two-wheeler. For a warehouse or an industrial site, "too late" can mean lakhs in stock, damaged equipment or a safety incident. The camera did its job. The system still failed you.
+An event definition is more useful than a broad instruction to detect “suspicious people”. A system output should lead to review of the situation, not an automatic conclusion about a person's intentions.
 
-## What proactive security actually does
+## Check what the camera can show
 
-Instead of recording for later, an AI layer works in real time — it **detects, alerts and acts** while the threat is still unfolding:
+Review the relevant approach and event location using the actual installed view. A daytime still image does not demonstrate what can be detected at night, during glare or behind stored materials. Note changing obstructions and traffic patterns.
 
-- **Detects suspicious activity** — an unknown person, loitering, someone entering a restricted zone or crossing a perimeter after hours.
-- **Predicts and prioritises** — it separates a genuine threat from everyday noise, so the alert you get is real.
-- **Alerts your security team in seconds** — a high-priority notification with a snapshot and a confidence score.
-- **Can trigger a response** — where it's set up to, the system can act automatically: switching on lights, sounding a siren, or signalling a gate to lock.
-- **Prevents the incident** — turning "too late" into "handled."
+Manufacturer guidance illustrates why conditions matter. [Axis Object Analytics documentation](https://help.axis.com/en-us/axis-object-analytics) describes effects from lighting, visibility and camera positioning on its application. Those product-specific requirements are not PGAK performance specifications; use documentation and tests for the proposed configuration.
 
-The output isn't a better recording of the damage. It's the chance to stop the damage from happening.
+For an existing system, collect recorder and camera details and identify the channels proposed for evaluation. The [compatibility guide](/platform/compatibility) and [camera placement checklist](/insights/where-to-place-cctv-cameras-for-ai-detection) help prepare that discussion. Reuse should be assessed rather than promised for every camera.
 
-## Reactive vs proactive, side by side
+## Test the full path to a reviewer
 
-- Reactive: something happens → it's recorded → you find out later → you deal with the loss.
-- Proactive: something *starts* to happen → AI detects it → the right people are alerted → the incident is prevented.
+| Step | Evidence to record |
+| --- | --- |
+| Eligible event | Time, location and why it meets the agreed definition. |
+| Detection | Whether the configured system identified the event. |
+| Delivery | Which intended destination received the notification and when. |
+| Acknowledgement | Which responsible person accepted the event for review. |
+| Response | The decision and action taken under the site's procedure. |
+| Closure | Outcome, unresolved issue and next checkpoint. |
 
-Same cameras. Completely different outcome.
+Agree a primary contact and backup before the test. If nobody accepts responsibility, a message delivered successfully is still an incomplete operational result. Use consistent clocks when comparing event and receipt times, and report delayed and missing messages alongside successful examples.
 
-## And it runs on the cameras you already own
+## Plan failure and recovery as well as detection
 
-None of this means replacing your cameras. PGAK layers its intelligence onto your existing CCTV, IP cameras and DVR/NVR through an on-site processing unit — no rip-and-replace — and the assessment confirms which cameras are suitable and what the site needs before anything is quoted.
+Discuss what happens when a selected camera, recorder, network connection or recipient is unavailable. Identify which functions continue, which stop and how the site will know. These answers depend on the installed configuration; they should not be inferred from the presence of an on-site processing device.
 
-## The whole shift, in one line
+Use authorised maintenance windows for interruption tests and agree temporary coverage. Avoid casually disabling a critical camera or experimenting with a live gate. Record the recovery steps and check that required recording and notifications resume.
 
-Reactive security tells you **what happened**. Proactive security helps make sure it **doesn't** — the difference between *"we have it on camera"* and *"we stopped it."*
+If a proposal includes lights, sirens or access-control integration, require a separate scope and authorised engineering review. Do not assume a camera alert can safely lock a gate or that an integration is supplied as standard.
+
+## Decide using observed results
+
+Define acceptance criteria before observing the pilot. Keep counts of eligible events, useful detections, false alerts and missed events, with the observation period and conditions. A staged success is evidence for that test, not a universal prevention rate.
+
+The [pilot worksheet](/resources/evaluation-method) provides a structure for a pass, revise or stop decision. Retain open limitations in the handover record and assign the follow-up. A promising detector still needs a workable response process and confirmed support arrangements.
+
+## Prepare a scoped business assessment
+
+AI Alerto by PGAK's [capability register](/platform/capabilities) separates recorded demonstrations from evaluation areas that still require evidence. Perimeter and notification requirements need a configuration-specific discussion and site testing; no universal accuracy, delay or incident-prevention guarantee is established here.
+
+## Can AI CCTV guarantee that a break-in is prevented?
+
+No. Detection, delivery and human response depend on the configuration, conditions and operating process. Evaluate observed results without promising prevention.
+
+## What should an after-hours CCTV pilot test?
+
+Test the agreed event, usable camera view, detection, notification receipt, human acknowledgement and recovery. Record missed events and unresolved limitations.
+
+**[Request an AI Alerto assessment](/free-audit)** with the site type, camera count, operating hours and one event you want reviewed. Ask for compatibility checks, a written pilot scope and clear responsibilities. If you are evaluating the service as an installer or integrator, use the [partner enquiry route](/partners).
