@@ -3261,6 +3261,13 @@ export const SOLUTIONS: Solution[] = [
       "Software that adds detection and attendance to the cameras a UAE site already runs. Delivered remotely, no new hardware.",
     eyebrow: "United Arab Emirates",
     h1: "AI on the cameras a UAE site already has",
+    heroPhoto: {
+      file: "desk-open-office",
+      widths: [800, 1600],
+      alt: "A modern open-plan office floor with cubicles, of the kind that fills a Business Bay or DIFC tower",
+      credit: "Doan Thanh Binh",
+      sourceUrl: "https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/",
+    },
     intro:
       "Cameras are not the gap in the Emirates. Walk any warehouse in Jebel Ali, any tower in Business Bay, any shop in a Sharjah industrial area and the cameras are already up, usually Hikvision or Dahua, usually recent. What is missing is anything that watches them. PGAK is software that runs on that existing estate and turns it into something that raises an alert, logs who came through the gate, and answers a question later without anyone scrubbing footage.",
     painPoints: [
@@ -3289,11 +3296,11 @@ export const SOLUTIONS: Solution[] = [
       {
         h2: "Three very different buildings, one estate",
         photo: {
-          file: "desk-open-office",
-          widths: [800, 1600],
-          alt: "A modern open-plan office floor with cubicles, of the kind that fills a Business Bay or DIFC tower",
-          credit: "Doan Thanh Binh",
-          sourceUrl: "https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/",
+          file: "desk-cubicle-rows",
+          widths: [600, 1200],
+          alt: "Rows of monitors on desks in an office",
+          credit: "Toàn Văn",
+          sourceUrl: "https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/",
         },
         body: "An operator here rarely runs one kind of property, and the detections that matter change completely between them. Setting the same rules across all three is the usual reason a system ends up muted.",
         points: [
@@ -3396,6 +3403,13 @@ export const SOLUTIONS: Solution[] = [
       "Detection and workforce records on cameras a Saudi site already runs. Configured and tuned remotely, on existing hardware.",
     eyebrow: "Saudi Arabia",
     h1: "AI CCTV software for sites across Saudi Arabia",
+    heroPhoto: {
+      file: "construction-sandy-site",
+      widths: [800, 1600],
+      alt: "Two workers in hard hats and high-visibility vests on a sandy construction site, with rebar foundations behind them",
+      credit: "Mikael Blomkvist",
+      sourceUrl: "https://www.pexels.com/photo/people-with-hard-hard-standing-on-the-construction-site-8961260/",
+    },
     intro:
       "Saudi sites tend to be large, far apart, and staffed by a workforce that rotates. Those three facts shape the security problem more than anything about cameras: the distance makes every site visit expensive, the scale makes manual watching impossible, and the rotation makes any record that depends on recognising faces by memory worthless. PGAK adds detection and a workforce record to cameras a site already runs, without a visit.",
     painPoints: [
@@ -3412,11 +3426,11 @@ export const SOLUTIONS: Solution[] = [
       {
         h2: "Construction sites and the workforce question",
         photo: {
-          file: "ppe-supervisor-helmet-vest",
-          widths: [800, 1600],
-          alt: "A supervisor in a hard hat and high-visibility vest holding a clipboard on a work site",
-          credit: "RDNE Stock project",
-          sourceUrl: "https://www.pexels.com/photo/a-man-in-yellow-hard-hat-holding-a-clipboard-8293670/",
+          file: "ppe-vests-helmets-rack",
+          widths: [600, 1200],
+          alt: "Orange high-visibility vests and blue safety helmets hanging on a rack",
+          credit: "Carsten Ruthemann",
+          sourceUrl: "https://www.pexels.com/photo/orange-safety-vests-and-blue-helmets-hanging-34442873/",
         },
         body: "A site that is still being built has two problems at once: plant and material leaving it, and a labour force whose hours reach the client as a figure on a subcontractor's invoice. The same cameras answer both. A line across the material yard raises an alert outside working hours; the personnel gate produces an arrival and departure record per person. Neither needs a device at a desk, which matters on a site where the office is a cabin that moves.",
       },
@@ -3542,6 +3556,13 @@ export const SOLUTIONS: Solution[] = [
       "Alerts and entry records on the cameras a Doha site already runs, set up and tuned remotely on existing hardware.",
     eyebrow: "Qatar",
     h1: "AI CCTV software for sites in Qatar",
+    heroPhoto: {
+      file: "desk-cubicle-rows",
+      widths: [600, 1200],
+      alt: "Rows of monitors on desks in an office, of the kind a facilities team staffs on shifts",
+      credit: "Toàn Văn",
+      sourceUrl: "https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/",
+    },
     intro:
       "Qatar is unusual among the markets on this site: almost the whole country is within an hour of Doha, and the building stock is newer and better specified than most. That changes what is worth saying. The multi-site argument that matters in Saudi Arabia barely applies here, and the camera-quality problem that limits older estates mostly does not. What is left is the plain one — a well-built camera system that records everything and tells nobody anything.",
     painPoints: [
@@ -3558,11 +3579,11 @@ export const SOLUTIONS: Solution[] = [
       {
         h2: "Venues, facilities and the shift workforce",
         photo: {
-          file: "desk-cubicle-rows",
+          file: "desk-workstations-overhead",
           widths: [600, 1200],
-          alt: "Rows of monitors on desks in an office, of the kind a facilities team staffs on shifts",
-          credit: "Toàn Văn",
-          sourceUrl: "https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/",
+          alt: "An overhead view of people working at rows of desks",
+          credit: "Ron Lach",
+          sourceUrl: "https://www.pexels.com/photo/people-at-work-8691827/",
         },
         body: "A large part of the operating estate here is venues and the facilities organisations that run them, staffed on rotating shifts by contracted teams. The recurring question is not who broke in; it is who was actually on site during a shift, and whether the hours invoiced match. Reading faces at the staff entrance answers that without a device at a desk and without anyone maintaining a roster by hand.",
       },
@@ -3671,6 +3692,13 @@ export const SOLUTIONS: Solution[] = [
       "Detection and shift records on cameras a Mexican plant already runs \u2014 no new hardware, no local AI team needed.",
     eyebrow: "Mexico",
     h1: "AI CCTV software for plants and sites in Mexico",
+    heroPhoto: {
+      file: "ppe-gloved-hands",
+      widths: [600, 1200],
+      alt: "Gloved hands holding metal fasteners on a production line",
+      credit: "Ron Lach",
+      sourceUrl: "https://www.pexels.com/photo/person-wearing-protective-gloves-holding-silver-screws-8821014/",
+    },
     intro:
       "Mexico buys cameras at a scale few markets match. Search demand for security cameras here runs into the hundreds of thousands of queries a month, and the result is an enormous installed base sitting in plants, yards and shops across the country, recording continuously and watched by nobody. The constraint is not hardware and has not been for years. It is that making those cameras useful has, until now, meant hiring people who are genuinely scarce here.",
     painPoints: [
@@ -3687,11 +3715,11 @@ export const SOLUTIONS: Solution[] = [
       {
         h2: "Manufacturing shifts and the gate",
         photo: {
-          file: "ppe-gloved-hands",
-          widths: [600, 1200],
-          alt: "Gloved hands holding metal fasteners on a production line",
-          credit: "Ron Lach",
-          sourceUrl: "https://www.pexels.com/photo/person-wearing-protective-gloves-holding-silver-screws-8821014/",
+          file: "ppe-supervisor-helmet-vest",
+          widths: [800, 1600],
+          alt: "A supervisor in a hard hat and high-visibility vest holding a clipboard",
+          credit: "RDNE Stock project",
+          sourceUrl: "https://www.pexels.com/photo/a-man-in-yellow-hard-hat-holding-a-clipboard-8293670/",
         },
         body: "The border manufacturing belt and the Bajío run on shift patterns and a substantial contracted workforce. Attendance in that environment fails in a specific way: the record exists, but it is produced by a device somebody can present a colleague's credential to, and the hours reach payroll unverifiable. Reading faces at the personnel gate produces the record as a by-product of arriving, and contracted crews can be counted in their own group separately from direct staff.",
       },
@@ -3801,6 +3829,13 @@ export const SOLUTIONS: Solution[] = [
       "Alerts and entry records on cameras a Colombian site already runs, configured remotely with no new hardware.",
     eyebrow: "Colombia",
     h1: "AI CCTV software for sites in Colombia",
+    heroPhoto: {
+      file: "desk-workstations-overhead",
+      widths: [600, 1200],
+      alt: "An overhead view of people working at rows of desks",
+      credit: "Ron Lach",
+      sourceUrl: "https://www.pexels.com/photo/people-at-work-8691827/",
+    },
     intro:
       "Colombia concentrates its commercial activity into a handful of very distinct cities rather than spreading it evenly, and each of them produces a different version of the same problem. Bogot\u00e1 is corporate and logistics-heavy; Medell\u00edn has built a genuine technology and manufacturing identity; Cali and Barranquilla sit on different trade routes again. What they share is an installed camera base that records faithfully and raises nothing.",
     painPoints: [
@@ -3829,11 +3864,11 @@ export const SOLUTIONS: Solution[] = [
       {
         h2: "Bogotá, Medellín and the coast want different things",
         photo: {
-          file: "desk-workstations-overhead",
-          widths: [600, 1200],
-          alt: "An overhead view of people working at rows of desks",
-          credit: "Ron Lach",
-          sourceUrl: "https://www.pexels.com/photo/people-at-work-8691827/",
+          file: "desk-open-office",
+          widths: [800, 1600],
+          alt: "A modern open-plan office floor with cubicles",
+          credit: "Doan Thanh Binh",
+          sourceUrl: "https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/",
         },
         body: "Colombia concentrates commercial activity into a few cities that are genuinely unalike, and the detections worth running differ enough that treating them as one estate is the common mistake.",
         points: [

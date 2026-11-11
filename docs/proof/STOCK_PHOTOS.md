@@ -23,4 +23,5 @@ is about, and the photographer credit is read from the photo's own Pexels page.
 | ppe-vests-helmets-rack (600, 1200) | /ppe-kit-detection — which items | [34442873](https://www.pexels.com/photo/orange-safety-vests-and-blue-helmets-hanging-34442873/) | Carsten Ruthemann |
 | desk-open-office (800, 1600) | /desk-tracking — hero; /ai-cctv-software-uae — three buildings | [36631700](https://www.pexels.com/photo/modern-open-office-space-with-cubicles-36631700/) | Doan Thanh Binh |
 | desk-workstations-overhead (600, 1200) | /desk-tracking — how it works; /ai-cctv-software-colombia — city mix | [8691827](https://www.pexels.com/photo/people-at-work-8691827/) | Ron Lach |
+| construction-sandy-site (800, 1600) | /ai-cctv-software-saudi-arabia — hero | [8961260](https://www.pexels.com/photo/people-with-hard-hard-standing-on-the-construction-site-8961260/) | Mikael Blomkvist |
 | desk-cubicle-rows (600, 1200) | /desk-tracking — staffed posts; /ai-cctv-software-qatar — venues and facilities | [20988575](https://www.pexels.com/photo/monitors-on-desks-in-office-20988575/) | Toàn Văn |
