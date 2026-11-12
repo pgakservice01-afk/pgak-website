@@ -12,6 +12,7 @@ export const PROBLEMS = [
   "Attendance exceptions",
   "Vehicle entry / ANPR",
   "Camera-feed health",
+  "Loading / object counting",
 ] as const;
 export type ReadinessInput = { site: string; cameras: string; problem: string };
 export function readinessChecklist(input: ReadinessInput) {
@@ -37,6 +38,11 @@ export function readinessChecklist(input: ReadinessInput) {
     "Camera-feed health": [
       "Test a controlled disconnect and reconnect, including recorder and network failures.",
       "Assign a maintenance owner and verify the alert channel and recovery acknowledgement.",
+    ],
+    "Loading / object counting": [
+      "Define the unit and movement direction. Include reversals, returns, overlapping objects and obscured views in the evaluation.",
+      "Separate a visible count from SKU or serial identification. Confirm any barcode, QR or stock-system requirement independently.",
+      "Agree a permissioned representative sample and reference count, then record misses, duplicates and exclusions before deciding whether a pilot is suitable.",
     ],
   };
   return [
