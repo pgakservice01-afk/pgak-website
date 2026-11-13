@@ -17,7 +17,10 @@ const WA_MESSAGE =
  * tag is the only record of where it came from.
  */
 export function waOpener(path: string): string {
-  return waHref(`${WA_MESSAGE}\n\n[via: ${path}]`);
+  const message = path === "/partners"
+    ? "Hi PGAK team, I would like to discuss an integration or installation partnership."
+    : WA_MESSAGE;
+  return waHref(`${message}\n\n[via: ${path}]`);
 }
 
 /**
