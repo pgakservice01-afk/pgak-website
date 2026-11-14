@@ -1670,7 +1670,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "What makes PGAK different from a local CCTV installer?",
-        a: "The end state. A typical install ends at 'it records'. Ours ends at 'it tells you' — person and vehicle detection, boundary alerts and camera-offline warnings run on every install, and the first two weeks of tuning are part of the job, not an extra.",
+        a: "PGAK starts with the event you need to review, then checks whether the proposed cameras and configuration can support it. Agree any person or vehicle detection, boundary alerts, camera-health checks, notification route and tuning period in the written scope. At handover, check the selected functions and actual receipt separately; these features are not assumed to be included in every installation.",
       },
       {
         q: "Can you take over a CCTV system another company installed?",
@@ -2884,7 +2884,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Knowing when it is blind",
-            text: "Reporting a camera that has gone dark, or a site that has lost its link, can be configured and tested at your site — PGAK has no published camera-health demonstration yet. A monitoring system that fails silently is worse than none, because it is trusted.",
+            text: "Ask whether the proposed equipment supports reporting a lost camera connection or site link, and which faults remain outside that check. Confirm the event, notification route and recipient in the written scope. PGAK has no published camera-health demonstration yet; use an agreed site test to establish the supported behaviour, actual message receipt and recovery result.",
           },
         ],
       },
@@ -2914,7 +2914,7 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         q: "Will remote monitoring work if our internet is slow or drops?",
-        a: "Detection and alerting continue, because analysis runs on an edge device at the site rather than in the cloud. Live viewing and history sync pause during an outage and catch up afterwards. Sites with unreliable connections are precisely where an edge-first design matters.",
+        a: "It depends on the agreed configuration and the failed connection. Local processing may continue while its cameras, local network and power remain available; internet-dependent notifications, remote viewing and cloud services can be interrupted. Confirm any local response and backup connection, then test the planned outage and recovery with the site team. Automatic alert replay or history catch-up must be demonstrated before it is included in the scope.",
       },
       {
         q: "How much bandwidth does it use?",
