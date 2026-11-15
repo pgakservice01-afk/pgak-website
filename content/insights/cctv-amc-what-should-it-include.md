@@ -1,70 +1,120 @@
 ---
-title: "CCTV AMC checklist: scope, response, spares and proof of repair"
+title: "CCTV AMC comparison: scope, exclusions and repair closure"
 date: "2026-09-01"
-updated: "2026-10-28"
+updated: "2026-11-15"
 category: "Buying Guide"
-excerpt: "Compare CCTV annual maintenance contracts by covered equipment, response terms, spares, recording checks and repair evidence. Avoid vague AMC quotes."
-metaTitle: "CCTV AMC checklist: scope, response, spares and proof of repair"
-metaDescription: "Compare CCTV annual maintenance contracts by covered equipment, response terms, spares, recording checks and repair evidence. Avoid vague AMC quotes."
-readTime: 4
+excerpt: "Compare CCTV maintenance proposals against the same equipment, fault and closure evidence. Use a worked example to expose gaps before accepting a quote."
+metaTitle: "CCTV AMC comparison: scope, exclusions and repair closure"
+metaDescription: "Compare CCTV AMC quotes by equipment, service hours, spares and repair evidence. Use a worked example to clarify exclusions and responsibilities."
+readTime: 7
 image: "/insights/category/buying-guide-3.webp"
+imageCaption: "Reference image: warehouse shelving, not a documented customer installation or a maintenance test."
+faqs:
+  - q: "Does a comprehensive CCTV AMC include every repair?"
+    a: "The label alone does not establish coverage. Check the written equipment list, labour, spares, software, connectivity, travel and service hours, including how excluded work is approved."
+  - q: "What should a CCTV AMC quotation include?"
+    a: "Use the same inventory and requirements for each supplier. Ask for covered work, exclusions, acknowledgement and attendance terms, parts approval, restoration evidence and the owner of unresolved work."
+  - q: "Is a technician visit enough to close a CCTV fault?"
+    a: "Attendance records that work took place. Closure needs the agreed result for the affected function, supporting evidence and review by the responsible person. Untested or unresolved work should remain visible."
 ---
 
-A CCTV annual maintenance contract is useful when it makes responsibilities clear before a fault occurs. A price and the phrase “service included” leave too much unanswered: which equipment is covered, who attends, which parts cost extra and how you know the system works again.
+A CCTV annual maintenance contract should make a fault easier to resolve. A price beside “comprehensive service” cannot tell you which equipment is covered, who attends, whether a replacement costs extra or what evidence will show the repair is complete.
 
-Compare AMCs against the same equipment inventory and service requirements. There is no dependable universal percentage of hardware cost that tells you whether a contract is good value.
+Compare proposals against the same equipment inventory and a realistic fault. Keep four things separate: the work included, the time commitment offered, the result to be checked and the person responsible for anything left open. There is no dependable universal percentage of hardware cost that establishes good value for every site.
 
-## Attach the actual equipment inventory
+This is a buyer's comparison method. It is not a PGAK service package, agreed response time or confirmation that an AMC is available at your location. The worked example below is hypothetical.
 
-List camera locations, recorder and storage devices, network equipment, power supplies and any relevant software or processing device. Identify items maintained by another provider, such as the site's network or backup-power system.
+## Start with an inventory and existing faults
 
-Record pre-existing faults and equipment outside manufacturer support where known. Agree how additions, removals and replacement models change the scope. Otherwise a future dispute may begin with whether the failed item was covered at all.
+List camera and recorder references, locations, storage, network equipment, power supplies and relevant software or processing devices. Identify what another provider maintains, such as the site's network or backup power. Record pre-existing faults rather than assuming a new contract includes putting them right.
 
-If analytics or remote notifications are part of the installation, name them explicitly. A contract for physical cameras does not automatically include software configuration, licences or message delivery.
+Use the same inventory revision when requesting competing quotations. Ask how additions, removals and replacement models change the scope. Otherwise one price may cover fewer devices or a different starting condition.
 
-## Distinguish maintenance, repairs and replacements
+If analytics or notifications form part of the requirement, name them separately. Maintaining physical cameras does not automatically include software configuration, licences, event rules or message delivery. Link those dependencies to a responsible provider before accepting the proposal.
 
-| Area | What to define |
+## Turn the quotation into a coverage table
+
+For every line, ask the supplier to mark it included, excluded or subject to assessment. An unanswered field stays unknown. Record any extra charge and its approval process separately from whether the work is technically possible.
+
+| Requirement | What the proposal needs to resolve |
 | --- | --- |
-| Preventive work | Schedule, inspection checklist and access arrangements |
-| Fault diagnosis | Remote and on-site scope, responsible contact and escalation |
-| Labour | Included work, additional charges and approval process |
-| Spares | Covered components, exclusions, replacement basis and availability |
-| Software | Supported updates, configuration backup and licence responsibility |
-| Evidence | Visit report, unresolved faults and restoration checks |
+| Preventive visits | Equipment covered, frequency offered, checklist and site access |
+| Fault diagnosis | Remote and on-site scope; when diagnosis becomes chargeable |
+| Labour and travel | Included work, service area, access equipment and out-of-hours terms |
+| Spares | Named component classes, exclusions, approval and availability arrangements |
+| Recording and export | The functions checked after repair and the evidence retained |
+| Software and analytics | Versions, licences, configuration responsibility and supported functions |
+| Notifications and connectivity | Covered delivery route, recipient check and external dependencies |
+| Unfinished work | Responsible party, next checkpoint and who accepts the limitation |
 
-Labels such as comprehensive and non-comprehensive are less useful than the written inclusions and exclusions. Ask what happens to a failed disk, damaged cable, power supply or recorder in the actual proposal.
+Labels such as comprehensive and non-comprehensive do not answer all these questions. For a failed disk, damaged cable or recorder fault, ask how the actual proposal treats diagnosis, labour, replacement and the final check. A promise of unlimited visits still needs a clear scope.
 
-Check travel, access equipment and out-of-hours work separately. Request approval before chargeable work begins, except for any clearly agreed emergency process.
+## Compare three different clocks
 
-## Define response terms precisely
+Ticket acknowledgement, attendance and restoration are different milestones. Ask each provider to state the commitment it offers for each, including service hours, location, ticket route and when its clock starts and stops. Do not turn a quick acknowledgement promise into an assumed repair deadline.
 
-Acknowledging a ticket, attending the site and restoring service are different milestones. Ask the supplier to state each commitment it is offering, the service hours, geographic coverage and how the clock is measured.
+Also ask what happens while a spare, access permission or another provider is awaited. The record should identify the dependency and the person who accepted the next action. A temporary arrangement should name the function or area still unavailable; it is not evidence that the original requirement has been restored.
 
-Also agree what happens while a part is unavailable. Is a temporary arrangement possible, who authorises it, and which coverage remains unavailable? A short response promise does not by itself establish a restoration time.
+## Worked example: two offers for the same fault
 
-This checklist does not promise a particular PGAK service level or confirm an AMC is available at every location. Scope and support terms need a site-specific agreement.
+**Hypothetical example, not a PGAK quotation or customer result.** A warehouse wants support for a recorder, its cameras and a separately configured notification service. Its review scenario is: live video is available, a requested recording interval cannot be played, and an expected notification has not arrived.
 
-## Check recording, not just the camera picture
+The buyer sends the same inventory and scenario to two fictional suppliers. The comparison below shows clarification needed, rather than choosing a winner from a package name.
 
-A preventive visit should verify the agreed functions. Ask for recent playback and export checks, review of storage status, the oldest usable recording against the retention requirement and correct time settings. Keep results by channel or device where relevant.
+| Question | Fictional offer A | Fictional offer B | Buyer's decision |
+| --- | --- | --- | --- |
+| Equipment scope | “All CCTV maintenance” | Named cameras and recorder; network excluded | Ask A for an item list; identify B's network handover owner |
+| Fault response | “Prompt support” | Acknowledgement and attendance terms are stated; restoration depends on diagnosis and approved parts | Ask A to define its milestones; examine B's dependency process |
+| Failed storage | “Comprehensive” without a component list | Storage replacement separately approved | Neither label proves spare coverage; request the exact inclusion or approval rule |
+| Repair closure | Visit report | Affected-channel playback evidence and an open-issues entry | Ask A for a result record; check that B's evidence addresses the agreed function |
+| Missing notification | No stated scope | Notification service excluded | Agree a separate responsible provider or revise the requirement before acceptance |
 
-Lens and housing condition, mounting, connections and signs of environmental damage also deserve attention. Physical work should follow the equipment instructions and the site's access procedures.
+Offer B is more explicit in this example, but it does not cover the complete requirement. Offer A remains too vague to compare. The next step is to obtain revised written scope and responsibility, not to assume either package restores every function.
 
-Where analytics and notifications are covered, include an agreed functional check and verify the intended recipient. Use the [camera-health checklist](/insights/cctv-camera-offline-how-to-know) to separate live view, recording and delivery faults.
+Keep the missing recording interval separate from new recording after a repair. Demonstrating new playback cannot recreate footage that was never captured. Likewise, a working picture does not settle the notification issue. Use the [live-view, playback and receipt guide](/insights/cctv-camera-offline-how-to-know) for the practical checks instead of treating this comparison as a test procedure.
 
-## Plan changes rather than installing updates blindly
+## Agree the repair record before the first visit
 
-Ask who approves firmware or software changes, checks compatibility and keeps a recovery plan. Record versions and configuration changes. Schedule work that could interrupt recording or analytics with the business owner.
+A useful service report ties a ticket to the equipment, symptom, work and result. Ask whether the proposed AMC provides the following record, and who will review it on your side:
 
-Keep administrator ownership and remote-access arrangements explicit. Credentials should not circulate through open service reports. When a provider changes, the business needs a controlled handover of its equipment records and authorised access.
+| Record field | What to keep |
+| --- | --- |
+| Fault and scope | Ticket reference, affected device or channel, symptom and covered requirement |
+| Work performed | Diagnosis, authorised change, parts used and relevant configuration version |
+| Result evidence | What was checked, by whom, when, under which conditions and where the permitted evidence is held |
+| Unresolved work | Failed or untested function, dependency, accepted owner and next checkpoint |
+| Closure decision | Responsible reviewer's decision and any limitation still accepted |
 
-## Close each ticket with a result
+Use separate states for a proposed check, a completed check and an unresolved result. “Technician attended” is an activity. “Recording restored” needs the agreed observation. A check that was not performed should not be recorded as passed.
 
-The service report should identify the symptom, affected location, work performed, parts changed, test result and next action. “Visited site” does not show that recording or alerts were restored.
+For example, a completed camera repair and a pending network investigation can share a ticket reference while retaining separate outcomes and owners. This avoids losing the second issue when the first work item closes. The actual contract should determine the provider's obligations; this worksheet does not add a service commitment.
 
-Review repeat faults and overdue corrective work at an agreed interval. Use the [storage guide](/insights/cctv-storage-how-many-days) when retention is the unresolved issue, and the [installer comparison guide](/insights/how-to-choose-a-cctv-installation-company) when replacement work needs a new scope.
+## Keep configuration and support evidence usable
 
-If you are assessing AI Alerto by PGAK alongside an existing CCTV system, prepare the inventory and current maintenance responsibilities. Request a feasibility discussion that identifies the integration and support requirements before adding another service layer.
+Ask who approves updates, checks compatibility and maintains a recovery plan. Record changes and schedule work that could interrupt recording or analytics with the site owner. Avoid assuming that an update or a reset is the appropriate repair before diagnosis.
 
-[Ask for a free feasibility check](#dealer)
+Manufacturer support processes can help define the information needed. For example, the [AXIS Camera Station Pro manual](https://help.axis.com/en-us/axis-camera-station-pro) distinguishes configuration sheets, system reports and logs, and asks for circumstances and timing when escalating a fault. That is a product-specific example; the available records and procedure depend on your system.
+
+Keep passwords and unrestricted access links out of ordinary service reports. Agree authorised access, storage and sharing of diagnostic records with the site owner. On a provider change, the business needs a usable inventory, open-issues list and controlled access handover.
+
+For retention questions, use the [storage guide](/insights/cctv-storage-how-many-days). For replacement work outside the AMC, use the [installer comparison guide](/insights/how-to-choose-a-cctv-installation-company) and obtain a separate scope. Review repeat faults at an agreed interval rather than counting visits as proof of reliability.
+
+## Prepare a scoped discussion
+
+Bring the equipment inventory, current agreement, known fault and the function you need to confirm. For AI Alerto by PGAK, explain where an additional analytics or notification layer is proposed and who currently maintains the recorder, network and recipient route. Feasibility and support responsibilities need checking before adding that layer.
+
+[Request a site-specific assessment](/free-audit). Installers and dealers can use the separate [partner enquiry route](/partners).
+
+## Frequently asked questions
+
+### Does a comprehensive CCTV AMC include every repair?
+
+The label alone does not establish coverage. Check the written equipment list, labour, spares, software, connectivity, travel and service hours, including how excluded work is approved.
+
+### What should a CCTV AMC quotation include?
+
+Use the same inventory and requirements for each supplier. Ask for covered work, exclusions, acknowledgement and attendance terms, parts approval, restoration evidence and the owner of unresolved work.
+
+### Is a technician visit enough to close a CCTV fault?
+
+Attendance records that work took place. Closure needs the agreed result for the affected function, supporting evidence and review by the responsible person. Untested or unresolved work should remain visible.

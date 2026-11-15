@@ -1743,7 +1743,7 @@ export const SOLUTIONS: Solution[] = [
           },
           {
             h3: "Camera health & tamper watch",
-            text: "The least glamorous feature and often the most valuable: detecting when a camera goes dark, gets covered, or is knocked out of position. How it is detected and who is notified are tested at your site with disconnect and reconnect checks, and confirmed in the written scope.",
+            text: "A lost connection, an obscured image and a changed camera view are different faults. Ask which the proposed equipment can report and which require a person to check. A disconnect/reconnect test does not establish obstruction or camera-movement detection; agree a separate representative check for each supported function and verify actual message receipt.",
           },
         ],
       },
@@ -2872,7 +2872,7 @@ export const SOLUTIONS: Solution[] = [
         points: [
           {
             h3: "Detection runs at the site",
-            text: "Analysis happens on an edge device on your premises, not in a data centre, so alerting continues when the broadband drops. Only remote viewing and history sync depend on the link.",
+            text: "Local detection may continue during a broadband outage if the agreed processing device, cameras, local network and power remain available. Internet-dependent notifications, remote viewing and cloud services can be interrupted. Specify any local response and backup connection, then verify message receipt and recovery separately in an agreed site test.",
           },
           {
             h3: "Streams are not uploaded continuously",
@@ -2899,7 +2899,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     stats: [
       { value: "Push, not pull", label: "the system contacts you first" },
-      { value: "Works offline", label: "detection continues through a link outage" },
+      { value: "Site-dependent", label: "check local power, network and notification dependencies" },
       { value: "Snapshot", label: "attached to every alert for verification" },
       { value: "Per-person", label: "revocable access, not a shared password" },
     ],
