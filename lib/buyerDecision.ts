@@ -87,7 +87,7 @@ export const BUYER_DECISIONS: Record<string, BuyerDecision> = {
       "Boundary and zone alerts on schedules you set, with a clip attached to the alert.",
       "Face-recognition attendance at an entrance, where the camera sees faces at a usable size.",
       "Number-plate logging at a gate, where a camera is positioned for plates.",
-      "Camera-offline and health reporting across the estate.",
+      "Camera-connection and health checks on named channels, where the proposed equipment supports them. Confirm the faults covered and test the agreed notification route.",
     ],
     notSupported: [
       "Turning an unusable view into a usable one — a camera that cannot see the plate, the face or the line cannot analyse it.",
@@ -383,7 +383,7 @@ BUYER_DECISIONS["industrial-cctv"] = {
   supported: [
     "Zones and schedules per area across a large camera count, not just a few cameras.",
     "Alerts routed by area to the person responsible for it.",
-    "Camera-offline reporting across the estate, so a dead camera is noticed the same day.",
+    "Evaluate lost-connection reporting on the selected cameras. Confirm the supported faults, recipient and actual receipt at handover; response timing requires a separate agreement.",
     "Several plants or yards reporting into one account.",
   ],
   notSupported: [
