@@ -1237,33 +1237,33 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Smart Perimeter Protection — Virtual Fencing | PGAK",
     description:
-      "Virtual fencing on compatible cameras along walls, yards and roof access — no trenching or perimeter cabling. Person and vehicle alerts, optional siren.",
+      "Evaluate virtual boundaries on compatible CCTV. Confirm usable day/night views, alert delivery, site preparation and any proposed siren integration.",
     eyebrow: "Perimeter protection",
     h1: "Smart perimeter protection — a fence that reports itself",
     intro:
-      "Smart perimeter protection replaces the physical sensors nobody maintains with virtual boundaries drawn on the cameras you already own. Mark a line along the compound wall, the yard edge or the roof access, and PGAK raises a real-time alert the moment a person or vehicle crosses it — while filtering out the animals, weather and moving foliage that made your old perimeter alarm unusable.",
+      "Evaluate a virtual boundary on selected compatible cameras along a wall, yard or access route. Agree the objects, direction, hours and response owner, then test missed events, nuisance alerts and actual message receipt under representative day and night conditions. Existing barriers and security procedures remain part of the site plan.",
     painPoints: [
-      "Beam sensors and fence wires fail constantly and cost a fortune to trench in.",
+      "The condition, maintenance needs and coverage of existing boundary equipment are unclear.",
       "The old perimeter alarm fires so often at night that the guard disabled it.",
       "A one-kilometre boundary is covered by one guard at one gate.",
       "You learn about the breach from the damage, not from an alert.",
     ],
     sections: [
       {
-        h2: "Virtual fencing, drawn in a minute",
-        body: "A perimeter intrusion detection system used to mean buried cable, beam pairs and a maintenance contract. Now it means drawing a line on a camera view. You can change the boundary whenever the site changes, at no cost, on any camera that can see the area.",
+        h2: "Define the boundary and test conditions",
+        body: "A virtual line or zone can describe the event you want to review. Suitability depends on camera detail, angle, lighting, stream access and processing capacity. Agree configuration changes, retesting and support charges in the written scope; a drawn boundary alone does not establish usable coverage.",
         points: [
           {
             h3: "Line-crossing detection",
-            text: "Alert when an object crosses a boundary — with direction, so entering the site raises an alert and leaving it doesn't.",
+            text: "Define the object type, crossing direction and time window. Test permitted entries, exits and missed crossings against an independent event log.",
           },
           {
             h3: "Zone intrusion",
-            text: "Enclosed areas — a yard, a substation, a roof, a fuel store — alert on any presence rather than on crossing.",
+            text: "For an agreed yard or restricted area, confirm the supported object and zone rule. Record occlusion and missed events; retain the site’s access and safety procedures.",
           },
           {
             h3: "Loitering along the boundary",
-            text: "Someone standing at the fence for two minutes is a stronger pre-breach signal than someone walking past it.",
+            text: "A dwell rule can flag time spent in a defined area for review. Agree the threshold and legitimate exceptions; duration alone does not establish intent.",
           },
           {
             h3: "Schedules per boundary",
@@ -1273,42 +1273,42 @@ export const SOLUTIONS: Solution[] = [
       },
       {
         h2: "Filtering is what makes it survivable",
-        body: "The reason most perimeter systems end up switched off is not that they miss intruders — it's that they report everything. PGAK classifies before alerting: animals, rain, insects on the lens, headlights sweeping the wall and branches in the wind are suppressed. A boundary alert means a person or a vehicle.",
+        body: "Object classification and filters can help reduce unwanted alerts, but rain, insects, headlights, foliage and partly obscured objects can still affect the result. Test the proposed camera and configuration through the conditions that matter, recording false alerts and missed events as well as useful detections. A recipient should review the evidence before deciding what happened.",
       },
       {
         h2: "Response, not just notification",
-        body: "A boundary breach can trigger more than a phone buzz — an on-site siren, a strobe, a floodlight, or an announcement. Deterrence during the approach is worth more than evidence after the entry.",
+        body: "If the project needs a siren, light or announcement, confirm the exact supported output, interface, power supply and authorised operating procedure. Test the action and actual recipient acknowledgement separately from detection. Availability and safe operation must be agreed for the proposed equipment.",
       },
       {
-        h2: "Long perimeters, no new cabling",
-        body: "Because it uses cameras that are already installed and powered, extending coverage along a long boundary costs a camera, not a trench. Sites typically start with the two or three most exposed stretches and widen from there.",
+        h2: "Plan coverage and site preparation",
+        body: "Start with the priority stretches and map the required view, target detail, lighting and obstructions. Existing cameras may be reusable, but repositioning, additional views, power, networking or cabling can still be needed. Tie the proposed equipment and installation work to the coverage plan before extending the system.",
       },
     ],
     stats: [
-      { value: "1 min", label: "To draw a new virtual boundary" },
-      { value: "0m", label: "Of new cable trenched" },
-      { value: "< 3s", label: "From boundary crossing to alert — pilot target, measured on your site" },
+      { value: "Site-defined", label: "Agree the zone, schedule and acceptance test" },
+      { value: "Scope-dependent", label: "Confirm camera, power, network and cabling work" },
+      { value: "Measured on site", label: "Record detection and actual message receipt separately" },
     ],
     faqs: [
       {
         q: "Is this different from AI intruder detection?",
-        a: "It uses the same person and vehicle detection, applied to a long boundary instead of a single area: lines along the compound wall, the yard edge and roof access, with schedules and linked sirens or lights. If you need to know when anyone enters one room or zone after hours, start with intruder detection; if the problem is the length of the boundary, this page is the one.",
+        a: "Both can use evaluated person or vehicle rules. A perimeter assessment adds the route geometry, overlapping views, day/night conditions and responsibility for each stretch. Any linked siren or light requires its own confirmed interface and acceptance test.",
       },
       {
         q: "How is virtual fencing different from beam sensors?",
-        a: "Beams detect that something broke the beam — a bird does that as well as a person. Virtual fencing on camera classifies the object first, so it tells you a person crossed rather than that something did. It also needs no trenching, no power runs along the fence and no field maintenance.",
+        a: "A beam and a camera evaluate different signals and have different installation and maintenance requirements. Camera analytics depend on a usable image, suitable processing and configured rules. Compare the proposed coverage, false and missed events, power, network, cabling and maintenance scope at the actual boundary; existing protective equipment should be assessed by the responsible site team.",
       },
       {
         q: "Will wind, rain or animals trigger it?",
-        a: "They're filtered out. Object classification runs before the alerting logic, so weather, foliage and animals are suppressed by default. This is the single biggest reason perimeter systems get abandoned, and it's the part we tune hardest during the first fortnight.",
+        a: "They can still cause unwanted or missed detections depending on the image, object and configuration. Include representative weather, moving vegetation, headlights and legitimate activity in the pilot. Record results and agree any adjustments and review period in the project scope.",
       },
       {
         q: "Can it trigger a siren or light, not just my phone?",
-        a: "Yes. Boundary alerts can drive a siren, strobe, floodlight or public announcement at the site, alongside the phone notification. Deterrence during the approach beats evidence after the entry.",
+        a: "This depends on the proposed equipment and integration. Confirm the output/interface, local power and approved operating procedure, then test the device action and phone receipt separately. Do not assume that a camera alert includes a supported siren or lighting connection.",
       },
       {
         q: "How long a perimeter can this cover?",
-        a: "As long as your cameras can see. Coverage is limited by camera placement rather than by the software, and extending it means adding a camera to an existing stretch — not laying new sensor cable.",
+        a: "Coverage follows the required target detail, view geometry, lighting, obstructions, supported streams and processing capacity. A view of the whole boundary may still miss usable detail at its far edge. Confirm each stretch with representative tests and record additional equipment or cabling needs in the quotation.",
       },
     ],
     related: [
