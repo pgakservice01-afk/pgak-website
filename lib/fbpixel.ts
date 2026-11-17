@@ -1,9 +1,13 @@
 // Meta (Facebook / Instagram) Pixel helper — single source of truth for the
 // pixel id + typed event tracking.
 //
-// Pixel/dataset "HNI" (id 2995891480746659) on the PGAK Meta ad account.
+// Pixel/dataset id 1819341866020702 on the PGAK Meta ad account.
 // Used for website traffic tracking, retargeting, and conversion-optimised ads.
-export const FB_PIXEL_ID = "2995891480746659";
+//
+// Replaced the "HNI" pixel (2995891480746659) on 2026-11-16. Custom audiences
+// and conversion history built on that pixel stay with it — they do not carry
+// over to this one, so retargeting audiences have to be rebuilt here.
+export const FB_PIXEL_ID = "1819341866020702";
 
 type PixelEvent =
   | "PageView"
