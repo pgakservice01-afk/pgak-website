@@ -6,7 +6,6 @@ category: "Camera Setup"
 excerpt: "Before adding analytics or changing your monitoring process, audit camera views, lighting, recording, access and response."
 metaDescription: "Use this CCTV readiness audit checklist to assess camera views, lighting, recording, network access and response workflows before adding video analytics."
 readTime: 5
-image: "/insights/cctv-readiness-audit-warehouse-gate.png"
 faqs:
   - q: "Can existing CCTV cameras be used for video analytics?"
     a: "Often, yes, when the camera view, lighting, stream access and intended event are suitable. A site review should assess each priority camera before committing to a rollout."
