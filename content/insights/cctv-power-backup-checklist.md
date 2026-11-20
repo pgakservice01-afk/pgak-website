@@ -6,7 +6,6 @@ category: "Camera Setup"
 excerpt: "A CCTV camera is only one part of the recording chain. Use this practical power-backup checklist for cameras, PoE switches, NVRs and remote access."
 metaDescription: "Will CCTV record during a power cut? Learn which devices need backup power—camera, PoE switch, NVR and router—and how to test your CCTV setup."
 readTime: 4
-image: "/insights/cctv-power-backup-industrial-warehouse.png"
 faqs:
   - q: "Will CCTV record during a power cut?"
     a: "It can, but only when the camera and the equipment needed to carry and store its video—including the network or PoE switch and recorder—remain powered. Remote viewing may also require the router and internet connection to stay available."
