@@ -6,7 +6,6 @@ category: "Security Basics"
 excerpt: "A practical CCTV access policy keeps footage useful for security while avoiding casual, uncontrolled viewing."
 metaDescription: "Who should view workplace CCTV footage? Learn how to set roles, approval, audit logs, exports and retention in a practical CCTV access policy."
 readTime: 4
-image: "/insights/cctv-footage-access-control-warehouse.png"
 faqs:
   - q: "Who should have access to CCTV footage at work?"
     a: "Access should be limited to named roles with a defined security, safety or operational reason. Sites should document who can view live feeds, who can export clips, how access is approved, and how activity is reviewed."
