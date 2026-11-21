@@ -41,9 +41,9 @@ export const CAPABILITY_REGISTER: CapabilityRecord[] = [
     title: "Object count across a line at a loading bay",
     state: "limited pilot",
     scope:
-      "A known item type counted once each as it crosses one configured line on an existing dock camera. Not an inventory system; does not reconcile against a ledger.",
+      "A recorded demonstration counts a known item type across one configured line on an existing dock camera. It does not establish error-free counting, SKU identity or stock-ledger reconciliation.",
     requirement:
-      "To reach available: the item type and line position agreed at assessment, and a count checked against a manual tally at the site.",
+      "To reach available: agree the item type, direction and line position, then compare a representative site sample with an independent reference. Review misses, duplicate counts, reversals and unavailable intervals; matching totals alone do not establish event accuracy.",
     href: "/ai-cctv-for-warehouses",
     evidence: {
       projectId: "dock-count",

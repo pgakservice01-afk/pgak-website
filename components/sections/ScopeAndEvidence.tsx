@@ -11,7 +11,7 @@ import { publishedProjects } from "@/lib/proof/projects";
  * `variant` matches the two page templates (marketing and buyer guide).
  */
 const COMPONENTS: [string, string][] = [
-  ["Cameras reused", "Which existing cameras give a usable view for each use case — confirmed on a still image of each view."],
+  ["Cameras reused", "Which existing cameras provide usable streams and views for each use case — screened initially, then checked with representative recordings and agreed tests."],
   ["Cameras moved or added", "Only where a use case needs a view no camera has (plates and faces usually do). Each one named in the quote."],
   ["On-site processing unit", "Detection runs here, next to the recorder. Model, quantity and warranty depend on camera count and analytics."],
   ["Software / licences", "Which analytics on which cameras, the term, and the basis for renewal."],

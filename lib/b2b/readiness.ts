@@ -36,7 +36,7 @@ export function readinessChecklist(input: ReadinessInput) {
       "Agree manual review, authorised access lists and retention; barrier integration and safety need their own approval and acceptance test.",
     ],
     "Camera-feed health": [
-      "Test a controlled disconnect and reconnect, including recorder and network failures.",
+      "Have the authorised technical owner agree a safe, configuration-specific interruption and recovery test before any power or network change.",
       "Assign a maintenance owner and verify the alert channel and recovery acknowledgement.",
     ],
     "Loading / object counting": [
