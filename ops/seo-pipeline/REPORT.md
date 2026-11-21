@@ -26,7 +26,7 @@ Report email: subject `PGAK SEO · <Day DD Mon> · <n> posts live · <a> IndexNo
 
 Gmail tools: `create_draft`, `list_drafts`, `get_draft`, `delete_draft`, `send_message`, `search_threads` (load them with one ToolSearch call).
 
-**Finding a draft:** `list_drafts` with view `DRAFT_VIEW_FULL` and query `subject:PGAKPIPECLOUD subject:<D>` (or `subject:PGAKPIPEMAC subject:<D>`; for topics of any date `subject:PGAKPIPETOPICS`); keep only drafts whose subject starts with exactly the expected text (`PGAKPIPECLOUD <D> `…); parse `plaintextBody` as JSON. If the query returns nothing, call `list_drafts` once more with no query, `pageSize` 50, `DRAFT_VIEW_FULL`, and match subjects yourself before concluding there is none.
+**Finding a draft:** `list_drafts` with view `DRAFT_VIEW_FULL` and query `subject:PGAKPIPECLOUD subject:<D>` (or `subject:PGAKPIPEMAC subject:<D>`; for topics of any date `subject:PGAKPIPETOPICS`); keep only drafts whose subject starts with exactly the expected text (`PGAKPIPECLOUD <D> `…); parse `plaintextBody` as JSON. If the query returns nothing, try once more with the plain-text query `PGAKPIPECLOUD <D>` (or `PGAKPIPEMAC <D>`, `PGAKPIPETOPICS`) before concluding there is none. Never list drafts without one of these queries: the mailbox holds the owner's own drafts, which the pipeline must not read.
 
 **Was today's report sent?** `search_threads` query `in:sent PGAKSEO<D>`. Any match means yes.
 
