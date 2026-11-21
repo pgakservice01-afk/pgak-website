@@ -85,8 +85,8 @@ export function assess(a: Answers): { findings: Finding[]; summary: string; brin
   if (needsScene) {
     if (a.dedicatedView === "no")
       add("Scene", a.useCase === "anpr" || a.useCase === "face" ? "blocker" : "check", `This needs ${SCENE_NEED[a.useCase]}. Without such a view, a camera may need moving or adding.`);
-    else if (a.dedicatedView === "unsure") add("Scene", "check", `This needs ${SCENE_NEED[a.useCase]}. A still image of the current view settles it at the assessment.`);
-    else add("Scene", "good", `You have a view for this; whether it is good enough (${SCENE_NEED[a.useCase]}) is checked on a still image.`);
+    else if (a.dedicatedView === "unsure") add("Scene", "check", `This needs ${SCENE_NEED[a.useCase]}. A still image can screen the view; suitability requires representative recordings and a test of the agreed task.`);
+    else add("Scene", "good", `You report a view for this (${SCENE_NEED[a.useCase]}). A still image is an initial check; representative recordings and the agreed task still need testing.`);
 
     if (a.nightLight === "no")
       add("Lighting", "check", "If the event matters at night, the scene must be lit enough for the camera to see it. Do not reduce lighting people need for safety.");
