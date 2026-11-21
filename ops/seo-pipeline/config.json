@@ -1,0 +1,26 @@
+{
+  "site_origin": "https://www.pgak.co.in",
+  "site_host": "www.pgak.co.in",
+  "report_to": "pgak.service01@gmail.com",
+  "github_repo": "pgakservice01-afk/pgak-website",
+  "branch": "main",
+  "commit_name": "PGAK SEO Pipeline (Claude)",
+  "commit_email": "pgak.service01@gmail.com",
+  "posts_per_day": 3,
+  "index_urls_per_day": 10,
+  "timezone": "Asia/Kolkata",
+  "categories": [
+    "Security Basics",
+    "Camera Setup",
+    "Buying Guide",
+    "Compliance",
+    "Attendance",
+    "Warehouse Security",
+    "Retail",
+    "Monitoring",
+    "Alerts",
+    "Proactive Security"
+  ],
+  "cover": { "width": 1600, "height": 900, "max_bytes": 300000 },
+  "library_low_warning": 9
+}

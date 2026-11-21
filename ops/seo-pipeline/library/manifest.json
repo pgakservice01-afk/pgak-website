@@ -1,0 +1,348 @@
+[
+ {
+  "id": "warehouse-loading-bay-dusk",
+  "tags": [
+   "warehouse",
+   "logistics",
+   "loading bay",
+   "dispatch",
+   "counting",
+   "truck"
+  ],
+  "scene": "An Indian warehouse loading bay at dusk, a truck backed up to an open shutter, a wall-mounted bullet CCTV camera on a concrete pillar watching the dock."
+ },
+ {
+  "id": "factory-main-gate-night",
+  "tags": [
+   "factory",
+   "gate",
+   "perimeter",
+   "vehicle",
+   "security guard cabin",
+   "night"
+  ],
+  "scene": "A factory main gate with a boom barrier at night, a lit guard cabin beside it, a dome camera on the gate pillar, empty approach road."
+ },
+ {
+  "id": "retail-store-aisles",
+  "tags": [
+   "retail",
+   "shop",
+   "store",
+   "shrinkage",
+   "footfall",
+   "theft"
+  ],
+  "scene": "A mid-size Indian retail store after closing, neat aisles of packaged goods, ceiling-mounted dome cameras, soft night lighting."
+ },
+ {
+  "id": "home-entrance-evening",
+  "tags": [
+   "home",
+   "house",
+   "residential",
+   "family",
+   "doorstep"
+  ],
+  "scene": "An Indian independent house at evening: closed metal gate, front door with warm porch light, a small wall-mounted camera above the door."
+ },
+ {
+  "id": "nri-property-locked",
+  "tags": [
+   "nri",
+   "vacant property",
+   "home",
+   "remote",
+   "bungalow"
+  ],
+  "scene": "A locked, unoccupied bungalow in a Punjab town at dusk, closed gate with a padlock, empty driveway, an outdoor camera on the boundary wall."
+ },
+ {
+  "id": "office-reception",
+  "tags": [
+   "office",
+   "reception",
+   "visitor",
+   "access",
+   "corporate"
+  ],
+  "scene": "A modern Indian office reception after hours, empty desk, glass entrance door, a dome camera on the ceiling near the entrance."
+ },
+ {
+  "id": "attendance-entrance-turnstile",
+  "tags": [
+   "attendance",
+   "staff entrance",
+   "turnstile",
+   "shift",
+   "factory",
+   "face recognition"
+  ],
+  "scene": "A factory staff entrance with turnstiles and a camera mounted above, a few workers seen only from behind as distant silhouettes at shift change."
+ },
+ {
+  "id": "perimeter-fence-night",
+  "tags": [
+   "perimeter",
+   "intrusion",
+   "fence",
+   "boundary wall",
+   "night",
+   "trespass"
+  ],
+  "scene": "An industrial perimeter fence with barbed wire under floodlights at night, a PTZ camera on a tall pole overlooking the boundary."
+ },
+ {
+  "id": "nvr-server-cabinet",
+  "tags": [
+   "nvr",
+   "dvr",
+   "recorder",
+   "storage",
+   "hard disk",
+   "footage retention"
+  ],
+  "scene": "A wall-mounted network cabinet in a small office with a network video recorder, hard-disk activity lights and neatly dressed patch cables."
+ },
+ {
+  "id": "poe-switch-cabling",
+  "tags": [
+   "network",
+   "poe",
+   "switch",
+   "cabling",
+   "ip camera",
+   "bandwidth"
+  ],
+  "scene": "Close-up of a rack-mounted PoE network switch with blue ethernet cables plugged in, status LEDs glowing, cable labels blank."
+ },
+ {
+  "id": "control-room-monitor-wall",
+  "tags": [
+   "monitoring",
+   "control room",
+   "alerts",
+   "multi-site",
+   "operator",
+   "video wall"
+  ],
+  "scene": "A small security control room with a wall of monitors showing blurred, unreadable camera views, an empty operator chair, dim blue light."
+ },
+ {
+  "id": "technician-installing-camera",
+  "tags": [
+   "installation",
+   "installer",
+   "dealer",
+   "camera setup",
+   "mounting",
+   "maintenance"
+  ],
+  "scene": "A technician seen from behind on a ladder mounting a dome camera high on a factory wall, tool pouch on the belt, daylight fading."
+ },
+ {
+  "id": "vehicle-gate-anpr",
+  "tags": [
+   "anpr",
+   "number plate",
+   "vehicle",
+   "gate",
+   "parking",
+   "entry lane"
+  ],
+  "scene": "A vehicle entry lane at a commercial site with a boom barrier and a camera aimed at the lane, a car approaching with a blank, unreadable plate."
+ },
+ {
+  "id": "school-gate-morning",
+  "tags": [
+   "school",
+   "campus",
+   "gate",
+   "students",
+   "education"
+  ],
+  "scene": "An Indian school main gate early in the morning, gate closed, empty road, a camera on a pole near the guard post."
+ },
+ {
+  "id": "petrol-pump-night",
+  "tags": [
+   "petrol pump",
+   "fuel station",
+   "forecourt",
+   "night",
+   "cash"
+  ],
+  "scene": "An Indian petrol pump forecourt at night under a lit canopy, fuel dispensers without brand names, a camera under the canopy edge."
+ },
+ {
+  "id": "cold-storage-corridor",
+  "tags": [
+   "cold storage",
+   "warehouse",
+   "food",
+   "temperature",
+   "pharma storage"
+  ],
+  "scene": "A cold storage facility corridor with insulated white doors and a camera at the end of the corridor, cool blue lighting."
+ },
+ {
+  "id": "construction-site-dusk",
+  "tags": [
+   "construction",
+   "site",
+   "materials",
+   "contractor",
+   "labour attendance"
+  ],
+  "scene": "A construction site at dusk with stacked materials, a partially built structure and a solar-powered camera on a pole."
+ },
+ {
+  "id": "housing-society-gate",
+  "tags": [
+   "housing society",
+   "apartment",
+   "residential",
+   "visitor",
+   "gate"
+  ],
+  "scene": "An Indian housing society entrance gate with a guard booth, boom barrier and a camera over the gate, evening light."
+ },
+ {
+  "id": "pharmacy-counter",
+  "tags": [
+   "pharmacy",
+   "medical store",
+   "retail",
+   "counter",
+   "medicines"
+  ],
+  "scene": "An Indian pharmacy counter after hours, shelves of medicine boxes with unreadable labels, a ceiling camera over the counter."
+ },
+ {
+  "id": "jewellery-shop-showcase",
+  "tags": [
+   "jewellery",
+   "showroom",
+   "high value",
+   "retail",
+   "showcase"
+  ],
+  "scene": "A jewellery shop interior with lit glass showcases, dark surroundings, a discreet dome camera on the ceiling."
+ },
+ {
+  "id": "textile-unit-floor",
+  "tags": [
+   "textile",
+   "factory",
+   "production floor",
+   "machines",
+   "shift",
+   "attendance"
+  ],
+  "scene": "A textile weaving unit floor with rows of machines, overhead lighting, a camera mounted high on a column, no people visible."
+ },
+ {
+  "id": "grain-warehouse-sacks",
+  "tags": [
+   "grain",
+   "rice mill",
+   "mandi",
+   "sacks",
+   "warehouse",
+   "stock counting"
+  ],
+  "scene": "A grain warehouse with tall stacks of jute sacks, a forklift lane, and a camera mounted on a steel beam."
+ },
+ {
+  "id": "hotel-reception-night",
+  "tags": [
+   "hotel",
+   "reception",
+   "hospitality",
+   "front desk",
+   "night"
+  ],
+  "scene": "A small hotel reception desk at night, empty, a bell and a closed register on the counter, a camera above the desk."
+ },
+ {
+  "id": "hospital-corridor",
+  "tags": [
+   "hospital",
+   "healthcare",
+   "clinic",
+   "corridor",
+   "patient safety"
+  ],
+  "scene": "A clean hospital corridor at night with closed ward doors and a ceiling camera, calm blue tones."
+ },
+ {
+  "id": "farmhouse-gate",
+  "tags": [
+   "farmhouse",
+   "rural",
+   "orchard",
+   "nri",
+   "remote property",
+   "solar"
+  ],
+  "scene": "A farmhouse gate in the Punjab countryside at dusk, fields behind, a solar-powered 4G camera on a pole beside the gate."
+ },
+ {
+  "id": "ups-power-backup",
+  "tags": [
+   "power backup",
+   "ups",
+   "battery",
+   "power cut",
+   "maintenance"
+  ],
+  "scene": "A UPS unit and battery rack in a utility room powering CCTV equipment, indicator lights on, tidy wiring."
+ },
+ {
+  "id": "camera-closeup-rain",
+  "tags": [
+   "monsoon",
+   "rain",
+   "weather",
+   "night vision",
+   "maintenance",
+   "outdoor camera"
+  ],
+  "scene": "Close-up of an outdoor bullet camera on a wall during monsoon rain, water droplets on the housing, night sky."
+ },
+ {
+  "id": "laptop-remote-monitoring",
+  "tags": [
+   "remote monitoring",
+   "owner",
+   "multi-site",
+   "nri",
+   "mobile alerts",
+   "laptop"
+  ],
+  "scene": "A laptop on a home-office desk at night with its screen turned away from the viewer, a city skyline through the window, a mug beside it."
+ },
+ {
+  "id": "dealer-workshop-bench",
+  "tags": [
+   "dealer",
+   "installer",
+   "partner",
+   "business",
+   "workshop",
+   "integrator"
+  ],
+  "scene": "A CCTV dealer's workshop bench with several cameras, cable reels, a crimping tool and a recorder box, under a work lamp."
+ },
+ {
+  "id": "parking-lot-night",
+  "tags": [
+   "parking",
+   "vehicles",
+   "commercial",
+   "mall",
+   "lighting"
+  ],
+  "scene": "A commercial parking lot at night with lamp posts, parked cars without visible plates, and cameras on the light poles."
+ }
+]
