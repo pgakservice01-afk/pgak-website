@@ -4,11 +4,17 @@ Operational tooling for the daily blog/SEO routine. **Not part of the website**:
 
 A Claude Code cloud routine ("PGAK daily SEO pipeline", Mon–Sat 10:15 IST) checks out this repo and follows `RUNBOOK.md`:
 research → up to 3 new posts (topped up to 3 a day, counting anyone's posts) → cover from the Codex photo library →
-strict gate + production build → push to `main` → verify the live page → IndexNow for 10 URLs → technical SEO check → brief email report.
+strict gate + production build → push to `main` → verify the live page → IndexNow for 10 URLs → technical SEO check → report hand-off.
+
+A **Mac part** (Claude desktop scheduled task on the owner's Mac, from `~/pgak-seo-pipeline/MAC_RUNBOOK.md`) does what needs that Mac:
+Search Console data, Google "Request indexing", browser research (Trends, Keyword Planner, AnswerThePublic), Google Business Profile,
+and Codex cover-photo refills. The two parts swap data through Gmail drafts, and a cloud **sweep** routine at 20:30 IST makes sure
+one consolidated report email goes out every day: `REPORT.md`.
 
 | Path | What |
 |---|---|
 | `RUNBOOK.md` | the procedure the routine follows |
+| `REPORT.md` | the cloud ↔ Mac hand-off and the consolidated daily report |
 | `config.json` | site, email, posts per day, categories |
 | `bin/preflight.sh` | Sunday guard, sync to `origin/main`, `npm ci`, inventory + today's quota |
 | `bin/inventory.mjs` | live posts, drafts, live URLs; `--check-topic` duplicate check |
@@ -23,4 +29,4 @@ strict gate + production build → push to `main` → verify the live page → I
 | `bin/tech_audit.sh` | crawl, broken links, Lighthouse |
 | `library/` | pre-generated Codex photos (`manifest.json` = scene + tags). A photo is deleted once used. |
 
-Top up the photo library from the owner's Mac (Codex runs inside the ChatGPT app there), then commit the new WebP files and manifest entries.
+The Mac part tops up the photo library with Codex (it runs inside the ChatGPT app there) when 12 or fewer photos are left, and pushes only `library/` changes.
