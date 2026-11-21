@@ -26,7 +26,7 @@ one consolidated report email goes out every day: `REPORT.md`.
 | `bin/publish.sh` | scope check, gate, `npm run build`, commits, push |
 | `bin/verify_live.py` | Vercel status + live page checks |
 | `bin/index_pick.py` | today's 10 IndexNow URLs |
-| `bin/tech_audit.sh` | crawl, broken links, Lighthouse |
+| `bin/tech_audit.sh` | crawl, broken links, Lighthouse (run by the Mac part; the site's firewall blocks bulk requests from the cloud) |
 | `library/` | pre-generated Codex photos (`manifest.json` = scene + tags). A photo is deleted once used. |
 
 The Mac part tops up the photo library with Codex (it runs inside the ChatGPT app there) when 12 or fewer photos are left, and pushes only `library/` changes.

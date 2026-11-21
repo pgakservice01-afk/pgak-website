@@ -26,10 +26,26 @@ main() {
     echo "$LOCKHASH" > "$PD/.state/lockhash"
   fi
 
-  CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://www.pgak.co.in/sitemap.xml)
-  [ "$CODE" = "200" ] || fail "live sitemap returned HTTP $CODE (is www.pgak.co.in allowed in the cloud environment's network settings?)"
+  # The site's Vercel firewall refuses some cloud requests at random (403, x-vercel-mitigated: deny),
+  # so try a few times; if it stays blocked, build the site and use the sitemap from the build.
+  CODE=000
+  for i in 1 2 3 4; do
+    CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://www.pgak.co.in/sitemap.xml)
+    [ "$CODE" = "200" ] && break
+    sleep 8
+  done
+  if [ "$CODE" = "200" ]; then
+    echo "SITE_REACHABLE=1"
+  else
+    echo "SITE_REACHABLE=0 (live sitemap answered HTTP $CODE from the cloud: the site's firewall; using the sitemap from a fresh build)"
+    if [ "$CODE" = "000" ]; then echo "SITE_HINT: HTTP 000 = no connection; check the routine's cloud environment network access"; fi
+    npm run build >"$PD/.state/build.log" 2>&1 || { tail -25 "$PD/.state/build.log"; fail "npm run build failed (needed for the sitemap; see ops/seo-pipeline/.state/build.log)"; }
+    [ -s "$REPO/.next/server/app/sitemap.xml.body" ] || fail "the build produced no sitemap"
+  fi
 
   node "$PD/bin/inventory.mjs" || fail "inventory failed"
+  N=$(node -e 'const i=require(process.argv[1]);process.stdout.write(String(i.sitemap_count||0))' "$PD/.state/inventory.json")
+  [ "$N" -gt 0 ] 2>/dev/null || fail "no sitemap URLs (live or built), so internal links cannot be checked"
   node "$PD/bin/pick_cover.mjs" --keywords "" | grep -E "LIBRARY_(REMAINING|LOW)"
   echo "PREFLIGHT_OK $TODAY"
 }

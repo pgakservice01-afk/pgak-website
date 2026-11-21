@@ -160,10 +160,42 @@ export async function fetchText(url, timeoutMs = 30000) {
   }
 }
 
+// The site's Vercel firewall refuses some requests from cloud IPs at random
+// (HTTP 403 + "x-vercel-mitigated: deny"). Retry those a few times.
+export async function fetchSite(url, { tries = 5, waitMs = 8000, timeoutMs = 30000 } = {}) {
+  let r;
+  for (let i = 1; i <= tries; i++) {
+    try {
+      r = await fetchText(url, timeoutMs);
+    } catch (e) {
+      r = { status: 0, text: String(e), url, headers: new Headers() };
+    }
+    r.blocked = r.status === 403 && /deny|challenge/i.test(r.headers.get("x-vercel-mitigated") || "");
+    if (!(r.blocked || r.status === 0 || r.status === 429 || r.status >= 500) || i === tries) return r;
+    await new Promise((res) => setTimeout(res, waitMs));
+  }
+  return r;
+}
+
+// Live sitemap first; if the cloud is blocked, the sitemap from the site's own build
+// (`npm run build` writes .next/server/app/sitemap.xml.body; preflight builds it when needed).
+// The returned array carries .source = "live" | "build".
 export async function sitemapUrls() {
-  const r = await fetchText(`${CONFIG.site_origin}/sitemap.xml`);
-  if (r.status !== 200) throw new Error(`sitemap HTTP ${r.status}`);
-  return [...r.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+  const parse = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+  const r = await fetchSite(`${CONFIG.site_origin}/sitemap.xml`);
+  let urls;
+  if (r.status === 200 && r.text.includes("<loc>")) {
+    urls = parse(r.text);
+    urls.source = "live";
+    return urls;
+  }
+  const built = join(REPO, ".next", "server", "app", "sitemap.xml.body");
+  if (existsSync(built)) {
+    urls = parse(readFileSync(built, "utf8"));
+    urls.source = "build";
+    return urls;
+  }
+  throw new Error(`sitemap HTTP ${r.status}${r.blocked ? " (blocked by the site firewall)" : ""} and no built sitemap at ${built}`);
 }
 
 export function pathOf(url) {

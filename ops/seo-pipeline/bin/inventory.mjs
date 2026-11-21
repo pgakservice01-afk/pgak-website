@@ -81,6 +81,7 @@ const inv = {
   parse_errors: [...live, ...drafts].filter((p) => p.parseError).map((p) => ({ slug: p.slug, error: p.parseError })),
   sitemap_count: sitemap.length,
   sitemap_error: sitemapError,
+  sitemap_source: sitemap.source || null,
   sitemap_paths: sitemap.map(pathOf),
   live: live.map(({ slug, title, category, date, faqs, h2 }) => ({ slug, title, category, date, faqs, h2 })),
   drafts: drafts.map(({ slug, title }) => ({ slug, title })),
@@ -92,7 +93,7 @@ writeFileSync(join(stateDir, "inventory.json"), JSON.stringify(inv, null, 2));
 
 const recent = [...live].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 15);
 console.log(`Date (IST): ${inv.today} ${inv.weekday} | origin/main @ ${inv.head}`);
-console.log(`Live posts: ${inv.live_count} | Drafts (topics reserved): ${inv.draft_count} | Sitemap URLs: ${inv.sitemap_count}${sitemapError ? ` (ERROR: ${sitemapError})` : ""}`);
+console.log(`Live posts: ${inv.live_count} | Drafts (topics reserved): ${inv.draft_count} | Sitemap URLs: ${inv.sitemap_count} (${inv.sitemap_source || "none"})${sitemapError ? ` (ERROR: ${sitemapError})` : ""}`);
 console.log(`Insights added to main today: ${todayAdded.length}${todayAdded.length ? " -> " + todayAdded.map((x) => `${x.slug} (${x.author})`).join(", ") : ""}`);
 console.log(`QUOTA_REMAINING=${inv.quota_remaining}`);
 if (inv.parse_errors.length) console.log(`PARSE_ERRORS=${JSON.stringify(inv.parse_errors)}`);

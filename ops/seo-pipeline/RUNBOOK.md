@@ -26,7 +26,8 @@ If a step fails: note it, skip what depends on it, continue, and **always do the
 
 `bash ops/seo-pipeline/bin/preflight.sh`
 - `PREFLIGHT_SUNDAY` → end the run, send nothing.
-- `PREFLIGHT_FAIL:<reason>` → publish nothing today; still do steps 7–8 if the live site is reachable, then do step 9 with `"preflight": "FAIL: <reason>"` (with the fix, e.g. "allow www.pgak.co.in in the routine's cloud environment network settings").
+- `PREFLIGHT_FAIL:<reason>` → publish nothing today; still do step 7 if `PD/.state/inventory.json` exists, then do step 9 with `"preflight": "FAIL: <reason>"` and the fix in `attention`.
+- `SITE_REACHABLE=0` is **not** a failure: the site's Vercel firewall refuses many requests from cloud IPs (HTTP 403, `x-vercel-mitigated: deny`), so preflight read the sitemap from a fresh build instead. Carry on normally and set `"site_reachable": false` in the cloud JSON. Never treat a firewall 403 as a broken page or a broken link.
 - `PREFLIGHT_OK` → note `QUOTA_REMAINING=<n>` and `LIBRARY_REMAINING=<n>`. `PD/.state/inventory.json` lists every live post, every draft (topics reserved for review — never compete with them) and every live URL path (`sitemap_paths`).
 
 ## 2. Research (only if quota > 0; about 30 minutes)
@@ -81,7 +82,7 @@ Body: 800–1,300 words; problem first in the reader's words (never open with "P
 
 1. `node ops/seo-pipeline/bin/check_post.mjs <slug> --others <other-today-slugs>` for each post. Fix every FAIL and re-run until `RESULT: PASS` (max 3 rounds). A post that still fails is dropped: delete its .md and .webp, restore any library photo it used (`git checkout -- ops/seo-pipeline/library/images/<id>.webp`), log why.
 2. `bash ops/seo-pipeline/bin/publish.sh <slug1> <slug2> <slug3>` → `PUBLISH_OK sha=<sha>`. On `PUBLISH_FAIL:<reason>`: fix a content problem and retry once; otherwise publish nothing and report it. Never force-push or edit other files to make the build pass.
-3. `python3 ops/seo-pipeline/bin/verify_live.py --sha <sha> --slugs <slug1,slug2,slug3>` (waits for the Vercel deployment, then checks each live page). Report each post at the exact state reached: committed / deploy pending / deploy succeeded / **public URL verified**. Only "public URL verified" counts as published.
+3. `python3 ops/seo-pipeline/bin/verify_live.py --sha <sha> --slugs <slug1,slug2,slug3>` (waits for the Vercel deployment, then checks each live page). Report each post at the exact state reached: committed / deploy pending / deploy succeeded / **public URL verified**. A post is *published* once its Vercel production deployment succeeded; call it *verified live* only at "public URL verified". If the only failures are firewall blocks (`blocked`, with a `note`), report "deploy succeeded — live check blocked by the site firewall; the Mac part re-checks it"; that is expected, not an attention item. Real `problems` (wrong title, missing schema, missing cover) are attention items.
 
 ## 7. Indexing (10 URLs)
 
@@ -89,13 +90,13 @@ Body: 800–1,300 words; problem first in the reader's words (never open with "P
 2. `node scripts/indexnow.mjs <path1> <path2> …` (paths like `/insights/slug`) → HTTP 200/202 means accepted by IndexNow (Bing, Yandex, Copilot).
 3. Google's "Request indexing" and URL inspection are done by the Mac part (it needs the owner's signed-in browser). Never claim a Google request from the cloud.
 
-## 8. Technical SEO check (read-only)
+## 8. Technical SEO check — done by the Mac part
 
-`bash ops/seo-pipeline/bin/tech_audit.sh /insights/<newest live post slug>` → crawl of every sitemap URL, broken links, Lighthouse mobile for home, /insights and the newest post. Report Lighthouse performance scores and issue counts; list at most 3 issues with a one-line fix each. Do not change site code.
+The full-site crawl, broken-link check and Lighthouse need hundreds of requests to the live site, which its firewall refuses from cloud IPs, so the Mac part runs them from the owner's connection. Skip this step in the cloud.
 
 ## 9. Report hand-off (always)
 
-Build the cloud part JSON exactly as `PD/REPORT.md` describes (posts with their exact states, IndexNow, Lighthouse, issues, sources, `library_left`, attention items; `LIBRARY_LOW` → attention "cover library low: n photos left, the Mac part refills it"), then follow its **Hand-off** section: save your draft, and send the one consolidated report if the Mac part has already handed over today. Never send a second full report for the same day.
+Build the cloud part JSON exactly as `PD/REPORT.md` describes (posts with their exact states, `site_reachable`, IndexNow, sources, `library_left`, attention items; `LIBRARY_LOW` → attention "cover library low: n photos left, the Mac part refills it"), then follow its **Hand-off** section: save your draft, and send the one consolidated report if the Mac part has already handed over today. Never send a second full report for the same day.
 
 ## 10. Finish
 
