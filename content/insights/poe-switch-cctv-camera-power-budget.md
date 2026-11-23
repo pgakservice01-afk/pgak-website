@@ -1,6 +1,6 @@
 ---
 title: "PoE Switch for CCTV: How to Check Camera Power Before You Add More"
-metaTitle: "PoE Switch for CCTV: Camera Power Budget Guide | PGAK"
+metaTitle: "PoE Switch for CCTV: Camera Power Budget Guide"
 date: "2026-11-21"
 category: "Camera Setup"
 excerpt: "Before adding IP cameras or analytics, check the PoE switch’s ports, power budget, uplink and backup plan. A simple guide for existing CCTV sites."
