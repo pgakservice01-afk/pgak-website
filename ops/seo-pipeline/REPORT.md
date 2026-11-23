@@ -34,12 +34,14 @@ Gmail tools: `create_draft`, `list_drafts`, `get_draft`, `delete_draft`, `send_m
 
 Fill in what you have. Use `null` for anything you do not know; never guess a number.
 
+**No web addresses in any draft.** Gmail rewrites them into `https://www.google.com/url?q=…` redirects. Write pages of our site as paths (`/insights/…`) in every field, and name other sites in words. When building the email, put `https://www.pgak.co.in` in front of the path. If a draft still holds a `google.com/url?q=…` redirect, use only the path of the address after `q=` (drop everything from `&source=` on), and only if that address is on www.pgak.co.in.
+
 Cloud part:
 ```json
 {"part": "cloud", "date": "2026-11-23", "finished": "10:58 IST",
  "preflight": "OK",
  "site_reachable": true,
- "posts": [{"title": "…", "url": "https://www.pgak.co.in/insights/…", "state": "public URL verified", "cover": "library:warehouse-loading-bay-dusk", "note": null}],
+ "posts": [{"title": "…", "path": "/insights/…", "state": "public URL verified", "cover": "library:warehouse-loading-bay-dusk", "note": null}],
  "posts_by_others_today": 0,
  "indexnow": {"urls": 10, "http": "200"},
  "sources": {"worked": ["autocomplete", "Trends RSS", "WebSearch", "Mac topic queue"], "unavailable": ["… (reason)"]},
@@ -55,7 +57,7 @@ Mac part:
  "search_console": {"clicks_7d": 12, "clicks_prev_7d": 9, "impressions_7d": 840, "impressions_prev_7d": 700, "note": "latest day partial", "top_queries": ["cctv attendance system (120 impr, pos 14)"]},
  "index_status": {"inspected": 20, "indexed": 13, "not_indexed": ["/insights/… — Discovered, currently not indexed"], "rich_result_issues": 0},
  "sitemap": {"last_read": "2026-11-22", "errors": 0, "warnings": 0},
- "google_requests": {"done": 10, "urls": ["…"], "skipped": null},
+ "google_requests": {"done": 10, "paths": ["/insights/…"], "skipped": null},
  "live_checks": {"checked": 3, "verified": 3, "problems": ["/insights/… — title differs from metaTitle"]},
  "lighthouse_mobile": {"home": 92, "insights": 95, "newest": 90},
  "broken_links": 0,

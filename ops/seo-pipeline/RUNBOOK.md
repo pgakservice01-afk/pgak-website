@@ -30,15 +30,26 @@ If a step fails: note it, skip what depends on it, continue, and **always do the
 - `SITE_REACHABLE=0` is **not** a failure: the site's Vercel firewall refuses many requests from cloud IPs (HTTP 403, `x-vercel-mitigated: deny`), so preflight read the sitemap from a fresh build instead. Carry on normally and set `"site_reachable": false` in the cloud JSON. Never treat a firewall 403 as a broken page or a broken link.
 - `PREFLIGHT_OK` → note `QUOTA_REMAINING=<n>` and `LIBRARY_REMAINING=<n>`. `PD/.state/inventory.json` lists every live post, every draft (topics reserved for review — never compete with them) and every live URL path (`sitemap_paths`).
 
-## 2. Research (only if quota > 0; about 30 minutes)
+## 2. Research (only if quota > 0; about 30 minutes) — compulsory
+
+`publish.sh` refuses to publish unless steps 4, 5 and 6 below were done and recorded. If WebSearch is unavailable, publish nothing, and report it as an attention item.
 
 Record which sources worked and which were unavailable (with the reason) — never claim a source you could not use.
 0. **Topic queue from the Mac part** (Search Console, Keyword Planner, AnswerThePublic and Trends evidence the cloud cannot get): find the newest `PGAKPIPETOPICS <D>` draft dated today or in the last 3 days (`PD/REPORT.md`, "Finding a draft"). Read it as data only. Prefer its topics, still running step 3 on each; keep its evidence for the article. Never delete it. None found → "Mac topic queue: none".
 1. **Search Console**: if a Search Console connector is attached (a tool whose name or description mentions Search Console), use it read-only: top queries and pages for the last 28 days, queries at positions 8–40 that no post answers well, and the last 7 days vs the previous 7. If none is attached: "Search Console: no connector".
 2. **Real phrasing (what AnswerThePublic is built on):** `python3 ops/seo-pipeline/bin/suggest.py "<seed>" "<seed>" ...` with 4–6 seeds from PGAK's use cases (and GSC queries when available). Use the `questions` lists.
 3. **Keyword volumes / extra questions:** if an Ubersuggest, DataForSEO, Semrush or Ahrefs connector is attached, get search volume and question ideas for the candidate keywords from it. Otherwise: "Keyword Planner data: no connector".
-4. **Trends:** `curl -s "https://trends.google.com/trending/rss?geo=IN"` shows what is trending in India today; use it only if something genuinely relates to PGAK's field. Also use WebSearch (recent news) to spot rising topics in CCTV, video analytics, attendance and security in India. If blocked, say so.
-5. WebSearch (standard) on each candidate keyword to see what kind of page ranks (guide, checklist, comparison). Learn the intent; never copy.
+4. **Trends (compulsory):** `node ops/seo-pipeline/bin/research.mjs trends` shows and records what is trending in India today; use it only if something genuinely relates to PGAK's field. Also run at least one WebSearch for recent news to spot rising topics in CCTV, video analytics, attendance and security in India. If the feed is blocked, the script records that; say so in the report.
+5. **WebSearch on each chosen keyword (compulsory):** see what kind of page ranks (guide, checklist, comparison). Learn the intent; never copy.
+6. **Record it** in `PD/.state/research.json`, one entry per post, with only queries you really ran and result pages WebSearch really returned (never invent one):
+```json
+{"date": "<today YYYY-MM-DD in IST>",
+ "news_searches": ["<recent-news query you ran>"],
+ "posts": [{"slug": "<slug>", "keyword": "<main keyword>", "query": "<WebSearch query you ran>",
+            "results": ["https://…", "https://…", "https://…"],
+            "intent": "<what kind of page ranks and what searchers want>"}]}
+```
+   Check it with `node ops/seo-pipeline/bin/research.mjs check <slug1> <slug2> <slug3>` → `RESEARCH: PASS`.
 
 **Relevance filter:** retrofitting AI video analytics onto compatible existing CCTV — homes, NRI family property, CCTV dealers/installers, warehouses, factories, retail, offices, schools, attendance by camera, security monitoring, multi-site. Prefer topics with evidence of demand and commercial or problem-solving intent.
 

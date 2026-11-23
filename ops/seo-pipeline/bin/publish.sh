@@ -32,7 +32,8 @@ main() {
     [ -f "content/insights/$s.md" ] && [ -f "public/insights/covers/$s.webp" ] || fail "$s is missing its .md or cover .webp"
   done
 
-  # 2. per-post gate
+  # 2. research record (compulsory), then the per-post gate
+  node "$PD/bin/research.mjs" check "${SLUGS[@]}" || fail "research not done or not recorded (RUNBOOK step 2)"
   for s in "${SLUGS[@]}"; do
     OTHERS=$(printf "%s\n" "${SLUGS[@]}" | grep -vx "$s" | paste -sd, -)
     node "$PD/bin/check_post.mjs" "$s" --others "$OTHERS" || fail "check_post failed for $s"

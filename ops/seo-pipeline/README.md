@@ -23,6 +23,7 @@ one consolidated report email goes out every day: `REPORT.md`.
 | `bin/fit_image.mjs` | brands a photo into a 1600×900 WebP cover |
 | `bin/make_cover.mjs` | code-drawn branded cover (fallback) |
 | `bin/check_post.mjs` | publish gate (frontmatter, links, FAQ visibility, claims, sources, duplicates, image) |
+| `bin/research.mjs` | Trends check and the compulsory research record; `publish.sh` stops without it |
 | `bin/publish.sh` | scope check, gate, `npm run build`, commits, push |
 | `bin/verify_live.py` | Vercel status + live page checks |
 | `bin/index_pick.py` | today's 10 IndexNow URLs |
