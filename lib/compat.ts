@@ -93,7 +93,7 @@ export function assess(a: Answers): { findings: Finding[]; summary: string; brin
   }
 
   if (a.internet === "no")
-    add("Internet", a.useCase === "remote" ? "blocker" : "check", "Without internet at the site, detection and local recording can continue, but alerts to phones and remote viewing cannot reach anyone off site.");
+    add("Internet", a.useCase === "remote" ? "blocker" : "check", "With no working internet path, internet-delivered alerts and off-site viewing over that path are unavailable. Local detection and recording depend on the installed configuration, power, local network and storage; verify their behaviour separately.");
 
   const blockers = f.filter((x) => x.level === "blocker").length;
   const checks = f.filter((x) => x.level === "check").length;

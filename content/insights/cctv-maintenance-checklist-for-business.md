@@ -1,6 +1,6 @@
 ---
 title: "CCTV Maintenance Checklist for Businesses: 12 Checks That Actually Matter"
-metaTitle: "CCTV Maintenance Checklist for Businesses | PGAK"
+metaTitle: "CCTV Maintenance Checklist for Businesses"
 date: "2026-11-21"
 category: "Camera Setup"
 excerpt: "Use this practical CCTV maintenance checklist to check picture quality, recording, storage, time, power and remote viewing before a fault becomes a missing clip."
