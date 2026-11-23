@@ -146,7 +146,8 @@ export function dice(a, b) {
 }
 
 export function git(args, opts = {}) {
-  return execFileSync("git", ["-C", REPO, ...args], { encoding: "utf8", ...opts }).trim();
+  // with stdio "ignore" execFileSync returns null; a success must not look like a failure to callers
+  return (execFileSync("git", ["-C", REPO, ...args], { encoding: "utf8", ...opts }) ?? "").trim();
 }
 
 export async function fetchText(url, timeoutMs = 30000) {
