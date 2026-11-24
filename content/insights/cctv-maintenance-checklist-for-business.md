@@ -8,7 +8,7 @@ metaDescription: "A practical CCTV maintenance checklist for businesses: camera 
 readTime: 5
 faqs:
   - q: "How often should a CCTV system be checked?"
-    a: "A quick operational check can be done monthly, while a documented preventive inspection is commonly planned quarterly or at the interval appropriate for the site, equipment exposure and service agreement."
+    a: "Agree a documented check interval for the site's equipment, exposure and service agreement. Include recording and playback checks, and review the schedule after faults or system changes."
   - q: "What is the most important CCTV maintenance check?"
     a: "Confirming playback is often the most valuable check because a live picture alone does not prove that the recorder is saving usable footage for the required period."
 ---
@@ -78,5 +78,15 @@ Record the camera or zone, result, fault, action owner and target date. A checkl
 Call the service provider when there is persistent loss of video, a storage or disk warning, water ingress, unstable power, a damaged mount or a view that no longer supports the required task. Resetting a device or changing firmware without a record can create a bigger outage.
 
 A good maintenance plan is different from a vague promise to “attend when called.” For what to ask for in a service arrangement, read [what a CCTV AMC should include](/insights/cctv-amc-what-should-it-include).
+
+## Frequently asked questions
+
+### How often should a CCTV system be checked?
+
+Agree a documented check interval for the site's equipment, exposure and service agreement. Include recording and playback checks, and review the schedule after faults or system changes.
+
+### What is the most important CCTV maintenance check?
+
+Confirming playback is often the most valuable check because a live picture alone does not prove that the recorder is saving usable footage for the required period.
 
 [Ask for a free feasibility check](#dealer).

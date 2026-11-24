@@ -72,4 +72,14 @@ That is why a compatibility review should include the camera view, recording pat
 
 A simple cabinet record should show the switch model, ports, camera names, uplink, power source, UPS circuit and last change date. It reduces fault-finding time and prevents unplanned changes from creating a gap in recording.
 
+## Frequently asked questions
+
+### Can any PoE switch power CCTV cameras?
+
+No. The switch must support the required PoE standard and have enough total power budget for the connected cameras, including any peak draw such as infrared illumination or PTZ movement.
+
+### What is a PoE power budget?
+
+A PoE power budget is the total electrical power a switch can supply across all its PoE ports. The combined demand of the cameras must stay within that budget with sensible headroom.
+
 [Ask for a free feasibility check](#dealer).
