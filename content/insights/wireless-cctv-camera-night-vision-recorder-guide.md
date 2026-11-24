@@ -63,7 +63,7 @@ The recorder decides how long footage lasts and how easy it is to find. Before y
 
 ## Plan for power cuts and security
 
-A wireless camera that loses power or Wi-Fi stops recording. Ask what happens during a power cut, and whether the recorder sits on a backup. [CCTV power backup checklist](/insights/cctv-power-backup-checklist) covers the basics.
+Loss of usable power stops the affected camera unless its battery or backup keeps it running. Loss of Wi-Fi is a different case: recording to a network recorder and app access may stop, while configured local memory-card recording may continue on supported models. Ask the supplier to explain the exact model and recording path, then agree a controlled interruption check with the system owner, including expected impact and recovery. Check backup power for the camera, network equipment and recorder. [CCTV power backup checklist](/insights/cctv-power-backup-checklist) covers the basics.
 
 Wi-Fi cameras should have the default password changed, and the router and camera software kept up to date. Ask who will do this after installation.
 

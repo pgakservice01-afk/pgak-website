@@ -51,7 +51,7 @@ There are two common ways:
 - **Local storage.** The camera records to a memory card. You collect or pull footage when needed. This needs no network, but a card can be removed along with the camera.
 - **Mobile network.** A 4G SIM sends live view or alerts. This needs signal at the pole, a working data plan and a plan for when the SIM runs out.
 
-Check signal with a phone on the same network, standing at the exact mounting height. A weak signal means choppy video and missed alerts. If you want remote viewing, [read about what remote viewing uses in data](/calculators/bandwidth-and-cloud-cost) before choosing a plan.
+Start with a ground-level signal check near the proposed pole on the intended mobile network. Ask a competent installer to verify the actual camera or modem link at the planned mounting position using safe access and suitable equipment; do not climb to hold a phone at camera height. A phone check is only an initial indication, so confirm live view and recording on the proposed equipment. Weak or interrupted connectivity may affect remote viewing or alerts even where supported local recording continues. If you want remote viewing, [read about what remote viewing uses in data](/calculators/bandwidth-and-cloud-cost) before choosing a plan.
 
 ## 5. Plan for monsoon and heat
 
