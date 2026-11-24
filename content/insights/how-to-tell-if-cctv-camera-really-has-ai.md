@@ -13,7 +13,7 @@ faqs:
   - q: "Is motion detection the same as AI?"
     a: "No. Basic motion detection reacts to pixels changing, so shadows, rain and insects can trigger it. Object detection tries to recognise a person or vehicle. Some products use both, so ask which one raises the alert."
   - q: "Should the AI run in the camera or on a separate unit?"
-    a: "Either can work. In-camera detection is simple but limited to what the camera offers. A separate unit or server can be more flexible. Ask the seller to explain the limits of their choice for your site."
+    a: "Either may suit the task. Some cameras support additional applications; others have a limited built-in feature set. Both in-camera and separate processing depend on the exact hardware, software, licences and configuration. Compare the proposed combinations on your intended task instead of assuming one location is always more capable."
 ---
 
 ## "AI" on the box is not the same as AI on your site
@@ -34,7 +34,7 @@ Motion detection reacts to changing pixels. Shadows, rain, insects and headlight
 
 ### 3. Where does the processing happen?
 
-It may run inside the camera, in the recorder, on a separate analytics unit, or on a server. Each choice has limits. In-camera features are simple but fixed. A separate unit can add more, but it is another device to support. See [what video analytics software is](/insights/what-is-video-analytics-software) for the general idea.
+Processing may run inside the camera, in the recorder, on a separate analytics unit, or on a server. In-camera capabilities vary by model and software: some products support additional applications, while others offer a limited built-in feature set. For example, [Axis ACAP](https://www.axis.com/for-developers/acap) supports applications on compatible Axis devices; the [hardware and AXIS OS requirements](https://developer.axis.com/acap/reference/axis-devices-and-compatibility/) still need checking. A separate unit also has limits, including supported streams, processing capacity, software and licences. Ask the seller to name the exact camera, recorder or server, software version and application being quoted, and show how that combination handles your intended task. See [what video analytics software is](/insights/what-is-video-analytics-software) for the general idea.
 
 ### 4. Will it work on my cameras and my scene?
 
@@ -81,6 +81,6 @@ Ask what it detects, where the detection runs, and ask for a live test on your o
 No. Basic motion detection reacts to pixels changing, so shadows, rain and insects can trigger it. Object detection tries to recognise a person or vehicle. Some products use both, so ask which one raises the alert.
 
 ### Should the AI run in the camera or on a separate unit?
-Either can work. In-camera detection is simple but limited to what the camera offers. A separate unit or server can be more flexible. Ask the seller to explain the limits of their choice for your site.
+Either may suit the task. Some cameras support additional applications; others have a limited built-in feature set. Both in-camera and separate processing depend on the exact hardware, software, licences and configuration. Compare the proposed combinations on your intended task instead of assuming one location is always more capable.
 
 [Ask for a free feasibility check](#dealer).

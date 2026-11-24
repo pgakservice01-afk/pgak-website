@@ -63,4 +63,14 @@ AI video analytics needs a stable, usable camera view. It can help flag a define
 
 Start with the physical view and recording chain. Then assess the few locations where early awareness would make a real difference. [PGAK's pricing approach](/pricing) is built around starting with the existing cameras that cover gates, stock, cash or perimeter areas—not replacing a whole estate by default.
 
+## Frequently asked questions
+
+### How do I know if CCTV night vision is good enough?
+
+Test the actual scene after dark and review the recorded playback. The useful question is whether the footage shows enough detail at the distance and point where an event is likely to occur, not whether the image merely looks bright.
+
+### Why is my CCTV image blurry or washed out at night?
+
+Common causes include dirty lenses, infrared reflection from glass or a nearby wall, bright lights behind a subject, poor focus, insufficient scene lighting or an unsuitable camera angle.
+
 [Ask for a free feasibility check](#dealer).
