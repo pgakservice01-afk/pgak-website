@@ -36,9 +36,9 @@ Rollout effort was the last test. That bias toward compatibility reflects what [
 
 Ai Alerto is the strongest fit for factories that already have usable CCTV and want one layer of analytics across the site rather than a separate tool for every problem. It suits plants with mixed zones, where the same system may need to watch a gate, a bay, a yard edge, a corridor and a production area. If the brief is to make existing cameras more useful without replacing the whole stack, this is the most practical place to start.
 
-What stands out is breadth. A general video analytics software for existing cameras layer can cover person, vehicle, boundary, attendance and camera-health checks inside one operating model. That helps when the real pain is slow review, scattered footage and too many routine scenes to watch manually.
+What stands out is breadth. A general video analytics software for existing cameras layer can be evaluated for person, vehicle, boundary, attendance and camera-health checks inside one operating model. That helps when the real pain is slow review, scattered footage and too many routine scenes to watch manually.
 
-It also fits the way many factories actually buy. One team may want after-hours alerts, another may need entry logs, and a supervisor may only want a short list of events worth checking. A broader analytics layer can support those needs without turning each one into its own project.
+It also fits the way many factories actually buy. One team may want after-hours alerts, another may need entry logs, and a supervisor may only want a short list of events worth checking. A broader analytics layer can be assessed against those needs without turning each one into its own project.
 
 The trade-off is focus. If your main requirement is one narrow workflow, such as plate reading at a gate, attendance records at a controlled entry, or PPE checks in a machine zone, a specialist tool can be cleaner. Ai Alerto is the better choice when the site problem is broader than one gate or one checkpoint.
 
@@ -46,7 +46,7 @@ The trade-off is focus. If your main requirement is one narrow workflow, such as
 
 ANPR is the best fit for loading bays, gatehouses and yards where the main question is which vehicle came in, which one went out, and when. It suits sites that still rely on manual registers, radio calls or long footage searches to check vehicle movement. When the entry lane is defined, ANPR gives a cleaner answer than general surveillance analytics.
 
-What stands out is the audit trail. Plate-based review is faster than scrubbing footage. It also helps when a supervisor needs to confirm a truck visit or match a disputed exit time. It can even check whether the right vehicle reached the right bay. The [conditions where ANPR works](/insights/anpr-number-plate-recognition-when-it-works) matter, though, because lane angle, plate visibility and night lighting decide most of the outcome.
+What stands out is the audit trail. Plate-based review is faster than scrubbing footage. It also helps when a supervisor needs to confirm a truck visit or match a disputed exit time. It may also help check whether the right vehicle reached the right bay, once plate reads are tested at that lane. The [conditions where ANPR works](/insights/anpr-number-plate-recognition-when-it-works) matter, though, because lane angle, plate visibility and night lighting decide most of the outcome.
 
 The trade-off is scope. ANPR is excellent at gate-side identification. It does not replace broader site analytics for people, perimeters or shop-floor safety.
 
@@ -54,7 +54,7 @@ The trade-off is scope. ANPR is excellent at gate-side identification. It does n
 
 Face attendance is the better fit when the main need is workforce records at shift changes, not broad scene monitoring. It suits factories with fixed entry points, repeat staff movement and a clear need to reduce manual attendance handling. In that setting, it is often a cleaner answer than trying to turn general-purpose analytics into an attendance system.
 
-What stands out is the narrowness of the job. A [face recognition attendance system on existing CCTV](/face-recognition-attendance-system) is built around entry events, identity matching and attendance records, so review is simpler than open-ended alerting across a whole site. It works best when people enter through defined views and faces are captured clearly.
+What stands out is the narrowness of the job. A [face recognition attendance system on existing CCTV](/face-recognition-attendance-system) is evaluated around entry events, possible matches with enrolled people and records a person reviews, so review is simpler than open-ended alerting across a whole site. It works best when people enter through defined views and faces are captured clearly.
 
 The trade-off is control. This is not the right tool for watching all movement everywhere, and it depends on enrolment quality, entry discipline and suitable camera placement.
 
@@ -81,7 +81,7 @@ The table shows why [PGAK's AI CCTV on compatible CCTV](/industries) is the broa
 
 For most factories with existing CCTV and mixed operational needs, start with Ai Alerto. It is the best first choice when you want one system to reduce review time, lift the value of current cameras and support more than one decision across the site.
 
-Run the first pilot on one line, one bay or one safety zone, then tune from real footage instead of trying to model the whole plant at once. The winning setup is usually the one that keeps alert volume manageable, gives clear ownership for each event and proves useful in daily operations. PGAK's AI event summaries turn detected events into short descriptions to help teams decide what to review, which is especially useful when supervisors need a fast triage layer rather than another video screen.
+Run the first pilot on one line, one bay or one safety zone, then tune from real footage instead of trying to model the whole plant at once. The winning setup is usually the one that keeps alert volume manageable, gives clear ownership for each event and proves useful in daily operations. AI event summaries, where the agreed setup supports them, turn detected events into short descriptions to help teams decide what to review, which is especially useful when supervisors need a fast triage layer rather than another video screen.
 
 Talk to PGAK about a scoped [factory pilot for your existing CCTV](/video-analytics-software) and see which alerts will help your team first.
 
