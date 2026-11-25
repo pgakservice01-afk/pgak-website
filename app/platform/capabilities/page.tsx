@@ -4,9 +4,9 @@ import { CAPABILITY_REGISTER, EVIDENCE_DATE } from "@/lib/b2b/claims";
 import FeatureScenario from "@/components/calc/FeatureScenario";
 import { scenariosForPath } from "@/lib/calc/scenarios";
 export const metadata = pageMeta({
-  title: "Capability and evidence register | PGAK",
+  title: "AI CCTV Capabilities: Scope and Evidence Register | PGAK",
   description:
-    "A shared reference for product scope. Unverified means a suitable, approved evidence record is missing; it is not a statement that a feature can never be supplied.",
+    "A shared reference for product scope. Unverified means an approved evidence record is missing, not that a feature can never be supplied.",
   path: "/platform/capabilities",
 });
 export default function Page() {
@@ -23,7 +23,11 @@ export default function Page() {
         installation under stated conditions, not yet for a defined
         configuration; planned
         = approved roadmap, not purchasable today; unverified = no sufficient
-        record attached.
+        record attached. For a plain-language version, see{" "}
+        <a href="/capabilities-explained" className="text-link">
+          what CCTV analytics can and cannot do
+        </a>
+        .
       </p>
       <div className="buyer-table-wrap">
         <table className="buyer-table">

@@ -332,6 +332,32 @@ export function articleSchema(opts: {
 }
 
 /**
+ * Article markup for the editorial feature guides and the company story. They
+ * carry no byline and no exact publication date, so the author is the organisation and no date is
+ * stated rather than one being invented.
+ */
+export function guideArticleSchema(opts: {
+  headline: string;
+  description: string;
+  path: string;
+  image?: string;
+}): Json {
+  const url = abs(opts.path);
+  return {
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: opts.headline,
+    description: opts.description,
+    url,
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+    inLanguage: "en-IN",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    image: abs(opts.image ?? DEFAULT_OG_IMAGE),
+  };
+}
+
+/**
  * Deliberately returns nothing.
  *
  * Review markup a business applies to *itself*, on its own site, is

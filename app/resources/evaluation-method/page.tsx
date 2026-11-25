@@ -3,7 +3,7 @@ import { pageMeta } from "@/lib/seo";
 import PrintButton from "@/components/PrintButton";
 import PilotScorecard from "@/components/tools/PilotScorecard";
 export const metadata = pageMeta({
-  title: "A practical AI CCTV pilot worksheet | PGAK",
+  title: "A Practical AI CCTV Pilot Evaluation Worksheet | PGAK",
   description:
     "Define success before testing. Use the same scenes and criteria for every candidate, and record failures as carefully as useful alerts.",
   path: "/resources/evaluation-method",

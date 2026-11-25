@@ -165,6 +165,11 @@ export default function ContactPage() {
                 assessment, installation and support arrangements are confirmed
                 for your location before quotation.
               </p>
+              <p className="mt-4 max-w-[46ch] text-ink-soft">
+                It helps to say how many cameras you have, the recorder model if
+                you know it, and the one event you want to notice. Please do not
+                send passwords or footage in a first message.
+              </p>
               <div className="mt-7">
                 <NapBlock />
               </div>

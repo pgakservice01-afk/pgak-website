@@ -4,7 +4,7 @@ date: "2026-09-01"
 updated: "2026-10-28"
 category: "Buying Guide"
 excerpt: "Compare CCTV installers using a written scope, model details, handover tests and support terms. A buying checklist for factories and warehouses."
-metaTitle: "How to compare CCTV installation companies and quotes in India"
+metaTitle: "How to Compare CCTV Installation Quotes in India"
 metaDescription: "Compare CCTV installers using a written scope, model details, handover tests and support terms. A buying checklist for factories and warehouses."
 readTime: 4
 image: "/insights/category/buying-guide.webp"

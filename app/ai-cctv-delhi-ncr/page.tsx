@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("delhi-ncr")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Delhi NCR — Retail, Offices, Logistics",
+  title: "AI CCTV in Delhi NCR — Retail, Offices, Logistics | PGAK",
   description:
     "AI alerts on the cameras your NCR store, office or warehouse already owns. One record across every branch, agency hours you can check. Free audit.",
   path: locationPath(location.slug),

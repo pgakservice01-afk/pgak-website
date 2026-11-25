@@ -1,5 +1,5 @@
 ---
-title: "Wireless CCTV Camera With Night Vision and a Recorder: What Wireless Means"
+title: "Wireless CCTV With Night Vision and a Recorder: What Wireless Means"
 metaTitle: "Wireless CCTV With Night Vision and Recorder"
 date: "2026-11-24"
 category: "Buying Guide"

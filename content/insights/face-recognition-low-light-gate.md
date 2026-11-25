@@ -11,7 +11,7 @@ faqs:
 - q: Will adding a light guarantee accurate attendance?
   a: No. A lighting change may improve the captured image, but pose, motion, occlusion, enrolment and event handling still matter. Test the full attendance workflow in representative night conditions and retain an agreed fallback.
 updated: '2026-11-02'
-metaTitle: 'Low-light face attendance: test the actual gate conditions'
+metaTitle: "Low-Light Face Attendance: Test the Actual Gate"
 metaDescription: Evaluate night-time face attendance with actual camera views, lighting, motion, enrolment and review tests. Avoid universal infrared or accuracy claims.
 ---
 

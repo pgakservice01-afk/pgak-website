@@ -12,7 +12,7 @@ faqs:
 - q: Can a controlled manual record be used during setup?
   a: Yes, as an agreed fallback with clear identity, date, recorder and review responsibility. Reconcile it promptly and preserve the correction history rather than presenting a later digital entry as an original automatic observation.
 updated: '2026-11-05'
-metaTitle: 'Seasonal workforce attendance: prepare the whole process'
+metaTitle: "Seasonal Workforce Attendance: Prepare the Process"
 ---
 
 A seasonal intake changes more than the number of names in an attendance system. New workers, temporary supervisors, unfamiliar entrances and a busy dispatch schedule can arrive together. Preparing only the camera or only the enrolment desk leaves other parts of the process untested.

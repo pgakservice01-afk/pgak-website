@@ -7,9 +7,9 @@ import { EVIDENCE_DATE } from "@/lib/b2b/claims";
 import { publishedProjects } from "@/lib/proof/projects";
 
 export const metadata = pageMeta({
-  title: "Evidence you can inspect | PGAK",
+  title: "Evidence You Can Inspect: AI CCTV Demonstrations | PGAK",
   description:
-    "PGAK's own recorded demonstrations, each with its date, conditions and limits — and what a demonstration does not prove compared with a measured customer result.",
+    "PGAK's own recorded demonstrations, each with its date, conditions and limits, and what a demonstration does not prove against a measured result.",
   path: "/resources/evidence",
 });
 

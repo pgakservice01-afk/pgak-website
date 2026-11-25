@@ -12,7 +12,7 @@ faqs:
 - q: Can ANPR prove that a vehicle paid for fuel?
   a: No. A plate read is a vehicle observation, not a payment record. Investigating a transaction requires an authorized review of the relevant video, time, pump or till records and any other available evidence.
 updated: '2026-11-02'
-metaTitle: 'Petrol-pump CCTV: plan vehicle records and forecourt views'
+metaTitle: "Petrol-Pump CCTV: Vehicle Records, Forecourt Views"
 ---
 
 A wide view of a petrol pump can show that a vehicle visited without showing the detail needed to investigate a transaction. Before adding cameras, decide which record the team is missing: the vehicle at entry, the activity around an island, the cashier interaction or the sequence of a delivery.

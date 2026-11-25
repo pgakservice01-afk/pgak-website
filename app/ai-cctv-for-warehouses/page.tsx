@@ -1,10 +1,8 @@
 import BuyerSolution from "@/components/b2b/Solution";
-import { BUYER_SOLUTIONS } from "@/lib/b2b/solutions";
 import { pageMeta } from "@/lib/seo";
-const s = BUYER_SOLUTIONS["ai-cctv-for-warehouses"];
 export const metadata = pageMeta({
-  title: s.title + " | PGAK",
-  description: s.intro,
+  title: "AI CCTV Evaluation for Warehouses and Loading Bays | PGAK",
+  description: "Assess loading bays, stock areas and after-hours approaches against how your warehouse really operates, including deliveries and legitimate work.",
   path: "/ai-cctv-for-warehouses",
 });
 export default function Page() {

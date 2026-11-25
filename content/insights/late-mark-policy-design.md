@@ -12,7 +12,7 @@ faqs:
 - q: Does a timestamped photo settle every late-arrival dispute?
   a: No. It can support review, but identity, clock accuracy, the assigned schedule and the event's meaning still need checking. The authorized reviewer should consider the relevant context before deciding the outcome.
 updated: '2026-11-05'
-metaTitle: 'Late-mark records: define the rule and review exceptions'
+metaTitle: "Late-Mark Records: Define the Rule, Review Exceptions"
 ---
 
 A report says someone arrived late. Before treating that label as a settled fact, check the assigned shift, the recorded time and any device or roster exception. A camera frame can help explain an observation, but it does not decide what the employee was required to do or what consequence is appropriate.

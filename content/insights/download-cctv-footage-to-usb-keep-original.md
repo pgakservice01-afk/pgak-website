@@ -1,6 +1,6 @@
 ---
-title: "How to Download CCTV Footage to a USB Drive Without Losing the Original"
-metaTitle: "Download CCTV Footage to USB Safely"
+title: "How to Download CCTV Footage to USB Without Losing the Original"
+metaTitle: "How to Download CCTV Footage to a USB Drive Safely"
 date: "2026-11-25"
 category: "Security Basics"
 excerpt: "You need a clip from your CCTV recorder on a USB drive. Here is how to export it, check it plays, and keep the original recording safe."

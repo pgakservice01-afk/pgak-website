@@ -3,7 +3,7 @@ title: 'Attendance-system checklist: test exceptions before buying'
 date: '2026-09-01'
 category: Buying Guide
 excerpt: Compare attendance suppliers with a practical checklist covering capture, shift exceptions, correction approval, payroll exports, ownership and costs.
-metaTitle: 'Attendance-system checklist: test exceptions before buying'
+metaTitle: "Attendance-System Checklist: Test Before Buying"
 readTime: 4
 image: /insights/category/buying-guide-3.webp
 faqs:

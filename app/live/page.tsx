@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import LiveClient from "./LiveClient";
 
 /**
@@ -12,9 +13,13 @@ import LiveClient from "./LiveClient";
  * would otherwise compete with the pages that are meant to rank.
  */
 export const metadata: Metadata = {
-  title: "Live view — sign in | PGAK",
-  description:
-    "Sign in to watch your cameras across every site on one screen.",
+  ...pageMeta({
+    title: "Live View: Sign In to Your CCTV Camera Wall | PGAK",
+    description:
+      "Sign in to watch your cameras across every site on one screen.",
+    path: "/live",
+    noIndex: true,
+  }),
   robots: { index: false, follow: false },
 };
 

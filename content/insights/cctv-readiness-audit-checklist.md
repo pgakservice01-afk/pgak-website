@@ -1,6 +1,6 @@
 ---
-title: 'CCTV Readiness Audit Checklist: Is Your Existing System Ready for Better Alerts?'
-metaTitle: CCTV Readiness Audit Checklist for Existing Camera Systems
+title: "CCTV Readiness Audit Checklist: Is Your System Ready for Alerts?"
+metaTitle: "CCTV Readiness Audit Checklist for Existing Cameras"
 date: '2026-11-20'
 updated: '2026-11-23'
 category: Camera Setup

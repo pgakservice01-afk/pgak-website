@@ -3,7 +3,7 @@ title: 'Night-shift attendance: reconcile midnight and missed exits'
 date: '2026-09-01'
 category: Attendance
 excerpt: Review overnight attendance using complete timestamps, assigned shifts, missed-exit handling and approved corrections before records reach payroll.
-metaTitle: 'Night-shift attendance: reconcile midnight and missed exits'
+metaTitle: "Night-Shift Attendance: Midnight and Missed Exits"
 readTime: 4
 image: /insights/covers/night-shift-attendance-tracking.webp
 faqs:

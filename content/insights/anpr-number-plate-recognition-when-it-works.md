@@ -1,5 +1,5 @@
 ---
-title: "ANPR at a factory gate: camera angle, lighting and failed number-plate reads"
+title: "ANPR at a factory gate: angle, lighting and failed plate reads"
 metaTitle: "ANPR at Factory Gates: Setup & Accuracy Checklist"
 date: "2026-09-13"
 category: "Security Basics"

@@ -12,7 +12,7 @@ faqs:
 - q: Should a rice sheller use face recognition for seasonal workers?
   a: The decision depends on the actual attendance requirement, approved enrolment process, workforce changes and support effort. Compare a bounded pilot with the existing process. Do not assume either automatic suitability or universal unsuitability for seasonal work.
 updated: "2026-11-04"
-metaTitle: 'Rice-sheller CCTV: connect gate and weighbridge review'
+metaTitle: "Rice-Sheller CCTV: Gate and Weighbridge Review"
 ---
 
 A disputed vehicle movement at a rice sheller or grain mandi may involve a gate register, a weighbridge slip and several camera views. If those records cannot be linked, the presence of CCTV does not guarantee a useful explanation.

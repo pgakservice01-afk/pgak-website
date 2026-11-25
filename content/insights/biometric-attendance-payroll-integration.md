@@ -4,7 +4,7 @@ date: '2026-09-01'
 category: Attendance
 excerpt: Connect attendance to payroll with stable employee IDs, clear event and approval fields, controlled retries and a sample reconciliation before acceptance.
 metaDescription: Connect attendance to payroll with stable employee IDs, clear event and approval fields, controlled retries and a sample reconciliation before acceptance.
-metaTitle: 'Attendance-to-payroll integration: reconcile before exporting'
+metaTitle: "Attendance to Payroll: Reconcile Before Exporting"
 readTime: 4
 image: /insights/category/attendance-2.webp
 faqs:

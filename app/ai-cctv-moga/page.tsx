@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("moga")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Moga — Dairy, Food and Cold Chain",
+  title: "AI CCTV in Moga — Dairy, Food and Cold Chain | PGAK",
   description:
     "AI alerts on cameras your Moga food or cold-chain unit already owns. Hygiene-safe attendance with nothing to touch, bay alerts. Free camera audit.",
   path: locationPath(location.slug),

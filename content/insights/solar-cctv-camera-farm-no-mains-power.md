@@ -1,6 +1,6 @@
 ---
-title: "Solar CCTV Camera for a Farm or Site With No Mains Power: What to Check"
-metaTitle: "Solar CCTV Camera for Farms: What to Check"
+title: "Solar CCTV Camera for a Farm or Site Without Mains Power"
+metaTitle: "Solar CCTV Camera for Farms Without Mains Power"
 date: "2026-11-24"
 category: "Camera Setup"
 excerpt: "A solar CCTV camera can cover a farm gate or pump house with no mains supply, but only if sun, battery, network and storage are checked first. Use this list."

@@ -4,9 +4,9 @@ import { pageMeta } from "@/lib/seo";
 import PlanningCalculator from "@/components/b2b/PlanningCalculator";
 import PrintButton from "@/components/PrintButton";
 export const metadata = pageMeta({
-  title: "CCTV storage and bandwidth calculator | PGAK",
+  title: "CCTV Storage and Bandwidth Calculator Worksheet | PGAK",
   description:
-    "Estimate continuous-recording video volume from camera count, average bitrate and retention. This vendor-neutral worksheet does not claim PGAK supplies recording storage.",
+    "Estimate continuous-recording video volume from camera count, bitrate and retention. This worksheet does not claim PGAK supplies recording storage.",
   path: "/resources/storage-bandwidth",
 });
 export default function Page() {

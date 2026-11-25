@@ -2,9 +2,9 @@ import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import PlanningCalculator from "@/components/b2b/PlanningCalculator";
 export const metadata = pageMeta({
-  title: "AI CCTV cost and benefit calculator | PGAK",
+  title: "AI CCTV ROI Calculator: Compare Cost and Benefit | PGAK",
   description:
-    "Build a scenario from your own quote and evidence. Separate actual cash savings from productivity estimates; a result can legitimately say the purchase is not justified.",
+    "Build a scenario from your own quote and evidence. Separate cash savings from productivity estimates; a result can say the purchase is not justified.",
   path: "/roi-calculator",
 });
 export default function Page() {

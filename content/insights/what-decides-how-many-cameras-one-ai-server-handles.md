@@ -1,6 +1,6 @@
 ---
 title: "What Decides How Many Cameras One AI Analytics Server Can Handle?"
-metaTitle: "How Many Cameras Can One AI Server Handle?"
+metaTitle: "How Many Cameras Can One AI Analytics Server Handle?"
 date: "2026-11-23"
 category: "Buying Guide"
 excerpt: "There is no single camera count for an AI analytics server. Resolution, frame rate, the type of detection and the number of rules all change the answer. Here is what to ask."

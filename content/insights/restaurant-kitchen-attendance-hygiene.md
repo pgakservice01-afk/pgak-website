@@ -12,7 +12,7 @@ faqs:
 - q: Should the first entry and last exit be treated as one working interval?
   a: Not automatically. Use the approved roster and break or split-shift arrangements, then review the relevant events and exceptions. Presence at the site is not the same as approved working time.
 updated: '2026-11-05'
-metaTitle: 'Restaurant attendance: assess staff entry and split shifts'
+metaTitle: "Restaurant Attendance: Staff Entry and Split Shifts"
 ---
 
 A restaurant needs attendance records that make sense across preparation, lunch service, the gap between services and evening work. Buying a touch-free device does not resolve that schedule by itself. The entry point, staff assignments and exception process need to be designed together.

@@ -12,7 +12,7 @@ faqs:
 - q: Should an entry on an approved leave day cancel the leave?
   a: Not automatically. Keep both observations and route the discrepancy to the authorized reviewer. A physical entry does not explain the purpose or duration of the visit by itself.
 updated: '2026-11-05'
-metaTitle: 'Attendance and leave integration: reconcile before payroll'
+metaTitle: "Attendance and Leave: Reconcile Before Payroll"
 ---
 
 An approved leave request and an attendance report can describe the same day differently. The first records permission; the second may only show that no entry was captured. Before anyone changes a salary calculation, check the approval, employee mapping and date range. A missing camera event does not establish an unauthorized absence.

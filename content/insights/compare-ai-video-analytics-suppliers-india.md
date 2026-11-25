@@ -1,6 +1,6 @@
 ---
 title: "Compare AI CCTV suppliers: separate test results from gaps"
-metaTitle: "Compare AI CCTV Suppliers: Test Results and Evidence Gaps"
+metaTitle: "Compare AI CCTV Suppliers: Tests and Evidence Gaps"
 date: "2026-10-05"
 updated: "2026-11-16"
 category: "Buying Guide"

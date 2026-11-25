@@ -4,7 +4,7 @@ date: "2026-09-01"
 updated: "2026-11-15"
 category: "Buying Guide"
 excerpt: "Compare CCTV maintenance proposals against the same equipment, fault and closure evidence. Use a worked example to expose gaps before accepting a quote."
-metaTitle: "CCTV AMC comparison: scope, exclusions and repair closure"
+metaTitle: "CCTV AMC Comparison: Scope, Exclusions and Repairs"
 metaDescription: "Compare CCTV AMC quotes by equipment, service hours, spares and repair evidence. Use a worked example to clarify exclusions and responsibilities."
 readTime: 7
 image: "/insights/category/buying-guide-3.webp"

@@ -1,6 +1,6 @@
 ---
 title: "How to reduce proxy attendance without creating payroll disputes"
-metaTitle: "Proxy Attendance: Controls, Evidence & Fair Corrections"
+metaTitle: "Proxy Attendance: Controls and Fair Corrections"
 date: "2026-09-01"
 category: "Attendance"
 image: "/insights/category/attendance-3.webp"

@@ -53,6 +53,16 @@ export default function Page() {
             "/resources/storage-bandwidth",
           ],
           [
+            "Inventory shrinkage scenario",
+            "Use your own documented loss; no default recovery percentage is supplied.",
+            "/calculators/shrinkage-reduction",
+          ],
+          [
+            "What CCTV analytics can and cannot do",
+            "A plain-language guide to capability and limits.",
+            "/capabilities-explained",
+          ],
+          [
             "Technical guides",
             "Browse the existing CCTV and attendance library.",
             "/insights",
@@ -65,6 +75,23 @@ export default function Page() {
           </article>
         ))}
       </div>
+      <section>
+        <h2>A sensible order to use them in</h2>
+        <ul className="buyer-list">
+          <li>
+            Start with the camera readiness assessment and the compatibility
+            self-check, so the cameras are settled first.
+          </li>
+          <li>
+            Use the scope worksheet to describe one event, one area and one
+            owner, then ask every supplier to quote against the same page.
+          </li>
+          <li>
+            Run the evaluation worksheet during a pilot, and the calculators
+            with your own figures afterwards.
+          </li>
+        </ul>
+      </section>
       <BuyerCTA />
     </BuyerPage>
   );

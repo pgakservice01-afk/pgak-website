@@ -12,7 +12,7 @@ faqs:
 - q: Does recognizing a number plate make barrier opening safe?
   a: No. A plate result is only one possible input to an access workflow. Barrier safety, authorization, manual operation and failure behavior require their own suitable design and acceptance checks.
 updated: '2026-11-02'
-metaTitle: 'Housing-society gate CCTV: define records and responsibility'
+metaTitle: "Housing-Society Gate CCTV: Records & Responsibility"
 ---
 
 A society gate camera may show a vehicle arriving while leaving the committee unable to answer why it entered or who approved the visit. Those are different records. A better camera cannot fill in an authorization decision that was never made.

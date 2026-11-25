@@ -4,7 +4,7 @@ date: "2026-09-14"
 updated: "2026-10-28"
 category: "Camera Setup"
 excerpt: "Check the exact camera model, firmware, stream and scene before buying AI analytics. Brand names and an RTSP label alone do not prove compatibility."
-metaTitle: "Can AI Alerto use your Tapo, Imou, Qubo or Prama camera?"
+metaTitle: "Can AI Alerto Use Your Tapo, Imou or Qubo Camera?"
 metaDescription: "Check the exact camera model, firmware, stream and scene before buying AI analytics. Brand names and an RTSP label alone do not prove compatibility."
 readTime: 4
 image: "/insights/category/camera-setup.webp"

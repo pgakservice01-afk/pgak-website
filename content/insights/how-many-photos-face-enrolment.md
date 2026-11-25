@@ -11,7 +11,7 @@ faqs:
 - q: Should I add more photos whenever an employee is not recognized?
   a: 'First investigate the failed stage: capture quality, identity mapping, enrolment, matching or later attendance processing. Follow the supported correction procedure and test it. Extra photographs do not automatically fix every kind of failure.'
 updated: "2026-11-04"
-metaTitle: 'Face enrolment: choose the right process, not a photo count'
+metaTitle: "Face Enrolment: The Right Process, Not a Photo Count"
 metaDescription: Plan face-attendance enrolment with system-specific capture requirements, correct employee mapping, authorized images and a practical validation test.
 ---
 

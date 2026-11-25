@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("gurugram")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Gurugram — Offices, Societies, Manesar",
+  title: "AI CCTV in Gurugram — Offices, Societies, Manesar | PGAK",
   description:
     "AI alerts on cameras your Gurugram office, society or warehouse already owns. Badges cannot be shared when the record is a face. Free audit.",
   path: locationPath(location.slug),

@@ -4,7 +4,7 @@ date: "2026-09-11"
 updated: "2026-10-28"
 category: "Buying Guide"
 excerpt: "Compare IP and analogue CCTV by usable footage, existing cables, recording and upgrade cost. A practical checklist for an Indian business site."
-metaTitle: "IP vs analogue CCTV: should your business replace its cameras?"
+metaTitle: "IP vs Analogue CCTV: Should You Replace Cameras?"
 metaDescription: "Compare IP and analogue CCTV by usable footage, existing cables, recording and upgrade cost. A practical checklist for an Indian business site."
 readTime: 4
 image: "/insights/category/buying-guide-3.webp"

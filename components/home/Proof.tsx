@@ -7,6 +7,26 @@ import {
 } from "@/lib/proof/testimonials";
 
 /**
+ * Intrinsic pixel sizes of the client marks. CSS still sets the height; these
+ * only give the browser the shape up front so the row does not shift on load.
+ */
+const LOGO_SIZES: Record<string, { width: number; height: number }> = {
+  "/proof/clients/dilkash-logo-128h.webp": { width: 135, height: 128 },
+  "/proof/clients/dobuild-logo-128h.webp": { width: 140, height: 128 },
+  "/proof/clients/hagerstone-logo-128h.webp": { width: 128, height: 128 },
+  "/proof/clients/krishna-gases-logo-128h.webp": { width: 186, height: 128 },
+  "/proof/clients/lumani-logo-128h.webp": { width: 207, height: 85 },
+  "/proof/clients/thangamman-logo-128h.webp": { width: 110, height: 114 },
+  "/proof/clients/uvtechno-logo-128h.webp": { width: 282, height: 128 },
+  "/proof/clients/winda-logo-128h.webp": { width: 510, height: 128 },
+  "/proof/clients/gebe-logo.svg": { width: 150, height: 47 },
+};
+
+function logoSize(src?: string) {
+  return src ? LOGO_SIZES[src] : undefined;
+}
+
+/**
  * The sections of the homepage that make claims about real people and real
  * sites, and the only ones that can hide themselves.
  *
@@ -120,7 +140,7 @@ export function ClientLogos() {
         <ul className="h-logos__row">
           {logos.map((t) => (
             <li key={t.id}>
-              <img src={t.logo} alt="" loading="lazy" decoding="async" />
+              <img src={t.logo} alt="" {...logoSize(t.logo)} loading="lazy" decoding="async" />
               <span className="h-logos__name">{t.company}</span>
             </li>
           ))}
@@ -179,6 +199,7 @@ export function ClientVoices() {
                   <img
                     className="h-quote__logo"
                     src={t.logo}
+                    {...logoSize(t.logo)}
                     loading="lazy"
                     decoding="async"
                     alt={`${t.company} logo`}

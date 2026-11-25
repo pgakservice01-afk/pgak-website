@@ -4,7 +4,7 @@ import Architecture from "@/components/b2b/Architecture";
 export const metadata = pageMeta({
   title: "Deployment requirements and responsibilities | PGAK",
   description:
-    "Plan processing, connectivity and the operating response together. A written scope should identify what PGAK supplies, what the site supplies and what remains unverified.",
+    "Plan processing, connectivity and the response together. A written scope should say what PGAK supplies, what the site supplies and what is unverified.",
   path: "/platform/deployment",
 });
 export default function Page() {

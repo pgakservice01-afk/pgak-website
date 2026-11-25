@@ -1,6 +1,6 @@
 ---
 title: "CCTV Power Backup Checklist: What Must Stay On During a Power Cut?"
-metaTitle: "CCTV Power Backup Checklist for Cameras, NVR and Router"
+metaTitle: "CCTV Power Backup Checklist: Cameras, NVR & Router"
 date: "2026-11-20"
 category: "Camera Setup"
 excerpt: "A CCTV camera is only one part of the recording chain. Use this practical power-backup checklist for cameras, PoE switches, NVRs and remote access."

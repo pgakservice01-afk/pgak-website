@@ -47,7 +47,7 @@ const PATH = "/capabilities-explained";
 
 export const metadata: Metadata = {
   ...pageMeta({
-    title: "Understanding CCTV Analytics: What It Can — and Cannot — Do | PGAK",
+    title: "CCTV Analytics Explained: What It Can & Cannot Do | PGAK",
     description:
       "An illustrated explanation of what AI video analytics does on CCTV, what it depends on, and what it cannot be relied on to do. Illustrative visuals only.",
     path: PATH,

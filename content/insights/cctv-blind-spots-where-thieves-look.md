@@ -5,7 +5,7 @@ category: Security Basics
 image: /insights/covers/cctv-blind-spots-where-thieves-look.webp
 updated: '2026-11-01'
 excerpt: Map CCTV views against the task each camera must perform. Test obstructions, lighting and recorded detail before moving or adding cameras.
-metaTitle: 'CCTV blind spots: turn your floor plan into a coverage test'
+metaTitle: "CCTV Blind Spots: Turn a Floor Plan Into a Test"
 metaDescription: Map CCTV views against the task each camera must perform. Test obstructions, lighting and recorded detail before moving or adding cameras.
 readTime: 4
 faqs:

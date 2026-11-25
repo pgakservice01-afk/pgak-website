@@ -4,7 +4,7 @@ date: "2026-09-05"
 updated: "2026-10-29"
 category: "Attendance"
 excerpt: "Test attendance across midnight, shift changes and missing exits. Keep raw events, shift attribution and payroll rules distinct before approving a system."
-metaTitle: "Three-shift attendance: test midnight, exits and handovers"
+metaTitle: "Three-Shift Attendance: Midnight, Exits, Handovers"
 metaDescription: "Test attendance across midnight, shift changes and missing exits. Keep raw events, shift attribution and payroll rules distinct before approving a system."
 readTime: 4
 image: "/insights/covers/attendance-24x7-three-shift-operation.webp"

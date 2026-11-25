@@ -5,7 +5,7 @@ category: Security Basics
 image: /insights/covers/showroom-retail-shrinkage.webp
 updated: '2026-11-01'
 excerpt: Connect CCTV review with stock records, time windows and camera coverage. Investigate retail discrepancies without treating alerts as proof of theft.
-metaTitle: 'Retail CCTV: build an evidence trail for stock discrepancies'
+metaTitle: "Retail CCTV: Evidence for Stock Discrepancies"
 metaDescription: Connect CCTV review with stock records, time windows and camera coverage. Investigate retail discrepancies without treating alerts as proof of theft.
 readTime: 4
 faqs:

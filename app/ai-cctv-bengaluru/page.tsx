@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("bengaluru")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Bengaluru — Campuses, Peenya, Gated",
+  title: "AI CCTV in Bengaluru — Campuses, Peenya, Gated | PGAK",
   description:
     "AI alerts on cameras your Bengaluru campus, unit or community already owns. One record across every entrance, agency hours checked. Free audit.",
   path: locationPath(location.slug),

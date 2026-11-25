@@ -10,7 +10,7 @@ import { scenarioForFeature } from '@/lib/calc/scenarios';
 import { EXPLORER_FEATURES, FEATURE_PHOTOS } from '@/lib/feature-explorer';
 import { FEATURE_GUIDES } from '@/lib/feature-guides';
 import { pageMeta } from '@/lib/seo';
-import { breadcrumbSchema, faqSchema, webPageSchema } from '@/lib/schema';
+import { breadcrumbSchema, faqSchema, guideArticleSchema, webPageSchema } from '@/lib/schema';
 import styles from './guide.module.css';
 
 export function generateStaticParams() { return EXPLORER_FEATURES.map(f => ({slug:f.slug})); }
@@ -37,7 +37,18 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
  * is trimmed to a sentence or word boundary instead.
  */
 function guideTitle(keyword: string): string {
-  const full = `${keyword}: Uses & Setup | PGAK`;
+  // Pick the first wording that lands in the 50-60 character band, so a short
+  // keyword is not left with half the title width unused.
+  const candidates = [
+    `${keyword}: Uses & Setup | PGAK`,
+    `${keyword}: Uses, Setup & Limits | PGAK`,
+    `${keyword}: Uses, Setup & Site Checks | PGAK`,
+    `${keyword}: Setup Guide | PGAK`,
+    `${keyword} | PGAK`,
+  ];
+  const fit = candidates.find((t) => t.length >= 50 && t.length <= 60);
+  if (fit) return fit;
+  const full = candidates[0];
   if (full.length <= 60) return full;
   const short = `${keyword} | PGAK`;
   return short.length <= 60 ? short : keyword.slice(0, 57).trimEnd() + "…";
@@ -45,9 +56,10 @@ function guideTitle(keyword: string): string {
 
 function guideDescription(intro: string, fallback: string): string {
   const source = intro.length >= 120 ? intro : `${intro} ${fallback}`.trim();
-  if (source.length <= 158) return source;
+  if (source.length <= 155) return source;
   // Prefer ending on a sentence; otherwise the last whole word.
-  const window = source.slice(0, 158);
+  // One character is kept free for the ellipsis added below.
+  const window = source.slice(0, 154);
   const stop = Math.max(window.lastIndexOf(". "), window.lastIndexOf("? "));
   if (stop >= 120) return window.slice(0, stop + 1);
   return window.slice(0, window.lastIndexOf(" ")).trimEnd() + "…";
@@ -60,7 +72,7 @@ export default async function Guide({params}:{params:Promise<{slug:string}>}) {
   const photo=f.image?FEATURE_PHOTOS[f.image]:null; const path=`/features/guides/${slug}`;
   const sc=scenarioForFeature(slug);
   const related=EXPLORER_FEATURES.filter(r=>r.category===f.category&&r.slug!==slug).slice(0,3);
-  return <><Nav/><JsonLd nodes={[webPageSchema({path,name:g.keyword,description:f.description}),breadcrumbSchema([{name:'Home',path:'/'},{name:'AI CCTV features',path:'/features'},{name:g.keyword,path}]),faqSchema([{q:g.question,a:g.answer}])]} />
+  return <><Nav/><JsonLd nodes={[webPageSchema({path,name:g.keyword,description:f.description}),guideArticleSchema({headline:g.keyword,description:g.intro,path}),breadcrumbSchema([{name:'Home',path:'/'},{name:'AI CCTV features',path:'/features'},{name:g.keyword,path}]),faqSchema([{q:g.question,a:g.answer}])]} />
     <main id="main-content" className={styles.page}>
       <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/">Home</Link><span>/</span><Link href="/features">AI CCTV features</Link><span>/</span><span>{f.tag}</span></nav>
       <header className={styles.header}><p className={styles.eyebrow}>{f.category} · Feature guide</p><h1>{g.keyword}</h1><p className={styles.lead}>{g.intro}</p></header>

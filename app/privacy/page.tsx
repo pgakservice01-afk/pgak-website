@@ -3,7 +3,7 @@ import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Privacy Policy — PGAK",
+  title: "Privacy Policy: How PGAK Handles Personal Information",
   description:
     "How PGAK Innovations Pvt. Ltd. collects, uses, and protects the information you share with us, and how video from your cameras is handled.",
   path: "/privacy",

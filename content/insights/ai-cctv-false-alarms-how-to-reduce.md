@@ -4,7 +4,7 @@ date: "2026-09-01"
 updated: "2026-10-28"
 category: "Security Basics"
 excerpt: "Diagnose unwanted CCTV alerts, tune one rule at a time and retest for missed events. A practical checklist for factory and warehouse security teams."
-metaTitle: "How to reduce CCTV false alerts without hiding real events"
+metaTitle: "Reduce CCTV False Alerts Without Hiding Events"
 metaDescription: "Diagnose unwanted CCTV alerts, tune one rule at a time and retest for missed events. A practical checklist for factory and warehouse security teams."
 readTime: 4
 image: "/insights/category/security-basics-2.webp"

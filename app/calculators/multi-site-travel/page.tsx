@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 const record = CALCULATORS.find((c) => c.id === "multi-site-travel")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "Multi-Site CCTV Travel Cost Calculator | PGAK",
+  title: "Multi-Site CCTV Travel Cost and Time Calculator | PGAK",
   description: "Which site visits remote checks could replace: avoidable visits \u00d7 real travel expense, with travel hours reported separately as capacity.",
   path: record.path!,
   keywords: ["multi site CCTV monitoring cost", "site visit travel saving", "remote site inspection CCTV"],

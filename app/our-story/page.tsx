@@ -7,7 +7,7 @@ import DealerForm from "@/components/sections/DealerForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { BUSINESS, pageMeta } from "@/lib/seo";
-import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
+import { breadcrumbSchema, guideArticleSchema, webPageSchema } from "@/lib/schema";
 import { founders } from "@/lib/people";
 
 /**
@@ -42,7 +42,7 @@ const PATH = "/our-story";
 export const metadata: Metadata = pageMeta({
   title: "Our story — why PGAK was built, and what we refuse to claim",
   description:
-    "PGAK was started in Ludhiana in 2023 because the cameras were already there and the intelligence wasn't. The story, including the claims we decided not to make.",
+    "PGAK started in Ludhiana in 2023 because the cameras were already there and the intelligence wasn't. Includes the claims we decided not to make.",
   path: PATH,
   keywords: [
     "PGAK story",
@@ -97,6 +97,12 @@ export default function OurStoryPage() {
             name: "Our story — PGAK Innovations",
             description:
               "Why PGAK was founded in Ludhiana in 2023, and the claims the company decided not to make.",
+          }),
+          guideArticleSchema({
+            headline: "Our story — PGAK Innovations",
+            description:
+              "Why PGAK was founded in Ludhiana in 2023, and the claims the company decided not to make.",
+            path: PATH,
           }),
           breadcrumbSchema(TRAIL),
         ]}

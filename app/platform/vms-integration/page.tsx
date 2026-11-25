@@ -2,9 +2,9 @@ import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "AI analytics and your existing VMS | PGAK",
+  title: "AI Analytics and Your Existing VMS: Integration | PGAK",
   description:
-    "Analytics evaluates events in video. A VMS manages workflows such as recording, playback, retention and operator permissions. Verify both roles without assuming one replaces the other.",
+    "Analytics evaluates events in video. A VMS manages recording, playback, retention and permissions. Verify both without assuming one replaces the other.",
   path: "/platform/vms-integration",
 });
 export default function Page() {

@@ -4,7 +4,7 @@ date: "2026-09-12"
 updated: "2026-10-29"
 category: "Camera Setup"
 excerpt: "Review outdoor CCTV seals, cable entries, image quality, power backup and restoration. A maintenance checklist without promises of weather-proof uptime."
-metaTitle: "CCTV monsoon checklist: weather protection and power backup"
+metaTitle: "CCTV Monsoon Checklist: Weather and Power Backup"
 metaDescription: "Review outdoor CCTV seals, cable entries, image quality, power backup and restoration. A maintenance checklist without promises of weather-proof uptime."
 readTime: 4
 image: "/insights/category/camera-setup-2.webp"

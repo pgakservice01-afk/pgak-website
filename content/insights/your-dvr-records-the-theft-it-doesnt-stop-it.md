@@ -4,7 +4,7 @@ date: "2026-07-21"
 updated: "2026-10-29"
 category: "Security Basics"
 excerpt: "Define who receives, verifies and acts on a CCTV event. Test delivery, acknowledgement, escalation and recovery before relying on an alerting workflow."
-metaTitle: "From CCTV recording to response: build the alert handoff"
+metaTitle: "CCTV Recording to Response: Build the Alert Handoff"
 metaDescription: "Define who receives, verifies and acts on a CCTV event. Test delivery, acknowledgement, escalation and recovery before relying on an alerting workflow."
 readTime: 4
 image: "/insights/security-basics.webp"

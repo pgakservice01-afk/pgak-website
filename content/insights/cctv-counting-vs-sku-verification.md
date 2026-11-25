@@ -1,6 +1,6 @@
 ---
-title: 'CCTV goods counting vs SKU verification: choose the right dispatch check'
-metaTitle: 'CCTV goods counting vs SKU verification'
+title: "CCTV goods counting vs SKU verification: choose the right check"
+metaTitle: "CCTV Goods Counting vs SKU Verification: Which Check?"
 date: '2026-11-12'
 updated: '2026-11-21'
 category: Warehouse Security

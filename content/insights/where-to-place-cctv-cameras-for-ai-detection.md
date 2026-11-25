@@ -4,7 +4,7 @@ date: "2026-07-25"
 updated: "2026-10-29"
 category: "Camera Setup"
 excerpt: "Choose camera placement for the intended event, target visibility and real lighting. Validate the view instead of relying on a universal mounting height."
-metaTitle: "CCTV camera placement for AI: test the view before mounting"
+metaTitle: "CCTV Camera Placement for AI: Test the View First"
 metaDescription: "Choose camera placement for the intended event, target visibility and real lighting. Validate the view instead of relying on a universal mounting height."
 readTime: 4
 image: "/insights/covers/where-to-place-cctv-cameras-for-ai-detection.webp"

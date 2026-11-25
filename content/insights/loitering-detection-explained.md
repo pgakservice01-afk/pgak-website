@@ -5,7 +5,7 @@ category: Security Basics
 image: /insights/category/security-basics-2.webp
 updated: '2026-11-01'
 excerpt: Evaluate loitering alerts with a clear area, time condition and normal-activity exceptions. Test the supported feature before using it in operations.
-metaTitle: 'CCTV loitering detection: define the zone, duration and response'
+metaTitle: "CCTV Loitering Detection: Zone, Duration, Response"
 metaDescription: Evaluate loitering alerts with a clear area, time condition and normal-activity exceptions. Test the supported feature before using it in operations.
 readTime: 4
 faqs:

@@ -1,5 +1,5 @@
 ---
-title: "AI NVR or a Separate Analytics Box for Existing IP Cameras? How to Choose"
+title: "AI NVR or Separate Analytics Box for Existing IP Cameras?"
 metaTitle: "AI NVR vs Analytics Box for Existing Cameras"
 date: "2026-11-23"
 category: "Buying Guide"

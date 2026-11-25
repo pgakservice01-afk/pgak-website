@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BUSINESS, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Terms & Conditions — PGAK",
+  title: "Terms & Conditions for Using the PGAK AI CCTV Service",
   description:
     "The terms and conditions that govern PGAK's AI CCTV service: subscription, cancellation, acceptable use, video data handling, and liability.",
   path: "/terms",

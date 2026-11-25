@@ -5,7 +5,7 @@ import CompatibilityCheck from "@/components/tools/CompatibilityCheck";
 export const metadata = pageMeta({
   title: "CCTV compatibility: verify the stream and the scene | PGAK",
   description:
-    "A camera brand or ONVIF label does not establish compatibility. Match model and firmware evidence to the intended analytics, then test representative conditions.",
+    "A camera brand or ONVIF label does not establish compatibility. Match model and firmware evidence to the analytics, then test representative conditions.",
   path: "/platform/compatibility",
 });
 export default function Page() {

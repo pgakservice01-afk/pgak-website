@@ -1,6 +1,6 @@
 ---
 title: "How Long Does a CCTV Camera Last, and When Is an Old One Still Useful?"
-metaTitle: "How Long Does a CCTV Camera Last?"
+metaTitle: "How Long Does a CCTV Camera Last and Stay Useful?"
 date: "2026-11-25"
 category: "Buying Guide"
 excerpt: "A CCTV camera rarely fails all at once. Learn what wears it out, the signs of age, and how to decide whether an old camera is still worth keeping."

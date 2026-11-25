@@ -1,6 +1,6 @@
 ---
 title: "CCTV Video Loss: Common Causes and How to Trace Each One"
-metaTitle: "CCTV Video Loss: Causes and How to Trace"
+metaTitle: "CCTV Video Loss: Common Causes and How to Trace Them"
 date: "2026-11-25"
 category: "Camera Setup"
 excerpt: "Your recorder shows 'video loss' on one or more cameras. Work through power, cable, network, camera and recorder in order, and find the cause without guessing."

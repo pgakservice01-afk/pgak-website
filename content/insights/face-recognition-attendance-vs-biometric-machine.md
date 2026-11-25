@@ -11,7 +11,7 @@ faqs:
   a: No. Compare the methods under your actual gate conditions and include rejected attempts, incorrect matches, exceptions and payroll review. A contactless method still needs suitable capture, enrolment and an agreed fallback.
 - q: Can existing CCTV automatically become an attendance system?
   a: No. The camera view, model, stream, processing and attendance workflow must be checked. A usable security recording does not by itself establish reliable identity matching or correct payroll records.
-metaTitle: 'Face vs fingerprint attendance: compare the full workflow'
+metaTitle: "Face vs Fingerprint Attendance: Full Comparison"
 metaDescription: Compare face and fingerprint attendance using real shift conditions, exception review, payroll exports and a documented pilot before switching.
 ---
 

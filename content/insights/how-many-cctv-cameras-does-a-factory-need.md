@@ -4,7 +4,7 @@ date: "2026-08-26"
 updated: "2026-10-29"
 category: "Camera Setup"
 excerpt: "Plan factory CCTV around gates, production routes, dispatch and required views. Justify each camera before comparing installation quantities and costs."
-metaTitle: "How many CCTV cameras does a factory need? Build the scope"
+metaTitle: "How Many CCTV Cameras Does a Factory Need to Cover?"
 metaDescription: "Plan factory CCTV around gates, production routes, dispatch and required views. Justify each camera before comparing installation quantities and costs."
 readTime: 4
 image: "/insights/category/camera-setup-3.webp"

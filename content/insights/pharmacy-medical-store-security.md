@@ -11,7 +11,7 @@ faqs:
 - q: Should pharmacy attendance be assessed with the security cameras?
   a: It can be considered as a separate requirement, but a security view does not automatically support attendance. Check the proposed capture method, enrolment, employee mapping and exception review, including the protective equipment staff normally wear.
 updated: "2026-11-04"
-metaTitle: 'Pharmacy CCTV: assess stock review and after-hours alerts'
+metaTitle: "Pharmacy CCTV: Stock Review and After-Hours Alerts"
 metaDescription: Assess pharmacy CCTV for stock discrepancies, counter review and after-hours response while limiting unnecessary exposure of patient information.
 ---
 

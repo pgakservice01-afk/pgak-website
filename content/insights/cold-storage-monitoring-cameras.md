@@ -5,7 +5,7 @@ category: Security Basics
 image: /insights/covers/cold-storage-monitoring-cameras.webp
 updated: '2026-11-01'
 excerpt: Assess cold-storage CCTV against temperature, moisture, door activity and the required view. Keep video review separate from refrigeration monitoring.
-metaTitle: 'Cold-storage CCTV: check camera conditions and door visibility'
+metaTitle: "Cold-Storage CCTV: Camera and Door Visibility"
 metaDescription: Assess cold-storage CCTV against temperature, moisture, door activity and the required view. Keep video review separate from refrigeration monitoring.
 readTime: 4
 faqs:

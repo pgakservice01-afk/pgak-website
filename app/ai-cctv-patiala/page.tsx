@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("patiala")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Patiala — Campuses, Machinery, Kothis",
+  title: "AI CCTV in Patiala — Campuses, Machinery, Kothis | PGAK",
   description:
     "AI alerts on cameras your Patiala campus, works or kothi already owns. Contractor-staff hours, greasy-handed gates, long boundary walls. Free audit.",
   path: locationPath(location.slug),

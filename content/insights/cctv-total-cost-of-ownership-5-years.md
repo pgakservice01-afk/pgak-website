@@ -5,7 +5,7 @@ category: Buying Guide
 image: /insights/category/buying-guide.webp
 updated: '2026-11-01'
 excerpt: Build a five-year CCTV budget from quoted installation, software, storage, maintenance and energy costs. Compare assumptions without invented savings.
-metaTitle: 'Five-year CCTV cost: compare the full ownership worksheet'
+metaTitle: "Five-Year CCTV Cost: Full Ownership Worksheet"
 metaDescription: Build a five-year CCTV budget from quoted installation, software, storage, maintenance and energy costs. Compare assumptions without invented savings.
 readTime: 4
 faqs:

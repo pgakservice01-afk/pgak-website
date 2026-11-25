@@ -1,6 +1,6 @@
 ---
-title: "Contract labour attendance: reconcile workers, shifts, contractors and payroll"
-metaTitle: "Contract Labour Attendance: A Reconciliation Checklist"
+title: "Contract labour attendance: reconcile workers, shifts and payroll"
+metaTitle: "Contract Labour Attendance: Reconciliation Checklist"
 date: "2026-09-01"
 category: "Compliance"
 image: "/insights/covers/attendance-system-for-contract-labour.webp"

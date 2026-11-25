@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 const record = CALCULATORS.find((c) => c.id === "bandwidth")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "CCTV Bandwidth & Cloud Transfer Calculator | PGAK",
+  title: "CCTV Bandwidth and Cloud Transfer Calculator | PGAK",
   description: "Size the internet link for CCTV streams and estimate cloud transfer: streams \u00d7 bitrate, with headroom shown separately and data computed from real traffic.",
   path: record.path!,
   keywords: ["CCTV bandwidth calculator", "IP camera bandwidth", "cloud CCTV data usage", "video surveillance bandwidth requirements"],

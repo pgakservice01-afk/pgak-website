@@ -1,10 +1,8 @@
 import BuyerSolution from "@/components/b2b/Solution";
-import { BUYER_SOLUTIONS } from "@/lib/b2b/solutions";
 import { pageMeta } from "@/lib/seo";
-const s = BUYER_SOLUTIONS["multi-site-cctv-monitoring"];
 export const metadata = pageMeta({
-  title: s.title + " | PGAK",
-  description: s.intro,
+  title: "Multi-Site CCTV: Camera-Feed Health Across Sites | PGAK",
+  description: "Evaluate a repeatable way to notice unavailable camera feeds, assign ownership and confirm recovery. Verify central visibility and access for your setup.",
   path: "/multi-site-cctv-monitoring",
 });
 export default function Page() {

@@ -1,5 +1,6 @@
 ---
 title: "\"Your cameras are now illegal\" — what the 2026 CCTV rule actually says"
+metaTitle: "2026 CCTV Rule in India: What It Actually Says"
 date: "2026-09-11"
 updated: "2026-09-22"
 category: "Compliance"

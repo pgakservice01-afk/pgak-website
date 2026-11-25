@@ -5,7 +5,7 @@ category: Monitoring
 image: /insights/control-room.webp
 updated: '2026-11-01'
 excerpt: Plan a CCTV monitoring workflow with defined events, tested alerts and a response owner. Assess the workload before expanding analytics.
-metaTitle: 'Monitoring many CCTV feeds: define alerts and response ownership'
+metaTitle: "Monitoring Many CCTV Feeds: Alerts and Ownership"
 metaDescription: Plan a CCTV monitoring workflow with defined events, tested alerts and a response owner. Assess the workload before expanding analytics.
 readTime: 4
 faqs:

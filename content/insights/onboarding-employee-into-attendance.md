@@ -12,7 +12,7 @@ faqs:
 - q: Should a missing first-day record be recreated as an automatic entry?
   a: No. Use the approved exception process and label the record's origin and reviewer. Preserve the distinction between an original observation and a later correction.
 updated: '2026-11-05'
-metaTitle: 'New-joiner attendance: validate the record before handover'
+metaTitle: "New-Joiner Attendance: Validate Before Handover"
 ---
 
 A new joiner can be photographed successfully and still be missing from the attendance report. The image may be attached to the wrong identifier, the profile may be inactive or the shift may not be assigned. Calling the capture step complete does not mean the person is ready for the first working day.

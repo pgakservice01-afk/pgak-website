@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("mandi-gobindgarh")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Mandi Gobindgarh — Furnaces & Scrap",
+  title: "AI CCTV in Mandi Gobindgarh — Furnaces & Scrap | PGAK",
   description:
     "AI alerts on cameras your Mandi Gobindgarh furnace or scrap yard already owns. Night-shift gate attendance and number-plate logging. Free audit.",
   path: locationPath(location.slug),

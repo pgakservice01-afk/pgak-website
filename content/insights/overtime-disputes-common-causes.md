@@ -12,7 +12,7 @@ faqs:
 - q: Should a missing exit be replaced with the scheduled finish?
   a: Not silently. Keep the gap visible and use the approved correction process. Any proposed estimate should be identifiable and reviewed rather than presented as an original observation.
 updated: '2026-11-05'
-metaTitle: 'Overtime records: separate attendance, work and approval'
+metaTitle: "Overtime Records: Attendance, Work and Approval"
 ---
 
 An employee leaves the site after the scheduled finish. The attendance event may be correct, yet it does not explain whether the person was working, waiting for transport or completing an authorized handover. Conversely, a missing exit does not prove that no extra work happened. Overtime review needs more than a final timestamp.

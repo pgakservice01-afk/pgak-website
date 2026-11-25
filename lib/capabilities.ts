@@ -43,12 +43,12 @@ export const CAPABILITIES: Capability[] = [
       "AI CCTV camera",
     ],
     title:
-      "CCTV Face Recognition — Know Who's There | PGAK",
+      "CCTV Face Recognition: Matching Enrolled People | PGAK",
     description:
       "Separate the people you know from the people you don't — enrolled-person matching that is evaluated on your own cameras before anything relies on it.",
     summary:
       "Enrol the people who belong; unknown-face alerts can be evaluated at your site.",
-    h1: "CCTV face recognition — the difference between 'someone is there' and 'who is there'",
+    h1: "CCTV face recognition: from 'someone is there' to 'who is there'",
     intro:
       "CCTV face recognition compares a captured face with an authorized enrolled set. A possible match can support review, but it does not establish permission to enter or whether a situation is safe. Someone familiar may still enter a restricted area; someone unmatched may be an enrolled person whose capture was unsuitable. Assess the camera view, matching conditions and alert rules at your site, and confirm the supported workflow in the written scope.",
     steps: [
@@ -113,9 +113,9 @@ export const CAPABILITIES: Capability[] = [
       "alert fatigue",
     ],
     title:
-      "CCTV False Alarm Reduction — Cut the Noise | PGAK",
+      "CCTV False Alarm Reduction: Cut the Alert Noise | PGAK",
     description:
-      "Object classification can filter animals, weather, shadows and headlights before an alert is sent — how much it cuts false alerts is tested on your own footage.",
+      "Object classification can filter animals, weather, shadows and headlights before an alert. How much it cuts false alerts is tested on your footage.",
     summary:
       "Animals, rain, shadows and headlights can be filtered out before an alert is sent — tested on your footage.",
     h1: "False-alert filtering: test notification quality and missed events",
@@ -184,7 +184,7 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Real-Time CCTV Intrusion Alerts to Your Phone | PGAK",
     description:
-      "Zone and line-crossing alerts with a snapshot, camera name and timestamp — evaluated on your own cameras, with alert timing, sirens and escalation confirmed in the written scope.",
+      "Zone and line-crossing alerts with snapshot, camera name and time, evaluated on your cameras. Timing, sirens and escalation go in the written scope.",
     summary:
       "Zone and line-crossing alerts with a snapshot — evaluated and timed at your site.",
     h1: "Intrusion alerts: connect a defined event to an agreed response",
@@ -250,9 +250,9 @@ export const CAPABILITIES: Capability[] = [
       "contactless attendance",
     ],
     title:
-      "Face Recognition Attendance Assessment | PGAK",
+      "Face Recognition Attendance Assessment on CCTV | PGAK",
     description:
-      "Face-recognition attendance from the camera at your gate, for factories, offices and schools — evaluated at your site, with exports and review of missed records confirmed in the written scope.",
+      "Face-recognition attendance from your gate camera, for factories, offices and schools. Evaluated at your site; exports and reviews are set in the scope.",
     summary:
       "Assess camera-based attendance, employee mapping and review of missed records at your site.",
     h1: "Face recognition attendance — assess capture and review",
@@ -339,10 +339,10 @@ export const CAPABILITIES: Capability[] = [
     title:
       "Loitering Detection CCTV — Spot It Before the Theft | PGAK",
     description:
-      "Dwell-time detection that flags a person lingering where they shouldn't in warehouses, shops and perimeters — thresholds and exemptions evaluated at your site.",
+      "Dwell-time detection that flags a person lingering in warehouses, shops and perimeters. Thresholds and exemptions are evaluated at your site.",
     summary:
       "Flags a person lingering where they shouldn't — evaluated per zone at your site.",
-    h1: "Loitering detection — theft has a shape, and it starts with standing still",
+    h1: "Loitering detection: theft starts with standing still",
     intro:
       "Loitering detection on CCTV catches the part of an incident that happens before the incident. A person who stands at a high-value shelf, a fence line or a loading bay for far longer than the task requires is often worth a closer look — and it is a pattern a busy human easily misses. With PGAK, loitering detection is evaluated per zone on your own cameras; there is no published PGAK demonstration of it yet.",
     steps: [
@@ -407,7 +407,7 @@ export const CAPABILITIES: Capability[] = [
     title:
       "ANPR & Vehicle Recognition for Gate Records | PGAK",
     description:
-      "Assess searchable plate and vehicle records for your gate. Confirm capture fields, review exceptions and test the proposed setup before changing the register.",
+      "Assess searchable plate and vehicle records for your gate. Confirm capture fields, review exceptions and test the setup before changing the register.",
     summary:
       "Assess plate and vehicle records at your gate, with a review process for missed or uncertain reads.",
     h1: "Vehicle and number plate recognition for searchable gate records",

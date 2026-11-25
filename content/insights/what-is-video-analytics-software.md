@@ -4,7 +4,7 @@ date: "2026-09-01"
 updated: "2026-10-28"
 category: "Security Basics"
 excerpt: "Understand CCTV video analytics, deployment options, compatibility and pilot tests. Decide whether an alerting workflow fits your factory or warehouse."
-metaTitle: "Video analytics software: a CCTV buying guide for businesses"
+metaTitle: "Video Analytics Software: CCTV Buying Guide"
 metaDescription: "Understand CCTV video analytics, deployment options, compatibility and pilot tests. Decide whether an alerting workflow fits your factory or warehouse."
 readTime: 4
 image: "/insights/category/security-basics.webp"

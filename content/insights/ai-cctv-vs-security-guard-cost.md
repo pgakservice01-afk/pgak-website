@@ -4,7 +4,7 @@ date: "2026-09-01"
 updated: "2026-10-28"
 category: "Buying Guide"
 excerpt: "Compare the full costs of AI CCTV and security staffing without assuming they are interchangeable. Build a pilot around detection, review and response."
-metaTitle: "AI CCTV vs security guard cost: compare the complete workflow"
+metaTitle: "AI CCTV vs Security Guard Cost: A Full Comparison"
 metaDescription: "Compare the full costs of AI CCTV and security staffing without assuming they are interchangeable. Build a pilot around detection, review and response."
 readTime: 4
 image: "/insights/category/buying-guide-2.webp"

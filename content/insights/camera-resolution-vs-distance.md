@@ -4,7 +4,7 @@ date: "2026-09-09"
 updated: "2026-10-29"
 category: "Camera Setup"
 excerpt: "Calculate pixels per metre from image width and field of view. Understand why megapixels and DORI benchmarks do not guarantee AI recognition."
-metaTitle: "CCTV resolution vs distance: calculate and test useful detail"
+metaTitle: "CCTV Resolution vs Distance: Test Useful Detail"
 metaDescription: "Calculate pixels per metre from image width and field of view. Understand why megapixels and DORI benchmarks do not guarantee AI recognition."
 readTime: 4
 image: "/insights/category/camera-setup-2.webp"

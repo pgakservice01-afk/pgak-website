@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("jaipur")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Jaipur — Jewellery, Hotels, Sitapura",
+  title: "AI CCTV in Jaipur — Jewellery, Hotels, Sitapura | PGAK",
   description:
     "AI alerts on cameras your Jaipur workshop, hotel or unit already owns. Strong-room zones, discreet back-of-house cover. Free camera audit.",
   path: locationPath(location.slug),

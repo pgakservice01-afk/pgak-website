@@ -1,5 +1,5 @@
 ---
-title: "Does CCTV work without internet? Recording, AI detection and phone alerts explained"
+title: "Does CCTV work without internet? Recording, AI and phone alerts"
 metaTitle: "CCTV Without Internet: Recording, AI & Phone Alerts"
 date: "2026-08-29"
 category: "Security Basics"

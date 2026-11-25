@@ -1,6 +1,6 @@
 ---
 title: "Who Should Be Allowed to View CCTV Footage at Work?"
-metaTitle: "Who Can View CCTV Footage at Work? A Practical Access Policy"
+metaTitle: "Who Can View CCTV Footage at Work? Access Policy"
 date: "2026-11-20"
 category: "Security Basics"
 excerpt: "A practical CCTV access policy keeps footage useful for security while avoiding casual, uncontrolled viewing."

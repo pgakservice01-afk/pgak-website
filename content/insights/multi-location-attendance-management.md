@@ -12,7 +12,7 @@ faqs:
 - q: Can head office apply one rule to every location?
   a: Only where that rule is appropriate and approved for every location. Record site-specific shifts, calendars and exceptions separately, and have the responsible HR and payroll owners approve how they affect the consolidated output.
 updated: '2026-11-02'
-metaTitle: 'Multi-location attendance: keep site rules and records aligned'
+metaTitle: "Multi-Location Attendance: Keep Records Aligned"
 ---
 
 Head office receives three attendance files, but the same employee appears under different codes and a transfer is counted at two branches. The problem is no longer simply collecting check-ins. It is keeping identity, site context and approved interpretation aligned.

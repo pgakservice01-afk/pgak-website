@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 const record = CALCULATORS.find((c) => c.id === "attendance-admin")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "Attendance Administration Time Calculator | PGAK",
+  title: "Attendance Administration Time & Cost Calculator | PGAK",
   description: "What attendance reconciliation actually costs: hours before versus after, with any verified payment correction kept as its own line.",
   path: record.path!,
   keywords: ["attendance administration cost", "payroll reconciliation time", "attendance system ROI India"],

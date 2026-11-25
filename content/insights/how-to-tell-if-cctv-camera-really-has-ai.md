@@ -1,5 +1,5 @@
 ---
-title: "How to Tell If a CCTV Camera Really Has AI: 8 Questions to Ask the Seller"
+title: "How to Tell If a CCTV Camera Really Has AI: 8 Seller Questions"
 metaTitle: "Does Your CCTV Camera Really Have AI? 8 Questions"
 date: "2026-11-23"
 category: "Buying Guide"

@@ -4,7 +4,7 @@ date: "2026-09-02"
 updated: "2026-10-29"
 category: "Attendance"
 excerpt: "Separate fingerprint capture, enrolment, synchronisation and shift-rule failures. Compare repair and alternatives using an observed attendance problem."
-metaTitle: "Fingerprint attendance not working? Diagnose before replacing"
+metaTitle: "Fingerprint Attendance Not Working? Diagnose First"
 metaDescription: "Separate fingerprint capture, enrolment, synchronisation and shift-rule failures. Compare repair and alternatives using an observed attendance problem."
 readTime: 4
 image: "/insights/category/attendance-2.webp"

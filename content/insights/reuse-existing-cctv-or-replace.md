@@ -4,7 +4,7 @@ date: '2026-09-01'
 category: Buying Guide
 excerpt: Assess existing CCTV by task, image quality, supported connections and maintainability. Ask for a reason and acceptance test for each proposed change.
 metaDescription: Assess existing CCTV by task, image quality, supported connections and maintainability. Ask for a reason and acceptance test for each proposed change.
-metaTitle: Reuse or replace CCTV? Make the decision camera by camera
+metaTitle: "Reuse or Replace CCTV? Decide Camera by Camera"
 readTime: 4
 image: /insights/category/buying-guide-2.webp
 faqs:

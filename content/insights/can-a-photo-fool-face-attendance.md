@@ -11,7 +11,7 @@ faqs:
 - q: Does a successful liveness check decide attendance or payroll?
   a: No. It addresses the presentation within its supported scope. Identity matching, attendance interpretation, exceptions and any payroll decision remain separate parts of the workflow.
 updated: '2026-11-05'
-metaTitle: Can a photo fool face attendance? Verify the exact system
+metaTitle: "Can a Photo Fool Face Attendance? Verify the System"
 metaDescription: Ask how the proposed face-attendance system handles photo and replay attacks. Check liveness scope, test conditions, false rejects and review records.
 ---
 

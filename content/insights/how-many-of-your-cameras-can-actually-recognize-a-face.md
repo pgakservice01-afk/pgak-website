@@ -4,7 +4,7 @@ date: '2026-07-23'
 category: Camera Setup
 excerpt: Assess CCTV face-readiness with authorized samples, real walking paths and recorded image checks before promising identity matching or attendance.
 metaDescription: Assess CCTV face-readiness with authorized samples, real walking paths and recorded image checks before promising identity matching or attendance.
-metaTitle: Can your CCTV support face recognition? Check each view
+metaTitle: "Can Your CCTV Support Face Recognition? Check Views"
 readTime: 4
 image: /insights/camera-setup.webp
 updated: "2026-11-04"

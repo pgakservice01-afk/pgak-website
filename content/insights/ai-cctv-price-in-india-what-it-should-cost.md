@@ -1,5 +1,5 @@
 ---
-title: "AI CCTV cost in India: compare camera, software, installation and support charges"
+title: "AI CCTV cost in India: camera, software, installation and support"
 metaTitle: "AI CCTV Cost in India: What Your Quote Should Include"
 date: "2026-07-31"
 category: "Buying Guide"

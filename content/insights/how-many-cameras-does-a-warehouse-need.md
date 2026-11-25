@@ -4,7 +4,7 @@ date: "2026-09-01"
 updated: "2026-10-28"
 category: "Camera Setup"
 excerpt: "Work out warehouse camera count from loading bays, entrances, stock and blind spots. Build a coverage plan before asking for an installation quote."
-metaTitle: "How many CCTV cameras does a warehouse need? A coverage plan"
+metaTitle: "How Many CCTV Cameras Does a Warehouse Need?"
 metaDescription: "Work out warehouse camera count from loading bays, entrances, stock and blind spots. Build a coverage plan before asking for an installation quote."
 readTime: 4
 image: "/insights/category/camera-setup-2.webp"

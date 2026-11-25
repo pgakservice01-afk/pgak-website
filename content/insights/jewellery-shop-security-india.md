@@ -12,7 +12,7 @@ faqs:
 - q: Can jewellery-shop analytics prove that a customer or employee stole something?
   a: An alert or ambiguous video does not establish intent or guilt. Authorized reviewers should examine the relevant footage and operational records. Keep any investigation separate from an automated event label.
 updated: "2026-11-04"
-metaTitle: 'Jewellery-shop CCTV: assess the counter, access and response'
+metaTitle: "Jewellery-Shop CCTV: Counter, Access and Response"
 ---
 
 When a tray count does not reconcile, a clear entrance picture may not answer the question at the counter. Before adding another camera, decide which part of the handling sequence you need to understand and whether the existing recording can show it.

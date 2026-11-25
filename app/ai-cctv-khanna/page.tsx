@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("khanna")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Khanna — Grain Mandi and Shellers",
+  title: "AI CCTV in Khanna — Grain Mandi and Shellers | PGAK",
   description:
     "AI alerts on cameras your Khanna sheller or godown already owns. Seasonal crew attendance, weighbridge-matching gate logs. Free camera audit.",
   path: locationPath(location.slug),

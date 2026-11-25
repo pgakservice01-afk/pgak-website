@@ -5,7 +5,7 @@ category: Retail
 image: /insights/covers/ai-cctv-for-small-shops-worth-it.webp
 updated: '2026-11-01'
 excerpt: Decide whether AI CCTV fits your shop by testing one problem, camera suitability, alert response and full cost before committing to a wider rollout.
-metaTitle: 'AI CCTV for a small shop: decide with one measurable problem'
+metaTitle: "AI CCTV for a Small Shop: Decide if It Is Worth It"
 metaDescription: Decide whether AI CCTV fits your shop by testing one problem, camera suitability, alert response and full cost before committing to a wider rollout.
 readTime: 4
 faqs:

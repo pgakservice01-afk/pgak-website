@@ -4,7 +4,7 @@ date: "2026-09-04"
 updated: "2026-10-29"
 category: "Attendance"
 excerpt: "Plan attendance migration around exports, employee-ID mapping, reconciliation, retention and rollback. Approve the data before retiring the old system."
-metaTitle: "Attendance-system migration: protect history and test payroll"
+metaTitle: "Attendance Migration: Protect History, Test Payroll"
 metaDescription: "Plan attendance migration around exports, employee-ID mapping, reconciliation, retention and rollback. Approve the data before retiring the old system."
 readTime: 4
 image: "/insights/covers/migrating-attendance-system-without-losing-history.webp"

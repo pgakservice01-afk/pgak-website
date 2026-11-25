@@ -5,7 +5,7 @@ category: Security Basics
 image: /insights/category/security-basics-2.webp
 updated: '2026-11-01'
 excerpt: Define what footfall means, check entrance coverage and compare automated counts with an independent sample before using CCTV numbers in reports.
-metaTitle: 'CCTV people counting: validate footfall before using the numbers'
+metaTitle: "CCTV People Counting: Validate Footfall First"
 metaDescription: Define what footfall means, check entrance coverage and compare automated counts with an independent sample before using CCTV numbers in reports.
 readTime: 4
 faqs:

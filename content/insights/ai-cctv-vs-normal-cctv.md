@@ -4,7 +4,7 @@ date: "2026-08-28"
 updated: "2026-10-29"
 category: "Security Basics"
 excerpt: "Compare recording, motion alerts, analytics, camera health and human response. Check what an AI CCTV upgrade adds to your actual business system."
-metaTitle: "AI CCTV vs normal CCTV: compare functions before upgrading"
+metaTitle: "AI CCTV vs Normal CCTV: Compare Before Upgrading"
 metaDescription: "Compare recording, motion alerts, analytics, camera health and human response. Check what an AI CCTV upgrade adds to your actual business system."
 readTime: 4
 image: "/insights/category/security-basics.webp"

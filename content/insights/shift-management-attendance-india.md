@@ -4,7 +4,7 @@ date: '2026-09-01'
 category: Attendance
 excerpt: Check roster versions, overnight shifts, swaps and missing events before approving attendance. Keep raw timestamps and review decisions traceable.
 metaDescription: Check roster versions, overnight shifts, swaps and missing events before approving attendance. Keep raw timestamps and review decisions traceable.
-metaTitle: 'Rotating-shift attendance: connect the roster to the record'
+metaTitle: "Rotating-Shift Attendance: Match Roster to Record"
 readTime: 4
 image: /insights/covers/shift-management-attendance-india.webp
 faqs:

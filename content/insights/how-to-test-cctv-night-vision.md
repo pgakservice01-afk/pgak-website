@@ -1,6 +1,6 @@
 ---
 title: "How to Test CCTV Night Vision: A Practical After-Dark Checklist"
-metaTitle: "How to Test CCTV Night Vision at Your Site"
+metaTitle: "How to Test CCTV Night Vision at Your Own Site"
 date: "2026-11-21"
 category: "Camera Setup"
 excerpt: "Night vision should be tested where the event matters—not only under the camera. Use this after-dark checklist for gates, yards, loading bays and entrances."

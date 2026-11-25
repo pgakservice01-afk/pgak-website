@@ -12,7 +12,7 @@ faqs:
 - q: Will a lighting change fix every failed attendance record?
   a: No. A failure can involve capture quality, enrolment, matching settings, employee mapping, timing or later attendance processing. Investigate the relevant stage and test the change before treating the issue as resolved.
 updated: "2026-11-04"
-metaTitle: 'Face-recognition accuracy: test the whole attendance process'
+metaTitle: "Face-Recognition Accuracy: Test the Whole Process"
 ---
 
 A supplier says its face-recognition accuracy is excellent, but your concern is more concrete: will the correct employee receive the correct attendance record at your gate? That question needs a test of the proposed installation, not just a headline percentage.

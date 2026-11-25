@@ -1,5 +1,5 @@
 ---
-title: "AI intrusion detection versus motion alerts: how to test false alarms at night"
+title: "AI intrusion detection vs motion alerts: test night false alarms"
 metaTitle: "AI Intrusion Detection vs Motion Alerts: Night Tests"
 date: "2026-07-30"
 category: "Security Basics"

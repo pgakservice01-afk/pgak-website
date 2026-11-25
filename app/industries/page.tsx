@@ -29,9 +29,9 @@ import { getAllInsights } from "@/lib/insights";
 const PATH = "/industries";
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV by Industry in India — Factories, Mandis, Retail | PGAK",
+  title: "AI CCTV by Industry: Factories, Mandis & Retail | PGAK",
   description:
-    "AI CCTV and attendance by sector: factories, warehouses, textile units, rice shellers and mandis, cold storage, retail, jewellery, pharmacies, petrol pumps, hotels, offices, schools, hospitals, societies and construction sites.",
+    "AI CCTV and attendance by sector: factories, warehouses, mandis, cold storage, retail, petrol pumps, hotels, offices, schools, hospitals and societies.",
   path: PATH,
   keywords: [
     "AI CCTV for industries",

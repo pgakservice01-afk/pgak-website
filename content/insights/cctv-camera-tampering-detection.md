@@ -5,7 +5,7 @@ category: Security Basics
 image: /insights/covers/cctv-camera-tampering-detection.webp
 updated: '2026-11-01'
 excerpt: Separate camera tampering, lost video and recording faults. Specify supported events, delivery tests and a response owner before buying monitoring.
-metaTitle: 'CCTV tampering detection: test covered, moved and offline cameras'
+metaTitle: "CCTV Tampering Detection: Covered, Moved or Offline"
 metaDescription: Separate camera tampering, lost video and recording faults. Specify supported events, delivery tests and a response owner before buying monitoring.
 readTime: 4
 faqs:

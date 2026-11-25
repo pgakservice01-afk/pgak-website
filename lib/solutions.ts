@@ -620,9 +620,9 @@ export const SOLUTIONS: Solution[] = [
       "construction site PPE monitoring",
       "factory safety CCTV",
     ],
-    title: "PPE Kit Detection on Existing CCTV — Tested on Your Cameras | PGAK",
+    title: "PPE Kit Detection on Existing CCTV, Tested On Site | PGAK",
     description:
-      "PPE kit detection on existing CCTV. PGAK's published recording flags bare hands on a line; helmets, vests and other kit are tested on your own cameras first.",
+      "PPE kit detection on existing CCTV. PGAK's recording flags bare hands on a line; helmets, vests and other kit are tested on your own cameras first.",
     eyebrow: "Factories, plants & construction sites",
     h1: "PPE kit detection on the cameras your site already has",
     heroPhoto: {
@@ -943,7 +943,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Know your family from a stranger: intruder alerts, gate visitor logging and society-wide monitoring on the home CCTV you already own.",
     eyebrow: "Homes & societies",
-    h1: "A smart home security system that knows the difference between your family and a stranger",
+    h1: "A smart home security system for the cameras you already own",
     intro:
       "A smart home security system should be silent when your family walks in and loud when someone else does. PGAK adds that judgement to ordinary residential CCTV — recognising the people who live there, logging every visitor at the gate, and raising an instant alert when an unknown person is at the door at an hour they shouldn't be.",
     painPoints: [
@@ -1049,7 +1049,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "School Security System — AI CCTV for Campus Gates | PGAK",
     description:
-      "Visitor logging at the gate, staff attendance and after-hours grounds alerts, evaluated on your existing campus CCTV — with data kept to the minimum a school needs.",
+      "Visitor logging at the gate, staff attendance and after-hours grounds alerts, evaluated on existing campus CCTV with data kept to the minimum needed.",
     eyebrow: "Schools & campuses",
     h1: "School security that knows who belongs on campus",
     intro:
@@ -1143,7 +1143,7 @@ export const SOLUTIONS: Solution[] = [
     title:
       "Hospital Security System — AI CCTV for Wards & Wings | PGAK",
     description:
-      "Restricted-area alerts for pharmacies and stores, and visitor logging at entrances — security analytics evaluated on existing hospital CCTV, not patient monitoring.",
+      "Restricted-area alerts for pharmacies and stores, and visitor logging at entrances, evaluated on existing hospital CCTV. Not patient monitoring.",
     eyebrow: "Hospitals & healthcare",
     h1: "Hospital security for a building that never closes",
     intro:
@@ -1339,7 +1339,7 @@ export const SOLUTIONS: Solution[] = [
       "ai attendance system",
     ],
     title:
-      "Biometric Attendance Without the Machine | PGAK",
+      "Biometric Attendance Without a Separate Machine | PGAK",
     description:
       "Queues at shift change, worn fingers that won't read, a register that still gets fudged. Mark attendance from the CCTV already on your wall.",
     eyebrow: "Attendance",
@@ -1599,7 +1599,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "New factory, warehouse or office? A designed CCTV system with AI alerts, every line itemised. Availability and timelines are confirmed per project.",
     eyebrow: "Installation & service",
-    h1: "A CCTV installation company that leaves you with alerts, not just footage",
+    h1: "A CCTV installation company for alerts, not just footage",
     intro:
       "Most CCTV installation companies wire up cameras, hand over a recorder password (sometimes not even that) and disappear. PGAK is a CCTV installation company with a different end state: when we leave, your cameras don't just record — they tell you, on your phone, when a person crosses a line they shouldn't. Installation availability, delivery arrangements and timelines are confirmed for your project before quotation.",
     painPoints: [
@@ -1995,7 +1995,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "PGAK recognises staff on the cameras already covering your gates and bays, so pickers, loaders and contract crews are logged wherever they enter.",
     eyebrow: "Attendance · Logistics",
-    h1: "Warehouse attendance that covers the loading bay, not just the office door",
+    h1: "Warehouse attendance for the loading bay, not just the office door",
     intro:
       "Warehouse attendance breaks in a specific way: the attendance machine is at the office entrance, but the people you most need to track come and go through loading bays and yard gates all day. PGAK marks warehouse attendance on the cameras already covering those openings, so pickers, loaders and contract crews are logged where they actually walk — and the same cameras keep watching your stock.",
     painPoints: [
@@ -2327,7 +2327,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "PGAK recognises staff on existing campus cameras and logs entry automatically, while the same cameras keep watching gates and boundaries.",
     eyebrow: "Attendance · Education",
-    h1: "School attendance that does not cost you the first ten minutes of the day",
+    h1: "School attendance without losing the first ten minutes of the day",
     intro:
       "A school attendance system has two jobs that rarely sit in one place: knowing which staff are on campus, and knowing who came through the gate. PGAK handles both from the cameras already installed on your campus — staff attendance is logged automatically at the entrance, and the same estate watches gates and boundaries during school hours.",
     painPoints: [
@@ -2703,9 +2703,9 @@ export const SOLUTIONS: Solution[] = [
       "camera setup for factory",
     ],
     title:
-      "Industrial CCTV for Factories & Warehouses | PGAK",
+      "Industrial CCTV for Factories and Warehouses | PGAK",
     description:
-      "Assess AI alerts for existing industrial cameras or scope a new factory or warehouse installation. Review camera suitability, site conditions and response responsibilities.",
+      "Assess AI alerts for existing industrial cameras or scope a new factory or warehouse installation: camera suitability, site conditions and response.",
     eyebrow: "Industrial",
     h1: "Industrial CCTV for factory and warehouse workflows",
     intro:
@@ -2830,9 +2830,9 @@ export const SOLUTIONS: Solution[] = [
       "remote surveillance monitoring",
       "off-site CCTV monitoring",
     ],
-    title: "Remote CCTV Monitoring That Contacts You | PGAK",
+    title: "Remote CCTV Monitoring That Contacts You First | PGAK",
     description:
-      "Remote CCTV monitoring where the system raises the alert instead of waiting to be watched — live view and phone alerts with snapshots, with camera-health checks evaluated at your site.",
+      "Remote CCTV monitoring where the system raises the alert: live view and phone alerts with snapshots, with camera-health checks evaluated at your site.",
     eyebrow: "Platform",
     h1: "Remote CCTV monitoring that calls you, not the other way round",
     intro:
@@ -3108,11 +3108,11 @@ export const SOLUTIONS: Solution[] = [
       "licence plate recognition for factories",
     ],
     title:
-      "ANPR System for Factory & Warehouse Gates | PGAK",
+      "ANPR System for Factory & Warehouse Gates in India | PGAK",
     description:
       "Assess ANPR for searchable gate records: plate reads, vehicle details, time and snapshots. Camera coverage and read performance are tested at your site.",
     eyebrow: "Vehicles",
-    h1: "An ANPR system that turns the gate register into something you can search",
+    h1: "An ANPR system that makes your gate register searchable",
     intro:
       "An ANPR system can help a gate team find recorded vehicle movements by plate or time. AI Alerto by PGAK assesses the capture view, vehicle approach and operating conditions before defining a searchable log and its review workflow. Plates can be missed or misread, so the pilot compares captured records with observed traffic and keeps an agreed fallback. This page covers project scope across real gates; the vehicle and number plate recognition page explains the capability.",
     painPoints: [
@@ -3256,7 +3256,7 @@ export const SOLUTIONS: Solution[] = [
       "existing camera AI retrofit UAE",
       "multi-site camera monitoring Emirates",
     ],
-    title: "AI CCTV Software in the UAE | PGAK",
+    title: "AI CCTV Software in the UAE for Existing Cameras | PGAK",
     description:
       "Software that adds detection and attendance to the cameras a UAE site already runs. Delivered remotely, no new hardware.",
     eyebrow: "United Arab Emirates",
@@ -3398,7 +3398,7 @@ export const SOLUTIONS: Solution[] = [
       "construction site camera monitoring KSA",
       "contractor attendance Saudi Arabia",
     ],
-    title: "AI CCTV Software in Saudi Arabia | PGAK",
+    title: "AI CCTV Software in Saudi Arabia: Existing Cameras | PGAK",
     description:
       "Detection and workforce records on cameras a Saudi site already runs. Configured and tuned remotely, on existing hardware.",
     eyebrow: "Saudi Arabia",
@@ -3551,7 +3551,7 @@ export const SOLUTIONS: Solution[] = [
       "venue security analytics Qatar",
       "facilities workforce attendance Doha",
     ],
-    title: "AI CCTV Software in Qatar | PGAK",
+    title: "AI CCTV Software in Qatar for Existing Cameras | PGAK",
     description:
       "Alerts and entry records on the cameras a Doha site already runs, set up and tuned remotely on existing hardware.",
     eyebrow: "Qatar",
@@ -3687,7 +3687,7 @@ export const SOLUTIONS: Solution[] = [
       "shift attendance manufacturing Mexico",
       "AI retrofit existing CCTV Mexico",
     ],
-    title: "AI CCTV Software in Mexico | PGAK",
+    title: "AI CCTV Software in Mexico for Existing Cameras | PGAK",
     description:
       "Detection and shift records on cameras a Mexican plant already runs \u2014 no new hardware, no local AI team needed.",
     eyebrow: "Mexico",
@@ -3824,7 +3824,7 @@ export const SOLUTIONS: Solution[] = [
       "camera analytics Medell\u00edn",
       "warehouse camera monitoring Colombia",
     ],
-    title: "AI CCTV Software in Colombia | PGAK",
+    title: "AI CCTV Software in Colombia for Existing Cameras | PGAK",
     description:
       "Alerts and entry records on cameras a Colombian site already runs, configured remotely with no new hardware.",
     eyebrow: "Colombia",

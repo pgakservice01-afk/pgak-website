@@ -1,6 +1,6 @@
 ---
 title: "How Many Days Can CCTV Footage Be Stored? A Practical Planning Guide"
-metaTitle: "How Many Days Is CCTV Footage Stored?"
+metaTitle: "How Many Days Is CCTV Footage Stored? A Guide"
 date: "2026-11-18"
 category: "Camera Setup"
 excerpt: "CCTV recording retention depends on camera count, bitrate, recording mode and storage. Learn how to plan the footage retention your site actually needs."

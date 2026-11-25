@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("noida")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Noida — Sectors, Expressway, Societies",
+  title: "AI CCTV in Noida — Sectors, Expressway, Societies | PGAK",
   description:
     "AI alerts on cameras your Noida factory, office or society already owns. Contract-crew hours you can verify, searchable visitor logs. Free audit.",
   path: locationPath(location.slug),

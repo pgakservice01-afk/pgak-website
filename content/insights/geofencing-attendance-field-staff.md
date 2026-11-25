@@ -4,7 +4,7 @@ date: '2026-09-02'
 category: Attendance
 excerpt: Assess field attendance with realistic location accuracy, delayed events, permissions and exceptions. Distinguish phone location from verified work.
 metaDescription: Assess field attendance with realistic location accuracy, delayed events, permissions and exceptions. Distinguish phone location from verified work.
-metaTitle: 'Geofencing attendance: what a location event can prove'
+metaTitle: "Geofencing Attendance: What a Location Can Prove"
 readTime: 4
 image: /insights/category/attendance-3.webp
 faqs:

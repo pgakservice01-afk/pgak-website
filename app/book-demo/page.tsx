@@ -2,7 +2,7 @@ import BuyerPage, { BuyerCTA } from "@/components/b2b/Page";
 import { pageMeta } from "@/lib/seo";
 import QuickLead from "@/components/sections/QuickLead";
 export const metadata = pageMeta({
-  title: "See the workflow you need to evaluate | PGAK",
+  title: "Book a Demo: See the CCTV Workflow You Need | PGAK",
   description:
     "Request a tailored PGAK demonstration for a defined site and use case. Confirm supported functions, technical requirements and limitations before a pilot.",
   path: "/book-demo",

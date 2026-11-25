@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 const location = getLocation("amritsar")!;
 
 export const metadata: Metadata = pageMeta({
-  title: "AI CCTV in Amritsar — Markets, Hotels, Food Units",
+  title: "AI CCTV in Amritsar — Markets, Hotels, Food Units | PGAK",
   description:
     "AI alerts on the cameras your Amritsar shop, hotel or food unit already owns. Quiet after-hours katra alerts, discreet hotel cover. Free audit.",
   path: locationPath(location.slug),

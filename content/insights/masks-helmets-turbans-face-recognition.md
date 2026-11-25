@@ -3,7 +3,7 @@ title: 'Face attendance with PPE and headwear: assess it safely'
 date: '2026-09-07'
 category: Attendance
 excerpt: Assess face attendance with normal masks, helmets and headwear in place. Define safe trial conditions, honest limits and an approved exception process.
-metaTitle: 'Face attendance with PPE and headwear: assess it safely'
+metaTitle: "Face Attendance With PPE and Headwear: Assess Safely"
 metaDescription: Assess face attendance with normal masks, helmets and headwear in place. Define safe trial conditions, honest limits and an approved exception process.
 readTime: 4
 image: /insights/category/attendance-3.webp
