@@ -90,8 +90,9 @@ const str = (k, min, max) => {
   return v.trim();
 };
 
-const title = str("title", 25, 95);
-const metaTitle = str("metaTitle", 30, 53);
+// The title is the page H1 (site audit: under 70). metaTitle + " | PGAK" must be 50-60 characters.
+const title = str("title", 25, 69);
+const metaTitle = str("metaTitle", 43, 53);
 if (/pgak/i.test(metaTitle)) fail(`metaTitle must not contain "PGAK" — the page template already appends " | PGAK" (live bug otherwise: "... | PGAK | PGAK")`);
 if (typeof data.date !== "string") fail(`date must be a quoted string "YYYY-MM-DD"`);
 else if (data.date !== today) fail(`date is "${data.date}" but today (IST) is "${today}"`);

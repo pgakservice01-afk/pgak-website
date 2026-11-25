@@ -66,8 +66,8 @@ First read `BLOGGING.md`, two recent posts in `content/insights/` (voice), and `
 File `content/insights/<slug>.md` (slug: 3–10 lowercase hyphenated words from the main keyword):
 ```markdown
 ---
-title: "<H1, 25–95 chars>"
-metaTitle: "<30–53 chars, includes the keyword, NO 'PGAK' (template appends ' | PGAK')>"
+title: "<H1, 25–69 chars>"
+metaTitle: "<43–53 chars, includes the keyword, NO 'PGAK' (template appends ' | PGAK', making 50–60)>"
 date: "<today YYYY-MM-DD in IST>"
 category: "<Security Basics | Camera Setup | Buying Guide | Compliance | Attendance | Warehouse Security | Retail | Monitoring | Alerts | Proactive Security>"
 excerpt: "<80–220 chars>"
