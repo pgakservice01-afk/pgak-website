@@ -11,9 +11,9 @@ faqs:
   - q: "What does video loss mean on a CCTV recorder?"
     a: "It means the recorder is not receiving a usable picture from that channel. The cause can be the camera, its power, the cable or network between them, or the recorder input. The message points to a missing signal, not to one specific fault."
   - q: "Why does CCTV show video loss only at night?"
-    a: "Night-time video loss often points to power or infrared. Infrared lights draw more current, so a weak power supply or a long cable run can fail after dark. Test the camera at night with the power measured, and check the supply before replacing the camera."
+    a: "Night-only loss can be associated with changes in power demand, lighting or configuration; the message alone does not confirm the cause. Ask a competent installer to check the exact camera and supply under the relevant night conditions, following the device manual. Do not take electrical measurements yourself or replace the camera solely from this symptom."
   - q: "Can I fix CCTV video loss myself?"
-    a: "You can safely check that plugs are seated, that the power adapter is on, and that the recorder shows the same camera on another channel. Anything that needs opening a camera, working at height or touching mains wiring should be done by a trained installer."
+    a: "You can note the affected cameras, times, error messages and recent changes, and review accessible status screens without altering the installation. Leave connection swaps, electrical tests, opening equipment and work at height to a competent installer using the device instructions and an agreed interruption and recovery plan."
 ---
 
 ## One camera shows a black screen with 'video loss'
@@ -30,7 +30,7 @@ Write down three facts first.
 - Is it always, or only at certain times, such as night or after rain?
 - Did it begin after a change, such as new cabling, a power cut or a firmware update?
 
-One camera that is always lost points to that camera or its cable. Several cameras lost together point to something shared, such as a power supply, a switch or the recorder. A fault that appears only at night often points to power or infrared.
+These patterns help narrow the investigation; they do not identify the faulty part. A single lost view can involve its camera, power, connection, settings or recorder channel. Several lost views suggest checking shared dependencies. A night-only fault is a reason to check the equipment under its actual night load and settings.
 
 ## Step 2: Check the camera's power
 
@@ -66,13 +66,11 @@ Ask whoever manages your network whether anything changed on the day the loss be
 
 ## Step 5: Separate the camera from the recorder
 
-This is the test that saves most money. Try the doubtful camera on a different recorder channel, or a known-good camera on the doubtful channel.
+A competent installer can plan a controlled comparison using compatible equipment. Agree the interruption and restoration plan with the system owner first. Follow the exact device manuals for connections, supported signal types and any required shutdown or power isolation; do not move connections on a live system by guesswork.
 
-- If the fault follows the camera, the camera or its cable is the cause.
-- If the fault stays with the channel, the recorder input is the suspect.
-- If every channel is affected, look at the recorder's power, its firmware, or its hard drive.
+Change one supported variable at a time and record the camera, power source, cable or network path, channel and settings used. A fault that moves with a test setup helps narrow the investigation, but it does not by itself prove which component failed. A fault that remains at a channel can also involve its configuration or compatibility. If several views fail, investigate shared dependencies and logs rather than assuming the hard drive caused the missing live picture.
 
-Keep notes of what you swapped. A written record helps your installer.
+Restore the agreed configuration and confirm live view and recording after the test. Keep the observations for the installer; no saving or repair outcome is guaranteed.
 
 ## Step 6: Check the recorder itself
 
@@ -82,7 +80,7 @@ If the recorder is not recording at all, treat that as urgent. Call your install
 
 ## When to stop and call an installer
 
-Call a trained installer if you need to open a camera, work at height, touch mains wiring, or if the fault stays after the swap test. Give them your notes: which cameras, what times, what changed. They can then bring the right parts.
+Call a trained installer before connection swaps, opening equipment, work at height or electrical testing, and whenever the cause remains uncertain. Give them your notes: which cameras, what times and what changed. Those observations help plan the diagnosis and any parts needed.
 
 ## How a maintenance routine reduces repeat faults
 
@@ -98,10 +96,10 @@ It means the recorder is not receiving a usable picture from that channel. The c
 
 ### Why does CCTV show video loss only at night?
 
-Night-time video loss often points to power or infrared. Infrared lights draw more current, so a weak power supply or a long cable run can fail after dark. Test the camera at night with the power measured, and check the supply before replacing the camera.
+Night-only loss can be associated with changes in power demand, lighting or configuration; the message alone does not confirm the cause. Ask a competent installer to check the exact camera and supply under the relevant night conditions, following the device manual. Do not take electrical measurements yourself or replace the camera solely from this symptom.
 
 ### Can I fix CCTV video loss myself?
 
-You can safely check that plugs are seated, that the power adapter is on, and that the recorder shows the same camera on another channel. Anything that needs opening a camera, working at height or touching mains wiring should be done by a trained installer.
+You can note the affected cameras, times, error messages and recent changes, and review accessible status screens without altering the installation. Leave connection swaps, electrical tests, opening equipment and work at height to a competent installer using the device instructions and an agreed interruption and recovery plan.
 
 [Ask for a free feasibility check](#dealer).

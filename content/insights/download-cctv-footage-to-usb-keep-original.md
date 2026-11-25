@@ -11,7 +11,7 @@ faqs:
   - q: "How do I copy CCTV footage from a DVR to a USB drive?"
     a: "Plug a USB drive into the recorder, open its backup or export menu, choose the camera and the exact start and end time, then start the export. Menu names differ by brand, so check your recorder's manual for the model."
   - q: "Why will my CCTV footage not play on my computer?"
-    a: "Some recorders export in their own file format that needs the maker's player. Look for a player program on the USB drive, or choose a common format such as MP4 in the export menu if your recorder offers it. Test the file on a computer before you hand over the drive."
+    a: "The required player and export format depend on the recorder model. Check the manual and the manufacturer's official playback software. Keep the original exported files unchanged; if a separate viewing copy is made, keep both. Test the intended copy before handover and record any missing video, audio or time information."
   - q: "Will exporting footage delete it from the recorder?"
     a: "Normally no. An export makes a copy and leaves the recording where it is. The recorder still overwrites old footage when the disk fills, so export soon, and ask your installer if the original needs to be locked."
 ---
@@ -34,7 +34,7 @@ The recorder overwrites its oldest footage when the disk is full. If the clip ma
 
 ## Step 1: Pick a suitable USB drive
 
-Use a clean drive you control. Check its free space, because video files are large. If the recorder asks for a specific format, such as FAT32, follow the manual. Some recorders cannot read very large drives, so a smaller one often works better.
+Use a drive you control that matches the recorder manual's supported capacity and file system, with enough free space for the export. Formatting erases the selected drive, so preserve any files it already holds and confirm which device is selected before an authorised person follows the model-specific procedure. Do not format or initialise the recorder's recording disk to make a USB export work.
 
 Do not use a drive that holds other people's files.
 
@@ -52,7 +52,7 @@ Check the file size estimate if the recorder shows one, and confirm it fits.
 
 ## Step 4: Check the file format
 
-Some recorders save a common format such as MP4 or AVI. Others save their own format that needs a special player. If the export includes a player program, copy it onto the drive too. Without it, the person you hand the clip to may not be able to open it.
+Check the exact recorder manual for supported export formats and playback software. Where a maker-specific player is needed, obtain or verify it through the manufacturer's official support route. Retain the original exported files and associated notes or verification data unchanged. If you also create a convenient viewing copy, label it separately; format choices can affect available audio or verification features.
 
 ## Step 5: Play the clip on a computer before you hand it over
 
@@ -89,7 +89,7 @@ Plug a USB drive into the recorder, open its backup or export menu, choose the c
 
 ### Why will my CCTV footage not play on my computer?
 
-Some recorders export in their own file format that needs the maker's player. Look for a player program on the USB drive, or choose a common format such as MP4 in the export menu if your recorder offers it. Test the file on a computer before you hand over the drive.
+The required player and export format depend on the recorder model. Check the manual and the manufacturer's official playback software. Keep the original exported files unchanged; if a separate viewing copy is made, keep both. Test the intended copy before handover and record any missing video, audio or time information.
 
 ### Will exporting footage delete it from the recorder?
 

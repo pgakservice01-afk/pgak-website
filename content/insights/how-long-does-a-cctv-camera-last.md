@@ -63,7 +63,7 @@ If the answer is yes, the camera may still be doing its work. If the picture no 
 
 A rough way to decide:
 
-- **Keep** a camera whose picture is clear and which stays online.
+- **Keep** a camera only if it meets the task and the responsible technical owner has checked its physical condition, compatibility and security-support status. A clear picture alone does not show that a networked camera still receives necessary security updates.
 - **Repair** a camera with a fixable fault, such as a bad connector, a dirty lens or a weak adapter.
 - **Replace** a camera whose picture is poor, whose housing has failed, or whose repair costs approach a new one.
 
@@ -79,7 +79,7 @@ A camera that is old but has a clear picture and a good angle may be a better st
 
 1. Save a current image from every camera.
 2. Note which cameras drop out or look hazy.
-3. Fix cheap faults first: clean, reseat, replace weak adapters.
+3. Ask a competent installer to assess repairable faults and the manufacturer's support status. Follow the model's maintenance instructions; leave elevated access, connection changes and electrical work to the appropriate professional.
 4. Replace only the cameras that no longer do their job.
 5. If you want AI analytics, test your existing feeds before you buy new hardware.
 
