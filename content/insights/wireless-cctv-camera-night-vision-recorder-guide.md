@@ -44,7 +44,7 @@ Ask which of the three you are being quoted.
 
 Wireless range quoted on a box is measured in the open. Walls, steel, water tanks and distance cut it down. A camera on a first-floor wall behind a brick room may not hold a steady link.
 
-Test before you drill. Mount the camera temporarily at the planned height, view the live picture on the recorder or phone, and also play back a recording. A choppy picture or dropped frames mean the link is too weak.
+Before permanent mounting, ask a competent installer to arrange a temporary test at the planned position using safe access and suitable equipment. Check live view and recorded playback. Choppy video or dropped frames can have several causes, including wireless interference, limited bandwidth, camera stream settings or the viewing device. Have the installer identify the cause on the proposed equipment rather than treating every playback problem as weak signal.
 
 ## Check night vision separately
 
