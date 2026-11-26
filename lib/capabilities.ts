@@ -337,14 +337,14 @@ export const CAPABILITIES: Capability[] = [
       "smart security system",
     ],
     title:
-      "Loitering Detection CCTV — Spot It Before the Theft | PGAK",
+      "Loitering Detection on CCTV: Dwell-Time Review | PGAK",
     description:
       "Dwell-time detection that flags a person lingering in warehouses, shops and perimeters. Thresholds and exemptions are evaluated at your site.",
     summary:
-      "Flags a person lingering where they shouldn't — evaluated per zone at your site.",
-    h1: "Loitering detection: theft starts with standing still",
+      "Assess time-in-zone alerts and human review on your cameras.",
+    h1: "Loitering detection: review time spent in a defined area",
     intro:
-      "Loitering detection on CCTV catches the part of an incident that happens before the incident. A person who stands at a high-value shelf, a fence line or a loading bay for far longer than the task requires is often worth a closer look — and it is a pattern a busy human easily misses. With PGAK, loitering detection is evaluated per zone on your own cameras; there is no published PGAK demonstration of it yet.",
+      "Loitering detection evaluates how long a detected object remains in a defined area. A threshold can flag a scene for review; it does not establish a person's identity, permission or intent. Customers, queues and legitimate work can also involve a long stay. AI Alerto by PGAK can assess this workflow on your cameras, including missed and unwanted alerts, before any operating rule is accepted. There is no published PGAK demonstration of this capability yet.",
     steps: [
       {
         h3: "Mark the zone",
@@ -352,39 +352,39 @@ export const CAPABILITIES: Capability[] = [
       },
       {
         h3: "Set a dwell threshold",
-        text: "How long is too long here? Thirty seconds at a jewellery counter; three minutes at a fence.",
+        text: "Choose a trial duration for the site's actual activity, then review ordinary waits, queues and working periods. Record the chosen threshold and acceptance conditions; there is no universal safe duration.",
       },
       {
-        h3: "Exempt the expected",
-        text: "Where face recognition is configured, enrolled staff working in the zone can be exempted. A queue at a till is handled by per-zone thresholds — and queue and legitimate-worker scenarios are part of the test at your site.",
+        h3: "Review expected activity",
+        text: "Test queues and legitimate work explicitly. Confirm any supported exclusions or staff-review process in the written scope; an enrolled face or a zone threshold does not guarantee that ordinary activity will be ignored.",
       },
       {
         h3: "Alert discreetly",
-        text: "Often the right response is a quiet nudge to a manager's phone rather than a siren. A staff member walking over is often an effective deterrent.",
+        text: "Agree the notification destination, reviewer and response procedure. Test receipt and acknowledgement separately from detection, and have a person review the scene before deciding what action is appropriate.",
       },
     ],
     useCases: [
       "High-value retail shelves and jewellery counters",
       "Warehouse aisles holding fast-moving, high-value SKUs",
-      "Perimeter fence lines where someone is assessing a way in",
+      "Perimeter fence lines with an agreed duration and review rule",
       "ATM lobbies, parking areas and society common areas",
     ],
     limits: [
-      "Legitimate lingering exists — a customer genuinely deciding, a technician working. Thresholds and staff exemptions carry the weight here, and they need tuning per zone.",
-      "It flags behaviour, not intent. Every alert deserves a human glance before any action, and the system is designed around that assumption.",
+      "Customers, queues and legitimate work can trigger a duration rule. Test these examples together with the target events and record both missed events and unwanted alerts.",
+      "A duration alert is a review signal, not proof of identity, permission, intent or wrongdoing. Tracking behavior and supported exclusions must be confirmed for the proposed configuration.",
     ],
     faqs: [
       {
         q: "Won't this flag ordinary customers browsing?",
-        a: "Only if the threshold is set badly. Dwell times are per-zone — thirty seconds at a jewellery counter, three minutes at a fence — and staff are exempt. How rare the alerts become is measured on your own footage during testing, including queue and legitimate-worker scenarios.",
+        a: "Yes. Browsing, queues and legitimate work can exceed a duration threshold even when the rule is configured as intended. Review these scenarios in the site test, agree any supported exclusions and measure unwanted alerts alongside missed target events. Staff exemptions and alert frequency are not guaranteed.",
       },
       {
         q: "Is this the same as motion detection?",
-        a: "It's almost the opposite. Motion detection reacts to movement; loitering detection reacts to a person tracked continuously in one zone without leaving. That requires tracking an identified person across frames, which pixel-difference motion detection cannot do.",
+        a: "Motion detection responds to changes in a view. A dwell-time rule evaluates time in a configured area; how objects are tracked, grouped or timed depends on the software. A tracked object is not a verified identity. Confirm the supported behavior and test occlusion, leaving and re-entry in the proposed setup.",
       },
       {
         q: "What should we do when a loitering alert fires?",
-        a: "Look at the snapshot, and if it warrants it, have someone walk over. Presence is the deterrent. We'd caution against automated sirens on dwell alerts specifically — the false-positive cost is a confronted customer.",
+        a: "Have the agreed reviewer check the available image or recording and the surrounding context. Follow the site's approved response procedure and record the outcome. Do not treat elapsed time alone as a reason to confront someone or activate an automatic response.",
       },
     ],
     solutions: [
