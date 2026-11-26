@@ -10,11 +10,11 @@ image: "/insights/covers/video-analytics-software-for-existing-cctv.webp"
 imageCaption: "Illustrative image of a security control room. It does not show a PGAK product screen, customer site or installation."
 faqs:
   - q: "Can video analytics software work with existing CCTV cameras?"
-    a: "Yes, it can, as long as the current cameras provide usable views for the job you want done. The main checks are image clarity, camera angle, lighting, stream access, and whether the scene actually captures the event you need to detect."
+    a: "Some existing systems may be suitable. Confirm the camera and recorder model, firmware, supported stream or client access, processing requirements and proposed analytics, as well as the actual view, lighting and scene. A usable picture alone does not prove compatibility; evaluate the agreed configuration before approval."
   - q: "Do I need an AI appliance for video analytics software?"
-    a: "No, not always. An AI appliance makes sense when you need local processing or quick alerts. It also helps when the site needs a dependable setup on a busy network. A smaller deployment may work without one if the scope and camera load are modest."
+    a: "An appliance is one processing option. Confirm where the selected analytics run, the supported hardware and stream load, and the dependencies for recording, processing and notification. A smaller camera count does not by itself prove that an appliance is unnecessary. Measure latency and continuity in the agreed configuration."
   - q: "Which analytics module should I start with on a new site?"
-    a: "Start with the module tied to the clearest operational problem. If vehicle entry is messy, begin with ANPR; if shift movement matters, start with face attendance; if safety checks are the priority, begin with PPE detection in one defined area."
+    a: "Choose one workflow with a clear owner and a result that can be independently reviewed. Plate records, attendance exceptions or visible PPE checks may be candidates, subject to capability and camera suitability. Keep identity, payroll approval and overall safety compliance separate from a detection or possible match."
   - q: "What should I check before approving a pilot deployment?"
     a: "Check camera suitability, scope, ownership, and the response workflow before approving a pilot. You should know which cameras are included, who will receive alerts or reports, how output will be reviewed, and what would count as a useful result for the site."
 ---
@@ -29,7 +29,7 @@ That matters because most sites already have CCTV in place. What they often lack
 
 Do not start with software brochures. Start with camera position, image quality, lighting, and whether the scene actually shows the event you want to detect. If a gate camera cannot read a plate clearly, no analytics layer will fix that.
 
-You also need stable recording, dependable network paths, and access to the video streams. A quick [camera readiness check](/free-audit) is often more useful than a feature demo, because it shows what your existing system can support without guesswork.
+Check recording continuity, network paths and authorised stream access. Record the camera and recorder model, firmware, supported interfaces and processing requirements for the proposed analytics. Where ONVIF is relevant, its [conformance database](https://www.onvif.org/conformant-products/) ties support to the specific product and firmware/software version; a compatible integration still needs verification. Use a [camera readiness check](/free-audit) to identify what can be evaluated and what remains uncertain.
 
 ### Define the one problem you want solved first
 
@@ -69,7 +69,7 @@ So judge the software by workflow, not only by detection. Ask where alerts will 
 
 If your main problem is vehicle movement, start with plate recognition. It suits factories, warehouses, housing societies, offices, and managed properties where the gate register is slow, incomplete, or hard to search later.
 
-A good fit here is [a searchable ANPR system](/anpr-number-plate-recognition) tied to the entry lane and the guard process. The aim is simple: log vehicles in a consistent format, make entries easy to find, and reduce manual writing at the gate.
+A good fit here is [a searchable ANPR system](/anpr-number-plate-recognition) tied to the entry lane and the guard process. The aim is a reviewable plate-event record, with failed and uncertain reads retained for review. Measure whether it improves the gate process; a plate event does not establish driver identity, cargo, delivery completion or authorisation to release a vehicle.
 
 Do not add face attendance or PPE modules to this use case unless they solve a separate problem you are ready to own. Gate control works best when it stays focused.
 
@@ -77,7 +77,7 @@ Do not add face attendance or PPE modules to this use case unless they solve a s
 
 Start with face attendance when entry discipline, shift timing, or movement between controlled areas is the real issue. This usually fits offices, plants, contractor-heavy sites, and multi-building campuses where time records depend on clean identity events.
 
-The key is not the face module by itself. The key is whether the camera view, enrolment process, and exception handling match how people actually arrive, queue, and move through the site.
+The camera view, approved enrolment and exception handling must match actual arrival and exit paths. A possible face match or entry event does not establish continuous presence, hours worked or payroll entitlement. Agree a human review and correction process before records inform a payroll decision.
 
 If the real pain is tailgating, visitor management, or access rights, say so early. Those needs may require a different setup around the same cameras.
 
@@ -85,7 +85,7 @@ If the real pain is tailgating, visitor management, or access rights, say so ear
 
 PPE detection makes sense when supervisors need help spotting basic non-compliance in known work zones. It is most useful where the rule is specific, the camera sees the area clearly, and a supervisor can review the exception quickly.
 
-Keep the first scope tight. One line, one process area, or one entry point is easier to judge than a broad promise across the full plant.
+Keep the first scope tight and name the PPE item, view and operating conditions. Review incorrect and missed cases against a permissioned reference sample. A camera exception is not a finding of full safety compliance and does not replace supervision or the site's protective procedures.
 
 This is where many buyers overbuy. They ask for every safety rule at once, then struggle to tune the system or decide who follows up. Start with the repeated issue that has a clear owner.
 
@@ -99,15 +99,15 @@ This table shows the trade-offs between common deployment styles.
 
 | Setup | Best fit | Main strength | Main watch-out |
 |---|---|---|---|
-| Cloud | Sites that want remote access and central oversight | Easier access across locations | Depends more on stable connectivity |
-| On-site processing | Sites that need local response from live feeds | Faster local handling and tighter control | Needs site hardware and local support |
-| Hybrid | Sites balancing central review with local action | Mixes remote visibility with on-site processing | Needs clear design and integration |
+| Cloud | Evaluate remote access and central review requirements | Confirm supported access, storage and processing | Test connectivity, latency, permissions and outage behaviour |
+| On-site processing | Evaluate processing at the site | Confirm hardware capacity and supported analytics | Test recording, processing and alert receipt separately; local hardware alone does not guarantee speed or continuity |
+| Hybrid | Evaluate which functions run locally and remotely | Document the split and interfaces | Test each dependency and assign support and recovery responsibility |
 
 ### Why an AI appliance can make sense on busy sites
 
-An AI appliance is often useful when several streams need local processing, alerts must reach people quickly, or the site does not want constant dependence on outside connectivity. It gives the deployment a clear home and simplifies support on active locations.
+An AI appliance may be proposed when selected analytics require local processing. Verify the supported workload, hardware, power, network and notification paths. Local processing does not by itself establish faster receipt, recording continuity or reliable operation during an outage.
 
-That does not mean every site needs one. A smaller or narrower use case may work well with a lighter setup, provided the design matches the cameras and the workflow.
+The design should state which components are required and why. Test the actual configuration rather than inferring processing needs or reliability from camera count alone.
 
 ### Why installation and configuration matter as much as software
 
@@ -141,23 +141,23 @@ Use the first audit to confirm three things. The cameras should support the chos
 
 A careful first step avoids a common mistake. Buyers often approve software before they check whether the scene, workflow, and response process are ready. That leads to weak results and extra rework.
 
-Success after the pilot should be easy to explain in plain terms. The team should find the right events faster, act with less friction, and trust the output in routine work. That does not require a wide rollout. It requires one working use case that staff will keep using without constant chasing.
+Review the pilot against agreed criteria: representative conditions, independently checked events, missed and incorrect outputs, actual receipt and acknowledgement, and the reviewer's decision. Any claimed improvement in time or operational outcome needs a suitable comparison. Record unresolved cases before deciding whether to expand.
 
-Before you expand, use [camera readiness assessment](/free-audit) to check whether the existing CCTV can support the next step. PGAK is most useful here, because it starts with the cameras you already have and adds only what the site can support and use.
+Before you expand, request a [camera readiness assessment](/free-audit) for the next scope. AI Alerto by PGAK is one option to evaluate on compatible existing CCTV. Confirm capability evidence, the accepted owner and backup, and a written scope before approving further work.
 
 ## Frequently asked questions
 
 ### Can video analytics software work with existing CCTV cameras?
 
-Yes, it can, as long as the current cameras provide usable views for the job you want done. The main checks are image clarity, camera angle, lighting, stream access, and whether the scene actually captures the event you need to detect.
+Some existing systems may be suitable. Confirm the camera and recorder model, firmware, supported stream or client access, processing requirements and proposed analytics, as well as the actual view, lighting and scene. A usable picture alone does not prove compatibility; evaluate the agreed configuration before approval.
 
 ### Do I need an AI appliance for video analytics software?
 
-No, not always. An AI appliance makes sense when you need local processing or quick alerts. It also helps when the site needs a dependable setup on a busy network. A smaller deployment may work without one if the scope and camera load are modest.
+An appliance is one processing option. Confirm where the selected analytics run, the supported hardware and stream load, and the dependencies for recording, processing and notification. A smaller camera count does not by itself prove that an appliance is unnecessary. Measure latency and continuity in the agreed configuration.
 
 ### Which analytics module should I start with on a new site?
 
-Start with the module tied to the clearest operational problem. If vehicle entry is messy, begin with ANPR; if shift movement matters, start with face attendance; if safety checks are the priority, begin with PPE detection in one defined area.
+Choose one workflow with a clear owner and a result that can be independently reviewed. Plate records, attendance exceptions or visible PPE checks may be candidates, subject to capability and camera suitability. Keep identity, payroll approval and overall safety compliance separate from a detection or possible match.
 
 ### What should I check before approving a pilot deployment?
 
