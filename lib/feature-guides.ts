@@ -72,7 +72,7 @@ advice:'Test real entrance behaviour: visitors carrying bags, staff holding door
 question:'Does tailgating detection stop someone entering?',answer:'Detection by itself only identifies an event. Physical prevention requires appropriately designed access hardware and a response process.'},
 'ppe-detection': {
 keyword:'AI PPE detection camera',
-intro:'A supervisor cannot watch every site entrance at once. AI PPE detection can flag supported conditions such as a missing hard hat or high-visibility vest, giving the team another way to review equipment use. It supports supervision rather than replacing it.',
+intro:'AI PPE detection can support review of selected visible equipment conditions. PGAK’s published demonstration concerns gloves on one overhead line camera; it does not demonstrate hard-hat or vest performance. Confirm the exact PPE classes, application and camera configuration, then evaluate representative site conditions with human supervision.',
 advice:'Ask exactly which equipment types the system detects. Test the helmets, vests, uniforms and working positions used on your site. A clear checkpoint view may be more useful than a distant camera covering an entire construction area.',
 question:'Does PPE detection prove that a site is compliant?',answer:'No. It checks supported visible conditions within a camera view. Equipment quality, correct use and wider safety obligations require separate assessment.',
 proofVideo: {

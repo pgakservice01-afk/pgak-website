@@ -28,7 +28,7 @@ export const CAPABILITY_REGISTER: CapabilityRecord[] = [
     scope:
       "One PPE class (gloves) on an existing overhead line camera; confidence shown per detection so a supervisor can judge the low ones.",
     requirement:
-      "To reach available: the PPE classes for a site agreed at assessment, and an acceptance test on that site's own cameras.",
+      "To reach available: confirm the supported PPE classes, application and camera configuration; compare representative site events with an independent reference, including missed, incorrect and unresolved observations. Agree human review and test alert receipt separately.",
     href: "/features/guides/ppe-detection",
     evidence: {
       projectId: "ppe-assembly-line",

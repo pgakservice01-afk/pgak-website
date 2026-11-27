@@ -7,9 +7,10 @@ excerpt: "Thinking of checking reflective jackets and safety vests with the came
 metaDescription: "Can existing CCTV check safety vests and reflective jackets? See what camera angle, distance and light a vest check needs, and how to test it on your site."
 readTime: 5
 image: "/insights/covers/ppe-vest-detection-existing-cctv.webp"
+imageCaption: "Illustrative factory entrance; not a PGAK installation or PPE detection test."
 faqs:
   - q: "Can existing CCTV cameras detect safety vests?"
-    a: "Sometimes. It depends on the camera angle, the distance to people, the lighting and the video quality. A vest check needs a clear view of the upper body. Test it on your own cameras at the agreed spot before you rely on it for any safety decision."
+    a: "Sometimes. First confirm that the proposed software and camera configuration support the vest types you need to check. Then test body visibility, angle, distance, lighting, movement and video quality on representative recordings. A suitable view alone does not establish support or accuracy. Keep human safety supervision and the agreed review process in place."
   - q: "Does vest detection replace a safety supervisor?"
     a: "No. A vest alert is a prompt for a person to look at the video and act. Supervisors still decide what a missing vest means, because a worker may be in a permitted area or may have just removed it. The software only points to where to look."
   - q: "What conditions make vest detection harder?"
@@ -20,11 +21,11 @@ faqs:
 
 A supervisor walks the yard and sees a worker without a reflective jacket near moving vehicles. He tells the worker. Ten minutes later it happens again at another gate. Nobody can stand at every gate all day.
 
-So the question comes up: can the cameras we already have check for safety vests? The honest answer is "it depends on the view". This guide explains what a vest check needs, where it struggles, and how to test it before you rely on it.
+So the question comes up: can the cameras we already have check for safety vests? The answer depends on the supported software, camera configuration and view together. This guide explains what to confirm, where a visual check can fail, and how to evaluate it alongside existing safety procedures.
 
 ## What a vest check actually does
 
-The software looks at each person in the video and decides whether a vest or reflective jacket is visible on the upper body. If the rule says a vest is required in that zone and none is seen, it can raise an alert for a person to review.
+A supported application can evaluate visible equipment on detected people within a configured area. People or vests may be missed, obscured or classified incorrectly. Confirm the supported vest classes, rule and event output before testing; a missing-vest indication is a prompt for review, and an unclear view is not proof that a vest is absent.
 
 Two things matter here.
 
@@ -35,10 +36,10 @@ PGAK's published PPE demonstration covers one class, gloves, on an existing over
 
 ## What the camera view must give you
 
-Most vest-check problems are camera problems, not software problems. Look at one frame from the camera and ask these questions.
+Image quality, equipment appearance, application support and configuration can all affect the result. A still frame helps screen the view, but representative recordings are needed to assess movement and missed or incorrect observations. Start with these questions.
 
 - **Can you see the upper body clearly?** If people appear as small figures far away, the vest may be only a few pixels wide.
-- **Is the angle reasonable?** A camera looking straight down from a high pole shows heads and shoulders, not chests. A camera at about head height or a little above, looking along the path people walk, usually shows more.
+- **Does the angle show the equipment being checked?** An overhead or steep view may hide relevant parts of the body. Review the selected application guidance and actual walking or working positions; a fixed mounting height alone does not establish suitability.
 - **What is behind the person?** A bright sky or open gate behind a walking person can turn them into a dark shape.
 - **How many people overlap?** At shift change, workers walk in a group and cover each other.
 
@@ -62,10 +63,10 @@ Keep the test small and written down.
 
 1. **Pick one place.** A gate, a loading bay or a walkway where the rule is clear and the camera is fixed.
 2. **Write the rule.** For example: "Anyone walking on this path between 6 am and 8 pm must wear a vest."
-3. **Collect real video.** At least one full shift in normal light, and some footage in the worst light you expect.
-4. **Note what a person sees.** Have a supervisor review a sample of the video and mark who wore a vest and who did not.
-5. **Compare with the alerts.** Count the alerts that were right, the alerts that were wrong, and the people without vests that raised no alert.
-6. **Decide what you will accept.** Agree in advance what level of wrong alerts and missed cases is workable for your team.
+3. **Agree a representative sample.** Use authorized footage covering the working positions, vest styles, lighting and obstructions relevant to the proposed rule. Agree sample size and conditions with the reviewer; one shift is not a universal acceptance standard. Keep required protection in place and do not stage unsafe activity.
+4. **Create an independent reference.** Have an authorized reviewer mark the eligible passages or events, visible vest status and cases that cannot be judged. Record unavailable video separately. Do not infer a missing vest from an obscured upper body.
+5. **Compare events and alerts.** Match outputs to the independent reference, keeping correct observations, wrong alerts, missed eligible events and unresolved cases separate. Check event delivery and acknowledgement as well as the detection result.
+6. **Set acceptance and review rules before testing.** Agree how results will be judged, who reviews unresolved events, what happens when the system or camera is unavailable and who accepts the configuration. Analytics does not replace protective equipment, supervision or other safety controls.
 
 The [evaluation method](/resources/evaluation-method) page describes how PGAK approaches testing in general. For safety rules, never treat a clean test day as proof that every future day will be the same.
 
@@ -82,15 +83,15 @@ Workers should also know the cameras are used for this purpose. If you record pe
 
 ## Should you do it with the cameras you have?
 
-Often a feasibility check can tell you quickly. The deciding facts are the camera model, mounting position, distance, light and how the video reaches the analytics software. If one gate camera gives a clear view of people walking towards it, a pilot may be reasonable. If your cameras look down from high poles across a wide yard, a vest check is unlikely to work well there, and a better camera position may be needed first.
+An assessment should first confirm the proposed application, supported PPE classes, camera model and firmware, stream access and processing arrangement. Then review the actual view and representative conditions. A clear gate image is a useful starting point, not confirmation that vest detection is supported or reliable; record any required equipment or layout changes in the scope.
 
-Start with one gate, one rule and one shift of video. Learn from that before you extend it.
+Start with one defined area and rule, a representative agreed sample, and an accepted reviewer. Record the result and unresolved limits before considering a wider scope.
 
 ## Frequently asked questions
 
 ### Can existing CCTV cameras detect safety vests?
 
-Sometimes. It depends on the camera angle, the distance to people, the lighting and the video quality. A vest check needs a clear view of the upper body. Test it on your own cameras at the agreed spot before you rely on it for any safety decision.
+Sometimes. First confirm that the proposed software and camera configuration support the vest types you need to check. Then test body visibility, angle, distance, lighting, movement and video quality on representative recordings. A suitable view alone does not establish support or accuracy. Keep human safety supervision and the agreed review process in place.
 
 ### Does vest detection replace a safety supervisor?
 
