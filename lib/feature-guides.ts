@@ -7,12 +7,12 @@
 export const FEATURE_GUIDES: Record<string, { keyword: string; intro: string; advice: string; question: string; answer: string; proofVideo?: { src: string; poster: string; durationSeconds: number; title: string; caption: string; conditions: string }; solution?: { href: string; label: string } }> = {
 'natural-language-search': {
 keyword:'Natural language video search',
-intro:'You know what you are looking for, but not when it happened. Natural language video search lets you describe a person, vehicle or object and review matching recordings. A warehouse manager might search for a white van near the gate instead of opening every camera and guessing the time.',
+intro:'Where a supported platform has the required recordings and search index, natural-language video search can return candidate matches for a description. Confirm the product, supported terms and historical import or metadata requirements. A white-van query is an assessment example, not a promise that every existing archive is searchable.',
 advice:'Start with simple descriptions from your own footage. Try clothing colour, vehicle type and location separately before combining them. Keep the original clips available so an operator can check each result; a convincing match can still be the wrong person or vehicle.',
 question:'Can I search all my old CCTV recordings?', answer:'Only if the proposed platform can ingest and index those recordings. Ask which cameras, recording formats, retention periods and historical imports are supported before assuming your archive is searchable.'},
 'cross-camera-search': {
 keyword:'Cross camera person and vehicle search',
-intro:'An incident rarely stays in one camera view. Cross-camera search helps you find appearances of a selected person or vehicle across a connected site. It can give your team a starting point for reviewing the entrance, corridor and loading bay without manually searching each recording from scratch.',
+intro:'A supported cross-camera search can return candidate appearances from the cameras and time ranges its index covers. Confirm the proposed matching method, recording availability and clock alignment. Suggested matches are review aids; they do not establish identity, an uninterrupted journey or support for every connected camera.',
 advice:'Test with similar-looking uniforms and vehicles, not just an easy demonstration. Gaps in coverage, changing light and obstructed views can break the trail. Treat the suggested matches as leads for review rather than a confirmed identity or a complete journey.',
 question:'Is cross-camera search the same as face recognition?',answer:'No. A system may match appearance, clothing or vehicle characteristics without recognising a face. Confirm what the chosen product actually compares and what evidence an operator can inspect.'},
 'event-summaries': {

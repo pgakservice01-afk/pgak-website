@@ -52,7 +52,7 @@ export default function HomeProof() {
           poster="/proof/dock-count-poster.webp"
           durationSeconds={16}
           title="Sacks counted in and out at a loading bay"
-          caption="An evening unload. Each sack crossing the line is detected, given a tracking number so the same one is not counted twice, and added to the running total — the count climbs from four to seven while you watch. It counts a known item type across a line; it is not an inventory system and does not reconcile a ledger."
+          caption="An edited extract of an evening unload shows a counting line, detection labels and a running counter. Sampled overlays read three, six and seven. The 16-second file spans 53 seconds of burned-in timestamps; these observations do not establish detection accuracy, unique-item counts or real-time throughput. It is not an inventory system and does not reconcile a ledger."
           conditions="Recorded 19 December 2022 on an existing dock camera with one counting line. The transport company's name and telephone numbers are blurred throughout — they belong to a third party."
         />
       </div>

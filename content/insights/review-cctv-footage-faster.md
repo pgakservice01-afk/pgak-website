@@ -3,101 +3,97 @@ title: "How to review hours of CCTV footage faster"
 metaTitle: "How to Review CCTV Footage Faster: Practical Guide"
 date: "2026-11-27"
 category: "Monitoring"
-excerpt: "Checking a full day of CCTV by eye can take hours. These steps cut the time, and show where footage-analysis software helps and where it does not."
-metaDescription: "Need to check hours of CCTV footage? Learn practical ways to review it faster, from narrowing the time window to motion search and analytics software."
-readTime: 5
+excerpt: "Organise a CCTV review with a bounded time window, supported search tools and a record of gaps. Check what your existing recorder can actually search."
+metaDescription: "Plan a CCTV footage review: record time boundaries, check playback and search support, preserve original clips, and keep unreviewed gaps visible."
+readTime: 6
 image: "/insights/covers/review-cctv-footage-faster.webp"
+imageCaption: "Illustrative warehouse cover, not a PGAK installation, recorded incident or search-performance test."
 faqs:
   - q: "How do I find an incident in hours of CCTV footage?"
-    a: "Narrow the time window first, using the report time, door logs or a witness. Then view the nearest camera at higher speed, and use motion or event search if your recorder has it. Check neighbouring cameras to follow the person or vehicle."
+    a: "Use the report and available records to define an initial time window and relevant cameras. Record clock offsets and recording gaps. Use supported playback or search tools to find candidate clips, then review them with context. Keep skipped and unavailable intervals marked; no result does not establish that nothing happened."
   - q: "Does footage analysis software replace watching the video?"
-    a: "No. Analysis software helps you find the moments worth watching, such as a person entering a zone or a vehicle at a gate. A person still has to look at those clips and decide what they mean, since software can miss events or flag harmless ones."
+    a: "No. Search can provide candidate clips from the material its product and configuration support. A reviewer must check the surrounding video, missed events, wrong results and gaps. A suggested match does not establish a person's identity or a complete journey."
   - q: "Can I use analysis software with my existing CCTV?"
-    a: "Often yes, if the cameras or recorder can share a video stream. It depends on the make, the recorder and the camera positions. A check on a sample of your own footage will show whether the search results are good enough before you commit."
+    a: "It needs a configuration-specific assessment. A live stream does not establish that an old archive can be imported or searched. Confirm the model, firmware, permissions, format and metadata requirements, then compare a permissioned representative sample with an independently reviewed reference, including misses, wrong results and unavailable intervals."
 ---
 
-## Four hours of video and one question
+## Start with a question and a review boundary
 
-A stock mismatch is found on Monday. Someone says a door was open on Saturday night. You open the recorder and see a full night of footage from eight cameras. Watched at normal speed, that is a very long evening.
+Suppose a stock mismatch is found on Monday and a door may have been open on Saturday. Several cameras cover the area. This is an example of a review problem, not a PGAK customer incident.
 
-Most reviews do not need that. With a plan, you can often find the moment in minutes. This guide covers the steps, and where software helps.
+A bounded review can reduce unnecessary viewing, but there is no fixed time to find an incident. Start by writing the question: which doorway, movement or interval needs checking? Record the cameras and periods you checked, those unavailable and those still awaiting review. A search result is a starting point for inspection.
 
-## Step 1: Narrow the time before you press play
+## 1. Set the initial time window from available evidence
 
-The biggest saving is a smaller window. Gather every clue you have first:
+Gather the report time, last confirmed observation, relevant door or dispatch records, and the time the discrepancy was discovered. Keep uncertain witness estimates separate from recorded times. Use those boundaries to choose an initial interval; an arbitrary thirty-minute window may exclude the relevant event.
 
-- the time of the alarm, call or report,
-- door, gate or lock logs, if any,
-- shift change or visitor timings,
-- when an item was last seen and when it was found missing.
+Record why you chose the interval and when you expanded it. Finding no candidate inside it does not resolve the periods outside it. If a business decision requires coverage of the full shift, a narrow search alone does not provide that coverage.
 
-Start with a window of thirty minutes around the likeliest time. Widen it only if you find nothing.
+Before comparing systems, record the camera or recorder time, reference time, timezone and any observed offset. Preserve the original timestamps in the review notes. A current clock comparison does not establish that the offset was the same during an older incident. Our [CCTV timestamp and dispatch-record guide](/insights/cctv-timestamps-match-dispatch-records) explains the comparison questions.
 
-## Step 2: Choose the right camera first
+## 2. Check what can actually be played
 
-Do not open all cameras. Pick the one that sees the place or door. Then pick the camera before it and the one after it, so you can follow a person's path. Write down the camera name and the clock time of each sighting as you go.
+Identify the camera covering the relevant area, then other views that might add context. Check whether the requested interval is available and playable for each camera. A camera appearing in a live-view grid does not demonstrate that its older recordings exist.
 
-## Step 3: Use speed and skip tools
+Keep a short review record:
 
-Most recorders let you play faster. A few tips:
+| Record | What to write |
+| --- | --- |
+| Camera and interval | Camera name, start, end and original timezone |
+| Availability | Played successfully, unavailable or not checked |
+| Review method | Normal playback, faster scan or named search tool and filters |
+| Candidate | Original timestamp and what is visibly present |
+| Gaps | Skipped periods, blocked views or missing recording |
+| Next action | Additional interval, another camera or technical review needed |
 
-1. Play at higher speed while the scene is empty.
-2. Slow down when something enters the frame.
-3. Jump in steps of a minute or two with the time bar, instead of dragging.
-4. Check that the recorder clock is right. Compare it with a phone. A clock that is off by ten minutes will send you to the wrong place.
+This is a suggested working record, not a claim that a recorder automatically generates it. Separate observed details from assumptions about identity, intent or what happened outside the frame.
 
-## Step 4: Try motion search
+## 3. Use faster playback as an initial scan
 
-Many recorders have a motion search. You draw a box on the picture, and the recorder lists the times when something moved in that box. It saves a lot of time on a quiet door at night.
+Where the recorder supports faster playback, it can help choose intervals for closer review. Return to normal speed, or frame-by-frame viewing where available, around a candidate event. Include the preceding and following context.
 
-It has limits. Trees, shadows, insects near the lens and changing light can create false hits. In a busy area, it will list too much. Use it as a first filter, not as the answer.
+Mark skipped intervals as unreviewed. Jumping along the timeline or scanning at speed does not establish that nothing occurred between the frames you watched. Avoid closing the review simply because the initial scan found nothing. Note any additional viewing needed to answer the original question.
 
-## Step 5: Protect the original, then export a copy
+## 4. Check the search method before relying on its results
 
-Once you find the moment, do not leave it only on the recorder, where it may be overwritten. Copy the clip with the date, time and camera name. Keep the original unedited. [Downloading CCTV footage to USB without losing the original](/insights/download-cctv-footage-to-usb-keep-original) explains how. Overwriting also depends on how long your system keeps footage, covered in [how many days of CCTV storage you need](/insights/cctv-footage-storage-how-many-days).
+Ask what the exact recorder or software version can search: existing video, previously captured event data, imported clips, or a prepared search index. Check its manual and the settings that applied during the requested interval. Turning a feature on today does not establish that it can search last month's archive.
 
-## Where footage-analysis software helps
+For a product-specific example, Axis documents that Smart search 2 requires analytics metadata and synchronized server and camera clocks. Metadata capture starts when the function is enabled; its manual also notes that detections can exist without corresponding recorded video. These are Axis requirements, not evidence of PGAK functionality. [Axis Camera Station Pro manual](https://help.axis.com/en-us/axis-camera-station-pro).
 
-Analysis software goes further than motion search. Depending on the product, it may let you:
+Check both the returned candidate and its playable video. Keep search coverage and recording coverage as separate entries in the review record. If a result is absent, consider whether the interval was searched, the required data existed and the chosen filter could have excluded it.
 
-- search for people or vehicles, not just any movement,
-- list events in a zone or across a line,
-- show several cameras together on a timeline,
-- search by description in plain words.
+## 5. Assess advanced search against a known reference
 
-This helps most when you have many cameras and many requests, such as a warehouse with several docks or a business with several sites. See [natural-language search](/features/guides/natural-language-search) and [cross-camera search](/features/guides/cross-camera-search) for how those features work.
+Some products provide descriptive or cross-camera search. Confirm the proposed product, supported terms, covered cameras, recording intervals and import or metadata requirements before comparing offers. A live stream, a playable archive and a searchable index are three different checks.
 
-## What software does not do
+Axis's free-text search documentation describes matching against generated image data and explains limits of cropped images and action descriptions. A candidate thumbnail needs examination in its surrounding video; it is not a complete incident account. This is an example of vendor-specific documentation, not a PGAK performance test. [Axis free-text search white paper](https://whitepapers.axis.com/en-us/freetext-search-in-acs-pro).
 
-Software will not fix poor footage. If a camera was pointed wrongly, was dirty, or was recording at too low a quality, no search will show what was never captured. Software can also miss events or flag the wrong ones. A person still has to look at the clip and decide.
+For an evaluation, agree a permissioned representative sample and an independently reviewed reference. Compare found events, missed events, wrong results and unavailable intervals. Record the tested configuration and conditions. One successful clip does not establish performance across other cameras, lighting conditions or archives.
 
-Be cautious about speed claims in vendor material. Ask to test on a sample of your own footage and judge how many real events it found and how many wrong ones it listed.
+AI Alerto by PGAK has not established replacement recording, playback or retention as an available full video management system. Check the [capability register](/platform/capabilities). The [natural-language search](/features/guides/natural-language-search) and [cross-camera search](/features/guides/cross-camera-search) guides describe assessment questions; they do not guarantee availability for every existing system or establish identity from a suggested match.
 
-## Can you add it to cameras you already have?
+## 6. Preserve the original and confirm any handoff
 
-Often, yes, if your recorder or cameras can share a video stream. It depends on the recorder and the make. [Video analytics for existing CCTV](/insights/video-analytics-software-for-existing-cctv) explains what to check. If your recorder is an older type, see [DVR vs NVR: which do you have](/insights/dvr-vs-nvr-which-do-you-have) first.
+For an authorized export, retain an unedited original copy with its camera and time context. Keep a separate working copy for annotations. Confirm that the exported material plays in the intended viewing tool before treating the handoff as complete. Our [CCTV export guide](/insights/download-cctv-footage-to-usb-keep-original) covers practical checks. Review the actual retention configuration rather than assuming a fixed number of days; see [CCTV storage and retention](/insights/cctv-footage-storage-how-many-days).
 
-## A simple checklist to keep
+Before sharing footage for technical assessment, confirm permission, the receiving reviewer, permitted transfer route and handling arrangements. Agree receipt and playback acknowledgement. This guide does not establish a PGAK upload service or an automatic acceptance workflow.
 
-1. Note the time window and the clues.
-2. Pick the main camera and its neighbours.
-3. Check the recorder clock.
-4. Play faster, slow down when needed.
-5. Try motion search as a filter.
-6. Export a copy and keep the original.
+## What to include in an assessment request
+
+State the question you need the footage to answer, the camera or recorder model and firmware if known, the relevant interval and whether it plays locally. Identify the proposed search method and any known gaps. A usable live stream alone is insufficient to establish archive import or search compatibility.
+
+[Video analytics for existing CCTV](/insights/video-analytics-software-for-existing-cctv) explains initial suitability checks; [DVR versus NVR](/insights/dvr-vs-nvr-which-do-you-have) helps identify the recorder. [Request a CCTV assessment](/free-audit) to discuss the requirement and appropriate next checks. Installers and dealers can use the separate [partner enquiry](/partners) route.
 
 ## Frequently asked questions
 
 ### How do I find an incident in hours of CCTV footage?
 
-Narrow the time window first, using the report time, door logs or a witness. Then view the nearest camera at higher speed, and use motion or event search if your recorder has it. Check neighbouring cameras to follow the person or vehicle.
+Use the report and available records to define an initial time window and relevant cameras. Record clock offsets and recording gaps. Use supported playback or search tools to find candidate clips, then review them with context. Keep skipped and unavailable intervals marked; no result does not establish that nothing happened.
 
 ### Does footage analysis software replace watching the video?
 
-No. Analysis software helps you find the moments worth watching, such as a person entering a zone or a vehicle at a gate. A person still has to look at those clips and decide what they mean, since software can miss events or flag harmless ones.
+No. Search can provide candidate clips from the material its product and configuration support. A reviewer must check the surrounding video, missed events, wrong results and gaps. A suggested match does not establish a person's identity or a complete journey.
 
 ### Can I use analysis software with my existing CCTV?
 
-Often yes, if the cameras or recorder can share a video stream. It depends on the make, the recorder and the camera positions. A check on a sample of your own footage will show whether the search results are good enough before you commit.
-
-[Ask for a free feasibility check](#dealer).
+It needs a configuration-specific assessment. A live stream does not establish that an old archive can be imported or searched. Confirm the model, firmware, permissions, format and metadata requirements, then compare a permissioned representative sample with an independently reviewed reference, including misses, wrong results and unavailable intervals.

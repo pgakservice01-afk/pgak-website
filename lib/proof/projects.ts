@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     place: "",
     scope: "One counting line configured on an existing dock camera",
     description:
-      "An evening unload. Each sack crossing the line is detected, given a tracking number so the same one is not counted twice, and added to a running total — the count climbs from four to seven while you watch.",
+      "An edited extract of an evening unload shows a counting line, detection labels and a running counter. Sampled overlays read three, six and seven. The 16-second file spans 53 seconds of burned-in timestamps; these observations do not establish detection accuracy, unique-item counts or real-time throughput.",
     conditions:
       "Recorded 19 December 2022 on an existing dock camera with a single counting line. The transport company's name and telephone numbers are blurred throughout; they belong to a third party.",
     limits:

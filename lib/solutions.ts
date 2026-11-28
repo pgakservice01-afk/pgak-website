@@ -275,7 +275,7 @@ export const SOLUTIONS: Solution[] = [
           height: 787,
           title: "The count climbing during an unload",
           caption:
-            "Sixteen seconds of an evening unload. Each sack carried across the line is detected, given a tracking number so the same one is not counted twice, and added to the running total — the count goes from four to seven while you watch. The figure is there at the end of the unload instead of being reconstructed from memory, so it can be checked against the challan while the lorry is still at the bay.",
+            "This 16-second edited extract shows one loading-bay counting line, detection labels and a running counter. Sampled overlays read three, six and seven, while the burned-in timestamps span 19:43:21 to 19:44:14 on 19 December 2022. This is not a real-time throughput measurement or an independently verified complete-unload count. At a proposed site, compare the recording and counter against an authorised manual event log and dispatch document; record missed, duplicate and unresolved passages before relying on the result.",
           conditions:
             "Recorded 19 December 2022, 19:43, on an existing dock camera with one counting line. Confidence for each detection is shown on its box — the ones here sit around 0.84 to 0.90. Counting depends on the line being crossed cleanly: two people through the gap shoulder to shoulder, or a load carried back out and in again, are the cases to test on your own bay before relying on the figure.",
           redaction:
@@ -3669,7 +3669,7 @@ export const SOLUTIONS: Solution[] = [
           height: 787,
           title: "The count climbing during an unload",
           caption:
-            "Each sack carried across the line is detected, given a tracking number so the same one is not counted twice, and added to the running total — the count goes from four to seven while you watch. The figure is there at the end of the unload instead of being reconstructed from memory, so it can be checked against the paperwork while the lorry is still at the bay.",
+            "This 16-second edited extract shows one loading-bay counting line, detection labels and a running counter. Sampled overlays read three, six and seven, while the burned-in timestamps span 19:43:21 to 19:44:14 on 19 December 2022. This is not a real-time throughput measurement or an independently verified complete-unload count. At a proposed site, compare the recording and counter against an authorised manual event log and dispatch document; record missed, duplicate and unresolved passages before relying on the result.",
           conditions:
             "Recorded 19 December 2022, 19:43, on an existing dock camera with one counting line. Confidence for each detection is shown on its box — the ones here sit around 0.84 to 0.90. Counting depends on the line being crossed cleanly: two people through the gap shoulder to shoulder, or a load carried back out and in again, are the cases to test on your own bay before relying on the figure.",
           redaction:
